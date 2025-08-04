@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -10,7 +10,7 @@ import UserProfileCard from './UserLabel';
 import type { ReactNode } from 'react';
 
 interface DropdownProps {
-  anchorElContent: ReactNode;
+  anchorElContent: React.ReactNode;
   dropdownOptions: DropdownOptionProps[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
@@ -22,7 +22,7 @@ interface DropdownProps {
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
 }
 export interface DropdownOptionProps {
-  label: ReactNode; // Display text shown in the menu
+  label: ReactNode | string; // Display text shown in the menu
   value: string; // Unique value returned when selected
   icon?: React.ElementType | null; // Optional: Icon displayed before the label
   divider?: boolean; //(Optional) Whether to show a divider after this item
@@ -39,23 +39,10 @@ const DropDown: React.FC<DropdownProps> = ({
   anchorOrigin = { horizontal: 'right', vertical: 'bottom' },
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const [hasRenderedOnce, setHasRenderedOnce] = useState(false);
-
   const open = Boolean(anchorEl);
-
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  // Force re-render menu only on first open to fix positioning issue
-  useEffect(() => {
-    if (open && !hasRenderedOnce) {
-      const timer = setTimeout(() => {
-        setHasRenderedOnce(true);
-      }, 0);
-      return () => clearTimeout(timer);
-    }
-  }, [open, hasRenderedOnce]);
 
   const getMenuMarginTopSx = () => {
     let marginTop = '0.5rem';
@@ -89,7 +76,6 @@ const DropDown: React.FC<DropdownProps> = ({
       </IconButton>
       {/* Menu Paper*/}
       <Menu
-        key={Number(hasRenderedOnce)}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
