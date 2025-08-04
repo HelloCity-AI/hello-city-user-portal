@@ -1,130 +1,69 @@
 msgid ""
 msgstr ""
+"POT-Creation-Date: 2025-07-20 22:44+1000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language: \n"
 "Language-Team: \n"
-"Content-Type: \n"
-"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:126
-msgid "profile.avatar.add"
-msgstr "Add Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:97
-msgid "NaveBar.Chat"
-msgstr "Chat"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:106
-msgid "NaveBar.Check Items"
-msgstr "Check Items"
-
-#: src/app/auth/PageOne.tsx:22
-#~ msgid "Email"
-#~ msgstr "Email"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:102
-msgid "NaveBar.FAQ"
-msgstr "FAQ"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
-msgid "account.title"
-msgstr "HelloCity Account"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:92
-msgid "NaveBar.Home"
+#: src/components/NavBar.tsx:31
+msgid "Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/auth/page.tsx:70
-msgid "I'm all set"
-msgstr "I'm all set"
+#: src/components/NavBar.tsx:34
+msgid "Chat"
+msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
-msgid "file.upload.error"
-msgstr "Invalid File size or type. Please upload an image file under 5MB"
+#: src/components/NavBar.tsx:37
+msgid "FAQ"
+msgstr "FAQ"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:39
-msgid "Logout"
-msgstr "Logout"
+#: src/components/NavBar.tsx:40
+msgid "Check Items"
+msgstr "Check Items"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/auth/page.tsx:81
-msgid "Next"
-msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/auth/page.tsx:65
-msgid "Prev"
-msgstr "Prev"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:11
-msgid "Profile"
-msgstr "Profile"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:98
-msgid "profile.avatar.title"
-msgstr "Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:132
-msgid "profile.avatar.remove"
-msgstr "Remove Photos"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:18
-msgid "Settings"
-msgstr "Settings"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:131
-msgid "NaveBar.Sign In"
+#: src/components/NavBar.tsx:63
+msgid "Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:134
-msgid "NaveBar.Sign Up"
-msgstr "Sign Up"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:32
-msgid "Subscription"
-msgstr "Subscription"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:42
-msgid "file.upload.success"
-msgstr "The image is uploaded"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:35
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:25
-msgid "Theme"
-msgstr "Theme"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:140
-msgid "NaveBar.Try HelloCity"
+#: src/components/NavBar.tsx:67
+msgid "Try HelloCity"
 msgstr "Try HelloCity"
 
-#: src/app/auth/PageOne.tsx:14
-#~ msgid "UserName"
-#~ msgstr "UserName"
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+#~ msgid "Settings"
+#~ msgstr "Settings"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+#~ msgid "Theme"
+#~ msgstr "Theme"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:14
+#~ msgid "Subscription"
+#~ msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+#~ msgid "Profile"
+#~ msgstr "Profile"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:15
+#~ msgid "Logout"
+#~ msgstr "Logout"
