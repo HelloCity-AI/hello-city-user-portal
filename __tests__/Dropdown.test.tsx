@@ -111,7 +111,7 @@ describe('DropDown component', () => {
     });
   });
 
-  describe('UX interactions', () => {
+  describe('UX Interactions', () => {
     beforeEach(async () => {
       await renderDropdownAndOpenMenu({ dropdownOptions: testOptionsWithoutIcon });
     });
