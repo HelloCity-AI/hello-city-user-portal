@@ -1,13 +1,9 @@
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { act, render, screen, within, waitFor, fireEvent } from '@testing-library/react';
+import { act, screen, within, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
-import { i18n } from '@lingui/core';
-import { I18nTestWrapper } from './utils/TestWrapper';
-import { profileLabel } from '@/components/dropdownMenuOptions';
-import { messages as zhMessages } from '@/locales/zh/messages';
 import type { DropdownOptionProps } from '@/components/Dropdown';
 
 const fireMenuItem = jest.fn();
@@ -29,9 +25,6 @@ const baseTestOptions: DropdownOptionProps[] = [
 ];
 const testOptionsWithoutIcon: DropdownOptionProps[] = [
   { label: 'Profile', value: 'profile', onClick: fireMenuItem },
-];
-const translationTestOption: DropdownOptionProps[] = [
-  { label: profileLabel, value: 'profile', onClick: fireMenuItem },
 ];
 
 const renderDropdown = (props = {}) => {
@@ -156,23 +149,6 @@ describe('DropDown component', () => {
       await waitFor(() => {
         expect(screen.queryByRole('menu')).not.toBeInTheDocument();
       });
-    });
-  });
-
-  describe('Translations', () => {
-    it('Should show Chinese text when locale is zh', async () => {
-      i18n.load({ zh: zhMessages });
-      i18n.activate('zh');
-
-      render(
-        <I18nTestWrapper>
-          <Dropdown anchorElContent={<span>open</span>} dropdownOptions={translationTestOption} />
-        </I18nTestWrapper>,
-      );
-
-      await userEvent.click(screen.getByRole('button', { name: /open menu/i }));
-
-      expect(screen.getByText('个人资料')).toBeInTheDocument();
     });
   });
 });

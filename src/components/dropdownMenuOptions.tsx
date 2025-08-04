@@ -6,7 +6,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Trans } from '@lingui/react';
 import type { DropdownOptionProps } from './Dropdown';
 
-export const profileLabel = <Trans id={`Profile`}>Profile</Trans>;
+const profileLabel = <Trans id={`Profile`}>Profile</Trans>;
 const settingsLabel = <Trans id={`Settings`}>Settings</Trans>;
 const themeLabel = <Trans id={`Theme`}>Theme</Trans>;
 const subscriptionLabel = <Trans id={`Subscription`}>Subscription</Trans>;

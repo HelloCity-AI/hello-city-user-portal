@@ -10,7 +10,7 @@ import UserProfileCard from './UserLabel';
 import type { ReactNode } from 'react';
 
 interface DropdownProps {
-  anchorElContent: React.ReactNode;
+  anchorElContent: ReactNode;
   dropdownOptions: DropdownOptionProps[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
@@ -22,7 +22,7 @@ interface DropdownProps {
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
 }
 export interface DropdownOptionProps {
-  label: ReactNode | string; // Display text shown in the menu
+  label: ReactNode; // Display text shown in the menu
   value: string; // Unique value returned when selected
   icon?: React.ElementType | null; // Optional: Icon displayed before the label
   divider?: boolean; //(Optional) Whether to show a divider after this item
