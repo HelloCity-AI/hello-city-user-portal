@@ -1,9 +1,13 @@
 import React from 'react';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { act, screen, within, waitFor, fireEvent } from '@testing-library/react';
+import { act, render, screen, within, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
+import { i18n } from '@lingui/core';
+import { I18nTestWrapper } from './utils/TestWrapper';
+import { profileLabel } from '@/components/dropdownMenuOptions';
+import { messages as zhMessages } from '@/locales/zh/messages';
 import type { DropdownOptionProps } from '@/components/Dropdown';
 
 const fireMenuItem = jest.fn();
@@ -25,6 +29,9 @@ const baseTestOptions: DropdownOptionProps[] = [
 ];
 const testOptionsWithoutIcon: DropdownOptionProps[] = [
   { label: 'Profile', value: 'profile', onClick: fireMenuItem },
+];
+const translationTestOption: DropdownOptionProps[] = [
+  { label: profileLabel, value: 'profile', onClick: fireMenuItem },
 ];
 
 const renderDropdown = (props = {}) => {
@@ -82,15 +89,12 @@ describe('DropDown component', () => {
     });
 
     it('User label is rendered if showUserLabel = true', async () => {
-      await renderDropdownAndOpenMenu({ showUserLabel: true });
-      await act(async () => {
-        await new Promise((resolve) => setTimeout(resolve, 10));
-      });
+      renderDropdownAndOpenMenu({ showUserLabel: true });
       expect(await screen.findByText(/Leon/i)).toBeInTheDocument();
     });
 
     it('Applied centered text align when textAlignCenter = true', async () => {
-      await renderDropdownAndOpenMenu({ textAlignCenter: true });
+      renderDropdownAndOpenMenu({ textAlignCenter: true });
       const typography = await screen.findByText('Profile');
       expect(typography).toHaveStyle({ textAlign: 'center', flexGrow: 1 });
     });
@@ -114,7 +118,7 @@ describe('DropDown component', () => {
     });
   });
 
-  describe('UX Interactions', () => {
+  describe('UX interactions', () => {
     beforeEach(async () => {
       await renderDropdownAndOpenMenu({ dropdownOptions: testOptionsWithoutIcon });
     });
@@ -152,6 +156,23 @@ describe('DropDown component', () => {
       await waitFor(() => {
         expect(screen.queryByRole('menu')).not.toBeInTheDocument();
       });
+    });
+  });
+
+  describe('Translations', () => {
+    it('Should show Chinese text when locale is zh', async () => {
+      i18n.load({ zh: zhMessages });
+      i18n.activate('zh');
+
+      render(
+        <I18nTestWrapper>
+          <Dropdown anchorElContent={<span>open</span>} dropdownOptions={translationTestOption} />
+        </I18nTestWrapper>,
+      );
+
+      await userEvent.click(screen.getByRole('button', { name: /open menu/i }));
+
+      expect(screen.getByText('个人资料')).toBeInTheDocument();
     });
   });
 });
