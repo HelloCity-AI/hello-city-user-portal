@@ -14,6 +14,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:9
+msgid "Profile"
+msgstr "个人资料"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:10
+msgid "Settings"
+msgstr "设置"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Theme"
+msgstr "主题"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+msgid "Subscription"
+msgstr "订阅管理"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+msgid "Logout"
+msgstr "登出"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:32
 msgid "Home"
 msgstr "首页"
@@ -42,28 +67,3 @@ msgstr "登录"
 #: src/components/NavBar.tsx:70
 msgid "Try HelloCity"
 msgstr "试用 HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:12
-#~ msgid "Settings"
-#~ msgstr "设置"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:13
-#~ msgid "Theme"
-#~ msgstr "主题"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:14
-#~ msgid "Subscription"
-#~ msgstr "订阅管理"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:11
-#~ msgid "Profile"
-#~ msgstr "个人资料"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:15
-#~ msgid "Logout"
-#~ msgstr "登出"

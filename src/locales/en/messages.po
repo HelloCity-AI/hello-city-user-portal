@@ -14,6 +14,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:9
+msgid "Profile"
+msgstr "Profile"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:10
+msgid "Settings"
+msgstr "Settings"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Theme"
+msgstr "Theme"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+msgid "Subscription"
+msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+msgid "Logout"
+msgstr "Logout"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:32
 msgid "Home"
 msgstr "Home"
@@ -42,28 +67,3 @@ msgstr "Sign In"
 #: src/components/NavBar.tsx:70
 msgid "Try HelloCity"
 msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:12
-#~ msgid "Settings"
-#~ msgstr "Settings"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:13
-#~ msgid "Theme"
-#~ msgstr "Theme"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:14
-#~ msgid "Subscription"
-#~ msgstr "Subscription"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:11
-#~ msgid "Profile"
-#~ msgstr "Profile"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:15
-#~ msgid "Logout"
-#~ msgstr "Logout"
