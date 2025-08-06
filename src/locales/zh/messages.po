@@ -14,6 +14,21 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/app/auth/page.tsx:65
+msgid "Prev"
+msgstr "上一步"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:70
+msgid "I'm all set"
+msgstr "我准备好了"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:81
+msgid "Next"
+msgstr "下一步"
+
+#. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:9
 msgid "Profile"
 msgstr "个人资料"
@@ -39,7 +54,7 @@ msgid "Logout"
 msgstr "登出"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:32
+#: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "首页"
 
@@ -67,3 +82,9 @@ msgstr "登录"
 #: src/components/NavBar.tsx:70
 msgid "Try HelloCity"
 msgstr "试用 HelloCity"
+
+#~ msgid "Email"
+#~ msgstr "电子邮件"
+
+#~ msgid "UserName"
+#~ msgstr "用户名"
