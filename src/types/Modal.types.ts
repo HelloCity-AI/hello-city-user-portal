@@ -53,3 +53,8 @@ export interface CustomModalProps extends ModalCommonProps {
 }
 
 export type ModalProps = ConfirmModalProps | CustomModalProps | FormModalProps;
+
+export type StrictModalProps =
+  | (ConfirmModalProps & { mode: 'confirm' })
+  | (FormModalProps & { mode: 'form' })
+  | (CustomModalProps & { mode?: 'custom' });
