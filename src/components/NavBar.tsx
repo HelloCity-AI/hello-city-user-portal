@@ -116,14 +116,18 @@ const NavBar = ({ isCustom }: Props) => {
             showUserLabel
           />
         ) : (
-          <Button variant="tertiary">
-            <Trans id="Sign In">Sign In</Trans>
-          </Button>
+          <div className="flex gap-2">
+            <Button component={Link} href="/" variant="tertiary">
+              <Trans id="Sign In">Sign In</Trans>
+            </Button>
+            <Button variant="tertiary" component={Link} href="/auth">
+              Sign Up
+            </Button>
+            <Button component={Link} href="/" variant="primary">
+              <Trans id="Try HelloCity">Try HelloCity</Trans>
+            </Button>
+          </div>
         )}
-
-        <Button component={Link} href="/" variant="primary">
-          <Trans id="Try HelloCity">Try HelloCity</Trans>
-        </Button>
       </div>
     </div>
   );

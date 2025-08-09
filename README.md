@@ -8,6 +8,11 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Tailwind 
 
 - Node.js: **>=18.x** (LTS recommended)
 - Package manager: npm (v9+ recommended), or yarn/pnpm/bun
+- Local ENV file
+  - Create `.env.local` file, populate it with the same constant names in `.env.example` file
+  - Currently the `.env.local` file contains constants that enables:
+    - Auth0
+    - Backend Api calls
 
 ## Getting Started
 

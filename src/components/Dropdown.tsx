@@ -1,17 +1,16 @@
 'use client';
 import React, { useState } from 'react';
-
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
-
 import UserProfileCard from './UserLabel';
+import type { ReactNode } from 'react';
 
 interface DropdownProps {
-  anchorElContent: React.ReactNode;
+  anchorElContent: ReactNode;
   dropdownOptions: DropdownOptionProps[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
@@ -22,9 +21,8 @@ interface DropdownProps {
   };
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
 }
-
 export interface DropdownOptionProps {
-  label: string; // Display text shown in the menu
+  label: ReactNode; // Display text shown in the menu
   value: string; // Unique value returned when selected
   icon?: React.ElementType | null; // Optional: Icon displayed before the label
   divider?: boolean; //(Optional) Whether to show a divider after this item
@@ -42,23 +40,17 @@ const DropDown: React.FC<DropdownProps> = ({
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<Element>) => {
-    setAnchorEl(event.currentTarget as HTMLElement);
-  };
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  // Check popup direction and alignment and Dynamically calculate margin in order not to overlay the anchor element
   const getMenuMarginTopSx = () => {
-    const isPopupUp = anchorOrigin.vertical === 'top';
-    const isVerticalCenter = anchorOrigin.vertical === 'center';
     let marginTop = '0.5rem';
-
-    if (isPopupUp) {
+    if (anchorOrigin.vertical === 'top') {
       marginTop = '-0.5rem';
-    } else if (isVerticalCenter) {
-      marginTop = '0rem'; // No margin needed when vertically centered
+    }
+    if (anchorOrigin.vertical === 'center') {
+      marginTop = '0rem';
     }
 
     return {
@@ -72,7 +64,7 @@ const DropDown: React.FC<DropdownProps> = ({
     <React.Fragment>
       {/* AnchorEL */}
       <IconButton
-        onClick={handleClick}
+        onClick={(event) => setAnchorEl(event.currentTarget as HTMLElement)}
         size="small"
         sx={{ ml: 2 }}
         aria-controls={open ? 'account-menu' : undefined}
@@ -82,7 +74,7 @@ const DropDown: React.FC<DropdownProps> = ({
       >
         {anchorElContent}
       </IconButton>
-      {/* Menu */}
+      {/* Menu Paper*/}
       <Menu
         anchorEl={anchorEl}
         open={open}
@@ -100,7 +92,7 @@ const DropDown: React.FC<DropdownProps> = ({
           </MenuItem>
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
-        {/* Dropdown Settings & Preferences area */}
+        {/* Dropdown items */}
         {dropdownOptions.map((option: DropdownOptionProps) => {
           return (
             <React.Fragment key={option.value}>

@@ -1,19 +1,60 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-07-20 22:44+1000\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: en\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
+"Language: \n"
 "Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
+=======
+#: src/app/auth/page.tsx:65
+msgid "Prev"
+msgstr "Prev"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:70
+msgid "I'm all set"
+msgstr "I'm all set"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:81
+msgid "Next"
+msgstr "Next"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:9
+msgid "Profile"
+msgstr "Profile"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:10
+msgid "Settings"
+msgstr "Settings"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Theme"
+msgstr "Theme"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+msgid "Subscription"
+msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+msgid "Logout"
+msgstr "Logout"
+
+#. js-lingui-explicit-id
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "Home"
@@ -34,21 +75,27 @@ msgid "Check Items"
 msgstr "Check Items"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
 #: src/components/NavBar.tsx:120
+=======
+#: src/components/NavBar.tsx:121
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
 #: src/components/NavBar.tsx:125
+=======
+#: src/components/NavBar.tsx:127
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Try HelloCity"
 msgstr "Try HelloCity"
 
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:50
-#~ msgid "Profile"
-#~ msgstr "Profile"
+#: src/app/auth/PageOne.tsx:22
+#~ msgid "Email"
+#~ msgstr "Email"
 
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:53
-#~ msgid "Logout"
-#~ msgstr "Logout"
+#: src/app/auth/PageOne.tsx:14
+#~ msgid "UserName"
+#~ msgstr "UserName"

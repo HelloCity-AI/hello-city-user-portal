@@ -14,6 +14,49 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
+=======
+#: src/app/auth/page.tsx:65
+msgid "Prev"
+msgstr "上一步"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:70
+msgid "I'm all set"
+msgstr "我准备好了"
+
+#. js-lingui-explicit-id
+#: src/app/auth/page.tsx:81
+msgid "Next"
+msgstr "下一步"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:9
+msgid "Profile"
+msgstr "个人资料"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:10
+msgid "Settings"
+msgstr "设置"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Theme"
+msgstr "主题"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+msgid "Subscription"
+msgstr "订阅管理"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+msgid "Logout"
+msgstr "登出"
+
+#. js-lingui-explicit-id
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "首页"
@@ -34,21 +77,25 @@ msgid "Check Items"
 msgstr "检查项目"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
 #: src/components/NavBar.tsx:120
+=======
+#: src/components/NavBar.tsx:121
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Sign In"
 msgstr "登录"
 
 #. js-lingui-explicit-id
+<<<<<<< HEAD
 #: src/components/NavBar.tsx:125
+=======
+#: src/components/NavBar.tsx:127
+>>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Try HelloCity"
 msgstr "试用 HelloCity"
 
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:50
-#~ msgid "Profile"
-#~ msgstr "个人资料"
+#~ msgid "Email"
+#~ msgstr "电子邮件"
 
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:53
-#~ msgid "Logout"
-#~ msgstr "登出"
+#~ msgid "UserName"
+#~ msgstr "用户名"

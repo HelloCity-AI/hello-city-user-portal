@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import { Typography, Button } from '@mui/material';
 import styles from './BannerCustom.module.scss';
