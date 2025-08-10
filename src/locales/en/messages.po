@@ -211,22 +211,22 @@ msgid "Phone"
 msgstr "Phone"
 
 #. js-lingui-explicit-id
-#: src/stories/InputBox.stories.tsx:66
+#: src/stories/InputBox.stories.tsx:67
 msgid "Please enter a valid email address."
 msgstr "Please enter a valid email address."
 
 #. js-lingui-explicit-id
-#: src/stories/InputBox.stories.tsx:80
+#: src/stories/InputBox.stories.tsx:82
 msgid "Email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/stories/InputBox.stories.tsx:97
+#: src/stories/InputBox.stories.tsx:99
 msgid "Password"
 msgstr "Password"
 
 #. js-lingui-explicit-id
-#: src/stories/InputBox.stories.tsx:104
+#: src/stories/InputBox.stories.tsx:106
 msgid "Repeat Password"
 msgstr "Repeat Password"
 
