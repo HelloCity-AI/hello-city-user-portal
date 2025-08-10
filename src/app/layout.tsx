@@ -6,7 +6,6 @@ import type { Metadata } from 'next';
 
 import NavBar from '@/components/NavBar';
 import websiteTheme from '@/theme/theme';
-import NavBar from '@/components/NavBar';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { I18nProvider } from '@/contexts/I18nProvider';
 
