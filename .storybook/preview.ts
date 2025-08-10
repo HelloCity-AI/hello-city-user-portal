@@ -4,6 +4,7 @@ import websiteTheme from '../src/theme/theme';
 
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import './storybook-fonts.css';
+import '../src/app/globals.css';
 
 export const decorators = [
   withThemeFromJSXProvider({

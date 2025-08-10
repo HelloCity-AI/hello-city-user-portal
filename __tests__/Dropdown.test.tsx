@@ -82,12 +82,15 @@ describe('DropDown component', () => {
     });
 
     it('User label is rendered if showUserLabel = true', async () => {
-      renderDropdownAndOpenMenu({ showUserLabel: true });
+      await renderDropdownAndOpenMenu({ showUserLabel: true });
+      await act(async () => {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      });
       expect(await screen.findByText(/Leon/i)).toBeInTheDocument();
     });
 
     it('Applied centered text align when textAlignCenter = true', async () => {
-      renderDropdownAndOpenMenu({ textAlignCenter: true });
+      await renderDropdownAndOpenMenu({ textAlignCenter: true });
       const typography = await screen.findByText('Profile');
       expect(typography).toHaveStyle({ textAlign: 'center', flexGrow: 1 });
     });
