@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import InputBox from './InputBox';
+import InputBox from '../src/components/InputBox/InputBox';
 
 describe('InputBox component', () => {
   it('Renders with label and placeholder', () => {
