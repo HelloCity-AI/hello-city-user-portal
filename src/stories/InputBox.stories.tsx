@@ -63,7 +63,9 @@ export const Email: React.FC = () => {
     }
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(value)) {
-      setError(<Trans id="Please enter a valid email address.">Please enter a valid email address.</Trans>);
+      setError(
+        <Trans id="Please enter a valid email address.">Please enter a valid email address.</Trans>,
+      );
     } else {
       setError('');
     }
