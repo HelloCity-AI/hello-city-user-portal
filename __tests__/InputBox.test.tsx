@@ -9,7 +9,7 @@ describe('InputBox component', () => {
       <InputBox
         label="Name"
         value=""
-        onChange={() => { }}
+        onChange={() => {}}
         placeholder="Enter your name"
         fieldType="name"
       />,
@@ -23,7 +23,7 @@ describe('InputBox component', () => {
       <InputBox
         label="Email"
         value="invalid"
-        onChange={() => { }}
+        onChange={() => {}}
         errorMessage="Invalid email"
         fieldType="email"
       />,
@@ -89,7 +89,7 @@ describe('InputBox validation', () => {
       <InputBox
         label="Email"
         value="invalid"
-        onChange={() => { }}
+        onChange={() => {}}
         errorMessage="Invalid email"
         fieldType="email"
       />,
