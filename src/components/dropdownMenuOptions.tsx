@@ -1,41 +1,48 @@
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ContrastOutlinedIcon from '@mui/icons-material/ContrastOutlined';
 import Logout from '@mui/icons-material/Logout';
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-
+import { Trans } from '@lingui/react';
 import type { DropdownOptionProps } from './Dropdown';
+
+const ProfileLabel = <Trans id="Profile">Profile</Trans>;
+const SettingsLabel = <Trans id="Settings">Settings</Trans>;
+const ThemeLabel = <Trans id="Theme">Theme</Trans>;
+const SubscriptionLabel = <Trans id="Subscription">Subscription</Trans>;
+const LogoutLabel = <Trans id="Logout">Logout</Trans>;
 
 export const userMenuOptions: DropdownOptionProps[] = [
   {
-    label: 'Profile',
+    label: ProfileLabel,
     value: 'profile',
-    icon: PaymentOutlinedIcon,
+    icon: PersonOutlineIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: 'Settings',
+    label: SettingsLabel,
     value: 'settings',
     icon: SettingsOutlinedIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: 'Theme',
+    label: ThemeLabel,
     value: 'theme',
     icon: ContrastOutlinedIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: 'Subscription',
+    label: SubscriptionLabel,
     value: 'subscription',
     icon: PaymentOutlinedIcon,
     divider: true,
     onClick: (value: string) => alert(value),
   },
   {
-    label: 'Logout',
+    label: LogoutLabel,
     value: 'logout',
     icon: Logout,
     divider: false,

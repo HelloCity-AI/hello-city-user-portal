@@ -27,6 +27,31 @@ msgid "Next"
 msgstr "Next"
 
 #. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:9
+msgid "Profile"
+msgstr "Profile"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:10
+msgid "Settings"
+msgstr "Settings"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Theme"
+msgstr "Theme"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:12
+msgid "Subscription"
+msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:13
+msgid "Logout"
+msgstr "Logout"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "Home"
@@ -55,16 +80,6 @@ msgstr "Sign In"
 #: src/components/NavBar.tsx:127
 msgid "Try HelloCity"
 msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:50
-#~ msgid "Profile"
-#~ msgstr "Profile"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:53
-#~ msgid "Logout"
-#~ msgstr "Logout"
 
 #: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"
