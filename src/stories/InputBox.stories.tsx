@@ -30,7 +30,7 @@ export const Name: React.FC = () => {
   const [name, setName] = useState('');
   return (
     <InputBox
-      label={<Trans id="Name" />}
+      label={<Trans id="Name">Name</Trans>}
       fieldType="name"
       value={name}
       onChange={(e) => setName(e.target.value)}
@@ -43,7 +43,7 @@ export const Phone: React.FC = () => {
   const [phone, setPhone] = useState('');
   return (
     <InputBox
-      label={<Trans id="Phone" />}
+      label={<Trans id="Phone">Phone</Trans>}
       fieldType="phone"
       value={phone}
       onChange={(e) => setPhone(e.target.value)}
@@ -63,7 +63,7 @@ export const Email: React.FC = () => {
     }
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(value)) {
-      setError(<Trans id="Please enter a valid email address." />);
+      setError(<Trans id="Please enter a valid email address.">Please enter a valid email address.</Trans>);
     } else {
       setError('');
     }
@@ -77,7 +77,7 @@ export const Email: React.FC = () => {
 
   return (
     <InputBox
-      label={<Trans id="Email" />}
+      label={<Trans id="Email">Email</Trans>}
       fieldType="email"
       value={email}
       onChange={handleChange}
@@ -94,14 +94,14 @@ export const Passwords: React.FC = () => {
   return (
     <>
       <InputBox
-        label={<Trans id="Password" />}
+        label={<Trans id="Password">Password</Trans>}
         fieldType="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
       <InputBox
-        label={<Trans id="Repeat Password" />}
+        label={<Trans id="Repeat Password">Repeat Password</Trans>}
         fieldType="repeatPassword"
         value={repeatPassword}
         onChange={(e) => setRepeatPassword(e.target.value)}

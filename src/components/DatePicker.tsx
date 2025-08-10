@@ -1,8 +1,11 @@
 'use client';
 
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import { DatePicker as MUIDatePicker } from '@mui/x-date-pickers/DatePicker';
+// eslint-disable-next-line import/no-unresolved
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+// eslint-disable-next-line import/no-unresolved
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import TextField from '@mui/material/TextField';
 import type { Dayjs } from 'dayjs';
@@ -10,7 +13,7 @@ import type { Dayjs } from 'dayjs';
 interface DatePickerProps {
   value: Dayjs | null;
   onChange: (value: Dayjs | null) => void;
-  label?: string;
+  label?: React.ReactNode;
   disabled?: boolean;
 }
 
@@ -29,7 +32,7 @@ const DatePicker: React.FC<DatePickerProps> = ({ value, onChange, label, disable
             textField: {
               fullWidth: true,
               inputProps: {
-                'aria-label': label || 'datepicker',
+                'aria-label': typeof label === 'string' ? label : 'datepicker',
               },
             },
           }}

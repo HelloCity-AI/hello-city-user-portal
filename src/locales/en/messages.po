@@ -52,6 +52,7 @@ msgstr "banner.cta"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:9
+#: src/components/NavBar.tsx:58
 msgid "Profile"
 msgstr "Profile"
 
@@ -72,6 +73,7 @@ msgstr "Subscription"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:13
+#: src/components/NavBar.tsx:61
 msgid "Logout"
 msgstr "Logout"
 
@@ -136,39 +138,67 @@ msgid "validation.phoneError"
 msgstr "validation.phoneError"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:36
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:39
 #: src/components/NavBar.tsx:90
 msgid "Chat"
 msgstr "Chat"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:42
 #: src/components/NavBar.tsx:93
 msgid "FAQ"
 msgstr "FAQ"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:45
 #: src/components/NavBar.tsx:96
 msgid "Check Items"
 msgstr "Check Items"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:50
+#: src/components/NavBar.tsx:101
+msgid "EN"
+msgstr "EN"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:50
+#: src/components/NavBar.tsx:101
+msgid "CN"
+msgstr "CN"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:64
+msgid "Language"
+msgstr "Language"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:69
 #: src/components/NavBar.tsx:121
 msgid "Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:74
 #: src/components/NavBar.tsx:127
 msgid "Try HelloCity"
 msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:124
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:26
-msgid "datepicker.label"
-msgstr "datepicker.label"
+msgid "Pick a date"
+msgstr "Pick a date"
 
 #. js-lingui-explicit-id
 #: src/stories/InputBox.stories.tsx:33
@@ -199,6 +229,11 @@ msgstr "Password"
 #: src/stories/InputBox.stories.tsx:104
 msgid "Repeat Password"
 msgstr "Repeat Password"
+
+#. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:26
+#~ msgid "datepicker.label"
+#~ msgstr "datepicker.label"
 
 #: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"

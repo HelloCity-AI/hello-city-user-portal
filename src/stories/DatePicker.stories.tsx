@@ -23,7 +23,7 @@ export const SingleDate: Story = {
         <DatePicker
           value={value}
           onChange={(newValue) => setValue(newValue)}
-          label={<Trans id="datepicker.label">Pick a date</Trans>}
+          label={<Trans id="Pick a date">Pick a date</Trans>}
         />
       </div>
     );

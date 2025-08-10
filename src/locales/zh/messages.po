@@ -54,6 +54,7 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:9
+#: src/components/NavBar.tsx:58
 msgid "Profile"
 msgstr "个人资料"
 
@@ -74,6 +75,7 @@ msgstr "订阅管理"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:13
+#: src/components/NavBar.tsx:61
 msgid "Logout"
 msgstr "登出"
 
@@ -138,38 +140,66 @@ msgid "validation.phoneError"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:36
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:39
 #: src/components/NavBar.tsx:90
 msgid "Chat"
 msgstr "聊天"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:42
 #: src/components/NavBar.tsx:93
 msgid "FAQ"
 msgstr "常见问题"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:45
 #: src/components/NavBar.tsx:96
 msgid "Check Items"
 msgstr "检查项目"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:50
+#: src/components/NavBar.tsx:101
+msgid "EN"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:50
+#: src/components/NavBar.tsx:101
+msgid "CN"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:64
+msgid "Language"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:69
 #: src/components/NavBar.tsx:121
 msgid "Sign In"
 msgstr "登录"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:74
 #: src/components/NavBar.tsx:127
 msgid "Try HelloCity"
 msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:124
+msgid "Sign Up"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:26
-msgid "datepicker.label"
+msgid "Pick a date"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -201,6 +231,11 @@ msgstr ""
 #: src/stories/InputBox.stories.tsx:104
 msgid "Repeat Password"
 msgstr ""
+
+#. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:26
+#~ msgid "datepicker.label"
+#~ msgstr ""
 
 #~ msgid "Email"
 #~ msgstr "电子邮件"
