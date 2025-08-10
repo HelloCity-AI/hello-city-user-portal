@@ -57,8 +57,7 @@ const ProfileImageUploader = () => {
           <>
             <CircularProgress sx={{ mt: 2 }} />
             <Typography variant="body2" sx={{ mt: 2 }}>
-              {' '}
-              {message}{' '}
+              &nbsp;{message}&nbsp;
             </Typography>
           </>
         );
@@ -66,8 +65,7 @@ const ProfileImageUploader = () => {
       case 'error':
         return (
           <Typography variant="body2" sx={{ mt: 2 }}>
-            {' '}
-            {message}{' '}
+            &nbsp;{message}&nbsp;
           </Typography>
         );
       default:

@@ -97,22 +97,22 @@ msgid "file.upload.success"
 msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:95
+#: src/components/ProfileImageUploader.tsx:93
 msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:99
+#: src/components/ProfileImageUploader.tsx:97
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:127
+#: src/components/ProfileImageUploader.tsx:125
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:133
+#: src/components/ProfileImageUploader.tsx:131
 msgid "profile.avatar.remove"
 msgstr "Remove Photos"
 
