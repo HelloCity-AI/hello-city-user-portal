@@ -14,8 +14,8 @@ type Story = StoryObj<typeof ProfileImageUploader>;
 
 export const Default: Story = {
   render: () => (
-    <div className='h-screen flex items-center justify-center'>
-        <ProfileImageUploader />
+    <div className="flex h-screen items-center justify-center">
+      <ProfileImageUploader />
     </div>
   ),
 };
