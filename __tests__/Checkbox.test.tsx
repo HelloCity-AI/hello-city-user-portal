@@ -1,12 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Checkbox from '../src/components/Checkbox';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-
-const withTheme = (ui: React.ReactNode) => {
-  const theme = createTheme();
-  return <ThemeProvider theme={theme}>{ui}</ThemeProvider>;
-};
+import { withTheme } from './utils/TestWrapper';
 
 describe('Checkbox', () => {
   it('renders with label', () => {
