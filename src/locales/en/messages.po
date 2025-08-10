@@ -12,8 +12,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-=======
 #: src/app/auth/page.tsx:65
 msgid "Prev"
 msgstr "Prev"
@@ -54,7 +52,6 @@ msgid "Logout"
 msgstr "Logout"
 
 #. js-lingui-explicit-id
->>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 #: src/components/NavBar.tsx:87
 msgid "Home"
 msgstr "Home"
@@ -75,20 +72,12 @@ msgid "Check Items"
 msgstr "Check Items"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-#: src/components/NavBar.tsx:120
-=======
 #: src/components/NavBar.tsx:121
->>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-#: src/components/NavBar.tsx:125
-=======
 #: src/components/NavBar.tsx:127
->>>>>>> ddf5bc87712c3b2ac93ce70e9195fc3bc23fdbf8
 msgid "Try HelloCity"
 msgstr "Try HelloCity"
 
