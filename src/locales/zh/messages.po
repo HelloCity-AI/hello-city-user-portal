@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
-msgid "file.upload.error"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/app/auth/page.tsx:65
 msgid "Prev"
 msgstr ""
@@ -200,6 +195,11 @@ msgstr "试用 HelloCity"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:124
 msgid "Sign Up"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:26
+msgid "file.upload.error"
 msgstr ""
 
 #. js-lingui-explicit-id
