@@ -6,14 +6,14 @@ import { Avatar } from '@mui/material';
 interface UserData {
   UserName?: string;
   PreferredName?: string;
-  Avatarimg?: string;
+  AvatarImg?: string;
   LastJoinDate?: string;
 }
 
 const UserProfileCard: React.FC<UserData> = ({
   UserName,
   PreferredName,
-  Avatarimg,
+  AvatarImg,
   LastJoinDate,
 }) => {
   return (
@@ -22,13 +22,13 @@ const UserProfileCard: React.FC<UserData> = ({
         className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-white"
         data-testid="avatar-container"
       >
-        {!Avatarimg ? (
+        {!AvatarImg ? (
           <span className="material-icons text-7xl text-gray-400">account_circle</span>
         ) : (
           <Avatar
             data-testid="user-avatar"
             alt="User Avatar"
-            src={Avatarimg}
+            src={AvatarImg}
             sx={{ width: 64, height: 64 }}
           />
         )}

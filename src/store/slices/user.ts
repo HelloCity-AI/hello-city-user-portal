@@ -1,37 +1,37 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserState {
-  UserName?: string;
-  PreferredName?: string;
-  Avatar?: string;
-  LastJoinDate?: string;
-  UserId?: string;
-  Email?: string;
-  Password?: string;
-  Gender?: string;
-  Nationality?: string;
-  City?: string;
-  University?: string;
-  Major?: string;
-  isloading?: boolean;
-  error?: string | null;
+  UserName: string;
+  PreferredName: string;
+  Avatar: string;
+  LastJoinDate: string;
+  UserId: string;
+  Email: string;
+  Password: string;
+  Gender: string;
+  Nationality: string;
+  City: string;
+  University: string;
+  Major: string;
+  isloading: boolean;
+  error: string;
 }
 
 const initialState: UserState = {
-  UserName: undefined,
-  PreferredName: undefined,
-  Avatar: undefined,
-  LastJoinDate: undefined,
-  UserId: undefined,
-  Email: undefined,
-  Password: undefined,
-  Gender: undefined,
-  Nationality: undefined,
-  City: undefined,
-  University: undefined,
-  Major: undefined,
+  UserName: '',
+  PreferredName: '',
+  Avatar: '',
+  LastJoinDate: '',
+  UserId: '',
+  Email: '',
+  Password: '',
+  Gender: '',
+  Nationality: '',
+  City: '',
+  University: '',
+  Major: '',
   isloading: false,
-  error: null,
+  error: '',
 };
 
 const userSlice = createSlice({
@@ -40,7 +40,7 @@ const userSlice = createSlice({
   reducers: {
     fetchUserRequest(state) {
       state.isloading = true;
-      state.error = null;
+      state.error = '';
     },
     fetchUserSuccess(state, action: PayloadAction<Omit<UserState, 'isloading' | 'error'>>) {
       state.isloading = false;

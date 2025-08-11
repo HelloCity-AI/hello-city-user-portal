@@ -27,7 +27,7 @@ jest.mock('next/image', () => ({
 const mockUserData = {
   UserName: 'John',
   PreferredName: 'nikeJohn',
-  Avatarimg: 'https://example.com/avatar.jpg',
+  AvatarImg: 'https://example.com/avatar.jpg',
   LastJoinDate: '2023-10-15 14:30',
 };
 
@@ -53,7 +53,7 @@ describe('UserLabel component test', () => {
       renderUserlabel({
         UserName: undefined,
         PreferredName: undefined,
-        Avatarimg: undefined,
+        AvatarImg: undefined,
         LastJoinDate: undefined,
       });
 
