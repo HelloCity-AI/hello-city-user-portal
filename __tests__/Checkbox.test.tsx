@@ -4,44 +4,46 @@ import Checkbox from '../src/components/Checkbox';
 import { withTheme } from './utils/TestWrapper';
 
 describe('Checkbox', () => {
-  it('renders with label', () => {
-    render(withTheme(<Checkbox label="Apply for Visa" checked={false} onChange={() => {}} />));
+  // Helper function to render Checkbox with theme
+  const renderCheckbox = (props: React.ComponentProps<typeof Checkbox>) => {
+    return render(withTheme(<Checkbox {...props} />));
+  };
+
+  it('Renders with label', () => {
+    renderCheckbox({ label: 'Apply for Visa', checked: false, onChange: () => {} });
     expect(screen.getByLabelText(/Apply for Visa/i)).toBeInTheDocument();
   });
 
-  it('calls onChange when clicked', () => {
+  it('Calls onChange when clicked', () => {
     const handleChange = jest.fn();
-    render(withTheme(<Checkbox label="Click Me" checked={false} onChange={handleChange} />));
+    renderCheckbox({ label: 'Click Me', checked: false, onChange: handleChange });
     fireEvent.click(screen.getByRole('checkbox'));
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
-  it('is disabled when prop is set', () => {
-    render(withTheme(<Checkbox label="Disabled" checked={false} onChange={() => {}} disabled />));
+  it('Is disabled when prop is set', () => {
+    renderCheckbox({ label: 'Disabled', checked: false, onChange: () => {}, disabled: true });
     expect(screen.getByRole('checkbox')).toBeDisabled();
   });
 
-  it('renders label on the left when placement is start', () => {
-    render(
-      withTheme(
-        <Checkbox label="Left Label" checked={false} onChange={() => {}} placement="start" />,
-      ),
-    );
+  it('Renders label on the left when placement is start', () => {
+    renderCheckbox({
+      label: 'Left Label',
+      checked: false,
+      onChange: () => {},
+      placement: 'start',
+    });
     const labelNode = screen.getByText('Left Label').closest('label');
     expect(labelNode?.className).toMatch(/MuiFormControlLabel-labelPlacementStart/);
   });
 
-  it('renders as indeterminate when indeterminate prop is true', async () => {
-    render(
-      withTheme(
-        <Checkbox
-          label="Indeterminate Checkbox"
-          checked={false}
-          onChange={() => {}}
-          indeterminate={true}
-        />,
-      ),
-    );
+  it('Renders as indeterminate when indeterminate prop is true', async () => {
+    renderCheckbox({
+      label: 'Indeterminate Checkbox',
+      checked: false,
+      onChange: () => {},
+      indeterminate: true,
+    });
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
 
     await screen.findByRole('checkbox');
@@ -53,17 +55,13 @@ describe('Checkbox', () => {
     expect(checkboxInput).toBeInTheDocument();
   });
 
-  it('indeterminate prop can be combined with checked state', () => {
-    render(
-      withTheme(
-        <Checkbox
-          label="Indeterminate but Checked"
-          checked={true}
-          onChange={() => {}}
-          indeterminate={true}
-        />,
-      ),
-    );
+  it('Indeterminate prop can be combined with checked state', () => {
+    renderCheckbox({
+      label: 'Indeterminate but Checked',
+      checked: true,
+      onChange: () => {},
+      indeterminate: true,
+    });
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
 
     expect(checkbox.checked).toBe(true);
@@ -73,8 +71,8 @@ describe('Checkbox', () => {
     expect(checkboxByLabel).toBe(checkbox);
   });
 
-  it('is not indeterminate by default', () => {
-    render(withTheme(<Checkbox label="Default State" checked={false} onChange={() => {}} />));
+  it('Is not indeterminate by default', () => {
+    renderCheckbox({ label: 'Default State', checked: false, onChange: () => {} });
     const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
     expect(checkbox.indeterminate).toBe(false);
   });
