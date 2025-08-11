@@ -28,17 +28,23 @@ const NavBar = () => {
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
       <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
       <div className="flex gap-2">
-        <Button component={Link} href="/" variant="tertiary" passHref>
-          <Trans id="Home" message="Home" />
-        </Button>
-        <Button component={Link} href="/" variant="tertiary">
-          <Trans id="Chat" message="Chat" />
-        </Button>
-        <Button component={Link} href="/" variant="tertiary">
-          <Trans id="FAQ" message="FAQ" />
-        </Button>
-        <Button onClick={() => setIsExpanded(!isExpanded)} href="/" variant="tertiary">
-          <Trans id="Check Items" message="Check Items" />
+        <Link href="/">
+          <Button variant="tertiary">
+            <Trans id="NaveBar.Home" message="Home" />
+          </Button>
+        </Link>
+        <Link href="/">
+          <Button variant="tertiary">
+            <Trans id="NaveBar.Chat" message="Chat" />
+          </Button>
+        </Link>
+        <Link href="/">
+          <Button variant="tertiary">
+            <Trans id="NaveBar.FAQ" message="FAQ" />
+          </Button>
+        </Link>
+        <Button onClick={() => setIsExpanded(!isExpanded)} variant="tertiary">
+          <Trans id="NaveBar.Check Items" message="Check Items" />
         </Button>
         <FormControlLabel
           control={<Switch checked={isEnglish} onChange={handleLanguageChange} color="primary" />}
@@ -62,13 +68,15 @@ const NavBar = () => {
           />
         ) : (
           <Button variant="tertiary">
-            <Trans id="Sign In" message="Sign In" />
+            <Trans id="NaveBar.Sign In" message="Sign In" />
           </Button>
         )}
 
-        <Button component={Link} href="/" variant="primary">
-          <Trans id="Try HelloCity" message="Try HelloCity" />
-        </Button>
+        <Link href="/">
+          <Button variant="primary">
+            <Trans id="NaveBar.Try HelloCity" message="Try HelloCity" />
+          </Button>
+        </Link>
       </div>
     </div>
   );
