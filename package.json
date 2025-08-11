@@ -18,7 +18,8 @@
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
     "extract": "lingui extract",
-    "compile": "lingui compile --namespace es"
+    "compile": "lingui compile --namespace es",
+    "prepare": "husky install && (chmod +x .husky/* || echo 'Skipping chmod on Windows')"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.8.0",
@@ -37,6 +38,7 @@
     "@mui/material-nextjs": "^7.2.0",
     "@types/negotiator": "^0.6.4",
     "auth0": "^4.27.0",
+    "axios": "^1.10.0",
     "clsx": "^2.1.1",
     "make-plural": "^7.4.0",
     "material-icons": "^1.13.14",
@@ -74,12 +76,14 @@
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-storybook": "^9.0.17",
+    "husky": "^8.0.0",
     "jest": "^30.0.4",
     "jest-environment-jsdom": "^30.0.4",
     "playwright": "^1.54.1",
     "postcss": "^8",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
+    "sass-embedded": "^1.89.2",
     "storybook": "^9.0.17",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.4.0",

@@ -39,5 +39,5 @@ next-env.d.ts
 storybook-static
 
 # Lingui compiled files
-src/locales/*.js
-src/locales/*.mjs
+src/locales/**/*.js
+src/locales/**/*.mjs

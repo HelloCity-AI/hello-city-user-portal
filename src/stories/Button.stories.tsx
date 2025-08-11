@@ -8,9 +8,19 @@ interface ButtonDisplayProps {
   background?: boolean;
 }
 
-const ButtonDisplay: React.FC<ButtonDisplayProps> = ({ variant, disabled = false, background = false }) => {
+const ButtonDisplay: React.FC<ButtonDisplayProps> = ({
+  variant,
+  disabled = false,
+  background = false,
+}) => {
   const content = (
-    <Stack spacing={2} direction="row" alignItems="center" justifyContent="center" sx={{ padding: '20px' }}>
+    <Stack
+      spacing={2}
+      direction="row"
+      alignItems="center"
+      justifyContent="center"
+      sx={{ padding: '20px' }}
+    >
       <Button variant={variant} disabled={disabled}>
         {`${variant} button ${disabled ? 'disabled' : 'active'}`}
       </Button>

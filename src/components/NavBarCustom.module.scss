@@ -1,0 +1,23 @@
+.navbar-container {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.navbar-left {
+  display: flex;
+  gap: 0.5rem; /* gap-2 = 8px */
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}

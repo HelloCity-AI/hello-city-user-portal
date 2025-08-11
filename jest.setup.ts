@@ -17,9 +17,11 @@ jest.mock('next/navigation', () => ({
 // Mock Next.js Link component
 jest.mock('next/link', () => {
   const React = require('react');
-  return function MockLink({ children, href, ...props }: any) {
-    return React.createElement('a', { href, ...props }, children);
-  };
+  const MockLink = React.forwardRef(({ children, href, ...props }: any, ref: any) => {
+    return React.createElement('a', { href, ref, ...props }, children);
+  });
+  MockLink.displayName = 'MockLink';
+  return MockLink;
 });
 
 // Mock LanguageContext with React state

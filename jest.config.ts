@@ -34,9 +34,7 @@ const config: InitialOptionsTsJest = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  // testPathIgnorePatterns: [
-  //   '<rootDir>/__tests__/utils/',
-  // ],
+  testPathIgnorePatterns: ['<rootDir>/__tests__/utils/'],
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],

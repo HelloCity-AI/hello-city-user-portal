@@ -2,9 +2,11 @@
 module.exports = {
   locales: ['en', 'zh'],
   sourceLocale: 'en',
-  catalogs: [{
-    path: 'src/locales/{locale}',
-    include: ['src'],
-  }],
+  catalogs: [
+    {
+      path: 'src/locales/{locale}/messages',
+      include: ['src'],
+    },
+  ],
   format: 'po',
 };

@@ -20,7 +20,7 @@ describe('NavBar', () => {
 
     const homeLink = screen.getByRole('link', { name: /Home/i });
     expect(homeLink).toBeInTheDocument();
-    expect(homeLink).toHaveAttribute('href', '/');
+    expect(homeLink).toHaveAttribute('href', '/en');
 
     const chatLink = screen.getByRole('link', { name: /Chat/i });
     expect(chatLink).toBeInTheDocument();
@@ -75,6 +75,22 @@ describe('NavBar', () => {
       'justify-around',
       'pt-5'
     );
+  });
+
+  it('displays English navigation items by default', () => {
+    render(
+      <I18nTestWrapper>
+        <NavBar />
+      </I18nTestWrapper>,
+    );
+
+    // It would display English navigation items by default
+    expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('Chat')).toBeInTheDocument();
+    expect(screen.getByText('FAQ')).toBeInTheDocument();
+    expect(screen.getByText('Check Items')).toBeInTheDocument();
+    expect(screen.getByText('Sign In')).toBeInTheDocument();
+    expect(screen.getByText('Try HelloCity')).toBeInTheDocument();
   });
 
   //NavBar Login Test incomplete

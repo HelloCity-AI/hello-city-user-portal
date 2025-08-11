@@ -2,14 +2,13 @@ import ContrastOutlinedIcon from '@mui/icons-material/ContrastOutlined';
 import Logout from '@mui/icons-material/Logout';
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { Avatar } from '@mui/material';
-import type { Meta, StoryObj } from '@storybook/react-vite';
-
+import Avatar from '@mui/material/Avatar';
 import Dropdown from '@/components/Dropdown';
-
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { DropdownOptionProps } from '@/components/Dropdown';
 interface DropdownDisplayProps {
   anchorElContent: React.ReactNode;
-  dropdownOptions: DropdownDisplayOption[];
+  dropdownOptions: DropdownOptionProps[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
   layout?: 'vertical' | 'horizontal'; // Specify whether the dropdown items should be laid out vertically or horizontally
@@ -19,15 +18,7 @@ interface DropdownDisplayProps {
   anchorOriginVertical: 'top' | 'center' | 'bottom';
 }
 
-interface DropdownDisplayOption {
-  label: string; // Display text shown in the menu
-  value: string; // Unique value returned when selected
-  icon?: React.ElementType | null; // Optional: Icon displayed before the label
-  divider?: boolean; //(Optional) Whether to show a divider after this item
-  onClick: (value: string) => void;
-}
-
-const userMenuDisplayOptions: DropdownDisplayOption[] = [
+const userMenuDisplayOptions: DropdownOptionProps[] = [
   {
     label: 'Profile',
     value: 'profile',
@@ -65,7 +56,7 @@ const userMenuDisplayOptions: DropdownDisplayOption[] = [
   },
 ];
 
-const languageMenuDisplayOptions: DropdownDisplayOption[] = [
+const languageMenuDisplayOptions: DropdownOptionProps[] = [
   {
     label: '简体中文',
     value: 'zh-CN',
@@ -180,7 +171,9 @@ const meta: Meta<typeof DropdownDisplay> = {
     },
   },
 } satisfies Meta<typeof DropdownDisplay>;
+
 export default meta;
+
 export const Primary: StoryObj<typeof DropdownDisplay> = {
   args: {
     dropdownOptions: userMenuDisplayOptions,

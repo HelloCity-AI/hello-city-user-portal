@@ -45,8 +45,10 @@ const InputBox: React.FC<InputBoxProps> = ({
 
   const normalizedFieldType = fieldType || label.toLowerCase().replace(/\s/g, '');
   const inputType =
-    (normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword')
-      ? (showPassword ? 'text' : 'password')
+    normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
+      ? showPassword
+        ? 'text'
+        : 'password'
       : getInputType(normalizedFieldType);
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
   const maxLength = 20;
@@ -107,7 +109,7 @@ const InputBox: React.FC<InputBoxProps> = ({
           name: normalizedFieldType,
         }}
         InputProps={
-          (normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword')
+          normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
             ? {
                 endAdornment: (
                   <InputAdornment position="end">

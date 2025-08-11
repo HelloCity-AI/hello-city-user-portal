@@ -1,0 +1,39 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running format:fix ..."
+npm run format:fix
+if [ $? -ne 0 ]; then
+  echo "❌ format:fix failed, please fix the issues before pushing."
+  exit 1
+fi
+
+if ! git diff --quiet; then
+  echo "❌ format:fix modified files, please commit the changes before pushing."
+  exit 1
+fi
+
+echo "✅ format:fix passed, proceeding with pre-push checks..."
+
+echo " Running tests ..."
+npm run test
+if [ $? -ne 0 ]; then
+  echo "❌ tests failed, push blocked."
+  exit 1
+fi
+
+echo "✅ tests passed, proceeding with pre-push checks..."
+
+echo "Extracting i18n strings ..."
+npm run extract
+if [ $? -ne 0 ]; then
+  echo "❌ i18n extraction failed, push blocked."
+  exit 1
+fi
+
+if ! git diff --quiet; then
+  echo "❌ lingui:extract modified files, please commit the changes before pushing."
+  exit 1
+fi
+
+echo "✅ All pre-push checks passed. Proceeding with push..."

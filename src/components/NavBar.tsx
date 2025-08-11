@@ -1,16 +1,21 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Button, Switch, FormControlLabel, Avatar } from '@mui/material';
-import { useLanguage } from '@/contexts/LanguageContext';
 import { Trans } from '@lingui/react';
+import { Button, Switch, FormControlLabel, Avatar } from '@mui/material';
 import Link from 'next/link';
-import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
+
+import { useLanguage } from '@/contexts/LanguageContext';
 
 import { Dropdown } from '.';
 import { userMenuOptions, languageMenuOptions } from './dropdownMenuOptions';
+import styles from './NavBarCustom.module.scss';
 
-const NavBar = () => {
+type Props = {
+  isCustom?: boolean;
+};
+
+const NavBar = ({ isCustom }: Props) => {
   const [isLoggedIn, _setIsLoggedIn] = useState<boolean>(false);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -24,21 +29,71 @@ const NavBar = () => {
     setLanguage(newLanguage);
   };
 
+  if (isCustom) {
+    return (
+      <div className={styles['navbar-container']}>
+        <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
+        <div className={styles['navbar-left']}>
+          <Button component={Link} href={`/${language}`} variant="tertiary" passHref>
+            Home
+          </Button>
+          <Button component={Link} href={`/${language}`} variant="tertiary">
+            Chat
+          </Button>
+          <Button component={Link} href={`/${language}`} variant="tertiary">
+            FAQ
+          </Button>
+          <Button onClick={() => setIsExpanded(!isExpanded)} href={`/${language}`} variant="tertiary">
+            Check Items
+          </Button>
+          <FormControlLabel
+            control={<Switch checked={isEnglish} onChange={handleLanguageChange} color="primary" />}
+            sx={{ color: 'white' }}
+            label={isEnglish ? 'EN' : 'CN'}
+          />
+        </div>
+
+        <div className={styles['navbar-right']}>
+          {isLoggedIn ? (
+            <>
+              <Button component={Link} href={`/${language}`} variant="tertiary">
+                Profile
+              </Button>
+              <Button component={Link} href={`/${language}`} variant="tertiary">
+                Logout
+              </Button>
+              <Button component={Link} href={`/${language}`} variant="tertiary">
+                Language
+              </Button>
+            </>
+          ) : (
+            <Button variant="tertiary">Sign In</Button>
+          )}
+
+          <Button component={Link} href={`/${language}`} variant="primary">
+            Try HelloCity
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Default Tailwind version
   return (
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
       <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
       <div className="flex gap-2">
-        <Link href="/">
+        <Link href={`/${language}`}>
           <Button variant="tertiary">
             <Trans id="NaveBar.Home" message="Home" />
           </Button>
         </Link>
-        <Link href="/">
+        <Link href={`/${language}`}>
           <Button variant="tertiary">
             <Trans id="NaveBar.Chat" message="Chat" />
           </Button>
         </Link>
-        <Link href="/">
+        <Link href={`/${language}`}>
           <Button variant="tertiary">
             <Trans id="NaveBar.FAQ" message="FAQ" />
           </Button>
@@ -53,7 +108,7 @@ const NavBar = () => {
         />
       </div>
 
-      <div>
+      <div className="flex gap-2 items-center">
         {isLoggedIn ? (
           <Dropdown
             anchorElContent={
@@ -67,16 +122,19 @@ const NavBar = () => {
             showUserLabel
           />
         ) : (
-          <Button variant="tertiary">
-            <Trans id="NaveBar.Sign In" message="Sign In" />
-          </Button>
+          <>
+            <Button component={Link} href={`/${language}`} variant="tertiary">
+              <Trans id="NaveBar.Sign In" message="Sign In" />
+            </Button>
+            <Button variant="tertiary" component={Link} href={`/${language}/auth`}>
+              <Trans id="NaveBar.Sign Up" message="Sign Up" />
+            </Button>
+          </>
         )}
 
-        <Link href="/">
-          <Button variant="primary">
-            <Trans id="NaveBar.Try HelloCity" message="Try HelloCity" />
-          </Button>
-        </Link>
+        <Button component={Link} href={`/${language}`} variant="primary">
+          <Trans id="NaveBar.Try HelloCity" message="Try HelloCity" />
+        </Button>
       </div>
     </div>
   );

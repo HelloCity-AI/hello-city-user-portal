@@ -56,7 +56,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const isLanguage = (lang: Language) => language === lang;
 
   const availableLanguages = linguiConfig.locales;
-
   return (
     <LanguageContext.Provider
       value={{

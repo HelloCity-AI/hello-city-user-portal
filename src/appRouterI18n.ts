@@ -2,8 +2,8 @@ import { Messages } from '@lingui/core';
 
 // Import the actual compiled message catalogs
 const catalogs: Record<string, () => Promise<{ messages: Messages }>> = {
-  en: () => import('./locales/en.mjs'),
-  zh: () => import('./locales/zh.mjs'),
+  en: () => import('./locales/en/messages.mjs'),
+  zh: () => import('./locales/zh/messages.mjs'),
 };
 
 // Cache for loaded messages

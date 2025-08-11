@@ -39,10 +39,13 @@ export const getInputType = (type: string): 'text' | 'email' | 'password' | 'tel
   }
 };
 
-export const validationRules: Record<string, {
-  validate: (value: string, compareTo?: string) => boolean;
-  error: string;
-}> = {
+export const validationRules: Record<
+  string,
+  {
+    validate: (value: string, compareTo?: string) => boolean;
+    error: string;
+  }
+> = {
   name: {
     validate: (v) => v.trim() !== '' && /^[a-zA-Z\s]+$/.test(v),
     error: 'Only letters are allowed and name is required.',
@@ -53,7 +56,8 @@ export const validationRules: Record<string, {
   },
   password: {
     validate: isStrongPassword,
-    error: 'Password must be 6-20 characters with uppercase, lowercase, number, and special character.',
+    error:
+      'Password must be 6-20 characters with uppercase, lowercase, number, and special character.',
   },
   repeatPassword: {
     validate: (v, original = '') => v === original,

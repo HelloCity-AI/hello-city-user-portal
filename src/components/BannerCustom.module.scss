@@ -1,0 +1,33 @@
+.banner-container-custom {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  text-align: left;
+}
+
+.banner-overlay-custom {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.banner-content-custom {
+  position: relative;
+  color: white;
+  padding-top: 6rem;
+  width: 70%;
+  margin-left: 20vw;
+}
+
+.banner-content-custom h2 {
+  margin-top: 12vh;
+  font-weight: bold;
+}
+
+.banner-content-custom p {
+  opacity: 0.9;
+}
+
+.banner-content-custom button {
+  margin-top: 12px;
+}

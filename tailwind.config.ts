@@ -1,19 +1,19 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#5C6DF7',       // Soft Indigo
-        accent: '#FFB663',        // Warm Apricot
-        support1: '#8AA8FF',      // Soft Blue
-        support2: '#3C4CCC',      // Deep Blue-Violet
-        disabledGray: '#CBD5E1',  // Disabled Gray
+        primary: '#5C6DF7', // Soft Indigo
+        accent: '#FFB663', // Warm Apricot
+        support1: '#8AA8FF', // Soft Blue
+        support2: '#3C4CCC', // Deep Blue-Violet
+        disabledGray: '#CBD5E1', // Disabled Gray
       },
       fontFamily: {
         heading: ['"Cabinet Grotesk"', 'sans-serif'],

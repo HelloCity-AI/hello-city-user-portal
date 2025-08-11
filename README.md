@@ -8,6 +8,11 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Tailwind 
 
 - Node.js: **>=18.x** (LTS recommended)
 - Package manager: npm (v9+ recommended), or yarn/pnpm/bun
+- Local ENV file
+  - Create `.env.local` file, populate it with the same constant names in `.env.example` file
+  - Currently the `.env.local` file contains constants that enables:
+    - Auth0
+    - Backend Api calls
 
 ## Getting Started
 
@@ -63,7 +68,9 @@ By default, Jest looks for tests in either of these places:
   `*.test.ts`, `*.test.tsx`, `*.spec.ts`,` *.spec.tsx`
 
 5. **Run Storybook**
+
 ## Command
+
 Storybook is an application that allows developers to create samples of frontend elements
 
 The interactive components allows developers to see different variations of elements efficiently
@@ -72,9 +79,41 @@ By default, Storybook renders for .stories.tsx files in:
 - `stories` directory (recursive search)
 
 Add new packages to Storybook is done in `main.ts` under `.storybook` directory
+
 ```bash
 npm run storybook
 ```
+
+## Husky
+
+Husky is a Git hook tool that helps enforce project standards before any Git actions, such as:
+
+- ✅ Automatically format code (e.g., Prettier)
+- ✅ Run lint checks (e.g., ESLint)
+- ✅ Enforce commit message format (e.g., `feat(scope) : [SCRUM-69] description`)
+- ✅ Prevent invalid commits or pushes
+
+### ✅ For Windows Users
+
+Just run:
+
+```bash
+npm install
+```
+
+Husky will be automatically initialized via the `prepare` script in `package.json`.
+
+---
+
+### ✅ For macOS / Linux Users
+
+In addition to `npm install`, you **must ensure `.husky/*` scripts are executable**:
+
+```bash
+npm install
+chmod +x .husky/*
+```
+
 ## Tech Stack
 
 - [Next.js 14](https://nextjs.org/)
