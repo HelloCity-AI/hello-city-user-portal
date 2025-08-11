@@ -18,13 +18,13 @@ const Checkbox = ({
   label,
   checked,
   onChange,
-  disabled = false,
-  placement = 'end',
-  size = 'medium',
-  color = 'primary',
-  className = '',
-  labelClassName = '',
-  indeterminate = false,
+  disabled,
+  placement,
+  size,
+  color,
+  className,
+  labelClassName,
+  indeterminate,
 }: CheckboxProps): JSX.Element => {
   return (
     <FormControlLabel
@@ -34,7 +34,7 @@ const Checkbox = ({
           onChange={onChange}
           disabled={disabled}
           size={size}
-          color={color !== 'default' ? color : undefined}
+          color={color}
           className={className}
           indeterminate={indeterminate}
         />
