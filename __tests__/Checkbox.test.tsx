@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Checkbox from '../src/components/Checkbox';
 import { withTheme } from './utils/TestWrapper';
 
@@ -14,10 +15,12 @@ describe('Checkbox', () => {
     expect(screen.getByLabelText(/Apply for Visa/i)).toBeInTheDocument();
   });
 
-  it('Calls onChange when clicked', () => {
+  it('Calls onChange when clicked', async () => {
+    const user = userEvent.setup();
     const handleChange = jest.fn();
+
     renderCheckbox({ label: 'Click Me', checked: false, onChange: handleChange });
-    fireEvent.click(screen.getByRole('checkbox'));
+    await user.click(screen.getByRole('checkbox'));
     expect(handleChange).toHaveBeenCalledTimes(1);
   });
 
@@ -44,15 +47,12 @@ describe('Checkbox', () => {
       onChange: () => {},
       indeterminate: true,
     });
-    const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
 
-    await screen.findByRole('checkbox');
+    const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
 
     expect(checkbox).toBeInTheDocument();
     expect(checkbox.checked).toBe(false);
-
-    const checkboxInput = screen.getByLabelText('Indeterminate Checkbox');
-    expect(checkboxInput).toBeInTheDocument();
+    expect(checkbox.indeterminate).toBe(true);
   });
 
   it('Indeterminate prop can be combined with checked state', () => {
