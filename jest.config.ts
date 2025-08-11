@@ -34,9 +34,9 @@ const config: InitialOptionsTsJest = {
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  testPathIgnorePatterns: [
-    '<rootDir>/__tests__/utils/',
-  ],
+  // testPathIgnorePatterns: [
+  //   '<rootDir>/__tests__/utils/',
+  // ],
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
@@ -167,8 +167,8 @@ const config: InitialOptionsTsJest = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.?([mc])[jt]s?(x)",
-    "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
+    "**/__tests__/**/*.test.tsx",
+    "**/*.test.tsx"
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

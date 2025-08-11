@@ -13,7 +13,7 @@
     "fix": "npm run lint:fix && npm run format:fix",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "jest",
+    "test": "npm run compile && jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "type-check": "tsc --noEmit",
