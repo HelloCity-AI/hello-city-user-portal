@@ -27,24 +27,24 @@ jest.mock('next/link', () => {
 // Mock LanguageContext with React state
 jest.mock('./src/contexts/LanguageContext', () => {
   const React = require('react');
-  
+
   const MockLanguageProvider = ({ children }: any) => {
     const [language, setLanguage] = React.useState('en');
-    
+
     const contextValue = {
       language,
       setLanguage,
       isLanguage: (lang: string) => language === lang,
       availableLanguages: ['en', 'zh'],
     };
-    
+
     return React.createElement(
       React.createContext(contextValue).Provider,
       { value: contextValue },
-      children
+      children,
     );
   };
-  
+
   return {
     useLanguage: () => {
       const React = require('react');

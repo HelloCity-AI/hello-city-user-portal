@@ -73,7 +73,7 @@ describe('NavBar', () => {
       'w-[100vw]',
       'items-center',
       'justify-around',
-      'pt-5'
+      'pt-5',
     );
   });
 

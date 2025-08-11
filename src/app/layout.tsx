@@ -25,9 +25,7 @@ export default function RootLayout({
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={websiteTheme}>
               <CssBaseline />
-              <div className='relative'>
-                {children}
-              </div>
+              <div className="relative">{children}</div>
             </ThemeProvider>
           </StyledEngineProvider>
         </AppRouterCacheProvider>

@@ -43,7 +43,11 @@ const NavBar = ({ isCustom }: Props) => {
           <Button component={Link} href={`/${language}`} variant="tertiary">
             FAQ
           </Button>
-          <Button onClick={() => setIsExpanded(!isExpanded)} href={`/${language}`} variant="tertiary">
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            href={`/${language}`}
+            variant="tertiary"
+          >
             Check Items
           </Button>
           <FormControlLabel
@@ -108,7 +112,7 @@ const NavBar = ({ isCustom }: Props) => {
         />
       </div>
 
-      <div className="flex gap-2 items-center">
+      <div className="flex items-center gap-2">
         {isLoggedIn ? (
           <Dropdown
             anchorElContent={

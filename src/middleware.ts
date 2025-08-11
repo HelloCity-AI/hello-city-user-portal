@@ -1,8 +1,8 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
-import Negotiator from "negotiator";
-import { auth0 } from "./lib/auth0";
-import linguiConfig from "../lingui.config";
+import type { NextRequest } from 'next/server';
+import { NextResponse } from 'next/server';
+import Negotiator from 'negotiator';
+import { auth0 } from './lib/auth0';
+import linguiConfig from '../lingui.config';
 
 function getLocale(request: NextRequest): string {
   // Get locale from Accept-Language header
@@ -21,24 +21,24 @@ export async function middleware(request: NextRequest) {
 
   // Skip locale handling for Auth0 routes, API routes, and static files
   if (
-    pathname.startsWith("/api/auth") ||
-    pathname.startsWith("/api/") ||
-    pathname.startsWith("/_next/") ||
-    pathname.includes(".")
+    pathname.startsWith('/api/auth') ||
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/_next/') ||
+    pathname.includes('.')
   ) {
     return await auth0.middleware(request);
   }
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = linguiConfig.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
     return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`, request.url)
+      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
     );
   }
 
@@ -54,6 +54,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
      */
-    "/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+    '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
   ],
 };

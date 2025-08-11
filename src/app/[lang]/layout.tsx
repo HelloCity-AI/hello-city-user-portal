@@ -14,7 +14,7 @@ export function generateStaticParams() {
 
 export default async function LangLayout({ children, params }: Props) {
   const { lang } = params;
-  
+
   // Preload messages for all languages to avoid loading issues during language switching
   const allMessages: Record<string, any> = {};
   for (const locale of linguiConfig.locales) {

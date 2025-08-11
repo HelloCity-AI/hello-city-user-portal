@@ -1,5 +1,5 @@
-import { i18n } from "@lingui/core";
-import { en, zh } from "make-plural/plurals";
+import { i18n } from '@lingui/core';
+import { en, zh } from 'make-plural/plurals';
 
 // Load pluralization rules
 i18n.loadLocaleData({

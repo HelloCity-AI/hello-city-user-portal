@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { I18nProvider as LinguiI18nProvider } from "@lingui/react";
-import { i18n } from "../i18n";
-import { ReactNode, useEffect, useState } from "react";
-import { Messages } from "@lingui/core";
+import { I18nProvider as LinguiI18nProvider } from '@lingui/react';
+import { i18n } from '../i18n';
+import { ReactNode, useEffect, useState } from 'react';
+import { Messages } from '@lingui/core';
 
 type Props = {
   children: ReactNode;

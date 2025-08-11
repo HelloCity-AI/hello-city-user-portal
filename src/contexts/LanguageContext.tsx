@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { createContext, useContext, useEffect } from "react";
-import { useRouter, usePathname } from "next/navigation";
-import linguiConfig from "../../lingui.config";
-import { i18n } from "../i18n";
+import React, { createContext, useContext, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import linguiConfig from '../../lingui.config';
+import { i18n } from '../i18n';
 
 type Language = string;
 
 const LANGUAGES = {
-  en: { name: "English", nativeName: "English" },
-  zh: { name: "Chinese", nativeName: "中文" },
+  en: { name: 'English', nativeName: 'English' },
+  zh: { name: 'Chinese', nativeName: '中文' },
 } as const;
 
 interface LanguageContextType {
@@ -26,10 +26,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   // Extract current language from pathname
-  const pathSegments = pathname.split("/");
-  const language: Language = (pathSegments[1] && linguiConfig.locales.includes(pathSegments[1])) 
-    ? pathSegments[1] as Language
-    : linguiConfig.sourceLocale as Language;
+  const pathSegments = pathname.split('/');
+  const language: Language =
+    pathSegments[1] && linguiConfig.locales.includes(pathSegments[1])
+      ? (pathSegments[1] as Language)
+      : (linguiConfig.sourceLocale as Language);
 
   // Activate the current language when language changes
   useEffect(() => {
@@ -47,9 +48,9 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
 
     // Replace the current language in the pathname
-    const segments = pathname.split("/");
+    const segments = pathname.split('/');
     segments[1] = lang;
-    const newPath = segments.join("/");
+    const newPath = segments.join('/');
     router.push(newPath);
   };
 
@@ -73,7 +74,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 export function useLanguage() {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
+    throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
 }
