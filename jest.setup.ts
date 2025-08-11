@@ -73,7 +73,7 @@ jest.mock('@lingui/react', () => {
   };
 });
 
-// Mock @lingui/core
+// Mock @lingui/core and src/i18n (they export the same i18n instance)
 jest.mock('@lingui/core', () => ({
   i18n: {
     locale: 'en',
@@ -83,12 +83,7 @@ jest.mock('@lingui/core', () => ({
   },
 }));
 
-// Mock the i18n module
-jest.mock('./src/i18n', () => ({
-  i18n: {
-    locale: 'en',
-    activate: jest.fn(),
-    load: jest.fn(),
-    _: (id: string) => id,
-  },
-}));
+jest.mock('./src/i18n', () => {
+  const { i18n } = require('@lingui/core');
+  return { i18n };
+});

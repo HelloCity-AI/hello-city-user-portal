@@ -1,12 +1,5 @@
 import { i18n } from '@lingui/core';
 
-// Mock the i18n module to track activate calls
-jest.mock('@lingui/core', () => ({
-  i18n: {
-    activate: jest.fn(),
-  },
-}));
-
 describe('i18n.activate function', () => {
   const mockActivate = jest.mocked(i18n.activate);
 
