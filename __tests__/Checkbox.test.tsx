@@ -48,11 +48,10 @@ describe('Checkbox', () => {
       indeterminate: true,
     });
 
-    const checkbox = screen.getByRole('checkbox') as HTMLInputElement;
+    const checkbox = screen.getByRole('checkbox');
 
     expect(checkbox).toBeInTheDocument();
-    expect(checkbox.checked).toBe(false);
-    expect(checkbox.indeterminate).toBe(true);
+    expect(checkbox).toHaveAttribute('data-indeterminate', 'true');
   });
 
   it('Indeterminate prop can be combined with checked state', () => {
