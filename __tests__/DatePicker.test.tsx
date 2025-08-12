@@ -37,7 +37,6 @@ describe('DatePicker component', () => {
   });
 });
 
-// ✅ 把这个 test 从 inner describe 拿到外层
 it('Calls onChange when date is changed manually', () => {
   const handleChange = jest.fn();
   renderDatePicker({
