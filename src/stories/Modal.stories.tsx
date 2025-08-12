@@ -219,7 +219,7 @@ Message: ${formData.message || '(empty)'}`;
 };
 
 const meta: Meta<typeof ModalDisplay> = {
-  title: 'Components/ModalDisplay',
+  title: 'Components/Modal',
   component: ModalDisplay,
   parameters: {
     layout: 'centered',
