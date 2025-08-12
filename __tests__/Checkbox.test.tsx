@@ -4,12 +4,12 @@ import userEvent from '@testing-library/user-event';
 import Checkbox from '../src/components/Checkbox';
 import { withTheme } from './utils/TestWrapper';
 
-describe('Checkbox', () => {
-  // Helper function to render Checkbox with theme
-  const renderCheckbox = (props: React.ComponentProps<typeof Checkbox>) => {
-    return render(withTheme(<Checkbox {...props} />));
-  };
+// Helper function to render Checkbox with theme
+const renderCheckbox = (props: React.ComponentProps<typeof Checkbox>) => {
+  return render(withTheme(<Checkbox {...props} />));
+};
 
+describe('Checkbox', () => {
   it('Renders with label', () => {
     renderCheckbox({ label: 'Apply for Visa', checked: false, onChange: () => {} });
     expect(screen.getByLabelText(/Apply for Visa/i)).toBeInTheDocument();
