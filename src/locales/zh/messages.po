@@ -118,6 +118,27 @@ msgstr "添加头像"
 msgid "profile.avatar.remove"
 msgstr "删除照片"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "Confirm"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "Cancel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "Submit"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "Got it"
+msgstr ""
+
 #~ msgid "Email"
 #~ msgstr "电子邮件"
 
