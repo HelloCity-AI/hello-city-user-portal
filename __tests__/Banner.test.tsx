@@ -6,7 +6,6 @@ import { I18nTestWrapper } from './utils/TestWrapper';
 
 describe('BannerText', () => {
   beforeEach(() => {
-
     render(
       <I18nTestWrapper i18n={i18n}>
         <Banner />
