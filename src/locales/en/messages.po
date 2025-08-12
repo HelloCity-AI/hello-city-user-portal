@@ -116,6 +116,27 @@ msgstr "Add Profile Picture"
 msgid "profile.avatar.remove"
 msgstr "Remove Photos"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "Confirm"
+msgstr "Confirm"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "Cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "Submit"
+msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "Got it"
+msgstr "Got it"
+
 #: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"
 #~ msgstr "Email"
