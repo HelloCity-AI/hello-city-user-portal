@@ -12,7 +12,6 @@ const ProfileImageUploader = () => {
   const [status, setStatus] = useState<'none' | 'uploading' | 'uploaded' | 'error'>('none');
   const [message, setMessage] = useState<ReactElement<typeof Trans> | null>(null);
   const theme = useTheme();
-  const backgroundGradients = theme.backgroundGradients;
 
   // Use useRef hook to avoid bug when keep selecting same image from local disk
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -74,61 +73,48 @@ const ProfileImageUploader = () => {
   };
 
   return (
-    <div className="flex min-w-[40dvw] max-w-96 flex-col items-center justify-center rounded-xl border-2">
+    <div className="flex min-w-[35rem] flex-col items-center justify-center rounded-xl border-2 gap-4 pb-4">
       <Box
         sx={{
-          bgcolor: 'primary.main',
-          background: backgroundGradients.buttonPrimaryActive,
+          background: theme.backgroundGradients.buttonPrimaryActive,
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           height: 80,
-          mx: 0,
-          px: 0,
+          borderRadius: "inherit"
         }}
-        className="rounded-xl"
       >
         <Typography variant="h4" color="primary.contrastText">
           <Trans id="account.title">HelloCity Account</Trans>
         </Typography>
       </Box>
-      <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
+      <Typography variant="h6">
         <Trans id="profile.avatar.title">Profile Picture</Trans>
       </Typography>
 
       {/* Image Preview Section below ↓ */}
-
-      {!preview || status === 'uploading' ? (
-        <Image
-          src="/images/default-avatar.jpg"
-          alt="Default Avatar"
-          width={150}
-          height={150}
-          className="rounded-xl border-2 border-indigo-600"
-        />
-      ) : (
-        <Image
-          src={preview}
-          alt="Profile Image Preview"
-          width={150}
-          height={150}
-          className="h-32 w-32 rounded-xl border-2 border-indigo-600 object-cover"
-        />
-      )}
+      
+      <Image 
+        src = {!preview || status === 'uploading' ? "/images/default-avatar.jpg" : preview}
+        alt = {!preview || status === 'uploading' ? "Default Avatar" : "Profile Image Preview"}
+        width = {150}
+        height = {150}
+        className = "h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+      />
 
       {renderStatus()}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" sx={{ mt: 4, mb: 2 }}>
-          <Trans id="profile.avatar.add">Add Profile Picture</Trans>
+        <Button variant="secondary" component="label"  disabled = {status === 'uploading'}>
+          <Trans id="profile.avatar.add">Add Profile Photo</Trans>
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
         {preview && status !== 'uploading' && (
-          <Button variant="secondary" onClick={handleRemove} sx={{ mt: 4, mb: 2 }}>
-            <Trans id="profile.avatar.remove">Remove Photos</Trans>
+          <Button variant="secondary" onClick={handleRemove}>
+            <Trans id="profile.avatar.remove">Remove Photo</Trans>
           </Button>
         )}
       </div>

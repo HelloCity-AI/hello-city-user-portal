@@ -8,4 +8,5 @@ module.exports = {
     },
   ],
   format: 'po',
+  compileNamespace: 'ts',
 };
