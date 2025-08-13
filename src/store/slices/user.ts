@@ -14,7 +14,7 @@ interface UserState {
   University: string;
   Major: string;
   isloading: boolean;
-  error: string;
+  error?: string;
 }
 
 const initialState: UserState = {
