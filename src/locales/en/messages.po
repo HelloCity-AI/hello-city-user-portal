@@ -12,64 +12,9 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:11
-msgid "Profile"
-msgstr "Profile"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:18
-msgid "Settings"
-msgstr "Settings"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:25
-msgid "Theme"
-msgstr "Theme"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:32
-msgid "Subscription"
-msgstr "Subscription"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:39
-msgid "Logout"
-msgstr "Logout"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
-msgid "file.upload.error"
-msgstr "Invalid File size or type. Please upload an image file under 5MB"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:41
-msgid "file.upload.success"
-msgstr "The image is uploaded"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:93
-msgid "account.title"
-msgstr "HelloCity Account"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:97
-msgid "profile.avatar.title"
-msgstr "Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:125
+#: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:131
-msgid "profile.avatar.remove"
-msgstr "Remove Photos"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:97
@@ -91,6 +36,11 @@ msgid "NaveBar.FAQ"
 msgstr "FAQ"
 
 #. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:94
+msgid "account.title"
+msgstr "HelloCity Account"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:92
 msgid "NaveBar.Home"
 msgstr "Home"
@@ -99,6 +49,16 @@ msgstr "Home"
 #: src/app/[lang]/auth/page.tsx:70
 msgid "I'm all set"
 msgstr "I'm all set"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:26
+msgid "file.upload.error"
+msgstr "Invalid File size or type. Please upload an image file under 5MB"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:39
+msgid "Logout"
+msgstr "Logout"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/auth/page.tsx:81
@@ -111,6 +71,26 @@ msgid "Prev"
 msgstr "Prev"
 
 #. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:11
+msgid "Profile"
+msgstr "Profile"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:98
+msgid "profile.avatar.title"
+msgstr "Profile Picture"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:132
+msgid "profile.avatar.remove"
+msgstr "Remove Photos"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:18
+msgid "Settings"
+msgstr "Settings"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:131
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
@@ -119,6 +99,26 @@ msgstr "Sign In"
 #: src/components/NavBar.tsx:134
 msgid "NaveBar.Sign Up"
 msgstr "Sign Up"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:32
+msgid "Subscription"
+msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:42
+msgid "file.upload.success"
+msgstr "The image is uploaded"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:35
+msgid "file.upload.progress"
+msgstr "The image is uploading ..."
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.tsx:25
+msgid "Theme"
+msgstr "Theme"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:140
