@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -39,10 +39,23 @@ const DropDown: React.FC<DropdownProps> = ({
   anchorOrigin = { horizontal: 'right', vertical: 'bottom' },
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [hasRenderedOnce, setHasRenderedOnce] = useState(false);
+
   const open = Boolean(anchorEl);
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  // Force re-render menu only on first open to fix positioning issue
+  useEffect(() => {
+    if (open && !hasRenderedOnce) {
+      const timer = setTimeout(() => {
+        setHasRenderedOnce(true);
+      }, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [open, hasRenderedOnce]);
 
   const getMenuMarginTopSx = () => {
     let marginTop = '0.5rem';
@@ -76,6 +89,7 @@ const DropDown: React.FC<DropdownProps> = ({
       </IconButton>
       {/* Menu Paper*/}
       <Menu
+        key={Number(hasRenderedOnce)}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
