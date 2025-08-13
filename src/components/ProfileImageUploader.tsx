@@ -23,22 +23,20 @@ const ProfileImageUploader = () => {
     if (!file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
       setStatus('error');
       setMessage(
-        <Trans id="file.upload.error">
-          Invalid File size or type. Please upload an image file under 5MB
-        </Trans>,
+        <Trans id="file.upload.error" message="Invalid File size or type. Please upload an image file under 5MB" />,
       );
       return;
     }
 
     setStatus('uploading');
-    setMessage(<Trans id="file.upload.progress">The image is uploading ...</Trans>);
+    setMessage(<Trans id="file.upload.progress" message="The image is uploading ..." />);
 
     const imageUrl = URL.createObjectURL(file);
     setPreview(imageUrl);
 
     setTimeout(() => {
       setStatus('uploaded');
-      setMessage(<Trans id="file.upload.success">The image is uploaded</Trans>);
+      setMessage(<Trans id="file.upload.success" message="The image is uploaded" />);
     }, 3000);
   };
 
@@ -90,11 +88,11 @@ const ProfileImageUploader = () => {
         className="rounded-xl"
       >
         <Typography variant="h4" color="primary.contrastText">
-          <Trans id="account.title">HelloCity Account</Trans>
+          <Trans id="account.title" message="HelloCity Account" />
         </Typography>
       </Box>
       <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
-        <Trans id="profile.avatar.title">Profile Picture</Trans>
+        <Trans id="profile.avatar.title" message="Profile Picture" />
       </Typography>
 
       {/* Image Preview Section below ↓ */}
@@ -122,13 +120,13 @@ const ProfileImageUploader = () => {
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
         <Button variant="secondary" component="label" sx={{ mt: 4, mb: 2 }}>
-          <Trans id="profile.avatar.add">Add Profile Picture</Trans>
+          <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
         {preview && status !== 'uploading' && (
           <Button variant="secondary" onClick={handleRemove} sx={{ mt: 4, mb: 2 }}>
-            <Trans id="profile.avatar.remove">Remove Photos</Trans>
+            <Trans id="profile.avatar.remove" message="Remove Photos" />
           </Button>
         )}
       </div>
