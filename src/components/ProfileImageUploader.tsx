@@ -23,7 +23,10 @@ const ProfileImageUploader = () => {
     if (!file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
       setStatus('error');
       setMessage(
-        <Trans id="file.upload.error" message="Invalid File size or type. Please upload an image file under 5MB" />,
+        <Trans
+          id="file.upload.error"
+          message="Invalid File size or type. Please upload an image file under 5MB"
+        />,
       );
       return;
     }
