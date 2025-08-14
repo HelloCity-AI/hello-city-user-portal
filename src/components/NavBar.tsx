@@ -2,8 +2,9 @@
 
 import React, { useState } from 'react';
 import { Trans } from '@lingui/react';
-import { Button, Switch, FormControlLabel } from '@mui/material';
+import { Button, Switch, FormControlLabel, Avatar } from '@mui/material';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -32,7 +33,9 @@ const NavBar = ({ isCustom }: Props) => {
   if (isCustom) {
     return (
       <div className={styles['navbar-container']}>
-        <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
+        <Link href="/" passHref>
+          <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={120}/>
+        </Link>
         <div className={styles['navbar-left']}>
           <Button component={Link} href="/" variant="tertiary" passHref>
             Home
@@ -81,7 +84,9 @@ const NavBar = ({ isCustom }: Props) => {
   // Default Tailwind version
   return (
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
-      <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
+      <Link href="/" passHref>
+        <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={120}/>
+      </Link>
       <div className="flex gap-2">
         <Button component={Link} href="/" variant="tertiary" passHref>
           <Trans id="Home">Home</Trans>
@@ -121,7 +126,7 @@ const NavBar = ({ isCustom }: Props) => {
               <Trans id="Sign In">Sign In</Trans>
             </Button>
             <Button variant="tertiary" component={Link} href="/auth">
-              Sign Up
+              <Trans id="Sign Up">Sign Up</Trans>
             </Button>
             <Button component={Link} href="/" variant="primary">
               <Trans id="Try HelloCity">Try HelloCity</Trans>
