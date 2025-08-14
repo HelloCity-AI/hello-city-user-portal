@@ -31,7 +31,6 @@ const initialState: UserState = {
   University: '',
   Major: '',
   isloading: false,
-  error: '',
 };
 
 const userSlice = createSlice({
