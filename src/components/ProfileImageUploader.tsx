@@ -73,7 +73,7 @@ const ProfileImageUploader = () => {
   };
 
   return (
-    <div className="flex min-w-[35rem] flex-col items-center justify-center rounded-xl border-2 gap-4 pb-4">
+    <div className="flex min-w-[35rem] flex-col items-center justify-center gap-4 rounded-xl border-2 pb-4">
       <Box
         sx={{
           background: theme.backgroundGradients.buttonPrimaryActive,
@@ -82,7 +82,7 @@ const ProfileImageUploader = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: 80,
-          borderRadius: "inherit"
+          borderRadius: 'inherit',
         }}
       >
         <Typography variant="h4" color="primary.contrastText">
@@ -94,20 +94,20 @@ const ProfileImageUploader = () => {
       </Typography>
 
       {/* Image Preview Section below ↓ */}
-      
-      <Image 
-        src = {!preview || status === 'uploading' ? "/images/default-avatar.jpg" : preview}
-        alt = {!preview || status === 'uploading' ? "Default Avatar" : "Profile Image Preview"}
-        width = {150}
-        height = {150}
-        className = "h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+
+      <Image
+        src={!preview || status === 'uploading' ? '/images/default-avatar.jpg' : preview}
+        alt={!preview || status === 'uploading' ? 'Default Avatar' : 'Profile Image Preview'}
+        width={150}
+        height={150}
+        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
       />
 
       {renderStatus()}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label"  disabled = {status === 'uploading'}>
+        <Button variant="secondary" component="label" disabled={status === 'uploading'}>
           <Trans id="profile.avatar.add">Add Profile Photo</Trans>
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
