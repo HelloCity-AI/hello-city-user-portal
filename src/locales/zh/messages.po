@@ -14,11 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:129
-msgid "Sign Up"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/app/auth/page.tsx:65
 msgid "Prev"
 msgstr "上一步"
@@ -82,6 +77,11 @@ msgstr "检查项目"
 #: src/components/NavBar.tsx:126
 msgid "Sign In"
 msgstr "登录"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:129
+msgid "Sign Up"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:132
