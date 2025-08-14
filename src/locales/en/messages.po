@@ -1,133 +1,125 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 2025-07-20 22:44+1000\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: @lingui/cli\n"
-"Language: zh\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
+"Language: \n"
 "Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
 #: src/app/auth/page.tsx:65
 msgid "Prev"
-msgstr "上一步"
+msgstr "Prev"
 
 #. js-lingui-explicit-id
 #: src/app/auth/page.tsx:70
 msgid "I'm all set"
-msgstr "我准备好了"
+msgstr "I'm all set"
 
 #. js-lingui-explicit-id
 #: src/app/auth/page.tsx:81
 msgid "Next"
-msgstr "下一步======="
+msgstr "Next"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
 msgid "Profile"
-msgstr "个人资料"
+msgstr "Profile"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:18
 msgid "Settings"
-msgstr "设置"
+msgstr "Settings"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:25
 msgid "Theme"
-msgstr "主题"
+msgstr "Theme"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32
 msgid "Subscription"
-msgstr "订阅管理"
+msgstr "Subscription"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
-msgstr "登出>>>>>>> main======="
+msgstr "Logout"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:87
 msgid "Home"
-msgstr "首页"
+msgstr "Home"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:90
 msgid "Chat"
-msgstr "聊天"
+msgstr "Chat"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:93
 msgid "FAQ"
-msgstr "常见问题"
+msgstr "FAQ"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:96
 msgid "Check Items"
-msgstr "检查项目"
+msgstr "Check Items"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:121
 msgid "Sign In"
-msgstr "登录"
+msgstr "Sign In"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:127
 msgid "Try HelloCity"
-msgstr "试用 HelloCity"
+msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:25
 msgid "file.upload.error"
-msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
+msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:33
 msgid "file.upload.progress"
-msgstr "图片上传中...>>>>>>> main"
+msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:40
 msgid "file.upload.success"
-msgstr "图片上传成功"
+msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:89
 msgid "account.title"
-msgstr "HelloCity账户"
+msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:93
 msgid "profile.avatar.title"
-msgstr "头像"
+msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:111
 msgid "profile.avatar.add"
-msgstr "添加头像"
+msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:117
 msgid "profile.avatar.remove"
-msgstr "删除照片"
+msgstr "Remove Photos"
 
+#: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"
-#~ msgstr "电子邮件"
+#~ msgstr "Email"
 
-#: src/components/ProfileImageUploader.tsx:26
-#~ msgid "file.upload.error"
-#~ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
-
-#: src/components/NavBar.tsx:50
-#~ msgid "Profile"
-#~ msgstr "个人资料"
-
+#: src/app/auth/PageOne.tsx:14
 #~ msgid "UserName"
-#~ msgstr "用户名<<<<<<< HEAD<<<<<<< HEAD=======>>>>>>> main=======>>>>>>> main"
+#~ msgstr "UserName"
