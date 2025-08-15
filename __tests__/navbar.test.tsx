@@ -5,11 +5,11 @@ import { I18nTestWrapper } from './utils/TestWrapper';
 
 describe('NavBar', () => {
   beforeEach(() => {
-    // Clear localStorage to ensure a clean state for each test
+    // Clear localStorage before each test
     localStorage.clear();
   });
 
-  it('renders the Logo and Nav buttons', () => {
+  it('Renders the logo and navigation links', () => {
     render(
       <I18nTestWrapper>
         <NavBar />
@@ -24,22 +24,19 @@ describe('NavBar', () => {
 
     const chatLink = screen.getByRole('link', { name: /Chat/i });
     expect(chatLink).toBeInTheDocument();
-    // page component not implemented
-    // expect(chatLink).toHaveAttribute('href', '/chat');
 
     const ctaLink = screen.getByRole('link', { name: /Try HelloCity/i });
     expect(ctaLink).toBeInTheDocument();
-    // expect(ctaLink).toHaveAttribute('href', '/chat');
   });
 
-  it('toggles language label between CN and EN', async () => {
+  it('Toggles language label between CN and EN', async () => {
     render(
       <I18nTestWrapper>
         <NavBar />
       </I18nTestWrapper>,
     );
 
-    const toggle = screen.getByRole('checkbox');
+    const toggle = screen.getByRole('switch');
 
     expect(screen.getByText('EN')).toBeInTheDocument();
 
@@ -56,7 +53,7 @@ describe('NavBar', () => {
     });
   });
 
-  it('has correct Tailwind classes on the outermost div', () => {
+  it('Applies correct Tailwind classes to the outermost div', () => {
     const { container } = render(
       <I18nTestWrapper>
         <NavBar />
@@ -77,14 +74,13 @@ describe('NavBar', () => {
     );
   });
 
-  it('displays English navigation items by default', () => {
+  it('Displays English navigation items by default', () => {
     render(
       <I18nTestWrapper>
         <NavBar />
       </I18nTestWrapper>,
     );
 
-    // It would display English navigation items by default
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('Chat')).toBeInTheDocument();
     expect(screen.getByText('FAQ')).toBeInTheDocument();
@@ -93,16 +89,15 @@ describe('NavBar', () => {
     expect(screen.getByText('Try HelloCity')).toBeInTheDocument();
   });
 
-  it('switches to Chinese and updates translations', async () => {
+  it('Switches to Chinese and displays translated labels', async () => {
     render(
       <I18nTestWrapper>
         <NavBar />
       </I18nTestWrapper>,
     );
 
-    const toggle = screen.getByRole('checkbox');
+    const toggle = screen.getByRole('switch');
 
-    // Switch to Chinese
     fireEvent.click(toggle);
 
     await waitFor(() => {
@@ -115,23 +110,21 @@ describe('NavBar', () => {
     });
   });
 
-  it('switches back to English from Chinese', async () => {
+  it('Switches back to English from Chinese', async () => {
     render(
       <I18nTestWrapper>
         <NavBar />
       </I18nTestWrapper>,
     );
 
-    const toggle = screen.getByRole('checkbox');
+    const toggle = screen.getByRole('switch');
 
-    // Switch to Chinese
     fireEvent.click(toggle);
 
     await waitFor(() => {
       expect(screen.getByText('首页')).toBeInTheDocument();
     });
 
-    // Switch back to English
     fireEvent.click(toggle);
 
     await waitFor(() => {
@@ -144,5 +137,5 @@ describe('NavBar', () => {
     });
   });
 
-  //NavBar Login Test incomplete
+  // Login test to be implemented
 });
