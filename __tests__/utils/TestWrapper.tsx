@@ -6,10 +6,18 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 // Create theme once at module level for better performance
 const testTheme = createTheme();
 
+// Mock messages for testing
+const mockMessages = {
+  en: {},
+  zh: {},
+};
+
 // This is a wrapper component that provides language context for testing purposes
 export const I18nTestWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <LanguageProvider>
-    <I18nProvider>{children}</I18nProvider>
+    <I18nProvider initialLocale="en" initialMessages={mockMessages}>
+      {children}
+    </I18nProvider>
   </LanguageProvider>
 );
 

@@ -37,17 +37,21 @@ const buttonStyles: Record<ButtonProps['variant'], { enabled: string; disabled: 
 };
 //----------------------
 
-const Button: FC<ButtonProps> = ({ variant, children, disabled = false, onClick }) => {
-  const buttonClass = clsx(
-    baseStyles,
-    disabled ? buttonStyles[variant].disabled : buttonStyles[variant].enabled,
-  );
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ variant, children, disabled = false, onClick }, ref) => {
+    const buttonClass = clsx(
+      baseStyles,
+      disabled ? buttonStyles[variant].disabled : buttonStyles[variant].enabled,
+    );
 
-  return (
-    <button className={buttonClass} disabled={disabled} onClick={onClick}>
-      {children}
-    </button>
-  );
-};
+    return (
+      <button ref={ref} className={buttonClass} disabled={disabled} onClick={onClick}>
+        {children}
+      </button>
+    );
+  },
+);
+
+Button.displayName = 'Button';
 
 export default Button;

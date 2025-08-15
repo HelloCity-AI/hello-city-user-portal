@@ -1,9 +1,11 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { i18n } from '@/i18n';
+import React, { createContext, useContext, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
+import linguiConfig from '../../lingui.config';
+import { i18n } from '../i18n';
 
-type Language = 'en' | 'zh';
+type Language = string;
 
 const LANGUAGES = {
   en: { name: 'English', nativeName: 'English' },
@@ -20,31 +22,41 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en');
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Extract current language from pathname
+  const pathSegments = pathname.split('/');
+  const language: Language =
+    pathSegments[1] && linguiConfig.locales.includes(pathSegments[1])
+      ? (pathSegments[1] as Language)
+      : (linguiConfig.sourceLocale as Language);
+
+  // Activate the current language when language changes
+  useEffect(() => {
+    if (i18n.locale !== language) {
+      // Only activate if the language is different
+      // The messages should already be loaded by I18nProvider
+      i18n.activate(language);
+    }
+  }, [language]);
 
   const setLanguage = (lang: Language) => {
-    if (!(lang in LANGUAGES)) {
+    if (!linguiConfig.locales.includes(lang)) {
       console.warn(`Unsupported language: ${lang}`);
       return;
     }
 
-    setLanguageState(lang);
-    i18n.activate(lang);
-    localStorage.setItem('language', lang);
+    // Replace the current language in the pathname
+    const segments = pathname.split('/');
+    segments[1] = lang;
+    const newPath = segments.join('/');
+    router.push(newPath);
   };
 
   const isLanguage = (lang: Language) => language === lang;
 
-  const availableLanguages = Object.keys(LANGUAGES) as Language[];
-
-  // Load saved language on mount
-  useEffect(() => {
-    const saved = localStorage.getItem('language') as Language;
-    if (saved && saved in LANGUAGES) {
-      setLanguage(saved);
-    }
-  }, []);
-
+  const availableLanguages = linguiConfig.locales;
   return (
     <LanguageContext.Provider
       value={{

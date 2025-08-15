@@ -62,12 +62,12 @@ const Page = () => {
                 setPageNumber(pageNumber - 1);
               }}
             >
-              <Trans id="Prev">Prev</Trans>
+              <Trans id="Prev" message="Prev" />
             </Button>
           )}
           {pageNumber === 2 ? (
             <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
-              <Trans id="I'm all set">I'm all set</Trans>
+              <Trans id="I'm all set" message="I'm all set" />
             </Button>
           ) : (
             <Button
@@ -78,7 +78,7 @@ const Page = () => {
                 setPageNumber(pageNumber + 1);
               }}
             >
-              <Trans id="Next">Next</Trans>
+              <Trans id="Next" message="Next" />
             </Button>
           )}
         </div>

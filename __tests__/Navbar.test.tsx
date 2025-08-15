@@ -20,7 +20,7 @@ describe('NavBar', () => {
 
     const homeLink = screen.getByRole('link', { name: /Home/i });
     expect(homeLink).toBeInTheDocument();
-    expect(homeLink).toHaveAttribute('href', '/');
+    expect(homeLink).toHaveAttribute('href', '/en');
 
     const chatLink = screen.getByRole('link', { name: /Chat/i });
     expect(chatLink).toBeInTheDocument();
@@ -66,14 +66,14 @@ describe('NavBar', () => {
 
     expect(outerDiv).toHaveClass(
       'fixed',
-      'w-[100vw]',
-      'pt-5',
-      'top-0',
       'left-0',
-      'flex',
-      'justify-around',
-      'items-center',
+      'top-0',
       'z-10',
+      'flex',
+      'w-[100vw]',
+      'items-center',
+      'justify-around',
+      'pt-5',
     );
   });
 
@@ -91,57 +91,6 @@ describe('NavBar', () => {
     expect(screen.getByText('Check Items')).toBeInTheDocument();
     expect(screen.getByText('Sign In')).toBeInTheDocument();
     expect(screen.getByText('Try HelloCity')).toBeInTheDocument();
-  });
-
-  it('switches to Chinese and updates translations', async () => {
-    render(
-      <I18nTestWrapper>
-        <NavBar />
-      </I18nTestWrapper>,
-    );
-
-    const toggle = screen.getByRole('checkbox');
-
-    // Switch to Chinese
-    fireEvent.click(toggle);
-
-    await waitFor(() => {
-      expect(screen.getByText('首页')).toBeInTheDocument();
-      expect(screen.getByText('聊天')).toBeInTheDocument();
-      expect(screen.getByText('常见问题')).toBeInTheDocument();
-      expect(screen.getByText('检查项目')).toBeInTheDocument();
-      expect(screen.getByText('登录')).toBeInTheDocument();
-      expect(screen.getByText('试用 HelloCity')).toBeInTheDocument();
-    });
-  });
-
-  it('switches back to English from Chinese', async () => {
-    render(
-      <I18nTestWrapper>
-        <NavBar />
-      </I18nTestWrapper>,
-    );
-
-    const toggle = screen.getByRole('checkbox');
-
-    // Switch to Chinese
-    fireEvent.click(toggle);
-
-    await waitFor(() => {
-      expect(screen.getByText('首页')).toBeInTheDocument();
-    });
-
-    // Switch back to English
-    fireEvent.click(toggle);
-
-    await waitFor(() => {
-      expect(screen.getByText('Home')).toBeInTheDocument();
-      expect(screen.getByText('Chat')).toBeInTheDocument();
-      expect(screen.getByText('FAQ')).toBeInTheDocument();
-      expect(screen.getByText('Check Items')).toBeInTheDocument();
-      expect(screen.getByText('Sign In')).toBeInTheDocument();
-      expect(screen.getByText('Try HelloCity')).toBeInTheDocument();
-    });
   });
 
   //NavBar Login Test incomplete

@@ -29,12 +29,7 @@ export default function RootLayout({
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={websiteTheme}>
               <CssBaseline />
-              <LanguageProvider>
-                <I18nProvider>
-                  <NavBar />
-                  <div className="relative">{children}</div>
-                </I18nProvider>
-              </LanguageProvider>
+              <div className="relative">{children}</div>
             </ThemeProvider>
           </StyledEngineProvider>
         </AppRouterCacheProvider>
