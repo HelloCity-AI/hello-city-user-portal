@@ -26,7 +26,7 @@ msgstr "我准备好了"
 #. js-lingui-explicit-id
 #: src/app/auth/page.tsx:81
 msgid "Next"
-msgstr "下一步"
+msgstr "下一步======="
 
 #. js-lingui-explicit-id
 #: src/components/Banner.tsx:18
@@ -77,7 +77,7 @@ msgstr "订阅管理"
 #: src/components/dropdownMenuOptions.tsx:39
 #: src/components/NavBar.tsx:61
 msgid "Logout"
-msgstr "登出"
+msgstr "登出>>>>>>> main======="
 
 #. js-lingui-explicit-id
 #: src/components/InputBox.tsx:72
@@ -205,7 +205,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
-msgstr "图片上传中..."
+msgstr "图片上传中...>>>>>>> main"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -279,5 +279,9 @@ msgstr ""
 #~ msgid "file.upload.error"
 #~ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
+#: src/components/NavBar.tsx:50
+#~ msgid "Profile"
+#~ msgstr "个人资料"
+
 #~ msgid "UserName"
-#~ msgstr "用户名"
+#~ msgstr "用户名<<<<<<< HEAD<<<<<<< HEAD=======>>>>>>> main=======>>>>>>> main"
