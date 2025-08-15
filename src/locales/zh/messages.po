@@ -51,12 +51,12 @@ msgstr "添加头像"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:97
 msgid "NaveBar.Chat"
-msgstr ""
+msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:106
 msgid "NaveBar.Check Items"
-msgstr ""
+msgstr "检查项目"
 
 #~ msgid "Email"
 #~ msgstr "电子邮件"
@@ -64,7 +64,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:102
 msgid "NaveBar.FAQ"
-msgstr ""
+msgstr "常见问题"
 
 #: src/components/ProfileImageUploader.tsx:26
 #~ msgid "file.upload.error"
@@ -78,7 +78,7 @@ msgstr "HelloCity账户"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:92
 msgid "NaveBar.Home"
-msgstr ""
+msgstr "首页"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/auth/page.tsx:70
@@ -93,12 +93,12 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
-msgstr "登出>>>>>>> main======="
+msgstr "登出"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/auth/page.tsx:81
 msgid "Next"
-msgstr "下一步======="
+msgstr "下一步"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/auth/page.tsx:65
@@ -132,12 +132,12 @@ msgstr "设置"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:131
 msgid "NaveBar.Sign In"
-msgstr ""
+msgstr "登录"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:134
 msgid "NaveBar.Sign Up"
-msgstr ""
+msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32
@@ -152,7 +152,7 @@ msgstr "图片上传成功"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:35
 msgid "file.upload.progress"
-msgstr "图片上传中...>>>>>>> main"
+msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:25
@@ -162,7 +162,7 @@ msgstr "主题"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:140
 msgid "NaveBar.Try HelloCity"
-msgstr ""
+msgstr "试用 HelloCity"
 
 #~ msgid "UserName"
-#~ msgstr "用户名<<<<<<< HEAD<<<<<<< HEAD=======>>>>>>> main=======>>>>>>> main"
+#~ msgstr "用户名"
