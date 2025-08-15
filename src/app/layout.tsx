@@ -1,10 +1,11 @@
-import type { Metadata } from 'next';
 import './globals.css';
 import { CssBaseline, ThemeProvider, StyledEngineProvider } from '@mui/material';
 import { Inter } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import websiteTheme from '@/theme/theme';
+import type { Metadata } from 'next';
+
 import NavBar from '@/components/NavBar';
+import websiteTheme from '@/theme/theme';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { I18nProvider } from '@/contexts/I18nProvider';
 import ProviderRedux from './providers';
