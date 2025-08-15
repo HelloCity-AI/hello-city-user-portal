@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { Trans } from '@lingui/react';
-import { Button, Switch, FormControlLabel } from '@mui/material';
+import { Button, Switch, FormControlLabel, Avatar } from '@mui/material';
 import Link from 'next/link';
 
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -34,20 +34,24 @@ const NavBar = ({ isCustom }: Props) => {
       <div className={styles['navbar-container']}>
         <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
         <div className={styles['navbar-left']}>
-          <Button component={Link} href="/" variant="tertiary" passHref>
+          <Button component={Link} href={`/${language}`} variant="tertiary" passHref>
             Home
           </Button>
-          <Button component={Link} href="/" variant="tertiary">
+          <Button component={Link} href={`/${language}`} variant="tertiary">
             Chat
           </Button>
-          <Button component={Link} href="/" variant="tertiary">
+          <Button component={Link} href={`/${language}`} variant="tertiary">
             FAQ
           </Button>
-          <Button onClick={() => setIsExpanded(!isExpanded)} href="/" variant="tertiary">
+          <Button
+            onClick={() => setIsExpanded(!isExpanded)}
+            href={`/${language}`}
+            variant="tertiary"
+          >
             Check Items
           </Button>
           <FormControlLabel
-            control={<Switch checked={isEnglish} onChange={handleChange} color="primary" />}
+            control={<Switch checked={isEnglish} onChange={handleLanguageChange} color="primary" />}
             sx={{ color: 'white' }}
             label={isEnglish ? 'EN' : 'CN'}
           />
@@ -56,13 +60,13 @@ const NavBar = ({ isCustom }: Props) => {
         <div className={styles['navbar-right']}>
           {isLoggedIn ? (
             <>
-              <Button component={Link} href="/" variant="tertiary">
+              <Button component={Link} href={`/${language}`} variant="tertiary">
                 Profile
               </Button>
-              <Button component={Link} href="/" variant="tertiary">
+              <Button component={Link} href={`/${language}`} variant="tertiary">
                 Logout
               </Button>
-              <Button component={Link} href="/" variant="tertiary">
+              <Button component={Link} href={`/${language}`} variant="tertiary">
                 Language
               </Button>
             </>
@@ -70,7 +74,7 @@ const NavBar = ({ isCustom }: Props) => {
             <Button variant="tertiary">Sign In</Button>
           )}
 
-          <Button component={Link} href="/" variant="primary">
+          <Button component={Link} href={`/${language}`} variant="primary">
             Try HelloCity
           </Button>
         </div>
@@ -83,17 +87,23 @@ const NavBar = ({ isCustom }: Props) => {
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
       <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
       <div className="flex gap-2">
-        <Button component={Link} href="/" variant="tertiary" passHref>
-          <Trans id="Home">Home</Trans>
-        </Button>
-        <Button component={Link} href="/" variant="tertiary">
-          <Trans id="Chat">Chat</Trans>
-        </Button>
-        <Button component={Link} href="/" variant="tertiary">
-          <Trans id="FAQ">FAQ</Trans>
-        </Button>
-        <Button onClick={() => setIsExpanded(!isExpanded)} href="/" variant="tertiary">
-          <Trans id="Check Items">Check Items</Trans>
+        <Link href={`/${language}`}>
+          <Button variant="tertiary">
+            <Trans id="NaveBar.Home" message="Home" />
+          </Button>
+        </Link>
+        <Link href={`/${language}`}>
+          <Button variant="tertiary">
+            <Trans id="NaveBar.Chat" message="Chat" />
+          </Button>
+        </Link>
+        <Link href={`/${language}`}>
+          <Button variant="tertiary">
+            <Trans id="NaveBar.FAQ" message="FAQ" />
+          </Button>
+        </Link>
+        <Button onClick={() => setIsExpanded(!isExpanded)} variant="tertiary">
+          <Trans id="NaveBar.Check Items" message="Check Items" />
         </Button>
         <FormControlLabel
           control={<Switch checked={isEnglish} onChange={handleLanguageChange} color="primary" />}
@@ -102,7 +112,7 @@ const NavBar = ({ isCustom }: Props) => {
         />
       </div>
 
-      <div>
+      <div className="flex items-center gap-2">
         {isLoggedIn ? (
           <Dropdown
             anchorElContent={
@@ -116,18 +126,19 @@ const NavBar = ({ isCustom }: Props) => {
             showUserLabel
           />
         ) : (
-          <div className="flex gap-2">
-            <Button component={Link} href="/" variant="tertiary">
-              <Trans id="Sign In">Sign In</Trans>
+          <>
+            <Button component={Link} href={`/${language}`} variant="tertiary">
+              <Trans id="NaveBar.Sign In" message="Sign In" />
             </Button>
-            <Button variant="tertiary" component={Link} href="/auth">
-              Sign Up
+            <Button variant="tertiary" component={Link} href={`/${language}/auth`}>
+              <Trans id="NaveBar.Sign Up" message="Sign Up" />
             </Button>
-            <Button component={Link} href="/" variant="primary">
-              <Trans id="Try HelloCity">Try HelloCity</Trans>
-            </Button>
-          </div>
+          </>
         )}
+
+        <Button component={Link} href={`/${language}`} variant="primary">
+          <Trans id="NaveBar.Try HelloCity" message="Try HelloCity" />
+        </Button>
       </div>
     </div>
   );

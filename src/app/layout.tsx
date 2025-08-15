@@ -31,13 +31,9 @@ export default function RootLayout({
             <ThemeProvider theme={websiteTheme}>
               <CssBaseline />
               <ProviderRedux>
-                <LanguageProvider>
-                  <I18nProvider>
-                    <NavBar />
-                    <div className="relative">{children}</div>
-                  </I18nProvider>
-                </LanguageProvider>
+                <div className="relative">{children}</div>
               </ProviderRedux>
+              <div className="relative">{children}</div>
             </ThemeProvider>
           </StyledEngineProvider>
         </AppRouterCacheProvider>
