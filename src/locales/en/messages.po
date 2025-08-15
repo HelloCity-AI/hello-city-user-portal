@@ -17,9 +17,9 @@ msgid "Got it"
 msgstr "Got it"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:29
-msgid "Submit"
-msgstr "Submit"
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "Confirm"
+msgstr "Confirm"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -28,9 +28,9 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:27
-msgid "Confirm"
-msgstr "Confirm"
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "Submit"
+msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:26
