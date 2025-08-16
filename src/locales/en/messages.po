@@ -107,24 +107,6 @@ msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-#: src/components/ProfileImageUploader.tsx:33
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:40
-msgid "file.upload.success"
-msgstr "The image is uploaded"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:89
-msgid "account.title"
-msgstr "HelloCity Account"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:93
-=======
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "Logout"
@@ -146,21 +128,11 @@ msgstr "Profile"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:98
->>>>>>> main
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-#: src/components/ProfileImageUploader.tsx:111
-msgid "profile.avatar.add"
-msgstr "Add Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:117
-=======
 #: src/components/ProfileImageUploader.tsx:132
->>>>>>> main
 msgid "profile.avatar.remove"
 msgstr "Remove Photos"
 
