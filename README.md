@@ -2,11 +2,23 @@
 
 # Hello City Client
 
-A modern frontend project powered by Next.js 14, React 18, TypeScript, Tailwind CSS and Jest.
+A modern frontend project powered by Next.js 14, React 18, TypeScript, Material-UI, Tailwind CSS, Redux Toolkit, and comprehensive internationalization support.
 
-## Requirements
+## 📋 Table of Contents
 
-- Node.js: **>=18.x** (LTS recommended)
+1. [Requirements](#1-requirements)
+2. [Getting Started](#2-getting-started)
+3. [Environment Configuration](#3-environment-configuration)
+4. [Development Commands](#4-development-commands)
+5. [Git Hooks (Husky)](#5-git-hooks-husky)
+6. [Tech Stack](#6-tech-stack)
+7. [Project Structure](#7-project-structure)
+8. [Development Workflow](#8-development-workflow)
+9. [Notes](#9-notes)
+
+## 1. Requirements
+
+- Node.js: **>=20.19.0 or >=22.12.0** (Node 22 LTS recommended)
 - Package manager: npm (v9+ recommended), or yarn/pnpm/bun
 - Local ENV file
   - Create `.env.local` file, populate it with the same constant names in `.env.example` file
@@ -14,7 +26,7 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Tailwind 
     - Auth0
     - Backend Api calls
 
-## Getting Started
+## 2. Getting Started
 
 1. **Clone the project and enter the directory:**
 
@@ -26,115 +38,254 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Tailwind 
 2. **Install dependencies:**
 
    ```bash
-   npm install
+   npm install  # or npm ci
    # or
-   yarn install
+   yarn install --frozen-lockfile  # or yarn ci
    # or
-   pnpm install
+   pnpm install --frozen-lockfile  # or pnpm ci
    # or
-   bun install
+   bun install --frozen-lockfile
    ```
 
-3. **Start the development server:**
+3. **Compile internationalization messages:**
+
+   ```bash
+   npm run compile
+   ```
+
+4. **Start the development server:**
 
    ```bash
    npm run dev
    # or yarn dev / pnpm dev / bun dev
    ```
 
-4. **Open** [http://localhost:3000](http://localhost:3000) **in your browser.**
+5. **Set up environment variables** (see Environment Configuration below)
 
-## Unit Tests
+6. **Open** [http://localhost:3000](http://localhost:3000) **in your browser.**
+
+## 4. Development Commands
+
+### Core Development
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm run start
+
+# Type checking
+npm run type-check
+```
+
+### Code Quality
+
+```bash
+# Linting
+npm run lint          # Check for issues
+npm run lint:fix      # Fix issues automatically
+
+# Formatting
+npm run format:check  # Check formatting
+npm run format:fix    # Fix formatting
+
+# Combined fix
+npm run fix           # Run both lint:fix and format:fix
+```
+
+### Testing
 
 Unit tests must be passed before creating a pull request.
 
-Run the tests from your terminal with the following scripts (All commands are already defined in package.json):
-
 ```bash
-# run all tests once
+# Run all tests once
 npm run test
 
-# watch mode (reruns on file changes)
-npm run test:watch // will run unit test
+# Watch mode (reruns on file changes)
+npm run test:watch
 
-# generate a coverage report
+# Generate coverage report
 npm run test:coverage
 ```
 
-By default, Jest looks for tests in either of these places:
+Test files location:
 
-- Any file inside a `__tests__` directory (recursive search)
-- Any file whose name matches one of the patterns:
-  `*.test.ts`, `*.test.tsx`, `*.spec.ts`,` *.spec.tsx`
+- `**/__tests__/**/*.test.tsx`
+- `**/*.test.tsx`, `**/*.spec.tsx`
 
-5. **Run Storybook**
-
-## Command
-
-Storybook is an application that allows developers to create samples of frontend elements
-
-The interactive components allows developers to see different variations of elements efficiently
-By default, Storybook renders for .stories.tsx files in:
-
-- `stories` directory (recursive search)
-
-Add new packages to Storybook is done in `main.ts` under `.storybook` directory
+### Internationalization
 
 ```bash
+# Extract messages from code
+npm run extract
+
+# Compile extracted messages
+npm run compile
+
+# Run both (required after adding new text)
+npm run extract && npm run compile
+```
+
+### Storybook
+
+Interactive component documentation and development.
+
+**First time setup (recommended):**
+
+```bash
+# Build Storybook first (faster subsequent starts)
+npm run build-storybook
+
+# Then start development server
 npm run storybook
 ```
 
-## Husky
-
-Husky is a Git hook tool that helps enforce project standards before any Git actions, such as:
-
-- ✅ Automatically format code (e.g., Prettier)
-- ✅ Run lint checks (e.g., ESLint)
-- ✅ Enforce commit message format (e.g., `feat(scope) : [SCRUM-69] description`)
-- ✅ Prevent invalid commits or pushes
-
-### ✅ For Windows Users
-
-Just run:
+**Regular development:**
 
 ```bash
-npm install
+# Start Storybook dev server (auto-builds if needed)
+npm run storybook
 ```
 
-Husky will be automatically initialized via the `prepare` script in `package.json`.
+Storybook looks for `.stories.tsx` files in the `stories/` directory.
 
----
+**Access Storybook:** [http://localhost:6006](http://localhost:6006)
 
-### ✅ For macOS / Linux Users
+## 3. Environment Configuration
 
-In addition to `npm install`, you **must ensure `.husky/*` scripts are executable**:
+**Required:** Create `.env.local` file in the project root:
 
 ```bash
-npm install
-chmod +x .husky/*
+# macOS/Linux
+cp .env.example .env.local
+
+# Windows
+copy .env.example .env.local
 ```
 
-## Tech Stack
+Populate `.env.local` with actual values for:
 
-- [Next.js 14](https://nextjs.org/)
-- [React 18](https://react.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [MUI](https://mui.com/)
-- [Jest](https://jestjs.io/)
-- [Storybook](https://storybook.js.org/)
+- **Auth0 Configuration:**
+  - `AUTH0_SECRET` - Random 32-character string
+  - `AUTH0_BASE_URL` - Your application URL (http://localhost:3000 for development)
+  - `AUTH0_ISSUER_BASE_URL` - Your Auth0 domain
+  - `AUTH0_CLIENT_ID` - Your Auth0 application client ID
+  - `AUTH0_CLIENT_SECRET` - Your Auth0 application client secret
 
-## Project Structure
+- **Backend API:**
+  - `NEXT_PUBLIC_API_BASE_URL` - Backend API base URL
 
-- `src/app/`: Main app directory (pages, global styles, layouts, etc.)
-- `src/app/globals.css`: Global styles with Tailwind config
-- `src/app/layout.tsx`: Global layout and metadata
-- `src/app/page.tsx`: Home page entry
-- `tailwind.config.ts`, `postcss.config.mjs`: Styling configuration
-- `theme.ts`: MUI Styling configuration
-- `jest.config.ts`,`jest.setup.ts`: Jest (Unit Tests) config
+**Note:** Contact team lead for actual environment values.
 
-## Notes
+## 5. Git Hooks (Husky)
 
-- To customize fonts, favicon, or SEO, edit files in `src/app/fonts/`, `src/app/layout.tsx`, and `src/app/favicon.ico`.
-- TypeScript config: see `tsconfig.json`.
+Automatically enforces code quality standards:
+
+- ✅ Code formatting (Prettier)
+- ✅ Linting (ESLint)
+- ✅ Type checking (TypeScript)
+- ✅ Test validation
+- ✅ Commit message format
+
+**Setup:** Automatically configured during `npm install` on all platforms.
+
+## 6. Tech Stack
+
+### Core Framework
+
+- [Next.js 14](https://nextjs.org/) - React framework with App Router
+- [React 18](https://react.dev/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+
+### UI & Styling
+
+- [Material-UI](https://mui.com/) - React component library
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- Custom theme with brand colors and gradients
+
+### State Management
+
+- [Redux Toolkit](https://redux-toolkit.js.org/) - State management
+- [Redux Saga](https://redux-saga.js.org/) - Side effect management
+
+### Authentication & API
+
+- [Auth0](https://auth0.com/) - Authentication and authorization
+- [Axios](https://axios-http.com/) - HTTP client
+
+### Internationalization
+
+- [Lingui](https://lingui.js.org/) - i18n library
+- Support for English and Chinese
+
+### Development Tools
+
+- [Jest](https://jestjs.io/) + [React Testing Library](https://testing-library.com/react) - Testing
+- [Storybook](https://storybook.js.org/) - Component documentation
+- [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) - Code quality
+- [Husky](https://typicode.github.io/husky/) - Git hooks
+
+## 7. Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router (pages, layouts)
+├── components/             # Reusable UI components
+├── compoundComponents/     # Complex composed components
+├── store/                  # Redux store, slices, sagas
+├── contexts/               # React contexts (Language, i18n)
+├── api/                    # API layer with authentication
+├── locales/                # i18n message catalogs
+├── theme/                  # Material-UI theme configuration
+├── types/                  # TypeScript type definitions
+├── utils/                  # Utility functions
+└── stories/                # Storybook stories
+```
+
+### Key Configuration Files
+
+- `tailwind.config.ts` - Tailwind CSS configuration with custom theme
+- `src/theme/` - Material-UI theme with brand colors
+- `jest.config.ts` + `jest.setup.ts` - Testing configuration
+- `lingui.config.js` - Internationalization setup
+- `.storybook/` - Storybook configuration
+
+## 8. Development Workflow
+
+### Adding New Features
+
+1. Create components in `src/components/`
+2. Add Redux state in `src/store/slices/` if needed
+3. Add Storybook stories in `src/stories/`
+4. Write tests in `__tests__/` directories
+5. Use `<Trans>` components for all user-facing text
+6. Run `npm run extract && npm run compile` after adding text
+
+### Language Support
+
+- **English**: `/en/` routes (default)
+- **Chinese**: `/zh/` routes
+- Always wrap user-facing text with `<Trans>` components
+- Test both languages during development
+
+### Code Quality
+
+- Husky pre-commit hooks run automatically
+- All tests must pass before creating PRs
+- ESLint and Prettier enforce code standards
+- TypeScript strict mode enabled
+
+### Authentication
+
+- Auth0 handles user authentication
+- Use `fetchWithAuth` utility for authenticated API calls
+- User state managed through Redux
+
+## 9. Notes
+
+- All dependencies use exact versions (no `^` prefixes), MUI versions above 7.2 may have compatibility issues
+- TypeScript strict mode and comprehensive type checking enabled
