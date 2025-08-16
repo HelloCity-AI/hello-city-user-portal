@@ -20,7 +20,7 @@ export default meta;
 
 type Story = StoryObj<typeof ProfileImageUploader>;
 
-export const Default: Story = {
+export const Primary: Story = {
   render: () => (
     <FullStoryWrapper initialMessages={mockMessages}>
       <div className="flex h-screen items-center justify-center">
