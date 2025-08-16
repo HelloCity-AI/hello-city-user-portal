@@ -5,7 +5,7 @@ describe('BannerText', () => {
   beforeEach(() => {
     render(<Banner />);
   });
-  it('renders the correct text with line breaks', () => {
+  it('Renders the correct text with line breaks', () => {
     expect(
       screen.getByText(/Get personalized guidance step by step checklists/i),
     ).toBeInTheDocument();
@@ -16,7 +16,7 @@ describe('BannerText', () => {
     expect(screen.getByRole('button', { name: /Try HelloCity/i })).toBeInTheDocument();
   });
 
-  it('has the CTA button with proper text and spacing', () => {
+  it('Has the CTA button with proper text and spacing', () => {
     const button = screen.getByRole('button', { name: /Try hellocity/i });
     expect(button).toBeInTheDocument();
     expect(button).toHaveStyle({ marginTop: '6px' });
