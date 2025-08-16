@@ -1,0 +1,40 @@
+.input-box-wrapper {
+  margin-bottom: 24px;
+}
+
+.input-box-wrapper .label {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
+  background-color: #f3efff; /* Light purple background */
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.input-box-wrapper:first-of-type .label {
+  margin-top: 24px; /* Extra spacing for the first input */
+}
+
+.input-box-wrapper .MuiOutlinedInput-root fieldset {
+  border-color: #6bbde1; /* Default border */
+}
+
+.input-box-wrapper .MuiOutlinedInput-root:hover fieldset {
+  border-color: #6bbde1; /* Hover border */
+}
+
+.input-box-wrapper .MuiOutlinedInput-root.Mui-focused fieldset {
+  border-color: #5c4d7d; /* Focused (active) border */
+}
+
+.input-box-wrapper .MuiOutlinedInput-root.Mui-error fieldset {
+  border-color: #d32f2f; /* Error border */
+}
+
+.input-box-wrapper .MuiFormHelperText-root {
+  font-size: 12px;
+  color: #d32f2f; /* Error text color */
+  margin-left: 0;
+}

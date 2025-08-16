@@ -9,7 +9,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 import { Dropdown } from '.';
 import { userMenuOptions, languageMenuOptions } from './dropdownMenuOptions';
-import styles from './NavBarCustom.module.scss';
+import styles from './NavBar.module.css';
 
 type Props = {
   isCustom?: boolean;

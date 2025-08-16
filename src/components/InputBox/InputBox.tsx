@@ -6,7 +6,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import styles from './InputBox.module.scss';
+import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';

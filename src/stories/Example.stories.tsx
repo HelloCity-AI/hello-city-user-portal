@@ -13,6 +13,6 @@ export default meta;
 
 type Story = StoryObj<typeof Example>;
 
-export const Default: Story = {
+export const Primary: Story = {
   name: 'Typography + Buttons',
 };
