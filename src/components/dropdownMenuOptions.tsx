@@ -8,35 +8,35 @@ import type { DropdownOptionProps } from './Dropdown';
 
 export const userMenuOptions: DropdownOptionProps[] = [
   {
-    label: <Trans id="Profile">Profile</Trans>,
+    label: <Trans id="Profile" message="Profile" />,
     value: 'profile',
     icon: PersonOutlineIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: <Trans id="Settings">Settings</Trans>,
+    label: <Trans id="Settings" message="Settings" />,
     value: 'settings',
     icon: SettingsOutlinedIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: <Trans id="Theme">Theme</Trans>,
+    label: <Trans id="Theme" message="Theme" />,
     value: 'theme',
     icon: ContrastOutlinedIcon,
     divider: false,
     onClick: (value: string) => alert(value),
   },
   {
-    label: <Trans id="Subscription">Subscription</Trans>,
+    label: <Trans id="Subscription" message="Subscription" />,
     value: 'subscription',
     icon: PaymentOutlinedIcon,
     divider: true,
     onClick: (value: string) => alert(value),
   },
   {
-    label: <Trans id="Logout">Logout</Trans>,
+    label: <Trans id="Logout" message="Logout" />,
     value: 'logout',
     icon: Logout,
     divider: false,
