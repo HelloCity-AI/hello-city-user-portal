@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import InputBox from './InputBox';
+import InputBox from '@/components/InputBox/InputBox';
 
 const meta: Meta<typeof InputBox> = {
   title: 'InputBox',
@@ -16,7 +16,7 @@ export const Primary = () => {
   const [repeatPassword, setRepeatPassword] = useState('');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+    <div className="mx-auto flex flex-col gap-4">
       <InputBox
         label="Name"
         fieldType="name"

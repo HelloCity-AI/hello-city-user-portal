@@ -26,8 +26,8 @@ export const FormModal: React.FC<FormModalProps> = ({
   textAlignCenter,
   actionAlignment = 'flex-end',
   onSubmit,
-  submitText = <Trans id="Submit">Submit</Trans>,
-  cancelText = <Trans id="Cancel">Cancel</Trans>,
+  submitText = <Trans id="form.submit" message="Submit" />,
+  cancelText = <Trans id="form.cancel" message="Cancel" />,
   buttonDisabled,
   buttonLoading,
   ...modalProps

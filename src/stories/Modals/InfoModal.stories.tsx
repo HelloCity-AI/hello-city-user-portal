@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import { InfoModal } from '@/compoundComponents/Modals';
-import { FullStoryWrapper } from '../utils/StoryWrapper';
+import FullStoryWrapper from '../utils/StoryWrapper';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
+const mockMessages = {
+  en: {
+    'info.button': 'Got it',
+  },
+};
 
 interface InfoModalDisplayProps {
   maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -41,7 +47,7 @@ const InfoModalDisplay: React.FC<InfoModalDisplayProps> = ({
   };
 
   return (
-    <FullStoryWrapper>
+    <FullStoryWrapper initialMessages={mockMessages}>
       <Box display="flex" flexDirection="column" justifyContent="center">
         <Button variant="contained" onClick={handleOpen}>
           Open Info Modal
