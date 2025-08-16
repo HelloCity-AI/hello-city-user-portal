@@ -27,7 +27,7 @@ jest.mock('next/image', () => ({
 const mockUserData = {
   UserName: 'John',
   PreferredName: 'nikeJohn',
-  Avatar: 'https://example.com/avatar.jpg',
+  AvatarImg: 'https://example.com/avatar.jpg',
   LastJoinDate: '2023-10-15 14:30',
 };
 
@@ -53,7 +53,7 @@ describe('UserLabel component test', () => {
       renderUserlabel({
         UserName: undefined,
         PreferredName: undefined,
-        Avatar: undefined,
+        AvatarImg: undefined,
         LastJoinDate: undefined,
       });
 
@@ -93,10 +93,8 @@ describe('UserLabel component test', () => {
     it('When avatar is provided, uses the correct size', () => {
       renderUserlabel(mockUserData);
 
-      const avatar = screen.getByAltText('User Avatar');
-
-      expect(avatar).toHaveAttribute('width', '64');
-      expect(avatar).toHaveAttribute('height', '64');
+      const avatarWrapper = screen.getByTestId('user-avatar');
+      expect(avatarWrapper).toHaveStyle({ width: '64px', height: '64px' });
     });
   });
 });

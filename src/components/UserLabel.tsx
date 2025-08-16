@@ -1,26 +1,36 @@
 'use client';
 
 import React from 'react';
-
 import Image from 'next/image';
+import { Avatar } from '@mui/material';
 interface UserData {
   UserName?: string;
   PreferredName?: string;
-  Avatar?: string;
+  AvatarImg?: string;
   LastJoinDate?: string;
 }
 
-const UserProfileCard: React.FC<UserData> = ({ UserName, PreferredName, Avatar, LastJoinDate }) => {
+const UserProfileCard: React.FC<UserData> = ({
+  UserName,
+  PreferredName,
+  AvatarImg,
+  LastJoinDate,
+}) => {
   return (
     <div className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white shadow-xl hover:shadow-2xl">
       <div
         className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-white"
         data-testid="avatar-container"
       >
-        {!Avatar ? (
+        {!AvatarImg ? (
           <span className="material-icons text-7xl text-gray-400">account_circle</span>
         ) : (
-          <Image src={Avatar} alt="User Avatar" width={64} height={64} className="rounded-full" />
+          <Avatar
+            data-testid="user-avatar"
+            alt="User Avatar"
+            src={AvatarImg}
+            sx={{ width: 64, height: 64 }}
+          />
         )}
       </div>
       <div>

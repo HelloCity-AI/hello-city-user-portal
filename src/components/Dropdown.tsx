@@ -102,7 +102,7 @@ const DropDown: React.FC<DropdownProps> = ({
         {/* User label area, will update when userprofile global statement is ready */}
         {showUserLabel && layout === 'vertical' && (
           <MenuItem sx={{ minHeight: 'auto', alignItems: 'flex-start' }}>
-            <UserProfileCard Avatar={'/images/banner-image.jpeg'} UserName="Leon" />
+            <UserProfileCard AvatarImg={'/images/banner-image.jpeg'} UserName="Leon" />
           </MenuItem>
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
