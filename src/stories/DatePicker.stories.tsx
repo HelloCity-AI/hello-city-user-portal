@@ -15,12 +15,6 @@ type Story = StoryObj<typeof DatePicker>;
 export const Default: Story = {
   render: () => {
     const [value, setValue] = useState<dayjs.Dayjs | null>(dayjs());
-    return (
-      <DatePicker
-        label={<Trans>Pick a date</Trans>}
-        value={value}
-        onChange={setValue}
-      />
-    );
+    return <DatePicker label={<Trans>Pick a date</Trans>} value={value} onChange={setValue} />;
   },
 };
