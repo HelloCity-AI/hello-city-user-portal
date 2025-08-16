@@ -1,0 +1,25 @@
+services:
+  hello-city-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - AUTH0_DOMAIN=${AUTH0_DOMAIN:-fake-domain.auth0.com}
+      - AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID:-fake-client-id}
+      - AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET:-fake-client-secret-at-least-32-characters}
+      - AUTH0_SECRET=${AUTH0_SECRET:-fake-secret-at-least-32-characters-long}
+      - AUTH0_BASE_URL=http://localhost:3000
+      - AUTH0_AUDIENCE=${AUTH0_AUDIENCE:-fake-audience}
+      - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL:-http://localhost:5000}
+      - NODE_ENV=production
+    env_file:
+      - .env.local
+    restart: unless-stopped
+    networks:
+      - hello-city-network
+
+networks:
+  hello-city-network:
+    driver: bridge
