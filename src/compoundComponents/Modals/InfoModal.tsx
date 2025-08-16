@@ -19,7 +19,7 @@ export const InfoModal: React.FC<InfoModalProps> = ({
   description,
   textAlignCenter = true,
   actionAlignment = 'center',
-  confirmText = <Trans id="Got it">Got it</Trans>,
+  confirmText = <Trans id="info.button" message="Got it" />,
   ...modalProps
 }) => {
   return (

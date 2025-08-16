@@ -13,24 +13,24 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
-msgid "Submit"
-msgstr "Submit"
+#~ msgid "Submit"
+#~ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "Cancel"
-msgstr "Cancel"
+#~ msgid "Cancel"
+#~ msgstr "Cancel"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
-msgid "Confirm"
-msgstr "Confirm"
+#~ msgid "Confirm"
+#~ msgstr "Confirm"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
-msgid "Got it"
-msgstr "Got it"
+#~ msgid "Got it"
+#~ msgstr "Got it"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:32
@@ -68,6 +68,16 @@ msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+msgid "cancel.button"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "form.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:97
 msgid "NaveBar.Chat"
 msgstr "Chat"
@@ -77,6 +87,11 @@ msgstr "Chat"
 msgid "NaveBar.Check Items"
 msgstr "Check Items"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "confirm.button"
+msgstr "Confirm"
+
 #: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"
 #~ msgstr "Email"
@@ -85,6 +100,11 @@ msgstr "Check Items"
 #: src/components/NavBar.tsx:102
 msgid "NaveBar.FAQ"
 msgstr "FAQ"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "info.button"
+msgstr "Got it"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:94
@@ -150,6 +170,11 @@ msgstr "Sign In"
 #: src/components/NavBar.tsx:134
 msgid "NaveBar.Sign Up"
 msgstr "Sign Up"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "form.submit"
+msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32

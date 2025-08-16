@@ -15,24 +15,24 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
-msgid "Submit"
-msgstr "提交"
+#~ msgid "Submit"
+#~ msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "Cancel"
-msgstr "取消"
+#~ msgid "Cancel"
+#~ msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
-msgid "Confirm"
-msgstr "确认"
+#~ msgid "Confirm"
+#~ msgstr "确认"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
-msgid "Got it"
-msgstr "知道了"
+#~ msgid "Got it"
+#~ msgstr "知道了"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:87
@@ -70,6 +70,16 @@ msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "form.cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+msgid "cancel.button"
+msgstr "取消"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:97
 msgid "NaveBar.Chat"
 msgstr "聊天"
@@ -79,6 +89,11 @@ msgstr "聊天"
 msgid "NaveBar.Check Items"
 msgstr "检查项目"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "confirm.button"
+msgstr "确认"
+
 #~ msgid "Email"
 #~ msgstr "电子邮件"
 
@@ -86,6 +101,11 @@ msgstr "检查项目"
 #: src/components/NavBar.tsx:102
 msgid "NaveBar.FAQ"
 msgstr "常见问题"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "info.button"
+msgstr "知道了"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:94
@@ -151,6 +171,11 @@ msgstr "登录"
 #: src/components/NavBar.tsx:134
 msgid "NaveBar.Sign Up"
 msgstr "注册"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "form.submit"
+msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32
