@@ -28,11 +28,7 @@ export const Default: Story = {
     const [value, setValue] = useState<dayjs.Dayjs | null>(dayjs());
     return (
       <I18nProvider i18n={i18n}>
-        <DatePicker
-          label={<Trans>Pick a date</Trans>}
-          value={value}
-          onChange={setValue}
-        />
+        <DatePicker label={<Trans>Pick a date</Trans>} value={value} onChange={setValue} />
       </I18nProvider>
     );
   },
