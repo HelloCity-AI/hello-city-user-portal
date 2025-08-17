@@ -11,7 +11,7 @@ export default meta;
 
 type Story = StoryObj<typeof UserProfileCard>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     UserName: 'John Doe',
     PreferredName: 'jdoe',

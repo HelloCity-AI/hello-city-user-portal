@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { CustomModal } from '@/compoundComponents/Modals';
-import { FullStoryWrapper } from '../utils/StoryWrapper';
+import FullStoryWrapper from '../utils/StoryWrapper';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 interface CustomModalDisplayProps {

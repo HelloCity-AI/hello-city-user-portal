@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Banner, NavBar } from '@/components';
 
-import styles from './Homepage.module.scss';
+import styles from './Homepage.module.css';
 
 export default function HomePage() {
   return (

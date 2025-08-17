@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Typography, Button } from '@mui/material';
-import styles from './BannerCustom.module.scss';
+import styles from './Banner.module.css';
 
 type Props = {
   isCustom?: boolean;

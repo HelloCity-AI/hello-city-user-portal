@@ -3,8 +3,15 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { FormModal } from '@/compoundComponents/Modals';
-import { FullStoryWrapper } from '../utils/StoryWrapper';
+import FullStoryWrapper from '../utils/StoryWrapper';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+
+const mockMessages = {
+  en: {
+    'form.submit': 'Submit',
+    'form.cancel': 'Cancel',
+  },
+};
 
 interface FormModalDisplayProps {
   maxWidth?: false | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -99,7 +106,7 @@ const FormModalDisplay: React.FC<FormModalDisplayProps> = ({
   };
 
   return (
-    <FullStoryWrapper>
+    <FullStoryWrapper initialMessages={mockMessages}>
       <Box display="flex" flexDirection="column" justifyContent="center">
         <Button variant="contained" onClick={handleOpen}>
           Open Form Modal
