@@ -34,7 +34,13 @@ const NavBar = ({ isCustom }: Props) => {
     return (
       <div className={styles['navbar-container']}>
         <Link href="/">
-          <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={0} style={{ height:'auto' }} />
+          <Image
+            src="/images/Logo.png"
+            alt="HelloCity Logo"
+            width={120}
+            height={0}
+            style={{ height: 'auto' }}
+          />
         </Link>
         <div className={styles['navbar-left']}>
           <Button component={Link} href={`/${language}`} variant="tertiary" passHref>
@@ -89,7 +95,13 @@ const NavBar = ({ isCustom }: Props) => {
   return (
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
       <Link href="/">
-        <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={0} style={{ height:'auto' }} />
+        <Image
+          src="/images/Logo.png"
+          alt="HelloCity Logo"
+          width={120}
+          height={0}
+          style={{ height: 'auto' }}
+        />
       </Link>
       <div className="flex gap-2">
         <Link href={`/${language}`}>

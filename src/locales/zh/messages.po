@@ -80,12 +80,12 @@ msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:97
+#: src/components/NavBar.tsx:114
 msgid "NaveBar.Chat"
 msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:106
+#: src/components/NavBar.tsx:123
 msgid "NaveBar.Check Items"
 msgstr "检查项目"
 
@@ -98,7 +98,7 @@ msgstr "确认"
 #~ msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:102
+#: src/components/NavBar.tsx:119
 msgid "NaveBar.FAQ"
 msgstr "常见问题"
 
@@ -113,7 +113,7 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:92
+#: src/components/NavBar.tsx:109
 msgid "NaveBar.Home"
 msgstr "首页"
 
@@ -163,12 +163,12 @@ msgid "Settings"
 msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:131
+#: src/components/NavBar.tsx:148
 msgid "NaveBar.Sign In"
 msgstr "登录"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:134
+#: src/components/NavBar.tsx:151
 msgid "NaveBar.Sign Up"
 msgstr "注册"
 
@@ -198,7 +198,7 @@ msgid "Theme"
 msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:140
+#: src/components/NavBar.tsx:157
 msgid "NaveBar.Try HelloCity"
 msgstr "试用 HelloCity"
 
