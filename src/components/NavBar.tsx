@@ -147,7 +147,7 @@ const NavBar = ({ isCustom }: Props) => {
             <Button component={Link} href={`/${language}`} variant="tertiary">
               <Trans id="NaveBar.Sign In" message="Sign In" />
             </Button>
-            <Button variant="tertiary" component={Link} href={`/${language}/auth`}>
+            <Button variant="tertiary" component={Link} href={`/${language}/create-user-profile`}>
               <Trans id="NaveBar.Sign Up" message="Sign Up" />
             </Button>
           </>
