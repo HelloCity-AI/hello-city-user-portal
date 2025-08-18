@@ -78,12 +78,12 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:114
+#: src/components/NavBar.tsx:102
 msgid "NaveBar.Chat"
 msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:123
+#: src/components/NavBar.tsx:111
 msgid "NaveBar.Check Items"
 msgstr "Check Items"
 
@@ -97,7 +97,7 @@ msgstr "Confirm"
 #~ msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:119
+#: src/components/NavBar.tsx:107
 msgid "NaveBar.FAQ"
 msgstr "FAQ"
 
@@ -112,7 +112,7 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:109
+#: src/components/NavBar.tsx:97
 msgid "NaveBar.Home"
 msgstr "Home"
 
@@ -162,12 +162,12 @@ msgid "Settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:148
+#: src/components/NavBar.tsx:136
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:151
+#: src/components/NavBar.tsx:139
 msgid "NaveBar.Sign Up"
 msgstr "Sign Up"
 
@@ -197,7 +197,7 @@ msgid "Theme"
 msgstr "Theme"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:157
+#: src/components/NavBar.tsx:145
 msgid "NaveBar.Try HelloCity"
 msgstr "Try HelloCity"
 
