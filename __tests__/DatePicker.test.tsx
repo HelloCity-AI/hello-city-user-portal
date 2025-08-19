@@ -1,22 +1,43 @@
-// File: src/components/DatePicker.test.tsx
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import DatePicker from '@/components/DatePicker';
 import dayjs from 'dayjs';
 import { jest } from '@jest/globals';
 
+const setup = (props = {}) => {
+  const onChange = jest.fn();
+  const utils = render(
+    <DatePicker value={dayjs()} onChange={onChange} label="Pick a date" {...props} />,
+  );
+  return {
+    onChange,
+    ...utils,
+  };
+};
+
 describe('DatePicker component', () => {
-  it('Renders with label', () => {
-    render(<DatePicker value={dayjs()} onChange={jest.fn()} label="Pick a date" />);
+  test('Renders with label', () => {
+    setup();
 
     const labels = screen.getAllByText('Pick a date');
     expect(labels.length).toBeGreaterThan(0);
   });
 
-  it('Disables the input when disabled is true', () => {
-    render(<DatePicker value={dayjs()} onChange={jest.fn()} label="Disabled Date" disabled />);
+  test('Disables the input when disabled is true', () => {
+    setup({ label: 'Disabled Date', disabled: true });
 
     const group = screen.getByRole('group', { name: /Disabled Date/i });
     expect(group).toHaveClass('Mui-disabled');
+  });
+
+  test('Calls onChange with expected value', () => {
+    const { onChange, container } = setup();
+
+    const input = container.querySelector('input');
+    expect(input).not.toBeNull();
+
+    fireEvent.change(input!, { target: { value: '2025-08-20' } });
+
+    expect(onChange).toHaveBeenCalled();
   });
 });

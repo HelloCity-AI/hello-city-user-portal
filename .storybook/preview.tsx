@@ -6,7 +6,26 @@ import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import './storybook-fonts.css';
 import '../src/app/globals.css';
 
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
+import { messages as enMessages } from '@/locales/en/messages.js';
+import { messages as zhMessages } from '@/locales/zh/messages';
+
+
+i18n.load({
+  en: enMessages,
+  zh: zhMessages,
+});
+i18n.activate('en');
+
 export const decorators = [
+  (Story: any) => {
+    return (
+      <I18nProvider i18n={i18n}>
+        <Story />
+      </I18nProvider>
+    );
+  },
   withThemeFromJSXProvider({
     themes: {
       light: websiteTheme,
