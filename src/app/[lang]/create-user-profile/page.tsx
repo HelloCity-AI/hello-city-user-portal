@@ -5,8 +5,7 @@ import type { User } from '@/types/User.types';
 import { defaultUser } from '@/types/User.types';
 import { createUser } from '@/api/userApi';
 import { Trans } from '@lingui/react';
-import PageOne from './PageOne';
-import PageTwo from './PageTwo';
+import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 
 const Page = () => {
@@ -49,8 +48,7 @@ const Page = () => {
           <Typography variant="h3">Hello City</Typography>
         </div>
 
-        {pageNumber === 1 && <PageOne formData={formData} handleChange={handleChange} />}
-        {pageNumber === 2 && <PageTwo formData={formData} handleChange={handleChange} />}
+        {pageNumber === 2 && <PersonalInfo formData={formData} handleChange={handleChange} />}
 
         <div className="flex gap-2">
           {pageNumber > 1 && (
