@@ -9,7 +9,6 @@ import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 
 const Page = () => {
-  const [pageNumber, setPageNumber] = useState(1);
   const [formData, setFormData] = useState<User>(defaultUser);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,37 +47,12 @@ const Page = () => {
           <Typography variant="h3">Hello City</Typography>
         </div>
 
-        {pageNumber === 2 && <PersonalInfo formData={formData} handleChange={handleChange} />}
+        <PersonalInfo formData={formData} handleChange={handleChange} />
 
         <div className="flex gap-2">
-          {pageNumber > 1 && (
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ mr: 'auto' }}
-              onClick={() => {
-                setPageNumber(pageNumber - 1);
-              }}
-            >
-              <Trans id="Prev" message="Prev" />
-            </Button>
-          )}
-          {pageNumber === 2 ? (
-            <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
-              <Trans id="I'm all set" message="I'm all set" />
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ ml: 'auto' }}
-              onClick={() => {
-                setPageNumber(pageNumber + 1);
-              }}
-            >
-              <Trans id="Next" message="Next" />
-            </Button>
-          )}
+          <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
+            <Trans id="I'm all set" message="I'm all set" />
+          </Button>
         </div>
       </div>
     </form>

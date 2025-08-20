@@ -65,6 +65,16 @@ msgstr ""
 #~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:79
+#~ msgid "Next"
+#~ msgstr "下一步"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:63
+#~ msgid "Prev"
+#~ msgstr "上一步"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "添加头像"
@@ -118,7 +128,7 @@ msgid "NaveBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:68
+#: src/app/[lang]/create-user-profile/page.tsx:54
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -131,16 +141,6 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "登出"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:79
-msgid "Next"
-msgstr "下一步"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:63
-msgid "Prev"
-msgstr "上一步"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
