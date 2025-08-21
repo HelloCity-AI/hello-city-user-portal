@@ -15,7 +15,7 @@ type PersonalInfoProps = {
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) => {
   return (
-    <div className="flex w-full flex-col gap-4 px-2">
+    <div className="flex w-full flex-col gap-3 px-2 sm:gap-4">
       <TextField
         fullWidth
         select
