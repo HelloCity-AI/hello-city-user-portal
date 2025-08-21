@@ -117,7 +117,7 @@ msgid "NaveBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:70
+#: src/app/[lang]/create-user-profile/page.tsx:72
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -132,12 +132,12 @@ msgid "Logout"
 msgstr "Logout"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:81
+#: src/app/[lang]/create-user-profile/page.tsx:83
 msgid "Next"
 msgstr "Next"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:65
+#: src/app/[lang]/create-user-profile/page.tsx:67
 msgid "Prev"
 msgstr "Prev"
 
