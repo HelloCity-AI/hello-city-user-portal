@@ -63,6 +63,16 @@ msgstr ""
 #~ msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:79
+#~ msgid "Next"
+#~ msgstr "Next"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:63
+#~ msgid "Prev"
+#~ msgstr "Prev"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
@@ -117,7 +127,7 @@ msgid "NaveBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:70
+#: src/app/[lang]/create-user-profile/page.tsx:54
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -130,16 +140,6 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "Logout"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:81
-msgid "Next"
-msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:65
-msgid "Prev"
-msgstr "Prev"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
