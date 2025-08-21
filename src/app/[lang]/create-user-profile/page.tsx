@@ -44,15 +44,17 @@ const Page = () => {
       className="relative flex h-[100vh] w-[100vw] items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center"
     >
       <div className="absolute inset-0 bg-black/25" />
-      <div className="relative flex h-auto w-full max-w-md mx-4 sm:mx-auto sm:w-[400px] md:w-[450px] lg:w-[500px] flex-col items-center justify-center p-6 sm:p-8 rounded-3xl bg-[#ffffff] min-h-[500px] sm:min-h-[600px]">
+      <div className="relative mx-4 flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:mx-auto sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
         <div className="mb-6 text-center">
-          <Typography variant="h3" className="text-2xl sm:text-3xl">Hello City</Typography>
+          <Typography variant="h3" className="text-2xl sm:text-3xl">
+            Hello City
+          </Typography>
         </div>
 
         {pageNumber === 1 && <PageOne formData={formData} handleChange={handleChange} />}
         {pageNumber === 2 && <PageTwo formData={formData} handleChange={handleChange} />}
 
-        <div className="flex gap-2 mt-6 w-full justify-center flex-wrap">
+        <div className="mt-6 flex w-full flex-wrap justify-center gap-2">
           {pageNumber > 1 && (
             <Button
               variant="contained"
