@@ -127,7 +127,7 @@ msgid "NaveBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:54
+#: src/app/[lang]/create-user-profile/page.tsx:56
 msgid "I'm all set"
 msgstr "I'm all set"
 
