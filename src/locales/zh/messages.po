@@ -65,6 +65,16 @@ msgstr ""
 #~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:79
+#~ msgid "Next"
+#~ msgstr "下一步"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:63
+#~ msgid "Prev"
+#~ msgstr "上一步"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "添加头像"
@@ -80,12 +90,12 @@ msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:97
+#: src/components/NavBar.tsx:102
 msgid "NaveBar.Chat"
 msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:106
+#: src/components/NavBar.tsx:111
 msgid "NaveBar.Check Items"
 msgstr "检查项目"
 
@@ -98,7 +108,7 @@ msgstr "确认"
 #~ msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:102
+#: src/components/NavBar.tsx:107
 msgid "NaveBar.FAQ"
 msgstr "常见问题"
 
@@ -113,12 +123,12 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:92
+#: src/components/NavBar.tsx:97
 msgid "NaveBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:72
+#: src/app/[lang]/create-user-profile/page.tsx:54
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -131,16 +141,6 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "登出"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:83
-msgid "Next"
-msgstr "下一步"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:67
-msgid "Prev"
-msgstr "上一步"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
@@ -163,12 +163,12 @@ msgid "Settings"
 msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:131
+#: src/components/NavBar.tsx:136
 msgid "NaveBar.Sign In"
 msgstr "登录"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:134
+#: src/components/NavBar.tsx:139
 msgid "NaveBar.Sign Up"
 msgstr "注册"
 
@@ -198,7 +198,7 @@ msgid "Theme"
 msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:140
+#: src/components/NavBar.tsx:145
 msgid "NaveBar.Try HelloCity"
 msgstr "试用 HelloCity"
 

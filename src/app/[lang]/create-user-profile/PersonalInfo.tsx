@@ -8,12 +8,12 @@ import {
   languageOptions,
 } from '@/enums/UserAttributes';
 
-type PageTwoProps = {
+type PersonalInfoProps = {
   formData: User;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const PageTwo: React.FC<PageTwoProps> = ({ formData, handleChange }) => {
+const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) => {
   return (
     <div className="flex w-full flex-col gap-4 px-2">
       <TextField
@@ -88,4 +88,4 @@ const PageTwo: React.FC<PageTwoProps> = ({ formData, handleChange }) => {
   );
 };
 
-export default PageTwo;
+export default PersonalInfo;

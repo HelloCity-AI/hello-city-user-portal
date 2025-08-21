@@ -5,12 +5,10 @@ import type { User } from '@/types/User.types';
 import { defaultUser } from '@/types/User.types';
 import { createUser } from '@/api/userApi';
 import { Trans } from '@lingui/react';
-import PageOne from './PageOne';
-import PageTwo from './PageTwo';
+import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 
 const Page = () => {
-  const [pageNumber, setPageNumber] = useState(1);
   const [formData, setFormData] = useState<User>(defaultUser);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -51,38 +49,12 @@ const Page = () => {
           </Typography>
         </div>
 
-        {pageNumber === 1 && <PageOne formData={formData} handleChange={handleChange} />}
-        {pageNumber === 2 && <PageTwo formData={formData} handleChange={handleChange} />}
+        <PersonalInfo formData={formData} handleChange={handleChange} />
 
-        <div className="mt-6 flex w-full flex-wrap justify-center gap-2">
-          {pageNumber > 1 && (
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ mr: 'auto' }}
-              onClick={() => {
-                setPageNumber(pageNumber - 1);
-              }}
-            >
-              <Trans id="Prev" message="Prev" />
-            </Button>
-          )}
-          {pageNumber === 2 ? (
-            <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
-              <Trans id="I'm all set" message="I'm all set" />
-            </Button>
-          ) : (
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{ ml: 'auto' }}
-              onClick={() => {
-                setPageNumber(pageNumber + 1);
-              }}
-            >
-              <Trans id="Next" message="Next" />
-            </Button>
-          )}
+        <div className="flex gap-2">
+          <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
+            <Trans id="I'm all set" message="I'm all set" />
+          </Button>
         </div>
       </div>
     </form>
