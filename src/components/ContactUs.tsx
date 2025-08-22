@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
-import InputBox from '@/components/InputBox/InputBox'
+import InputBox from '@/components/InputBox/InputBox';
 
 const ContactUs: React.FC = () => {
   const [name, setName] = useState('');
@@ -21,7 +21,7 @@ const ContactUs: React.FC = () => {
         <InputBox
           label="Name"
           value={name}
-          onChange={ (e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           fullWidth
           margin="normal"
           required

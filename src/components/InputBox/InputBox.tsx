@@ -109,7 +109,7 @@ const InputBox: React.FC<InputBoxProps> = ({
           name: normalizedFieldType,
         }}
         multiline={normalizedFieldType === 'message'}
-rows={normalizedFieldType === 'message' ? 4 : undefined}
+        rows={normalizedFieldType === 'message' ? 4 : undefined}
         InputProps={
           normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
             ? {

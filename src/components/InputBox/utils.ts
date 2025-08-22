@@ -70,7 +70,7 @@ export const validationRules: Record<
     error: 'Only numbers are allowed.',
   },
   message: {
-  validate: (v) => v.trim() !== '',
-  error: 'Message is required.',
-},
+    validate: (v) => v.trim() !== '',
+    error: 'Message is required.',
+  },
 };

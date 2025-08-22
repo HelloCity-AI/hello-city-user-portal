@@ -99,24 +99,23 @@ describe('InputBox validation', () => {
   });
 
   test('Shows required error when message input is empty', () => {
-  const Wrapper = () => {
-    const [val, setVal] = React.useState('Hello');
-    return (
-      <InputBox
-        label="Message"
-        value={val}
-        onChange={(e) => setVal(e.target.value)}
-        required
-        fieldType="message"
-      />
-    );
-  };
+    const Wrapper = () => {
+      const [val, setVal] = React.useState('Hello');
+      return (
+        <InputBox
+          label="Message"
+          value={val}
+          onChange={(e) => setVal(e.target.value)}
+          required
+          fieldType="message"
+        />
+      );
+    };
 
-  render(<Wrapper />);
-  const input = screen.getByLabelText(/message/i);
-  fireEvent.change(input, { target: { value: '' } });
+    render(<Wrapper />);
+    const input = screen.getByLabelText(/message/i);
+    fireEvent.change(input, { target: { value: '' } });
 
-  expect(screen.getByText('Message is required.')).toBeInTheDocument();
-});
-
+    expect(screen.getByText('Message is required.')).toBeInTheDocument();
+  });
 });
