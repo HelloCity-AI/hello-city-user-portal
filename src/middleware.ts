@@ -1,4 +1,4 @@
-import type { NextRequest } from 'next/server';
+import { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import Negotiator from 'negotiator';
 import { auth0 } from './lib/auth0';
@@ -19,9 +19,9 @@ function getLocale(request: NextRequest): string {
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Skip locale handling for Auth0 routes, API routes, and static files
   if (
     pathname.startsWith('/api/auth') ||
+    pathname.startsWith('/auth') ||
     pathname.startsWith('/api/') ||
     pathname.startsWith('/_next/') ||
     pathname.includes('.')
