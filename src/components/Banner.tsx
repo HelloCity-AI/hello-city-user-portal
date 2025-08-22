@@ -1,13 +1,15 @@
-'use client';
 import React from 'react';
 import { Typography, Button } from '@mui/material';
 import styles from './Banner.module.css';
+import { getServerTranslation } from '../utils/serverI18n';
 
 type Props = {
   isCustom?: boolean;
+  locale: string;
 };
 
-const Banner = ({ isCustom = false }: Props) => {
+const Banner = async ({ isCustom = false, locale }: Props) => {
+  const { t } = await getServerTranslation(locale);
   if (isCustom) {
     return (
       <div className={styles['banner-container-custom']}>
@@ -25,7 +27,7 @@ const Banner = ({ isCustom = false }: Props) => {
             migrant
           </Typography>
           <Button variant="primary" sx={{ marginTop: '12px' }}>
-            Try HelloCity
+            {t('Banner.TryHelloCity', 'Try HelloCity')}
           </Button>
         </div>
       </div>
@@ -51,7 +53,7 @@ const Banner = ({ isCustom = false }: Props) => {
         </Typography>
 
         <Button variant="primary" sx={{ marginTop: '6px' }}>
-          Try HelloCity
+          {t('Banner.TryHelloCity', 'Try HelloCity')}
         </Button>
       </div>
     </div>

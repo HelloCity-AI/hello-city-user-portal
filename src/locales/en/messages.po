@@ -197,6 +197,12 @@ msgid "Theme"
 msgstr "Theme"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+msgid "Banner.TryHelloCity"
+msgstr "Try HelloCity"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar.tsx:145
 msgid "NaveBar.Try HelloCity"
 msgstr "Try HelloCity"
