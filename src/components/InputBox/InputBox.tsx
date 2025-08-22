@@ -51,7 +51,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(normalizedFieldType);
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
-  const maxLength = 20;
+const maxLength = normalizedFieldType === 'message' ? 500 : 20;
   const inputId = `input-${normalizedFieldType}`;
 
   useEffect(() => {
@@ -99,8 +99,13 @@ const InputBox: React.FC<InputBoxProps> = ({
         placeholder={finalPlaceholder}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
-        helperText={errorMessage || externalErrorMessage || ' '}
-        disabled={disabled}
+helperText={
+    errorMessage || externalErrorMessage
+      ? errorMessage || externalErrorMessage
+      : normalizedFieldType === 'message'
+      ? `${value.length}/${maxLength}`
+      : ' '
+  }        disabled={disabled}
         required={required}
         inputProps={{
           id: inputId,
