@@ -75,6 +75,12 @@ msgstr ""
 #~ msgstr "上一步"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+#~ msgid "Banner.TryHelloCity"
+#~ msgstr "试用 HelloCity"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "添加头像"
@@ -196,12 +202,6 @@ msgstr "图片上传中..."
 #: src/components/dropdownMenuOptions.tsx:25
 msgid "Theme"
 msgstr "主题"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:33
-#: src/components/Banner.tsx:56
-msgid "Banner.TryHelloCity"
-msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:145

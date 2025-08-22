@@ -73,6 +73,12 @@ msgstr ""
 #~ msgstr "Prev"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+#~ msgid "Banner.TryHelloCity"
+#~ msgstr "Try HelloCity"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
@@ -195,12 +201,6 @@ msgstr "The image is uploading ..."
 #: src/components/dropdownMenuOptions.tsx:25
 msgid "Theme"
 msgstr "Theme"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:33
-#: src/components/Banner.tsx:56
-msgid "Banner.TryHelloCity"
-msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:145
