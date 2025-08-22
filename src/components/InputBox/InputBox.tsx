@@ -10,7 +10,7 @@ import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
-export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone';
+export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
 
 export interface InputBoxProps {
   value: string;
@@ -108,6 +108,8 @@ const InputBox: React.FC<InputBoxProps> = ({
           autoComplete: autoComplete ? 'on' : 'off',
           name: normalizedFieldType,
         }}
+        multiline={normalizedFieldType === 'message'}
+rows={normalizedFieldType === 'message' ? 4 : undefined}
         InputProps={
           normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
             ? {

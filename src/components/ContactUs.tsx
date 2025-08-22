@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, TextField, Button, Typography } from '@mui/material';
+import InputBox from '@/components/InputBox/InputBox'
 
 const ContactUs: React.FC = () => {
   const [name, setName] = useState('');
@@ -17,15 +18,15 @@ const ContactUs: React.FC = () => {
         Contact Us
       </Typography>
       <form onSubmit={handleSubmit}>
-        <TextField
+        <InputBox
           label="Name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={ (e) => setName(e.target.value)}
           fullWidth
           margin="normal"
           required
         />
-        <TextField
+        <InputBox
           label="Email"
           type="email"
           value={email}
@@ -34,7 +35,7 @@ const ContactUs: React.FC = () => {
           margin="normal"
           required
         />
-        <TextField
+        <InputBox
           label="Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}

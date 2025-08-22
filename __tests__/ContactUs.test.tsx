@@ -17,4 +17,17 @@ describe('ContactUs', () => {
     fireEvent.change(nameInput, { target: { value: 'Mario' } });
     expect(nameInput).toHaveValue('Mario');
   });
+
+test('Shows required error when message input is empty in ContactUs form', () => {
+  render(<ContactUs />);
+  const messageInput = screen.getByLabelText(/message/i);
+
+  
+  fireEvent.change(messageInput, { target: { value: 'Hello' } });
+  fireEvent.change(messageInput, { target: { value: '' } });
+
+  expect(screen.getByText('Message is required.')).toBeInTheDocument();
+});
+
+
 });

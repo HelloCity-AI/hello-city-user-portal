@@ -53,6 +53,13 @@ export const Primary = () => {
         originalPassword={password}
         required
       />
+      <InputBox
+        label="Message"
+        fieldType="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        required
+      />
     </div>
   );
 };
