@@ -74,7 +74,11 @@ const NavBar = ({ isCustom }: Props) => {
               </Button>
             </>
           ) : (
-            <Button variant="tertiary">Sign In</Button>
+            <>
+              <Button component={Link} href={`auth/login`} variant="tertiary">
+                <Trans id="NaveBar.Sign In" message="Sign In" />
+              </Button>
+            </>
           )}
 
           <Button component={Link} href={`/${language}`} variant="primary">
@@ -132,11 +136,8 @@ const NavBar = ({ isCustom }: Props) => {
           />
         ) : (
           <>
-            <Button component={Link} href={`/${language}`} variant="tertiary">
+            <Button component={Link} href={`auth/login`} variant="tertiary">
               <Trans id="NaveBar.Sign In" message="Sign In" />
-            </Button>
-            <Button variant="tertiary" component={Link} href={`/${language}/create-user-profile`}>
-              <Trans id="NaveBar.Sign Up" message="Sign Up" />
             </Button>
           </>
         )}
