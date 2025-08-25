@@ -78,21 +78,6 @@ msgstr ""
 #~ msgstr "Sign Up"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:79
-#~ msgid "Next"
-#~ msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:63
-#~ msgid "Prev"
-#~ msgstr "Prev"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up"
-
-#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"

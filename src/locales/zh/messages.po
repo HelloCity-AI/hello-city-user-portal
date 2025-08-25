@@ -80,21 +80,6 @@ msgstr ""
 #~ msgstr "注册"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:79
-#~ msgid "Next"
-#~ msgstr "下一步"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:63
-#~ msgid "Prev"
-#~ msgstr "上一步"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "注册"
-
-#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
 msgid "profile.avatar.add"
 msgstr "添加头像"
