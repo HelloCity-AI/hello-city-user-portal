@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Trans } from '@lingui/react';
 import { Button, Switch, FormControlLabel, Avatar } from '@mui/material';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -32,7 +33,9 @@ const NavBar = ({ isCustom }: Props) => {
   if (isCustom) {
     return (
       <div className={styles['navbar-container']}>
-        <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
+        <Link href="/">
+          <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={30} />
+        </Link>
         <div className={styles['navbar-left']}>
           <Button component={Link} href={`/${language}`} variant="tertiary" passHref>
             Home
@@ -71,7 +74,11 @@ const NavBar = ({ isCustom }: Props) => {
               </Button>
             </>
           ) : (
-            <Button variant="tertiary">Sign In</Button>
+            <>
+              <Button component={Link} href={`auth/login`} variant="tertiary">
+                <Trans id="NaveBar.Sign In" message="Sign In" />
+              </Button>
+            </>
           )}
 
           <Button component={Link} href={`/${language}`} variant="primary">
@@ -85,7 +92,9 @@ const NavBar = ({ isCustom }: Props) => {
   // Default Tailwind version
   return (
     <div className="fixed left-0 top-0 z-10 flex w-[100vw] items-center justify-around pt-5">
-      <img src="/images/Logo.png" alt="HelloCity Logo" width={120} />
+      <Link href="/">
+        <Image src="/images/Logo.png" alt="HelloCity Logo" width={120} height={30} />
+      </Link>
       <div className="flex gap-2">
         <Link href={`/${language}`}>
           <Button variant="tertiary">
@@ -127,11 +136,8 @@ const NavBar = ({ isCustom }: Props) => {
           />
         ) : (
           <>
-            <Button component={Link} href={`/${language}`} variant="tertiary">
+            <Button component={Link} href={`auth/login`} variant="tertiary">
               <Trans id="NaveBar.Sign In" message="Sign In" />
-            </Button>
-            <Button variant="tertiary" component={Link} href={`/${language}/auth`}>
-              <Trans id="NaveBar.Sign Up" message="Sign Up" />
             </Button>
           </>
         )}
