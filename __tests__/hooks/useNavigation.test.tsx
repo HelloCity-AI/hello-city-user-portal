@@ -26,15 +26,15 @@ describe('useNavItems', () => {
     });
 
     const navItems = result.current;
-    
+
     // Test chat and contact alerts
     act(() => navItems[1].onClick?.()); // chat
     act(() => navItems[2].onClick?.()); // contact
-    
+
     // Test language switching
     const languageOptions = navItems[3].childrenItem;
     act(() => languageOptions?.[0].onClick?.()); // English
-    act(() => languageOptions?.[1].onClick?.()); // Chinese  
+    act(() => languageOptions?.[1].onClick?.()); // Chinese
     act(() => languageOptions?.[2].onClick?.()); // Coming soon
 
     expect(mockAlert).toHaveBeenCalledWith('chat');

@@ -45,7 +45,9 @@ const AdventureShowcaseSection = () => {
             return (
               <HomepageCard
                 key={adventure.title}
-                additionalClassName={'aspect-video rounded-lg min-w-[100px] min-h-[200px] overflow-hidden'}
+                additionalClassName={
+                  'aspect-video rounded-lg min-w-[100px] min-h-[200px] overflow-hidden'
+                }
                 elevation={0}
               >
                 <Image
@@ -56,7 +58,7 @@ const AdventureShowcaseSection = () => {
                 />
                 <Box
                   component="div"
-                  className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/10 to-transparent pointer-events-none"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/60 via-black/10 to-transparent"
                 />
                 <Box
                   component="div"

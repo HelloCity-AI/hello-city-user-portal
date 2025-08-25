@@ -84,22 +84,22 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
 
     it('Closes user drawer when already open and clicked again', () => {
       renderMobileNavBar({ hasSignedIn: true });
-      
+
       const userAvatar = screen.getByLabelText('User menu');
-      
+
       fireEvent.click(userAvatar);
       expect(screen.getByText('Leon')).toBeInTheDocument();
-      
+
       fireEvent.click(userAvatar);
       expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
     });
 
     it('Calls closeDrawerMenu function when close button clicked', () => {
       renderMobileNavBar();
-      
+
       clickHamburgerMenu();
       expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
-      
+
       clickCloseMenu();
       expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
       expect(screen.getByLabelText('Open menu')).toBeInTheDocument();
@@ -107,16 +107,16 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
 
     it('Resets submenu index when closeDrawerMenu called from submenu', () => {
       renderMobileNavBar();
-      
+
       clickHamburgerMenu();
       const servicesItem = screen.getByText('Services');
       fireEvent.click(servicesItem);
-      
+
       expect(screen.getByText('Web Dev')).toBeInTheDocument();
-      
+
       clickCloseMenu();
       expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
-      
+
       clickHamburgerMenu();
       expect(screen.getByText('Services')).toBeInTheDocument();
       expect(screen.queryByText('Web Dev')).not.toBeInTheDocument();
@@ -124,21 +124,20 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
 
     it('Closes drawer properly when user drawer is open', async () => {
       renderMobileNavBar({ hasSignedIn: true });
-      
+
       const userAvatar = screen.getByLabelText('User menu');
       fireEvent.click(userAvatar);
       expect(screen.getByText('Leon')).toBeInTheDocument();
-      
+
       // Click close button to trigger closeDrawerMenu
       const closeButton = screen.getByLabelText('Close menu');
       fireEvent.click(closeButton);
-      
+
       // Wait for drawer to close
       await waitFor(() => {
         expect(screen.queryByText('Leon')).not.toBeInTheDocument();
       });
     });
-
   });
 
   describe('Navigation Functionality', () => {

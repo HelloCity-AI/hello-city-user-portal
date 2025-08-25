@@ -2,7 +2,7 @@
 
 import { I18nProvider as LinguiI18nProvider } from '@lingui/react';
 import { i18n } from '../i18n';
-import type { ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import { useEffect, useState } from 'react';
 import type { Messages } from '@lingui/core';
 

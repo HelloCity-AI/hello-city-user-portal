@@ -92,10 +92,10 @@ describe('UserDrawer - User menu drawer component', () => {
     });
 
     it('Renders with correct drawer properties', () => {
-      renderUserDrawer({ 
-        anchor: 'right', 
+      renderUserDrawer({
+        anchor: 'right',
         className: 'custom-class',
-        open: true 
+        open: true,
       });
 
       // Verify drawer is rendered and functional
@@ -134,6 +134,5 @@ describe('UserDrawer - User menu drawer component', () => {
 
       expect(closeDrawer).toHaveBeenCalledTimes(1);
     });
-
   });
 });
