@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import InputBox from '../src/components/InputBox/InputBox';
 
 describe('InputBox component', () => {
-  it('Renders with label and placeholder', () => {
+  test('Renders with label and placeholder', () => {
     render(
       <InputBox
         label="Name"
@@ -18,7 +18,7 @@ describe('InputBox component', () => {
     expect(screen.getByLabelText(/name/i)).toBeInTheDocument();
   });
 
-  it('Displays error message when errorMessage is provided', () => {
+  test('Displays error message when errorMessage is provided', () => {
     render(
       <InputBox
         label="Email"
@@ -31,7 +31,7 @@ describe('InputBox component', () => {
     expect(screen.getByText('Invalid email')).toBeInTheDocument();
   });
 
-  it('Calls onChange when input value changes', () => {
+  test('Calls onChange when input value changes', () => {
     const handleChange = jest.fn();
 
     render(<InputBox label="Name" value="" onChange={handleChange} fieldType="name" />);
@@ -96,5 +96,26 @@ describe('InputBox validation', () => {
     );
 
     expect(screen.getByText('Invalid email')).toBeInTheDocument();
+  });
+
+  test('Shows required error when message input is empty', () => {
+    const Wrapper = () => {
+      const [val, setVal] = React.useState('Hello');
+      return (
+        <InputBox
+          label="Message"
+          value={val}
+          onChange={(e) => setVal(e.target.value)}
+          required
+          fieldType="message"
+        />
+      );
+    };
+
+    render(<Wrapper />);
+    const input = screen.getByLabelText(/message/i);
+    fireEvent.change(input, { target: { value: '' } });
+
+    expect(screen.getByText('Message is required.')).toBeInTheDocument();
   });
 });
