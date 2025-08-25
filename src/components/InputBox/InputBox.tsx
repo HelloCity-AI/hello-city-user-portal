@@ -82,16 +82,11 @@ const InputBox: React.FC<InputBoxProps> = ({
     if (!touched) setTouched(true);
     onChange(e);
   };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
-  };
-
+  
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
         id={inputId}
-        fullWidth
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
@@ -114,7 +109,7 @@ const InputBox: React.FC<InputBoxProps> = ({
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
-                      onClick={togglePasswordVisibility}
+                      onClick={()=>(setShowPassword((prev) => !prev))}
                       edge="end"
                       aria-label="toggle password visibility"
                     >
