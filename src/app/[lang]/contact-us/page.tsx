@@ -36,7 +36,7 @@ const ContactUs = () => {
           label={i18n._('contact-us.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          sx={{width:950,mx:'auto'}}
+          sx={{ width: 950, mx: 'auto' }}
           margin="normal"
           required
         />

@@ -13,7 +13,7 @@ import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
 export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
 
-export interface InputBoxProps extends Omit <TextFieldProps,'variant'>{
+export interface InputBoxProps extends Omit<TextFieldProps, 'variant'> {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
