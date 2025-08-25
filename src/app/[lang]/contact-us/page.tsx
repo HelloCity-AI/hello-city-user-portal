@@ -27,7 +27,7 @@ const ContactUs = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }} key={tick}>
+    <Box sx={{ maxWidth: 1200, mx: 'auto', mt: 5 }} key={tick}>
       <Typography variant="h5" gutterBottom>
         <Trans id="contact-us.title">Contact Us</Trans>
       </Typography>
@@ -36,7 +36,7 @@ const ContactUs = () => {
           label={i18n._('contact-us.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          fullWidth
+          sx={{width:950,mx:'auto'}}
           margin="normal"
           required
         />

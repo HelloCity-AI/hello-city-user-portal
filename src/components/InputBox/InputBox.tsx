@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
+import type { TextFieldProps } from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
@@ -12,7 +13,7 @@ import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
 export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
 
-export interface InputBoxProps {
+export interface InputBoxProps extends Omit <TextFieldProps,'variant'>{
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   label: string;
@@ -38,6 +39,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   errorMessage: externalErrorMessage = '',
   autoComplete,
   originalPassword,
+  ...props
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -91,7 +93,7 @@ const InputBox: React.FC<InputBoxProps> = ({
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
         id={inputId}
-        fullWidth
+        // fullWidth
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
@@ -133,6 +135,7 @@ const InputBox: React.FC<InputBoxProps> = ({
               }
             : undefined
         }
+        {...props}
       />
     </div>
   );

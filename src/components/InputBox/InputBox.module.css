@@ -11,6 +11,8 @@
   background-color: #f3efff; /* Light purple background */
   padding: 4px 8px;
   border-radius: 4px;
+  width: 600px;
+
 }
 
 .input-box-wrapper:first-of-type .label {
