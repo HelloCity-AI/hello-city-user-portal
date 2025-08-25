@@ -24,6 +24,7 @@ export interface InputBoxProps {
   errorMessage?: string;
   autoComplete?: boolean;
   originalPassword?: string;
+  name?: string;
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -38,6 +39,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   errorMessage: externalErrorMessage = '',
   autoComplete,
   originalPassword,
+  name,
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -96,7 +98,7 @@ const InputBox: React.FC<InputBoxProps> = ({
           id: inputId,
           maxLength,
           autoComplete: autoComplete ? 'on' : 'off',
-          name: normalizedFieldType,
+          name: name || normalizedFieldType,
         }}
         InputProps={
           normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
