@@ -3,6 +3,7 @@ import linguiConfig from '../../../lingui.config';
 import { getAllMessages } from '@/appRouterI18n';
 import ClientProviders from './ClientProviders';
 
+
 type Props = {
   children: ReactNode;
   params: { lang: string };

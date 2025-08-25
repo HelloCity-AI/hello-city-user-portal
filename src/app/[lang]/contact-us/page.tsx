@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
-import { Box, TextField, Button, Typography } from '@mui/material';
-import InputBox from '@/components/InputBox/InputBox';
+'use client';
 
-const ContactUs: React.FC = () => {
+import React, { useState, useEffect } from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import InputBox from '@/components/InputBox/InputBox';
+import { Trans, useLingui } from '@lingui/react';
+
+const ContactUs = () => {
+  const { i18n } = useLingui();
+  const [tick, setTick] = useState(0); // 强制刷新
+
+  useEffect(() => {
+    const handler = () => setTick((t) => t + 1);
+    i18n.on('change', handler);   // ✅ 监听
+    return () => {
+      i18n.removeListener('change', handler); // ✅ 正确清理
+    };
+  }, [i18n]);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -12,14 +26,15 @@ const ContactUs: React.FC = () => {
     alert(`Submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
   };
 
+
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }}>
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }} key={tick}>
       <Typography variant="h5" gutterBottom>
-        Contact Us
+        <Trans id="contact-us.title">Contact Us</Trans>
       </Typography>
       <form onSubmit={handleSubmit}>
         <InputBox
-          label="Name"
+          label={i18n._('contact-us.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
           fullWidth
@@ -27,7 +42,7 @@ const ContactUs: React.FC = () => {
           required
         />
         <InputBox
-          label="Email"
+          label={i18n._('contact-us.email')}
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -36,7 +51,7 @@ const ContactUs: React.FC = () => {
           required
         />
         <InputBox
-          label="Message"
+          label={i18n._('contact-us.message')}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           fullWidth
@@ -46,7 +61,7 @@ const ContactUs: React.FC = () => {
           required
         />
         <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
-          Submit
+          <Trans id="contact-us.submit">Submit</Trans>
         </Button>
       </form>
     </Box>

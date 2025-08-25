@@ -84,6 +84,10 @@ const NavBar = ({ isCustom }: Props) => {
           <Button component={Link} href={`/${language}`} variant="primary">
             Try HelloCity
           </Button>
+
+         <Button component={Link} href={`/${language}/contact-us`} variant="tertiary">
+  <Trans id="contact-us" message="Contact Us" />
+</Button>
         </div>
       </div>
     );
@@ -145,6 +149,13 @@ const NavBar = ({ isCustom }: Props) => {
         <Button component={Link} href={`/${language}`} variant="primary">
           <Trans id="NaveBar.Try HelloCity" message="Try HelloCity" />
         </Button>
+
+
+
+       <Button component={Link} href={`/${language}/contact-us`} variant="tertiary">
+  <Trans id="contact-us" message="Contact Us" />
+</Button>
+       
       </div>
     </div>
   );
