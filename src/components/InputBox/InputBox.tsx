@@ -84,6 +84,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         helperText={errorMessage || externalErrorMessage || ' '}
         disabled={disabled}
         required={required}
+        fullWidth
         slotProps={{
           input: {
             autoComplete: autoComplete ? 'on' : 'off',
