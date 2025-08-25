@@ -74,7 +74,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
-        id={`input-${fieldType}}`}
+        id={`input-${fieldType}}-${useId()}`}
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
