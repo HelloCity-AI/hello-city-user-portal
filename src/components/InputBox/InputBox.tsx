@@ -55,7 +55,6 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(normalizedFieldType);
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
-  const inputId = `input-${normalizedFieldType}`;
 
   const validateChange = (val: string) => {
     if (!val.trim()) {
@@ -77,7 +76,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
-        id={inputId}
+        id={`input-${normalizedFieldType}`}
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
