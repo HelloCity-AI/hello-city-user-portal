@@ -45,7 +45,6 @@ const InputBox: React.FC<InputBoxProps> = ({
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [touched, setTouched] = useState(false);
 
   const inputType =
     fieldType === 'password' || fieldType === 'repeatPassword'
@@ -78,7 +77,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
-        onChange={(e) => (!touched && setTouched(true), onChange(e), validateChange(e.target.value))}
+        onChange={(e) => (onChange(e), validateChange(e.target.value))}
         placeholder={placeholder ?? getDefaultPlaceholder(fieldType)}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
