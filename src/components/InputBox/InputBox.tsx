@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -47,23 +47,22 @@ const InputBox: React.FC<InputBoxProps> = ({
   const [showPassword, setShowPassword] = useState(false);
   const [touched, setTouched] = useState(false);
 
-  const normalizedFieldType = fieldType || label.toLowerCase().replace(/\s/g, '');
   const inputType =
-    normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
+    fieldType === 'password' || fieldType === 'repeatPassword'
       ? showPassword
         ? 'text'
         : 'password'
-      : getInputType(normalizedFieldType);
+      : getInputType(fieldType);
 
   const validateChange = (val: string) => {
     if (!val.trim()) {
       setErrorMessage(required ? `${label} is required.` : '');
       return;
     }
-    const rule = validationRules[normalizedFieldType];
+    const rule = validationRules[fieldType];
     const isValid =
-      normalizedFieldType === 'repeatPassword'
-        ? rule.validate(val, originalPassword ?? '')
+      fieldType === 'repeatPassword'
+        ? rule.validate(val, originalPassword)
         : rule.validate(val);
     if (!isValid)  {
       setErrorMessage(rule.error)
@@ -75,12 +74,12 @@ const InputBox: React.FC<InputBoxProps> = ({
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
-        id={`input-${normalizedFieldType}`}
+        id={`input-${fieldType}}`}
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
         onChange={(e) => (!touched && setTouched(true), onChange(e), validateChange(e.target.value))}
-        placeholder={placeholder ?? getDefaultPlaceholder(normalizedFieldType)}
+        placeholder={placeholder ?? getDefaultPlaceholder(fieldType)}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
         helperText={errorMessage || externalErrorMessage || ' '}
@@ -89,9 +88,9 @@ const InputBox: React.FC<InputBoxProps> = ({
         slotProps={{
           input: {
             autoComplete: autoComplete ? 'on' : 'off',
-            name: name || normalizedFieldType,
+            name: name || fieldType,
             endAdornment: (
-              (normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword') &&
+              (fieldType === 'password' || fieldType === 'repeatPassword') &&
               (<InputAdornment position="end">
                 <IconButton
                   onClick={() => setShowPassword((prev) => !prev)}
