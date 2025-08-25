@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
@@ -57,29 +57,22 @@ const InputBox: React.FC<InputBoxProps> = ({
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
   const inputId = `input-${normalizedFieldType}`;
 
-  useEffect(() => {
-    if (!touched) return;
-
-    const rule = validationRules[normalizedFieldType];
-    let currentError = '';
-
-    if (!value.trim()) {
-      if (required) {
-        currentError = `${label} is required.`;
-      }
-    } else if (rule) {
-      const isValid =
-        normalizedFieldType === 'repeatPassword'
-          ? rule.validate(value, originalPassword ?? '')
-          : rule.validate(value);
-
-      if (!isValid) {
-        currentError = rule.error;
-      }
+  const validateChange = (val: string) => {
+    if (!val.trim()) {
+      setErrorMessage(required ? `${label} is required.` : '');
+      return;
     }
-
-    setErrorMessage(currentError);
-  }, [value, touched, required, originalPassword, label, normalizedFieldType]);
+    const rule = validationRules[normalizedFieldType];
+    const isValid =
+      normalizedFieldType === 'repeatPassword'
+        ? rule.validate(val, originalPassword ?? '')
+        : rule.validate(val);
+    if (!isValid)  {
+      setErrorMessage(rule.error)
+      return
+    }
+    setErrorMessage('');
+  };
 
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
@@ -88,7 +81,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
-        onChange={(e) => (!touched && setTouched(true), onChange(e))}
+        onChange={(e) => (!touched && setTouched(true), onChange(e), validateChange(e.target.value))}
         placeholder={finalPlaceholder}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
