@@ -63,6 +63,21 @@ msgstr ""
 #~ msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:79
+#~ msgid "Next"
+#~ msgstr "Next"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:63
+#~ msgid "Prev"
+#~ msgstr "Prev"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:139
+#~ msgid "NaveBar.Sign Up"
+#~ msgstr "Sign Up"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
@@ -78,12 +93,12 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:97
+#: src/components/NavBar.tsx:106
 msgid "NaveBar.Chat"
 msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:106
+#: src/components/NavBar.tsx:115
 msgid "NaveBar.Check Items"
 msgstr "Check Items"
 
@@ -97,7 +112,7 @@ msgstr "Confirm"
 #~ msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:102
+#: src/components/NavBar.tsx:111
 msgid "NaveBar.FAQ"
 msgstr "FAQ"
 
@@ -112,12 +127,12 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:92
+#: src/components/NavBar.tsx:101
 msgid "NaveBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:70
+#: src/app/[lang]/create-user-profile/page.tsx:54
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -130,16 +145,6 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "Logout"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:81
-msgid "Next"
-msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:65
-msgid "Prev"
-msgstr "Prev"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
@@ -162,14 +167,10 @@ msgid "Settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:131
+#: src/components/NavBar.tsx:79
+#: src/components/NavBar.tsx:140
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:134
-msgid "NaveBar.Sign Up"
-msgstr "Sign Up"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -197,7 +198,7 @@ msgid "Theme"
 msgstr "Theme"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:140
+#: src/components/NavBar.tsx:146
 msgid "NaveBar.Try HelloCity"
 msgstr "Try HelloCity"
 
