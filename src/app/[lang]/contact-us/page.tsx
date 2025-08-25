@@ -11,7 +11,7 @@ const ContactUs = () => {
 
   useEffect(() => {
     const handler = () => setTick((t) => t + 1);
-    i18n.on('change', handler);   // ✅ 监听
+    i18n.on('change', handler); // ✅ 监听
     return () => {
       i18n.removeListener('change', handler); // ✅ 正确清理
     };
@@ -25,7 +25,6 @@ const ContactUs = () => {
     e.preventDefault();
     alert(`Submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
   };
-
 
   return (
     <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }} key={tick}>
