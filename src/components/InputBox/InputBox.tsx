@@ -10,7 +10,7 @@ import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
-export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone';
+export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
 
 export interface InputBoxProps {
   value: string;
@@ -51,7 +51,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(normalizedFieldType);
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
-  const maxLength = 20;
+  const maxLength = normalizedFieldType === 'message' ? 500 : 20;
   const inputId = `input-${normalizedFieldType}`;
 
   useEffect(() => {
@@ -99,7 +99,13 @@ const InputBox: React.FC<InputBoxProps> = ({
         placeholder={finalPlaceholder}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
-        helperText={errorMessage || externalErrorMessage || ' '}
+        helperText={
+          errorMessage || externalErrorMessage
+            ? errorMessage || externalErrorMessage
+            : normalizedFieldType === 'message'
+              ? `${value.length}/${maxLength}`
+              : ' '
+        }
         disabled={disabled}
         required={required}
         inputProps={{
@@ -108,6 +114,8 @@ const InputBox: React.FC<InputBoxProps> = ({
           autoComplete: autoComplete ? 'on' : 'off',
           name: normalizedFieldType,
         }}
+        multiline={normalizedFieldType === 'message'}
+        rows={normalizedFieldType === 'message' ? 4 : undefined}
         InputProps={
           normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
             ? {
