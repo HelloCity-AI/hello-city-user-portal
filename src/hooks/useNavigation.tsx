@@ -1,3 +1,4 @@
+import { Trans } from '@lingui/react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import type { NavItem } from '@/components/NavBar/navConfig';
 
@@ -8,24 +9,24 @@ export const useNavItems = (): NavItem[] => {
     {
       id: 'home',
       href: `/${language}`,
-      label: 'Home',
+      label: <Trans id="NavBar.Home" message="Home" />,
     },
     {
       id: 'chat',
       href: `/${language}`,
-      label: 'Chat',
+      label: <Trans id="NavBar.Chat" message="Chat" />,
       onClick: () => alert('chat'),
     },
     {
       id: 'contact',
       href: `/${language}`,
-      label: 'Contact Us',
+      label: <Trans id="NavBar.ContactUs" message="Contact Us" />,
       onClick: () => alert('contact'),
     },
     {
       id: 'change language',
       href: '',
-      label: 'Change Language',
+      label: <Trans id="NavBar.ChangeLanguage" message="Change Language" />,
       childrenItem: [
         { id: 'en', href: '', label: 'English', onClick: () => setLanguage('en') },
         { id: 'zh', href: '', label: '简体中文', onClick: () => setLanguage('zh') },
