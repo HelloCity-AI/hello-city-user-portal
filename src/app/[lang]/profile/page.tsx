@@ -2,35 +2,32 @@
 import React from 'react'
 import UserProfileCard from '../../../components/UserLabel';
 import { InputBox } from '@/components';
-import { Button, Typography } from '@mui/material';
+import { Button, Link, Typography } from '@mui/material';
+import { defaultUser } from '@/types/User.types';
+import { useState } from 'react';
 
 const page = () => {
+  const [userInfo, setUserInfo] = useState(defaultUser);
   return (
     <div className='bg-slate-100 w-[100vw] h-[100vh] flex justify-center items-center'>
-
       <div className='fixed top-0 left-0 w-[350px] bg-white h-[100%] z-10 flex flex-col p-5'>
-        <div className='flex-grow-[12]'>
-          <div>
+        <div className='flex-grow-[12] flex flex-col'>
+          <Link href="/profile">
             Profile
-          </div>
-          <div>
+          </Link>
+          <Button variant="contained" href="/plans">
             Plans
-          </div>
-          <div>
+          </Button>
+          <Button variant="contained" href="/history">
             History
-          </div>
-          <div>
+          </Button>
+          <Button variant="contained" href="/settings">
             Settings
-          </div>
+          </Button>
         </div>
-
-        <div className='mb-5 flex'>
-          <UserProfileCard/>
-        </div>
-        
-        <div>
-          logout
-        </div>
+        <Button variant="contained" href="/auth/logout">
+          Logout
+        </Button>
       </div>
       <div className='bg-white h-1/2 w-1/2 rounded-3xl p-6 flex gap-4 z-10 flex-col'>
           <Typography variant='h5'>
@@ -47,8 +44,9 @@ const page = () => {
             <InputBox
               label="Username"
               fieldType="name"
-              value={''}
-              onChange={()=>(null)}
+              value={userInfo.username}
+              name='username'
+              onChange={(e)=>(setUserInfo({...userInfo, [e.target.name]: e.target.value}))}
             />
 
             <InputBox
