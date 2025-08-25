@@ -54,7 +54,6 @@ const InputBox: React.FC<InputBoxProps> = ({
         ? 'text'
         : 'password'
       : getInputType(normalizedFieldType);
-  const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
 
   const validateChange = (val: string) => {
     if (!val.trim()) {
@@ -81,7 +80,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         type={inputType}
         value={value}
         onChange={(e) => (!touched && setTouched(true), onChange(e), validateChange(e.target.value))}
-        placeholder={finalPlaceholder}
+        placeholder={placeholder ?? getDefaultPlaceholder(normalizedFieldType)}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
         helperText={errorMessage || externalErrorMessage || ' '}
