@@ -1,0 +1,14 @@
+import { useLanguage } from '@/contexts/LanguageContext';
+
+export const useTryHelloCity = () => {
+  const { language } = useLanguage();
+
+  // TODO: Add sign-in status check to conditionally return different href
+  // - If signed in: return `/${language}/chat` (when chat page is created)
+  // - If not signed in: return sign-in flow
+
+  return {
+    href: `/${language}`,
+    label: 'Try HelloCity',
+  };
+};

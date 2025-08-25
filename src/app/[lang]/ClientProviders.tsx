@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 import { I18nProvider } from '@/contexts/I18nProvider';
 import { LanguageProvider } from '@/contexts/LanguageContext';
-import NavBar from '@/components/NavBar';
+import { NavBar } from '@/components/NavBar';
 
 type Props = {
   children: ReactNode;
