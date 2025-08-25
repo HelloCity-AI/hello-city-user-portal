@@ -25,6 +25,7 @@ export interface InputBoxProps {
   autoComplete?: boolean;
   originalPassword?: string;
   name?: string;
+  maxLength?: number;
 }
 
 const InputBox: React.FC<InputBoxProps> = ({
@@ -40,6 +41,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   autoComplete,
   originalPassword,
   name,
+  maxLength = 20,
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -53,7 +55,6 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(normalizedFieldType);
   const finalPlaceholder = placeholder ?? getDefaultPlaceholder(normalizedFieldType);
-  const maxLength = 20;
   const inputId = `input-${normalizedFieldType}`;
 
   useEffect(() => {
