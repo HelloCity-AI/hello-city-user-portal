@@ -14,7 +14,7 @@ export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 
 
 export interface InputBoxProps {
   value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   label: string;
   fieldType: InputFieldType;
   placeholder?: string;
@@ -78,11 +78,6 @@ const InputBox: React.FC<InputBoxProps> = ({
     setErrorMessage(currentError);
   }, [value, touched, required, originalPassword, label, normalizedFieldType]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!touched) setTouched(true);
-    onChange(e);
-  };
-  
   return (
     <div className={`${styles['input-box-wrapper']} ${variant}`}>
       <TextField
@@ -90,7 +85,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         label={label.charAt(0).toUpperCase() + label.slice(1)}
         type={inputType}
         value={value}
-        onChange={handleChange}
+        onChange={(e) => (!touched && setTouched(true), onChange(e))}
         placeholder={finalPlaceholder}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
