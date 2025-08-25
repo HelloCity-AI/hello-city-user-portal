@@ -38,9 +38,6 @@ describe('DatePicker component', () => {
 
     fireEvent.change(input!, { target: { value: '2025-08-20' } });
 
-    expect(onChange).toHaveBeenCalledWith(
-      null,
-      expect.objectContaining({ validationError: null }))
+    expect(onChange).toHaveBeenCalledWith(null, expect.objectContaining({ validationError: null }));
   });
-
 });
