@@ -95,29 +95,27 @@ const InputBox: React.FC<InputBoxProps> = ({
         helperText={errorMessage || externalErrorMessage || ' '}
         disabled={disabled}
         required={required}
-        inputProps={{
-          id: inputId,
-          maxLength,
-          autoComplete: autoComplete ? 'on' : 'off',
-          name: name || normalizedFieldType,
+        slotProps={{
+          input: {
+            autoComplete: autoComplete ? 'on' : 'off',
+            name: name || normalizedFieldType,
+            endAdornment: (
+              (normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword') &&
+              (<InputAdornment position="end">
+                <IconButton
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  edge="end"
+                  aria-label="toggle password visibility"
+                >
+                  {showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>)
+            ),
+            inputProps: {
+              maxLength: maxLength
+            }
+          }
         }}
-        InputProps={
-          normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
-            ? {
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton
-                      onClick={()=>(setShowPassword((prev) => !prev))}
-                      edge="end"
-                      aria-label="toggle password visibility"
-                    >
-                      {showPassword ? <Visibility /> : <VisibilityOff />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }
-            : undefined
-        }
       />
     </div>
   );
