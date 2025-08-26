@@ -79,6 +79,11 @@ msgstr ""
 #~ msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:46
+#~ msgid "Banner.Confidence"
+#~ msgstr "Confidence"
+
+#. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
