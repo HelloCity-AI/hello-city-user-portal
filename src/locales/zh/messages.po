@@ -14,6 +14,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:32
+msgid "contact-us.title"
+msgstr "联系我们"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:36
+msgid "contact-us.name"
+msgstr "姓名"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:44
+msgid "contact-us.email"
+msgstr "电子邮件"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:53
+msgid "contact-us.message"
+msgstr "信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:63
+msgid "contact-us.submit"
+msgstr "提交"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 #~ msgid "Submit"
 #~ msgstr "提交"
@@ -85,6 +110,10 @@ msgstr ""
 #~ msgid "Banner.Confidence"
 #~ msgstr "信心"
 
+#: src/components/NavBar.tsx:139
+#~ msgid "NaveBar.Sign Up"
+#~ msgstr "注册"
+
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
 msgid "profile.avatar.add"
@@ -101,12 +130,12 @@ msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:102
+#: src/components/NavBar.tsx:110
 msgid "NaveBar.Chat"
 msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:111
+#: src/components/NavBar.tsx:119
 msgid "NaveBar.Check Items"
 msgstr "检查项目"
 
@@ -115,11 +144,37 @@ msgstr "检查项目"
 msgid "confirm.button"
 msgstr "确认"
 
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:89
+#: src/components/NavBar.tsx:154
+msgid "contact-us"
+msgstr "联系我们"
+
+#: src/app/[lang]/contact-us/page.tsx:21
+#~ msgid "Contact Us"
+#~ msgstr "联系我们"
+
+#~ msgid "contact-us.email"
+#~ msgstr "邮箱"
+
+#~ msgid "contact-us.message"
+#~ msgstr "留言"
+
+#~ msgid "contact-us.name"
+#~ msgstr "姓名"
+
+#~ msgid "contact-us.submit"
+#~ msgstr "提交"
+
+#~ msgid "contact-us.title"
+#~ msgstr "联系我们"
+
+#: src/app/[lang]/contact-us/page.tsx:33
 #~ msgid "Email"
 #~ msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:107
+#: src/components/NavBar.tsx:115
 msgid "NaveBar.FAQ"
 msgstr "常见问题"
 
@@ -134,12 +189,12 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:97
+#: src/components/NavBar.tsx:105
 msgid "NaveBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:54
+#: src/app/[lang]/create-user-profile/page.tsx:56
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -174,19 +229,19 @@ msgid "Settings"
 msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:136
+#: src/components/NavBar.tsx:79
+#: src/components/NavBar.tsx:144
 msgid "NaveBar.Sign In"
 msgstr "登录"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:139
-msgid "NaveBar.Sign Up"
-msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "提交"
+
+#: src/app/[lang]/contact-us/page.tsx:52
+#~ msgid "Submit"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32
@@ -209,7 +264,7 @@ msgid "Theme"
 msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:145
+#: src/components/NavBar.tsx:150
 msgid "NaveBar.Try HelloCity"
 msgstr "试用 HelloCity"
 

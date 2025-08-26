@@ -20,6 +20,8 @@ export const getDefaultPlaceholder = (type: string): string => {
       return 'Please enter your name';
     case 'phone':
       return 'Please enter your phone number';
+    case 'message':
+      return 'Please enter your message';
     default:
       return 'Please enter value';
   }
@@ -66,5 +68,9 @@ export const validationRules: Record<
   phone: {
     validate: (v) => /^\d+$/.test(v),
     error: 'Only numbers are allowed.',
+  },
+  message: {
+    validate: (v) => v.trim() !== '',
+    error: 'Message is required.',
   },
 };
