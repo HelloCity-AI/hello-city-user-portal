@@ -2,12 +2,27 @@ import React from 'react';
 import { render, screen, act } from '@testing-library/react';
 import NavBar from '@/components/NavBar/NavBar';
 import { TestProviders } from '../utils/TestWrapper';
+import { devices } from '../utils/DeviceConfig';
 
 const mockMatchMedia = jest.fn();
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: mockMatchMedia,
 });
+
+const setViewportSize = (width: number, height: number) => {
+  Object.defineProperty(window, 'innerWidth', {
+    writable: true,
+    configurable: true,
+    value: width,
+  });
+  Object.defineProperty(window, 'innerHeight', {
+    writable: true,
+    configurable: true,
+    value: height,
+  });
+  window.dispatchEvent(new Event('resize'));
+};
 
 const renderNavBar = () => {
   return render(
@@ -37,15 +52,41 @@ describe('NavBar - Main responsive navigation component', () => {
     });
 
     it('Renders mobile navbar on small screens', () => {
+      setViewportSize(devices.mobile.width, devices.mobile.height);
       renderNavBar();
       expect(screen.getByTestId('mobile-navbar')).toBeInTheDocument();
     });
 
     it('Renders desktop navbar on large screens', () => {
+      setViewportSize(devices.desktop.width, devices.desktop.height);
       mockMatchMedia.mockReturnValue(createMockMediaQuery({ matches: true }));
 
       renderNavBar();
       expect(screen.getByTestId('desktop-navbar')).toBeInTheDocument();
+    });
+  });
+
+  describe('Device Compatibility', () => {
+    Object.values(devices).forEach((device) => {
+      test(`Should work properly on ${device.name} (${device.width}x${device.height})`, () => {
+        setViewportSize(device.width, device.height);
+
+        if (device.width >= 1024) {
+          mockMatchMedia.mockReturnValue(createMockMediaQuery({ matches: true }));
+        } else {
+          mockMatchMedia.mockReturnValue(createMockMediaQuery({ matches: false }));
+        }
+
+        renderNavBar();
+
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
+
+        if (device.width >= 1024) {
+          expect(screen.getByTestId('desktop-navbar')).toBeInTheDocument();
+        } else {
+          expect(screen.getByTestId('mobile-navbar')).toBeInTheDocument();
+        }
+      });
     });
   });
 
@@ -88,10 +129,12 @@ describe('NavBar - Main responsive navigation component', () => {
       };
 
       mockMatchMedia.mockReturnValue(mockMediaQuery);
+      setViewportSize(devices.mobile.width, devices.mobile.height);
 
       renderNavBar();
       expect(screen.getByTestId('mobile-navbar')).toBeInTheDocument();
 
+      setViewportSize(devices.desktop.width, devices.desktop.height);
       mockMediaQuery.matches = true;
       act(() => {
         changeHandler!();

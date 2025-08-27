@@ -8,26 +8,26 @@ interface SectionBackgroundProps {
   children: ReactNode;
   bgColor?: 'primary' | 'secondary' | 'white';
   bgImg?: string;
-  overlay?: boolean;
   imgSrc?: string;
   imgAlt?: string;
-  additionalWrapperClassName?: string;
-  overlayClassName?: string;
   priority?: boolean;
   loading?: 'lazy' | 'eager';
+  overlay?: boolean;
+  overlayClassName?: string;
+  additionalWrapperClassName?: string;
 }
 
 const SectionBackground: React.FC<SectionBackgroundProps> = ({
   children,
   bgColor = 'white',
-  overlay = false,
-  additionalWrapperClassName = '',
   bgImg,
-  imgAlt,
   imgSrc,
+  imgAlt = '',
   priority,
   loading,
+  overlay = false,
   overlayClassName = 'absolute inset-0 bg-black/50 z-10',
+  additionalWrapperClassName,
 }) => {
   const baseClassName = `relative overflow-hidden py-10 lg:py-20`;
 
@@ -48,11 +48,11 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
       {imgSrc && (
         <Image
           src={imgSrc}
-          alt={imgAlt ?? ''}
+          alt={imgAlt}
           fill
           priority={priority}
           loading={loading}
-          className="object-cover"
+          className="z-0 object-cover"
           sizes="100vw"
         />
       )}

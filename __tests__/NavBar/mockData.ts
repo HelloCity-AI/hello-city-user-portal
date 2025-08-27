@@ -1,4 +1,4 @@
-import type { NavItem } from '@/components/NavBar/NavBar';
+import type { NavItem, NavConfig } from '@/components/NavBar/navConfig';
 
 export const mockNavItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/en', onClick: jest.fn() },
@@ -25,3 +25,13 @@ export const mockNavItems: NavItem[] = [
     ],
   },
 ];
+
+export const mockNavConfig: NavConfig = {
+  currentLanguage: { code: 'en', label: 'English', shortLabel: 'EN' },
+  logo: {
+    light: '/images/Logo.png',
+    dark: '/images/logo-dark.png',
+    href: '/en/',
+  },
+  navItems: mockNavItems,
+};

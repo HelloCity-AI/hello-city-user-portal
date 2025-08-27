@@ -8,4 +8,33 @@ export interface NavItem {
   childrenItem?: NavItem[];
 }
 
-export const MOBILE_BREAKPOINT = '(min-width:1024px)';
+export type SupportedLanguage = 'en' | 'zh' | 'zh-TW' | 'ja' | 'ko';
+
+export interface LanguageInfo {
+  code: SupportedLanguage;
+  label: string;
+  shortLabel: string; // for display in button like "EN", "中文"
+}
+
+export interface NavConfig {
+  currentLanguage: LanguageInfo;
+  logo: {
+    light: string;
+    dark: string;
+    href: string;
+  };
+  navItems: NavItem[];
+}
+
+export const SUPPORTED_LANGUAGES: Record<SupportedLanguage, LanguageInfo> = {
+  en: { code: 'en', label: 'English', shortLabel: 'EN' },
+  zh: { code: 'zh', label: '简体中文', shortLabel: '中文' },
+  'zh-TW': { code: 'zh-TW', label: '繁體中文', shortLabel: '繁中' },
+  ja: { code: 'ja', label: '日本語', shortLabel: '日本' },
+  ko: { code: 'ko', label: '한국어', shortLabel: '한국' },
+};
+
+export const LOGO_CONFIG = {
+  light: '/images/Logo.png',
+  dark: '/images/logo-dark.png',
+} as const;

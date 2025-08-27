@@ -2,11 +2,11 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import MobileNavBar from '@/components/NavBar/MobileNavBar';
 import { TestProviders } from '../utils/TestWrapper';
-import { mockNavItems } from './mockData';
+import { mockNavConfig } from './mockData';
 
 const renderMobileNavBar = (props = {}) => {
   const defaultProps = {
-    navItems: mockNavItems,
+    navConfig: mockNavConfig,
     hasSignedIn: false,
     ...props,
   };

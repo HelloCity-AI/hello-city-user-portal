@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
+import Box from '@mui/material/Box';
 // eslint-disable-next-line import/no-named-as-default
 import clsx from 'clsx';
-import Box from '@mui/material/Box';
 
 interface SectionContentAreaProps {
   children: ReactNode;
@@ -10,9 +10,9 @@ interface SectionContentAreaProps {
 
 const SectionContentArea: React.FC<SectionContentAreaProps> = ({
   children,
-  additionalClassName = '',
+  additionalClassName,
 }) => {
-  const baseClassName = 'flex w-full flex-wrap gap-5 text-left justify-center';
+  const baseClassName = 'flex w-full flex-wrap gap-5 text-left justify-center lg:flex-nowrap';
 
   return (
     <Box component="div" className={clsx(baseClassName, additionalClassName)}>

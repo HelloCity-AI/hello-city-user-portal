@@ -1,35 +1,36 @@
 import { renderHook, act } from '@testing-library/react';
-import { useNavItems } from '@/hooks/useNavigation';
+import { useNavigation } from '@/hooks/useNavigation';
 import { TestProviders } from '../utils/TestWrapper';
 
 const mockAlert = jest.fn();
 global.alert = mockAlert;
 
-describe('useNavItems', () => {
+describe('useNavigation', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it('Returns navigation items with correct structure', () => {
-    const { result } = renderHook(() => useNavItems(), {
+  it('Returns navigation config with correct structure', () => {
+    const { result } = renderHook(() => useNavigation(), {
       wrapper: TestProviders,
     });
 
-    const navItems = result.current;
+    const { navItems, currentLanguage, logo } = result.current;
     expect(navItems).toHaveLength(4);
     expect(navItems[0].href).toBe('/en'); // Tests href generation
+    expect(currentLanguage.code).toBe('en');
+    expect(logo.href).toBe('/en/');
   });
 
   it('Executes onClick handlers correctly', () => {
-    const { result } = renderHook(() => useNavItems(), {
+    const { result } = renderHook(() => useNavigation(), {
       wrapper: TestProviders,
     });
 
-    const navItems = result.current;
+    const { navItems } = result.current;
 
-    // Test chat and contact alerts
+    // Test chat alert (contact item has no onClick, it uses href)
     act(() => navItems[1].onClick?.()); // chat
-    act(() => navItems[2].onClick?.()); // contact
 
     // Test language switching
     const languageOptions = navItems[3].childrenItem;
@@ -38,7 +39,6 @@ describe('useNavItems', () => {
     act(() => languageOptions?.[2].onClick?.()); // Coming soon
 
     expect(mockAlert).toHaveBeenCalledWith('chat');
-    expect(mockAlert).toHaveBeenCalledWith('contact');
     expect(mockAlert).toHaveBeenCalledWith('Coming soon');
   });
 });

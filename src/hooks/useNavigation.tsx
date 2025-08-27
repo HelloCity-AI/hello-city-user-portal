@@ -1,11 +1,20 @@
 import { Trans } from '@lingui/react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import type { NavItem } from '@/components/NavBar/navConfig';
+import type {
+  NavItem,
+  NavConfig,
+  SupportedLanguage,
+  LanguageInfo,
+} from '@/components/NavBar/navConfig';
+import { SUPPORTED_LANGUAGES, LOGO_CONFIG } from '@/components/NavBar/navConfig';
 
-export const useNavItems = (): NavItem[] => {
+export const useNavigation = (): NavConfig => {
   const { language, setLanguage } = useLanguage();
 
-  return [
+  const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
+  const availableLanguages: LanguageInfo[] = Object.values(SUPPORTED_LANGUAGES);
+
+  const navItems: NavItem[] = [
     {
       id: 'home',
       href: `/${language}`,
@@ -19,21 +28,35 @@ export const useNavItems = (): NavItem[] => {
     },
     {
       id: 'contact',
-      href: `/${language}`,
+      href: `/${language}/contact-us`,
       label: <Trans id="NavBar.ContactUs" message="Contact Us" />,
-      onClick: () => alert('contact'),
     },
     {
       id: 'change language',
       href: '',
       label: <Trans id="NavBar.ChangeLanguage" message="Change Language" />,
-      childrenItem: [
-        { id: 'en', href: '', label: 'English', onClick: () => setLanguage('en') },
-        { id: 'zh', href: '', label: '简体中文', onClick: () => setLanguage('zh') },
-        { id: 'zh-TW', href: '', label: '繁體中文', onClick: () => alert('Coming soon') },
-        { id: 'ja', href: '', label: '日本語', onClick: () => alert('Coming soon') },
-        { id: 'ko', href: '', label: '한국어', onClick: () => alert('Coming soon') },
-      ],
+      childrenItem: availableLanguages.map((lang) => ({
+        id: lang.code,
+        href: '',
+        label: lang.label,
+        onClick: () => {
+          if (lang.code === 'en' || lang.code === 'zh') {
+            setLanguage(lang.code);
+          } else {
+            alert('Coming soon');
+          }
+        },
+      })),
     },
   ];
+
+  return {
+    currentLanguage,
+    logo: {
+      light: LOGO_CONFIG.light,
+      dark: LOGO_CONFIG.dark,
+      href: `/${language}/`,
+    },
+    navItems,
+  };
 };

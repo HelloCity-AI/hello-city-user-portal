@@ -1,31 +1,28 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import Image from 'next/image';
-import { Button, IconButton } from '@mui/material';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import { Trans } from '@lingui/react';
 import SectionContent from '../HomepageSections/SectionContent';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
-import type { NavItem } from './NavBar';
-import UserDrawer from './UserDrawer';
-import { Trans } from '@lingui/react';
-import Link from 'next/link';
 import NavDrawer from './NavDrawer';
+import UserDrawer from './UserDrawer';
+import type { NavBarProps } from './NavBar';
+import type { NavItem } from './navConfig';
 
-interface MobileNavBarProps {
-  className?: string;
-  navItems: NavItem[];
-  hasSignedIn: boolean;
-}
-
-const MobileNavBar: React.FC<MobileNavBarProps> = ({ navItems, hasSignedIn }) => {
+const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
   const [navDrawerMenu, setNavDrawerMenu] = useState<NavItem[][]>([]);
   const [navDrawerSubMenuIdx, setNavDrawerSubMenuIdx] = useState<number | null>(null);
   const isBurgerIconChanged: boolean = openDrawer !== null;
   const isUserDrawerOpen: boolean = openDrawer === 'userDrawer';
   const isNavDrawerOpen: boolean = openDrawer === 'navDrawer';
+  const { logo, navItems } = navConfig;
 
   useEffect(() => {
     const navDrawerMenu: NavItem[][] = [];
@@ -74,7 +71,9 @@ const MobileNavBar: React.FC<MobileNavBarProps> = ({ navItems, hasSignedIn }) =>
           opacity: navDrawerSubMenuIdx === null ? 100 : 0,
         }}
       >
-        <Image src="/images/logo-dark.png" alt="HelloCity Logo" fill className="object-contain" />
+        <Link href={logo.href}>
+          <Image src={logo.dark} alt="HelloCity Logo" fill className="object-contain" />
+        </Link>
       </Box>
       <Button
         variant="tertiary"

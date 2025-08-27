@@ -1,37 +1,31 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Trans } from '@lingui/react';
-import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { Trans } from '@lingui/react';
+// eslint-disable-next-line import/no-named-as-default
+import clsx from 'clsx';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
 import { Dropdown } from '..';
 import { userMenuOptions } from '../dropdownMenuOptions.example';
 import SectionContent from '../HomepageSections/SectionContent';
-// eslint-disable-next-line import/no-named-as-default
-import clsx from 'clsx';
 import type { NavBarProps } from './NavBar';
 
 const SCROLL_THRESHOLD = 30;
-const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] items-center py-2 flex';
+const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
 const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
-const LOGO_PATHS = {
-  light: '/images/Logo.png',
-  dark: '/images/logo-dark.png',
-} as const;
 
-const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navItems }) => {
+const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   const [hasBgColor, setHasBgColor] = useState<boolean>(false);
-  const { language, isLanguage } = useLanguage();
   const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
-  const isEnglish = isLanguage('en');
   const scrollYRef = useRef(0);
 
+  const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white/90 shadow-md' : 'bg-transparent shadow-none';
 
   useEffect(() => {
@@ -58,19 +52,22 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navItems }) => {
     };
   }, [hasBgColor]);
 
-  const languageNavItem = navItems.find((item) => item.id === 'change language');
-  const languageOptions =
-    languageNavItem?.childrenItem?.map((child) => ({
-      label: child.label,
-      value: child.id,
-      onClick: child.onClick || (() => {}),
-    })) || [];
+  const languageOptions = useMemo(() => {
+    const languageNavItem = navItems.find((item) => item.id === 'change language');
+    return (
+      languageNavItem?.childrenItem?.map((child) => ({
+        label: child.label,
+        value: child.id,
+        onClick: child.onClick || (() => {}),
+      })) || []
+    );
+  }, [navItems]);
 
   const renderLogo = () => (
     <Box component="div" data-section="logo" className="relative h-[30px] w-[120px]">
-      <Link href="/">
+      <Link href={logo.href}>
         <Image
-          src={hasBgColor ? LOGO_PATHS.dark : LOGO_PATHS.light}
+          src={hasBgColor ? logo.dark : logo.light}
           alt="HelloCity Logo"
           fill
           className="object-contain"
@@ -88,9 +85,9 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navItems }) => {
         if (navItem.id === 'change language') return;
         return (
           <Button
-            key={navItem.id}
-            href={navItem.href || `/${language}`}
             component={Link}
+            key={navItem.id}
+            href={navItem.href || ''}
             variant="tertiary"
             sx={{ color: `${hasBgColor && 'secondary.contrastText'}`, fontWeight: 600 }}
           >
@@ -156,7 +153,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navItems }) => {
             aria-label="Change language"
           >
             <LanguageOutlinedIcon aria-hidden="true" />
-            {isEnglish ? 'EN' : 'CN'}
+            {currentLanguage.shortLabel}
           </Button>
         }
         dropdownOptions={languageOptions}
@@ -169,7 +166,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navItems }) => {
         component={Link}
         href={tryHelloCityHref}
         variant="primary"
-        className="min-w-fit flex-shrink-0 whitespace-nowrap text-nowrap font-semibold"
+        className="min-w-fit flex-shrink-0 whitespace-nowrap font-semibold"
       >
         {tryHelloCityLabel}
       </Button>

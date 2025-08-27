@@ -1,16 +1,16 @@
+import React from 'react';
+import Link from 'next/link';
+import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import type { DrawerProps } from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
-import React from 'react';
-import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import type { NavItem } from './NavBar';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
-import Link from 'next/link';
+import type { NavItem } from './navConfig';
 
 interface NavDrawerProps extends DrawerProps {
   fullMenu: NavItem[][];
@@ -68,9 +68,13 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
               return (
                 <List sx={{ width: `${100}%`, flexShrink: 0 }} key={level}>
                   {menu.map((item, itemIndex) => {
+                    const isLink = !!item.href && !item.childrenItem;
+
                     return (
                       <ListItemButton
                         key={item.id}
+                        component={isLink ? Link : 'button'}
+                        href={isLink ? item.href : undefined}
                         sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}
                         onClick={() => handleClick(itemIndex)}
                       >

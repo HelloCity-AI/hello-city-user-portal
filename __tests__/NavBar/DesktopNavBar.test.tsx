@@ -2,11 +2,11 @@ import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import DesktopNavBar from '@/components/NavBar/DesktopNavBar';
 import { TestProviders } from '../utils/TestWrapper';
-import { mockNavItems } from './mockData';
+import { mockNavConfig } from './mockData';
 
 const renderDesktopNavBar = (props = {}) => {
   const defaultProps = {
-    navItems: mockNavItems,
+    navConfig: mockNavConfig,
     hasSignedIn: false,
     ...props,
   };

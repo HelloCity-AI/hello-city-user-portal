@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Trans } from '@lingui/react';
 
 export const useTryHelloCity = () => {
   const { language } = useLanguage();
@@ -9,6 +10,6 @@ export const useTryHelloCity = () => {
 
   return {
     href: `/${language}`,
-    label: 'Try HelloCity',
+    label: <Trans id="NavBar.Try HelloCity" message="Try HelloCity" />,
   };
 };

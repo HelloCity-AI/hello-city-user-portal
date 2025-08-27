@@ -58,8 +58,14 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
     it('Shows arrow for items with children', () => {
       renderNavDrawer();
 
-      const servicesItem = screen.getByText('Services').closest('[role="button"]');
-      expect(servicesItem?.querySelector('svg')).toBeInTheDocument();
+      // Services item should have an arrow icon since it has children
+      const servicesText = screen.getByText('Services');
+      const servicesButton = servicesText.closest('button');
+      expect(servicesButton).toBeInTheDocument();
+
+      // Check if the Services button contains an arrow icon
+      const svgIcon = servicesButton?.querySelector('svg');
+      expect(svgIcon).toBeInTheDocument();
     });
   });
 

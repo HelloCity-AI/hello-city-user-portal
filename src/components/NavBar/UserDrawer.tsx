@@ -1,10 +1,14 @@
 'use client';
 
 import React from 'react';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import type { DrawerProps } from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import { Box, Divider, List, ListItemButton, ListItemIcon } from '@mui/material';
 import { userMenuOptions } from '../dropdownMenuOptions.example';
 import UserProfileCard from '../UserLabel';
 

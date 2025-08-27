@@ -1,38 +1,27 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import MobileNavBar from './MobileNavBar';
+import React, { useState } from 'react';
+import { useNavigation } from '@/hooks/useNavigation';
+import useIsMobile from '@/hooks/useIsMobile';
 import DesktopNavBar from './DesktopNavBar';
-import { useNavItems } from '@/hooks/useNavigation';
-import { MOBILE_BREAKPOINT, type NavItem } from './navConfig';
+import MobileNavBar from './MobileNavBar';
+import { type NavConfig } from './navConfig';
 
 export interface NavBarProps {
-  className?: string;
-  navItems: NavItem[];
+  navConfig: NavConfig;
   hasSignedIn: boolean;
 }
 
-export type { NavItem };
-
 const NavBar = () => {
   // to be replaced when user slice is setup
-  const [hasSignedIn, _setHasSignedIn] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const navItems = useNavItems();
-
-  // check viewport width
-  useEffect(() => {
-    const mediaQueryList = window.matchMedia(MOBILE_BREAKPOINT);
-    const handler = () => setIsMobile(!mediaQueryList.matches);
-    handler();
-    mediaQueryList.addEventListener('change', handler);
-    return () => mediaQueryList.removeEventListener('change', handler);
-  }, []);
+  const [hasSignedIn, _setHasSignedIn] = useState<boolean>(false);
+  const navConfig = useNavigation();
+  const isMobile = useIsMobile();
 
   return isMobile ? (
-    <MobileNavBar hasSignedIn={hasSignedIn} navItems={navItems} />
+    <MobileNavBar hasSignedIn={hasSignedIn} navConfig={navConfig} />
   ) : (
-    <DesktopNavBar hasSignedIn={hasSignedIn} navItems={navItems} />
+    <DesktopNavBar hasSignedIn={hasSignedIn} navConfig={navConfig} />
   );
 };
 
