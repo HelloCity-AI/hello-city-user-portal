@@ -47,32 +47,32 @@ msgid "placeholder.default"
 msgstr "Start to input....."
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:57
+#: src/components/InputBox/utils.ts:55
 msgid "validation.name"
 msgstr "Please enter your name"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:61
+#: src/components/InputBox/utils.ts:59
 msgid "validation.email"
 msgstr "Please enter your email"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:65
+#: src/components/InputBox/utils.ts:63
 msgid "validation.password"
 msgstr "Please enter your password"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:69
+#: src/components/InputBox/utils.ts:67
 msgid "validation.repeatPassword"
 msgstr "Please re-enter your password"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:73
+#: src/components/InputBox/utils.ts:71
 msgid "validation.phone"
 msgstr "Please enter your phone number"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:77
+#: src/components/InputBox/utils.ts:75
 msgid "validation.message"
 msgstr "Please write something"
 

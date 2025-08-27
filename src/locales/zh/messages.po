@@ -49,32 +49,32 @@ msgid "placeholder.default"
 msgstr "请输入"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:57
+#: src/components/InputBox/utils.ts:55
 msgid "validation.name"
 msgstr "无效姓名，请重新输入！"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:61
+#: src/components/InputBox/utils.ts:59
 msgid "validation.email"
 msgstr "无效邮箱地址"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:65
+#: src/components/InputBox/utils.ts:63
 msgid "validation.password"
 msgstr "无效密码"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:69
+#: src/components/InputBox/utils.ts:67
 msgid "validation.repeatPassword"
 msgstr "密码不一致！"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:73
+#: src/components/InputBox/utils.ts:71
 msgid "validation.phone"
 msgstr "无效电话号码"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/utils.ts:77
+#: src/components/InputBox/utils.ts:75
 msgid "validation.message"
 msgstr "无效信息！"
 
