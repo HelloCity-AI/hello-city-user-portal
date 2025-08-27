@@ -39,18 +39,20 @@ const Page = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative flex h-[100vh] w-[100vw] items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center"
+      className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
     >
       <div className="absolute inset-0 bg-black/25" />
-      <div className="relative flex h-[50%] w-[25%] min-w-[400px] flex-col items-center justify-around rounded-3xl bg-[#ffffff]">
-        <div>
-          <Typography variant="h3">Hello City</Typography>
+      <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
+        <div className="mb-6 text-center">
+          <Typography variant="h3" className="text-2xl sm:text-3xl">
+            Hello City
+          </Typography>
         </div>
 
         <PersonalInfo formData={formData} handleChange={handleChange} />
 
-        <div className="flex gap-2">
-          <Button variant="contained" color="primary" sx={{ mr: 'auto' }} type="submit">
+        <div className="w-full">
+          <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
             <Trans id="I'm all set" message="I'm all set" />
           </Button>
         </div>

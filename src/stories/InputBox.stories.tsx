@@ -14,6 +14,7 @@ export const Primary = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   return (
     <div className="mx-auto flex flex-col gap-4">
@@ -51,6 +52,13 @@ export const Primary = () => {
         value={repeatPassword}
         onChange={(e) => setRepeatPassword(e.target.value)}
         originalPassword={password}
+        required
+      />
+      <InputBox
+        label="Message"
+        fieldType="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
         required
       />
     </div>

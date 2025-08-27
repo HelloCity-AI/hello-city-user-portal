@@ -12,6 +12,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:32
+msgid "contact-us.title"
+msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:36
+msgid "contact-us.name"
+msgstr "Name"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:44
+msgid "contact-us.email"
+msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:53
+msgid "contact-us.message"
+msgstr "Message"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:63
+msgid "contact-us.submit"
+msgstr "contact-us.submit"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 #~ msgid "Submit"
 #~ msgstr "Submit"
@@ -133,6 +158,16 @@ msgid "NavBar.Chat"
 msgstr "Chat"
 
 #. js-lingui-explicit-id
+#: src/components/NavBar.tsx:110
+msgid "NaveBar.Chat"
+msgstr "Chat"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:119
+msgid "NaveBar.Check Items"
+msgstr "Check Items"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
 msgid "confirm.button"
 msgstr "Confirm"
@@ -145,6 +180,21 @@ msgstr "Contact Us"
 #: src/app/auth/PageOne.tsx:22
 #~ msgid "Email"
 #~ msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:89
+#: src/components/NavBar.tsx:154
+msgid "contact-us"
+msgstr "Contact Us"
+
+#: src/app/[lang]/contact-us/page.tsx:21
+#~ msgid "Contact Us"
+#~ msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:115
+msgid "NaveBar.FAQ"
+msgstr "FAQ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
@@ -162,7 +212,12 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:54
+#: src/components/NavBar.tsx:105
+msgid "NaveBar.Home"
+msgstr "Home"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:56
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -199,6 +254,8 @@ msgstr "Settings"
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:131
 #: src/components/NavBar/MobileNavBar.tsx:117
+#: src/components/NavBar.tsx:79
+#: src/components/NavBar.tsx:144
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
 
@@ -206,6 +263,10 @@ msgstr "Sign In"
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "Submit"
+
+#: src/app/[lang]/contact-us/page.tsx:52
+#~ msgid "Submit"
+#~ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
@@ -227,6 +288,10 @@ msgstr "The image is uploading ..."
 msgid "Theme"
 msgstr "Theme"
 
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:150
+msgid "NaveBar.Try HelloCity"
+msgstr "Try HelloCity"
 #: src/app/auth/PageOne.tsx:14
 #~ msgid "UserName"
 #~ msgstr "UserName"
