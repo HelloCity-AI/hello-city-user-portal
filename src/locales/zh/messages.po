@@ -100,6 +100,16 @@ msgstr "提交"
 #~ msgstr "上一步"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+#~ msgid "Banner.TryHelloCity"
+#~ msgstr "试用 HelloCity"
+
+#. js-lingui-explicit-id
+#: src/components/Banner.tsx:46
+#~ msgid "Banner.Confidence"
+#~ msgstr "信心"
+
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "注册"

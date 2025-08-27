@@ -9,4 +9,11 @@ module.exports = {
     },
   ],
   format: 'po',
+  extractorParserOptions: {
+    flow: false,
+  },
+  runtimeConfigModule: {
+    i18n: ['@lingui/core', 'i18n'],
+    Trans: ['@lingui/react', 'Trans'],
+  },
 };
