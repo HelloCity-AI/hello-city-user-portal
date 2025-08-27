@@ -24,17 +24,17 @@ msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:42
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:49
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:56
 msgid "contact-us.submit"
 msgstr "提交"
 
@@ -109,10 +109,6 @@ msgstr "提交"
 #: src/components/Banner.tsx:46
 #~ msgid "Banner.Confidence"
 #~ msgstr "信心"
-
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
@@ -207,6 +203,10 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #: src/components/dropdownMenuOptions.tsx:39
 msgid "Logout"
 msgstr "登出"
+
+#: src/components/NavBar.tsx:139
+#~ msgid "NaveBar.Sign Up"
+#~ msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11

@@ -16,7 +16,7 @@ export interface InputBoxProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   label: string;
-  fieldType: InputFieldType;
+  fieldType?: InputFieldType;
   placeholder?: string;
   variant?: InputVariant;
   disabled?: boolean;
@@ -32,7 +32,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   value,
   onChange,
   label,
-  fieldType,
+  fieldType = 'name',
   placeholder,
   variant = 'primary',
   disabled,
@@ -41,7 +41,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   autoComplete,
   originalPassword,
   name,
-  maxLength = fieldType === "message" ? 200 : 20,
+  maxLength = fieldType === 'message' ? 200 : 20,
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -53,19 +53,20 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(fieldType);
 
-  const validateChange = (val: string) => {
-    if (!val.trim()) {
+  const validateChange = (change: string) => {
+    if (!change.trim()) {
       setErrorMessage(required ? `${label} is required.` : '');
       return;
     }
+    console.log(change);
     const rule = validationRules[fieldType];
     const isValid =
       fieldType === 'repeatPassword'
-        ? rule.validate(val, originalPassword)
-        : rule.validate(val);
-    if (!isValid)  {
-      setErrorMessage(rule.error)
-      return
+        ? rule.validate(change, originalPassword)
+        : rule.validate(change);
+    if (!isValid) {
+      setErrorMessage(rule.error);
+      return;
     }
     setErrorMessage('');
   };
@@ -88,6 +89,8 @@ const InputBox: React.FC<InputBoxProps> = ({
               ? `${value.length}/${maxLength}`
               : ' '
         }
+        multiline
+        rows={fieldType === 'message' ? 4 : 1}
         disabled={disabled}
         required={required}
         fullWidth
@@ -95,9 +98,8 @@ const InputBox: React.FC<InputBoxProps> = ({
           input: {
             autoComplete: autoComplete ? 'on' : 'off',
             name: name || fieldType,
-            endAdornment: (
-              (fieldType === 'password' || fieldType === 'repeatPassword') &&
-              (<InputAdornment position="end">
+            endAdornment: (fieldType === 'password' || fieldType === 'repeatPassword') && (
+              <InputAdornment position="end">
                 <IconButton
                   onClick={() => setShowPassword((prev) => !prev)}
                   edge="end"
@@ -105,12 +107,12 @@ const InputBox: React.FC<InputBoxProps> = ({
                 >
                   {showPassword ? <Visibility /> : <VisibilityOff />}
                 </IconButton>
-              </InputAdornment>)
+              </InputAdornment>
             ),
             inputProps: {
-              maxLength: maxLength
-            }
-          }
+              maxLength: maxLength,
+            },
+          },
         }}
       />
     </div>

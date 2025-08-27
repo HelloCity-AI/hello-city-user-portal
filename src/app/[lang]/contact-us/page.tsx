@@ -20,7 +20,7 @@ const ContactUs = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-
+  const [val, setVal] = React.useState('123');
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(`Submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
@@ -36,27 +36,20 @@ const ContactUs = () => {
           label={i18n._('contact-us.name')}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          fullWidth
-          margin="normal"
           required
         />
         <InputBox
           label={i18n._('contact-us.email')}
-          type="email"
+          fieldType="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-          margin="normal"
           required
         />
         <InputBox
           label={i18n._('contact-us.message')}
+          fieldType="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          fullWidth
-          margin="normal"
-          multiline
-          rows={4}
           required
         />
         <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
