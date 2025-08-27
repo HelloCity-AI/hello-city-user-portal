@@ -9,7 +9,7 @@ export default function Home({ params }: Props) {
 
   return (
     <div>
-      <Banner />
+      <Banner locale={lang} />
       <h1>Hello World - Language: {lang}</h1>
       <p>Welcome to HelloCity! This page is rendered for the {lang} locale.</p>
       {/* Login link(must use <a> link to define Auth0 component) */}

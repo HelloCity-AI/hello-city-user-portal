@@ -12,6 +12,31 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:32
+msgid "contact-us.title"
+msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:36
+msgid "contact-us.name"
+msgstr "Name"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:44
+msgid "contact-us.email"
+msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:53
+msgid "contact-us.message"
+msgstr "Message"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:63
+msgid "contact-us.submit"
+msgstr "contact-us.submit"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 #~ msgid "Submit"
 #~ msgstr "Submit"
@@ -73,6 +98,16 @@ msgstr ""
 #~ msgstr "Prev"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+#~ msgid "Banner.TryHelloCity"
+#~ msgstr "Try HelloCity"
+
+#. js-lingui-explicit-id
+#: src/components/Banner.tsx:46
+#~ msgid "Banner.Confidence"
+#~ msgstr "Confidence"
+
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "Sign Up"
@@ -93,12 +128,12 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:106
+#: src/components/NavBar.tsx:110
 msgid "NaveBar.Chat"
 msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:115
+#: src/components/NavBar.tsx:119
 msgid "NaveBar.Check Items"
 msgstr "Check Items"
 
@@ -107,12 +142,18 @@ msgstr "Check Items"
 msgid "confirm.button"
 msgstr "Confirm"
 
-#: src/app/auth/PageOne.tsx:22
-#~ msgid "Email"
-#~ msgstr "Email"
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:89
+#: src/components/NavBar.tsx:154
+msgid "contact-us"
+msgstr "Contact Us"
+
+#: src/app/[lang]/contact-us/page.tsx:21
+#~ msgid "Contact Us"
+#~ msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:111
+#: src/components/NavBar.tsx:115
 msgid "NaveBar.FAQ"
 msgstr "FAQ"
 
@@ -127,12 +168,12 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:101
+#: src/components/NavBar.tsx:105
 msgid "NaveBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:54
+#: src/app/[lang]/create-user-profile/page.tsx:56
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -168,7 +209,7 @@ msgstr "Settings"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:79
-#: src/components/NavBar.tsx:140
+#: src/components/NavBar.tsx:144
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
 
@@ -176,6 +217,10 @@ msgstr "Sign In"
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "Submit"
+
+#: src/app/[lang]/contact-us/page.tsx:52
+#~ msgid "Submit"
+#~ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:32
@@ -198,7 +243,7 @@ msgid "Theme"
 msgstr "Theme"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:146
+#: src/components/NavBar.tsx:150
 msgid "NaveBar.Try HelloCity"
 msgstr "Try HelloCity"
 

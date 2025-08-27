@@ -15,8 +15,9 @@ type PersonalInfoProps = {
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) => {
   return (
-    <div className="flex w-[50%] flex-col gap-2">
+    <div className="flex w-full flex-col gap-3 px-2 sm:gap-4">
       <TextField
+        fullWidth
         select
         label="Gender"
         name="gender"
@@ -24,6 +25,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         required
         value={formData.gender}
         onChange={handleChange}
+        size="small"
       >
         {genderOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -33,12 +35,14 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
       </TextField>
 
       <TextField
+        fullWidth
         select
         label="Nationality"
         name="nationality"
         variant="outlined"
         value={formData.nationality}
         onChange={handleChange}
+        size="small"
       >
         {nationalityOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -48,12 +52,14 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
       </TextField>
 
       <TextField
+        fullWidth
         select
         label="City"
         name="city"
         variant="outlined"
         value={formData.city}
         onChange={handleChange}
+        size="small"
       >
         {cityOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -70,6 +76,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         variant="outlined"
         value={formData.language}
         onChange={handleChange}
+        size="small"
       >
         {languageOptions.map((option) => (
           <MenuItem key={option} value={option}>

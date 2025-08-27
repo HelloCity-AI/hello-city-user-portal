@@ -10,7 +10,7 @@ import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
-export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone';
+export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
 
 export interface InputBoxProps {
   value: string;
@@ -41,7 +41,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   autoComplete,
   originalPassword,
   name,
-  maxLength = 20,
+  maxLength = fieldType === "message" ? 200 : 20,
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -81,7 +81,13 @@ const InputBox: React.FC<InputBoxProps> = ({
         placeholder={placeholder ?? getDefaultPlaceholder(fieldType)}
         variant="outlined"
         error={!!(errorMessage || externalErrorMessage)}
-        helperText={errorMessage || externalErrorMessage || ' '}
+        helperText={
+          errorMessage || externalErrorMessage
+            ? errorMessage || externalErrorMessage
+            : fieldType === 'message'
+              ? `${value.length}/${maxLength}`
+              : ' '
+        }
         disabled={disabled}
         required={required}
         fullWidth

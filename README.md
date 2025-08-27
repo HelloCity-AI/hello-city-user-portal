@@ -50,7 +50,7 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Material-
 3. **Compile internationalization messages:**
 
    ```bash
-   npm run compile
+   npm run lingui:compile
    ```
 
 4. **Start the development server:**
@@ -121,13 +121,13 @@ Test files location:
 
 ```bash
 # Extract messages from code
-npm run extract
+npm run lingui:extract
 
 # Compile extracted messages
-npm run compile
+npm run lingui:compile
 
 # Run both (required after adding new text)
-npm run extract && npm run compile
+npm run lingui:extract && npm run lingui:compile
 ```
 
 ### Storybook
@@ -263,7 +263,7 @@ src/
 3. Add Storybook stories in `src/stories/`
 4. Write tests in `__tests__/` directories
 5. Use `<Trans>` components for all user-facing text
-6. Run `npm run extract && npm run compile` after adding text
+6. Run `npm run lingui:extract && npm run lingui:compile` after adding text
 
 ### Language Support
 
