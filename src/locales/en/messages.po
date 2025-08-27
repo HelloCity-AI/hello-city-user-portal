@@ -12,6 +12,76 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:16
+msgid "placeholder.email"
+msgstr "Please enter your email"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:18
+msgid "placeholder.password"
+msgstr "Please enter your password"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:20
+msgid "placeholder.repeatPassword"
+msgstr "Please re-enter your password"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:22
+msgid "placeholder.name"
+msgstr "Please enter your name"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:24
+msgid "placeholder.phone"
+msgstr "Please enter your phone number"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:26
+msgid "placeholder.message"
+msgstr "Please write something"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:28
+msgid "placeholder.default"
+msgstr "Start to input....."
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:57
+msgid "validation.name"
+msgstr "Please enter your name"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:61
+msgid "validation.email"
+msgstr "Please enter your email"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:65
+msgid "validation.password"
+msgstr "Please enter your password"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:69
+msgid "validation.repeatPassword"
+msgstr "Please re-enter your password"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:73
+msgid "validation.phone"
+msgstr "Please enter your phone number"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:77
+msgid "validation.message"
+msgstr "Please write something"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:66
+msgid "validation.required"
+msgstr "{field} is required"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
@@ -22,17 +92,17 @@ msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:45
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:54
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:65
 msgid "contact-us.submit"
 msgstr "contact-us.submit"
 

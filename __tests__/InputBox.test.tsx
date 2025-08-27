@@ -3,6 +3,17 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import InputBox from '../src/components/InputBox/InputBox';
 
+jest.mock('@lingui/core', () => ({
+  i18n: {
+    _: (msg: string, values?: any) => {
+      if (msg === 'validation.required') {
+        return `${values?.field} is required`;
+      }
+      return msg;
+    },
+  },
+}));
+
 describe('InputBox component', () => {
   test('Renders with label and placeholder', () => {
     render(
@@ -60,7 +71,7 @@ describe('InputBox validation', () => {
     const input = screen.getByLabelText(/phone/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Phone is required.')).toBeInTheDocument();
+    expect(screen.getByText(/phone is required/i)).toBeInTheDocument();
   });
 
   test('Shows required error when email input is empty', () => {
@@ -81,7 +92,7 @@ describe('InputBox validation', () => {
     const input = screen.getByLabelText(/email/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Email is required.')).toBeInTheDocument();
+    expect(screen.getByText(/email is required/i)).toBeInTheDocument();
   });
 
   test('Shows rule error for invalid format (custom rule)', () => {
@@ -116,6 +127,6 @@ describe('InputBox validation', () => {
     const input = screen.getByLabelText(/message/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Message is required.')).toBeInTheDocument();
+    expect(screen.getByText(/message is required/i)).toBeInTheDocument();
   });
 });

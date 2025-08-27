@@ -14,6 +14,76 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:16
+msgid "placeholder.email"
+msgstr "请输入邮箱地址"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:18
+msgid "placeholder.password"
+msgstr "请输入密码"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:20
+msgid "placeholder.repeatPassword"
+msgstr "请再次输入密码"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:22
+msgid "placeholder.name"
+msgstr "请输入姓名"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:24
+msgid "placeholder.phone"
+msgstr "请输入联系电话"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:26
+msgid "placeholder.message"
+msgstr "请在此输入内容"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:28
+msgid "placeholder.default"
+msgstr "请输入"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:57
+msgid "validation.name"
+msgstr "无效姓名，请重新输入！"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:61
+msgid "validation.email"
+msgstr "无效邮箱地址"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:65
+msgid "validation.password"
+msgstr "无效密码"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:69
+msgid "validation.repeatPassword"
+msgstr "密码不一致！"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:73
+msgid "validation.phone"
+msgstr "无效电话号码"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/utils.ts:77
+msgid "validation.message"
+msgstr "无效信息！"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:66
+msgid "validation.required"
+msgstr "{field}是必填项。"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
@@ -24,17 +94,17 @@ msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:45
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:54
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:65
 msgid "contact-us.submit"
 msgstr "提交"
 

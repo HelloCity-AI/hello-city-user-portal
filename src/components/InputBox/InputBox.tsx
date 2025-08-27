@@ -8,6 +8,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
+import {i18n} from '@lingui/core'
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
 export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
@@ -43,7 +44,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   const [showPassword, setShowPassword] = useState(false);
   const [touched, setTouched] = useState(false);
 
-  const normalizedFieldType = fieldType || label.toLowerCase().replace(/\s/g, '');
+  const normalizedFieldType = fieldType;
   const inputType =
     normalizedFieldType === 'password' || normalizedFieldType === 'repeatPassword'
       ? showPassword
@@ -62,7 +63,7 @@ const InputBox: React.FC<InputBoxProps> = ({
 
     if (!value.trim()) {
       if (required) {
-        currentError = `${label} is required.`;
+        currentError = i18n._("validation.required",{field:label});
       }
     } else if (rule) {
       const isValid =
@@ -71,7 +72,7 @@ const InputBox: React.FC<InputBoxProps> = ({
           : rule.validate(value);
 
       if (!isValid) {
-        currentError = rule.error;
+        currentError = rule.error();
       }
     }
 
