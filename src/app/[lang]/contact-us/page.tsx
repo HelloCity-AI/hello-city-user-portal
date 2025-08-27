@@ -34,7 +34,7 @@ const ContactUs = () => {
       <form onSubmit={handleSubmit}>
         <InputBox
           label={i18n._('contact-us.name')}
-          fieldType='name'
+          fieldType="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           fullWidth
@@ -43,7 +43,7 @@ const ContactUs = () => {
         />
         <InputBox
           label={i18n._('contact-us.email')}
-          fieldType='email'
+          fieldType="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           fullWidth
@@ -52,7 +52,7 @@ const ContactUs = () => {
         />
         <InputBox
           label={i18n._('contact-us.message')}
-          fieldType='message'
+          fieldType="message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           fullWidth
