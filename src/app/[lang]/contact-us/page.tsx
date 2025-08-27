@@ -20,7 +20,6 @@ const ContactUs = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [val, setVal] = React.useState('123');
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(`Submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);

@@ -12,27 +12,27 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:42
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:49
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:56
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "contact-us.submit"
 
