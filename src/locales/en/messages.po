@@ -98,6 +98,16 @@ msgstr "Submit"
 #~ msgstr "Prev"
 
 #. js-lingui-explicit-id
+#: src/components/Banner.tsx:33
+#: src/components/Banner.tsx:56
+#~ msgid "Banner.TryHelloCity"
+#~ msgstr "Try HelloCity"
+
+#. js-lingui-explicit-id
+#: src/components/Banner.tsx:46
+#~ msgid "Banner.Confidence"
+#~ msgstr "Confidence"
+
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "Sign Up"

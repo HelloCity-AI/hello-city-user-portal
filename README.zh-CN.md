@@ -46,7 +46,7 @@
 3. **编译国际化消息：**
 
    ```bash
-   npm run compile
+   npm run lingui:compile
    ```
 
 4. **启动开发服务器：**
@@ -143,13 +143,13 @@ npm run test:coverage
 
 ```bash
 # 从代码中提取消息
-npm run extract
+npm run lingui:extract
 
 # 编译提取的消息
-npm run compile
+npm run lingui:compile
 
 # 两步合并 (添加新文本后必需)
-npm run extract && npm run compile
+npm run lingui:extract && npm run lingui:compile
 ```
 
 ### Storybook
@@ -259,7 +259,7 @@ src/
 3. 在 `src/stories/` 中添加 Storybook 故事
 4. 在 `__tests__/` 目录中编写测试
 5. 对所有用户界面文本使用 `<Trans>` 组件
-6. 添加文本后运行 `npm run extract && npm run compile`
+6. 添加文本后运行 `npm run lingui:extract && npm run lingui:compile`
 
 ### 语言支持
 
