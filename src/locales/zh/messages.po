@@ -208,6 +208,10 @@ msgstr "登出"
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "注册"
 
+#: src/stories/DatePicker.stories.tsx:18
+msgid "Pick a date"
+msgstr "选择日期"
+
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
 msgid "Profile"

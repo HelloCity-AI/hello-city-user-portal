@@ -187,6 +187,10 @@ msgstr "Logout"
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "Sign Up"
 
+#: src/stories/DatePicker.stories.tsx:18
+msgid "Pick a date"
+msgstr "Pick a date"
+
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.tsx:11
 msgid "Profile"
