@@ -187,7 +187,7 @@ msgstr "Logout"
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "Sign Up"
 
-#: src/stories/DatePicker.stories.tsx:18
+#: src/stories/DatePicker.stories.tsx:17
 msgid "Pick a date"
 msgstr "Pick a date"
 

@@ -208,7 +208,7 @@ msgstr "登出"
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "注册"
 
-#: src/stories/DatePicker.stories.tsx:18
+#: src/stories/DatePicker.stories.tsx:17
 msgid "Pick a date"
 msgstr "选择日期"
 
