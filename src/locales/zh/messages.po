@@ -110,9 +110,42 @@ msgstr "提交"
 #~ msgid "Banner.Confidence"
 #~ msgstr "信心"
 
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "注册"
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:110
+#~ msgid "NaveBar.Chat"
+#~ msgstr "聊天"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:119
+#~ msgid "NaveBar.Check Items"
+#~ msgstr "检查项目"
+
+#. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:115
+#~ msgid "NaveBar.FAQ"
+#~ msgstr "常见问题"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:105
+#~ msgid "NaveBar.Home"
+#~ msgstr "首页"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:150
+#~ msgid "NaveBar.Try HelloCity"
+#~ msgstr "试用 HelloCity"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar.tsx:89
+#: src/components/NavBar.tsx:154
+#~ msgid "contact-us"
+#~ msgstr "联系我们"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar/MobileNavBar.tsx:87
+msgid "NaveBar.Back"
+msgstr "返回"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
@@ -130,14 +163,14 @@ msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:110
-msgid "NaveBar.Chat"
-msgstr "聊天"
+#: src/hooks/useNavigation.tsx:37
+msgid "NavBar.ChangeLanguage"
+msgstr "切换语言"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:119
-msgid "NaveBar.Check Items"
-msgstr "检查项目"
+#: src/hooks/useNavigation.tsx:26
+msgid "NavBar.Chat"
+msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -145,9 +178,8 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:89
-#: src/components/NavBar.tsx:154
-msgid "contact-us"
+#: src/hooks/useNavigation.tsx:32
+msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
 #: src/app/[lang]/contact-us/page.tsx:21
@@ -174,11 +206,6 @@ msgstr "联系我们"
 #~ msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:115
-msgid "NaveBar.FAQ"
-msgstr "常见问题"
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "知道了"
@@ -189,8 +216,8 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:105
-msgid "NaveBar.Home"
+#: src/hooks/useNavigation.tsx:21
+msgid "NavBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
@@ -204,12 +231,16 @@ msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:39
+#: src/components/dropdownMenuOptions.example.tsx:39
 msgid "Logout"
 msgstr "登出"
 
+#: src/components/NavBar.tsx:139
+#~ msgid "NaveBar.Sign Up"
+#~ msgstr "注册"
+
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:11
+#: src/components/dropdownMenuOptions.example.tsx:11
 msgid "Profile"
 msgstr "个人资料"
 
@@ -224,13 +255,13 @@ msgid "profile.avatar.remove"
 msgstr "删除照片"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:18
+#: src/components/dropdownMenuOptions.example.tsx:18
 msgid "Settings"
 msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:79
-#: src/components/NavBar.tsx:144
+#: src/components/NavBar/DesktopNavBar.tsx:128
+#: src/components/NavBar/MobileNavBar.tsx:116
 msgid "NaveBar.Sign In"
 msgstr "登录"
 
@@ -244,7 +275,7 @@ msgstr "提交"
 #~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:32
+#: src/components/dropdownMenuOptions.example.tsx:32
 msgid "Subscription"
 msgstr "订阅管理"
 
@@ -259,13 +290,13 @@ msgid "file.upload.progress"
 msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.tsx:25
+#: src/components/dropdownMenuOptions.example.tsx:25
 msgid "Theme"
 msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar.tsx:150
-msgid "NaveBar.Try HelloCity"
+#: src/hooks/useTryHelloCity.tsx:13
+msgid "NavBar.Try HelloCity"
 msgstr "试用 HelloCity"
 
 #~ msgid "UserName"
