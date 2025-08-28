@@ -110,10 +110,6 @@ msgstr "提交"
 #~ msgid "Banner.Confidence"
 #~ msgstr "信心"
 
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "注册"
-
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:110
 #~ msgid "NaveBar.Chat"
@@ -238,6 +234,10 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #: src/components/dropdownMenuOptions.example.tsx:39
 msgid "Logout"
 msgstr "登出"
+
+#: src/components/NavBar.tsx:139
+#~ msgid "NaveBar.Sign Up"
+#~ msgstr "注册"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
