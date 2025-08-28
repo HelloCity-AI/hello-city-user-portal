@@ -4,7 +4,6 @@ import DatePicker from '@/components/DatePicker';
 import dayjs from 'dayjs';
 import { t } from '@lingui/macro';
 
-
 const meta: Meta<typeof DatePicker> = {
   title: 'Components/DatePicker',
   component: DatePicker,
@@ -15,7 +14,6 @@ type Story = StoryObj<typeof DatePicker>;
 export const Default: Story = {
   render: () => {
     const [value, setValue] = useState<dayjs.Dayjs | null>(dayjs());
-    return <DatePicker label={t`Pick a date`} value={value} onChange={setValue} />
-
+    return <DatePicker label={t`Pick a date`} value={value} onChange={setValue} />;
   },
 };
