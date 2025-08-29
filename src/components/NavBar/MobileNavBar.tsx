@@ -113,6 +113,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
+        {/* A test comment to change line number of NaveBar.Sign In */}
         <Trans id="NavBar.Sign In" message="Sign In" />
       </Button>
     );
