@@ -58,7 +58,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
       languageNavItem?.childrenItem?.map((child) => ({
         label: child.label,
         value: child.id,
-        onClick: child.onClick || (() => {}),
+        onClick: child.onClick || (() => { }),
       })) || []
     );
   }, [navItems]);
@@ -125,7 +125,9 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
         sx={{ color: `${hasBgColor && 'secondary.contrastText'}` }}
         className="whitespace-nowrap font-semibold"
       >
-        <Trans id="NaveBar.Sign In" message="Sign In" />
+        <Trans id="NavBar.Sign In"
+          comment="Sign In button label"
+          message="Sign In" />
       </Button>
     );
   };
