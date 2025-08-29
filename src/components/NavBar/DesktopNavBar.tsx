@@ -16,7 +16,7 @@ import { userMenuOptions } from '../dropdownMenuOptions.example';
 import SectionContent from '../HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 
-const SCROLL_THRESHOLD = 30;
+const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
 const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 
@@ -26,7 +26,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   const scrollYRef = useRef(0);
 
   const { currentLanguage, logo, navItems } = navConfig;
-  const backgroundClasses = hasBgColor ? 'bg-white/90 shadow-md' : 'bg-transparent shadow-none';
+  const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;

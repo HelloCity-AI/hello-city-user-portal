@@ -284,3 +284,288 @@ msgstr "Try HelloCity"
 #: src/app/auth/PageOne.tsx:14
 #~ msgid "UserName"
 #~ msgstr "UserName"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+msgid "AdventureShowcase.Title"
+msgstr "Your adventure awaits"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
+msgid "AdventureShowcase.Description"
+msgstr "Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
+msgid "AdventureShowcase.Case1.Alt"
+msgstr "Ready for Takeoff"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
+msgid "AdventureShowcase.Case1.Title"
+msgstr "Ready for Takeoff"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
+msgid "AdventureShowcase.Case1.Description"
+msgstr "Start your journey to a new adventure"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
+msgid "AdventureShowcase.Case2.Alt"
+msgstr "New Connections"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
+msgid "AdventureShowcase.Case2.Title"
+msgstr "New Connections"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
+msgid "AdventureShowcase.Case2.Description"
+msgstr "Meet amazing people and build lasting relationships"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
+msgid "AdventureShowcase.Case3.Alt"
+msgstr "Dreams Realized"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
+msgid "AdventureShowcase.Case3.Title"
+msgstr "Dreams Realized"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
+msgid "AdventureShowcase.Case3.Description"
+msgstr "Turn your dreams into reality in a new city"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx
+msgid "Hero.BannerAlt"
+msgstr "Melbourne skyline at golden hour, welcoming newcomers with HelloCity"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx
+msgid "Hero.Title.Part1"
+msgstr "Your AI Companion"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx
+msgid "Hero.Title.Part2"
+msgstr "for Every City"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx
+msgid "Hero.Description"
+msgstr "Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Title"
+msgstr "From planning to living your dream"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Description"
+msgstr "Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step1.Title"
+msgstr "Dream & Plan"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step1.Description"
+msgstr "Visualize your new life and set your goals"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step2.Title"
+msgstr "Prepare & Organize"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step2.Description"
+msgstr "Get all your documents and requirements ready"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step3.Title"
+msgstr "Arrive & Thrive"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.Step3.Description"
+msgstr "Hit the ground running in your new city"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx
+msgid "HowItWorks.ImageAlt"
+msgstr "Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Title"
+msgstr "Why choose HelloCity?"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Description"
+msgstr "We understand that moving to a new city can be overwhelming. That's why we've built the most comprehensive city landing assistant."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card1.Title"
+msgstr "Personalized Guidance"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card1.Description"
+msgstr "Get tailored advice based on your situation, destination, and timeline. No generic answers."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card2.Title"
+msgstr "Step-by-step Checklists"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card2.Description"
+msgstr "Never miss important tasks with our comprehensive checklists for every type of move."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card3.Title"
+msgstr "Timeline Planning"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx
+msgid "ValueProposition.Card3.Description"
+msgstr "Know exactly when to do what with realistic timelines and deadline reminders."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx
+msgid "CallToAction.Title"
+msgstr "Ready to make your move?"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx
+msgid "CallToAction.Description"
+msgstr "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title"
+msgstr "Loved by thousands of users"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Description"
+msgstr "See what people are saying about HelloCity — hear from students, professionals, and families who turned uncertainty into confidence with our step-by-step relocation tools."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review1"
+msgstr "I moved to Sydney for work and honestly had no idea where to start. HelloCity broke everything down into simple steps—documents, banking, housing. Without it, I'd probably still be stuck Googling things at midnight. Lifesaver."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name1"
+msgstr "Zhang Wei"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title1"
+msgstr "Product Manager"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review2"
+msgstr "When I relocated, I was worried I'd waste weeks just figuring out how to open a bank account or set up utilities. HelloCity made it super straightforward. I got settled in a few days and could actually focus on creating content instead of stressing."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name2"
+msgstr "Ayaka Tanaka"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title2"
+msgstr "Content Creator"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review3"
+msgstr "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a checklist in my pocket. It really reduced my stress, and I could spend more time enjoying campus life."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name3"
+msgstr "Rajesh Kumar"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title3"
+msgstr "Student"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review4"
+msgstr "As a freelancer, I move around a lot for projects. HelloCity has been my go-to whenever I need to set up in a new city quickly. The timeline feature is clutch - helps me plan everything around my project deadlines. Only wish they had more info on coworking spaces."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name4"
+msgstr "Maria Santos"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title4"
+msgstr "Freelance Designer"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review5"
+msgstr "Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific checklists covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name5"
+msgstr "David Chen"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title5"
+msgstr "Marketing Director"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review6"
+msgstr "Fresh out of university and completely overwhelmed by adult life, HelloCity was like having a mentor guide me through every step. From setting up my first apartment to understanding local banking, it made the transition from student to working professional so much smoother."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name6"
+msgstr "Emma Wilson"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title6"
+msgstr "Junior Software Developer"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Review7"
+msgstr "As expats moving from Singapore to Melbourne, we were worried about everything - schools, healthcare, even simple things like grocery shopping. HelloCity's location-specific guides were incredibly detailed and saved us months of research and mistakes."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Name7"
+msgstr "Priya Sharma"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx
+msgid "Testimonials.Title7"
+msgstr "Operations Manager"
