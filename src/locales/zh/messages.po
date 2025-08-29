@@ -40,17 +40,6 @@ msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
-#~ msgid "NaveBar.Back"
-#~ msgstr "返回"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:128
-#: src/components/NavBar/MobileNavBar.tsx:116
-#~ msgid "NaveBar.Sign In"
-#~ msgstr "登录"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NavBar.Back"
 msgstr "返回"
 

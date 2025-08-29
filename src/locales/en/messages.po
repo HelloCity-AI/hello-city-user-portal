@@ -38,17 +38,6 @@ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
-#~ msgid "NaveBar.Back"
-#~ msgstr "← Back"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:128
-#: src/components/NavBar/MobileNavBar.tsx:116
-#~ msgid "NaveBar.Sign In"
-#~ msgstr "Sign In"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NavBar.Back"
 msgstr "← Back"
 
