@@ -20,6 +20,7 @@ interface DropdownProps {
     vertical: 'top' | 'center' | 'bottom';
   };
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
+  disableHover?: boolean;
 }
 export interface DropdownOptionProps {
   label: ReactNode; // Display text shown in the menu
@@ -37,6 +38,7 @@ const DropDown: React.FC<DropdownProps> = ({
   layout = 'vertical',
   transformOrigin = { horizontal: 'right', vertical: 'top' },
   anchorOrigin = { horizontal: 'right', vertical: 'bottom' },
+  disableHover,
 }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [hasRenderedOnce, setHasRenderedOnce] = useState(false);
@@ -84,6 +86,7 @@ const DropDown: React.FC<DropdownProps> = ({
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         aria-label="open menu"
+        disableRipple={disableHover}
       >
         {anchorElContent}
       </IconButton>
