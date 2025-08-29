@@ -10,7 +10,7 @@ jobs:
   auto-resolve-i18n-conflicts:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.mergeable_state, 'dirty')
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -50,10 +50,10 @@ jobs:
         run: |
           # Make script executable
           chmod +x scripts/auto-resolve-i18n-conflicts.sh
-          
+
           # Attempt to merge main branch
           git merge origin/main || true
-          
+
           # Run auto-resolve script if there are conflicts
           if git status --porcelain | grep -q "^UU.*\.po$"; then
             echo "Running auto-resolve script for i18n conflicts..."
