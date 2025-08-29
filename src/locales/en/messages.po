@@ -12,6 +12,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:17
+msgid "Pick a date"
+msgstr "Pick a date"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
@@ -219,7 +224,11 @@ msgstr "Logout"
 
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up"
+#~ msgstr "Sign Up<<<<<<< HEAD"
+
+#: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "Pick a date=======>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11

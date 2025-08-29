@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:17
+msgid "Pick a date"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
@@ -108,7 +113,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/Banner.tsx:46
 #~ msgid "Banner.Confidence"
-#~ msgstr "信心"
+#~ msgstr "信心<<<<<<< HEAD======="
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:110
@@ -145,7 +150,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NaveBar.Back"
-msgstr "返回"
+msgstr "返回>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:126
@@ -238,6 +243,10 @@ msgstr "登出"
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
 #~ msgstr "注册"
+
+#: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "选择日期"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
