@@ -12,6 +12,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:17
+msgid "Pick a date"
+msgstr "Pick a date"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
