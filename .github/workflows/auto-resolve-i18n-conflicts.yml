@@ -1,0 +1,84 @@
+name: Auto Resolve i18n Conflicts
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - 'src/locales/**/*.po'
+
+jobs:
+  auto-resolve-i18n-conflicts:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.mergeable_state, 'dirty')
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.17.1'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Check for i18n conflicts
+        id: check-conflicts
+        run: |
+          # Try to merge main branch to detect conflicts
+          git fetch origin main
+          if git merge-tree $(git merge-base HEAD origin/main) HEAD origin/main | grep -q "src/locales.*\.po"; then
+            echo "i18n_conflicts=true" >> $GITHUB_OUTPUT
+            echo "Found i18n conflicts in .po files"
+          else
+            echo "i18n_conflicts=false" >> $GITHUB_OUTPUT
+            echo "No i18n conflicts detected"
+          fi
+
+      - name: Auto resolve i18n conflicts
+        if: steps.check-conflicts.outputs.i18n_conflicts == 'true'
+        run: |
+          # Make script executable
+          chmod +x scripts/auto-resolve-i18n-conflicts.sh
+          
+          # Attempt to merge main branch
+          git merge origin/main || true
+          
+          # Run auto-resolve script if there are conflicts
+          if git status --porcelain | grep -q "^UU.*\.po$"; then
+            echo "Running auto-resolve script for i18n conflicts..."
+            ./scripts/auto-resolve-i18n-conflicts.sh
+            
+            # Commit the resolved conflicts
+            git add .
+            git commit -m "[AUTO] Auto-resolve i18n conflicts"
+            
+            # Push the changes back to the PR branch
+            git push origin HEAD
+            
+            echo "✅ i18n conflicts have been automatically resolved and committed."
+          else
+            echo "No merge conflicts found in .po files"
+          fi
+
+      - name: Comment on PR
+        if: steps.check-conflicts.outputs.i18n_conflicts == 'true'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🤖 **Auto-resolved i18n conflicts**\n\nI detected merge conflicts in translation files (.po) and automatically resolved them using the `auto-resolve-i18n-conflicts.sh` script.\n\nThe resolved files have been committed to this PR. Please review the changes and ensure the translations are correct.'
+            })
