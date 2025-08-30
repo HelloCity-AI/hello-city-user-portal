@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import linguiConfig from '../../../lingui.config';
 import { getAllMessages } from '@/appRouterI18n';
 import ClientProviders from './ClientProviders';

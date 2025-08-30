@@ -1,21 +1,10 @@
-import Banner from '@/components/Banner';
+import React from 'react';
+import HeroSection from './sections/HeroSection';
 
-type Props = {
-  params: { lang: string };
-};
-
-export default function Home({ params }: Props) {
-  const { lang } = params;
-
+export default function Home() {
   return (
-    <div>
-      <Banner />
-      <h1>Hello World - Language: {lang}</h1>
-      <p>Welcome to HelloCity! This page is rendered for the {lang} locale.</p>
-      {/* Login link(must use <a> link to define Auth0 component) */}
-      <a href="/auth/login">Login</a>
-      {/* Logout link(must use <a> link to define Auth0 component) */}
-      <a href="/auth/logout">Logout</a>
-    </div>
+    <React.Fragment>
+      <HeroSection />
+    </React.Fragment>
   );
 }

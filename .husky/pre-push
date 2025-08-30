@@ -25,7 +25,7 @@ fi
 echo "✅ tests passed, proceeding with pre-push checks..."
 
 echo "Extracting i18n strings ..."
-npm run extract
+npm run lingui:extract
 if [ $? -ne 0 ]; then
   echo "❌ i18n extraction failed, push blocked."
   exit 1

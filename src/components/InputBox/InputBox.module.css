@@ -13,10 +13,6 @@
   border-radius: 4px;
 }
 
-.input-box-wrapper:first-of-type .label {
-  margin-top: 24px; /* Extra spacing for the first input */
-}
-
 .input-box-wrapper .MuiOutlinedInput-root fieldset {
   border-color: #6bbde1; /* Default border */
 }
