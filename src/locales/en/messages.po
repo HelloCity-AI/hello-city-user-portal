@@ -17,11 +17,6 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/InputBox.tsx:59
-msgid "validation.required"
-msgstr " is required"
-
-#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "Contact Us"
@@ -45,6 +40,11 @@ msgstr "Message"
 #: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:59
+#~ msgid "validation.required"
+#~ msgstr " is required"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
