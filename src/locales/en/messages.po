@@ -42,116 +42,8 @@ msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/components/InputBox/InputBox.tsx:59
-#~ msgid "validation.required"
-#~ msgstr " is required"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:29
-#~ msgid "Submit"
-#~ msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-#: src/compoundComponents/Modals/FormModal.tsx:30
-#~ msgid "Cancel"
-#~ msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:27
-#~ msgid "Confirm"
-#~ msgstr "Confirm"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/InfoModal.tsx:22
-#~ msgid "Got it"
-#~ msgstr "Got it"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:32
-#~ msgid "Home"
-#~ msgstr "Home"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:35
-#~ msgid "Chat"
-#~ msgstr "Chat"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:38
-#~ msgid "FAQ"
-#~ msgstr "FAQ"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:41
-#~ msgid "Check Items"
-#~ msgstr "Check Items"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:65
-#~ msgid "Sign In"
-#~ msgstr "Sign In"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:70
-#~ msgid "Try HelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:79
-#~ msgid "Next"
-#~ msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:63
-#~ msgid "Prev"
-#~ msgstr "Prev"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:33
-#: src/components/Banner.tsx:56
-#~ msgid "Banner.TryHelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:46
-#~ msgid "Banner.Confidence"
-#~ msgstr "Confidence"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:110
-#~ msgid "NaveBar.Chat"
-#~ msgstr "Chat"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:119
-#~ msgid "NaveBar.Check Items"
-#~ msgstr "Check Items"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:115
-#~ msgid "NaveBar.FAQ"
-#~ msgstr "FAQ"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:105
-#~ msgid "NaveBar.Home"
-#~ msgstr "Home"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:150
-#~ msgid "NaveBar.Try HelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:89
-#: src/components/NavBar.tsx:154
-#~ msgid "contact-us"
-#~ msgstr "Contact Us"
-
-#. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
-msgid "NaveBar.Back"
+msgid "NavBar.Back"
 msgstr "← Back"
 
 #. js-lingui-explicit-id
@@ -189,14 +81,6 @@ msgstr "Confirm"
 msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
-#: src/app/[lang]/contact-us/page.tsx:21
-#~ msgid "Contact Us"
-#~ msgstr "Contact Us"
-
-#: src/app/auth/PageOne.tsx:22
-#~ msgid "Email"
-#~ msgstr "Email"
-
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
@@ -227,14 +111,6 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 msgid "Logout"
 msgstr "Logout"
 
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up"
-
-#: src/stories/DatePicker.stories.tsx:17
-#~ msgid "Pick a date"
-#~ msgstr "Pick a date"
-
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
 msgid "Profile"
@@ -255,20 +131,17 @@ msgstr "Remove Photos"
 msgid "Settings"
 msgstr "Settings"
 
+#. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:128
-#: src/components/NavBar/MobileNavBar.tsx:116
-msgid "NaveBar.Sign In"
+#: src/components/NavBar/MobileNavBar.tsx:117
+msgid "NavBar.Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "Submit"
-
-#: src/app/[lang]/contact-us/page.tsx:52
-#~ msgid "Submit"
-#~ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
@@ -294,7 +167,3 @@ msgstr "Theme"
 #: src/hooks/useTryHelloCity.tsx:13
 msgid "NavBar.Try HelloCity"
 msgstr "Try HelloCity"
-
-#: src/app/auth/PageOne.tsx:14
-#~ msgid "UserName"
-#~ msgstr "UserName"
