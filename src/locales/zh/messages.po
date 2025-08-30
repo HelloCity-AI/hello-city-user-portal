@@ -19,6 +19,11 @@ msgid "Pick a date"
 msgstr ""
 
 #. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:59
+msgid "validation.required"
+msgstr "是必填项"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "联系我们"
