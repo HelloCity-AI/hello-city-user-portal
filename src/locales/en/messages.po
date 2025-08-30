@@ -17,27 +17,27 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "Submit"
 
@@ -47,7 +47,7 @@ msgid "NavBar.Back"
 msgstr "← Back"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:126
+#: src/components/ProfileImageUploader.tsx:112
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
@@ -87,7 +87,7 @@ msgid "info.button"
 msgstr "Got it"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
 msgstr "HelloCity Account"
 
@@ -102,7 +102,7 @@ msgid "I'm all set"
 msgstr "I'm all set"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
+#: src/components/ProfileImageUploader.tsx:25
 msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
@@ -117,12 +117,12 @@ msgid "Profile"
 msgstr "Profile"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:98
+#: src/components/ProfileImageUploader.tsx:94
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:132
+#: src/components/ProfileImageUploader.tsx:118
 msgid "profile.avatar.remove"
 msgstr "Remove Photos"
 
@@ -149,12 +149,12 @@ msgid "Subscription"
 msgstr "Subscription"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:42
+#: src/components/ProfileImageUploader.tsx:41
 msgid "file.upload.success"
 msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:35
+#: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
 msgstr "The image is uploading ..."
 

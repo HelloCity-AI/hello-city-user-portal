@@ -19,27 +19,27 @@ msgid "Pick a date"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "提交"
 
@@ -64,6 +64,10 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #. js-lingui-explicit-id
 #. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:59
+#: src/compoundComponents/Modals/FormModal.tsx:29
 #: src/compoundComponents/Modals/FormModal.tsx:29
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
@@ -94,10 +98,10 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NavBar.Back"
-msgstr "返回"
+msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:126
+#: src/components/ProfileImageUploader.tsx:112
 msgid "profile.avatar.add"
 msgstr "添加头像"
 
@@ -137,7 +141,7 @@ msgid "info.button"
 msgstr "知道了"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
 msgstr "HelloCity账户"
 
@@ -152,7 +156,7 @@ msgid "I'm all set"
 msgstr "我准备好了"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
+#: src/components/ProfileImageUploader.tsx:25
 msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
@@ -161,18 +165,21 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 msgid "Logout"
 msgstr "登出"
 
+#~ msgid "NaveBar.Back"
+#~ msgstr "返回"
+
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
 msgid "Profile"
 msgstr "个人资料"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:98
+#: src/components/ProfileImageUploader.tsx:94
 msgid "profile.avatar.title"
 msgstr "头像"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:132
+#: src/components/ProfileImageUploader.tsx:118
 msgid "profile.avatar.remove"
 msgstr "删除照片"
 
@@ -199,12 +206,12 @@ msgid "Subscription"
 msgstr "订阅管理"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:42
+#: src/components/ProfileImageUploader.tsx:41
 msgid "file.upload.success"
 msgstr "图片上传成功"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:35
+#: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
 msgstr "图片上传中..."
 
