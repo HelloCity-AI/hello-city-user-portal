@@ -19,29 +19,34 @@ msgid "Pick a date"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "提交"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:59
+#~ msgid "validation.required"
+#~ msgstr "是必填项"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -113,7 +118,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/Banner.tsx:46
 #~ msgid "Banner.Confidence"
-#~ msgstr "信心<<<<<<< HEAD======="
+#~ msgstr "信心"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:110
@@ -150,7 +155,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NaveBar.Back"
-msgstr "返回>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
+msgstr "返回"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
@@ -158,13 +163,13 @@ msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-msgid "cancel.button"
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "form.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id

@@ -17,29 +17,34 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:59
+#~ msgid "validation.required"
+#~ msgstr " is required"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -155,13 +160,13 @@ msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-msgid "cancel.button"
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "form.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
@@ -224,11 +229,11 @@ msgstr "Logout"
 
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up<<<<<<< HEAD"
+#~ msgstr "Sign Up"
 
 #: src/stories/DatePicker.stories.tsx:17
 #~ msgid "Pick a date"
-#~ msgstr "Pick a date=======>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
+#~ msgstr "Pick a date"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
