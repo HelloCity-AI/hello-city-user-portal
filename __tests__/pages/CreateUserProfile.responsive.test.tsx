@@ -23,7 +23,7 @@ describe('CreateUserProfile - Device Compatibility', () => {
   });
 
   Object.values(devices).forEach((device) => {
-    test(`Should work properly on ${device.name} (${device.width}x${device.height})`, () => {
+    it(`Should work properly on ${device.name} (${device.width}x${device.height})`, () => {
       setViewportSize(device.width, device.height);
       renderWithThemeAndI18n(<CreateUserProfilePage />);
 
@@ -40,7 +40,7 @@ describe('CreateUserProfile - Device Compatibility', () => {
   });
 
   describe('Edge Cases', () => {
-    test('Should work on very small screens', () => {
+    it('Should work on very small screens', () => {
       setViewportSize(320, 480);
       renderWithThemeAndI18n(<CreateUserProfilePage />);
 
@@ -49,7 +49,7 @@ describe('CreateUserProfile - Device Compatibility', () => {
       expect(screen.getByRole('button', { name: /I'm all set/i })).toBeVisible();
     });
 
-    test('Should work on very large screens', () => {
+    it('Should work on very large screens', () => {
       setViewportSize(1920, 1080);
       renderWithThemeAndI18n(<CreateUserProfilePage />);
 
@@ -58,7 +58,7 @@ describe('CreateUserProfile - Device Compatibility', () => {
       expect(screen.getByRole('button', { name: /I'm all set/i })).toBeVisible();
     });
 
-    test('Should handle landscape orientation on mobile', () => {
+    it('Should handle landscape orientation on mobile', () => {
       setViewportSize(667, 375);
       renderWithThemeAndI18n(<CreateUserProfilePage />);
 
