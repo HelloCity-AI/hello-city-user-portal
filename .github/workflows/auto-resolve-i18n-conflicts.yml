@@ -7,7 +7,7 @@ on:
     types: [opened, synchronize]
     paths:
       - 'src/locales/**/*.po'
-  
+
   # Manual trigger: Allows users to manually run the workflow from GitHub UI
   # This is useful when conflicts arise after PR creation due to main branch changes
   workflow_dispatch:
@@ -21,7 +21,7 @@ on:
         required: false
         type: boolean
         default: false
-  
+
   # Auto-trigger when main branch receives pushes to translation files
   # This will check all open PRs for potential new conflicts
   push:
@@ -121,7 +121,7 @@ jobs:
     if: |
       github.event_name == 'push' ||
       (github.event_name == 'workflow_dispatch' && (github.event.inputs.pr_number == '' || github.event.inputs.pr_number == null))
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -153,9 +153,9 @@ jobs:
               repo: context.repo.repo,
               state: 'open'
             });
-            
+
             console.log(`Found ${pullRequests.length} open pull requests`);
-            
+
             // Check each PR for potential i18n conflicts
             for (const pr of pullRequests) {
               console.log(`\n--- Checking PR #${pr.number}: ${pr.title} ---`);
@@ -212,5 +212,5 @@ jobs:
                 console.error(`Error checking PR #${pr.number}:`, error.message);
               }
             }
-            
+
             console.log('\n✅ Finished checking all open PRs for i18n conflicts');

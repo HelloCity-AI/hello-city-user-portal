@@ -24,7 +24,7 @@ on:
 jobs:
   manual-i18n-resolution:
     runs-on: ubuntu-latest
-    
+
     steps:
       # Step 1: Checkout the repository with full history
       - name: Checkout repository
@@ -63,34 +63,34 @@ jobs:
               repo: context.repo.repo,
               pull_number: ${{ github.event.inputs.pr_number }}
             });
-            
+
             console.log(`PR #${pr.number}: ${pr.title}`);
             console.log(`From: ${pr.head.ref} -> To: ${pr.base.ref}`);
             console.log(`State: ${pr.state}`);
-            
+
             if (pr.state !== 'open') {
               core.setFailed(`PR #${pr.number} is not open (current state: ${pr.state})`);
               return;
             }
-            
+
             // Check if PR has translation file changes
             const { data: files } = await github.rest.pulls.listFiles({
               owner: context.repo.owner,
               repo: context.repo.repo,
               pull_number: pr.number
             });
-            
+
             const i18nFiles = files.filter(file => 
               file.filename.includes('src/locales/') && file.filename.endsWith('.po')
             );
-            
+
             if (i18nFiles.length === 0) {
               console.log('⚠️ Warning: This PR does not contain any translation file changes');
             } else {
               console.log(`Found ${i18nFiles.length} translation files in this PR:`);
               i18nFiles.forEach(file => console.log(`  - ${file.filename}`));
             }
-            
+
             core.setOutput('pr_title', pr.title);
             core.setOutput('pr_state', pr.state);
             core.setOutput('has_i18n_files', i18nFiles.length > 0);
@@ -101,7 +101,7 @@ jobs:
         run: |
           echo "Fetching latest ${{ github.event.inputs.target_branch }} branch..."
           git fetch origin ${{ github.event.inputs.target_branch }}
-          
+
           echo "Checking for potential merge conflicts..."
           # Use git merge-tree to detect conflicts without actually merging
           if git merge-tree $(git merge-base HEAD origin/${{ github.event.inputs.target_branch }}) HEAD origin/${{ github.event.inputs.target_branch }} | grep -q "src/locales.*\.po"; then
@@ -118,7 +118,7 @@ jobs:
         run: |
           echo "🔍 DRY RUN MODE - No changes will be made"
           echo "==========================================="
-          
+
           if [ "${{ steps.conflict-check.outputs.conflicts_detected }}" = "true" ]; then
             echo "📋 Conflicts detected in the following files:"
             git merge-tree $(git merge-base HEAD origin/${{ github.event.inputs.target_branch }}) HEAD origin/${{ github.event.inputs.target_branch }} | grep "src/locales.*\.po" || true
@@ -132,7 +132,7 @@ jobs:
           else
             echo "✅ No conflicts detected - manual resolution not needed"
           fi
-          
+
           echo ""
           echo "To actually resolve conflicts, re-run this workflow with 'Dry run mode' unchecked."
 
@@ -141,14 +141,14 @@ jobs:
         if: github.event.inputs.dry_run == 'false' && steps.conflict-check.outputs.conflicts_detected == 'true'
         run: |
           echo "🔧 Starting automatic i18n conflict resolution..."
-          
+
           # Make the script executable
           chmod +x scripts/auto-resolve-i18n-conflicts.sh
-          
+
           # Attempt to merge the target branch
           echo "Attempting to merge ${{ github.event.inputs.target_branch }}..."
           git merge origin/${{ github.event.inputs.target_branch }} || true
-          
+
           # Check if there are actual merge conflicts in .po files
           if git status --porcelain | grep -q "^UU.*\.po$"; then
             echo "Running auto-resolve script for i18n conflicts..."
@@ -181,36 +181,36 @@ jobs:
           script: |
             const conflictsDetected = '${{ steps.conflict-check.outputs.conflicts_detected }}' === 'true';
             const prNumber = ${{ github.event.inputs.pr_number }};
-            
+
             let commentBody;
-            
+
             if (conflictsDetected) {
               commentBody = `🤖 **Manual i18n Conflict Resolution Completed**
-            
+
             ✅ I have successfully resolved merge conflicts in translation files (.po) using the automated resolution script.
-            
+
             **What was done:**
             - Merged latest changes from \`${{ github.event.inputs.target_branch }}\` branch
             - Applied intelligent conflict resolution for Lingui translation files
             - Recompiled translation catalogs
             - Committed the resolved changes
-            
+
             **Next steps:**
             - Please review the resolved translation files
             - Verify that the translations are correct and complete
             - The PR is now ready for final review and merge
-            
+
             *This resolution was triggered manually via GitHub Actions.*`;
             } else {
               commentBody = `🤖 **Manual i18n Conflict Check Completed**
-            
+
             ℹ️ No translation file conflicts were detected between this PR and the \`${{ github.event.inputs.target_branch }}\` branch.
-            
+
             The PR appears to be ready for merge, or any conflicts are in non-translation files that require manual resolution.
-            
+
             *This check was triggered manually via GitHub Actions.*`;
             }
-            
+
             await github.rest.issues.createComment({
               issue_number: prNumber,
               owner: context.repo.owner,
