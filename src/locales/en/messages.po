@@ -116,7 +116,7 @@ msgstr "Submit"
 #. js-lingui-explicit-id
 #: src/components/Banner.tsx:46
 #~ msgid "Banner.Confidence"
-#~ msgstr "Confidence<<<<<<< HEAD||||||| fc81e52"
+#~ msgstr "Confidence"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:110
@@ -141,7 +141,7 @@ msgstr "Submit"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:150
 #~ msgid "NaveBar.Try HelloCity"
-#~ msgstr "Try HelloCity>>>>>>> 7957947c79eee1102c8f616d9cf87b32d99866bd"
+#~ msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:89
@@ -225,15 +225,15 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:39
 msgid "Logout"
-msgstr "Logout<<<<<<< HEAD"
+msgstr "Logout"
 
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up<<<<<<< HEAD"
+#~ msgstr "Sign Up"
 
 #: src/stories/DatePicker.stories.tsx:17
 #~ msgid "Pick a date"
-#~ msgstr "Pick a date=======>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970>>>>>>> 7957947c79eee1102c8f616d9cf87b32d99866bd"
+#~ msgstr "Pick a date"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11

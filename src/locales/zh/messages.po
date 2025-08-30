@@ -118,7 +118,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/Banner.tsx:46
 #~ msgid "Banner.Confidence"
-#~ msgstr "信心<<<<<<< HEAD=======<<<<<<< HEAD||||||| fc81e52"
+#~ msgstr "信心"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:110
@@ -139,7 +139,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:105
 #~ msgid "NaveBar.Home"
-#~ msgstr "首页>>>>>>> 7957947c79eee1102c8f616d9cf87b32d99866bd"
+#~ msgstr "首页"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar.tsx:150
@@ -155,7 +155,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:87
 msgid "NaveBar.Back"
-msgstr "返回>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
+msgstr "返回"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
@@ -243,7 +243,7 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:39
 msgid "Logout"
-msgstr "登出<<<<<<< HEAD"
+msgstr "登出"
 
 #: src/components/NavBar.tsx:139
 #~ msgid "NaveBar.Sign Up"
@@ -251,7 +251,7 @@ msgstr "登出<<<<<<< HEAD"
 
 #: src/stories/DatePicker.stories.tsx:17
 #~ msgid "Pick a date"
-#~ msgstr "选择日期>>>>>>> 7957947c79eee1102c8f616d9cf87b32d99866bd"
+#~ msgstr "选择日期"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
