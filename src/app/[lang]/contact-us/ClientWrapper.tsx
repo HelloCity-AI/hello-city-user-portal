@@ -1,6 +1,7 @@
 'use client';
 
-import { ReactNode, useEffect } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect } from 'react';
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { I18nProvider } from '@/contexts/I18nProvider';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import NavBar from '@/components/NavBar';

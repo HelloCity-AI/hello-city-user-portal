@@ -27,7 +27,7 @@ describe('middleware', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
-    // @ts-ignore
+    // @ts-expect-error - Clearing fetch mock
     global.fetch = undefined;
   });
 
@@ -61,25 +61,25 @@ describe('middleware', () => {
   describe('Auth bypass paths', () => {
     test('Bypasses locale redirect for /api/auth paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
-      const res = await middleware(createRequest('/api/auth/login'));
+      const _res = await middleware(createRequest('/api/auth/login'));
       expect(auth0.middleware).toHaveBeenCalled();
     });
 
     test('Bypasses locale redirect for /auth paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
-      const res = await middleware(createRequest('/auth/callback'));
+      const _res = await middleware(createRequest('/auth/callback'));
       expect(auth0.middleware).toHaveBeenCalled();
     });
 
     test('Bypasses locale redirect for /api/ paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
-      const res = await middleware(createRequest('/api/users'));
+      const _res = await middleware(createRequest('/api/users'));
       expect(auth0.middleware).toHaveBeenCalled();
     });
 
     test('Bypasses locale redirect for /_next/ paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
-      const res = await middleware(createRequest('/_next/static/css/app.css'));
+      const _res = await middleware(createRequest('/_next/static/css/app.css'));
       expect(auth0.middleware).toHaveBeenCalled();
     });
   });

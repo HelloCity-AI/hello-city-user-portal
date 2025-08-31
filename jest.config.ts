@@ -4,7 +4,6 @@
  */
 import nextJest from 'next/jest';
 import type { InitialOptionsTsJest } from 'ts-jest';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 const createJestConfig = nextJest({
   // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
@@ -164,7 +163,12 @@ const config: InitialOptionsTsJest = {
   // testLocationInResults: false,
 
   // The glob patterns Jest uses to detect test files
-  testMatch: ['**/__tests__/**/*.test.tsx', '**/*.test.tsx', '**/__tests__/**/*.test.ts', '**/*.test.ts'],
+  testMatch: [
+    '**/__tests__/**/*.test.tsx',
+    '**/*.test.tsx',
+    '**/__tests__/**/*.test.ts',
+    '**/*.test.ts',
+  ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
