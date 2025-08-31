@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import React from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { I18nProvider } from '@/contexts/I18nProvider';
