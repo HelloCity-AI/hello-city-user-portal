@@ -124,7 +124,7 @@ msgstr "Profile Picture"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:118
 msgid "profile.avatar.remove"
-msgstr "Remove Photos"
+msgstr "Remove Picture"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18

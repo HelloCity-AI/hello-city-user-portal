@@ -115,7 +115,7 @@ const ProfileImageUploader = () => {
 
         {preview && status !== 'uploading' && (
           <Button variant="secondary" onClick={handleRemove}>
-            <Trans id="profile.avatar.remove" message="Remove Photo" />
+            <Trans id="profile.avatar.remove" message="Remove Picture" />
           </Button>
         )}
       </div>

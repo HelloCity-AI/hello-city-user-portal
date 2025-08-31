@@ -1,27 +1,10 @@
 import React from 'react';
 
-import type { ImageProps } from 'next/image'
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import ProfileImageUploader from '../src/components/ProfileImageUploader';
 
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props: ImageProps) => {
-    const { src, alt, ...rest } = props;
-    return <img src={typeof src ==='string' ? src : ''} alt={alt} {...rest} />;
-  }
-}));
-
-jest.mock('@mui/material/styles', () => ({
-    ...jest.requireActual('@mui/material/styles'),
-        useTheme: () => ({
-            backgroundGradients: {
-                buttonPrimaryActive: 'mock-gradient',
-            },
-        }),
-}));
 
 const uploadFile = (file: File) => {
         const input = screen.getByLabelText(/Add Profile Picture/i)
@@ -43,11 +26,6 @@ describe('ProfileImageUploader',()=>{
             render(<ProfileImageUploader/>)
             const defaultImg = screen.getByAltText('Default Avatar')
             expect(defaultImg).toHaveAttribute('src', '/images/default-avatar.jpg')
-            expect(defaultImg).toHaveClass(
-                'border-2',
-                'border-indigo-600',
-                'rounded-xl'
-            )
         })
 
         test('Testing uploads an image file, show preview and remove photos', async ()=>{
@@ -60,16 +38,8 @@ describe('ProfileImageUploader',()=>{
             const previewImage = await screen.findByAltText(/Profile Image Preview/i, undefined, { timeout: 4000 })
             expect(screen.getByText(/The image is uploaded/i)).toBeInTheDocument()
             expect(previewImage).toHaveAttribute('src', 'mock-url')
-            expect(previewImage).toHaveClass(
-                'w-32',
-                'h-32',
-                'object-cover',
-                'border-2',
-                'border-indigo-600',
-                'rounded-xl'
-            )
 
-            const removeButton = screen.getByRole('button',{name: /Remove Photos/i})
+            const removeButton = screen.getByRole('button',{name: /Remove Picture/i})
             fireEvent.click(removeButton)
             
             expect(screen.getByAltText('Default Avatar')).toHaveAttribute('src', '/images/default-avatar.jpg')
@@ -97,27 +67,52 @@ describe('ProfileImageUploader',()=>{
 
             expect(outerDiv).toHaveClass(
                 'flex',
+                'min-w-[35rem]',
                 'flex-col',  
                 'items-center',
                 'justify-center',
-                'border-2',
+                'gap-4',
                 'rounded-xl',
-                'max-w-96',
-                'min-w-[40dvw]'
+                'border-2',
+                'pb-4'
             )
         })
 
         test('ClassName on container wrapping add & remove button',()=>{
             render(<ProfileImageUploader/>)
             const uploadButton = screen.getByText(/Add Profile Picture/i)
-            const buttonDiv = uploadButton.parentElement as HTMLElement
 
-            expect(buttonDiv).toHaveClass(
+            expect(uploadButton.closest('div')).toHaveClass(
                 'flex',
-                'justify-center',
+                'w-4/5',
                 'flex-wrap',
-                'w-4/5'
+                'justify-center'
             )
+        })
+
+        test('Image tag className', async ()=>{
+            render(<ProfileImageUploader/>)
+            expect(screen.getByAltText('Default Avatar')).toHaveClass(
+                'h-[150px]',
+                'w-[150px]',
+                'rounded-xl',
+                'border-2',
+                'border-indigo-600',
+                'object-cover'
+            )
+
+            uploadFile(new File(['fakeFile'], 'avatar.png', {type: 'image/png'}))
+            
+            const previewImage = await screen.findByAltText(/Profile Image Preview/i, undefined, { timeout: 4000 })
+            expect(previewImage).toHaveClass(
+                'h-[150px]',
+                'w-[150px]',
+                'rounded-xl',
+                'border-2',
+                'border-indigo-600',
+                'object-cover'
+            )
+        
         })
     })
 })
