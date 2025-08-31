@@ -118,18 +118,20 @@ jest.mock('./src/i18n', () => {
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props: ImageProps) => React.createElement('img', { ...props,
-  src: typeof props.src === 'string' ? props.src : '',
-  alt: props.alt ?? '',
-  })
+  default: (props: ImageProps) =>
+    React.createElement('img', {
+      ...props,
+      src: typeof props.src === 'string' ? props.src : '',
+      alt: props.alt ?? '',
+    }),
 }));
 
 // Mock mui style
 jest.mock('@mui/material/styles', () => ({
-    ...jest.requireActual('@mui/material/styles'),
-        useTheme: () => ({
-            backgroundGradients: {
-                buttonPrimaryActive: 'mock-gradient',
-            },
-        }),
+  ...jest.requireActual('@mui/material/styles'),
+  useTheme: () => ({
+    backgroundGradients: {
+      buttonPrimaryActive: 'mock-gradient',
+    },
+  }),
 }));
