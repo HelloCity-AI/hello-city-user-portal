@@ -27,7 +27,7 @@ jest.mock('next/image', () => ({
 const mockUserData = {
   UserName: 'John',
   PreferredName: 'nikeJohn',
-  Avatar: 'https://example.com/avatar.jpg',
+  AvatarImg: 'https://example.com/avatar.jpg',
   LastJoinDate: '2023-10-15 14:30',
 };
 
@@ -53,7 +53,7 @@ describe('UserLabel component test', () => {
       renderUserlabel({
         UserName: undefined,
         PreferredName: undefined,
-        Avatar: undefined,
+        AvatarImg: undefined,
         LastJoinDate: undefined,
       });
 
@@ -64,7 +64,7 @@ describe('UserLabel component test', () => {
       expect(screen.queryByText('@nikeJohn')).not.toBeInTheDocument();
       expect(screen.queryByText(/last login: 2023-10-15 14:30/i)).not.toBeInTheDocument();
       expect(screen.getByText('account_circle')).toHaveClass(
-        'material-icons text-7xl text-gray-400',
+        'material-icons text-8xl text-gray-400',
       );
       expect(screen.queryByAltText('User Avatar')).not.toBeInTheDocument();
     });
@@ -73,30 +73,24 @@ describe('UserLabel component test', () => {
     it('Applies the correct style classes', () => {
       const { container } = renderUserlabel(mockUserData);
 
-      expect(container.firstChild).toHaveClass(
-        'bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl shadow-xl hover:shadow-2xl',
-      );
+      expect(container.firstChild).toHaveClass('rounded-2xl');
       expect(screen.getByTestId('avatar-container')).toHaveClass(
-        'w-20 h-20 rounded-full border-4 border-white',
+        'w-28 h-28 rounded-full border-4 border-white',
       );
       expect(screen.getByText('John')).toHaveClass('text-xl font-bold');
-      expect(screen.getByText('@nikeJohn')).toHaveClass('text-indigo-200');
+      expect(screen.getByText('@nikeJohn')).toHaveClass('text-gray-500');
     });
 
     it('Displays the time icon', () => {
       renderUserlabel(mockUserData);
-      expect(screen.getByText('access_time')).toHaveClass(
-        'material-icons text-base text-indigo-200',
-      );
+      expect(screen.getByText('access_time')).toHaveClass('material-icons text-base text-gray-500');
     });
 
     it('When avatar is provided, uses the correct size', () => {
       renderUserlabel(mockUserData);
 
-      const avatar = screen.getByAltText('User Avatar');
-
-      expect(avatar).toHaveAttribute('width', '64');
-      expect(avatar).toHaveAttribute('height', '64');
+      const avatarWrapper = screen.getByTestId('user-avatar');
+      expect(avatarWrapper).toHaveStyle({ width: '100px', height: '100px' });
     });
   });
 });

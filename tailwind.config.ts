@@ -14,6 +14,7 @@ const config: Config = {
         support1: '#8AA8FF', // Soft Blue
         support2: '#3C4CCC', // Deep Blue-Violet
         disabledGray: '#CBD5E1', // Disabled Gray
+        primaryBlack: '#383838',
       },
       fontFamily: {
         heading: ['"Cabinet Grotesk"', 'sans-serif'],

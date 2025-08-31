@@ -1,3 +1,4 @@
+/** @type {import('@lingui/conf').LinguiConfig} */
 module.exports = {
   locales: ['en', 'zh'],
   sourceLocale: 'en',
@@ -8,4 +9,11 @@ module.exports = {
     },
   ],
   format: 'po',
+  extractorParserOptions: {
+    flow: false,
+  },
+  runtimeConfigModule: {
+    i18n: ['@lingui/core', 'i18n'],
+    Trans: ['@lingui/react', 'Trans'],
+  },
 };

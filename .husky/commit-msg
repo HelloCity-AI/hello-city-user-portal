@@ -6,19 +6,15 @@ echo "Checking commit message format..."
 commit_msg_file=$1
 commit_msg=$(cat "$commit_msg_file")
 
-pattern='^(feat|fix|chore|tools|test|docs|refactor|style|perf|ci|build|revert)\([a-z]+\) : \[SCRUM-[0-9]+\] .+'
+pattern='^\[(SCRUM-[0-9]+|86d[a-z0-9]{6})\] .+'
 
 if ! echo "$commit_msg" | grep -Eq "$pattern"; then
   echo ""
-  echo "❌ wrong format, please follow the commit message guideline."
+  echo "❌ Wrong format: commit message must start with either [SCRUM-<number>] or [86d<6 alphanumeric chars>]."
   echo ""
-  echo "✅ Correct format should be:"
-  echo "   feat(frontend) : [SCRUM-69] description"
-  echo ""
-  echo "📝 Example:"
-  echo "   fix(auth) : [SCRUM-101] fix token expiration issue"
-  echo ""
-  echo "💡 Supported types: feat, fix, chore, tools, test, docs, refactor, style, perf, ci, build, revert"
+  echo "✅ Correct format examples:"
+  echo "   [SCRUM-123] Fix login bug"
+  echo "   [86d1a2b3c] Update readme"
   echo ""
   exit 1
 fi

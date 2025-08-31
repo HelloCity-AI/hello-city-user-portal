@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import InputBox from './InputBox';
+import InputBox from '@/components/InputBox/InputBox';
 
 const meta: Meta<typeof InputBox> = {
-  title: 'InputBox',
+  title: 'Components/InputBox',
   component: InputBox,
 };
 export default meta;
@@ -14,9 +14,10 @@ export const Primary = () => {
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
+  const [message, setMessage] = useState('');
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
+    <div className="mx-auto flex flex-col gap-4">
       <InputBox
         label="Name"
         fieldType="name"
@@ -51,6 +52,13 @@ export const Primary = () => {
         value={repeatPassword}
         onChange={(e) => setRepeatPassword(e.target.value)}
         originalPassword={password}
+        required
+      />
+      <InputBox
+        label="Message"
+        fieldType="message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
         required
       />
     </div>

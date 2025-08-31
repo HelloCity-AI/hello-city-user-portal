@@ -12,7 +12,6 @@ const ProfileImageUploader = () => {
   const [status, setStatus] = useState<'none' | 'uploading' | 'uploaded' | 'error'>('none');
   const [message, setMessage] = useState<ReactElement<typeof Trans> | null>(null);
   const theme = useTheme();
-  const backgroundGradients = theme.backgroundGradients;
 
   // Use useRef hook to avoid bug when keep selecting same image from local disk
   const imageInputRef = useRef<HTMLInputElement | null>(null);
@@ -23,22 +22,23 @@ const ProfileImageUploader = () => {
     if (!file.type.startsWith('image/') || file.size > 5 * 1024 * 1024) {
       setStatus('error');
       setMessage(
-        <Trans id="file.upload.error">
-          Invalid File size or type. Please upload an image file under 5MB
-        </Trans>,
+        <Trans
+          id="file.upload.error"
+          message="Invalid File size or type. Please upload an image file under 5MB"
+        />,
       );
       return;
     }
 
     setStatus('uploading');
-    setMessage(<Trans id="file.upload.progress">The image is uploading ...</Trans>);
+    setMessage(<Trans id="file.upload.progress" message="The image is uploading ..." />);
 
     const imageUrl = URL.createObjectURL(file);
     setPreview(imageUrl);
 
     setTimeout(() => {
       setStatus('uploaded');
-      setMessage(<Trans id="file.upload.success">The image is uploaded</Trans>);
+      setMessage(<Trans id="file.upload.success" message="The image is uploaded" />);
     }, 3000);
   };
 
@@ -74,61 +74,48 @@ const ProfileImageUploader = () => {
   };
 
   return (
-    <div className="flex min-w-[40dvw] max-w-96 flex-col items-center justify-center rounded-xl border-2">
+    <div className="flex min-w-[35rem] flex-col items-center justify-center gap-4 rounded-xl border-2 pb-4">
       <Box
         sx={{
-          bgcolor: 'primary.main',
-          background: backgroundGradients.buttonPrimaryActive,
+          background: theme.backgroundGradients.buttonPrimaryActive,
           width: '100%',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
           height: 80,
-          mx: 0,
-          px: 0,
+          borderRadius: 'inherit',
         }}
-        className="rounded-xl"
       >
         <Typography variant="h4" color="primary.contrastText">
-          <Trans id="account.title">HelloCity Account</Trans>
+          <Trans id="account.title" message="HelloCity Account" />
         </Typography>
       </Box>
-      <Typography variant="h6" sx={{ mt: 4, mb: 2 }}>
-        <Trans id="profile.avatar.title">Profile Picture</Trans>
+      <Typography variant="h6">
+        <Trans id="profile.avatar.title" message="Profile Picture" />
       </Typography>
 
       {/* Image Preview Section below ↓ */}
 
-      {!preview || status === 'uploading' ? (
-        <Image
-          src="/images/default-avatar.jpg"
-          alt="Default Avatar"
-          width={150}
-          height={150}
-          className="rounded-xl border-2 border-indigo-600"
-        />
-      ) : (
-        <Image
-          src={preview}
-          alt="Profile Image Preview"
-          width={150}
-          height={150}
-          className="h-32 w-32 rounded-xl border-2 border-indigo-600 object-cover"
-        />
-      )}
+      <Image
+        src={!preview || status === 'uploading' ? '/images/default-avatar.jpg' : preview}
+        alt={!preview || status === 'uploading' ? 'Default Avatar' : 'Profile Image Preview'}
+        width={150}
+        height={150}
+        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+      />
 
       {renderStatus()}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" sx={{ mt: 4, mb: 2 }}>
-          <Trans id="profile.avatar.add">Add Profile Picture</Trans>
+        <Button variant="secondary" component="label" disabled={status === 'uploading'}>
+          <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
         {preview && status !== 'uploading' && (
-          <Button variant="secondary" onClick={handleRemove} sx={{ mt: 4, mb: 2 }}>
-            <Trans id="profile.avatar.remove">Remove Photos</Trans>
+          <Button variant="secondary" onClick={handleRemove}>
+            <Trans id="profile.avatar.remove" message="Remove Photo" />
           </Button>
         )}
       </div>
