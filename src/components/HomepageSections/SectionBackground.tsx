@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
+
 import Box from '@mui/material/Box';
 import Image from 'next/image';
-// eslint-disable-next-line import/no-named-as-default
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface SectionBackgroundProps {
   children: ReactNode;
@@ -34,7 +34,7 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
   return (
     <Box
       component="section"
-      className={clsx(baseClassName, additionalWrapperClassName)}
+      className={twMerge(baseClassName, additionalWrapperClassName)}
       sx={{
         background: `url(${bgImg}) center/cover no-repeat `,
         backgroundColor:

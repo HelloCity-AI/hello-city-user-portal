@@ -109,7 +109,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       const { unmount } = renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
       });
 
       unmount();
@@ -125,13 +125,13 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
       await waitFor(() => {
         const navbar = screen.getByTestId('desktop-navbar');
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 
@@ -139,7 +139,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(29);
+        scrollToPosition(19);
         jest.advanceTimersByTime(20);
       });
 
@@ -153,7 +153,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
@@ -167,13 +167,13 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
       await waitFor(() => {
         const navbar = screen.getByTestId('desktop-navbar');
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 
@@ -181,7 +181,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         scrollToPosition(35);
         scrollToPosition(40);
       });
@@ -198,7 +198,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       });
 
       await waitFor(() => {
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 

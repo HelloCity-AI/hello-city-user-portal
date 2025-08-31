@@ -8,8 +8,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { Trans } from '@lingui/react';
-// eslint-disable-next-line import/no-named-as-default
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
 import { Dropdown } from '..';
 import { userMenuOptions } from '../dropdownMenuOptions.example';
@@ -64,7 +63,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   }, [navItems]);
 
   const renderLogo = () => (
-    <Box component="div" data-section="logo" className="relative h-[30px] w-[120px]">
+    <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
       <Link href={logo.href}>
         <Image
           src={hasBgColor ? logo.dark : logo.light}
@@ -177,7 +176,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
     <Box
       component="nav"
       data-testid="desktop-navbar"
-      className={clsx(BASE_CLASSES, TRANSITION_CLASSES, backgroundClasses)}
+      className={twMerge(BASE_CLASSES, TRANSITION_CLASSES, backgroundClasses)}
       aria-label="Main navigation"
     >
       <SectionContent additionalClassName="grid grid-cols-4 w-full items-center">

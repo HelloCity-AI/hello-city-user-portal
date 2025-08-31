@@ -3,6 +3,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import { twMerge } from 'tailwind-merge';
 
 interface HamburgerMenuIconProps {
   isOpen: boolean;
@@ -38,7 +39,7 @@ const HamburgerMenuIcon: React.FC<HamburgerMenuIconProps> = ({
   return (
     <IconButton
       onClick={onClick}
-      className={`p-2 ${className}`}
+      className={twMerge('p-2', className)}
       style={{
         width: size + 16,
         height: size + 16,
