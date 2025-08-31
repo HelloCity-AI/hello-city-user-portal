@@ -5,7 +5,6 @@ import '@testing-library/jest-dom';
 
 import ProfileImageUploader from '../src/components/ProfileImageUploader';
 
-
 const uploadFile = (file: File) => {
         const input = screen.getByLabelText(/Add Profile Picture/i)
         fireEvent.change(input, {target: {files: [file]}})
