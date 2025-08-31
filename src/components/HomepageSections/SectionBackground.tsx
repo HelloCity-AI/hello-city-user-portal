@@ -36,7 +36,10 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
       component="section"
       className={twMerge(baseClassName, additionalWrapperClassName)}
       sx={{
-        background: `url(${bgImg}) center/cover no-repeat `,
+        backgroundImage: bgImg ? `url(${bgImg})` : 'none',
+        backgroundSize: bgImg ? 'cover' : 'auto',
+        backgroundPosition: bgImg ? 'center' : 'initial',
+        backgroundRepeat: bgImg ? 'no-repeat' : 'repeat',
         backgroundColor:
           bgColor === 'primary'
             ? 'primary.main'

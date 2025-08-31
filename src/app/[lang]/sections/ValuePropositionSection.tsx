@@ -20,19 +20,28 @@ const ValuePropositionSection = async ({ locale }: { locale: string }) => {
       key: 'personalized-guidance',
       icon: <ChatBubbleOutlineOutlinedIcon sx={{ color: '#5C6DF7' }} />,
       title: t('ValueProposition.Card1.Title', 'Personalized Guidance'),
-      description: t('ValueProposition.Card1.Description', 'Get tailored advice based on your situation, destination, and timeline. No generic answers.'),
+      description: t(
+        'ValueProposition.Card1.Description',
+        'Get tailored advice based on your situation, destination, and timeline. No generic answers.',
+      ),
     },
     {
       key: 'step-by-step-checklists',
       icon: <CheckCircleOutlineOutlinedIcon sx={{ color: '#FFB663' }} />,
       title: t('ValueProposition.Card2.Title', 'Step-by-step Checklists'),
-      description: t('ValueProposition.Card2.Description', 'Never miss important tasks with our comprehensive checklists for every type of move.'),
+      description: t(
+        'ValueProposition.Card2.Description',
+        'Never miss important tasks with our comprehensive checklists for every type of move.',
+      ),
     },
     {
       key: 'timeline-planning',
       icon: <AccessTimeOutlinedIcon sx={{ color: '#16A34A' }} />,
       title: t('ValueProposition.Card3.Title', 'Timeline Planning'),
-      description: t('ValueProposition.Card3.Description', 'Know exactly when to do what with realistic timelines and deadline reminders.'),
+      description: t(
+        'ValueProposition.Card3.Description',
+        'Know exactly when to do what with realistic timelines and deadline reminders.',
+      ),
     },
   ];
   return (
@@ -42,7 +51,10 @@ const ValuePropositionSection = async ({ locale }: { locale: string }) => {
           {t('ValueProposition.Title', 'Why choose HelloCity?')}
         </Typography>
         <Typography variant="body1" color="text.secondary" className="max-w-[900px] text-wrap">
-          {t('ValueProposition.Description', 'We understand that moving to a new city can be overwhelming. That\'s why we\'ve built the most comprehensive city landing assistant.')}
+          {t(
+            'ValueProposition.Description',
+            "We understand that moving to a new city can be overwhelming. That's why we've built the most comprehensive city landing assistant.",
+          )}
         </Typography>
         {/* Cards area */}
         <SectionContentArea>

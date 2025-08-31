@@ -12,29 +12,32 @@ const HowItWorksSection = async ({ locale }: { locale: string }) => {
   const { t } = await getServerTranslation(locale);
 
   const listItems = [
-    { 
-      key: 1, 
-      title: t('HowItWorks.Step1.Title', 'Dream & Plan'), 
-      description: t('HowItWorks.Step1.Description', 'Visualize your new life and set your goals') 
+    {
+      key: 1,
+      title: t('HowItWorks.Step1.Title', 'Dream & Plan'),
+      description: t('HowItWorks.Step1.Description', 'Visualize your new life and set your goals'),
     },
     {
       key: 2,
       title: t('HowItWorks.Step2.Title', 'Prepare & Organize'),
-      description: t('HowItWorks.Step2.Description', 'Get all your documents and requirements ready'),
+      description: t(
+        'HowItWorks.Step2.Description',
+        'Get all your documents and requirements ready',
+      ),
     },
-    { 
-      key: 3, 
-      title: t('HowItWorks.Step3.Title', 'Arrive & Thrive'), 
-      description: t('HowItWorks.Step3.Description', 'Hit the ground running in your new city') 
+    {
+      key: 3,
+      title: t('HowItWorks.Step3.Title', 'Arrive & Thrive'),
+      description: t('HowItWorks.Step3.Description', 'Hit the ground running in your new city'),
     },
   ];
   return (
     <SectionBackground bgImg="/images/homepage/sun-set.jpeg" overlay>
-      <SectionContent additionalClassName="flex min-h-[500px] items-center px-20">
-        <SectionContentArea additionalClassName="flex-col items-center px-4 lg:flex-row xl:pl-2">
+      <SectionContent additionalClassName="flex min-h-[500px] items-center">
+        <SectionContentArea additionalClassName="flex-col items-center lg:flex-row lg:justify-between">
           <Box
             component="div"
-            className="w-[85vw] text-left text-white md:w-[65vw] lg:max-w-[50%] lg:flex-1"
+            className="flex w-full max-w-md flex-col gap-3 text-white md:max-w-lg lg:max-w-[50%] lg:flex-1"
           >
             <Typography
               component="h3"
@@ -45,7 +48,10 @@ const HowItWorksSection = async ({ locale }: { locale: string }) => {
               {t('HowItWorks.Title', 'From planning to living your dream')}
             </Typography>
             <Typography variant="body1" color="inherit">
-              {t('HowItWorks.Description', 'Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure.')}
+              {t(
+                'HowItWorks.Description',
+                'Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure.',
+              )}
             </Typography>
             <List>
               {listItems.map((item) => {
@@ -75,14 +81,18 @@ const HowItWorksSection = async ({ locale }: { locale: string }) => {
           </Box>
           <Box
             component="div"
-            className="relative h-[300px] w-[85vw] lg:h-full lg:min-h-[400px] lg:flex-1 xl:ml-10"
+            className="relative h-[300px] w-full max-w-md md:max-w-lg lg:h-full lg:min-h-[400px] lg:flex-1 xl:ml-10"
           >
             <Image
               src="/images/homepage/group-scenarios.png"
               fill
-              alt={t('HowItWorks.ImageAlt', 'Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset.')}
+              alt={t(
+                'HowItWorks.ImageAlt',
+                'Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset.',
+              )}
               className="object-contain"
               loading="lazy"
+              sizes="(max-width: 768px) 448px, (max-width: 1024px) 512px, 600px"
             />
           </Box>
         </SectionContentArea>

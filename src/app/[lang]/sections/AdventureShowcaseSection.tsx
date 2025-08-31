@@ -16,7 +16,10 @@ const AdventureShowcaseSection = async ({ locale }: { locale: string }) => {
       image: '/images/homepage/ready-for-takeoff.jpeg',
       alt: t('AdventureShowcase.Case1.Alt', 'Ready for Takeoff'),
       title: t('AdventureShowcase.Case1.Title', 'Ready for Takeoff'),
-      description: t('AdventureShowcase.Case1.Description', 'Start your journey to a new adventure'),
+      description: t(
+        'AdventureShowcase.Case1.Description',
+        'Start your journey to a new adventure',
+      ),
     },
     {
       image: '/images/homepage/new-connections.jpeg',
@@ -31,7 +34,10 @@ const AdventureShowcaseSection = async ({ locale }: { locale: string }) => {
       image: '/images/homepage/dreams-realized.jpeg',
       alt: t('AdventureShowcase.Case3.Alt', 'Dreams Realized'),
       title: t('AdventureShowcase.Case3.Title', 'Dreams Realized'),
-      description: t('AdventureShowcase.Case3.Description', 'Turn your dreams into reality in a new city'),
+      description: t(
+        'AdventureShowcase.Case3.Description',
+        'Turn your dreams into reality in a new city',
+      ),
     },
   ];
 
@@ -42,7 +48,10 @@ const AdventureShowcaseSection = async ({ locale }: { locale: string }) => {
           {t('AdventureShowcase.Title', 'Your adventure awaits')}
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          {t('AdventureShowcase.Description', 'Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city.')}
+          {t(
+            'AdventureShowcase.Description',
+            'Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city.',
+          )}
         </Typography>
         {/* Cards area */}
         <SectionContentArea>
@@ -61,6 +70,7 @@ const AdventureShowcaseSection = async ({ locale }: { locale: string }) => {
                   loading="lazy"
                   alt={adventure.alt}
                   className="object-cover transition-transform duration-300 hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <Box
                   component="div"

@@ -30,19 +30,28 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 
+    // Check initial scroll position on mount
+    const checkScrollPosition = () => {
+      scrollYRef.current = window.scrollY;
+      const shouldHaveBackground = scrollYRef.current > SCROLL_THRESHOLD;
+
+      if (shouldHaveBackground !== hasBgColor) {
+        setHasBgColor(shouldHaveBackground);
+      }
+    };
+
+    // Initial check
+    checkScrollPosition();
+
     const handleScroll = () => {
       if (timer) return;
 
       timer = setTimeout(() => {
-        scrollYRef.current = window.scrollY;
-        const shouldHaveBackground = scrollYRef.current > SCROLL_THRESHOLD;
-
-        if (shouldHaveBackground !== hasBgColor) {
-          setHasBgColor(shouldHaveBackground);
-        }
+        checkScrollPosition();
         timer = null;
       }, 16);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -64,12 +73,14 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
 
   const renderLogo = () => (
     <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
-      <Link href={logo.href}>
+      <Link href={logo.href} className="relative block h-full w-full">
         <Image
           src={hasBgColor ? logo.dark : logo.light}
           alt="HelloCity Logo"
           fill
           className="object-contain"
+          sizes="150px"
+          priority
         />
       </Link>
     </Box>

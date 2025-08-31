@@ -17,14 +17,17 @@ const HeroSection = async ({ locale }: { locale: string }) => {
   return (
     <SectionBackground
       imgSrc="/images/banner-image.webp"
-      imgAlt={t('Hero.BannerAlt', 'Melbourne skyline at golden hour, welcoming newcomers with HelloCity')}
+      imgAlt={t(
+        'Hero.BannerAlt',
+        'Melbourne skyline at golden hour, welcoming newcomers with HelloCity',
+      )}
       additionalWrapperClassName="py-0"
       overlay
       overlayClassName={clsx('absolute inset-0 z-10', overlayLinearGradient)}
       priority
     >
-      <SectionContent additionalClassName="text-white h-[100vh] lg:h-[80vh] flex items-center pt-5 ">
-        <SectionContentArea additionalClassName="flex-col gap-8 px-8 md:px-6 xl:px-2">
+      <SectionContent additionalClassName="text-white h-[100vh] flex items-center pt-5 ">
+        <SectionContentArea additionalClassName="flex-col gap-8">
           <Typography
             component="h1"
             variant="h3"
@@ -40,7 +43,10 @@ const HeroSection = async ({ locale }: { locale: string }) => {
             variant="h5"
             className="max-w-[700px] font-medium drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
           >
-            {t('Hero.Description', 'Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.')}
+            {t(
+              'Hero.Description',
+              'Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
+            )}
           </Typography>
           <Button
             component={Link}

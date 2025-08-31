@@ -62,7 +62,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
   const renderLogoOrBack = () => (
     <Box
       data-section="logo-or-back"
-      className="relative flex h-[40px] w-[100px] items-center sm:h-[50px] sm:w-[120px]"
+      className="relative flex h-[40px] w-[120px] items-center sm:h-[50px] sm:w-[150px]"
     >
       <Box
         component="div"
@@ -71,8 +71,14 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
           opacity: navDrawerSubMenuIdx === null ? 100 : 0,
         }}
       >
-        <Link href={logo.href}>
-          <Image src={logo.dark} alt="HelloCity Logo" fill className="object-contain" />
+        <Link href={logo.href} className="relative block h-full w-full">
+          <Image
+            src={logo.dark}
+            alt="HelloCity Logo"
+            fill
+            className="object-contain"
+            sizes="150px"
+          />
         </Link>
       </Box>
       <Button

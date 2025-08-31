@@ -15,7 +15,10 @@ const CallToActionsSection = async ({ locale }: { locale: string }) => {
           {t('CallToAction.Title', 'Ready to make your move?')}
         </Typography>
         <Typography variant="body1" color="white">
-          {t('CallToAction.Description', 'Join thousands of people who have successfully navigated their new cities with HelloCity\'s guidance.')}
+          {t(
+            'CallToAction.Description',
+            "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance.",
+          )}
         </Typography>
         <Button
           component={Link}
