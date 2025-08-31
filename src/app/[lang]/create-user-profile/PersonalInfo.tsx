@@ -23,7 +23,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         name="gender"
         variant="outlined"
         required
-        value={formData.gender}
+        value={formData.Gender}
         onChange={handleChange}
         size="small"
       >
@@ -74,7 +74,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         label="Language"
         name="language"
         variant="outlined"
-        value={formData.language}
+        value={formData.preferredLanguage}
         onChange={handleChange}
         size="small"
       >

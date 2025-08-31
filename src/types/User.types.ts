@@ -1,23 +1,27 @@
 import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 
 export type User = {
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword?: string;
-  gender: Genders | '';
+  userId: string;
+  Email: string;
+  Avatar: string;
+  Gender: Genders | '';
   nationality: Nationalities | '';
   city: Cities | '';
-  language: Languages | '';
+  university: string;
+  major: string;
+  preferredLanguage: Languages | '';
+  lastJoinDate: Date;
 };
 
 export const defaultUser: User = {
-  username: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-  gender: '',
+  userId: '',
+  Email: '',
+  Avatar: '',
+  Gender: '',
   nationality: '',
   city: '',
-  language: '',
+  university: '',
+  major: '',
+  preferredLanguage: '',
+  lastJoinDate: new Date(),
 };
