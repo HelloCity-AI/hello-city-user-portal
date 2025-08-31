@@ -2,14 +2,12 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
 interface UserState {
-  isAuth0Authenticated: boolean;
   isLoading: boolean;
   userData: User | null;
   error?: string;
 }
 
 const initialState: UserState = {
-  isAuth0Authenticated: false,
   isLoading: false,
   userData: null,
   error: '',
@@ -25,7 +23,6 @@ const userSlice = createSlice({
     logOut: (state) => {
       state.userData = null;
     },
-
     fetchUserRequest(state) {
       state.isLoading = true;
       state.error = '';
