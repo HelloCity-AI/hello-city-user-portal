@@ -1,5 +1,4 @@
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import Negotiator from 'negotiator';
 import { auth0 } from './lib/auth0';
 import linguiConfig from '../lingui.config';

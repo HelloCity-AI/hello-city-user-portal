@@ -1,13 +1,13 @@
 'use client';
 
 import type { ThemeOptions } from '@mui/material/styles';
-import { createTheme } from '@mui/material/styles';
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 import '@fontsource/ibm-plex-sans/400.css'; // Regular
 import '@fontsource/ibm-plex-sans/700.css'; // Bold
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 
-const websiteTheme = createTheme({
+const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
@@ -16,7 +16,7 @@ const websiteTheme = createTheme({
     },
     secondary: {
       main: '#FFB663',
-      contrastText: '#000000',
+      contrastText: '#383838',
     },
     info: {
       main: '#8AA8FF',
@@ -207,5 +207,7 @@ const websiteTheme = createTheme({
     full: '9999px',
   },
 } as ThemeOptions);
+
+const websiteTheme = responsiveFontSizes(theme);
 
 export default websiteTheme;

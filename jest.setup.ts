@@ -1,5 +1,14 @@
 import '@testing-library/jest-dom';
 
+window.HTMLElement.prototype.scrollIntoView = function () {};
+
+// Mock ResizeObserver
+class ResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+window.ResizeObserver = ResizeObserver;
 // Mock Next.js navigation hooks
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
