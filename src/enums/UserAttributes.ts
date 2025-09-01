@@ -23,6 +23,6 @@ export const nationalityOptions = Object.values(Nationalities);
 
 export enum Languages {
   English = 'en',
-  Chinese = 'cn',
+  Chinese = 'zh',
 }
 export const languageOptions = Object.values(Languages);

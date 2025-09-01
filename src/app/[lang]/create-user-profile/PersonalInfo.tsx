@@ -20,7 +20,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         fullWidth
         select
         label="Gender"
-        name="gender"
+        name="Gender"
         variant="outlined"
         required
         value={formData.Gender}
@@ -72,7 +72,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         fullWidth
         select
         label="Language"
-        name="language"
+        name="preferredLanguage"
         variant="outlined"
         value={formData.preferredLanguage}
         onChange={handleChange}
