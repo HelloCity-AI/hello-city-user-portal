@@ -24,7 +24,7 @@ export async function middleware(request: NextRequest) {
 
   // bypass auth routes and api routes and nextjs internals
   if (
-    pathname.startsWith('/api/auth') ||
+    // pathname.startsWith('/api/auth') ||
     pathname.startsWith('/auth') ||
     pathname.startsWith('/api/') ||
     pathname.startsWith('/_next/')
