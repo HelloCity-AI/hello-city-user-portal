@@ -17,27 +17,27 @@ const UserProfileCard: React.FC<UserData> = ({
   LastJoinDate,
 }) => {
   return (
-    <div className="flex items-center gap-2 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white shadow-xl hover:shadow-2xl">
+    <div className="flex items-center gap-5 rounded-2xl text-white">
       <div
-        className="flex h-20 w-20 items-center justify-center rounded-full border-4 border-white bg-white"
+        className="flex h-28 w-28 items-center justify-center rounded-full border-4 border-white bg-white"
         data-testid="avatar-container"
       >
         {!AvatarImg ? (
-          <span className="material-icons text-7xl text-gray-400">account_circle</span>
+          <span className="material-icons text-8xl text-gray-400">account_circle</span>
         ) : (
           <Avatar
             data-testid="user-avatar"
             alt="User Avatar"
             src={AvatarImg}
-            sx={{ width: 64, height: 64 }}
+            sx={{ width: 100, height: 100 }}
           />
         )}
       </div>
       <div>
-        <span className="flex text-xl font-bold">{UserName || 'Unknown User'}</span>
-        <span className="flex text-indigo-200">@{PreferredName || 'UnknownNickname'}</span>
-        <div className="mt-1 flex items-center gap-1 text-sm">
-          <span className="material-icons text-base text-indigo-200">access_time</span>
+        <span className="flex text-xl font-bold text-gray-500">{UserName || 'Unknown User'}</span>
+        <span className="flex text-gray-500">@{PreferredName || 'UnknownNickname'}</span>
+        <div className="mt-1 flex items-center gap-1 text-sm text-gray-500">
+          <span className="material-icons text-base text-gray-500">access_time</span>
           last login: {LastJoinDate || 'Unknown'}
         </div>
       </div>

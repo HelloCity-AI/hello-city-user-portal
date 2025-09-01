@@ -17,132 +17,29 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:31
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:36
+#: src/app/[lang]/contact-us/page.tsx:35
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:41
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:53
+#: src/app/[lang]/contact-us/page.tsx:48
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:63
+#: src/app/[lang]/contact-us/page.tsx:55
 msgid "contact-us.submit"
 msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:29
-#~ msgid "Submit"
-#~ msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-#: src/compoundComponents/Modals/FormModal.tsx:30
-#~ msgid "Cancel"
-#~ msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:27
-#~ msgid "Confirm"
-#~ msgstr "Confirm"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/InfoModal.tsx:22
-#~ msgid "Got it"
-#~ msgstr "Got it"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:32
-#~ msgid "Home"
-#~ msgstr "Home"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:35
-#~ msgid "Chat"
-#~ msgstr "Chat"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:38
-#~ msgid "FAQ"
-#~ msgstr "FAQ"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:41
-#~ msgid "Check Items"
-#~ msgstr "Check Items"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:65
-#~ msgid "Sign In"
-#~ msgstr "Sign In"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:70
-#~ msgid "Try HelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:79
-#~ msgid "Next"
-#~ msgstr "Next"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:63
-#~ msgid "Prev"
-#~ msgstr "Prev"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:33
-#: src/components/Banner.tsx:56
-#~ msgid "Banner.TryHelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/Banner.tsx:46
-#~ msgid "Banner.Confidence"
-#~ msgstr "Confidence"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:110
-#~ msgid "NaveBar.Chat"
-#~ msgstr "Chat"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:119
-#~ msgid "NaveBar.Check Items"
-#~ msgstr "Check Items"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:115
-#~ msgid "NaveBar.FAQ"
-#~ msgstr "FAQ"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:105
-#~ msgid "NaveBar.Home"
-#~ msgstr "Home"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:150
-#~ msgid "NaveBar.Try HelloCity"
-#~ msgstr "Try HelloCity"
-
-#. js-lingui-explicit-id
-#: src/components/NavBar.tsx:89
-#: src/components/NavBar.tsx:154
-#~ msgid "contact-us"
-#~ msgstr "Contact Us"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
@@ -435,7 +332,7 @@ msgid "NaveBar.Back"
 msgstr "← Back"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:126
+#: src/components/ProfileImageUploader.tsx:112
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
@@ -469,21 +366,13 @@ msgstr "Confirm"
 msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
-#: src/app/[lang]/contact-us/page.tsx:21
-#~ msgid "Contact Us"
-#~ msgstr "Contact Us"
-
-#: src/app/auth/PageOne.tsx:22
-#~ msgid "Email"
-#~ msgstr "Email"
-
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "Got it"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
 msgstr "HelloCity Account"
 
@@ -493,12 +382,12 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:56
+#: src/app/[lang]/create-user-profile/page.tsx:103
 msgid "I'm all set"
 msgstr "I'm all set"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:26
+#: src/components/ProfileImageUploader.tsx:25
 msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
@@ -507,26 +396,18 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 msgid "Logout"
 msgstr "Logout"
 
-#: src/components/NavBar.tsx:139
-#~ msgid "NaveBar.Sign Up"
-#~ msgstr "Sign Up<<<<<<< HEAD"
-
-#: src/stories/DatePicker.stories.tsx:17
-#~ msgid "Pick a date"
-#~ msgstr "Pick a date=======>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
-
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:11
 msgid "Profile"
 msgstr "Profile"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:98
+#: src/components/ProfileImageUploader.tsx:94
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:132
+#: src/components/ProfileImageUploader.tsx:118
 msgid "profile.avatar.remove"
 msgstr "Remove Photos"
 
@@ -535,6 +416,7 @@ msgstr "Remove Photos"
 msgid "Settings"
 msgstr "Settings"
 
+#. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:122
@@ -546,22 +428,18 @@ msgstr "Sign In"
 msgid "form.submit"
 msgstr "Submit"
 
-#: src/app/[lang]/contact-us/page.tsx:52
-#~ msgid "Submit"
-#~ msgstr "Submit"
-
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
 msgid "Subscription"
 msgstr "Subscription"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:42
+#: src/components/ProfileImageUploader.tsx:41
 msgid "file.upload.success"
 msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:35
+#: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
 msgstr "The image is uploading ..."
 
@@ -574,7 +452,3 @@ msgstr "Theme"
 #: src/hooks/useTryHelloCity.tsx:13
 msgid "NavBar.Try HelloCity"
 msgstr "Try HelloCity"
-
-#: src/app/auth/PageOne.tsx:14
-#~ msgid "UserName"
-#~ msgstr "UserName"

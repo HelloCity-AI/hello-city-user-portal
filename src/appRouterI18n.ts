@@ -1,4 +1,4 @@
-import { Messages } from '@lingui/core';
+import type { Messages } from '@lingui/core';
 
 // Import the actual compiled message catalogs
 const catalogs: Record<string, () => Promise<{ messages: Messages }>> = {

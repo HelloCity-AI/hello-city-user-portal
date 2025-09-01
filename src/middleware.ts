@@ -4,7 +4,6 @@ import { auth0 } from './lib/auth0';
 import linguiConfig from '../lingui.config';
 
 function getLocale(request: NextRequest): string {
-  // Get locale from Accept-Language header
   const negotiatorHeaders: Record<string, string> = {};
   request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
@@ -15,25 +14,29 @@ function getLocale(request: NextRequest): string {
   return (detectedLocale ?? linguiConfig.sourceLocale) as string;
 }
 
+function resolveLang(request: NextRequest, pathname: string): string {
+  const pathSegments = pathname.split('/');
+  return linguiConfig.locales.includes(pathSegments[1]) ? pathSegments[1] : getLocale(request);
+}
+
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // bypass auth routes and api routes and nextjs internals
   if (
-    pathname.startsWith('/api/auth') ||
+    // pathname.startsWith('/api/auth') ||
     pathname.startsWith('/auth') ||
     pathname.startsWith('/api/') ||
-    pathname.startsWith('/_next/') ||
-    pathname.includes('.')
+    pathname.startsWith('/_next/')
   ) {
     return await auth0.middleware(request);
   }
 
-  // Check if there is any supported locale in the pathname
+  // check locale
   const pathnameIsMissingLocale = linguiConfig.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
   );
 
-  // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
     return NextResponse.redirect(
@@ -41,18 +44,42 @@ export async function middleware(request: NextRequest) {
     );
   }
 
-  // Apply Auth0 middleware for localized routes
-  return await auth0.middleware(request);
+  // check profile
+  try {
+    const session = await auth0.getSession(request);
+
+    if (session?.user) {
+      if (pathname.includes('create-user-profile')) {
+        return NextResponse.next();
+      }
+
+      const accessToken = await auth0.getAccessToken(request, NextResponse.next());
+      if (!accessToken?.token) {
+        return NextResponse.next();
+      }
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`, {
+        headers: { Authorization: `Bearer ${accessToken.token}` },
+        cache: 'no-store',
+      });
+
+      if (res.status === 200) {
+        return NextResponse.next();
+      }
+
+      if (res.status === 404) {
+        const lang = resolveLang(request, pathname);
+
+        return NextResponse.redirect(new URL(`/${lang}/create-user-profile`, request.url));
+      }
+    }
+  } catch (err) {
+    console.error('[middleware] Profile check error: ', err);
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Match all request paths except for the ones starting with:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico, sitemap.xml, robots.txt (metadata files)
-     */
-    '/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|images|fonts).*)'],
 };
