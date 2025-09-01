@@ -33,7 +33,7 @@ jest.mock('@/app/[lang]/create-user-profile/page', () => {
           <label htmlFor="language">Language</label>
           <input id="language" name="language" />
         </div>
-        <button type="button">I'm all set</button>
+        <button type="button">I&apos;m all set</button>
       </div>
     );
   };
