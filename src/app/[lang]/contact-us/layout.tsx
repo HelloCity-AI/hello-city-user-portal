@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import { getAllMessages } from '@/appRouterI18n';
-import ClientWrapper from './ClientWrapper';
+import ClientProvider from '../ClientProviders';
 
 export default async function ContactUsLayout({
   children,
@@ -14,8 +14,8 @@ export default async function ContactUsLayout({
   console.log('✅ ContactUs layout loaded with lang:', params.lang);
 
   return (
-    <ClientWrapper lang={params.lang} messages={messages}>
+    <ClientProvider lang={params.lang} messages={messages}>
       {children}
-    </ClientWrapper>
+    </ClientProvider>
   );
 }
