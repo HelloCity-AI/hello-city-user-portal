@@ -44,56 +44,9 @@ msgid "contact-us.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#: src/components/InputBox/InputBox.tsx:59
-#: src/compoundComponents/Modals/FormModal.tsx:29
-#: src/compoundComponents/Modals/FormModal.tsx:29
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-#: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/compoundComponents/Modals/ConfirmModal.tsx:27
-#: src/compoundComponents/Modals/InfoModal.tsx:22
-#: src/components/NavBar.tsx:87
-#: src/components/NavBar.tsx:35
-#: src/components/NavBar.tsx:38
-#: src/components/NavBar.tsx:41
-#: src/components/NavBar.tsx:65
-#: src/components/NavBar.tsx:70
-#: src/app/[lang]/create-user-profile/page.tsx:79
-#: src/app/[lang]/create-user-profile/page.tsx:63
-#: src/components/Banner.tsx:33
-#: src/components/Banner.tsx:56
-#: src/components/Banner.tsx:46
-#: src/components/NavBar.tsx:110
-#: src/components/NavBar.tsx:119
-#: src/components/NavBar.tsx:115
-#: src/components/NavBar.tsx:105
-#: src/components/NavBar.tsx:150
-#: src/components/NavBar.tsx:89
-#: src/components/NavBar.tsx:154
-#: src/components/NavBar/MobileNavBar.tsx:87
+#: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NaveBar.Back"
-#~ msgstr "返回>>>>>>> b091c4e7ccacd26473831b9419f1b4cc9c8e9970"
+#~ msgstr "← 返回"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
@@ -435,10 +388,17 @@ msgstr "提交"
 #~ msgid "Testimonials.Title8"
 #~ msgstr "商业顾问"
 
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/components/NavBar/DesktopNavBar.tsx:138
+#: src/components/NavBar/MobileNavBar.tsx:122
+#~ msgid "NaveBar.Sign In"
+#~ msgstr "登录"
+
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
-msgid "NaveBar.Back"
-msgstr "← 返回"
+msgid "NavBar.Back"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
@@ -531,9 +491,9 @@ msgstr "设置"
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
-#: src/components/NavBar/MobileNavBar.tsx:122
-msgid "NaveBar.Sign In"
-msgstr "登录"
+#: src/components/NavBar/MobileNavBar.tsx:123
+msgid "NavBar.Sign In"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
