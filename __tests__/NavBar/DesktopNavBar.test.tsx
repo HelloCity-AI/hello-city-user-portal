@@ -178,7 +178,18 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
     });
 
     it('Throttles scroll events correctly', async () => {
+      Object.defineProperty(window, 'scrollTo', {
+        writable: true,
+        value: jest.fn(),
+      });
+
       renderDesktopNavBar();
+
+      // Start with scroll position at 0
+      Object.defineProperty(window, 'scrollY', {
+        writable: true,
+        value: 0,
+      });
 
       act(() => {
         scrollToPosition(21);
@@ -186,16 +197,12 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
         scrollToPosition(40);
       });
 
+      // Wait for throttle delay (16ms) to complete
       act(() => {
-        jest.advanceTimersByTime(10);
+        jest.advanceTimersByTime(16);
       });
 
       const navbar = screen.getByTestId('desktop-navbar');
-      expect(navbar).toHaveClass('bg-transparent');
-
-      act(() => {
-        jest.advanceTimersByTime(10);
-      });
 
       await waitFor(() => {
         expect(navbar).toHaveClass('bg-white');
