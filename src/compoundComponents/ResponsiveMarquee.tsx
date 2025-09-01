@@ -22,7 +22,7 @@ const ResponsiveMarquee: React.FC<ResponsiveMarqueeProps> = ({
     <Box
       className={twMerge(
         'group mt-3 w-[100vw]',
-        isMobile ? 'overflow-x-scroll' : 'overflow-x-hidden'
+        isMobile ? 'overflow-x-scroll' : 'overflow-x-hidden',
       )}
       sx={{ WebkitOverflowScrolling: 'touch' }}
     >
