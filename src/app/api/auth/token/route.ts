@@ -23,7 +23,8 @@ export async function GET(request: NextRequest) {
       } else {
         // If no access token, it might be because audience is not configured
         return NextResponse.json({
-          message: 'User is authenticated, but unable to get access token (API audience may not be configured)',
+          message:
+            'User is authenticated, but unable to get access token (API audience may not be configured)',
           user: session.user,
           hasSession: true,
         });
