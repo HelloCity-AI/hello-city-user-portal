@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ResponsiveMarquee from '@/compoundComponents/ResponsiveMarquee';
-import { TestProviders } from '../utils/TestWrapper';
+import { TestProviders } from './utils/TestWrapper';
 
 const mockUseIsMobile = jest.fn();
 jest.mock('@/hooks/useIsMobile', () => ({

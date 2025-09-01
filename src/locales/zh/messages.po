@@ -433,7 +433,62 @@ msgstr "提交"
 #~ msgstr "运营经理"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:87
+#: src/app/[lang]/sections/TestimonialsSection.tsx:27
+#~ msgid "Testimonials.Country1"
+#~ msgstr "中国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:39
+#~ msgid "Testimonials.Country2"
+#~ msgstr "日本"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:51
+#~ msgid "Testimonials.Country3"
+#~ msgstr "印度"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:63
+#~ msgid "Testimonials.Country4"
+#~ msgstr "巴西"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:75
+#~ msgid "Testimonials.Country5"
+#~ msgstr "中国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:87
+#~ msgid "Testimonials.Country6"
+#~ msgstr "英国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:99
+#~ msgid "Testimonials.Country7"
+#~ msgstr "新加坡"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:111
+#~ msgid "Testimonials.Country8"
+#~ msgstr "美国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:104
+#~ msgid "Testimonials.Review8"
+#~ msgstr "作为顾问，我需要不断适应新的工作环境。HelloCity已经成为我快速融入新城市的秘密武器。本地化洞察和实用清单让我能专注于客户服务而不用操心后勤问题。对商务旅行者来说绝对是游戏规则改变者。"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:109
+#~ msgid "Testimonials.Name8"
+#~ msgstr "卢卡斯·米勒"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:110
+#~ msgid "Testimonials.Title8"
+#~ msgstr "商业顾问"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar/MobileNavBar.tsx:93
 msgid "NaveBar.Back"
 msgstr "← 返回"
 
@@ -554,8 +609,8 @@ msgid "Settings"
 msgstr "设置"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:128
-#: src/components/NavBar/MobileNavBar.tsx:116
+#: src/components/NavBar/DesktopNavBar.tsx:138
+#: src/components/NavBar/MobileNavBar.tsx:122
 msgid "NaveBar.Sign In"
 msgstr "登录"
 
@@ -595,58 +650,3 @@ msgstr "试用 HelloCity"
 
 #~ msgid "UserName"
 #~ msgstr "用户名"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:27
-msgid "Testimonials.Country1"
-msgstr "中国"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:39
-msgid "Testimonials.Country2"
-msgstr "日本"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:51
-msgid "Testimonials.Country3"
-msgstr "印度"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:63
-msgid "Testimonials.Country4"
-msgstr "巴西"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:75
-msgid "Testimonials.Country5"
-msgstr "中国"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:87
-msgid "Testimonials.Country6"
-msgstr "英国"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:99
-msgid "Testimonials.Country7"
-msgstr "新加坡"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:111
-msgid "Testimonials.Country8"
-msgstr "美国"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:104
-msgid "Testimonials.Review8"
-msgstr "作为顾问，我需要不断适应新的工作环境。HelloCity已经成为我快速融入新城市的秘密武器。本地化洞察和实用清单让我能专注于客户服务而不用操心后勤问题。对商务旅行者来说绝对是游戏规则改变者。"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:109
-msgid "Testimonials.Name8"
-msgstr "卢卡斯·米勒"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:110
-msgid "Testimonials.Title8"
-msgstr "商业顾问"

@@ -430,7 +430,7 @@ msgstr "Submit"
 #~ msgstr "Operations Manager"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:87
+#: src/components/NavBar/MobileNavBar.tsx:93
 msgid "NaveBar.Back"
 msgstr "← Back"
 
@@ -536,8 +536,8 @@ msgid "Settings"
 msgstr "Settings"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:128
-#: src/components/NavBar/MobileNavBar.tsx:116
+#: src/components/NavBar/DesktopNavBar.tsx:138
+#: src/components/NavBar/MobileNavBar.tsx:122
 msgid "NaveBar.Sign In"
 msgstr "Sign In"
 
