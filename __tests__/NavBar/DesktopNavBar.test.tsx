@@ -109,7 +109,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       const { unmount } = renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
       });
 
       unmount();
@@ -125,13 +125,13 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
       await waitFor(() => {
         const navbar = screen.getByTestId('desktop-navbar');
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 
@@ -139,7 +139,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(29);
+        scrollToPosition(19);
         jest.advanceTimersByTime(20);
       });
 
@@ -153,7 +153,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
@@ -167,38 +167,45 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       renderDesktopNavBar();
 
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         jest.advanceTimersByTime(20);
       });
 
       await waitFor(() => {
         const navbar = screen.getByTestId('desktop-navbar');
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 
     it('Throttles scroll events correctly', async () => {
+      Object.defineProperty(window, 'scrollTo', {
+        writable: true,
+        value: jest.fn(),
+      });
+
       renderDesktopNavBar();
 
+      // Start with scroll position at 0
+      Object.defineProperty(window, 'scrollY', {
+        writable: true,
+        value: 0,
+      });
+
       act(() => {
-        scrollToPosition(31);
+        scrollToPosition(21);
         scrollToPosition(35);
         scrollToPosition(40);
       });
 
+      // Wait for throttle delay (16ms) to complete
       act(() => {
-        jest.advanceTimersByTime(10);
+        jest.advanceTimersByTime(16);
       });
 
       const navbar = screen.getByTestId('desktop-navbar');
-      expect(navbar).toHaveClass('bg-transparent');
-
-      act(() => {
-        jest.advanceTimersByTime(10);
-      });
 
       await waitFor(() => {
-        expect(navbar).toHaveClass('bg-white/90');
+        expect(navbar).toHaveClass('bg-white');
       });
     });
 

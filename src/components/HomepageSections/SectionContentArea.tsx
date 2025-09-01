@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
+
 import Box from '@mui/material/Box';
-// eslint-disable-next-line import/no-named-as-default
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 interface SectionContentAreaProps {
   children: ReactNode;
@@ -15,7 +15,7 @@ const SectionContentArea: React.FC<SectionContentAreaProps> = ({
   const baseClassName = 'flex w-full flex-wrap gap-5 text-left justify-center lg:flex-nowrap';
 
   return (
-    <Box component="div" className={clsx(baseClassName, additionalClassName)}>
+    <Box component="div" className={twMerge(baseClassName, additionalClassName)}>
       {children}
     </Box>
   );

@@ -8,15 +8,14 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { Trans } from '@lingui/react';
-// eslint-disable-next-line import/no-named-as-default
-import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
 import { Dropdown } from '..';
 import { userMenuOptions } from '../dropdownMenuOptions.example';
 import SectionContent from '../HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 
-const SCROLL_THRESHOLD = 30;
+const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
 const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 
@@ -26,24 +25,33 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   const scrollYRef = useRef(0);
 
   const { currentLanguage, logo, navItems } = navConfig;
-  const backgroundClasses = hasBgColor ? 'bg-white/90 shadow-md' : 'bg-transparent shadow-none';
+  const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
+
+    // Check initial scroll position on mount
+    const checkScrollPosition = () => {
+      scrollYRef.current = window.scrollY;
+      const shouldHaveBackground = scrollYRef.current > SCROLL_THRESHOLD;
+
+      if (shouldHaveBackground !== hasBgColor) {
+        setHasBgColor(shouldHaveBackground);
+      }
+    };
+
+    // Initial check
+    checkScrollPosition();
 
     const handleScroll = () => {
       if (timer) return;
 
       timer = setTimeout(() => {
-        scrollYRef.current = window.scrollY;
-        const shouldHaveBackground = scrollYRef.current > SCROLL_THRESHOLD;
-
-        if (shouldHaveBackground !== hasBgColor) {
-          setHasBgColor(shouldHaveBackground);
-        }
+        checkScrollPosition();
         timer = null;
       }, 16);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
@@ -64,13 +72,15 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   }, [navItems]);
 
   const renderLogo = () => (
-    <Box component="div" data-section="logo" className="relative h-[30px] w-[120px]">
-      <Link href={logo.href}>
+    <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
+      <Link href={logo.href} className="relative block h-full w-full">
         <Image
           src={hasBgColor ? logo.dark : logo.light}
           alt="HelloCity Logo"
           fill
           className="object-contain"
+          sizes="150px"
+          priority
         />
       </Link>
     </Box>
@@ -177,7 +187,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
     <Box
       component="nav"
       data-testid="desktop-navbar"
-      className={clsx(BASE_CLASSES, TRANSITION_CLASSES, backgroundClasses)}
+      className={twMerge(BASE_CLASSES, TRANSITION_CLASSES, backgroundClasses)}
       aria-label="Main navigation"
     >
       <SectionContent additionalClassName="grid grid-cols-4 w-full items-center">
