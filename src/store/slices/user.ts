@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
+
 interface UserState {
   isLoading: boolean;
   userData: User | null;
