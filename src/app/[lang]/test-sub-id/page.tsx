@@ -3,10 +3,55 @@
 import { useUser } from '@auth0/nextjs-auth0';
 import { Box, Typography, Card, CardContent, Button, Alert, CircularProgress } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export default function TestSubIdPage() {
   const { user, error, isLoading } = useUser();
   const router = useRouter();
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [decodedToken, setDecodedToken] = useState<any>(null);
+  const [tokenError, setTokenError] = useState<string | null>(null);
+
+  // 获取访问令牌
+  useEffect(() => {
+    const fetchAccessToken = async () => {
+      try {
+        const response = await fetch('/api/auth/token');
+        if (response.ok) {
+          const data = await response.json();
+
+          if (data.accessToken) {
+            setAccessToken(data.accessToken);
+
+            // 解码JWT令牌（仅解码payload部分，不验证签名）
+            try {
+              const parts = data.accessToken.split('.');
+              if (parts.length === 3) {
+                const payload = JSON.parse(atob(parts[1]));
+                setDecodedToken(payload);
+              }
+            } catch (decodeError) {
+              console.error('解码JWT失败:', decodeError);
+              setTokenError('无法解码JWT令牌');
+            }
+          } else {
+            // API返回了会话信息但没有访问令牌
+            setTokenError(data.message || '无法获取访问令牌');
+          }
+        } else {
+          const errorData = await response.json();
+          setTokenError(errorData.error || '无法获取访问令牌');
+        }
+      } catch (err) {
+        console.error('获取访问令牌失败:', err);
+        setTokenError('获取访问令牌时发生错误');
+      }
+    };
+
+    if (user) {
+      fetchAccessToken();
+    }
+  }, [user]);
 
   if (isLoading) {
     return (
@@ -91,6 +136,100 @@ export default function TestSubIdPage() {
             }}
           >
             {JSON.stringify(user, null, 2)}
+          </Box>
+        </CardContent>
+      </Card>
+
+      {/* JWT访问令牌信息 */}
+      <Card sx={{ mb: 3 }}>
+        <CardContent>
+          <Typography variant="h6" gutterBottom color="secondary">
+            JWT 访问令牌
+          </Typography>
+          {tokenError ? (
+            <Alert severity="error">{tokenError}</Alert>
+          ) : accessToken ? (
+            <>
+              <Typography variant="subtitle2" gutterBottom>
+                完整令牌:
+              </Typography>
+              <Box
+                component="pre"
+                sx={{
+                  backgroundColor: '#fff3e0',
+                  p: 2,
+                  borderRadius: 1,
+                  overflow: 'auto',
+                  fontSize: '0.8rem',
+                  fontFamily: 'monospace',
+                  wordBreak: 'break-all',
+                  whiteSpace: 'pre-wrap',
+                  maxHeight: '200px',
+                }}
+              >
+                {accessToken}
+              </Box>
+
+              {decodedToken && (
+                <>
+                  <Typography variant="subtitle2" gutterBottom sx={{ mt: 2 }}>
+                    解码后的令牌内容 (Payload):
+                  </Typography>
+                  <Box
+                    component="pre"
+                    sx={{
+                      backgroundColor: '#e8f5e8',
+                      p: 2,
+                      borderRadius: 1,
+                      overflow: 'auto',
+                      fontSize: '0.9rem',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    {JSON.stringify(decodedToken, null, 2)}
+                  </Box>
+                </>
+              )}
+            </>
+          ) : (
+            <CircularProgress size={20} />
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Auth0 会话信息 */}
+      <Card sx={{ mb: 3 }}>
+        <CardContent>
+          <Typography variant="h6" gutterBottom color="info.main">
+            Auth0 会话详细信息
+          </Typography>
+          <Box
+            component="pre"
+            sx={{
+              backgroundColor: '#f0f8ff',
+              p: 2,
+              borderRadius: 1,
+              overflow: 'auto',
+              fontSize: '0.9rem',
+              fontFamily: 'monospace',
+            }}
+          >
+            {JSON.stringify(
+              {
+                isLoading,
+                error: error ? String(error) : null,
+                userExists: !!user,
+                userSub: user?.sub,
+                userEmail: user?.email,
+                userNickname: user?.nickname,
+                userPicture: user?.picture,
+                userEmailVerified: user?.email_verified,
+                userUpdatedAt: user?.updated_at,
+                allUserProperties: Object.keys(user || {}),
+              },
+              null,
+              2,
+            )}
           </Box>
         </CardContent>
       </Card>
