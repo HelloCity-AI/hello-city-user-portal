@@ -26,7 +26,7 @@ const ContactUs = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 5 }} key={tick}>
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 20 }} key={tick}>
       <Typography variant="h5" gutterBottom>
         <Trans id="contact-us.title">Contact Us</Trans>
       </Typography>

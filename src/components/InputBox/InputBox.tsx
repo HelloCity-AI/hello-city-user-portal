@@ -72,7 +72,7 @@ const InputBox: React.FC<InputBoxProps> = ({
   };
 
   return (
-    <div className={`${styles['input-box-wrapper']} ${variant}`}>
+    <div className={styles['input-box-wrapper']}>
       <TextField
         id={`input-${fieldType}}-${useId()}`}
         label={label.charAt(0).toUpperCase() + label.slice(1)}
@@ -81,6 +81,8 @@ const InputBox: React.FC<InputBoxProps> = ({
         onChange={(e) => (onChange(e), validateChange(e.target.value))}
         placeholder={placeholder ?? getDefaultPlaceholder(fieldType)}
         variant="outlined"
+          InputLabelProps={{ shrink: true }}
+
         error={!!(errorMessage || externalErrorMessage)}
         helperText={
           errorMessage || externalErrorMessage

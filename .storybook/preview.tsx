@@ -8,8 +8,8 @@ import '../src/app/globals.css';
 
 import { I18nProvider } from '@lingui/react';
 import { i18n } from '@lingui/core';
-import { messages as enMessages } from '@/locales/en/messages.js';
-import { messages as zhMessages } from '@/locales/zh/messages';
+import { messages as enMessages } from '@/locales/en/messages.mjs';
+import { messages as zhMessages } from '@/locales/zh/messages.mjs';
 
 i18n.load({
   en: enMessages,
