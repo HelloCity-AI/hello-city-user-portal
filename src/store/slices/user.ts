@@ -1,56 +1,44 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { User } from '@/types/User.types';
 
 interface UserState {
-  UserName: string;
-  PreferredName: string;
-  Avatar: string;
-  LastJoinDate: string;
-  UserId: string;
-  Email: string;
-  Password: string;
-  Gender: string;
-  Nationality: string;
-  City: string;
-  University: string;
-  Major: string;
-  isloading: boolean;
+  isLoading: boolean;
+  userData: User | null;
   error?: string;
 }
 
 const initialState: UserState = {
-  UserName: '',
-  PreferredName: '',
-  Avatar: '',
-  LastJoinDate: '',
-  UserId: '',
-  Email: '',
-  Password: '',
-  Gender: '',
-  Nationality: '',
-  City: '',
-  University: '',
-  Major: '',
-  isloading: false,
+  isLoading: false,
+  userData: null,
+  error: '',
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    setUser: (state, action: PayloadAction<User>) => {
+      state.userData = action.payload;
+    },
+    logOut: (state) => {
+      state.userData = null;
+    },
     fetchUserRequest(state) {
-      state.isloading = true;
+      state.isLoading = true;
       state.error = '';
     },
-    fetchUserSuccess(state, action: PayloadAction<Omit<UserState, 'isloading' | 'error'>>) {
-      state.isloading = false;
+    fetchUserSuccess(state, action: PayloadAction<Omit<UserState, 'isLoading' | 'error'>>) {
+      state.isLoading = false;
       Object.assign(state, action.payload);
     },
     fetchUserFailure(state, action: PayloadAction<string>) {
-      state.isloading = false;
+      state.isLoading = false;
       state.error = action.payload;
     },
   },
 });
 
-export const { fetchUserRequest, fetchUserSuccess, fetchUserFailure } = userSlice.actions;
+export const { fetchUserRequest, fetchUserSuccess, fetchUserFailure, setUser, logOut } =
+  userSlice.actions;
 export default userSlice.reducer;

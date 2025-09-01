@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { getAllMessages } from '@/appRouterI18n';
 import ClientWrapper from './ClientWrapper';
 

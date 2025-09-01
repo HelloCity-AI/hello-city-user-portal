@@ -1,6 +1,8 @@
 import '@testing-library/jest-dom';
 
-window.HTMLElement.prototype.scrollIntoView = function () {};
+if (typeof window !== 'undefined') {
+  window.HTMLElement.prototype.scrollIntoView = function () {};
+}
 
 // Mock ResizeObserver
 class ResizeObserver {
@@ -8,7 +10,9 @@ class ResizeObserver {
   unobserve() {}
   disconnect() {}
 }
-window.ResizeObserver = ResizeObserver;
+if (typeof window !== 'undefined') {
+  window.ResizeObserver = ResizeObserver;
+}
 // Mock Next.js navigation hooks
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
@@ -25,7 +29,9 @@ jest.mock('next/navigation', () => ({
 
 // Mock Next.js Link component
 jest.mock('next/link', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require('react');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MockLink = React.forwardRef(({ children, href, ...props }: any, ref: any) => {
     return React.createElement('a', { href, ref, ...props }, children);
   });
@@ -35,8 +41,10 @@ jest.mock('next/link', () => {
 
 // Mock LanguageContext with React state
 jest.mock('./src/contexts/LanguageContext', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require('react');
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MockLanguageProvider = ({ children }: any) => {
     const [language, setLanguage] = React.useState('en');
 
@@ -56,6 +64,7 @@ jest.mock('./src/contexts/LanguageContext', () => {
 
   return {
     useLanguage: () => {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
       const React = require('react');
       const [language, setLanguage] = React.useState('en');
       return {
@@ -71,13 +80,17 @@ jest.mock('./src/contexts/LanguageContext', () => {
 
 // Mock @lingui/react
 jest.mock('@lingui/react', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const React = require('react');
   return {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     Trans: ({ children, message }: any) => React.createElement('span', {}, message || children),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     I18nProvider: ({ children }: any) => children,
     useLingui: () => ({
       i18n: {
-        _: (id: string, values?: any) => id,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+        _: (id: string, _values?: any) => id,
         locale: 'en',
       },
     }),
@@ -95,6 +108,7 @@ jest.mock('@lingui/core', () => ({
 }));
 
 jest.mock('./src/i18n', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   const { i18n } = require('@lingui/core');
   return { i18n };
 });

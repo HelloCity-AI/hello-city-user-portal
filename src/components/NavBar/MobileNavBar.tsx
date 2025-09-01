@@ -84,7 +84,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
           opacity: navDrawerSubMenuIdx !== null ? 100 : 0,
         }}
       >
-        <Trans id="NaveBar.Back" message="← Back" />
+        <Trans id="NavBar.Back" message="← Back" />
       </Button>
     </Box>
   );
@@ -113,7 +113,8 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
-        <Trans id="NaveBar.Sign In" message="Sign In" />
+        {/* A test comment to change line number of NaveBar.Sign In */}
+        <Trans id="NavBar.Sign In" message="Sign In" />
       </Button>
     );
   };
