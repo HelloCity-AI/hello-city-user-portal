@@ -10,12 +10,7 @@ export default function TestSubIdPage() {
 
   if (isLoading) {
     return (
-      <Box
-        display="flex"
-        justifyContent="center"
-        alignItems="center"
-        minHeight="100vh"
-      >
+      <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <CircularProgress />
         <Typography variant="h6" sx={{ ml: 2 }}>
           正在加载用户信息...
@@ -27,9 +22,7 @@ export default function TestSubIdPage() {
   if (error) {
     return (
       <Box sx={{ p: 4 }}>
-        <Alert severity="error">
-          加载用户信息时出错: {error.message}
-        </Alert>
+        <Alert severity="error">加载用户信息时出错: {error.message}</Alert>
       </Box>
     );
   }
@@ -40,18 +33,10 @@ export default function TestSubIdPage() {
         <Alert severity="warning" sx={{ mb: 3 }}>
           您尚未登录，请先登录以查看用户信息。
         </Alert>
-        <Button
-          variant="contained"
-          color="primary"
-          href="/auth/login"
-          sx={{ mr: 2 }}
-        >
+        <Button variant="contained" color="primary" href="/auth/login" sx={{ mr: 2 }}>
           登录
         </Button>
-        <Button
-          variant="outlined"
-          onClick={() => router.back()}
-        >
+        <Button variant="outlined" onClick={() => router.back()}>
           返回
         </Button>
       </Box>
@@ -81,7 +66,7 @@ export default function TestSubIdPage() {
               backgroundColor: '#f5f5f5',
               p: 2,
               borderRadius: 1,
-              wordBreak: 'break-all'
+              wordBreak: 'break-all',
             }}
           >
             {user.sub}
@@ -102,7 +87,7 @@ export default function TestSubIdPage() {
               borderRadius: 1,
               overflow: 'auto',
               fontSize: '0.9rem',
-              fontFamily: 'monospace'
+              fontFamily: 'monospace',
             }}
           >
             {JSON.stringify(user, null, 2)}
@@ -118,10 +103,7 @@ export default function TestSubIdPage() {
         >
           前往创建用户资料
         </Button>
-        <Button
-          variant="outlined"
-          onClick={() => router.back()}
-        >
+        <Button variant="outlined" onClick={() => router.back()}>
           返回
         </Button>
         <Button
