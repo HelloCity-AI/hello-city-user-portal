@@ -34,7 +34,7 @@ const Page = () => {
     e.preventDefault();
 
     if (!formData.userId) {
-      alert('请输入用户名');
+      alert('Please input username');
       return;
     }
 
@@ -89,7 +89,7 @@ const Page = () => {
           <input
             type="text"
             name="userId"
-            placeholder="用户名"
+            placeholder="Username"
             value={formData.userId}
             onChange={handleChange}
             required
