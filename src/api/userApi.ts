@@ -2,7 +2,7 @@ import type { User } from '@/types/User.types';
 import axios from 'axios';
 
 export const createUser = async (newUser: User) => {
-  // 获取访问令牌
+  // Get access token
   const tokenResponse = await fetch('/api/auth/token');
   let accessToken = '';
 
@@ -11,14 +11,14 @@ export const createUser = async (newUser: User) => {
     accessToken = tokenData.accessToken || '';
   }
 
-  // 创建FormData对象来匹配后端的multipart/form-data要求
+  // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
-  // 添加必需字段
-  formData.append('Username', newUser.userId || 'defaultUsername'); // 使用userId作为username，或者可以添加单独的username字段
+  // Add required fields
+  formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
   formData.append('Email', newUser.Email);
 
-  // 添加可选字段
+  // Add optional fields
   if (newUser.Gender) {
     formData.append('Gender', newUser.Gender.toString());
   }
@@ -32,7 +32,7 @@ export const createUser = async (newUser: User) => {
     formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
   }
 
-  // 如果有头像文件，也可以添加
+  // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
   //   formData.append('File', newUser.Avatar);
   // }
@@ -42,7 +42,7 @@ export const createUser = async (newUser: User) => {
     Accept: '*/*',
   };
 
-  // 如果有访问令牌，添加到请求头
+  // If there's an access token, add it to request headers
   if (accessToken) {
     headers.Authorization = `Bearer ${accessToken}`;
   }

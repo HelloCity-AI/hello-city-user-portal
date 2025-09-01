@@ -13,10 +13,10 @@ const Page = () => {
   const { user, isLoading } = useUser();
   const [formData, setFormData] = useState<User>({
     ...defaultUser,
-    userId: '', // 这将作为username使用
+    userId: '', // This will be used as username
   });
 
-  // 当Auth0用户信息加载完成后，设置Email
+  // Set Email after Auth0 user information is loaded
   useEffect(() => {
     if (user?.email) {
       setFormData((prev) => ({
@@ -47,26 +47,26 @@ const Page = () => {
       console.log('Form Sent: ', formData);
       const response = await createUser(formData);
       localStorage.setItem('userId', response.data.data?.userId);
-      // 创建成功后可以重定向到主页或其他页面
+      // After successful creation, can redirect to homepage or other pages
       window.location.href = '/dashboard';
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.error('Error:', error.response?.data || error.message);
-        alert('创建用户失败: ' + (error.response?.data?.message || error.message));
+        alert('Failed to create user: ' + (error.response?.data?.message || error.message));
       }
     }
   };
 
-  // 如果正在加载用户信息，显示加载状态
+  // If user information is loading, show loading state
   if (isLoading) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <Typography>正在加载用户信息...</Typography>
+        <Typography>Loading user information...</Typography>
       </div>
     );
   }
 
-  // 如果没有用户信息，重定向到登录页面
+  // If no user information, redirect to login page
   if (!user) {
     window.location.href = '/auth/login';
     return null;

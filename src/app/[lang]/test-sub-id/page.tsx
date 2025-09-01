@@ -12,7 +12,7 @@ export default function TestSubIdPage() {
   const [decodedToken, setDecodedToken] = useState<any>(null);
   const [tokenError, setTokenError] = useState<string | null>(null);
 
-  // 获取访问令牌
+  // Get access token
   useEffect(() => {
     const fetchAccessToken = async () => {
       try {
@@ -23,7 +23,7 @@ export default function TestSubIdPage() {
           if (data.accessToken) {
             setAccessToken(data.accessToken);
 
-            // 解码JWT令牌（仅解码payload部分，不验证签名）
+            // Decode JWT token (only decode payload part, do not verify signature)
             try {
               const parts = data.accessToken.split('.');
               if (parts.length === 3) {
@@ -31,20 +31,20 @@ export default function TestSubIdPage() {
                 setDecodedToken(payload);
               }
             } catch (decodeError) {
-              console.error('解码JWT失败:', decodeError);
-              setTokenError('无法解码JWT令牌');
+              console.error('Failed to decode JWT:', decodeError);
+              setTokenError('Unable to decode JWT token');
             }
           } else {
-            // API返回了会话信息但没有访问令牌
-            setTokenError(data.message || '无法获取访问令牌');
+            // API returned session info but no access token
+            setTokenError(data.message || 'Unable to get access token');
           }
         } else {
           const errorData = await response.json();
-          setTokenError(errorData.error || '无法获取访问令牌');
+          setTokenError(errorData.error || 'Unable to get access token');
         }
       } catch (err) {
-        console.error('获取访问令牌失败:', err);
-        setTokenError('获取访问令牌时发生错误');
+        console.error('Failed to get access token:', err);
+        setTokenError('Error occurred while getting access token');
       }
     };
 
@@ -58,7 +58,7 @@ export default function TestSubIdPage() {
       <Box display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
         <CircularProgress />
         <Typography variant="h6" sx={{ ml: 2 }}>
-          正在加载用户信息...
+          Loading user information...
         </Typography>
       </Box>
     );
@@ -67,7 +67,7 @@ export default function TestSubIdPage() {
   if (error) {
     return (
       <Box sx={{ p: 4 }}>
-        <Alert severity="error">加载用户信息时出错: {error.message}</Alert>
+        <Alert severity="error">Error loading user information: {error.message}</Alert>
       </Box>
     );
   }
@@ -76,13 +76,13 @@ export default function TestSubIdPage() {
     return (
       <Box sx={{ p: 4, textAlign: 'center' }}>
         <Alert severity="warning" sx={{ mb: 3 }}>
-          您尚未登录，请先登录以查看用户信息。
+          You are not logged in. Please log in first to view user information.
         </Alert>
         <Button variant="contained" color="primary" href="/auth/login" sx={{ mr: 2 }}>
-          登录
+          Login
         </Button>
         <Button variant="outlined" onClick={() => router.back()}>
-          返回
+          Back
         </Button>
       </Box>
     );
@@ -91,17 +91,17 @@ export default function TestSubIdPage() {
   return (
     <Box sx={{ p: 4, maxWidth: 800, mx: 'auto' }}>
       <Typography variant="h4" component="h1" gutterBottom>
-        用户 Sub ID 测试页面
+        User Sub ID Test Page
       </Typography>
 
       <Alert severity="success" sx={{ mb: 3 }}>
-        ✅ 成功提取到用户信息！
+        ✅ Successfully extracted user information!
       </Alert>
 
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom color="primary">
-            用户 Sub ID
+            User Sub ID
           </Typography>
           <Typography
             variant="body1"
@@ -122,7 +122,7 @@ export default function TestSubIdPage() {
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom>
-            完整用户信息
+            Complete User Information
           </Typography>
           <Box
             component="pre"
@@ -140,18 +140,18 @@ export default function TestSubIdPage() {
         </CardContent>
       </Card>
 
-      {/* JWT访问令牌信息 */}
+      {/* JWT Access Token Information */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom color="secondary">
-            JWT 访问令牌
+            JWT Access Token
           </Typography>
           {tokenError ? (
             <Alert severity="error">{tokenError}</Alert>
           ) : accessToken ? (
             <>
               <Typography variant="subtitle2" gutterBottom>
-                完整令牌:
+                Complete Token:
               </Typography>
               <Box
                 component="pre"
@@ -173,7 +173,7 @@ export default function TestSubIdPage() {
               {decodedToken && (
                 <>
                   <Typography variant="subtitle2" gutterBottom sx={{ mt: 2 }}>
-                    解码后的令牌内容 (Payload):
+                    Decoded Token Content (Payload):
                   </Typography>
                   <Box
                     component="pre"
@@ -197,11 +197,11 @@ export default function TestSubIdPage() {
         </CardContent>
       </Card>
 
-      {/* Auth0 会话信息 */}
+      {/* Auth0 Session Information */}
       <Card sx={{ mb: 3 }}>
         <CardContent>
           <Typography variant="h6" gutterBottom color="info.main">
-            Auth0 会话详细信息
+            Auth0 Session Details
           </Typography>
           <Box
             component="pre"
@@ -240,10 +240,10 @@ export default function TestSubIdPage() {
           color="primary"
           onClick={() => router.push('/create-user-profile')}
         >
-          前往创建用户资料
+          Go to Create User Profile
         </Button>
         <Button variant="outlined" onClick={() => router.back()}>
-          返回
+          Back
         </Button>
         <Button
           variant="outlined"
@@ -252,7 +252,7 @@ export default function TestSubIdPage() {
             window.location.href = '/auth/logout';
           }}
         >
-          登出
+          Logout
         </Button>
       </Box>
     </Box>

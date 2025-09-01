@@ -3,14 +3,14 @@ import { auth0 } from '../../../../lib/auth0';
 
 export async function GET(request: NextRequest) {
   try {
-    // 获取当前会话
+    // Get current session
     const session = await auth0.getSession();
 
     if (!session || !session.user) {
-      return NextResponse.json({ error: '未认证用户' }, { status: 401 });
+      return NextResponse.json({ error: 'Unauthenticated user' }, { status: 401 });
     }
 
-    // 尝试获取访问令牌（Next.js 14 App Router正确用法）
+    // Try to get access token (correct usage for Next.js 14 App Router)
     try {
       const accessTokenResult = await auth0.getAccessToken();
 
@@ -18,30 +18,30 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({
           accessToken: accessTokenResult.token,
           tokenType: 'Bearer',
-          message: '成功获取访问令牌',
+          message: 'Successfully obtained access token',
         });
       } else {
-        // 如果没有访问令牌，可能是因为没有配置audience
+        // If no access token, it might be because audience is not configured
         return NextResponse.json({
-          message: '用户已认证，但无法获取访问令牌（可能未配置API audience）',
+          message: 'User is authenticated, but unable to get access token (API audience may not be configured)',
           user: session.user,
           hasSession: true,
         });
       }
     } catch (tokenError) {
-      console.warn('无法获取访问令牌:', tokenError);
+      console.warn('Unable to get access token:', tokenError);
       return NextResponse.json({
-        message: '用户已认证，但获取访问令牌失败',
+        message: 'User is authenticated, but failed to get access token',
         user: session.user,
         hasSession: true,
         tokenError: tokenError instanceof Error ? tokenError.message : String(tokenError),
       });
     }
   } catch (error) {
-    console.error('获取会话失败:', error);
+    console.error('Failed to get session:', error);
     return NextResponse.json(
       {
-        error: '获取会话时发生错误',
+        error: 'Error occurred while getting session',
         details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },

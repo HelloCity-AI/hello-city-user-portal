@@ -1,9 +1,9 @@
-// 顶部：显式 mock Auth0 为已登录状态，避免组件重定向
+// Top: Explicitly mock Auth0 as logged in state to avoid component redirection
 jest.mock('@auth0/nextjs-auth0', () => ({
   useUser: () => ({ user: { email: 'test@example.com' }, error: null, isLoading: false }),
 }));
 
-// 在本文件内也 mock 路由（jest.setup.ts 已有全局 mock，这里是加固）
+// Also mock routing within this file (jest.setup.ts already has global mock, this is reinforcement)
 jest.mock('next/navigation', () => ({
   useRouter: () => ({
     push: jest.fn(),
@@ -17,7 +17,7 @@ jest.mock('next/navigation', () => ({
   useSearchParams: () => new URLSearchParams(),
 }));
 
-// Mock 整个 CreateUserProfile 页面组件来避免状态更新问题
+// Mock the entire CreateUserProfile page component to avoid state update issues
 jest.mock('@/app/[lang]/create-user-profile/page', () => {
   return function MockCreateUserProfilePage() {
     return (
@@ -71,7 +71,7 @@ describe('CreateUserProfile - Device Compatibility', () => {
         renderWithThemeAndI18n(<CreateUserProfilePage />);
       });
 
-      // 使用同步查询，避免异步等待问题
+      // Use synchronous queries to avoid async waiting issues
       expect(screen.getByText('Hello City')).toBeInTheDocument();
       expect(screen.getByLabelText(/gender/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/nationality/i)).toBeInTheDocument();
