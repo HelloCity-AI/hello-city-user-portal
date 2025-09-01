@@ -81,8 +81,7 @@ const InputBox: React.FC<InputBoxProps> = ({
         onChange={(e) => (onChange(e), validateChange(e.target.value))}
         placeholder={placeholder ?? getDefaultPlaceholder(fieldType)}
         variant="outlined"
-          InputLabelProps={{ shrink: true }}
-
+        InputLabelProps={{ shrink: true }}
         error={!!(errorMessage || externalErrorMessage)}
         helperText={
           errorMessage || externalErrorMessage
