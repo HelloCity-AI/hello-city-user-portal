@@ -388,13 +388,6 @@ msgstr "提交"
 #~ msgid "Testimonials.Title8"
 #~ msgstr "商业顾问"
 
-#. Sign In button label
-#. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:138
-#: src/components/NavBar/MobileNavBar.tsx:122
-#~ msgid "NaveBar.Sign In"
-#~ msgstr "登录"
-
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
 msgid "NavBar.Back"
