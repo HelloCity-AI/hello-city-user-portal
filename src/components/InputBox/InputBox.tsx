@@ -40,6 +40,8 @@ const InputBox: React.FC<InputBoxProps> = ({
   errorMessage: externalErrorMessage = '',
   autoComplete,
   originalPassword,
+  name,
+  maxLength = fieldType === 'message' ? 200 : 20,
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);

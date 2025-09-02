@@ -10,7 +10,7 @@ console.log('✅ ClientWrapper file imported');
 type Props = {
   children: ReactNode;
   lang: string;
-  messages: any;
+  messages: Record<string, any>;
 };
 
 export default function ClientWrapper({ children, lang, messages }: Props) {
