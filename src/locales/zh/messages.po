@@ -16,7 +16,7 @@ msgstr ""
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
 msgid "Pick a date"
-msgstr ""
+msgstr "选择日期"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:31
@@ -398,7 +398,7 @@ msgstr "提交"
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
 msgid "NavBar.Back"
-msgstr ""
+msgstr "← 返回"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
@@ -493,7 +493,7 @@ msgstr "设置"
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:123
 msgid "NavBar.Sign In"
-msgstr ""
+msgstr "登录"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -521,6 +521,6 @@ msgid "Theme"
 msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:13
+#: src/hooks/useTryHelloCity.tsx:15
 msgid "NavBar.Try HelloCity"
 msgstr "试用 HelloCity"

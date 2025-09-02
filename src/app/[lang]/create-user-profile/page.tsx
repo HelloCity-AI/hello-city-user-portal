@@ -46,9 +46,9 @@ const Page = () => {
     try {
       console.log('Form Sent: ', formData);
       const response = await createUser(formData);
-      localStorage.setItem('userId', response.data.data?.userId);
+      localStorage.setItem('userData', JSON.stringify(response.data?.data));
       // After successful creation, can redirect to homepage or other pages
-      window.location.href = '/dashboard';
+      window.location.href = '/';
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.error('Error:', error.response?.data || error.message);
