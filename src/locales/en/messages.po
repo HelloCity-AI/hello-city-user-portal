@@ -461,6 +461,6 @@ msgid "Theme"
 msgstr "Theme"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:13
+#: src/hooks/useTryHelloCity.tsx:15
 msgid "NavBar.Try HelloCity"
 msgstr "Try HelloCity"
