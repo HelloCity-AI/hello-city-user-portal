@@ -19,27 +19,32 @@ msgid "Pick a date"
 msgstr "选择日期"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:31
+#: src/components/InputBox/InputBox.tsx:61
+msgid "validation.required"
+msgstr "{label}是必填项。"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:35
+#: src/app/[lang]/contact-us/page.tsx:37
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:41
+#: src/app/[lang]/contact-us/page.tsx:44
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:48
+#: src/app/[lang]/contact-us/page.tsx:52
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:55
+#: src/app/[lang]/contact-us/page.tsx:60
 msgid "contact-us.submit"
 msgstr "提交"
 
@@ -394,6 +399,30 @@ msgstr "提交"
 #: src/components/NavBar/MobileNavBar.tsx:122
 #~ msgid "NaveBar.Sign In"
 #~ msgstr "登录"
+
+#. js-lingui-explicit-id
+#~ msgid "error.name"
+#~ msgstr "姓名只能包含字母，且不能为空。"
+
+#. js-lingui-explicit-id
+#~ msgid "error.email"
+#~ msgstr "请输入有效的邮箱地址。"
+
+#. js-lingui-explicit-id
+#~ msgid "error.password"
+#~ msgstr "密码必须为 6-20 位，包含大写字母、小写字母、数字和特殊字符。"
+
+#. js-lingui-explicit-id
+#~ msgid "error.repeatPassword"
+#~ msgstr "两次输入的密码不一致。"
+
+#. js-lingui-explicit-id
+#~ msgid "error.phone"
+#~ msgstr "电话号码只能包含数字。"
+
+#. js-lingui-explicit-id
+#~ msgid "error.message"
+#~ msgstr "请输入信息。"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93

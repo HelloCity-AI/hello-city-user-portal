@@ -17,27 +17,32 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:31
+#: src/components/InputBox/InputBox.tsx:61
+msgid "validation.required"
+msgstr "{label} is required."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:35
+#: src/app/[lang]/contact-us/page.tsx:37
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:41
+#: src/app/[lang]/contact-us/page.tsx:44
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:48
+#: src/app/[lang]/contact-us/page.tsx:52
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:55
+#: src/app/[lang]/contact-us/page.tsx:60
 msgid "contact-us.submit"
 msgstr "Submit"
 
@@ -337,6 +342,30 @@ msgstr "Submit"
 #: src/components/NavBar/MobileNavBar.tsx:122
 #~ msgid "NaveBar.Sign In"
 #~ msgstr "Sign In"
+
+#. js-lingui-explicit-id
+#~ msgid "error.name"
+#~ msgstr "Only letters are allowed and name is required."
+
+#. js-lingui-explicit-id
+#~ msgid "error.email"
+#~ msgstr "Please enter a valid email address."
+
+#. js-lingui-explicit-id
+#~ msgid "error.password"
+#~ msgstr "Password must be 6-20 characters with uppercase, lowercase, number, and special character."
+
+#. js-lingui-explicit-id
+#~ msgid "error.repeatPassword"
+#~ msgstr "Passwords do not match."
+
+#. js-lingui-explicit-id
+#~ msgid "error.phone"
+#~ msgstr "Only numbers are allowed."
+
+#. js-lingui-explicit-id
+#~ msgid "error.message"
+#~ msgstr "Message is required."
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93

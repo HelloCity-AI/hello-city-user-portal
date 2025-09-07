@@ -8,6 +8,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import styles from './InputBox.module.css';
 import { validationRules, getDefaultPlaceholder, getInputType } from './utils';
+import { useLingui } from '@lingui/react';    
 
 export type InputVariant = 'primary' | 'secondary' | 'tertiary';
 export type InputFieldType = 'name' | 'email' | 'password' | 'repeatPassword' | 'phone' | 'message';
@@ -45,7 +46,7 @@ const InputBox: React.FC<InputBoxProps> = ({
 }) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  const { i18n } = useLingui();   
   const inputType =
     fieldType === 'password' || fieldType === 'repeatPassword'
       ? showPassword
@@ -53,9 +54,12 @@ const InputBox: React.FC<InputBoxProps> = ({
         : 'password'
       : getInputType(fieldType);
 
+  // ====== 👇 修改的地方 👇 ======
   const validateChange = (change: string) => {
     if (!change.trim()) {
-      setErrorMessage(required ? `${label} is required.` : '');
+      setErrorMessage(
+        required ? i18n._('validation.required', { label }) : ''
+      );
       return;
     }
     console.log(change);
@@ -65,11 +69,12 @@ const InputBox: React.FC<InputBoxProps> = ({
         ? rule.validate(change, originalPassword)
         : rule.validate(change);
     if (!isValid) {
-      setErrorMessage(rule.error);
-      return;
+        setErrorMessage(i18n._(rule.errorKey, { default: rule.defaultMessage }));
+  return;
     }
     setErrorMessage('');
   };
+
 
   return (
     <div className={styles['input-box-wrapper']}>
