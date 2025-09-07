@@ -29,9 +29,7 @@ export const getDefaultPlaceholder = (type: string): string => {
   }
 };
 
-export const getInputType = (
-  type: string
-): 'text' | 'email' | 'password' | 'tel' => {
+export const getInputType = (type: string): 'text' | 'email' | 'password' | 'tel' => {
   switch (type) {
     case 'email':
       return 'email';

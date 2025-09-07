@@ -46,9 +46,7 @@ describe('InputBox component', () => {
   test('Calls onChange when input value changes', () => {
     const handleChange = jest.fn();
 
-    renderWithI18n(
-      <InputBox label="Name" value="" onChange={handleChange} fieldType="name" />,
-    );
+    renderWithI18n(<InputBox label="Name" value="" onChange={handleChange} fieldType="name" />);
 
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'John' } });
     expect(handleChange).toHaveBeenCalled();
@@ -74,7 +72,6 @@ describe('InputBox validation', () => {
     const input = screen.getByLabelText(/phone/i);
     fireEvent.change(input, { target: { value: '' } });
 
-  
     expect(screen.getByText(i18n._('validation.required', { label: 'Phone' }))).toBeInTheDocument();
   });
 
@@ -131,7 +128,8 @@ describe('InputBox validation', () => {
     const input = screen.getByLabelText(/message/i);
     fireEvent.change(input, { target: { value: '' } });
 
-   
-    expect(screen.getByText(i18n._('validation.required', { label: 'Message' }))).toBeInTheDocument();
+    expect(
+      screen.getByText(i18n._('validation.required', { label: 'Message' })),
+    ).toBeInTheDocument();
   });
 });

@@ -16,12 +16,12 @@ type Props = {
 
 export default function ClientProviders({ children, lang, messages }: Props) {
   const pathname = usePathname();
-  const hideNav = pathname?.includes('/contact-us'); 
+  const hideNav = pathname?.includes('/contact-us');
 
   return (
     <I18nProvider initialLocale={lang} initialMessages={messages}>
       <LanguageProvider>
-        {!hideNav && (   
+        {!hideNav && (
           <Box component="header">
             <NavBar />
           </Box>
