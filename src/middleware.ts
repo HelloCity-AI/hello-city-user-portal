@@ -24,10 +24,12 @@ export async function middleware(request: NextRequest) {
 
   // bypass auth routes and api routes and nextjs internals
   if (
-    pathname.startsWith('/api/auth') ||
+    // pathname.startsWith('/api/auth') ||
     pathname.startsWith('/auth') ||
     pathname.startsWith('/api/') ||
-    pathname.startsWith('/_next/')
+    pathname.startsWith('/_next/') ||
+    pathname === '/icon' ||
+    pathname.startsWith('/icon.')
   ) {
     return await auth0.middleware(request);
   }
@@ -81,5 +83,7 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|images|fonts).*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|icon|sitemap.xml|robots.txt|images|fonts).*)',
+  ],
 };

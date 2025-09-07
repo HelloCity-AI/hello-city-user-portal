@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { Messages } from '@lingui/core';
 import linguiConfig from '../../../lingui.config';
 import { getAllMessages } from '@/appRouterI18n';
 import ClientProviders from './ClientProviders';
@@ -16,7 +17,7 @@ export default async function LangLayout({ children, params }: Props) {
   const { lang } = params;
 
   // Preload messages for all languages to avoid loading issues during language switching
-  const allMessages: Record<string, any> = {};
+  const allMessages: Record<string, Messages> = {};
   for (const locale of linguiConfig.locales) {
     allMessages[locale] = await getAllMessages(locale);
   }

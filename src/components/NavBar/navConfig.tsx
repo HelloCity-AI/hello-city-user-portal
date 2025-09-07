@@ -35,6 +35,7 @@ export const SUPPORTED_LANGUAGES: Record<SupportedLanguage, LanguageInfo> = {
 };
 
 export const LOGO_CONFIG = {
-  light: '/images/Logo.png',
+  light: '/images/logo.png',
   dark: '/images/logo-dark.png',
+  avatarLight: '/images/logo-avatar.png',
 } as const;

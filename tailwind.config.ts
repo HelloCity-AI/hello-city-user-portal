@@ -35,8 +35,28 @@ const config: Config = {
         xl: '0.75rem', // Primary CTA
         full: '9999px', // Rounded button
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    ({
+      addUtilities,
+    }: {
+      addUtilities: (utilities: Record<string, Record<string, string>>) => void;
+    }) => {
+      addUtilities({
+        '.paused': { 'animation-play-state': 'paused' },
+        '.running': { 'animation-play-state': 'running' },
+      });
+    },
+  ],
 };
 export default config;
