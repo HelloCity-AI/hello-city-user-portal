@@ -14,7 +14,7 @@ type Story = StoryObj<typeof UserProfileCard>;
 export const Primary: Story = {
   args: {
     UserName: 'John Doe',
-    PreferredName: 'jdoe',
+    EmailAdress: 'jdoe',
     AvatarImg: '',
     LastJoinDate: '2025-08-04',
   },
@@ -23,7 +23,7 @@ export const Primary: Story = {
 export const WithAvatar: Story = {
   args: {
     UserName: 'Jane Smith',
-    PreferredName: 'jsmith',
+    EmailAdress: 'jsmith',
     AvatarImg: 'https://i.pravatar.cc/150?img=3',
     LastJoinDate: '2025-08-01',
   },

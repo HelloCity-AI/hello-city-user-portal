@@ -11,86 +11,116 @@ type ImageProps = {
   className?: string;
 };
 
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: (props: ImageProps) => (
-    <img
-      src={props.src}
-      alt={props.alt}
-      width={props.width}
-      height={props.height}
-      className={props.className}
-    />
-  ),
-}));
-
 const mockUserData = {
   UserName: 'John',
-  PreferredName: 'nikeJohn',
+  EmailAdress: 'john@example.com',
   AvatarImg: 'https://example.com/avatar.jpg',
   LastJoinDate: '2023-10-15 14:30',
 };
 
-const renderUserlabel = (props = {}) => {
-  return render(<UserProfileCard {...props} />);
-};
+const renderUserlabel = (props = {}) => render(<UserProfileCard {...props} />);
 
-describe('UserLabel component test', () => {
+describe('UserProfileCard (UserLabel) – new spec', () => {
   describe('UX Design', () => {
-    it('Correctly render incoming user data', () => {
+    it('renders incoming user data correctly', () => {
       renderUserlabel(mockUserData);
 
       expect(screen.getByText('John')).toBeInTheDocument();
-      expect(screen.getByText('@nikeJohn')).toBeInTheDocument();
+      expect(screen.getByText('@john@example.com')).toBeInTheDocument();
       expect(screen.getByText(/last login: 2023-10-15 14:30/i)).toBeInTheDocument();
-      expect(screen.getByAltText('User Avatar')).toHaveAttribute(
-        'src',
-        'https://example.com/avatar.jpg',
-      );
+
+      const img = screen.getByAltText('User Avatar') as HTMLImageElement;
+      expect(img).toHaveAttribute('src', 'https://example.com/avatar.jpg');
     });
 
-    it('When missing some data, show default values', () => {
+    it('shows defaults when some data is missing', () => {
       renderUserlabel({
         UserName: undefined,
-        PreferredName: undefined,
+        EmailAdress: undefined,
         AvatarImg: undefined,
         LastJoinDate: undefined,
       });
 
       expect(screen.getByText('Unknown User')).toBeInTheDocument();
-      expect(screen.getByText('@UnknownNickname')).toBeInTheDocument();
+      expect(screen.getByText('@Unknown Email')).toBeInTheDocument();
       expect(screen.getByText(/last login: unknown/i)).toBeInTheDocument();
-      expect(screen.queryByText('John')).not.toBeInTheDocument();
-      expect(screen.queryByText('@nikeJohn')).not.toBeInTheDocument();
-      expect(screen.queryByText(/last login: 2023-10-15 14:30/i)).not.toBeInTheDocument();
-      expect(screen.getByText('account_circle')).toHaveClass(
-        'material-icons text-8xl text-gray-400',
-      );
+
+      const placeholder = screen.getByText('account_circle');
+      expect(placeholder).toBeInTheDocument();
+      expect(placeholder).toHaveClass('material-icons');
       expect(screen.queryByAltText('User Avatar')).not.toBeInTheDocument();
     });
   });
+
   describe('UI Design', () => {
-    it('Applies the correct style classes', () => {
+    it('applies key style classes to main blocks', () => {
       const { container } = renderUserlabel(mockUserData);
-
       expect(container.firstChild).toHaveClass('rounded-2xl');
-      expect(screen.getByTestId('avatar-container')).toHaveClass(
-        'w-28 h-28 rounded-full border-4 border-white',
-      );
-      expect(screen.getByText('John')).toHaveClass('text-xl font-bold');
-      expect(screen.getByText('@nikeJohn')).toHaveClass('text-gray-500');
+
+      const avatarBox = screen.getByTestId('avatar-container');
+      expect(avatarBox).toHaveClass('rounded-full');
+      expect(avatarBox).toHaveClass('border-4', 'border-white');
+      expect(avatarBox).toHaveClass('h-20', 'w-20');
+      expect(avatarBox).toHaveClass('sm:h-24', 'sm:w-24', 'md:h-28', 'md:w-28');
+      expect(screen.getByText('John')).toHaveClass('text-xl', 'font-bold');
+      expect(screen.getByText('@john@example.com')).toHaveClass('text-gray-500');
     });
 
-    it('Displays the time icon', () => {
+    it('displays the time icon', () => {
       renderUserlabel(mockUserData);
-      expect(screen.getByText('access_time')).toHaveClass('material-icons text-base text-gray-500');
+      const timeIcon = screen.getByText('access_time');
+      expect(timeIcon).toHaveClass('material-icons', 'text-base', 'text-gray-500');
+    });
+  });
+
+  describe('Overflow & Tooltip behavior', () => {
+    it('default: single-line truncate + tooltip titles are present', () => {
+      const long = 'A'.repeat(200);
+      renderUserlabel({
+        UserName: long,
+        EmailAdress: `${long}@example.com`,
+        LastJoinDate: long,
+      });
+
+      const nameEl = screen.getByText(long);
+      expect(nameEl).toHaveClass('truncate');
+      expect(nameEl).toHaveAttribute('title', long);
+
+      const emailEl = screen.getByText(`@${long}@example.com`);
+      expect(emailEl).toHaveClass('truncate');
+      expect(emailEl).toHaveAttribute('title', `@${long}@example.com`);
+
+      const lastText = screen.getByText(new RegExp(`last login: ${long}`));
+      expect(lastText).toHaveClass('truncate');
+
+      const textContainer = document.querySelector('div.flex-1');
+      expect(textContainer).toHaveClass('min-w-0', 'overflow-hidden');
     });
 
-    it('When avatar is provided, uses the correct size', () => {
-      renderUserlabel(mockUserData);
+    it('wrap=true: switches to break-words and disables truncate; showTooltip=false removes title', () => {
+      const long = 'B'.repeat(200);
+      renderUserlabel({
+        UserName: long,
+        EmailAdress: `${long}@example.com`,
+        LastJoinDate: long,
+        wrap: true,
+        showTooltip: false,
+      });
 
-      const avatarWrapper = screen.getByTestId('user-avatar');
-      expect(avatarWrapper).toHaveStyle({ width: '100px', height: '100px' });
+      const nameEl = screen.getByText(long);
+      expect(nameEl).toHaveClass('break-words');
+      expect(nameEl).not.toHaveClass('truncate');
+      expect(nameEl).not.toHaveAttribute('title');
+
+      const emailEl = screen.getByText(`@${long}@example.com`);
+      expect(emailEl).toHaveClass('break-words');
+      expect(emailEl).not.toHaveClass('truncate');
+      expect(emailEl).not.toHaveAttribute('title');
+
+      const lastText = screen.getByText(new RegExp(`last login: ${long}`));
+      expect(lastText).toHaveClass('break-words');
+      expect(lastText).not.toHaveClass('truncate');
+      expect(lastText).not.toHaveAttribute('title');
     });
   });
 });
