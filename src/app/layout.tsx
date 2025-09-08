@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
 import websiteTheme from '@/theme/theme';
+import ReduxProvider from './ReduxProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -27,12 +28,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={websiteTheme}>
-              <CssBaseline />
-              <div className="relative">{children}</div>
-            </ThemeProvider>
-          </StyledEngineProvider>
+          <ReduxProvider>
+            <StyledEngineProvider injectFirst>
+              <ThemeProvider theme={websiteTheme}>
+                <CssBaseline />
+                <div className="relative">{children}</div>
+              </ThemeProvider>
+            </StyledEngineProvider>
+          </ReduxProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

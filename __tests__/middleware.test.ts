@@ -10,7 +10,7 @@ Object.defineProperty(global, 'Request', {
     method: string;
     headers: Map<string, string>;
 
-    constructor(url: string, init?: any) {
+    constructor(url: string, init?: { method?: string }) {
       this.url = url;
       this.method = init?.method || 'GET';
       this.headers = new Map();
@@ -24,7 +24,7 @@ Object.defineProperty(global, 'Response', {
     status: number;
     headers: Map<string, string>;
 
-    constructor(body?: any, init?: any) {
+    constructor(body?: unknown, init?: { status?: number }) {
       this.status = init?.status || 200;
       this.headers = new Map();
     }
@@ -35,8 +35,7 @@ Object.defineProperty(global, 'Response', {
   },
 });
 
-import { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { middleware } from '../src/middleware';
 import { auth0 } from '../src/lib/auth0';
 
@@ -65,7 +64,7 @@ describe('middleware', () => {
   });
 
   describe('Locale redirect functionality', () => {
-    test('Redirects to add locale when pathname is missing locale', async () => {
+    it('Redirects to add locale when pathname is missing locale', async () => {
       const res = await middleware(createRequest('/create-user-profile'));
       expect(res?.status).toBe(307);
       expect(res?.headers.get('location')).toMatch(
@@ -73,7 +72,7 @@ describe('middleware', () => {
       );
     });
 
-    test('Redirects to add locale with Accept-Language header preference', async () => {
+    it('Redirects to add locale with Accept-Language header preference', async () => {
       const res = await middleware(
         createRequest('/create-user-profile', {
           'Accept-Language': 'zh,en;q=0.9',
@@ -83,14 +82,14 @@ describe('middleware', () => {
       expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/create-user-profile');
     });
 
-    test('Does not redirect when locale is already present', async () => {
+    it('Does not redirect when locale is already present (home page)', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue(null);
-      const res = await middleware(createRequest('/en/create-user-profile'));
+      const res = await middleware(createRequest('/en/'));
       expect(res).toBeInstanceOf(NextResponse);
       expect(res?.status).toBe(200);
     });
 
-    test('Handles root path redirect with locale', async () => {
+    it('Handles root path redirect with locale', async () => {
       const res = await middleware(createRequest('/'));
       expect(res?.status).toBe(307);
       expect(res?.headers.get('location')).toMatch(/^http:\/\/localhost:3000\/[a-z]{2}\/$/);
@@ -98,28 +97,28 @@ describe('middleware', () => {
   });
 
   describe('Auth bypass paths', () => {
-    test('Bypasses locale redirect for /api/auth paths', async () => {
+    it('Bypasses locale redirect for /api/auth paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
       const res = await middleware(createRequest('/api/auth/login'));
       expect(auth0.middleware).toHaveBeenCalled();
       expect(res?.headers.get('location')).toBeNull();
     });
 
-    test('Bypasses locale redirect for /auth paths', async () => {
+    it('Bypasses locale redirect for /auth paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
       const res = await middleware(createRequest('/auth/callback'));
       expect(auth0.middleware).toHaveBeenCalled();
       expect(res?.headers.get('location')).toBeNull();
     });
 
-    test('Bypasses locale redirect for /api/ paths', async () => {
+    it('Bypasses locale redirect for /api/ paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
       const res = await middleware(createRequest('/api/users'));
       expect(auth0.middleware).toHaveBeenCalled();
       expect(res?.headers.get('location')).toBeNull();
     });
 
-    test('Bypasses locale redirect for /_next/ paths', async () => {
+    it('Bypasses locale redirect for /_next/ paths', async () => {
       (auth0.middleware as jest.Mock).mockResolvedValue(NextResponse.next());
       const res = await middleware(createRequest('/_next/static/css/app.css'));
       expect(auth0.middleware).toHaveBeenCalled();
@@ -127,12 +126,15 @@ describe('middleware', () => {
     });
   });
 
+  // COMMENTED OUT: Profile redirect functionality tests
+  // These tests are for the profile check feature that is currently commented out in middleware.ts
+  /*
   describe('Profile redirect functionality', () => {
     beforeEach(() => {
       process.env.NEXT_PUBLIC_BACKEND_URL = 'http://localhost:8000';
     });
 
-    test('Redirects to create-user-profile if /api/user/me returns 404', async () => {
+    it('Redirects to create-user-profile if /api/user/me returns 404', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
       global.fetch = jest.fn().mockResolvedValue({ status: 404, ok: false });
@@ -148,7 +150,7 @@ describe('middleware', () => {
       });
     });
 
-    test('Redirects with correct locale when profile does not exist', async () => {
+    it('Redirects with correct locale when profile does not exist', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
       global.fetch = jest.fn().mockResolvedValue({ status: 404, ok: false });
@@ -158,7 +160,7 @@ describe('middleware', () => {
       expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/create-user-profile');
     });
 
-    test('Allows access to create-user-profile page when authenticated', async () => {
+    it('Allows access to create-user-profile page when authenticated', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
 
       const res = await middleware(createRequest('/en/create-user-profile'));
@@ -166,7 +168,7 @@ describe('middleware', () => {
       expect(global.fetch).not.toHaveBeenCalled();
     });
 
-    test('Continues normally when profile exists (200 response)', async () => {
+    it('Continues normally when profile exists (200 response)', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
       global.fetch = jest.fn().mockResolvedValue({ status: 200, ok: true });
@@ -176,9 +178,102 @@ describe('middleware', () => {
       expect(global.fetch).toHaveBeenCalled();
     });
   });
+  */
 
+  describe('Protected page authentication', () => {
+    describe('Chat page protection', () => {
+      it('Blocks unauthenticated users from /en/chat', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue(null);
+
+        const res = await middleware(createRequest('/en/chat'));
+
+        expect(res?.status).toBe(307);
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/en/');
+      });
+
+      it('Blocks unauthenticated users from /zh/chat', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue(null);
+
+        const res = await middleware(createRequest('/zh/chat'));
+
+        expect(res?.status).toBe(307);
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
+      });
+
+      it('Allows authenticated users to access /en/chat', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
+
+        const res = await middleware(createRequest('/en/chat'));
+
+        expect(res?.status).toBe(200);
+        expect(res?.headers.get('location')).toBeNull();
+      });
+
+      it('Allows authenticated users to access /zh/chat', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
+
+        const res = await middleware(createRequest('/zh/chat'));
+
+        expect(res?.status).toBe(200);
+        expect(res?.headers.get('location')).toBeNull();
+      });
+    });
+
+    describe('Create user profile page protection', () => {
+      it('Blocks unauthenticated users from /en/create-user-profile', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue(null);
+
+        const res = await middleware(createRequest('/en/create-user-profile'));
+
+        expect(res?.status).toBe(307);
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/en/');
+      });
+
+      it('Blocks unauthenticated users from /zh/create-user-profile', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue(null);
+
+        const res = await middleware(createRequest('/zh/create-user-profile'));
+
+        expect(res?.status).toBe(307);
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
+      });
+
+      it('Allows authenticated users to access /en/create-user-profile', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
+
+        const res = await middleware(createRequest('/en/create-user-profile'));
+
+        expect(res?.status).toBe(200);
+        expect(res?.headers.get('location')).toBeNull();
+      });
+
+      it('Allows authenticated users to access /zh/create-user-profile', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
+
+        const res = await middleware(createRequest('/zh/create-user-profile'));
+
+        expect(res?.status).toBe(200);
+        expect(res?.headers.get('location')).toBeNull();
+      });
+    });
+
+    describe('Non-protected pages', () => {
+      it('Allows unauthenticated users to access home page', async () => {
+        (auth0.getSession as jest.Mock).mockResolvedValue(null);
+
+        const res = await middleware(createRequest('/en/'));
+
+        expect(res?.status).toBe(200);
+        expect(res?.headers.get('location')).toBeNull();
+      });
+    });
+  });
+
+  // COMMENTED OUT: Error handling tests for profile check functionality
+  // These tests are for the profile check feature that is currently commented out in middleware.ts
+  /*
   describe('Error handling', () => {
-    test('Lets unauthenticated users pass through', async () => {
+    it('Lets unauthenticated users pass through', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue(null);
       const res = await middleware(createRequest('/en/dashboard'));
       expect(res).toBeInstanceOf(NextResponse);
@@ -186,7 +281,7 @@ describe('middleware', () => {
       expect(global.fetch).not.toHaveBeenCalled();
     });
 
-    test('Handles missing access token gracefully', async () => {
+    it('Handles missing access token gracefully', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue(null);
 
@@ -196,7 +291,7 @@ describe('middleware', () => {
       expect(res?.status).not.toBe(307);
     });
 
-    test('Handles fetch errors gracefully', async () => {
+    it('Handles fetch errors gracefully', async () => {
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
       global.fetch = jest.fn().mockRejectedValue(new Error('Network error'));
@@ -214,7 +309,7 @@ describe('middleware', () => {
       consoleErrorSpy.mockRestore();
     });
 
-    test('Handles missing backend URL gracefully', async () => {
+    it('Handles missing backend URL gracefully', async () => {
       delete process.env.NEXT_PUBLIC_BACKEND_URL;
       (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
@@ -232,4 +327,5 @@ describe('middleware', () => {
       consoleErrorSpy.mockRestore();
     });
   });
+  */
 });

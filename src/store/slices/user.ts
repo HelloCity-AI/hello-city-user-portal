@@ -2,15 +2,17 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
 
-interface UserState {
+export interface UserState {
   isLoading: boolean;
-  userData: User | null;
+  userData: User | null | undefined;
   error?: string;
 }
 
+export type auth0Token = string;
+
 const initialState: UserState = {
   isLoading: false,
-  userData: null,
+  userData: undefined,
   error: '',
 };
 
@@ -18,27 +20,22 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<User>) => {
+    setUser: (state, action: PayloadAction<User | null>) => {
       state.userData = action.payload;
+      state.error = '';
     },
     logOut: (state) => {
       state.userData = null;
     },
-    fetchUserRequest(state) {
-      state.isLoading = true;
-      state.error = '';
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
     },
-    fetchUserSuccess(state, action: PayloadAction<Omit<UserState, 'isLoading' | 'error'>>) {
-      state.isLoading = false;
-      Object.assign(state, action.payload);
-    },
-    fetchUserFailure(state, action: PayloadAction<string>) {
-      state.isLoading = false;
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
     },
+    fetchUser: (_state, _action: PayloadAction<auth0Token>) => {},
   },
 });
 
-export const { fetchUserRequest, fetchUserSuccess, fetchUserFailure, setUser, logOut } =
-  userSlice.actions;
+export const { setUser, logOut, setLoading, fetchUser, setError } = userSlice.actions;
 export default userSlice.reducer;

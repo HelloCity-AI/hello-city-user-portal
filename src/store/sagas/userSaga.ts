@@ -1,41 +1,45 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchUserRequest, fetchUserSuccess, fetchUserFailure } from '../slices/user';
-import { auth0 } from '@/lib/auth0';
-import Router from 'next/Router';
+import { setUser, setLoading, fetchUser, setError } from '../slices/user';
 import axios from 'axios';
+import type { auth0Token } from '../slices/user';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-async function fetchUserApi(token: string) {
+export async function fetchUserApi(token: auth0Token) {
+  const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+  const res = await axios.get(`${apiUrl}/api/user/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      cache: 'no-store',
+    },
+    validateStatus: (status) => status < 400 || status === 404,
+  });
+
+  return res;
+}
+
+export function* handleFetchUser(action: PayloadAction<auth0Token>): Generator {
   try {
-    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    const res = await axios.get(`${apiUrl}/api/user/me`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        cache: 'no-store',
-      },
-    });
-    return res;
+    const accessToken = action.payload;
+    yield put(setLoading(true));
+    const res = yield call(fetchUserApi, accessToken);
+    if (res.status === 200) {
+      yield put(setUser(res.data));
+      return;
+    }
+    if (res.status === 404) {
+      yield put(setUser(null));
+      return;
+    }
+    throw new Error(`Unexpected status ${res.status}`);
   } catch (error) {
     console.error(error);
-  }
-}
-
-async function getAuthSession() {
-  const user = await auth0.getSession();
-  return user;
-}
-
-function* handleFetchUser(): Generator {
-  const session = yield call(getAuthSession);
-  if (session) {
-    try {
-      const data = yield call(() => fetchUserApi(session.accessToken));
-      yield put(fetchUserSuccess(data));
-    } catch (error) {
-      yield put(fetchUserFailure('Failed to fetch user'));
-    }
+    yield put(setError((error as Error).message));
+  } finally {
+    yield put(setLoading(false));
   }
 }
 
 export default function* userSaga() {
-  yield takeLatest(fetchUserRequest.type, handleFetchUser);
+  yield takeLatest(fetchUser.type, handleFetchUser);
 }
