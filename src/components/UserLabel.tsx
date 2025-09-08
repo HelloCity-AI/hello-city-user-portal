@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Avatar, Typography} from '@mui/material';
+import { Avatar, Typography } from '@mui/material';
 
 interface UserData {
   UserName?: string;
