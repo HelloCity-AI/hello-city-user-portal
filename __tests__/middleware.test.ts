@@ -329,3 +329,67 @@ describe('middleware', () => {
   });
   */
 });
+
+// Note: Jest is the testing framework used (@jest-environment node).
+// Additional tests appended by CodeRabbit Inc. to broaden coverage of locale parsing and request handling.
+
+describe('middleware - additional coverage', () => {
+  const mkReq = (pathname: string, headers?: Record<string, string>) => {
+    const request = new NextRequest(`http://localhost:3000${pathname}`);
+    if (headers) {
+      Object.entries(headers).forEach(([key, value]) => {
+        request.headers.set(key, value);
+      });
+    }
+    return request;
+  };
+
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe('Locale redirect - Accept-Language parsing edge cases', () => {
+    it('prefers base language subtag (zh-CN -> zh)', async () => {
+      const res = await middleware(mkReq('/dashboard', { 'Accept-Language': 'zh-CN,en;q=0.8' }));
+      expect(res?.status).toBe(307);
+      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/dashboard');
+    });
+
+    it('ignores invalid Accept-Language header formats gracefully', async () => {
+      const res = await middleware(mkReq('/create-user-profile', { 'Accept-Language': 'invalid,stuff' }));
+      expect(res?.status).toBe(307);
+      expect(res?.headers.get('location')).toMatch(/^http:\/\/localhost:3000\/[a-z]{2}\/create-user-profile$/);
+    });
+
+    it('is case-insensitive for locales in Accept-Language header', async () => {
+      const res = await middleware(mkReq('/', { 'Accept-Language': 'ZH,EN;q=0.9' }));
+      expect(res?.status).toBe(307);
+      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
+    });
+
+    it('falls back when Accept-Language only contains unsupported locales', async () => {
+      const res = await middleware(mkReq('/settings', { 'Accept-Language': 'fr-CA,es;q=0.8' }));
+      expect(res?.status).toBe(307);
+      expect(res?.headers.get('location')).toMatch(/^http:\/\/localhost:3000\/[a-z]{2}\/settings$/);
+    });
+  });
+
+  describe('Locale present in URL takes precedence', () => {
+    it('does not redirect when locale already in path regardless of Accept-Language', async () => {
+      (auth0.getSession as jest.Mock).mockResolvedValue(null);
+      const res = await middleware(mkReq('/en/about', { 'Accept-Language': 'zh' }));
+      expect(res?.status).toBe(200);
+      expect(res?.headers.get('location')).toBeNull();
+    });
+  });
+
+  describe('Method handling', () => {
+    it('handles non-GET method without redirect when locale present', async () => {
+      (auth0.getSession as jest.Mock).mockResolvedValue(null);
+      const req = new NextRequest('http://localhost:3000/en/', { method: 'POST' } as any);
+      const res = await middleware(req);
+      expect(res?.status).toBe(200);
+      expect(res?.headers.get('location')).toBeNull();
+    });
+  });
+});
