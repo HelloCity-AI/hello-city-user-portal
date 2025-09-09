@@ -5,15 +5,15 @@ import type { User } from '@/types/User.types';
 export interface UserState {
   isLoading: boolean;
   userData: User | null | undefined;
-  error?: string;
+  error: string | null;
 }
 
-export type auth0Token = string;
+export type Auth0Token = string;
 
 const initialState: UserState = {
   isLoading: false,
   userData: undefined,
-  error: '',
+  error: null,
 };
 
 const userSlice = createSlice({
@@ -22,18 +22,22 @@ const userSlice = createSlice({
   reducers: {
     setUser: (state, action: PayloadAction<User | null>) => {
       state.userData = action.payload;
-      state.error = '';
+      state.error = null;
+      state.isLoading = false;
     },
     logOut: (state) => {
       state.userData = null;
+      state.error = null;
+      state.isLoading = false;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
     setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
+      state.isLoading = false;
     },
-    fetchUser: (_state, _action: PayloadAction<auth0Token>) => {},
+    fetchUser: (_state, _action: PayloadAction<Auth0Token>) => {},
   },
 });
 

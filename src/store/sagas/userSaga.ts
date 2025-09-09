@@ -1,24 +1,28 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { setUser, setLoading, fetchUser, setError } from '../slices/user';
-import axios from 'axios';
-import type { auth0Token } from '../slices/user';
+import axios, { type AxiosResponse } from 'axios';
+import type { Auth0Token } from '../slices/user';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import type { User } from '@/types/User.types';
 
-export async function fetchUserApi(token: auth0Token) {
+export async function fetchUserApi(token: Auth0Token) {
   const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
 
   const res = await axios.get(`${apiUrl}/api/user/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
-      cache: 'no-store',
+      'Cache-Control': 'no-store',
     },
-    validateStatus: (status) => status < 400 || status === 404,
+    timeout: 10000,
+    validateStatus: (status) => status === 200 || status === 404,
   });
 
   return res;
 }
 
-export function* handleFetchUser(action: PayloadAction<auth0Token>): Generator {
+export function* handleFetchUser(
+  action: PayloadAction<Auth0Token>,
+): Generator<unknown, void, AxiosResponse<User | null>> {
   try {
     const accessToken = action.payload;
     yield put(setLoading(true));

@@ -81,12 +81,11 @@ export async function middleware(request: NextRequest) {
 
   // auth for protected page
   const lang = resolveLang(request, pathname);
-  const pathnameIsProtected =
-    pathname.startsWith(`/${lang}/chat`) || pathname.startsWith(`/${lang}/create-user-profile`);
-
+  const protectedPrefixes = [`/${lang}/chat`, `/${lang}/create-user-profile`];
+  const pathnameIsProtected = protectedPrefixes.some((p) => pathname.startsWith(p));
   if (pathnameIsProtected) {
     const session = await auth0.getSession(request);
-    if (!session) {
+    if (!session?.user) {
       return NextResponse.redirect(new URL(`/${lang}/`, request.url));
     }
   }
