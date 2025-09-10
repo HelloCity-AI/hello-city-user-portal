@@ -1,36 +1,49 @@
 .input-box-wrapper {
   margin-bottom: 24px;
+  width: 400px;
 }
 
-.input-box-wrapper .label {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-size: 1.1rem;
+/* 输入框整体 */
+.input-box-wrapper :global(.MuiOutlinedInput-root) fieldset {
+  border-color: #6bbde1; /* 默认边框 */
+}
+
+/* Hover 状态 */
+.input-box-wrapper :global(.MuiOutlinedInput-root:hover) fieldset {
+  border-color: #6bbde1;
+}
+
+/* Focus 状态 */
+.input-box-wrapper :global(.MuiOutlinedInput-root.Mui-focused) fieldset {
+  border-color: #5c4d7d;
+}
+
+/* 错误状态 */
+.input-box-wrapper :global(.MuiOutlinedInput-root.Mui-error) fieldset {
+  border-color: #d32f2f;
+}
+
+/* Label 样式：只改字体，不要背景块 */
+.input-box-wrapper :global(.MuiInputLabel-root) {
+  font-size: 1rem;
   font-weight: 600;
   color: #000;
-  background-color: #f3efff; /* Light purple background */
-  padding: 4px 8px;
-  border-radius: 4px;
+  transform: translate(14px, 12px) scale(1); /* 初始位置 */
 }
 
-.input-box-wrapper .MuiOutlinedInput-root fieldset {
-  border-color: #6bbde1; /* Default border */
+.input-box-wrapper :global(.MuiInputLabel-root.Mui-focused),
+.input-box-wrapper :global(.MuiInputLabel-root.MuiFormLabel-filled) {
+  transform: translate(14px, -9px) scale(0.85); /* 悬浮位置 */
+  color: #5c4d7d; /* 聚焦时颜色 */
 }
 
-.input-box-wrapper .MuiOutlinedInput-root:hover fieldset {
-  border-color: #6bbde1; /* Hover border */
-}
-
-.input-box-wrapper .MuiOutlinedInput-root.Mui-focused fieldset {
-  border-color: #5c4d7d; /* Focused (active) border */
-}
-
-.input-box-wrapper .MuiOutlinedInput-root.Mui-error fieldset {
-  border-color: #d32f2f; /* Error border */
-}
-
-.input-box-wrapper .MuiFormHelperText-root {
+/* 错误提示文字 */
+.input-box-wrapper :global(.MuiFormHelperText-root) {
   font-size: 12px;
-  color: #d32f2f; /* Error text color */
+  color: #d32f2f;
   margin-left: 0;
+}
+
+.input-box-wrapper :global(.MuiInputLabel-shrink) {
+  transform: translate(14px, -9px) scale(0.85); /* 永远悬浮位置 */
 }

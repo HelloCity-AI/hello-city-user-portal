@@ -1,3 +1,5 @@
+import { i18n } from '@lingui/core';
+
 export const isValidEmail = (email: string): boolean => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -45,32 +47,39 @@ export const validationRules: Record<
   string,
   {
     validate: (value: string, compareTo?: string) => boolean;
-    error: string;
+    errorKey: string;
+    defaultMessage: string;
   }
 > = {
   name: {
     validate: (v) => v.trim() !== '' && /^[a-zA-Z\s]+$/.test(v),
-    error: 'Only letters are allowed and name is required.',
+    errorKey: 'error.name',
+    defaultMessage: 'Only letters are allowed and name is required.',
   },
   email: {
     validate: isValidEmail,
-    error: 'Please enter a valid email address.',
+    errorKey: 'error.email',
+    defaultMessage: 'Please enter a valid email address.',
   },
   password: {
     validate: isStrongPassword,
-    error:
+    errorKey: 'error.password',
+    defaultMessage:
       'Password must be 6-20 characters with uppercase, lowercase, number, and special character.',
   },
   repeatPassword: {
     validate: (v, original = '') => v === original,
-    error: 'Passwords do not match.',
+    errorKey: 'error.repeatPassword',
+    defaultMessage: 'Passwords do not match.',
   },
   phone: {
     validate: (v) => /^\d+$/.test(v),
-    error: 'Only numbers are allowed.',
+    errorKey: 'error.phone',
+    defaultMessage: 'Only numbers are allowed.',
   },
   message: {
     validate: (v) => v.trim() !== '',
-    error: 'Message is required.',
+    errorKey: 'error.message',
+    defaultMessage: 'Message is required.',
   },
 };
