@@ -22,7 +22,7 @@ const renderUserlabel = (props = {}) => render(<UserProfileCard {...props} />);
 
 describe('UserProfileCard (UserLabel) – new spec', () => {
   describe('UX Design', () => {
-    it('renders incoming user data correctly', () => {
+    it('Renders incoming user data correctly', () => {
       renderUserlabel(mockUserData);
 
       expect(screen.getByText('John')).toBeInTheDocument();
@@ -33,7 +33,7 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
       expect(img).toHaveAttribute('src', 'https://example.com/avatar.jpg');
     });
 
-    it('shows defaults when some data is missing', () => {
+    it('Shows defaults when some data is missing', () => {
       renderUserlabel({
         UserName: undefined,
         EmailAdress: undefined,
@@ -53,7 +53,7 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
   });
 
   describe('UI Design', () => {
-    it('applies key style classes to main blocks', () => {
+    it('Applies key style classes to main blocks', () => {
       const { container } = renderUserlabel(mockUserData);
       expect(container.firstChild).toHaveClass('rounded-2xl');
 
@@ -66,7 +66,7 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
       expect(screen.getByText('@john@example.com')).toHaveClass('text-gray-500');
     });
 
-    it('displays the time icon', () => {
+    it('Displays the time icon', () => {
       renderUserlabel(mockUserData);
       const timeIcon = screen.getByText('access_time');
       expect(timeIcon).toHaveClass('material-icons', 'text-base', 'text-gray-500');
@@ -74,7 +74,7 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
   });
 
   describe('Overflow & Tooltip behavior', () => {
-    it('default: single-line truncate + tooltip titles are present', () => {
+    it('Default: single-line truncate + tooltip titles are present', () => {
       const long = 'A'.repeat(200);
       renderUserlabel({
         UserName: long,
@@ -97,7 +97,7 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
       expect(textContainer).toHaveClass('min-w-0', 'overflow-hidden');
     });
 
-    it('wrap=true: switches to break-words and disables truncate; showTooltip=false removes title', () => {
+    it('Wrap=true: switches to break-words and disables truncate; showTooltip=false removes title', () => {
       const long = 'B'.repeat(200);
       renderUserlabel({
         UserName: long,
