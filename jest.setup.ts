@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom';
+import type { ImageProps } from 'next/image';
+import React from 'react';
 
 if (typeof window !== 'undefined') {
   window.HTMLElement.prototype.scrollIntoView = function () {};
@@ -112,3 +114,24 @@ jest.mock('./src/i18n', () => {
   const { i18n } = require('@lingui/core');
   return { i18n };
 });
+
+// Mock next/image
+jest.mock('next/image', () => ({
+  __esModule: true,
+  default: (props: ImageProps) =>
+    React.createElement('img', {
+      ...props,
+      src: typeof props.src === 'string' ? props.src : '',
+      alt: props.alt ?? '',
+    }),
+}));
+
+// Mock mui style
+jest.mock('@mui/material/styles', () => ({
+  ...jest.requireActual('@mui/material/styles'),
+  useTheme: () => ({
+    backgroundGradients: {
+      buttonPrimaryActive: 'mock-gradient',
+    },
+  }),
+}));

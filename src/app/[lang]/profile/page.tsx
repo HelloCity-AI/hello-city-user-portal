@@ -4,11 +4,13 @@ import { InputBox } from '@/components';
 import { Button, MenuItem, TextField, Typography } from '@mui/material';
 import { defaultUser } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
+import { setUser } from '@/store/slices/user';
+import { updateUser } from '@/api/userApi';
 import ProfileSideBar from '../../../components/ProfileSideBar';
 
 const Page = () => {
   const [userInfo, setUserInfo] = useState(defaultUser);
-
+  
   return (
     <div className="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-100">
       <ProfileSideBar />
@@ -63,7 +65,7 @@ const Page = () => {
               ))}
             </TextField>
 
-            <Button variant="contained">Submit</Button>
+            <Button variant="contained" type="submit">Submit</Button>
           </div>
 
           <div className="flex w-full flex-col gap-3 md:w-[48%]">

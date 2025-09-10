@@ -8,7 +8,7 @@ const ProfileSideBar = () => {
   const [isCollapse, setIsCollapse] = useState(false);
 
   return (
-    <div
+    <aside
       className={`fixed left-0 top-0 z-10 h-full bg-white p-5 transition-all duration-300 ${isCollapse ? 'w-[80px]' : 'w-[15%] max-w-[350px]'} `}
     >
       <div className="mt-20">
@@ -29,7 +29,7 @@ const ProfileSideBar = () => {
           </div>
         )}
       </div>
-    </div>
+    </aside>
   );
 };
 

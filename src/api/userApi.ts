@@ -53,6 +53,59 @@ export const createUser = async (newUser: User) => {
   return response;
 };
 
+export const updateUser = async (updatedUser: User) => {
+  // Get access token
+  const tokenResponse = await fetch('/api/auth/token');
+  let accessToken = '';
+
+  if (tokenResponse.ok) {
+    const tokenData = await tokenResponse.json();
+    accessToken = tokenData.accessToken || '';
+  }
+
+  // Create FormData object to match backend's multipart/form-data requirements
+  const formData = new FormData();
+
+  // Add required fields
+  formData.append('Username', updatedUser.userId || 'defaultUsername');
+  formData.append('Email', updatedUser.Email);
+
+  // Add optional fields
+  if (updatedUser.Gender) {
+    formData.append('Gender', updatedUser.Gender.toString());
+  }
+  if (updatedUser.nationality) {
+    formData.append('Nationality', updatedUser.nationality);
+  }
+  if (updatedUser.city) {
+    formData.append('City', updatedUser.city);
+  }
+  if (updatedUser.university) {
+    formData.append('University', updatedUser.university);
+  }
+  if (updatedUser.major) {
+    formData.append('Major', updatedUser.major);
+  }
+  if (updatedUser.preferredLanguage) {
+    formData.append('PreferredLanguage', updatedUser.preferredLanguage.toString());
+  }
+
+  const headers: Record<string, string> = {
+    'Content-Type': 'multipart/form-data',
+    Accept: '*/*',
+  };
+
+  // If there's an access token, add it to request headers
+  if (accessToken) {
+    headers.Authorization = `Bearer ${accessToken}`;
+  }
+
+  const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, formData, {
+    headers,
+  });
+  return response;
+};
+
 // Used in demo, currently unused, waiting for new ticket
 export const fetchUser = async (newUserId: string) => {
   const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${newUserId}`, {
