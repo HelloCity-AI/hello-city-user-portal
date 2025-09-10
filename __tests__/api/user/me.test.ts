@@ -62,6 +62,7 @@ describe('FetchUserProfile', () => {
 
     expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
       headers: {
+        Accept: 'application/json',
         Authorization: 'Bearer test-token',
         'Cache-Control': 'no-store',
       },

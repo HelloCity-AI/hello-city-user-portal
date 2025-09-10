@@ -7,6 +7,7 @@ export async function fetchUserProfile(token: string, backendUrl: string) {
     headers: {
       Authorization: `Bearer ${token}`,
       'Cache-Control': 'no-store',
+      Accept: 'application/json',
     },
     timeout: 10000,
     validateStatus: (status) => status === 200 || status === 404,
@@ -36,7 +37,7 @@ export async function GET(_request: NextRequest) {
     if (axios.isAxiosError(error) && error.response) {
       return NextResponse.json(
         {
-          error: 'Error occurred while get ME profile',
+          error: 'Error occurred while getting ME profile',
           details: error.message,
         },
         { status: error.response.status },
@@ -44,7 +45,7 @@ export async function GET(_request: NextRequest) {
     }
     return NextResponse.json(
       {
-        error: 'Error occurred while get ME profile',
+        error: 'Error occurred while getting ME profile',
         details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },

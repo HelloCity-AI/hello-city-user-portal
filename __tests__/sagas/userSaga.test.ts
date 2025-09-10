@@ -1,8 +1,12 @@
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, call } from 'redux-saga/effects';
 import { setUser, setLoading, fetchUser, setError } from '../../src/store/slices/user';
 import userSaga, { handleFetchUser, fetchUserApi } from '../../src/store/sagas/userSaga';
 import type { User } from '../../src/types/User.types';
-import axios, { type AxiosResponse } from 'axios';
+import axios, {
+  type AxiosResponse,
+  type AxiosRequestHeaders,
+  type AxiosResponseHeaders,
+} from 'axios';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -11,11 +15,11 @@ const createMockAxiosResponse = <T>(data: T, status = 200): AxiosResponse<T> => 
   data,
   status,
   statusText: 'OK',
-  headers: {},
+  headers: {} as AxiosResponseHeaders,
   config: {
     url: '',
     method: 'get',
-    headers: {},
+    headers: {} as AxiosRequestHeaders,
   },
 });
 
@@ -45,7 +49,7 @@ describe('userSaga', () => {
       expect(generator.next().value).toEqual(put(setLoading(true)));
 
       const callEffect = generator.next().value;
-      expect(callEffect.type).toBe('CALL');
+      expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.next(mockResponse).value).toEqual(put(setUser(mockResponse.data)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
@@ -58,7 +62,7 @@ describe('userSaga', () => {
       expect(generator.next().value).toEqual(put(setLoading(true)));
 
       const callEffect = generator.next().value;
-      expect(callEffect.type).toBe('CALL');
+      expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.next(mockResponse).value).toEqual(put(setUser(null)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
@@ -71,14 +75,14 @@ describe('userSaga', () => {
       expect(generator.next().value).toEqual(put(setLoading(true)));
 
       const callEffect = generator.next().value;
-      expect(callEffect.type).toBe('CALL');
+      expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.throw(mockError).value).toEqual(put(setError('Network error')));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
 
     it('Should handle 4xx/5xx errors with message via catch', () => {
-      const axiosError: any = {
+      const axiosError = {
         isAxiosError: true,
         response: { status: 500, data: { error: 'Internal server error' } },
         message: 'Request failed with status code 500',
@@ -90,14 +94,14 @@ describe('userSaga', () => {
       const generator = handleFetchUser();
       expect(generator.next().value).toEqual(put(setLoading(true)));
       const callEffect = generator.next().value;
-      expect(callEffect.type).toBe('CALL');
+      expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.throw(axiosError).value).toEqual(put(setError('Internal server error')));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
 
     it('Should handle 4xx without error message via catch', () => {
-      const axiosError: any = {
+      const axiosError = {
         isAxiosError: true,
         response: { status: 403, data: {} },
         message: 'Request failed with status code 403',
@@ -108,7 +112,7 @@ describe('userSaga', () => {
       const generator = handleFetchUser();
       expect(generator.next().value).toEqual(put(setLoading(true)));
       const callEffect = generator.next().value;
-      expect(callEffect.type).toBe('CALL');
+      expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.throw(axiosError).value).toEqual(
         put(setError('Request failed with status code 403')),
       );
@@ -150,7 +154,7 @@ describe('userSaga', () => {
     });
 
     it('Should reject for non-200/404 responses', async () => {
-      const axiosError: any = {
+      const axiosError = {
         isAxiosError: true,
         response: { status: 403, data: { error: 'Forbidden' } },
       };

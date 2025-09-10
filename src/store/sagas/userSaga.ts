@@ -4,6 +4,7 @@ import axios, { type AxiosResponse } from 'axios';
 
 export async function fetchUserApi() {
   const res = await axios.get(`/api/user/me`, {
+    timeout: 10000,
     validateStatus: (status) => status === 200 || status === 404,
   });
   return res;

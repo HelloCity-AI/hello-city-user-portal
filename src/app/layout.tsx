@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -29,16 +29,16 @@ export default async function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AppRouterCacheProvider>
-          <ReduxProvider>
-            <AuthProvider>
-              <StyledEngineProvider injectFirst>
-                <ThemeProvider theme={websiteTheme}>
-                  <CssBaseline />
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={websiteTheme}>
+              <CssBaseline />
+              <ReduxProvider>
+                <AuthProvider>
                   <div className="relative">{children}</div>
-                </ThemeProvider>
-              </StyledEngineProvider>
-            </AuthProvider>
-          </ReduxProvider>
+                </AuthProvider>
+              </ReduxProvider>
+            </ThemeProvider>
+          </StyledEngineProvider>
         </AppRouterCacheProvider>
       </body>
     </html>
