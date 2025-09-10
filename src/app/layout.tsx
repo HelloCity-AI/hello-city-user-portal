@@ -5,6 +5,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
 import websiteTheme from '@/theme/theme';
 import ReduxProvider from './ReduxProvider';
+import AuthProvider from './AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,12 +30,14 @@ export default async function RootLayout({
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <ReduxProvider>
-            <StyledEngineProvider injectFirst>
-              <ThemeProvider theme={websiteTheme}>
-                <CssBaseline />
-                <div className="relative">{children}</div>
-              </ThemeProvider>
-            </StyledEngineProvider>
+            <AuthProvider>
+              <StyledEngineProvider injectFirst>
+                <ThemeProvider theme={websiteTheme}>
+                  <CssBaseline />
+                  <div className="relative">{children}</div>
+                </ThemeProvider>
+              </StyledEngineProvider>
+            </AuthProvider>
           </ReduxProvider>
         </AppRouterCacheProvider>
       </body>

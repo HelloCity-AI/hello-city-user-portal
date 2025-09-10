@@ -1,18 +1,8 @@
-import { auth0 } from '@/lib/auth0';
-import React, { type ReactNode } from 'react';
-import StoreProvider from './StoreProvider';
-import AuthProvider from './AuthProvider';
+'use client';
 
-const ReduxProvider = async ({ children }: { children: ReactNode }) => {
-  const accessToken = await auth0.getAccessToken();
+import { Provider } from 'react-redux';
+import store from '../store/index';
 
-  return (
-    <StoreProvider>
-      <AuthProvider accessToken={accessToken?.token ? accessToken.token : null}>
-        {children}
-      </AuthProvider>
-    </StoreProvider>
-  );
-};
-
-export default ReduxProvider;
+export default function ReduxProvider({ children }: { children: React.ReactNode }) {
+  return <Provider store={store}>{children}</Provider>;
+}

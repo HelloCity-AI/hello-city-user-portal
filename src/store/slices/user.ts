@@ -8,8 +8,6 @@ export interface UserState {
   error: string | null;
 }
 
-export type Auth0Token = string;
-
 const initialState: UserState = {
   isLoading: false,
   userData: undefined,
@@ -37,7 +35,7 @@ const userSlice = createSlice({
       state.error = action.payload;
       state.isLoading = false;
     },
-    fetchUser: (_state, _action: PayloadAction<Auth0Token>) => {},
+    fetchUser: () => {},
   },
 });
 
