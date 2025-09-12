@@ -24,6 +24,91 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:35
+msgid "profile.title"
+msgstr "个人资料设置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:38
+msgid "profile.subtitle"
+msgstr "管理您的个人信息和偏好设置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:42
+msgid "profile.personal-info"
+msgstr "个人信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:48
+msgid "profile.email"
+msgstr "电子邮箱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:52
+msgid "profile.email-placeholder"
+msgstr "请输入您的电子邮箱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:57
+msgid "profile.nationality"
+msgstr "国籍"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:60
+msgid "profile.nationality-placeholder"
+msgstr "请输入您的国籍"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:65
+msgid "profile.city"
+msgstr "城市"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:68
+msgid "profile.city-placeholder"
+msgstr "请输入您所在的城市"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:75
+msgid "profile.gender"
+msgstr "性别"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:93
+msgid "profile.university"
+msgstr "大学"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:96
+msgid "profile.university-placeholder"
+msgstr "请输入您的大学名称"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:101
+msgid "profile.major"
+msgstr "专业"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:104
+msgid "profile.major-placeholder"
+msgstr "请输入您的专业"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:109
+msgid "profile.preferred-language"
+msgstr "首选语言"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:112
+msgid "profile.preferred-language-placeholder"
+msgstr "请输入您的首选语言"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:119
+msgid "profile.submit"
+msgstr "提交"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
