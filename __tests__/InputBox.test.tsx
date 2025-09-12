@@ -2,10 +2,22 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import InputBox from '../src/components/InputBox/InputBox';
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
+import { messages as enMessages } from '../src/locales/en/messages';
+
+beforeAll(() => {
+  i18n.load('en', enMessages);
+  i18n.activate('en');
+});
+
+const renderWithI18n = (ui: React.ReactNode) => {
+  return render(<I18nProvider i18n={i18n}>{ui}</I18nProvider>);
+};
 
 describe('InputBox component', () => {
   test('Renders with label and placeholder', () => {
-    render(
+    renderWithI18n(
       <InputBox
         label="Name"
         value=""
@@ -19,7 +31,7 @@ describe('InputBox component', () => {
   });
 
   test('Displays error message when errorMessage is provided', () => {
-    render(
+    renderWithI18n(
       <InputBox
         label="Email"
         value="invalid"
@@ -34,7 +46,7 @@ describe('InputBox component', () => {
   test('Calls onChange when input value changes', () => {
     const handleChange = jest.fn();
 
-    render(<InputBox label="Name" value="" onChange={handleChange} fieldType="name" />);
+    renderWithI18n(<InputBox label="Name" value="" onChange={handleChange} fieldType="name" />);
 
     fireEvent.change(screen.getByLabelText(/name/i), { target: { value: 'John' } });
     expect(handleChange).toHaveBeenCalled();
@@ -56,11 +68,11 @@ describe('InputBox validation', () => {
       );
     };
 
-    render(<Wrapper />);
+    renderWithI18n(<Wrapper />);
     const input = screen.getByLabelText(/phone/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Phone is required.')).toBeInTheDocument();
+    expect(screen.getByText(i18n._('validation.required', { label: 'Phone' }))).toBeInTheDocument();
   });
 
   test('Shows required error when email input is empty', () => {
@@ -77,15 +89,15 @@ describe('InputBox validation', () => {
       );
     };
 
-    render(<Wrapper />);
+    renderWithI18n(<Wrapper />);
     const input = screen.getByLabelText(/email/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Email is required.')).toBeInTheDocument();
+    expect(screen.getByText(i18n._('validation.required', { label: 'Email' }))).toBeInTheDocument();
   });
 
   test('Shows rule error for invalid format (custom rule)', () => {
-    render(
+    renderWithI18n(
       <InputBox
         label="Email"
         value="invalid"
@@ -112,10 +124,12 @@ describe('InputBox validation', () => {
       );
     };
 
-    render(<Wrapper />);
+    renderWithI18n(<Wrapper />);
     const input = screen.getByLabelText(/message/i);
     fireEvent.change(input, { target: { value: '' } });
 
-    expect(screen.getByText('Message is required.')).toBeInTheDocument();
+    expect(
+      screen.getByText(i18n._('validation.required', { label: 'Message' })),
+    ).toBeInTheDocument();
   });
 });
