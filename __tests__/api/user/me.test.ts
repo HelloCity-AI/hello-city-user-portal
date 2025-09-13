@@ -3,12 +3,9 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth0 } from '@/lib/auth0';
 
+// Debug mode test:  let x=1;const    y =   2;
+
 jest.mock('axios');
-jest.mock('next/server', () => ({
-  NextResponse: {
-    json: jest.fn(),
-  },
-}));
 jest.mock('@/lib/auth0', () => ({
   auth0: {
     getAccessToken: jest.fn(),
@@ -16,17 +13,27 @@ jest.mock('@/lib/auth0', () => ({
 }));
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-const mockedNextResponse = NextResponse as jest.Mocked<typeof NextResponse>;
 const mockedAuth0 = auth0 as jest.Mocked<typeof auth0>;
 
-// Override axios.isAxiosError with proper typing
-Object.defineProperty(mockedAxios, 'isAxiosError', {
-  value: jest.fn<boolean, [unknown]>(),
-  writable: true,
+let mockedIsAxiosError: jest.MockedFunction<typeof axios.isAxiosError>;
+
+beforeAll(() => {
+  // Set up axios.isAxiosError mock
+  Object.defineProperty(mockedAxios, 'isAxiosError', {
+    value: jest.fn<boolean, [unknown]>(),
+    writable: true,
+  });
+  mockedIsAxiosError = mockedAxios.isAxiosError as jest.MockedFunction<typeof axios.isAxiosError>;
 });
-const mockedIsAxiosError = mockedAxios.isAxiosError as jest.MockedFunction<
-  typeof axios.isAxiosError
->;
+
+afterAll(() => {
+  // Restore axios.isAxiosError to prevent test pollution
+  // Restore to basic function to prevent test pollution
+  Object.defineProperty(mockedAxios, 'isAxiosError', {
+    value: () => false,
+    writable: true,
+  });
+});
 
 const createMockAxiosResponse = <T>(data: T, status = 200) => ({
   data,
@@ -50,30 +57,26 @@ const createMockNextResponse = (
   headers,
 });
 
-const createMockTokenResponse = (token: string | null) => {
-  if (token === null) {
-    return { token: null, expiresAt: Date.now() + 3600000, scope: 'read:profile' } as never;
-  }
-  return {
-    token,
-    expiresAt: Date.now() + 3600000,
-    scope: 'read:profile',
-  };
-};
+type AccessTokenLike = { token: string | null; expiresAt: number; scope: string };
+const createMockTokenResponse = (token: string | null): AccessTokenLike => ({
+  token,
+  expiresAt: Date.now() + 3600000,
+  scope: 'read:profile',
+});
+
+// Helper to cast AccessTokenLike to auth0's expected type when needed
+const createMockAuth0TokenResponse = (token: string | null) =>
+  createMockTokenResponse(token) as unknown as Awaited<ReturnType<typeof auth0.getAccessToken>>;
 
 const setupEnvironment = (backendUrl?: string) => {
-  const originalEnv = process.env.NEXT_PUBLIC_BACKEND_URL;
+  const originalEnv = { ...process.env };
   if (backendUrl !== undefined) {
     process.env.NEXT_PUBLIC_BACKEND_URL = backendUrl;
   } else {
     delete process.env.NEXT_PUBLIC_BACKEND_URL;
   }
   return () => {
-    if (originalEnv !== undefined) {
-      process.env.NEXT_PUBLIC_BACKEND_URL = originalEnv;
-    } else {
-      delete process.env.NEXT_PUBLIC_BACKEND_URL;
-    }
+    process.env = originalEnv;
   };
 };
 
@@ -172,6 +175,7 @@ describe('FetchUserProfile', () => {
 describe('GET Handler', () => {
   let GET: (request: NextRequest) => Promise<Response>;
   let restoreEnv: () => void;
+  let nextResponseJsonSpy: jest.SpyInstance;
 
   beforeAll(async () => {
     const { GET: handler } = await import('@/app/api/user/me/route');
@@ -181,10 +185,14 @@ describe('GET Handler', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     restoreEnv = setupEnvironment('http://localhost:5001');
-    mockedNextResponse.json.mockImplementation((data: unknown, init?: ResponseInit) => {
-      const options = init as { status?: number; headers?: Record<string, string> } | undefined;
-      return createMockNextResponse(data, options?.status || 200, options?.headers) as never;
-    });
+
+    // Set up NextResponse.json spy
+    nextResponseJsonSpy = jest
+      .spyOn(NextResponse, 'json')
+      .mockImplementation((data: unknown, init?: ResponseInit) => {
+        const options = init as { status?: number; headers?: Record<string, string> } | undefined;
+        return createMockNextResponse(data, options?.status || 200, options?.headers) as never;
+      });
   });
 
   afterEach(() => {
@@ -196,23 +204,33 @@ describe('GET Handler', () => {
       const mockUserData = { userId: '1', Email: 'test@example.com' };
       const mockRequest = {} as NextRequest;
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
       mockedAxios.get.mockResolvedValue(createMockAxiosResponse(mockUserData, 200));
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(mockUserData, { status: 200 });
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(mockUserData, { status: 200 });
+    });
+
+    it('Should passthrough 404 when backend returns not found', async () => {
+      const mockRequest = {} as NextRequest;
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
+      mockedAxios.get.mockResolvedValue(createMockAxiosResponse(null, 404));
+
+      await GET(mockRequest);
+
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(null, { status: 404 });
     });
   });
 
   describe('Authentication errors', () => {
     it('Should return 401 when no access token', async () => {
       const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse(null));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(null));
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         { error: 'Unauthenticated', code: 'NO_ACCESS_TOKEN' },
         {
           status: 401,
@@ -230,7 +248,7 @@ describe('GET Handler', () => {
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         { error: 'Unauthenticated', code: 'NO_ACCESS_TOKEN' },
         {
           status: 401,
@@ -249,11 +267,11 @@ describe('GET Handler', () => {
       restoreEnv = setupEnvironment();
 
       const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         { error: 'Backend URL is not configured (NEXT_PUBLIC_BACKEND_URL)' },
         { status: 500 },
       );
@@ -269,13 +287,13 @@ describe('GET Handler', () => {
         message: 'Request failed with status code 401',
       };
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('invalid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('invalid-token'));
       mockedAxios.get.mockRejectedValue(axiosError);
       mockedIsAxiosError.mockReturnValue(true);
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
           error: 'Unauthenticated',
           code: 'BACKEND_UNAUTHORIZED',
@@ -299,13 +317,13 @@ describe('GET Handler', () => {
         message: 'Request failed with status code 500',
       };
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
       mockedAxios.get.mockRejectedValue(axiosError);
       mockedIsAxiosError.mockReturnValue(true);
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
           error: 'Error occurred while getting ME profile',
           details: 'Request failed with status code 500',
@@ -319,13 +337,13 @@ describe('GET Handler', () => {
       const axiosError = new Error('Network Error');
       Object.assign(axiosError, { isAxiosError: true });
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
       mockedAxios.get.mockRejectedValue(axiosError);
       mockedIsAxiosError.mockReturnValue(true);
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
           error: 'Error occurred while getting ME profile',
           details: 'Network Error',
@@ -340,13 +358,13 @@ describe('GET Handler', () => {
       const mockRequest = {} as NextRequest;
       const genericError = new Error('Unexpected error');
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
       mockedAxios.get.mockRejectedValue(genericError);
       mockedIsAxiosError.mockReturnValue(false);
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
           error: 'Error occurred while getting ME profile',
           details: 'Unexpected error',
@@ -359,13 +377,13 @@ describe('GET Handler', () => {
       const mockRequest = {} as NextRequest;
       const stringError = 'Something went wrong';
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockTokenResponse('valid-token'));
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
       mockedAxios.get.mockRejectedValue(stringError);
       mockedIsAxiosError.mockReturnValue(false);
 
       await GET(mockRequest);
 
-      expect(mockedNextResponse.json).toHaveBeenCalledWith(
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
           error: 'Error occurred while getting ME profile',
           details: 'Something went wrong',

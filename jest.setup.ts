@@ -2,6 +2,43 @@ import '@testing-library/jest-dom';
 import type { ImageProps } from 'next/image';
 import React from 'react';
 
+// Polyfill for Next.js server components in test environment
+if (!global.Request) {
+  global.Request = class Request {
+    url: string;
+    method: string;
+    headers: any;
+    body?: any;
+
+    constructor(input: string | Request, init?: RequestInit) {
+      this.url = typeof input === 'string' ? input : input.url;
+      this.method = init?.method || 'GET';
+      this.headers = init?.headers || {};
+      this.body = init?.body;
+    }
+  } as any;
+}
+
+if (!global.Response) {
+  global.Response = class Response {
+    status: number;
+    statusText: string;
+    headers: any;
+    body?: any;
+
+    constructor(body?: any, init?: ResponseInit) {
+      this.status = init?.status || 200;
+      this.statusText = init?.statusText || 'OK';
+      this.headers = init?.headers || {};
+      this.body = body;
+    }
+
+    json() {
+      return Promise.resolve(this.body);
+    }
+  } as any;
+}
+
 if (typeof window !== 'undefined') {
   window.HTMLElement.prototype.scrollIntoView = function () {};
 }
