@@ -36,7 +36,7 @@ const userSlice = createSlice({
       state.data = null;
       state.error = null;
       state.isLoading = false;
-      state.authStatus = 0;
+      state.authStatus = State.Unauthenticated;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
