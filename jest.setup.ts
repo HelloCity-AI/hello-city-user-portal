@@ -4,10 +4,17 @@ import React from 'react';
 
 // Web Request polyfill for Jest (favor undici if available, else minimal shim)
 try {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const { Request: UndiciRequest, Headers: UndiciHeaders } = require('undici');
+  const {
+    Request: UndiciRequest,
+    Headers: UndiciHeaders,
+    Response: UndiciResponse,
+    fetch: undiciFetch,
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+  } = require('undici');
   if (!globalThis.Request) globalThis.Request = UndiciRequest as never;
   if (!globalThis.Headers) globalThis.Headers = UndiciHeaders as never;
+  if (!globalThis.Response) globalThis.Response = UndiciResponse as never;
+  if (!globalThis.fetch) globalThis.fetch = undiciFetch as never;
 } catch {
   // undici not available; fall back to a minimal standards-like Request
 }
@@ -16,16 +23,22 @@ if (!globalThis.Headers) {
     private _headers: Record<string, string> = {};
 
     constructor(init?: HeadersInit) {
-      if (init) {
-        if (typeof init === 'object' && 'entries' in init && typeof init.entries === 'function') {
-          const entries = Array.from((init as Headers).entries());
-          entries.forEach(([key, value]) => {
-            this._headers[key.toLowerCase()] = String(value);
-          });
-        } else if (typeof init === 'object') {
-          Object.entries(init as Record<string, string>).forEach(([key, value]) => {
-            this._headers[key.toLowerCase()] = String(value);
-          });
+      if (!init) return;
+      if (Array.isArray(init)) {
+        for (const [key, value] of init) {
+          this._headers[String(key).toLowerCase()] = String(value);
+        }
+      } else if (
+        typeof init === 'object' &&
+        'entries' in init &&
+        typeof (init as any).entries === 'function'
+      ) {
+        for (const [key, value] of Array.from((init as any).entries())) {
+          this._headers[String(key).toLowerCase()] = String(value);
+        }
+      } else if (typeof init === 'object') {
+        for (const [key, value] of Object.entries(init as Record<string, string>)) {
+          this._headers[String(key).toLowerCase()] = String(value);
         }
       }
     }
@@ -38,10 +51,23 @@ if (!globalThis.Headers) {
       this._headers[name.toLowerCase()] = String(value);
     }
 
+    has(name: string): boolean {
+      return Object.prototype.hasOwnProperty.call(this._headers, name.toLowerCase());
+    }
+
+    delete(name: string): void {
+      delete this._headers[name.toLowerCase()];
+    }
     *entries(): IterableIterator<[string, string]> {
       for (const [key, value] of Object.entries(this._headers)) {
         yield [key, value];
       }
+    }
+    forEach(cb: (value: string, key: string) => void): void {
+      for (const [key, value] of Object.entries(this._headers)) cb(value, key);
+    }
+    [Symbol.iterator](): IterableIterator<[string, string]> {
+      return this.entries();
     }
   }
   globalThis.Headers = MinimalHeaders as never;
@@ -64,7 +90,7 @@ if (!globalThis.Request) {
     clone() {
       return new (globalThis as typeof globalThis & { Request: typeof Request }).Request(this.url, {
         method: this.method,
-        headers: this.headers,
+        headers: new globalThis.Headers(this.headers),
         body: this.body,
       });
     }
@@ -76,18 +102,30 @@ if (!global.Response) {
   global.Response = class Response {
     status: number;
     statusText: string;
-    headers: Record<string, string>;
+    headers: Headers;
     body?: unknown;
 
     constructor(body?: unknown, init?: ResponseInit) {
       this.status = init?.status || 200;
       this.statusText = init?.statusText || 'OK';
-      this.headers = (init?.headers as Record<string, string>) || {};
-      this.body = body;
+      this.headers = new Headers(init?.headers ?? {});
+      this._body = body;
+      if (body && typeof body === 'object' && !this.headers.get('content-type')) {
+        this.headers.set('content-type', 'application/json');
+      }
     }
 
-    json() {
-      return Promise.resolve(this.body);
+    get ok() {
+      return this.status >= 200 && this.status < 300;
+    }
+    text(): Promise<string> {
+      if (typeof this.body === 'string') return Promise.resolve(this.body);
+      if (this.body == null) return Promise.resolve('');
+      return Promise.resolve(String(this.body));
+    }
+    async json(): Promise<any> {
+      if (typeof this.body === 'string') return JSON.parse(this.body);
+      return this.body;
     }
   } as never;
 }
