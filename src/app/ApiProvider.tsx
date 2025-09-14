@@ -4,7 +4,7 @@ import React, { type ReactNode, useEffect } from 'react';
 import { fetchUser } from '@/store/slices/user';
 import { useDispatch } from 'react-redux';
 
-const AuthProvider = ({ children }: { children: ReactNode }) => {
+const ApiProvider = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,4 +14,4 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   return <React.Fragment>{children}</React.Fragment>;
 };
 
-export default AuthProvider;
+export default ApiProvider;
