@@ -2,41 +2,94 @@ import '@testing-library/jest-dom';
 import type { ImageProps } from 'next/image';
 import React from 'react';
 
-// Polyfill for Next.js server components in test environment
-if (!global.Request) {
-  global.Request = class Request {
+// Web Request polyfill for Jest (favor undici if available, else minimal shim)
+try {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { Request: UndiciRequest, Headers: UndiciHeaders } = require('undici');
+  if (!globalThis.Request) globalThis.Request = UndiciRequest as never;
+  if (!globalThis.Headers) globalThis.Headers = UndiciHeaders as never;
+} catch {
+  // undici not available; fall back to a minimal standards-like Request
+}
+if (!globalThis.Headers) {
+  class MinimalHeaders {
+    private _headers: Record<string, string> = {};
+
+    constructor(init?: HeadersInit) {
+      if (init) {
+        if (typeof init === 'object' && 'entries' in init && typeof init.entries === 'function') {
+          const entries = Array.from((init as Headers).entries());
+          entries.forEach(([key, value]) => {
+            this._headers[key.toLowerCase()] = String(value);
+          });
+        } else if (typeof init === 'object') {
+          Object.entries(init as Record<string, string>).forEach(([key, value]) => {
+            this._headers[key.toLowerCase()] = String(value);
+          });
+        }
+      }
+    }
+
+    get(name: string): string | null {
+      return this._headers[name.toLowerCase()] || null;
+    }
+
+    set(name: string, value: string): void {
+      this._headers[name.toLowerCase()] = String(value);
+    }
+
+    *entries(): IterableIterator<[string, string]> {
+      for (const [key, value] of Object.entries(this._headers)) {
+        yield [key, value];
+      }
+    }
+  }
+  globalThis.Headers = MinimalHeaders as never;
+}
+
+if (!globalThis.Request) {
+  class MinimalRequest {
     url: string;
     method: string;
-    headers: any;
-    body?: any;
-
-    constructor(input: string | Request, init?: RequestInit) {
-      this.url = typeof input === 'string' ? input : input.url;
-      this.method = init?.method || 'GET';
-      this.headers = init?.headers || {};
-      this.body = init?.body;
+    headers: Headers;
+    body?: BodyInit | null;
+    constructor(input: string | Request, init: RequestInit = {}) {
+      const fromReq = typeof input === 'string' ? undefined : (input as Request);
+      this.url = typeof input === 'string' ? input : fromReq!.url;
+      // Merge semantics: init overrides input, fall back to GET
+      this.method = init.method ?? (fromReq as Request)?.method ?? 'GET';
+      this.headers = new Headers(init.headers ?? (fromReq as Request)?.headers ?? {});
+      this.body = init.body ?? (fromReq as Request)?.body;
     }
-  } as any;
+    clone() {
+      return new (globalThis as typeof globalThis & { Request: typeof Request }).Request(this.url, {
+        method: this.method,
+        headers: this.headers,
+        body: this.body,
+      });
+    }
+  }
+  globalThis.Request = MinimalRequest as never;
 }
 
 if (!global.Response) {
   global.Response = class Response {
     status: number;
     statusText: string;
-    headers: any;
-    body?: any;
+    headers: Record<string, string>;
+    body?: unknown;
 
-    constructor(body?: any, init?: ResponseInit) {
+    constructor(body?: unknown, init?: ResponseInit) {
       this.status = init?.status || 200;
       this.statusText = init?.statusText || 'OK';
-      this.headers = init?.headers || {};
+      this.headers = (init?.headers as Record<string, string>) || {};
       this.body = body;
     }
 
     json() {
       return Promise.resolve(this.body);
     }
-  } as any;
+  } as never;
 }
 
 if (typeof window !== 'undefined') {
