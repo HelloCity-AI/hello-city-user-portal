@@ -33,7 +33,9 @@ if (!globalThis.Headers) {
         'entries' in init &&
         typeof (init as any).entries === 'function'
       ) {
-        for (const [key, value] of Array.from((init as any).entries())) {
+        for (const [key, value] of Array.from(
+          (init as any).entries() as Iterable<[string, string]>,
+        )) {
           this._headers[String(key).toLowerCase()] = String(value);
         }
       } else if (typeof init === 'object') {
@@ -109,7 +111,7 @@ if (!global.Response) {
       this.status = init?.status || 200;
       this.statusText = init?.statusText || 'OK';
       this.headers = new Headers(init?.headers ?? {});
-      this._body = body;
+      this.body = body;
       if (body && typeof body === 'object' && !this.headers.get('content-type')) {
         this.headers.set('content-type', 'application/json');
       }
@@ -118,10 +120,10 @@ if (!global.Response) {
     get ok() {
       return this.status >= 200 && this.status < 300;
     }
-    text(): Promise<string> {
-      if (typeof this.body === 'string') return Promise.resolve(this.body);
-      if (this.body == null) return Promise.resolve('');
-      return Promise.resolve(String(this.body));
+    async text(): Promise<string> {
+      if (typeof this.body === 'string') return this.body;
+      if (this.body == null) return '';
+      return String(this.body);
     }
     async json(): Promise<any> {
       if (typeof this.body === 'string') return JSON.parse(this.body);

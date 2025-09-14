@@ -2,6 +2,8 @@ import axios from 'axios';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth0 } from '@/lib/auth0';
+import type { UserProfileResponse } from '@/app/api/types/response.types';
+import type { User } from '@/types/User.types';
 
 // Debug mode test:  let x=1;const    y =   2;
 
@@ -81,16 +83,10 @@ const setupEnvironment = (backendUrl?: string) => {
 };
 
 describe('FetchUserProfile', () => {
-  let fetchUserProfile: (
-    token: string,
-    backendUrl: string,
-  ) => Promise<{
-    data: unknown;
-    status: number;
-    statusText: string;
-    headers: unknown;
-    config: unknown;
-  }>;
+  let fetchUserProfile: (token: string, backendUrl: string) => Promise<UserProfileResponse>;
+
+  const TEST_TOKEN = 'test-token';
+  const TEST_BACKEND_URL = 'http://localhost:5001';
 
   beforeAll(async () => {
     const { fetchUserProfile: fn } = await import('@/app/api/user/me/route');
@@ -102,17 +98,15 @@ describe('FetchUserProfile', () => {
   });
 
   it('Should make correct API call with token and return user data', async () => {
-    const mockUserData = {
+    const mockUserData: Partial<User> = {
       userId: '1',
       Email: 'test@example.com',
       Avatar: 'avatar.jpg',
     };
-    const token = 'test-token';
-    const backendUrl = 'http://localhost:5001';
 
     mockedAxios.get.mockResolvedValue(createMockAxiosResponse(mockUserData, 200));
 
-    const result = await fetchUserProfile(token, backendUrl);
+    const result = await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
 
     expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
       headers: {
@@ -128,20 +122,15 @@ describe('FetchUserProfile', () => {
   });
 
   it('Should handle 404 response', async () => {
-    const token = 'test-token';
-    const backendUrl = 'http://localhost:5001';
-
     mockedAxios.get.mockResolvedValue(createMockAxiosResponse(null, 404));
 
-    const result = await fetchUserProfile(token, backendUrl);
+    const result = await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
 
     expect(result.status).toBe(404);
     expect(result.data).toBe(null);
   });
 
-  it('Should reject for non-200/404 status codes', async () => {
-    const token = 'test-token';
-    const backendUrl = 'http://localhost:5001';
+  it('Should reject for 403 status codes', async () => {
     const axiosError = {
       isAxiosError: true,
       response: { status: 403, data: { error: 'Forbidden' } },
@@ -149,16 +138,24 @@ describe('FetchUserProfile', () => {
 
     mockedAxios.get.mockRejectedValue(axiosError);
 
-    await expect(fetchUserProfile(token, backendUrl)).rejects.toBe(axiosError);
+    await expect(fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL)).rejects.toBe(axiosError);
+  });
+
+  it('Should reject for 500 status codes', async () => {
+    const axiosError = {
+      isAxiosError: true,
+      response: { status: 500, data: { error: 'Internal Server Error' } },
+    };
+
+    mockedAxios.get.mockRejectedValue(axiosError);
+
+    await expect(fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL)).rejects.toBe(axiosError);
   });
 
   it('Should configure validateStatus correctly', async () => {
-    const token = 'test-token';
-    const backendUrl = 'http://localhost:5001';
-
     mockedAxios.get.mockResolvedValue(createMockAxiosResponse({}, 200));
 
-    await fetchUserProfile(token, backendUrl);
+    await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
 
     const axiosCall = mockedAxios.get.mock.calls[0];
     const config = axiosCall[1];
