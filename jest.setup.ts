@@ -2,6 +2,136 @@ import '@testing-library/jest-dom';
 import type { ImageProps } from 'next/image';
 import React from 'react';
 
+// Web Request polyfill for Jest (favor undici if available, else minimal shim)
+try {
+  const {
+    Request: UndiciRequest,
+    Headers: UndiciHeaders,
+    Response: UndiciResponse,
+    fetch: undiciFetch,
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+  } = require('undici');
+  if (!globalThis.Request) globalThis.Request = UndiciRequest as never;
+  if (!globalThis.Headers) globalThis.Headers = UndiciHeaders as never;
+  if (!globalThis.Response) globalThis.Response = UndiciResponse as never;
+  if (!globalThis.fetch) globalThis.fetch = undiciFetch as never;
+} catch {
+  // undici not available; fall back to a minimal standards-like Request
+}
+if (!globalThis.Headers) {
+  class MinimalHeaders {
+    private _headers: Record<string, string> = {};
+
+    constructor(init?: HeadersInit) {
+      if (!init) return;
+      if (Array.isArray(init)) {
+        for (const [key, value] of init) {
+          this._headers[String(key).toLowerCase()] = String(value);
+        }
+      } else if (
+        typeof init === 'object' &&
+        'entries' in init &&
+        typeof (init as any).entries === 'function'
+      ) {
+        for (const [key, value] of Array.from(
+          (init as any).entries() as Iterable<[string, string]>,
+        )) {
+          this._headers[String(key).toLowerCase()] = String(value);
+        }
+      } else if (typeof init === 'object') {
+        for (const [key, value] of Object.entries(init as Record<string, string>)) {
+          this._headers[String(key).toLowerCase()] = String(value);
+        }
+      }
+    }
+
+    get(name: string): string | null {
+      return this._headers[name.toLowerCase()] || null;
+    }
+
+    set(name: string, value: string): void {
+      this._headers[name.toLowerCase()] = String(value);
+    }
+
+    has(name: string): boolean {
+      return Object.prototype.hasOwnProperty.call(this._headers, name.toLowerCase());
+    }
+
+    delete(name: string): void {
+      delete this._headers[name.toLowerCase()];
+    }
+    *entries(): IterableIterator<[string, string]> {
+      for (const [key, value] of Object.entries(this._headers)) {
+        yield [key, value];
+      }
+    }
+    forEach(cb: (value: string, key: string) => void): void {
+      for (const [key, value] of Object.entries(this._headers)) cb(value, key);
+    }
+    [Symbol.iterator](): IterableIterator<[string, string]> {
+      return this.entries();
+    }
+  }
+  globalThis.Headers = MinimalHeaders as never;
+}
+
+if (!globalThis.Request) {
+  class MinimalRequest {
+    url: string;
+    method: string;
+    headers: Headers;
+    body?: BodyInit | null;
+    constructor(input: string | Request, init: RequestInit = {}) {
+      const fromReq = typeof input === 'string' ? undefined : (input as Request);
+      this.url = typeof input === 'string' ? input : fromReq!.url;
+      // Merge semantics: init overrides input, fall back to GET
+      this.method = init.method ?? (fromReq as Request)?.method ?? 'GET';
+      this.headers = new Headers(init.headers ?? (fromReq as Request)?.headers ?? {});
+      this.body = init.body ?? (fromReq as Request)?.body;
+    }
+    clone() {
+      return new (globalThis as typeof globalThis & { Request: typeof Request }).Request(this.url, {
+        method: this.method,
+        headers: new globalThis.Headers(this.headers),
+        body: this.body,
+      });
+    }
+  }
+  globalThis.Request = MinimalRequest as never;
+}
+
+if (!global.Response) {
+  global.Response = class Response {
+    status: number;
+    statusText: string;
+    headers: Headers;
+    body?: unknown;
+
+    constructor(body?: unknown, init?: ResponseInit) {
+      this.status = init?.status || 200;
+      this.statusText = init?.statusText || 'OK';
+      this.headers = new Headers(init?.headers ?? {});
+      this.body = body;
+      if (body && typeof body === 'object' && !this.headers.get('content-type')) {
+        this.headers.set('content-type', 'application/json');
+      }
+    }
+
+    get ok() {
+      return this.status >= 200 && this.status < 300;
+    }
+    async text(): Promise<string> {
+      if (typeof this.body === 'string') return this.body;
+      if (this.body == null) return '';
+      return String(this.body);
+    }
+    async json(): Promise<any> {
+      if (typeof this.body === 'string') return JSON.parse(this.body);
+      return this.body;
+    }
+  } as never;
+}
+
 if (typeof window !== 'undefined') {
   window.HTMLElement.prototype.scrollIntoView = function () {};
 }

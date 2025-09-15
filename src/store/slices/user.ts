@@ -2,43 +2,53 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
 
-interface UserState {
+enum State {
+  Unauthenticated = 0,
+  AuthenticatedButNoProfile = 1,
+  AuthenticatedWithProfile = 2,
+}
+export interface UserState {
   isLoading: boolean;
-  userData: User | null;
-  error?: string;
+  data: User | null;
+  error: string | null;
+  authStatus: State;
 }
 
 const initialState: UserState = {
   isLoading: false,
-  userData: null,
-  error: '',
+  data: null,
+  error: null,
+  authStatus: State.Unauthenticated,
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<User>) => {
-      state.userData = action.payload;
+    setUser: (state, action: PayloadAction<User | null>) => {
+      state.data = action.payload;
+      state.error = null;
+      state.isLoading = false;
+      state.authStatus =
+        action.payload === null ? State.AuthenticatedButNoProfile : State.AuthenticatedWithProfile;
     },
     logOut: (state) => {
-      state.userData = null;
-    },
-    fetchUserRequest(state) {
-      state.isLoading = true;
-      state.error = '';
-    },
-    fetchUserSuccess(state, action: PayloadAction<Omit<UserState, 'isLoading' | 'error'>>) {
+      state.data = null;
+      state.error = null;
       state.isLoading = false;
-      Object.assign(state, action.payload);
+      state.authStatus = State.Unauthenticated;
     },
-    fetchUserFailure(state, action: PayloadAction<string>) {
-      state.isLoading = false;
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+      if (action.payload) state.error = null;
+    },
+    setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
+      state.isLoading = false;
     },
+    fetchUser: () => {},
   },
 });
 
-export const { fetchUserRequest, fetchUserSuccess, fetchUserFailure, setUser, logOut } =
-  userSlice.actions;
+export const { setUser, logOut, setLoading, fetchUser, setError } = userSlice.actions;
 export default userSlice.reducer;
