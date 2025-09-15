@@ -12,7 +12,6 @@ type Props = {
   initialPreview?:string;
 }
 
-// initialPreview prop is only valid when this component is used in editUser flow rather than createUser flow
 const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview }) => {
   const [preview, setPreview] = useState<string | null>(initialPreview ?? null);
   const [status, setStatus] = useState<'none' | 'selected' | 'error'>('none');
@@ -37,9 +36,16 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
     }
 
     setStatus('selected');
+    setMessage(<Trans id="file.upload.progress" message="The image is selected" />);
+
     const imageUrl = URL.createObjectURL(file);
     setPreview(imageUrl);
-    selectedImage(file);
+
+    setTimeout(() => {
+      setStatus('uploaded');
+      //! Change the message
+      setMessage(<Trans id="file.upload.success" message="The image is uploaded" />);
+    }, 3000);
   };
 
   const handleRemove = () => {
@@ -50,6 +56,28 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
     imageInputRef.current!.value = '';
   };
 
+  const renderStatus = () => {
+    switch (status) {
+      // case 'uploading':
+      //   return (
+      //     <>
+      //       <CircularProgress sx={{ mt: 2 }} />
+      //       <Typography variant="body2" sx={{ mt: 2 }}>
+      //         &nbsp;{message}&nbsp;
+      //       </Typography>
+      //     </>
+      //   );
+      case 'selected':
+      case 'error':
+        return (
+          <Typography variant="body2" sx={{ mt: 2 }}>
+            &nbsp;{message}&nbsp;
+          </Typography>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="flex min-w-[35rem] flex-col items-center justify-center gap-4 rounded-xl border-2 pb-4">
@@ -82,9 +110,7 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
         className="w-[150px] h-[150px] rounded-xl border-2 border-indigo-600 object-cover"
       />
 
-      {status == 'error' && (
-        <Typography variant="body2" sx={{ mt: 2 }}> &nbsp;{message}&nbsp;</Typography>
-      )}
+      {renderStatus()}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">

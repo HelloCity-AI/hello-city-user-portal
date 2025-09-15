@@ -8,6 +8,7 @@ import { createUser } from '@/api/userApi';
 import { Trans } from '@lingui/react';
 import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
+import ProfileImageUploader from '@/src/components/profileImageUploader';
 
 const Page = () => {
   const { user, isLoading } = useUser();
