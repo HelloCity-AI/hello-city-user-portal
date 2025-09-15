@@ -1,4 +1,5 @@
 import { auth0 } from '@/lib/auth0';
+import { AccessTokenError } from '@auth0/nextjs-auth0/errors';
 import axios from 'axios';
 import { type NextRequest, NextResponse } from 'next/server';
 
@@ -19,18 +20,6 @@ export async function GET(_request: NextRequest) {
   try {
     const tokenResponse = await auth0.getAccessToken();
     const token = tokenResponse?.token;
-    if (!token) {
-      return NextResponse.json(
-        { error: 'Unauthenticated', code: 'NO_ACCESS_TOKEN' },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="No access token"',
-          },
-        },
-      );
-    }
 
     const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
     if (!apiUrl) {
@@ -43,11 +32,28 @@ export async function GET(_request: NextRequest) {
     const userResponse = await fetchUserProfile(token, apiUrl);
     return NextResponse.json(userResponse.data, { status: userResponse.status });
   } catch (error) {
+    if (error instanceof AccessTokenError) {
+      return NextResponse.json(
+        {
+          error: 'Unauthorized',
+          code: error.code,
+          details: error.message,
+        },
+        {
+          status: 401,
+          headers: {
+            'WWW-Authenticate':
+              'Bearer realm="api", error="invalid_token", error_description="Missing Session"',
+          },
+        },
+      );
+    }
+
     if (axios.isAxiosError(error)) {
       if (error.response?.status === 401) {
         return NextResponse.json(
           {
-            error: 'Unauthenticated',
+            error: 'Unauthorized',
             code: 'BACKEND_UNAUTHORIZED',
             details: error.message,
           },
