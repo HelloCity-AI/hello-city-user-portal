@@ -1,7 +1,7 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { setUser, setLoading, fetchUser, setError } from '../../src/store/slices/user';
-import userSaga, { handleFetchUser, fetchUserApi } from '../../src/store/sagas/userSaga';
-import type { User } from '../../src/types/User.types';
+import { setUser, setLoading, fetchUser, setError, setAuth, AuthState } from '@/store/slices/user';
+import userSaga, { handleFetchUser, fetchUserApi } from '@/store/sagas/userSaga';
+import type { User } from '@/types/User.types';
 import axios, {
   type AxiosResponse,
   type AxiosRequestHeaders,
@@ -51,6 +51,7 @@ describe('userSaga', () => {
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.next(mockResponse).value).toEqual(put(setUser(mockResponse.data)));
+      expect(generator.next().value).toEqual(put(setAuth(AuthState.AuthenticatedWithProfile)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
@@ -64,6 +65,21 @@ describe('userSaga', () => {
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApi));
       expect(generator.next(mockResponse).value).toEqual(put(setUser(null)));
+      expect(generator.next().value).toEqual(put(setAuth(AuthState.AuthenticatedButNoProfile)));
+      expect(generator.next().value).toEqual(put(setLoading(false)));
+      expect(generator.next().done).toBe(true);
+    });
+
+    it('Should handle API call with 401 status', () => {
+      const mockResponse = createMockAxiosResponse(null, 401);
+
+      const generator = handleFetchUser();
+      expect(generator.next().value).toEqual(put(setLoading(true)));
+
+      const callEffect = generator.next().value;
+      expect(callEffect).toEqual(call(fetchUserApi));
+      expect(generator.next(mockResponse).value).toEqual(put(setAuth(AuthState.Unauthenticated)));
+      expect(generator.next().value).toEqual(put(setUser(null)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
