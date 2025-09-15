@@ -8,7 +8,7 @@ import { createUser } from '@/api/userApi';
 import { Trans } from '@lingui/react';
 import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
-import ProfileImageUploader from '@/src/components/profileImageUploader';
+import ProfileImageUploader from '@/components/profileImageUploader';
 
 const Page = () => {
   const { user, isLoading } = useUser();
@@ -16,6 +16,8 @@ const Page = () => {
     ...defaultUser,
     userId: '', // This will be used as username
   });
+
+  const [profileImage, setProfileImage] = useState<File | null>(null);
 
   // Set Email after Auth0 user information is loaded
   useEffect(() => {
@@ -43,6 +45,8 @@ const Page = () => {
       alert('Invalid email format');
       return;
     }
+
+    setFormData((prev) => ({...prev, AvatarFile: profileImage}));
 
     try {
       console.log('Form Sent: ', formData);
@@ -85,7 +89,7 @@ const Page = () => {
             Hello City
           </Typography>
         </div>
-
+        <ProfileImageUploader selectedImage={setProfileImage} />
         <div className="w-full">
           <input
             type="text"
