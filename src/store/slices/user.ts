@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
 
-enum State {
+export enum AuthState {
   Unauthenticated = 0,
   AuthenticatedButNoProfile = 1,
   AuthenticatedWithProfile = 2,
@@ -11,14 +11,14 @@ export interface UserState {
   isLoading: boolean;
   data: User | null;
   error: string | null;
-  authStatus: State;
+  authStatus: AuthState;
 }
 
 const initialState: UserState = {
   isLoading: false,
   data: null,
   error: null,
-  authStatus: State.Unauthenticated,
+  authStatus: AuthState.Unauthenticated,
 };
 
 const userSlice = createSlice({
@@ -28,15 +28,15 @@ const userSlice = createSlice({
     setUser: (state, action: PayloadAction<User | null>) => {
       state.data = action.payload;
       state.error = null;
-      state.isLoading = false;
-      state.authStatus =
-        action.payload === null ? State.AuthenticatedButNoProfile : State.AuthenticatedWithProfile;
     },
     logOut: (state) => {
       state.data = null;
       state.error = null;
+      state.authStatus = AuthState.Unauthenticated;
       state.isLoading = false;
-      state.authStatus = State.Unauthenticated;
+    },
+    setAuth: (state, action: PayloadAction<AuthState>) => {
+      state.authStatus = action.payload;
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
@@ -50,5 +50,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUser, logOut, setLoading, fetchUser, setError } = userSlice.actions;
+export const { setUser, logOut, setLoading, fetchUser, setError, setAuth } = userSlice.actions;
 export default userSlice.reducer;
