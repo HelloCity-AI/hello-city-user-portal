@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
-import DesktopNavBar from '@/components/NavBar/DesktopNavBar';
+import DesktopNavBar from '@/compoundComponents/NavBar/DesktopNavBar';
 import { TestProviders } from '../utils/TestWrapper';
 import { mockNavConfig } from './mockData';
 

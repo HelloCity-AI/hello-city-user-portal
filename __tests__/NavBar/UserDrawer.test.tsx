@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import UserDrawer from '@/components/NavBar/UserDrawer';
+import UserDrawer from '@/compoundComponents/NavBar/UserDrawer';
 import { TestProviders } from '../utils/TestWrapper';
 import * as dropdownMenuModule from '@/components/dropdownMenuOptions.example';
 

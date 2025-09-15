@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, act } from '@testing-library/react';
-import NavBar from '@/components/NavBar/NavBar';
+import NavBar from '@/compoundComponents/NavBar/NavBar';
 import { TestProviders } from '../utils/TestWrapper';
 import { devices } from '../utils/DeviceConfig';
 

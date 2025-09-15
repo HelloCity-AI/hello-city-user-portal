@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import NavDrawer from '@/components/NavBar/NavDrawer';
+import NavDrawer from '@/compoundComponents/NavBar/NavDrawer';
 import { TestProviders } from '../utils/TestWrapper';
 import { mockNavItems } from './mockData';
 

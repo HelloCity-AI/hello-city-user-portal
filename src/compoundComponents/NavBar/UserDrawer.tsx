@@ -9,8 +9,8 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import { userMenuOptions } from '../dropdownMenuOptions.example';
-import UserProfileCard from '../UserLabel';
+import { userMenuOptions } from '@/components/dropdownMenuOptions.example';
+import { UserProfileCard } from '@/components';
 
 interface UserDrawerProps extends DrawerProps {
   closeDrawer: () => void;

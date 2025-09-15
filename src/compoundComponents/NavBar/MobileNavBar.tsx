@@ -3,19 +3,19 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { Trans } from '@lingui/react';
-import SectionContent from '../HomepageSections/SectionContent';
+import SectionContent from '@/components/HomepageSections/SectionContent';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import NavDrawer from './NavDrawer';
 import UserDrawer from './UserDrawer';
+import { UserAvatar } from '@/components';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
 
-const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
+const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
   const [navDrawerMenu, setNavDrawerMenu] = useState<NavItem[][]>([]);
   const [navDrawerSubMenuIdx, setNavDrawerSubMenuIdx] = useState<number | null>(null);
@@ -96,18 +96,10 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
   );
 
   const renderAuthButton = () => {
-    if (hasSignedIn) {
+    if (hasAuthenticated) {
       return (
         <IconButton onClick={handleUserDrawer} aria-label="User menu">
-          <Avatar
-            sx={{
-              width: 32,
-              height: 32,
-              cursor: 'pointer',
-            }}
-            src="/images/banner-image.jpeg"
-            alt="User Avatar"
-          />
+          <UserAvatar size={32} />
         </IconButton>
       );
     }
@@ -153,7 +145,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasSignedIn }) => {
         {renderLogoOrBack()}
         {renderMobileUserActions()}
       </SectionContent>
-      {hasSignedIn && <UserDrawer open={isUserDrawerOpen} closeDrawer={closeDrawerMenu} />}
+      {hasAuthenticated && <UserDrawer open={isUserDrawerOpen} closeDrawer={closeDrawerMenu} />}
       <NavDrawer
         open={isNavDrawerOpen}
         closeDrawer={closeDrawerMenu}

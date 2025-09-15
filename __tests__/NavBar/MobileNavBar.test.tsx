@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import MobileNavBar from '@/components/NavBar/MobileNavBar';
+import MobileNavBar from '@/compoundComponents/NavBar/MobileNavBar';
 import { TestProviders } from '../utils/TestWrapper';
 import { mockNavConfig } from './mockData';
 

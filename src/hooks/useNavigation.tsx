@@ -5,8 +5,8 @@ import type {
   NavConfig,
   SupportedLanguage,
   LanguageInfo,
-} from '@/components/NavBar/navConfig';
-import { SUPPORTED_LANGUAGES, LOGO_CONFIG } from '@/components/NavBar/navConfig';
+} from '@/compoundComponents/NavBar/navConfig';
+import { SUPPORTED_LANGUAGES, LOGO_CONFIG } from '@/compoundComponents/NavBar/navConfig';
 
 export const useNavigation = (): NavConfig => {
   const { language, setLanguage } = useLanguage();

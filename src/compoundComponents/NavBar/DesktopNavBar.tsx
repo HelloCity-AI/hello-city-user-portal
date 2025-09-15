@@ -3,23 +3,22 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { Trans } from '@lingui/react';
 import { twMerge } from 'tailwind-merge';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
-import { Dropdown } from '..';
-import { userMenuOptions } from '../dropdownMenuOptions.example';
-import SectionContent from '../HomepageSections/SectionContent';
+import { Dropdown, UserAvatar } from '@/components';
+import { userMenuOptions } from '@/components/dropdownMenuOptions.example';
+import SectionContent from '@/components/HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 
 const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
 const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 
-const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
+const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) => {
   const [hasBgColor, setHasBgColor] = useState<boolean>(false);
   const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
   const scrollYRef = useRef(0);
@@ -109,18 +108,10 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   );
 
   const renderAuthSection = () => {
-    if (hasSignedIn) {
+    if (hasAuthenticated) {
       return (
         <Dropdown
-          anchorElContent={
-            <Avatar
-              sx={{ width: 40, height: 40, cursor: 'pointer' }}
-              src="/images/banner-image.jpeg"
-              alt="User Avatar"
-              role="button"
-              aria-label="User menu"
-            />
-          }
+          anchorElContent={<UserAvatar size={40} role="button" aria-label="User menu" />}
           dropdownOptions={userMenuOptions}
           showUserLabel
         />
