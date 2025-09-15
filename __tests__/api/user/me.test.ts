@@ -2,6 +2,7 @@ import axios from 'axios';
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth0 } from '@/lib/auth0';
+import { AccessTokenError } from '@auth0/nextjs-auth0/errors';
 import type { UserProfileResponse } from '@/app/api/types/response.types';
 import type { User } from '@/types/User.types';
 
@@ -11,6 +12,16 @@ jest.mock('axios');
 jest.mock('@/lib/auth0', () => ({
   auth0: {
     getAccessToken: jest.fn(),
+  },
+}));
+jest.mock('@auth0/nextjs-auth0/errors', () => ({
+  AccessTokenError: class MockAccessTokenError extends Error {
+    code: string;
+    constructor(code: string, message: string) {
+      super(message);
+      this.name = 'AccessTokenError';
+      this.code = code;
+    }
   },
 }));
 
@@ -221,37 +232,145 @@ describe('GET Handler', () => {
   });
 
   describe('Authentication errors', () => {
-    it('Should return 401 when no access token', async () => {
+    it('Should handle AccessTokenError from auth0', async () => {
       const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(null));
+      const accessTokenError = new AccessTokenError('invalid_session', 'Session expired');
+
+      mockedAuth0.getAccessToken.mockRejectedValue(accessTokenError);
 
       await GET(mockRequest);
 
       expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        { error: 'Unauthenticated', code: 'NO_ACCESS_TOKEN' },
+        {
+          error: 'Unauthorized',
+          code: 'invalid_session',
+          details: 'Session expired',
+        },
         {
           status: 401,
           headers: {
             'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="No access token"',
+              'Bearer realm="api", error="invalid_token", error_description="Missing Session"',
           },
         },
       );
     });
 
-    it('Should return 401 when getAccessToken returns undefined', async () => {
+    it('Should pass null token to backend and handle 401 response', async () => {
       const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(undefined as never);
+      const axiosError = {
+        isAxiosError: true,
+        response: { status: 401, data: { error: 'Unauthorized' } },
+        message: 'Request failed with status code 401',
+      };
+
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(null));
+      mockedAxios.get.mockRejectedValue(axiosError);
+      mockedIsAxiosError.mockReturnValue(true);
 
       await GET(mockRequest);
 
+      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
+        headers: {
+          Authorization: 'Bearer null',
+          'Cache-Control': 'no-store',
+          Accept: 'application/json',
+        },
+        timeout: 10000,
+        validateStatus: expect.any(Function),
+      });
+
       expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        { error: 'Unauthenticated', code: 'NO_ACCESS_TOKEN' },
+        {
+          error: 'Unauthorized',
+          code: 'BACKEND_UNAUTHORIZED',
+          details: 'Request failed with status code 401',
+        },
         {
           status: 401,
           headers: {
             'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="No access token"',
+              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
+          },
+        },
+      );
+    });
+
+    it('Should pass undefined token to backend and handle 401 response', async () => {
+      const mockRequest = {} as NextRequest;
+      const axiosError = {
+        isAxiosError: true,
+        response: { status: 401, data: { error: 'Unauthorized' } },
+        message: 'Request failed with status code 401',
+      };
+
+      mockedAuth0.getAccessToken.mockResolvedValue(undefined as never);
+      mockedAxios.get.mockRejectedValue(axiosError);
+      mockedIsAxiosError.mockReturnValue(true);
+
+      await GET(mockRequest);
+
+      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
+        headers: {
+          Authorization: 'Bearer undefined',
+          'Cache-Control': 'no-store',
+          Accept: 'application/json',
+        },
+        timeout: 10000,
+        validateStatus: expect.any(Function),
+      });
+
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
+        {
+          error: 'Unauthorized',
+          code: 'BACKEND_UNAUTHORIZED',
+          details: 'Request failed with status code 401',
+        },
+        {
+          status: 401,
+          headers: {
+            'WWW-Authenticate':
+              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
+          },
+        },
+      );
+    });
+
+    it('Should pass empty string token to backend and handle 401 response', async () => {
+      const mockRequest = {} as NextRequest;
+      const axiosError = {
+        isAxiosError: true,
+        response: { status: 401, data: { error: 'Unauthorized' } },
+        message: 'Request failed with status code 401',
+      };
+
+      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(''));
+      mockedAxios.get.mockRejectedValue(axiosError);
+      mockedIsAxiosError.mockReturnValue(true);
+
+      await GET(mockRequest);
+
+      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
+        headers: {
+          Authorization: 'Bearer ',
+          'Cache-Control': 'no-store',
+          Accept: 'application/json',
+        },
+        timeout: 10000,
+        validateStatus: expect.any(Function),
+      });
+
+      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
+        {
+          error: 'Unauthorized',
+          code: 'BACKEND_UNAUTHORIZED',
+          details: 'Request failed with status code 401',
+        },
+        {
+          status: 401,
+          headers: {
+            'WWW-Authenticate':
+              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
           },
         },
       );
@@ -292,7 +411,7 @@ describe('GET Handler', () => {
 
       expect(nextResponseJsonSpy).toHaveBeenCalledWith(
         {
-          error: 'Unauthenticated',
+          error: 'Unauthorized',
           code: 'BACKEND_UNAUTHORIZED',
           details: 'Request failed with status code 401',
         },
