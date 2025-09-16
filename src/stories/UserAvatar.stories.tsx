@@ -75,7 +75,7 @@ const UserAvatarStory: React.FC<UserAvatarStoryProps> = ({ userType, ...avatarPr
 };
 
 const meta: Meta<typeof UserAvatarStory> = {
-  title: 'Components/UserAvatar',
+  title: 'compoundComponents/UserAvatar',
   component: UserAvatarStory,
   parameters: {
     layout: 'centered',

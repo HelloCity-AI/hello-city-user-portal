@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import UserAvatar from '@/components/UserAvatar';
+import UserAvatar from '@/compoundComponents/UserAvatar';
 import type { User } from '@/types/User.types';
 import type { UserState } from '@/store/slices/user';
 import { AuthState } from '@/store/slices/user';
@@ -15,7 +15,7 @@ const testTheme = createTheme();
 const mockUserWithAvatar: User = {
   userId: '123',
   Email: 'test@example.com',
-  Avatar: 'https://example.com/avatar.jpg',
+  Avatar: '/images/default-avatar.jpg',
   Gender: '',
   nationality: '',
   city: '',
@@ -85,7 +85,7 @@ describe('UserAvatar', () => {
     renderWithProviders(<UserAvatar />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '32', height: '32' });
+    expect(avatarContainer).toHaveStyle({ width: '32px', height: '32px' });
   });
 
   it('renders with custom size when size prop provided', () => {
@@ -93,7 +93,7 @@ describe('UserAvatar', () => {
     renderWithProviders(<UserAvatar size={customSize} />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '48', height: '48' });
+    expect(avatarContainer).toHaveStyle({ width: '48px', height: '48px' });
   });
 
   it('renders with string size value', () => {
@@ -123,11 +123,11 @@ describe('UserAvatar', () => {
   });
 
   it('renders empty when no user data', () => {
-    renderWithProviders(<UserAvatar />, null);
+    renderWithProviders(<UserAvatar data-testid="user-avatar-empty" />, null);
 
-    // When no user data, Avatar should still render but without src and with empty children
-    const avatarElement = screen.getByRole('img', { name: 'User Avatar' });
-    expect(avatarElement).toBeInTheDocument();
-    expect(avatarElement).not.toHaveAttribute('src');
+    // When no user data, Avatar should still render but without an <img> element
+    const avatarContainer = screen.getByTestId('user-avatar-empty');
+    expect(avatarContainer).toBeInTheDocument();
+    expect(avatarContainer.querySelector('img')).not.toBeInTheDocument();
   });
 });

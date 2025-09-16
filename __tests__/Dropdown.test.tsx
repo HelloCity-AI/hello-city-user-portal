@@ -4,10 +4,10 @@ import { act, screen, within, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
-import type { DropdownOptionProps } from '@/hooks/useDropdownOptions';
+import type { MenuOption } from '@/types/menu';
 
 const fireMenuItem = jest.fn();
-const baseTestOptions: DropdownOptionProps[] = [
+const baseTestOptions: MenuOption[] = [
   {
     label: 'Profile',
     value: 'profile',
@@ -23,7 +23,7 @@ const baseTestOptions: DropdownOptionProps[] = [
     onClick: fireMenuItem,
   },
 ];
-const testOptionsWithoutIcon: DropdownOptionProps[] = [
+const testOptionsWithoutIcon: MenuOption[] = [
   { label: 'Profile', value: 'profile', onClick: fireMenuItem },
 ];
 

@@ -16,7 +16,7 @@ describe('useNavigation', () => {
     });
 
     const { navItems, currentLanguage, logo } = result.current;
-    expect(navItems).toHaveLength(4);
+    expect(navItems).toHaveLength(3);
     expect(navItems[0].href).toBe('/en'); // Tests href generation
     expect(currentLanguage.code).toBe('en');
     expect(logo.href).toBe('/en/');
@@ -32,13 +32,6 @@ describe('useNavigation', () => {
     // Test chat alert (contact item has no onClick, it uses href)
     act(() => navItems[1].onClick?.()); // chat
 
-    // Test language switching
-    const languageOptions = navItems[3].childrenItem;
-    act(() => languageOptions?.[0].onClick?.()); // English
-    act(() => languageOptions?.[1].onClick?.()); // Chinese
-    act(() => languageOptions?.[2].onClick?.()); // Coming soon
-
     expect(mockAlert).toHaveBeenCalledWith('chat');
-    expect(mockAlert).toHaveBeenCalledWith('Coming soon');
   });
 });

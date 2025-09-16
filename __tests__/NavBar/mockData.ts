@@ -14,16 +14,6 @@ export const mockNavItems: NavItem[] = [
       { id: 'mobile', label: 'Mobile Dev', href: '/mobile', onClick: jest.fn() },
     ],
   },
-  {
-    id: 'change language',
-    label: 'Language',
-    href: '',
-    onClick: jest.fn(),
-    childrenItem: [
-      { id: 'en', label: 'English', href: '', onClick: jest.fn() },
-      { id: 'zh', label: '中文', href: '', onClick: jest.fn() },
-    ],
-  },
 ];
 
 export const mockNavConfig: NavConfig = {

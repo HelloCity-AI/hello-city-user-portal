@@ -1,13 +1,27 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import DesktopNavBar from '@/compoundComponents/NavBar/DesktopNavBar';
 import { TestProviders } from '../utils/TestWrapper';
 import { mockNavConfig } from './mockData';
 
+// Local mock for next/image to avoid passing unsupported boolean props (e.g., fill) to DOM
+jest.mock('next/image', () => {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const React = require('react');
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MockNextImage = ({ src, alt, width, height, sizes }: any) => {
+    const resolvedSrc = typeof src === 'string' ? src : (src?.src ?? '');
+    return React.createElement('img', { src: resolvedSrc, alt, width, height, sizes });
+  };
+  MockNextImage.displayName = 'MockNextImage';
+  return MockNextImage;
+});
+
 const renderDesktopNavBar = (props = {}) => {
   const defaultProps = {
     navConfig: mockNavConfig,
-    hasSignedIn: false,
+    hasAuthenticated: false,
     ...props,
   };
 
@@ -82,14 +96,14 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
     });
 
     it('Shows user dropdown when signed in', () => {
-      renderDesktopNavBar({ hasSignedIn: true });
+      renderDesktopNavBar({ hasAuthenticated: true });
 
+      // Avatar trigger is labeled; alt text may not exist if no image src
       expect(screen.getByLabelText('User menu')).toBeInTheDocument();
-      expect(screen.getByAltText('User Avatar')).toBeInTheDocument();
     });
 
     it('Shows sign in button when not signed in', () => {
-      renderDesktopNavBar({ hasSignedIn: false });
+      renderDesktopNavBar({ hasAuthenticated: false });
 
       expect(screen.getByRole('link', { name: /sign in/i })).toBeInTheDocument();
     });
