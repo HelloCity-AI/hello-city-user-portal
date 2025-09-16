@@ -1,3 +1,4 @@
+// TODO:TODO: Re-enable language-aware routing after chat page implementation
 // import { useLanguage } from '@/contexts/LanguageContext';
 import { Trans } from '@lingui/react';
 

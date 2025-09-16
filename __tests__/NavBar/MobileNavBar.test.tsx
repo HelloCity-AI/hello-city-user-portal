@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import React from 'react';
+import React, { createElement } from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import MobileNavBar from '@/compoundComponents/NavBar/MobileNavBar';
 import { TestProviders } from '../utils/TestWrapper';
@@ -7,23 +6,19 @@ import { mockNavConfig } from './mockData';
 
 // Make MUI Drawer synchronous to avoid transition-related flakiness in jsdom
 jest.mock('@mui/material/Drawer', () => {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const React = require('react');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MockDrawer = ({ open, children, ...rest }: any) =>
-    open ? React.createElement('div', { role: 'presentation', ...rest }, children) : null;
+    open ? createElement('div', { role: 'presentation', ...rest }, children) : null;
   MockDrawer.displayName = 'MockMuiDrawer';
   return MockDrawer;
 });
 
 // Local mock for next/image to avoid passing unsupported boolean props (e.g., fill) to DOM
 jest.mock('next/image', () => {
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const React = require('react');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const MockNextImage = ({ src, alt, width, height, sizes }: any) => {
     const resolvedSrc = typeof src === 'string' ? src : (src?.src ?? '');
-    return React.createElement('img', { src: resolvedSrc, alt, width, height, sizes });
+    return createElement('img', { src: resolvedSrc, alt, width, height, sizes });
   };
   MockNextImage.displayName = 'MockNextImage';
   return MockNextImage;

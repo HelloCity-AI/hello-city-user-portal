@@ -86,7 +86,7 @@ const DropDown: React.FC<DropdownProps> = ({
       </IconButton>
       {/* Menu Paper*/}
       <Menu
-        // key={Number(hasRenderedOnce)}
+        key={Number(hasRenderedOnce)}
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}

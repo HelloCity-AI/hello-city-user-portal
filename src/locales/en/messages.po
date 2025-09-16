@@ -383,7 +383,7 @@ msgstr "Submit"
 #~ msgstr "Theme"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:97
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
 msgid "NavBar.Back"
 msgstr "← Back"
 
@@ -478,7 +478,7 @@ msgstr "Remove Picture"
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
 msgid "NavBar.Sign In"
 msgstr "Sign In"
 
@@ -498,6 +498,6 @@ msgid "file.upload.progress"
 msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:15
+#: src/hooks/useTryHelloCity.tsx:16
 msgid "NavBar.Try HelloCity"
 msgstr "Try HelloCity"

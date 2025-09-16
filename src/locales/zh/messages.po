@@ -440,7 +440,7 @@ msgstr "提交"
 #~ msgstr "主题"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:97
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
 msgid "NavBar.Back"
 msgstr "← 返回"
 
@@ -538,7 +538,7 @@ msgstr "删除照片"
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
 msgid "NavBar.Sign In"
 msgstr "登录"
 
@@ -558,6 +558,6 @@ msgid "file.upload.progress"
 msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:15
+#: src/hooks/useTryHelloCity.tsx:16
 msgid "NavBar.Try HelloCity"
 msgstr "试用 HelloCity"

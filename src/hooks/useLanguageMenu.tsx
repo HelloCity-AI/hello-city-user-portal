@@ -16,47 +16,33 @@ const ALL_LANGUAGES: LanguageInfo[] = Object.values(SUPPORTED_LANGUAGES);
  * Single-source language menu builder for NavBar, sidebars, etc.
  * - Derives options from SUPPORTED_LANGUAGES filtered by LanguageProvider.availableLanguages
  * - Exposes both Dropdown options and NavItem children for drawer menus
+ * - TODO: Integrate drawer and dropdown props into single data structure
  */
 const useLanguageMenu = () => {
   const { language, setLanguage, availableLanguages } = useLanguage();
 
   const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
 
-  // Build dropdown options directly without useMemo; the list is small and cheap to compute.
-  const supportedDropdown = ALL_LANGUAGES.filter((l) => availableLanguages.includes(l.code)).map(
-    (lang) => ({
+  // Language options for dropdown
+  const optionsForDropdown: MenuOption[] = ALL_LANGUAGES.map((lang) => {
+    const isSupported = availableLanguages.includes(lang.code);
+    return {
       label: lang.label,
       value: lang.code,
-      onClick: () => setLanguage(lang.code),
-    }),
-  );
-  const placeholderDropdown = ALL_LANGUAGES.filter((l) => !availableLanguages.includes(l.code))
-    .slice(0, 3)
-    .map((lang) => ({
-      label: lang.label,
-      value: lang.code,
-      onClick: () => alert('Coming soon'),
-    }));
-  const optionsForDropdown: MenuOption[] = [...supportedDropdown, ...placeholderDropdown];
+      onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+    };
+  });
 
-  // Build drawer children items similarly
-  const supportedChildren = ALL_LANGUAGES.filter((l) => availableLanguages.includes(l.code)).map(
-    (lang) => ({
+  // Language options for drawer
+  const childrenNavItems: NavItem[] = ALL_LANGUAGES.map((lang) => {
+    const isSupported = availableLanguages.includes(lang.code);
+    return {
       id: lang.code,
       href: '',
       label: lang.label,
-      onClick: () => setLanguage(lang.code),
-    }),
-  );
-  const placeholderChildren = ALL_LANGUAGES.filter((l) => !availableLanguages.includes(l.code))
-    .slice(0, 3)
-    .map((lang) => ({
-      id: lang.code,
-      href: '',
-      label: lang.label,
-      onClick: () => alert('Coming soon'),
-    }));
-  const childrenNavItems: NavItem[] = [...supportedChildren, ...placeholderChildren];
+      onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+    };
+  });
 
   return {
     currentLanguage,

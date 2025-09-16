@@ -39,8 +39,10 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
   const rootMenu: NavItem[] = [...navItems, languageRoot];
   const menuStack: NavItem[][] = [rootMenu];
   if (activeSubMenuIndex !== null) {
-    const subMenu = rootMenu[activeSubMenuIndex]?.childrenItem;
-    if (subMenu) menuStack.push(subMenu);
+    const activeItem = rootMenu[activeSubMenuIndex];
+    if (activeItem?.childrenItem) {
+      menuStack.push(activeItem.childrenItem);
+    }
   }
 
   const handleNavDrawer = () => {

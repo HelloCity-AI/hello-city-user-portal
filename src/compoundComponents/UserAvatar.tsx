@@ -18,7 +18,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({ size = 32, ...AvatarProps }) =>
       alt="User Avatar"
       {...AvatarProps}
     >
-      {data?.Email ? data.Email.slice(0, 1).toUpperCase() : undefined}
+      {data?.Email && data.Email.length > 0 ? data.Email.slice(0, 1).toUpperCase() : undefined}
     </Avatar>
   );
 };

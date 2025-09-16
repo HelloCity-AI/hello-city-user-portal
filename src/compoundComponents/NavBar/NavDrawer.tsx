@@ -29,6 +29,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
   ...DrawerProps
 }) => {
   const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
+  const translateX = activeSubMenuIndex !== null ? '-100%' : '0%';
 
   const handleClick = (index: number) => {
     const currentMenu = menuStack[menuStack.length - 1];
@@ -61,7 +62,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
             className="flex transition-transform"
             sx={{
               width: `${100 * menuStack.length}%`,
-              transform: `translateX(${activeSubMenuIndex !== null ? `${-100}%` : '0%'})`,
+              transform: `translateX(${translateX})`,
             }}
           >
             {menuStack.map((menu, level) => {

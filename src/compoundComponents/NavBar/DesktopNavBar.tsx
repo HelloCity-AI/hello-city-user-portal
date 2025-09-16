@@ -25,7 +25,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
   const scrollYRef = useRef(0);
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
-
+  const EXCLUDED_NAV_ITEMS = ['change language'];
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 
@@ -77,7 +77,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       className="col-span-2 flex items-center justify-start gap-4"
     >
       {navItems.map((navItem) => {
-        if (navItem.id === 'change language') return;
+        if (EXCLUDED_NAV_ITEMS.includes(navItem.id)) return;
         return (
           <Button
             component={Link}
