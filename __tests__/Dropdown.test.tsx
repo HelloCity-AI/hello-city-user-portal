@@ -4,7 +4,7 @@ import { act, screen, within, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
-import type { DropdownOptionProps } from '@/components/Dropdown';
+import type { DropdownOptionProps } from '@/hooks/useDropdownOptions';
 
 const fireMenuItem = jest.fn();
 const baseTestOptions: DropdownOptionProps[] = [

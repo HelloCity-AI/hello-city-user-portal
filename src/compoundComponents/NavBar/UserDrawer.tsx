@@ -9,22 +9,23 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import { userMenuOptions } from '@/components/dropdownMenuOptions.example';
 import { UserProfileCard } from '@/components';
+import type { MenuOption } from '@/types/menu';
 
 interface UserDrawerProps extends DrawerProps {
   closeDrawer: () => void;
+  options: MenuOption[];
 }
 
 const UserDrawer: React.FC<UserDrawerProps> = ({
   closeDrawer,
+  options,
   anchor = 'top',
   className = 'z-40',
   ...drawerProps
 }) => {
-  // args type to be updated
-  const handleClick = (menuAction: (value: string) => void, value: string) => {
-    menuAction(value);
+  const handleClick = (menuAction: () => void) => {
+    menuAction();
     closeDrawer();
   };
 
@@ -36,10 +37,10 @@ const UserDrawer: React.FC<UserDrawerProps> = ({
       <Divider className="mx-6 mt-5 border-t-[0.1px] border-dotted opacity-50" />
 
       <List className="px-7">
-        {userMenuOptions.map((option) => {
+        {options.map((option) => {
           return (
             <React.Fragment key={option.value}>
-              <ListItemButton onClick={() => handleClick(option.onClick, option.value)}>
+              <ListItemButton onClick={() => handleClick(option.onClick)}>
                 {option.icon && (
                   <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
                     <option.icon fontSize="small" sx={{ color: 'secondary.contrastText' }} />

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Box from '@mui/material/Box';
@@ -11,33 +11,41 @@ import SectionContent from '@/components/HomepageSections/SectionContent';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
 import NavDrawer from './NavDrawer';
 import UserDrawer from './UserDrawer';
-import { UserAvatar } from '@/components';
+import UserAvatar from '@/compoundComponents/UserAvatar';
+import useUserMenu from '@/hooks/useUserMenu';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
+import useLanguageMenu from '@/hooks/useLanguageMenu';
 
 const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
-  const [navDrawerMenu, setNavDrawerMenu] = useState<NavItem[][]>([]);
-  const [navDrawerSubMenuIdx, setNavDrawerSubMenuIdx] = useState<number | null>(null);
+  // Derive menuStack from inputs to avoid setState in effects
+  const [activeSubMenuIndex, setActiveSubMenuIndex] = useState<number | null>(null);
   const isBurgerIconChanged: boolean = openDrawer !== null;
   const isUserDrawerOpen: boolean = openDrawer === 'userDrawer';
   const isNavDrawerOpen: boolean = openDrawer === 'navDrawer';
   const { logo, navItems } = navConfig;
+  const { options: userMenuOptions, ModalNode } = useUserMenu();
 
-  useEffect(() => {
-    const navDrawerMenu: NavItem[][] = [];
-    const menu = navItems;
-    navDrawerMenu.push(menu);
-    if (navDrawerSubMenuIdx) {
-      const subMenu = menu[navDrawerSubMenuIdx]?.childrenItem;
-      if (subMenu) navDrawerMenu.push(subMenu);
-    }
-    setNavDrawerMenu(navDrawerMenu);
-  }, [navDrawerSubMenuIdx, navItems]);
+  const { childrenNavItems } = useLanguageMenu();
+
+  // Build menu stack directly; the dataset is small and recomputation is cheap.
+  const languageRoot: NavItem = {
+    id: 'change language',
+    href: '',
+    label: <Trans id="NavBar.ChangeLanguage" message="Change Language" />,
+    childrenItem: childrenNavItems,
+  };
+  const rootMenu: NavItem[] = [...navItems, languageRoot];
+  const menuStack: NavItem[][] = [rootMenu];
+  if (activeSubMenuIndex !== null) {
+    const subMenu = rootMenu[activeSubMenuIndex]?.childrenItem;
+    if (subMenu) menuStack.push(subMenu);
+  }
 
   const handleNavDrawer = () => {
     if (isBurgerIconChanged) {
-      setNavDrawerSubMenuIdx(null);
+      setActiveSubMenuIndex(null);
       setOpenDrawer(null);
       return;
     }
@@ -46,16 +54,16 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
 
   const handleUserDrawer = () => {
     if (!isUserDrawerOpen) {
-      setNavDrawerSubMenuIdx(null);
+      setActiveSubMenuIndex(null);
       setOpenDrawer('userDrawer');
       return;
     }
-    setNavDrawerSubMenuIdx(null);
+    setActiveSubMenuIndex(null);
     setOpenDrawer(null);
   };
 
   const closeDrawerMenu = () => {
-    setNavDrawerSubMenuIdx(null);
+    setActiveSubMenuIndex(null);
     setOpenDrawer(null);
   };
 
@@ -67,9 +75,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
       <Box
         component="div"
         className="absolute inset-0 transition-opacity duration-150"
-        sx={{
-          opacity: navDrawerSubMenuIdx === null ? 100 : 0,
-        }}
+        sx={{ opacity: activeSubMenuIndex === null ? 100 : 0 }}
       >
         <Link href={logo.href} className="relative block h-full w-full">
           <Image
@@ -83,12 +89,10 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
       </Box>
       <Button
         variant="tertiary"
-        onClick={() => setNavDrawerSubMenuIdx(null)}
+        onClick={() => setActiveSubMenuIndex(null)}
         disableFocusRipple
         className="flex items-center font-semibold text-primary transition-opacity duration-150"
-        sx={{
-          opacity: navDrawerSubMenuIdx !== null ? 100 : 0,
-        }}
+        sx={{ opacity: activeSubMenuIndex !== null ? 100 : 0 }}
       >
         <Trans id="NavBar.Back" message="← Back" />
       </Button>
@@ -111,7 +115,6 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
-        {/* A test comment to change line number of NaveBar.Sign In */}
         <Trans id="NavBar.Sign In" message="Sign In" />
       </Button>
     );
@@ -145,15 +148,22 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
         {renderLogoOrBack()}
         {renderMobileUserActions()}
       </SectionContent>
-      {hasAuthenticated && <UserDrawer open={isUserDrawerOpen} closeDrawer={closeDrawerMenu} />}
+      {hasAuthenticated && (
+        <UserDrawer
+          open={isUserDrawerOpen}
+          closeDrawer={closeDrawerMenu}
+          options={userMenuOptions}
+        />
+      )}
       <NavDrawer
         open={isNavDrawerOpen}
         closeDrawer={closeDrawerMenu}
         onClose={closeDrawerMenu}
-        fullMenu={navDrawerMenu}
-        setSubMenuIndex={setNavDrawerSubMenuIdx}
-        subMenuIdx={navDrawerSubMenuIdx}
+        menuStack={menuStack}
+        setActiveSubMenuIndex={setActiveSubMenuIndex}
+        activeSubMenuIndex={activeSubMenuIndex}
       />
+      {ModalNode}
     </Box>
   );
 };

@@ -5,10 +5,10 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Avatar from '@mui/material/Avatar';
 import Dropdown from '@/components/Dropdown';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import type { DropdownOptionProps } from '@/components/Dropdown';
+import type { MenuOption } from '@/types/menu';
 interface DropdownDisplayProps {
   anchorElContent: React.ReactNode;
-  dropdownOptions: DropdownOptionProps[];
+  dropdownOptions: MenuOption[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
   layout?: 'vertical' | 'horizontal'; // Specify whether the dropdown items should be laid out vertically or horizontally
@@ -18,7 +18,7 @@ interface DropdownDisplayProps {
   anchorOriginVertical: 'top' | 'center' | 'bottom';
 }
 
-const userMenuDisplayOptions: DropdownOptionProps[] = [
+const userMenuDisplayOptions: MenuOption[] = [
   {
     label: 'Profile',
     value: 'profile',
@@ -56,7 +56,7 @@ const userMenuDisplayOptions: DropdownOptionProps[] = [
   },
 ];
 
-const languageMenuDisplayOptions: DropdownOptionProps[] = [
+const languageMenuDisplayOptions: MenuOption[] = [
   {
     label: '简体中文',
     value: 'zh-CN',
