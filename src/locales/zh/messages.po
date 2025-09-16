@@ -425,7 +425,22 @@ msgstr "提交"
 #~ msgstr "请输入信息。"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:93
+#: src/components/dropdownMenuOptions.example.tsx:18
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:32
+#~ msgid "Subscription"
+#~ msgstr "订阅管理"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "主题"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:97
 msgid "NavBar.Back"
 msgstr "← 返回"
 
@@ -435,22 +450,28 @@ msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
+#: src/hooks/useLogoutConfirm.tsx:32
+msgid "Are you sure you want to log out?"
+msgstr "您确定要登出账户吗？"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/hooks/useLogoutConfirm.tsx:35
+msgid "cancel.button"
+msgstr "取消"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:30
 msgid "form.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-msgid "cancel.button"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:37
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
 msgid "NavBar.ChangeLanguage"
 msgstr "切换语言"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:26
+#: src/hooks/useNavigation.tsx:24
 msgid "NavBar.Chat"
 msgstr "聊天"
 
@@ -460,7 +481,7 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:32
+#: src/hooks/useNavigation.tsx:30
 msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
@@ -475,7 +496,7 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:21
+#: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "首页"
 
@@ -490,7 +511,9 @@ msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:39
+#: src/hooks/useLogoutConfirm.tsx:30
+#: src/hooks/useLogoutConfirm.tsx:34
+#: src/hooks/useUserMenu.tsx:34
 msgid "Logout"
 msgstr "登出"
 
@@ -498,7 +521,7 @@ msgstr "登出"
 #~ msgstr "返回"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:11
+#: src/hooks/useUserMenu.tsx:27
 msgid "Profile"
 msgstr "个人资料"
 
@@ -512,15 +535,10 @@ msgstr "头像"
 msgid "profile.avatar.remove"
 msgstr "删除照片"
 
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:18
-msgid "Settings"
-msgstr "设置"
-
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:138
-#: src/components/NavBar/MobileNavBar.tsx:123
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
 msgid "NavBar.Sign In"
 msgstr "登录"
 
@@ -528,11 +546,6 @@ msgstr "登录"
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "提交"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:32
-msgid "Subscription"
-msgstr "订阅管理"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -543,11 +556,6 @@ msgstr "图片上传成功"
 #: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
 msgstr "图片上传中..."
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:25
-msgid "Theme"
-msgstr "主题"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:15

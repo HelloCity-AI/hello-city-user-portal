@@ -368,7 +368,22 @@ msgstr "Submit"
 #~ msgstr "Message is required."
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:93
+#: src/components/dropdownMenuOptions.example.tsx:18
+#~ msgid "Settings"
+#~ msgstr "Settings"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:32
+#~ msgid "Subscription"
+#~ msgstr "Subscription"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "Theme"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:97
 msgid "NavBar.Back"
 msgstr "← Back"
 
@@ -378,22 +393,28 @@ msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
+#: src/hooks/useLogoutConfirm.tsx:32
+msgid "Are you sure you want to log out?"
+msgstr "Are you sure you want to log out?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/hooks/useLogoutConfirm.tsx:35
+msgid "cancel.button"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:30
 msgid "form.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-msgid "cancel.button"
-msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:37
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
 msgid "NavBar.ChangeLanguage"
 msgstr "Change Language"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:26
+#: src/hooks/useNavigation.tsx:24
 msgid "NavBar.Chat"
 msgstr "Chat"
 
@@ -403,7 +424,7 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:32
+#: src/hooks/useNavigation.tsx:30
 msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
@@ -418,7 +439,7 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:21
+#: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "Home"
 
@@ -433,12 +454,14 @@ msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:39
+#: src/hooks/useLogoutConfirm.tsx:30
+#: src/hooks/useLogoutConfirm.tsx:34
+#: src/hooks/useUserMenu.tsx:34
 msgid "Logout"
 msgstr "Logout"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:11
+#: src/hooks/useUserMenu.tsx:27
 msgid "Profile"
 msgstr "Profile"
 
@@ -452,15 +475,10 @@ msgstr "Profile Picture"
 msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:18
-msgid "Settings"
-msgstr "Settings"
-
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:138
-#: src/components/NavBar/MobileNavBar.tsx:123
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
 msgid "NavBar.Sign In"
 msgstr "Sign In"
 
@@ -468,11 +486,6 @@ msgstr "Sign In"
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:32
-msgid "Subscription"
-msgstr "Subscription"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -483,11 +496,6 @@ msgstr "The image is uploaded"
 #: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
 msgstr "The image is uploading ..."
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:25
-msgid "Theme"
-msgstr "Theme"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:15
