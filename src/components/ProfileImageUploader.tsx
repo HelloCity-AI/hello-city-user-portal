@@ -43,6 +43,7 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }
   };
 
   const handleRemove = () => {
+    selectedImage(null);
     setPreview(null);
     setStatus('none');
     setMessage(null);

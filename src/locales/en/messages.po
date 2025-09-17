@@ -373,7 +373,8 @@ msgid "NavBar.Back"
 msgstr "← Back"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:112
+#: src/components/ProfileImageEditor.tsx:118
+#: src/components/ProfileImageUploader.tsx:94
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
@@ -413,7 +414,8 @@ msgid "info.button"
 msgstr "Got it"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:90
+#: src/components/ProfileImageEditor.tsx:96
+#: src/components/ProfileImageUploader.tsx:67
 msgid "account.title"
 msgstr "HelloCity Account"
 
@@ -423,12 +425,13 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:172
 msgid "I'm all set"
 msgstr "I'm all set"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:25
+#: src/components/ProfileImageEditor.tsx:30
+#: src/components/ProfileImageUploader.tsx:31
 msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
@@ -443,12 +446,14 @@ msgid "Profile"
 msgstr "Profile"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageEditor.tsx:100
+#: src/components/ProfileImageUploader.tsx:71
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:118
+#: src/components/ProfileImageEditor.tsx:124
+#: src/components/ProfileImageUploader.tsx:100
 msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
@@ -475,14 +480,14 @@ msgid "Subscription"
 msgstr "Subscription"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:41
-msgid "file.upload.success"
-msgstr "The image is uploaded"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
+#: src/components/ProfileImageEditor.tsx:39
 msgid "file.upload.progress"
 msgstr "The image is uploading ..."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageEditor.tsx:47
+msgid "file.upload.success"
+msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25

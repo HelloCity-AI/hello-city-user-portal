@@ -54,14 +54,13 @@ const Page = () => {
       if (prevObjectUrlRef.current) URL.revokeObjectURL(prevObjectUrlRef.current);
       prevObjectUrlRef.current = url;
       setAvatarPreview(url);
-    } else {
-      if (prevObjectUrlRef.current) {
-        URL.revokeObjectURL(prevObjectUrlRef.current);
-        prevObjectUrlRef.current = null;
-      }
-      setAvatarPreview(null);
+    } 
+    if (!file && prevObjectUrlRef.current) {
+    URL.revokeObjectURL(prevObjectUrlRef.current);
+    prevObjectUrlRef.current = null;
+    setAvatarPreview(null);
     }
-  };
+  } 
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
