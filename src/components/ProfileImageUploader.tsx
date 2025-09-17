@@ -9,7 +9,7 @@ import type { ReactElement } from 'react';
 
 type Props = {
   selectedImage: (file: File | null) => void;
-  initialPreview?:string;
+  initialPreview?:string | null;
 }
 
 // initialPreview prop is only valid when this component is used in editUser flow rather than createUser flow
@@ -88,13 +88,13 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" >
+        <Button variant="secondary" component="label" sx={{width: 200, mx:1}}>
           <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
         {preview && (
-          <Button variant="secondary" onClick={handleRemove}>
+          <Button variant="secondary" onClick={handleRemove} sx={{width: 200, mx:1}}>
             <Trans id="profile.avatar.remove" message="Remove Picture" />
           </Button>
         )}

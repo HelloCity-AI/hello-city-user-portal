@@ -32,6 +32,10 @@ export const createUser = async (newUser: User) => {
     formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
   }
 
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile)
+  }
+
   // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
   //   formData.append('File', newUser.Avatar);

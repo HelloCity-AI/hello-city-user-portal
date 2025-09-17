@@ -3,7 +3,7 @@ import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttr
 export type User = {
   userId: string;
   Email: string;
-  AvatarFile?: File | null;
+  avatarFile?: File | null;
   Gender: Genders | '';
   nationality: Nationalities | '';
   city: Cities | '';
@@ -16,7 +16,7 @@ export type User = {
 export const defaultUser: User = {
   userId: '',
   Email: '',
-  AvatarFile: null,
+  avatarFile: null,
   Gender: '',
   nationality: '',
   city: '',
