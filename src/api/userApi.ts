@@ -33,7 +33,7 @@ export const createUser = async (newUser: User) => {
   }
 
   if (newUser.avatarFile) {
-    formData.append('File', newUser.avatarFile)
+    formData.append('File', newUser.avatarFile);
   }
 
   // If there's an avatar file, it can also be added

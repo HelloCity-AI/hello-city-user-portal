@@ -9,10 +9,10 @@ import type { ReactElement } from 'react';
 
 type Props = {
   selectedImage: (file: File | null) => void;
-  initialPreview?:string;
-}
+  initialPreview?: string;
+};
 
-const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview }) => {
+const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }) => {
   const [preview, setPreview] = useState<string | null>(initialPreview ?? null);
   const [status, setStatus] = useState<'none' | 'selected' | 'error'>('none');
   const [message, setMessage] = useState<ReactElement<typeof Trans> | null>(null);
@@ -107,14 +107,14 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
         alt={!preview ? 'Default Avatar' : 'Profile Image Preview'}
         width={150}
         height={150}
-        className="w-[150px] h-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
       />
 
       {renderStatus()}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" >
+        <Button variant="secondary" component="label">
           <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>

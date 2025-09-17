@@ -21,13 +21,13 @@ describe('ProfileImageUploader', () => {
 
   describe('UX responses test', () => {
     test('Default image testing ', () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       const defaultImg = screen.getByAltText('Default Avatar');
       expect(defaultImg).toHaveAttribute('src', '/images/default-avatar.jpg');
     });
 
     test('Testing uploads an image file, show preview and remove photos', async () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       uploadFile(new File(['fakeFile'], 'avatar.png', { type: 'image/png' }));
       // expect(await screen.findByText(/The image is uploading .../i)).toBeInTheDocument();
       // expect(screen.getByRole('progressbar')).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('ProfileImageUploader', () => {
     });
 
     test('Testing error message throw for invalid file - excceding 5MB', async () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       uploadFile(new File(['F'.repeat(6 * 1024 * 1024)], 'largeFile.png', { type: 'image/png' }));
 
       expect(
@@ -57,7 +57,7 @@ describe('ProfileImageUploader', () => {
     });
 
     test('Testing error message throw for invalid file - invalid type', async () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       uploadFile(new File(['textFile'], 'textFile.txt', { type: 'text/plain' }));
       expect(
         await screen.findByText('Invalid File size or type. Please upload an image file under 5MB'),
@@ -67,7 +67,7 @@ describe('ProfileImageUploader', () => {
 
   describe('Container className test', () => {
     test('ClassName on the outermost div', () => {
-      const { container } = render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      const { container } = render(<ProfileImageUploader selectedImage={jest.fn()} />);
       const outerDiv = container.firstChild as HTMLElement;
 
       expect(outerDiv).toHaveClass(
@@ -84,7 +84,7 @@ describe('ProfileImageUploader', () => {
     });
 
     test('ClassName on container wrapping add & remove button', () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       const uploadButton = screen.getByText(/Add Profile Picture/i);
 
       expect(uploadButton.closest('div')).toHaveClass(
@@ -96,7 +96,7 @@ describe('ProfileImageUploader', () => {
     });
 
     test('Image tag className', async () => {
-      render(<ProfileImageUploader selectedImage={jest.fn()}/>);
+      render(<ProfileImageUploader selectedImage={jest.fn()} />);
       expect(screen.getByAltText('Default Avatar')).toHaveClass(
         'h-[150px]',
         'w-[150px]',

@@ -34,14 +34,14 @@ const Page = () => {
     }
   }, [user]);
 
-  useEffect(()=>{
-    return ()=>{
-      if(prevObjectUrlRef.current){
+  useEffect(() => {
+    return () => {
+      if (prevObjectUrlRef.current) {
         URL.revokeObjectURL(prevObjectUrlRef.current);
         prevObjectUrlRef.current = null;
       }
-    }
-  },[])
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -61,8 +61,7 @@ const Page = () => {
       }
       setAvatarPreview(null);
     }
-    
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -77,8 +76,8 @@ const Page = () => {
       return;
     }
 
-    const payload = {...formData, avatarFile: profileImage}
-    
+    const payload = { ...formData, avatarFile: profileImage };
+
     try {
       console.log('Form Sent: ', payload);
       const response = await createUser(payload);
@@ -110,66 +109,71 @@ const Page = () => {
 
   return (
     <>
-    {uploaderOpen && (
-      <div className="fixed inset-0 z-50 flex justify-center items-center bg-black/40 p-2">
-        <div className="rounded-2xl bg-white pt-8 px-4 pb-2">
-          <ProfileImageUploader selectedImage={handleSelectImage} initialPreview={avatarPreview}/>
-          <div className="flex justify-end items-center pt-2">
-            <Typography variant="body2" className="p-2">Return to Sign Up</Typography>
-            <IconButton onClick={() => setUploaderOpen(false)}>
-                <CloseIcon color="primary" fontSize="medium"/>
-            </IconButton>
+      {uploaderOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-2">
+          <div className="rounded-2xl bg-white px-4 pb-2 pt-8">
+            <ProfileImageUploader
+              selectedImage={handleSelectImage}
+              initialPreview={avatarPreview}
+            />
+            <div className="flex items-center justify-end pt-2">
+              <Typography variant="body2" className="p-2">
+                Return to Sign Up
+              </Typography>
+              <IconButton onClick={() => setUploaderOpen(false)}>
+                <CloseIcon color="primary" fontSize="medium" />
+              </IconButton>
+            </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
 
-    <form
-      onSubmit={handleSubmit}
-      className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
-    >
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
-        <div className="mb-6 text-center">
-          <Typography variant="h3" className="text-2xl sm:text-3xl">
-            Hello City
-          </Typography>
-        </div>
+      <form
+        onSubmit={handleSubmit}
+        className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
+      >
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
+          <div className="mb-6 text-center">
+            <Typography variant="h3" className="text-2xl sm:text-3xl">
+              Hello City
+            </Typography>
+          </div>
 
-        <button
-          type = "button" 
-          onClick = {()=> setUploaderOpen(true)}
-          className = "mb-6 flex justify-center items-center rounded-xl border-2 border-indigo-600 object-cover overflow-hidden"  
-        >
-          <Image 
-            src={!avatarPreview ? '/images/default-avatar.jpg': avatarPreview}
-            alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
-            width={100}
-            height={100}
-            className="w-[100px] h-[100px] rounded-xl border-1 object-cover"
-          />
-        </button>
-        
-        <div className="w-full">
-          <input
-            type="text"
-            name="userId"
-            placeholder="Username"
-            value={formData.userId}
-            onChange={handleChange}
-            required
-            className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-        <PersonalInfo formData={formData} handleChange={handleChange} />
+          <button
+            type="button"
+            onClick={() => setUploaderOpen(true)}
+            className="mb-6 flex items-center justify-center overflow-hidden rounded-xl border-2 border-indigo-600 object-cover"
+          >
+            <Image
+              src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
+              alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
+              width={100}
+              height={100}
+              className="border-1 h-[100px] w-[100px] rounded-xl object-cover"
+            />
+          </button>
 
-        <div className="w-full">
-          <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
-            <Trans id="I'm all set" message="I'm all set" />
-          </Button>
+          <div className="w-full">
+            <input
+              type="text"
+              name="userId"
+              placeholder="Username"
+              value={formData.userId}
+              onChange={handleChange}
+              required
+              className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <PersonalInfo formData={formData} handleChange={handleChange} />
+
+          <div className="w-full">
+            <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
+              <Trans id="I'm all set" message="I'm all set" />
+            </Button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
     </>
   );
 };

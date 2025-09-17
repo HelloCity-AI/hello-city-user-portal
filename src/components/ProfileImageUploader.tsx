@@ -9,11 +9,11 @@ import type { ReactElement } from 'react';
 
 type Props = {
   selectedImage: (file: File | null) => void;
-  initialPreview?:string | null;
-}
+  initialPreview?: string | null;
+};
 
 // initialPreview prop is only valid when this component is used in editUser flow rather than createUser flow
-const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview }) => {
+const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }) => {
   const [preview, setPreview] = useState<string | null>(initialPreview ?? null);
   const [status, setStatus] = useState<'none' | 'selected' | 'error'>('none');
   const [message, setMessage] = useState<ReactElement<typeof Trans> | null>(null);
@@ -50,7 +50,6 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
     imageInputRef.current!.value = '';
   };
 
-
   return (
     <div className="flex min-w-[35rem] flex-col items-center justify-center gap-4 rounded-xl border-2 pb-4">
       <Box
@@ -79,22 +78,25 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage , initialPreview 
         alt={!preview ? 'Default Avatar' : 'Profile Image Preview'}
         width={150}
         height={150}
-        className="w-[150px] h-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
       />
 
       {status == 'error' && (
-        <Typography variant="body2" sx={{ mt: 2 }}> &nbsp;{message}&nbsp;</Typography>
+        <Typography variant="body2" sx={{ mt: 2 }}>
+          {' '}
+          &nbsp;{message}&nbsp;
+        </Typography>
       )}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" sx={{width: 200, mx:1}}>
+        <Button variant="secondary" component="label" sx={{ width: 200, mx: 1 }}>
           <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
         {preview && (
-          <Button variant="secondary" onClick={handleRemove} sx={{width: 200, mx:1}}>
+          <Button variant="secondary" onClick={handleRemove} sx={{ width: 200, mx: 1 }}>
             <Trans id="profile.avatar.remove" message="Remove Picture" />
           </Button>
         )}
