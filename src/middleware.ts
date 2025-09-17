@@ -47,36 +47,47 @@ export async function middleware(request: NextRequest) {
   }
 
   // check profile
-  try {
+  // try {
+  //   const session = await auth0.getSession(request);
+
+  //   if (session?.user) {
+  //     if (pathname.includes('create-user-profile')) {
+  //       return NextResponse.next();
+  //     }
+
+  //     const accessToken = await auth0.getAccessToken(request, NextResponse.next());
+  //     if (!accessToken?.token) {
+  //       return NextResponse.next();
+  //     }
+
+  //     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`, {
+  //       headers: { Authorization: `Bearer ${accessToken.token}` },
+  //       cache: 'no-store',
+  //     });
+
+  //     if (res.status === 200) {
+  //       return NextResponse.next();
+  //     }
+
+  //     if (res.status === 404) {
+  //       const lang = resolveLang(request, pathname);
+
+  //       return NextResponse.redirect(new URL(`/${lang}/create-user-profile`, request.url));
+  //     }
+  //   }
+  // } catch (err) {
+  //   console.error('[middleware] Profile check error: ', err);
+  // }
+
+  // auth for protected page
+  const lang = resolveLang(request, pathname);
+  const protectedPrefixes = [`/${lang}/chat`, `/${lang}/create-user-profile`];
+  const pathnameIsProtected = protectedPrefixes.some((p) => pathname.startsWith(p));
+  if (pathnameIsProtected) {
     const session = await auth0.getSession(request);
-
-    if (session?.user) {
-      if (pathname.includes('create-user-profile')) {
-        return NextResponse.next();
-      }
-
-      const accessToken = await auth0.getAccessToken(request, NextResponse.next());
-      if (!accessToken?.token) {
-        return NextResponse.next();
-      }
-
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`, {
-        headers: { Authorization: `Bearer ${accessToken.token}` },
-        cache: 'no-store',
-      });
-
-      if (res.status === 200) {
-        return NextResponse.next();
-      }
-
-      if (res.status === 404) {
-        const lang = resolveLang(request, pathname);
-
-        return NextResponse.redirect(new URL(`/${lang}/create-user-profile`, request.url));
-      }
+    if (!session?.user) {
+      return NextResponse.redirect(new URL(`/${lang}/`, request.url));
     }
-  } catch (err) {
-    console.error('[middleware] Profile check error: ', err);
   }
 
   return NextResponse.next();

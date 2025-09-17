@@ -1,21 +1,44 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { fetchUserRequest, fetchUserSuccess, fetchUserFailure } from '../slices/user';
+import { setUser, setLoading, fetchUser, setError, setAuth, AuthState } from '../slices/user';
+import axios, { type AxiosResponse } from 'axios';
 
-async function fetchUserApi() {
-  const res = await fetch('/api/user/profile');
-  if (!res.ok) throw new Error('Failed to fetch user data');
-  return res.json();
+export async function fetchUserApi() {
+  const res = await axios.get(`/api/user/me`, {
+    timeout: 10000,
+    validateStatus: (status) => status === 200 || status === 404 || status === 401,
+  });
+  return res;
 }
 
-function* handleFetchUser(): Generator {
+export function* handleFetchUser(): Generator<unknown, void, AxiosResponse> {
   try {
-    const data = yield call(fetchUserApi);
-    yield put(fetchUserSuccess(data));
+    yield put(setLoading(true));
+    const res = yield call(fetchUserApi);
+    if (res.status === 401) {
+      yield put(setAuth(AuthState.Unauthenticated));
+      yield put(setUser(null));
+      return;
+    }
+    if (res.status === 200) {
+      yield put(setUser(res.data));
+      yield put(setAuth(AuthState.AuthenticatedWithProfile));
+      return;
+    }
+    if (res.status === 404) {
+      yield put(setUser(null));
+      yield put(setAuth(AuthState.AuthenticatedButNoProfile));
+    }
   } catch (error) {
-    yield put(fetchUserFailure('Failed to fetch user'));
+    if (axios.isAxiosError(error) && error.response?.data?.error) {
+      yield put(setError(error.response.data.error));
+    } else {
+      yield put(setError((error as Error).message));
+    }
+  } finally {
+    yield put(setLoading(false));
   }
 }
 
 export default function* userSaga() {
-  yield takeLatest(fetchUserRequest.type, handleFetchUser);
+  yield takeLatest(fetchUser.type, handleFetchUser);
 }
