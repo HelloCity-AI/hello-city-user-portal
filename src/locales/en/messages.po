@@ -374,7 +374,7 @@ msgstr "← Back"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:118
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
@@ -415,7 +415,7 @@ msgstr "Got it"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:96
-#: src/components/ProfileImageUploader.tsx:67
+#: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
 msgstr "HelloCity Account"
 
@@ -425,7 +425,7 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:172
+#: src/app/[lang]/create-user-profile/page.tsx:171
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -447,13 +447,13 @@ msgstr "Profile"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:100
-#: src/components/ProfileImageUploader.tsx:71
+#: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:124
-#: src/components/ProfileImageUploader.tsx:100
+#: src/components/ProfileImageUploader.tsx:101
 msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
