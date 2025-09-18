@@ -6,6 +6,7 @@ import { Button, MenuItem, TextField, Typography, CircularProgress, Alert } from
 import { defaultUser, type User } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
 import ProfileSideBar from '../../../components/ProfileSideBar';
+import Modal from '../../../components/Modal';
 import { updateUser } from '../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
 import { type RootState } from '@/store';
@@ -17,6 +18,7 @@ const Page = () => {
   const { data: userData, isLoading, error } = useSelector((state: RootState) => state.user);
   const [tick, setTick] = useState(0);
   const [userInfo, setUserInfo] = useState<User>(defaultUser);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setTick((t) => t + 1);
@@ -26,37 +28,22 @@ const Page = () => {
     };
   }, [i18n]);
 
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
 
   useEffect(() => {
-    if (userData) {
-      // Ensure all fields have valid string values, never null/undefined
-      setUserInfo({
-        ...userData,
-        Email: userData.Email || '',
-        Avatar: userData.Avatar || '',
-        Gender: userData.Gender || '',
-        nationality: userData.nationality || '',
-        city: userData.city || '',
-        university: userData.university || '',
-        major: userData.major || '',
-        preferredLanguage: userData.preferredLanguage || '',
-        userId: userData.userId || '',
-        lastJoinDate: userData.lastJoinDate || new Date(),
-      });
-    } else {
-      setUserInfo(defaultUser);
-    }
-    console.log(userData)
+    setUserInfo(userData || defaultUser);
+    console.log(userData);
   }, [userData]);
 
-  const OnSubmit = () => {
-    updateUser(userInfo);
-    // Refresh user info from store after update
-    dispatch(fetchUser());
+  const OnSubmit = async () => {
+    try {
+      await updateUser(userInfo);
+      dispatch(fetchUser());
+      setIsEditModalOpen(false);
+    } catch (error) {
+      console.error('Failed to update user:', error);
+    }
   };
+
   if (isLoading) {
     return (
       <div className="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-100">
@@ -68,7 +55,7 @@ const Page = () => {
   return (
     <div className="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-100" key={tick}>
       <ProfileSideBar />
-      <form className="z-10 flex h-auto w-11/12 max-w-4xl flex-col gap-6 rounded-3xl bg-white p-6 lg:w-3/5">
+      <div className="z-10 flex h-auto w-11/12 max-w-4xl flex-col gap-6 rounded-3xl bg-white p-6 lg:w-3/5">
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {error}
@@ -85,83 +72,159 @@ const Page = () => {
           <Trans id="profile.personal-info" />
         </Typography>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
-          <div className="flex w-full flex-col gap-3 lg:w-[48%]">
-            <InputBox
-              label={i18n._('profile.email', { default: 'Email' })}
-              fieldType="email"
-              value={userInfo.Email || ''}
-              name="Email"
-              placeholder={i18n._('profile.email-placeholder', { default: 'Please enter your email' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
-
-            <InputBox
-              label={i18n._('profile.nationality', { default: 'Nationality' })}
-              value={userInfo.nationality || ''}
-              name="nationality"
-              placeholder={i18n._('profile.nationality-placeholder', { default: 'Please enter your nationality' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
-
-            <InputBox
-              label={i18n._('profile.city', { default: 'City' })}
-              value={userInfo.city || ''}
-              name="city"
-              placeholder={i18n._('profile.city-placeholder', { default: 'Please enter your city' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
-
-            <TextField
-              fullWidth
-              select
-              label={i18n._('profile.gender', { default: 'Gender' })}
-              name="Gender"
-              variant="outlined"
-              required
-              value={userInfo.Gender || ''}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-              sx={{ marginBottom: '30px' }}
-            >
-              {genderOptions.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.email', { default: 'Email' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.Email || 'Not provided'}</Typography>
           </div>
 
-          <div className="flex w-full flex-col gap-3 lg:w-[48%]">
-            <InputBox
-              label={i18n._('profile.university', { default: 'University' })}
-              value={userInfo.university || ''}
-              name="university"
-              placeholder={i18n._('profile.university-placeholder', { default: 'Please enter your university' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.nationality', { default: 'Nationality' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.nationality || 'Not provided'}</Typography>
+          </div>
 
-            <InputBox
-              label={i18n._('profile.major', { default: 'Major' })}
-              value={userInfo.major || ''}
-              name="major"
-              placeholder={i18n._('profile.major-placeholder', { default: 'Please enter your major' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.city', { default: 'City' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.city || 'Not provided'}</Typography>
+          </div>
 
-            <InputBox
-              label={i18n._('profile.preferred-language', { default: 'Preferred Language' })}
-              value={userInfo.preferredLanguage || ''}
-              name="preferredLanguage"
-              placeholder={i18n._('profile.preferred-language-placeholder', { default: 'Please enter your preferred language' })}
-              onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-            />
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.gender', { default: 'Gender' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.Gender || 'Not provided'}</Typography>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.university', { default: 'University' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.university || 'Not provided'}</Typography>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.major', { default: 'Major' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.major || 'Not provided'}</Typography>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <Typography variant="body2" color="text.secondary">
+              {i18n._('profile.preferred-language', { default: 'Preferred Language' })}
+            </Typography>
+            <Typography variant="body1">{userInfo.preferredLanguage || 'Not provided'}</Typography>
           </div>
         </div>
 
-        <Button variant="contained" type="submit" onClick={OnSubmit} className="self-center">
-          <Trans id="profile.submit" />
+        <Button
+          variant="contained"
+          onClick={() => setIsEditModalOpen(true)}
+          className="self-center"
+        >
+          <Trans id="profile.edit-button" />
         </Button>
-      </form>
+      </div>
+
+      <Modal
+        open={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        maxWidth="md"
+      >
+        <form className="flex flex-col gap-6 p-4">
+          <Typography variant="h6">
+            <Trans id="profile.edit-title" />
+          </Typography>
+
+          <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
+            <div className="flex w-full flex-col gap-3 lg:w-[48%]">
+              <InputBox
+                label={i18n._('profile.email', { default: 'Email' })}
+                fieldType="email"
+                value={userInfo.Email || ''}
+                name="Email"
+                placeholder={i18n._('profile.email-placeholder', { default: 'Please enter your email' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+
+              <InputBox
+                label={i18n._('profile.nationality', { default: 'Nationality' })}
+                value={userInfo.nationality || ''}
+                name="nationality"
+                placeholder={i18n._('profile.nationality-placeholder', { default: 'Please enter your nationality' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+
+              <InputBox
+                label={i18n._('profile.city', { default: 'City' })}
+                value={userInfo.city || ''}
+                name="city"
+                placeholder={i18n._('profile.city-placeholder', { default: 'Please enter your city' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+
+              <TextField
+                fullWidth
+                select
+                label={i18n._('profile.gender', { default: 'Gender' })}
+                name="Gender"
+                variant="outlined"
+                required
+                value={userInfo.Gender || ''}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                sx={{ marginBottom: '30px' }}
+              >
+                {genderOptions.map((option) => (
+                  <MenuItem key={option} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+
+            <div className="flex w-full flex-col gap-3 lg:w-[48%]">
+              <InputBox
+                label={i18n._('profile.university', { default: 'University' })}
+                value={userInfo.university || ''}
+                name="university"
+                placeholder={i18n._('profile.university-placeholder', { default: 'Please enter your university' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+
+              <InputBox
+                label={i18n._('profile.major', { default: 'Major' })}
+                value={userInfo.major || ''}
+                name="major"
+                placeholder={i18n._('profile.major-placeholder', { default: 'Please enter your major' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+
+              <InputBox
+                label={i18n._('profile.preferred-language', { default: 'Preferred Language' })}
+                value={userInfo.preferredLanguage || ''}
+                name="preferredLanguage"
+                placeholder={i18n._('profile.preferred-language-placeholder', { default: 'Please enter your preferred language' })}
+                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+              />
+            </div>
+          </div>
+
+          <div className="flex gap-3 justify-end">
+            <Button variant="outlined" onClick={() => setIsEditModalOpen(false)}>
+              <Trans id="profile.cancel" />
+            </Button>
+            <Button variant="contained" onClick={OnSubmit}>
+              <Trans id="profile.submit" />
+            </Button>
+          </div>
+        </form>
+      </Modal>
     </div>
   );
 };
