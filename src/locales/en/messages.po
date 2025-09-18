@@ -107,6 +107,26 @@ msgid "profile.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.edit-button"
+msgstr "Edit Profile"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.edit-title"
+msgstr "Edit Profile Information"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.refresh"
+msgstr "Refresh"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"

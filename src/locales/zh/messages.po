@@ -109,6 +109,26 @@ msgid "profile.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.edit-button"
+msgstr "编辑个人资料"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.edit-title"
+msgstr "编辑个人信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.refresh"
+msgstr "重置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:XX
+msgid "profile.cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
