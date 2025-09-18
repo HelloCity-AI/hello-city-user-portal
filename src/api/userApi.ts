@@ -19,18 +19,10 @@ export const createUser = async (newUser: User) => {
   formData.append('Email', newUser.email);
 
   // Add optional fields
-  if (newUser.gender) {
-    formData.append('Gender', newUser.gender.toString());
-  }
-  if (newUser.nationality) {
-    formData.append('Nationality', newUser.nationality);
-  }
-  if (newUser.city) {
-    formData.append('City', newUser.city);
-  }
-  if (newUser.preferredLanguage) {
-    formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
-  }
+  formData.append('Gender', newUser.gender?.toString() ?? '');
+  formData.append('Nationality', newUser.nationality ?? '');
+  formData.append('City', newUser.city ?? '');
+  formData.append('PreferredLanguage', newUser.preferredLanguage?.toString() ?? '');
 
   // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
@@ -66,29 +58,15 @@ export const updateUser = async (updatedUser: User) => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
-  // Add required fields - using email as username since we don't have a separate username field
   formData.append('Username', updatedUser.email || 'defaultUsername');
   formData.append('Email', updatedUser.email);
 
-  // Add optional fields
-  if (updatedUser.gender) {
-    formData.append('Gender', updatedUser.gender.toString());
-  }
-  if (updatedUser.nationality) {
-    formData.append('Nationality', updatedUser.nationality);
-  }
-  if (updatedUser.city) {
-    formData.append('City', updatedUser.city);
-  }
-  if (updatedUser.university) {
-    formData.append('University', updatedUser.university);
-  }
-  if (updatedUser.major) {
-    formData.append('Major', updatedUser.major);
-  }
-  if (updatedUser.preferredLanguage) {
-    formData.append('PreferredLanguage', updatedUser.preferredLanguage.toString());
-  }
+  formData.append('Gender', updatedUser.gender?.toString() ?? '');
+  formData.append('Nationality', updatedUser.nationality ?? '');
+  formData.append('City', updatedUser.city ?? '');
+  formData.append('University', updatedUser.university ?? '');
+  formData.append('Major', updatedUser.major ?? '');
+  formData.append('PreferredLanguage', updatedUser.preferredLanguage?.toString() ?? '');
 
   const headers: Record<string, string> = {
     'Content-Type': 'multipart/form-data',
