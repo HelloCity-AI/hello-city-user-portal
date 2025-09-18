@@ -23,7 +23,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         name="Gender"
         variant="outlined"
         required
-        value={formData.Gender}
+        value={formData.gender}
         onChange={handleChange}
         size="small"
       >

@@ -2,9 +2,9 @@ import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttr
 
 export type User = {
   userId: string;
-  Email: string;
-  Avatar: string;
-  Gender: Genders | '';
+  email: string;
+  avatar: string;
+  gender: Genders | '';
   nationality: Nationalities | '';
   city: Cities | '';
   university: string;
@@ -15,9 +15,9 @@ export type User = {
 
 export const defaultUser: User = {
   userId: '',
-  Email: '',
-  Avatar: '',
-  Gender: '',
+  email: '',
+  avatar: '',
+  gender: '',
   nationality: '',
   city: '',
   university: '',

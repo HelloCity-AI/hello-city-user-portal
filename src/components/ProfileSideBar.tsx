@@ -9,7 +9,7 @@ const ProfileSideBar = () => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 z-10 h-full bg-white p-5 transition-all duration-300 ${isCollapse ? 'w-[80px]' : 'w-[15%] max-w-[350px]'} `}
+      className={`fixed left-0 top-0 z-20 h-full bg-white p-5 transition-all duration-300 ${isCollapse ? 'w-[80px]' : 'w-full lg:w-[15%] lg:max-w-[350px]'} `}
     >
       <div className="mt-20">
         <div className="flex justify-end">

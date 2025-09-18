@@ -53,9 +53,10 @@ const Page = () => {
   }
 
   return (
-    <div className="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-100" key={tick}>
+    <div className="flex h-[100vh] w-[100vw] bg-slate-100" key={tick}>
       <ProfileSideBar />
-      <div className="z-10 flex h-auto w-11/12 max-w-4xl flex-col gap-6 rounded-3xl bg-white p-6 lg:w-3/5">
+      <div className="flex flex-1 items-center justify-center ml-[80px] lg:ml-[15%] pl-4">
+        <div className="z-10 flex h-auto w-11/12 max-w-4xl flex-col gap-6 rounded-3xl bg-white p-6 lg:w-3/5">
         {error && (
           <Alert severity="error" sx={{ mb: 2 }}>
             {error}
@@ -77,7 +78,7 @@ const Page = () => {
             <Typography variant="body2" color="text.secondary">
               {i18n._('profile.email', { default: 'Email' })}
             </Typography>
-            <Typography variant="body1">{userInfo.Email || 'Not provided'}</Typography>
+            <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
           </div>
 
           <div className="flex flex-col gap-2">
@@ -98,7 +99,7 @@ const Page = () => {
             <Typography variant="body2" color="text.secondary">
               {i18n._('profile.gender', { default: 'Gender' })}
             </Typography>
-            <Typography variant="body1">{userInfo.Gender || 'Not provided'}</Typography>
+            <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
           </div>
 
           <div className="flex flex-col gap-2">
@@ -130,7 +131,7 @@ const Page = () => {
         >
           <Trans id="profile.edit-button" />
         </Button>
-      </div>
+        </div>
 
       <Modal
         open={isEditModalOpen}
@@ -147,8 +148,8 @@ const Page = () => {
               <InputBox
                 label={i18n._('profile.email', { default: 'Email' })}
                 fieldType="email"
-                value={userInfo.Email || ''}
-                name="Email"
+                value={userInfo.email || ''}
+                name="email"
                 placeholder={i18n._('profile.email-placeholder', { default: 'Please enter your email' })}
                 onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
               />
@@ -169,23 +170,26 @@ const Page = () => {
                 onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
               />
 
-              <TextField
-                fullWidth
-                select
-                label={i18n._('profile.gender', { default: 'Gender' })}
-                name="Gender"
-                variant="outlined"
-                required
-                value={userInfo.Gender || ''}
-                onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-                sx={{ marginBottom: '30px' }}
-              >
+              <div style={{ width: '400px', marginBottom: '24px' }}>
+                <TextField
+                  fullWidth
+                  select
+                  label={i18n._('profile.gender', { default: 'Gender' })}
+                  name="gender"
+                  variant="outlined"
+                  required
+                  value={userInfo.gender || ''}
+                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                  InputLabelProps={{ shrink: true }}
+                  helperText=" "
+                >
                 {genderOptions.map((option) => (
                   <MenuItem key={option} value={option}>
                     {option}
                   </MenuItem>
                 ))}
-              </TextField>
+                </TextField>
+              </div>
             </div>
 
             <div className="flex w-full flex-col gap-3 lg:w-[48%]">
@@ -216,6 +220,9 @@ const Page = () => {
           </div>
 
           <div className="flex gap-3 justify-end">
+            <Button variant="outlined" onClick={() => setUserInfo(userData || defaultUser)}>
+              <Trans id="profile.refresh" />
+            </Button>
             <Button variant="outlined" onClick={() => setIsEditModalOpen(false)}>
               <Trans id="profile.cancel" />
             </Button>
@@ -225,6 +232,7 @@ const Page = () => {
           </div>
         </form>
       </Modal>
+      </div>
     </div>
   );
 };
