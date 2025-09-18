@@ -408,6 +408,11 @@ msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "Creating..."
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "Got it"
@@ -423,7 +428,7 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "I'm all set"
 

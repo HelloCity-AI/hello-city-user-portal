@@ -465,6 +465,11 @@ msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "创建中..."
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "知道了"
@@ -480,7 +485,7 @@ msgid "NavBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "我准备好了"
 
