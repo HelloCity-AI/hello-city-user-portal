@@ -26,7 +26,7 @@ describe('createUser API', () => {
     const newUser = {
       ...defaultUser,
       username: 'paul',
-      Email: 'paul@example.com', // Use capital E to match User type
+      email: 'paul@example.com', // Use lowercase to match updated User type
       password: 'abc123',
       confirmPassword: 'abc123',
     };
