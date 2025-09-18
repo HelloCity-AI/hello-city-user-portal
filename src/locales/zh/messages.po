@@ -24,109 +24,116 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:35
+#: src/app/[lang]/profile/page.tsx:65
 msgid "profile.title"
 msgstr "个人资料设置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:38
+#: src/app/[lang]/profile/page.tsx:68
 msgid "profile.subtitle"
 msgstr "管理您的个人信息和偏好设置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:42
+#: src/app/[lang]/profile/page.tsx:72
 msgid "profile.personal-info"
 msgstr "个人信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:48
+#: src/app/[lang]/profile/page.tsx:78
+#: src/app/[lang]/profile/page.tsx:146
 msgid "profile.email"
 msgstr "电子邮箱"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:52
-msgid "profile.email-placeholder"
-msgstr "请输入您的电子邮箱"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:57
+#: src/app/[lang]/profile/page.tsx:85
+#: src/app/[lang]/profile/page.tsx:157
 msgid "profile.nationality"
 msgstr "国籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:60
-msgid "profile.nationality-placeholder"
-msgstr "请输入您的国籍"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:65
+#: src/app/[lang]/profile/page.tsx:92
+#: src/app/[lang]/profile/page.tsx:167
 msgid "profile.city"
 msgstr "城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:68
-msgid "profile.city-placeholder"
-msgstr "请输入您所在的城市"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:75
+#: src/app/[lang]/profile/page.tsx:99
+#: src/app/[lang]/profile/page.tsx:180
 msgid "profile.gender"
 msgstr "性别"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:93
+#: src/app/[lang]/profile/page.tsx:106
+#: src/app/[lang]/profile/page.tsx:200
 msgid "profile.university"
 msgstr "大学"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:96
-msgid "profile.university-placeholder"
-msgstr "请输入您的大学名称"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:101
+#: src/app/[lang]/profile/page.tsx:113
+#: src/app/[lang]/profile/page.tsx:210
 msgid "profile.major"
 msgstr "专业"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:104
-msgid "profile.major-placeholder"
-msgstr "请输入您的专业"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:109
+#: src/app/[lang]/profile/page.tsx:120
+#: src/app/[lang]/profile/page.tsx:220
 msgid "profile.preferred-language"
 msgstr "首选语言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:112
-msgid "profile.preferred-language-placeholder"
-msgstr "请输入您的首选语言"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:119
-msgid "profile.submit"
-msgstr "提交"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:XX
+#: src/app/[lang]/profile/page.tsx:133
 msgid "profile.edit-button"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:XX
+#: src/app/[lang]/profile/page.tsx:140
 msgid "profile.edit-title"
 msgstr "编辑个人信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:XX
+#: src/app/[lang]/profile/page.tsx:150
+msgid "profile.email-placeholder"
+msgstr "请输入您的电子邮箱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:160
+msgid "profile.nationality-placeholder"
+msgstr "请输入您的国籍"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:170
+msgid "profile.city-placeholder"
+msgstr "请输入您所在的城市"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:203
+msgid "profile.university-placeholder"
+msgstr "请输入您的大学名称"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:213
+msgid "profile.major-placeholder"
+msgstr "请输入您的专业"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:223
+msgid "profile.preferred-language-placeholder"
+msgstr "请输入您的首选语言"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:233
 msgid "profile.refresh"
 msgstr "重置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:XX
+#: src/app/[lang]/profile/page.tsx:236
 msgid "profile.cancel"
 msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/profile/page.tsx:239
+msgid "profile.submit"
+msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
@@ -533,13 +540,13 @@ msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/ConfirmModal.tsx:28
-msgid "cancel.button"
+#: src/compoundComponents/Modals/FormModal.tsx:30
+msgid "form.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id

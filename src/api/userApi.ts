@@ -16,11 +16,11 @@ export const createUser = async (newUser: User) => {
 
   // Add required fields
   formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
-  formData.append('Email', newUser.Email);
+  formData.append('Email', newUser.email);
 
   // Add optional fields
-  if (newUser.Gender) {
-    formData.append('Gender', newUser.Gender.toString());
+  if (newUser.gender) {
+    formData.append('Gender', newUser.gender.toString());
   }
   if (newUser.nationality) {
     formData.append('Nationality', newUser.nationality);
@@ -66,13 +66,13 @@ export const updateUser = async (updatedUser: User) => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
-  // Add required fields
-  formData.append('Username', updatedUser.userId || 'defaultUsername');
-  formData.append('Email', updatedUser.Email);
+  // Add required fields - using email as username since we don't have a separate username field
+  formData.append('Username', updatedUser.email || 'defaultUsername');
+  formData.append('Email', updatedUser.email);
 
   // Add optional fields
-  if (updatedUser.Gender) {
-    formData.append('Gender', updatedUser.Gender.toString());
+  if (updatedUser.gender) {
+    formData.append('Gender', updatedUser.gender.toString());
   }
   if (updatedUser.nationality) {
     formData.append('Nationality', updatedUser.nationality);
@@ -100,9 +100,14 @@ export const updateUser = async (updatedUser: User) => {
     headers.Authorization = `Bearer ${accessToken}`;
   }
 
-  const response = await axios.put(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, formData, {
-    headers,
-  });
+  // Use PUT with user ID in the URL path to match the controller endpoint
+  const response = await axios.put(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${updatedUser.userId}`,
+    formData,
+    {
+      headers,
+    },
+  );
   return response;
 };
 

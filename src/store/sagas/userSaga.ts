@@ -20,7 +20,7 @@ export function* handleFetchUser(): Generator<unknown, void, AxiosResponse> {
       return;
     }
     if (res.status === 200) {
-      console.log(res.data)
+      console.log(res.data);
       yield put(setUser(res.data));
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
       return;
