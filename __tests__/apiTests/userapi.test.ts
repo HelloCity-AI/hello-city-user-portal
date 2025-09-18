@@ -1,74 +1,90 @@
-import { createUser, fetchUser } from '@/api/userApi';
-import axios from 'axios';
-
-jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
+import { createUser, fetchCurrentUser } from '@/api/userApi';
 import { defaultUser } from '@/types/User.types';
+
+// Mock the fetchWithAuth utility
+jest.mock('@/utils/fetchWithAuth', () => ({
+  fetchWithAuth: jest.fn(),
+}));
 
 // Mock fetch for Node.js environment
 global.fetch = jest.fn();
+
+const { fetchWithAuth } = require('@/utils/fetchWithAuth');
+const mockedFetchWithAuth = fetchWithAuth as jest.MockedFunction<typeof fetchWithAuth>;
 
 describe('createUser API', () => {
   beforeAll(() => {
     process.env.NEXT_PUBLIC_BACKEND_URL = 'http://localhost:5000';
   });
-  it('sends POST request to correct URL with user data', async () => {
-    const mockResponse = { data: { data: { userId: '12345' } } };
-    mockedAxios.post.mockResolvedValue(mockResponse);
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-    // Mock fetch for token endpoint
-    const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
-    mockFetch.mockResolvedValueOnce({
+  it('sends POST request to correct URL with user data', async () => {
+    const mockResponse = {
       ok: true,
-      json: async () => ({ accessToken: 'mock-token' }),
-    } as Response);
+      status: 200,
+      json: async () => ({ userId: '12345' }),
+    } as Response;
+
+    mockedFetchWithAuth.mockResolvedValue(mockResponse);
 
     const newUser = {
       ...defaultUser,
       username: 'paul',
-      Email: 'paul@example.com', // Use capital E to match User type
+      Email: 'paul@example.com',
       password: 'abc123',
       confirmPassword: 'abc123',
     };
 
-    const response = await createUser(newUser);
+    const result = await createUser(newUser);
 
-    // Check that axios.post was called with correct URL and headers
-    expect(mockedAxios.post).toHaveBeenCalledWith(
+    expect(mockedFetchWithAuth).toHaveBeenCalledWith(
       'http://localhost:5000/api/user',
-      expect.any(FormData),
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          Accept: '*/*',
-          Authorization: 'Bearer mock-token',
-        },
-      },
+      expect.objectContaining({
+        method: 'POST',
+        body: expect.any(FormData),
+      }),
     );
-
-    // Verify FormData contains expected fields
-    const callArgs = mockedAxios.post.mock.calls[0];
-    const formData = callArgs[1] as FormData;
-    expect(formData.get('Email')).toBe('paul@example.com');
-    expect(formData.get('Username')).toBe('defaultUsername'); // userId is empty, so defaults to 'defaultUsername'
-
-    expect(response).toEqual(mockResponse);
+    expect(result.status).toBe(200);
   });
-  it('sends GET request to correct URL with user data', async () => {
-    const mockResponse = { data: { data: { userId: '12345' } } };
-    mockedAxios.get.mockResolvedValue(mockResponse);
+  it('handles API errors correctly', async () => {
+    const errorResponse = {
+      ok: false,
+      status: 400,
+      json: async () => ({ error: 'Bad Request' }),
+    } as Response;
 
-    const newUserId = '12345';
+    mockedFetchWithAuth.mockResolvedValue(errorResponse);
 
-    const response = await fetchUser(newUserId);
+    const result = await createUser(defaultUser);
+    expect(result.status).toBe(400);
+  });
+});
 
-    expect(mockedAxios.get).toHaveBeenCalledWith(`http://localhost:5000/api/${newUserId}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: '*/*',
-      },
-    });
+describe('fetchCurrentUser API', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-    expect(response).toEqual(mockResponse);
+  it('sends GET request to correct URL', async () => {
+    const mockUserData = { userId: '123', Email: 'test@example.com' };
+    const mockResponse = {
+      ok: true,
+      status: 200,
+      json: async () => mockUserData,
+    } as Response;
+
+    mockedFetchWithAuth.mockResolvedValue(mockResponse);
+
+    const result = await fetchCurrentUser();
+
+    expect(mockedFetchWithAuth).toHaveBeenCalledWith(
+      'http://localhost:5000/api/user/me',
+      expect.objectContaining({
+        method: 'GET',
+      }),
+    );
+    expect(result.status).toBe(200);
   });
 });

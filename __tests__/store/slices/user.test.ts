@@ -5,6 +5,9 @@ import userReducer, {
   setLoading,
   setError,
   fetchUser,
+  createUser,
+  createUserSuccess,
+  createUserFailure,
   AuthState,
   type UserState,
 } from '@/store/slices/user';
@@ -17,6 +20,8 @@ describe('user slice', () => {
     data: null,
     error: null,
     authStatus: AuthState.Unauthenticated,
+    isCreating: false,
+    createError: null,
   };
 
   const mockUser: User = {
@@ -34,7 +39,12 @@ describe('user slice', () => {
 
   describe('initial state', () => {
     it('Should return the initial state', () => {
-      expect(userReducer(undefined, { type: 'unknown' })).toEqual(initialState);
+      const expectedInitialState = {
+        ...initialState,
+        isCreating: false,
+        createError: null,
+      };
+      expect(userReducer(undefined, { type: 'unknown' })).toEqual(expectedInitialState);
     });
   });
 
@@ -83,8 +93,10 @@ describe('user slice', () => {
       const previousState: UserState = {
         isLoading: true,
         data: mockUser,
-        error: 'Some error',
+        error: 'Previous error',
         authStatus: AuthState.AuthenticatedWithProfile,
+        isCreating: false,
+        createError: null,
       };
 
       const actual = userReducer(previousState, logOut());
@@ -231,8 +243,10 @@ describe('user slice', () => {
       const previousState: UserState = {
         isLoading: true,
         data: mockUser,
-        error: 'Some error',
+        error: 'Previous error',
         authStatus: AuthState.AuthenticatedWithProfile,
+        isCreating: false,
+        createError: null,
       };
 
       const actual = userReducer(previousState, fetchUser());

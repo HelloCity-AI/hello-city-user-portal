@@ -1,21 +1,33 @@
 import type { User } from '@/types/User.types';
-import axios from 'axios';
+import { fetchWithAuth } from '@/utils/fetchWithAuth';
 
-export const createUser = async (newUser: User) => {
-  // Get access token
-  const tokenResponse = await fetch('/api/auth/token');
-  let accessToken = '';
+/**
+ * Unified User API Service
+ * All user-related API calls with consistent authentication and error handling
+ */
 
-  if (tokenResponse.ok) {
-    const tokenData = await tokenResponse.json();
-    accessToken = tokenData.accessToken || '';
-  }
+/**
+ * Fetch current user profile
+ * @returns Promise<Response> - Response from the API
+ */
+export const fetchCurrentUser = async (): Promise<Response> => {
+  const response = await fetchWithAuth(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`, {
+    method: 'GET',
+  });
+  return response;
+};
 
+/**
+ * Create a new user profile
+ * @param newUser - User data to create
+ * @returns Promise<Response> - Response from the API
+ */
+export const createUser = async (newUser: User): Promise<Response> => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
+  formData.append('Username', newUser.userId || 'defaultUsername');
   formData.append('Email', newUser.Email);
 
   // Add optional fields
@@ -37,29 +49,60 @@ export const createUser = async (newUser: User) => {
   //   formData.append('File', newUser.Avatar);
   // }
 
-  const headers: Record<string, string> = {
-    'Content-Type': 'multipart/form-data',
-    Accept: '*/*',
-  };
-
-  // If there's an access token, add it to request headers
-  if (accessToken) {
-    headers.Authorization = `Bearer ${accessToken}`;
-  }
-
-  const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, formData, {
-    headers,
+  const response = await fetchWithAuth(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      // Don't set Content-Type for FormData, let the browser set it with boundary
+      Accept: '*/*',
+    },
   });
   return response;
 };
 
-// Used in demo, currently unused, waiting for new ticket
-export const fetchUser = async (newUserId: string) => {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${newUserId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: '*/*',
+/**
+ * Update user profile
+ * @param userId - User ID to update
+ * @param userData - Updated user data
+ * @returns Promise<Response> - Response from the API
+ */
+export const updateUser = async (userId: string, userData: Partial<User>): Promise<Response> => {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
+    {
+      method: 'PUT',
+      body: JSON.stringify(userData),
     },
-  });
+  );
+  return response;
+};
+
+/**
+ * Fetch user by ID (for demo purposes)
+ * @param userId - User ID to fetch
+ * @returns Promise<Response> - Response from the API
+ */
+export const fetchUserById = async (userId: string): Promise<Response> => {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
+    {
+      method: 'GET',
+    },
+  );
+  return response;
+};
+
+/**
+ * Delete user profile
+ * @param userId - User ID to delete
+ * @returns Promise<Response> - Response from the API
+ */
+export const deleteUser = async (userId: string): Promise<Response> => {
+  const response = await fetchWithAuth(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
+    {
+      method: 'DELETE',
+    },
+  );
   return response;
 };
