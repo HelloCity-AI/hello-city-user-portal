@@ -43,6 +43,7 @@ const Page = () => {
     }
   };
 
+
   if (isLoading) {
     return (
       <div className="flex h-[100vh] w-[100vw] items-center justify-center bg-slate-100">
@@ -134,7 +135,7 @@ const Page = () => {
           </Button>
         </div>
 
-        <Modal open={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} maxWidth="md">
+        <Modal open={isEditModalOpen} onClose={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))} maxWidth="md">
           <form className="flex flex-col gap-6 p-4">
             <Typography variant="h6">
               <Trans id="profile.edit-title" />
@@ -232,7 +233,7 @@ const Page = () => {
               <Button variant="outlined" onClick={() => setUserInfo(userData || defaultUser)}>
                 <Trans id="profile.refresh" />
               </Button>
-              <Button variant="outlined" onClick={() => setIsEditModalOpen(false)}>
+              <Button variant="outlined" onClick={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}>
                 <Trans id="profile.cancel" />
               </Button>
               <Button variant="contained" onClick={OnSubmit}>
