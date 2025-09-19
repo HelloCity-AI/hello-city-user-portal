@@ -25,13 +25,7 @@ const canonicalize = (code?: string): SupportedLanguage | null =>
 
 const TEXT: Record<
   SupportedLanguage,
-  {
-    notFound: string;
-    headline: string;
-    sub: string;
-    goHome: string;
-    getHelp: string;
-  }
+  { notFound: string; headline: string; sub: string; goHome: string; getHelp: string }
 > = {
   en: {
     notFound: 'Page not found',
@@ -73,14 +67,11 @@ const TEXT: Record<
 export default function NotFound() {
   const theme = useTheme();
   const pathname = usePathname() || '/';
-
   const firstSeg = pathname.split('/').filter(Boolean)[0];
   const lang: SupportedLanguage = canonicalize(firstSeg) ?? 'en';
   const t = TEXT[lang];
-
   const homeHref = `/${lang}`;
   const helpHref = `/${lang}/contact-us`;
-
   const logoSrc = theme.palette.mode === 'dark' ? LOGO_CONFIG.light : LOGO_CONFIG.dark;
 
   return (
@@ -102,7 +93,7 @@ export default function NotFound() {
             src={logoSrc}
             alt="HelloCity"
             sx={{
-              height: { xs: 72, sm: 88, md: 104 },
+              height: { xs: 76, sm: 92, md: 108 },
               width: 'auto',
               display: 'block',
               opacity: 0.95,
@@ -111,20 +102,25 @@ export default function NotFound() {
               e.currentTarget.style.display = 'none';
             }}
           />
-          <Box
-            sx={{
-              px: 1.5,
-              py: 0.5,
-              borderRadius: 999,
-              border: '1px solid',
-              borderColor: 'divider',
-              typography: { xs: 'caption', sm: 'body2' },
-              color: 'text.secondary',
-            }}
+          <Typography
             aria-label="404"
+            sx={(th) => ({
+              fontWeight: 900,
+              letterSpacing: '-0.035em',
+              fontSize: { xs: '5rem', sm: '6.5rem', md: '8rem' },
+              lineHeight: 1,
+              backgroundImage: `linear-gradient(90deg, ${th.palette.primary.main}, ${th.palette.info.light})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: `0 6px 28px ${th.palette.primary.main}40`,
+            })}
           >
-            404 · {t.notFound}
-          </Box>
+            404
+          </Typography>
+
+          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+            {t.notFound}
+          </Typography>
 
           <Typography
             variant="h3"
@@ -133,6 +129,7 @@ export default function NotFound() {
               letterSpacing: '-0.02em',
               fontSize: { xs: '1.75rem', sm: '2rem', md: '2.25rem' },
               lineHeight: 1.15,
+              mt: { xs: 0.5, sm: 1 },
             }}
           >
             {t.headline}
@@ -149,12 +146,12 @@ export default function NotFound() {
             {t.sub}
           </Typography>
 
+          {/* CTA */}
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
             spacing={2}
             alignItems="center"
             justifyContent="center"
-            sx={{ pt: { xs: 0.5, sm: 1 } }}
           >
             <Button component={Link} href={homeHref} variant="contained" size="large">
               {t.goHome}
