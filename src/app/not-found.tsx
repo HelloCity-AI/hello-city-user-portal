@@ -27,27 +27,27 @@ const TEXT: Record<SupportedLanguage, { notFound: string; headline: string; sub:
   en: {
     notFound: 'Page not found',
     headline: 'Let’s help you settle in.',
-    sub: 'HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly.',
+    sub: 'HelloCity supports everyone with housing, banking, transport and community—so your new life starts smoothly.',
   },
   zh: {
     notFound: '未找到该页面',
     headline: '让我们帮你更快融入新生活。',
-    sub: 'HelloCity 专为留学生提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。',
+    sub: 'HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。',
   },
   'zh-TW': {
     notFound: '找不到此頁面',
     headline: '讓我們幫你更快融入新生活。',
-    sub: 'HelloCity 為留學生提供住宿、開戶、交通與社群支援，協助你順利展開海外生活。',
+    sub: 'HelloCity 為每個人提供住宿、開戶、交通與社群支援，協助你順利展開海外生活。',
   },
   ja: {
     notFound: 'ページが見つかりません',
     headline: '新しい暮らしへの一歩をサポートします。',
-    sub: 'HelloCity は留学生の住まい・銀行口座・交通・コミュニティ参加を支援し、スムーズな新生活を実現します。',
+    sub: 'HelloCity はすべての人の住まい・銀行口座・交通・コミュニティ参加を支援し、スムーズな新生活を実現します。',
   },
   ko: {
     notFound: '페이지를 찾을 수 없습니다',
     headline: '새로운 나라에서의 정착을 도와드립니다.',
-    sub: 'HelloCity는 유학생의 주거, 계좌 개설, 교통, 커뮤니티 참여를 지원하여 부드러운 시작을 돕습니다.',
+    sub: 'HelloCity는 모든 사람의 주거, 계좌 개설, 교통, 커뮤니티 참여를 지원하여 부드러운 시작을 돕습니다.',
   },
 };
 
