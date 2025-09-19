@@ -13,7 +13,11 @@ export async function fetchWithAuth(url: string, init: RequestInit = {}): Promis
   // Assemble headers
   const headers = new Headers(init.headers || {});
   headers.set('Authorization', `Bearer ${accessToken}`);
-  headers.set('Content-Type', 'application/json');
+
+  // Don't set Content-Type for FormData, let the browser set it with boundary
+  if (!(init.body instanceof FormData)) {
+    headers.set('Content-Type', 'application/json');
+  }
 
   // Send the request
   return fetch(url, {
