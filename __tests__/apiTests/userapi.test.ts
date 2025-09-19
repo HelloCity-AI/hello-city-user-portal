@@ -31,6 +31,7 @@ describe('createUser API', () => {
 
     const newUser = {
       ...defaultUser,
+      userId: 'paul123',
       username: 'paul',
       Email: 'paul@example.com',
       password: 'abc123',
@@ -57,7 +58,12 @@ describe('createUser API', () => {
 
     mockedFetchWithAuth.mockResolvedValue(errorResponse);
 
-    const result = await createUser(defaultUser);
+    const testUser = {
+      ...defaultUser,
+      userId: 'testUser123',
+      Email: 'test@example.com',
+    };
+    const result = await createUser(testUser);
     expect(result.status).toBe(400);
   });
 });

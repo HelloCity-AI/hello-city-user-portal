@@ -27,11 +27,11 @@ jest.mock('@/utils/fetchWithAuth', () => ({
 // Mock the unified API service
 jest.mock('@/api/userApi', () => ({
   fetchCurrentUser: jest.fn(),
-  createUserApi: jest.fn(),
+  createUser: jest.fn(),
 }));
 
 const mockedFetchCurrentUser = fetchCurrentUser as jest.MockedFunction<typeof fetchCurrentUser>;
-const mockedCreateUserApi = createUserApi as jest.MockedFunction<typeof createUserApi>;
+const mockedCreateUser = createUser as jest.MockedFunction<typeof createUser>;
 
 const createMockResponse = <T>(data: T, status = 200, ok = true): Response =>
   ({

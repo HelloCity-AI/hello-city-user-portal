@@ -23,11 +23,20 @@ export const fetchCurrentUser = async (): Promise<Response> => {
  * @returns Promise<Response> - Response from the API
  */
 export const createUser = async (newUser: User): Promise<Response> => {
+  // Validate userId to avoid potential conflicts with default username
+  if (!newUser.userId || newUser.userId.trim() === '') {
+    throw new Error('User ID is required and cannot be empty');
+  }
+
+  if (newUser.userId === 'defaultUsername') {
+    throw new Error('User ID cannot be "defaultUsername" as it conflicts with system defaults');
+  }
+
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId || 'defaultUsername');
+  formData.append('Username', newUser.userId);
   formData.append('Email', newUser.Email);
 
   // Add optional fields
@@ -72,6 +81,9 @@ export const updateUser = async (userId: string, userData: Partial<User>): Promi
     {
       method: 'PUT',
       body: JSON.stringify(userData),
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
   );
   return response;

@@ -21,7 +21,15 @@ export async function fetchUserApiWrapper() {
   const response = await fetchCurrentUser();
 
   // Convert Response to axios-like format for backward compatibility
-  const data = response.ok ? await response.json() : null;
+  let data = null;
+  if (response.ok) {
+    try {
+      data = await response.json();
+    } catch (jsonError) {
+      console.error('Failed to parse JSON response:', jsonError);
+      data = null;
+    }
+  }
   return {
     status: response.status,
     data,
@@ -36,7 +44,15 @@ export async function createUserApiWrapper(userData: User) {
   const response = await createUserApi(userData);
 
   // Convert Response to axios-like format for backward compatibility
-  const data = response.ok ? await response.json() : null;
+  let data = null;
+  if (response.ok) {
+    try {
+      data = await response.json();
+    } catch (jsonError) {
+      console.error('Failed to parse JSON response:', jsonError);
+      data = null;
+    }
+  }
   return {
     status: response.status,
     data,

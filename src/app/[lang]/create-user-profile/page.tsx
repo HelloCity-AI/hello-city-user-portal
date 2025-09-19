@@ -37,8 +37,8 @@ const Page = () => {
   // Handle successful user creation
   useEffect(() => {
     if (userData && !isCreating && !createError) {
-      localStorage.setItem('userData', JSON.stringify(userData));
       // After successful creation, redirect to homepage
+      // Note: Removed localStorage storage to avoid PII data leakage risk
       window.location.href = '/';
     }
   }, [userData, isCreating, createError]);
