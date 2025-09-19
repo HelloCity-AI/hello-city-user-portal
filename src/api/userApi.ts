@@ -40,18 +40,10 @@ export const createUser = async (newUser: User): Promise<Response> => {
   formData.append('Email', newUser.Email);
 
   // Add optional fields
-  if (newUser.Gender) {
-    formData.append('Gender', newUser.Gender.toString());
-  }
-  if (newUser.nationality) {
-    formData.append('Nationality', newUser.nationality);
-  }
-  if (newUser.city) {
-    formData.append('City', newUser.city);
-  }
-  if (newUser.preferredLanguage) {
-    formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
-  }
+  formData.append('Gender', newUser.gender?.toString() ?? '');
+  formData.append('Nationality', newUser.nationality ?? '');
+  formData.append('City', newUser.city ?? '');
+  formData.append('PreferredLanguage', newUser.preferredLanguage?.toString() ?? '');
 
   // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
