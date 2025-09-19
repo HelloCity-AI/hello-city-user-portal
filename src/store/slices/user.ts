@@ -38,6 +38,8 @@ const userSlice = createSlice({
       state.error = null;
       state.authStatus = AuthState.Unauthenticated;
       state.isLoading = false;
+      state.isCreating = false;
+      state.createError = null;
     },
     setAuth: (state, action: PayloadAction<AuthState>) => {
       state.authStatus = action.payload;

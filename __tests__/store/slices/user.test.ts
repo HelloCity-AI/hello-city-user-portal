@@ -104,6 +104,23 @@ describe('user slice', () => {
       expect(actual).toEqual(initialState);
     });
 
+    it('Should reset creation flags to avoid stale UI state', () => {
+      const previousState: UserState = {
+        isLoading: true,
+        data: mockUser,
+        error: 'Previous error',
+        authStatus: AuthState.AuthenticatedWithProfile,
+        isCreating: true,
+        createError: 'Creation failed',
+      };
+
+      const actual = userReducer(previousState, logOut());
+
+      expect(actual).toEqual(initialState);
+      expect(actual.isCreating).toBe(false);
+      expect(actual.createError).toBeNull();
+    });
+
     it('Should work when state is already initial', () => {
       const actual = userReducer(initialState, logOut());
 
