@@ -15,7 +15,10 @@ export const checklistApi = {
     return response.json();
   },
 
-  async createChecklistItem(userId: string, data: CreateChecklistItemRequest): Promise<ChecklistItem> {
+  async createChecklistItem(
+    userId: string,
+    data: CreateChecklistItemRequest,
+  ): Promise<ChecklistItem> {
     console.log('API: Creating checklist item', { userId, data });
     const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item`, {
       method: 'POST',
@@ -37,18 +40,18 @@ export const checklistApi = {
   async updateChecklistItem(
     userId: string,
     itemId: string,
-    updates: Partial<ChecklistItem>
+    updates: Partial<ChecklistItem>,
   ): Promise<ChecklistItem> {
     console.log('API: Updating checklist item', {
       userId,
       itemId,
       updates,
-      url: `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`
+      url: `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
     });
 
     // 首先获取当前项目的完整数据
     const currentItems = await this.getChecklistItems(userId);
-    const currentItem = currentItems.find(item => item.checklistItemId === itemId);
+    const currentItem = currentItems.find((item) => item.checklistItemId === itemId);
 
     if (!currentItem) {
       throw new Error('Checklist item not found');
@@ -64,13 +67,16 @@ export const checklistApi = {
 
     console.log('API: Sending complete DTO:', editChecklistItemDto);
 
-    const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetchWithAuth(
+      `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editChecklistItemDto),
       },
-      body: JSON.stringify(editChecklistItemDto),
-    });
+    );
 
     console.log('API: Update response status', response.status);
 
@@ -87,14 +93,17 @@ export const checklistApi = {
 
   async deleteChecklistItem(userId: string, itemId: string): Promise<void> {
     console.log('API: Deleting checklist item', { userId, itemId });
-    const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`, {
-      method: 'DELETE',
-    });
+    const response = await fetchWithAuth(
+      `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
+      {
+        method: 'DELETE',
+      },
+    );
 
     if (!response.ok) {
       const errorText = await response.text();
       console.error('API: Delete failed', errorText);
       throw new Error('Failed to delete checklist item');
     }
-  }
+  },
 };

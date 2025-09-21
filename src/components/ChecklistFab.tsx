@@ -7,35 +7,31 @@ import { useUser } from '@auth0/nextjs-auth0';
 import { ChecklistModal } from '../compoundComponents/Modals/ChecklistModal';
 
 export const ChecklistFab: React.FC = () => {
-    const { user } = useUser();
-    const [drawerOpen, setDrawerOpen] = useState(false);
+  const { user } = useUser();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-    // 只在用户登录时显示
-    if (!user) {
-        return null;
-    }
+  // 只在用户登录时显示
+  if (!user) {
+    return null;
+  }
 
-    return (
-        <>
-            <Fab
-                color="primary"
-                aria-label="open checklist"
-                onClick={() => setDrawerOpen(true)}
-                sx={{
-                    position: 'fixed',
-                    bottom: 24,
-                    right: 24,
-                    zIndex: 1000
-                }}
-            >
-                <CheckBoxIcon />
-            </Fab>
+  return (
+    <>
+      <Fab
+        color="primary"
+        aria-label="open checklist"
+        onClick={() => setDrawerOpen(true)}
+        sx={{
+          position: 'fixed',
+          bottom: 24,
+          right: 24,
+          zIndex: 1000,
+        }}
+      >
+        <CheckBoxIcon />
+      </Fab>
 
-            <ChecklistModal
-                open={drawerOpen}
-                onClose={() => setDrawerOpen(false)}
-                variant="drawer"
-            />
-        </>
-    );
+      <ChecklistModal open={drawerOpen} onClose={() => setDrawerOpen(false)} variant="drawer" />
+    </>
+  );
 };
