@@ -96,7 +96,7 @@ export function* handleCreateUser(action: PayloadAction<User>): Generator<unknow
     const userData = action.payload;
     const res = yield call(createUserApiWrapper, userData);
 
-    if (res.ok && res.status === 200) {
+    if (res.ok && (res.status === 200 || res.status === 201)) {
       yield put(createUserSuccess(res.data));
     } else {
       const errorMessage = res.data?.error || `Failed to create user (Status: ${res.status})`;

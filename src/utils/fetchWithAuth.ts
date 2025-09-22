@@ -15,7 +15,8 @@ export async function fetchWithAuth(url: string, init: RequestInit = {}): Promis
   headers.set('Authorization', `Bearer ${accessToken}`);
 
   // Don't set Content-Type for FormData, let the browser set it with boundary
-  if (!(init.body instanceof FormData)) {
+  // Only set default Content-Type if caller hasn't provided one
+  if (!(init.body instanceof FormData) && !headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
   }
 

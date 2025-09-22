@@ -7,11 +7,23 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
  */
 
 /**
+ * Get the base URL for API calls
+ * @returns The base URL from environment variables
+ */
+const getBaseUrl = (): string => {
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  if (!baseUrl) {
+    throw new Error('NEXT_PUBLIC_BACKEND_URL environment variable is not set');
+  }
+  return baseUrl;
+};
+
+/**
  * Fetch current user profile
  * @returns Promise<Response> - Response from the API
  */
 export const fetchCurrentUser = async (): Promise<Response> => {
-  const response = await fetchWithAuth(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/me`, {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/me`, {
     method: 'GET',
   });
   return response;
@@ -37,7 +49,7 @@ export const createUser = async (newUser: User): Promise<Response> => {
 
   // Add required fields
   formData.append('Username', newUser.userId);
-  formData.append('Email', newUser.Email);
+  formData.append('Email', newUser.email);
 
   // Add optional fields
   formData.append('Gender', newUser.gender?.toString() ?? '');
@@ -50,7 +62,7 @@ export const createUser = async (newUser: User): Promise<Response> => {
   //   formData.append('File', newUser.Avatar);
   // }
 
-  const response = await fetchWithAuth(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user`, {
     method: 'POST',
     body: formData,
     headers: {
@@ -68,16 +80,13 @@ export const createUser = async (newUser: User): Promise<Response> => {
  * @returns Promise<Response> - Response from the API
  */
 export const updateUser = async (userId: string, userData: Partial<User>): Promise<Response> => {
-  const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
-    {
-      method: 'PUT',
-      body: JSON.stringify(userData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'PUT',
+    body: JSON.stringify(userData),
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+  });
   return response;
 };
 
@@ -87,12 +96,9 @@ export const updateUser = async (userId: string, userData: Partial<User>): Promi
  * @returns Promise<Response> - Response from the API
  */
 export const fetchUserById = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
-    {
-      method: 'GET',
-    },
-  );
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'GET',
+  });
   return response;
 };
 
@@ -102,11 +108,8 @@ export const fetchUserById = async (userId: string): Promise<Response> => {
  * @returns Promise<Response> - Response from the API
  */
 export const deleteUser = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}`,
-    {
-      method: 'DELETE',
-    },
-  );
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'DELETE',
+  });
   return response;
 };
