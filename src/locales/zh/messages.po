@@ -136,27 +136,27 @@ msgid "profile.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:65
 msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:37
+#: src/app/[lang]/contact-us/page.tsx:76
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:84
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:52
+#: src/app/[lang]/contact-us/page.tsx:93
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:60
+#: src/app/[lang]/contact-us/page.tsx:102
 msgid "contact-us.submit"
 msgstr "提交"
 
