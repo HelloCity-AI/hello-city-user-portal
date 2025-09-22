@@ -13,34 +13,35 @@ import { useTryHelloCity } from '@/hooks/useTryHelloCity';
 import type { NavItem } from './navConfig';
 
 interface NavDrawerProps extends DrawerProps {
-  fullMenu: NavItem[][];
-  subMenuIdx: number | null;
-  setSubMenuIndex: (value: number | null) => void;
+  menuStack: NavItem[][];
+  activeSubMenuIndex: number | null;
+  setActiveSubMenuIndex: (value: number | null) => void;
   closeDrawer: () => void;
 }
 
 const NavDrawer: React.FC<NavDrawerProps> = ({
-  fullMenu,
-  subMenuIdx,
-  setSubMenuIndex,
+  menuStack,
+  activeSubMenuIndex,
+  setActiveSubMenuIndex,
   closeDrawer,
   anchor = 'top',
   className = 'z-40',
   ...DrawerProps
 }) => {
   const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
+  const translateX = activeSubMenuIndex !== null ? '-100%' : '0%';
 
   const handleClick = (index: number) => {
-    const currentMenu = fullMenu[fullMenu.length - 1];
+    const currentMenu = menuStack[menuStack.length - 1];
     if (currentMenu[index].childrenItem) {
-      setSubMenuIndex(index);
+      setActiveSubMenuIndex(index);
       return;
     }
     if (currentMenu[index].onClick) currentMenu[index].onClick();
     closeDrawer();
   };
 
-  if (!fullMenu.length) return null;
+  if (!menuStack.length) return null;
 
   return (
     <Drawer {...DrawerProps} anchor={anchor} className={className}>
@@ -60,11 +61,11 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
             component="div"
             className="flex transition-transform"
             sx={{
-              width: `${100 * fullMenu.length}%`,
-              transform: `translateX(${subMenuIdx !== null ? `${-100}%` : '0%'})`,
+              width: `${100 * menuStack.length}%`,
+              transform: `translateX(${translateX})`,
             }}
           >
-            {fullMenu.map((menu, level) => {
+            {menuStack.map((menu, level) => {
               return (
                 <List sx={{ width: `${100}%`, flexShrink: 0 }} key={level}>
                   {menu.map((item, itemIndex) => {

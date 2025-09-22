@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import NavDrawer from '@/components/NavBar/NavDrawer';
+import NavDrawer from '@/compoundComponents/NavBar/NavDrawer';
 import { TestProviders } from '../utils/TestWrapper';
 import { mockNavItems } from './mockData';
 
@@ -10,9 +10,9 @@ const mockSubMenu = mockMainMenu.find((item) => item.id === 'services')?.childre
 const renderNavDrawer = (props = {}) => {
   const defaultProps = {
     open: true,
-    fullMenu: [mockMainMenu],
-    subMenuIdx: null,
-    setSubMenuIndex: jest.fn(),
+    menuStack: [mockMainMenu],
+    activeSubMenuIndex: null,
+    setActiveSubMenuIndex: jest.fn(),
     closeDrawer: jest.fn(),
     onClose: jest.fn(),
     ...props,
@@ -80,20 +80,20 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
     });
 
     it('Sets submenu index for items with children', () => {
-      const setSubMenuIndex = jest.fn();
+      const setActiveSubMenuIndex = jest.fn();
       const closeDrawer = jest.fn();
-      renderNavDrawer({ setSubMenuIndex, closeDrawer });
+      renderNavDrawer({ setActiveSubMenuIndex, closeDrawer });
 
       clickMenuItem('Services');
-      expect(setSubMenuIndex).toHaveBeenCalledTimes(1);
-      expect(setSubMenuIndex).toHaveBeenCalledWith(3); // Services is at index 3 in mockNavItems
+      expect(setActiveSubMenuIndex).toHaveBeenCalledTimes(1);
+      expect(setActiveSubMenuIndex).toHaveBeenCalledWith(3); // Services is at index 3 in mockNavItems
       expect(closeDrawer).toHaveBeenCalledTimes(0);
     });
 
     it('Shows submenu when subMenuIdx is set', () => {
       renderNavDrawer({
-        fullMenu: [mockMainMenu, mockSubMenu],
-        subMenuIdx: 1,
+        menuStack: [mockMainMenu, mockSubMenu],
+        activeSubMenuIndex: 1,
       });
 
       expect(screen.getByText('Web Dev')).toBeInTheDocument();
@@ -102,8 +102,8 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
 
     it('Shows correct content when submenu is active', async () => {
       renderNavDrawer({
-        fullMenu: [mockMainMenu, mockSubMenu],
-        subMenuIdx: 1,
+        menuStack: [mockMainMenu, mockSubMenu],
+        activeSubMenuIndex: 1,
         open: true,
       });
 
@@ -111,15 +111,15 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
       expect(screen.getByText('Mobile Dev')).toBeInTheDocument();
     });
 
-    it('Returns null when fullMenu is empty', () => {
-      const { container } = renderNavDrawer({ fullMenu: [] });
+    it('Returns null when menuStack is empty', () => {
+      const { container } = renderNavDrawer({ menuStack: [] });
 
       expect(container.firstChild).toBeNull();
     });
 
     it('Renders menu content with submenu', () => {
       renderNavDrawer({
-        fullMenu: [mockMainMenu, mockSubMenu],
+        menuStack: [mockMainMenu, mockSubMenu],
         open: true,
       });
 
@@ -130,8 +130,8 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
     it('Handles click on submenu items', () => {
       const closeDrawer = jest.fn();
       renderNavDrawer({
-        fullMenu: [mockMainMenu, mockSubMenu],
-        subMenuIdx: 1,
+        menuStack: [mockMainMenu, mockSubMenu],
+        activeSubMenuIndex: 1,
         closeDrawer,
       });
 

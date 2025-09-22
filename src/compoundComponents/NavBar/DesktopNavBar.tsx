@@ -1,51 +1,46 @@
 'use client';
 
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { Trans } from '@lingui/react';
 import { twMerge } from 'tailwind-merge';
 import { useTryHelloCity } from '@/hooks/useTryHelloCity';
-import { Dropdown } from '..';
-import { userMenuOptions } from '../dropdownMenuOptions.example';
-import SectionContent from '../HomepageSections/SectionContent';
+import UserAvatar from '@/compoundComponents/UserAvatar';
+import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
+import SectionContent from '@/components/HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
+import UserMenu from '@/compoundComponents/Menus/UserMenu';
 
 const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
 const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 
-const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
+const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) => {
   const [hasBgColor, setHasBgColor] = useState<boolean>(false);
   const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
   const scrollYRef = useRef(0);
-
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
-
+  const EXCLUDED_NAV_ITEMS = ['change language'];
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 
-    // Check initial scroll position on mount
     const checkScrollPosition = () => {
       scrollYRef.current = window.scrollY;
       const shouldHaveBackground = scrollYRef.current > SCROLL_THRESHOLD;
-
       if (shouldHaveBackground !== hasBgColor) {
         setHasBgColor(shouldHaveBackground);
       }
     };
 
-    // Initial check
     checkScrollPosition();
 
     const handleScroll = () => {
       if (timer) return;
-
       timer = setTimeout(() => {
         checkScrollPosition();
         timer = null;
@@ -53,23 +48,13 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (timer) clearTimeout(timer);
     };
   }, [hasBgColor]);
 
-  const languageOptions = useMemo(() => {
-    const languageNavItem = navItems.find((item) => item.id === 'change language');
-    return (
-      languageNavItem?.childrenItem?.map((child) => ({
-        label: child.label,
-        value: child.id,
-        onClick: child.onClick || (() => {}),
-      })) || []
-    );
-  }, [navItems]);
+  // Language options now come from a single hook via <LanguageMenu />
 
   const renderLogo = () => (
     <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
@@ -92,7 +77,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
       className="col-span-2 flex items-center justify-start gap-4"
     >
       {navItems.map((navItem) => {
-        if (navItem.id === 'change language') return;
+        if (EXCLUDED_NAV_ITEMS.includes(navItem.id)) return;
         return (
           <Button
             component={Link}
@@ -109,22 +94,8 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
   );
 
   const renderAuthSection = () => {
-    if (hasSignedIn) {
-      return (
-        <Dropdown
-          anchorElContent={
-            <Avatar
-              sx={{ width: 40, height: 40, cursor: 'pointer' }}
-              src="/images/banner-image.jpeg"
-              alt="User Avatar"
-              role="button"
-              aria-label="User menu"
-            />
-          }
-          dropdownOptions={userMenuOptions}
-          showUserLabel
-        />
-      );
+    if (hasAuthenticated) {
+      return <UserMenu trigger={<UserAvatar size={40} role="button" aria-label="User menu" />} />;
     }
 
     return (
@@ -146,9 +117,8 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
       data-section="user-actions"
       className="flex items-center justify-end gap-3"
     >
-      <Dropdown
-        anchorElContent={
-          // Set button component to div to avoiding button being nested in button
+      <LanguageMenu
+        trigger={
           <Button
             component="div"
             variant="tertiary"
@@ -166,9 +136,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasSignedIn, navConfig }) => {
             {currentLanguage.shortLabel}
           </Button>
         }
-        dropdownOptions={languageOptions}
         layout="horizontal"
-        disableHover={true}
         textAlignCenter
       />
       {renderAuthSection()}

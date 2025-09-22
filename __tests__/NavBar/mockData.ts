@@ -1,4 +1,4 @@
-import type { NavItem, NavConfig } from '@/components/NavBar/navConfig';
+import type { NavItem, NavConfig } from '@/compoundComponents/NavBar/navConfig';
 
 export const mockNavItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/en', onClick: jest.fn() },
@@ -12,16 +12,6 @@ export const mockNavItems: NavItem[] = [
     childrenItem: [
       { id: 'web', label: 'Web Dev', href: '/web', onClick: jest.fn() },
       { id: 'mobile', label: 'Mobile Dev', href: '/mobile', onClick: jest.fn() },
-    ],
-  },
-  {
-    id: 'change language',
-    label: 'Language',
-    href: '',
-    onClick: jest.fn(),
-    childrenItem: [
-      { id: 'en', label: 'English', href: '', onClick: jest.fn() },
-      { id: 'zh', label: '中文', href: '', onClick: jest.fn() },
     ],
   },
 ];

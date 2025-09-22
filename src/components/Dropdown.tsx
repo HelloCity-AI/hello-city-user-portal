@@ -7,11 +7,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import UserProfileCard from './UserLabel';
+import type { MenuOption } from '@/types/menu';
 import type { ReactNode } from 'react';
 
 interface DropdownProps {
   anchorElContent: ReactNode;
-  dropdownOptions: DropdownOptionProps[];
+  dropdownOptions: MenuOption[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
   layout?: 'vertical' | 'horizontal'; // Specify whether the dropdown items should be laid out vertically or horizontally
@@ -21,13 +22,6 @@ interface DropdownProps {
   };
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
   disableHover?: boolean;
-}
-export interface DropdownOptionProps {
-  label: ReactNode; // Display text shown in the menu
-  value: string; // Unique value returned when selected
-  icon?: React.ElementType | null; // Optional: Icon displayed before the label
-  divider?: boolean; //(Optional) Whether to show a divider after this item
-  onClick: (value: string) => void;
 }
 
 const DropDown: React.FC<DropdownProps> = ({
@@ -110,7 +104,7 @@ const DropDown: React.FC<DropdownProps> = ({
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
         {/* Dropdown items */}
-        {dropdownOptions.map((option: DropdownOptionProps) => {
+        {dropdownOptions.map((option: MenuOption) => {
           return (
             <React.Fragment key={option.value}>
               <MenuItem onClick={() => option.onClick(option.value)}>
