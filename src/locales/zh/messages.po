@@ -24,6 +24,21 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:108
+msgid "notFound.pageNotFound"
+msgstr "未找到该页面"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:119
+msgid "notFound.headline"
+msgstr "让我们帮你更快融入新生活。"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:122
+msgid "notFound.sub"
+msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"

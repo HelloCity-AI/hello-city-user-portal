@@ -22,6 +22,21 @@ msgid "validation.required"
 msgstr "{label} is required."
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:108
+msgid "notFound.pageNotFound"
+msgstr "Page not found"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:119
+msgid "notFound.headline"
+msgstr "Let’s help you settle in."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:122
+msgid "notFound.sub"
+msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
