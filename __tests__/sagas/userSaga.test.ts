@@ -27,11 +27,11 @@ jest.mock('@/utils/fetchWithAuth', () => ({
 // Mock the unified API service
 jest.mock('@/api/userApi', () => ({
   fetchCurrentUser: jest.fn(),
-  createUser: jest.fn(),
+  createUserApi: jest.fn(),
 }));
 
 const mockedFetchCurrentUser = fetchCurrentUser as jest.MockedFunction<typeof fetchCurrentUser>;
-const mockedCreateUser = createUser as jest.MockedFunction<typeof createUser>;
+const mockedCreateUserApi = createUserApi as jest.MockedFunction<typeof createUserApi>;
 
 const createMockResponse = <T>(data: T, status = 200, ok = true): Response =>
   ({
@@ -62,9 +62,9 @@ describe('userSaga', () => {
     it('Should handle successful API call with 200 status', () => {
       const mockUserData: User = {
         userId: '1',
-        Email: 'test@example.com',
-        Avatar: 'avatar.jpg',
-        Gender: '',
+        email: 'test@example.com',
+        avatar: 'avatar.jpg',
+        gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -161,12 +161,12 @@ describe('userSaga', () => {
       jest.clearAllMocks();
     });
 
-    it('Should handle successful user creation', () => {
+    it('Should handle successful user creation with 200 status', () => {
       const mockUserData: User = {
         userId: '1',
-        Email: 'test@example.com',
-        Avatar: 'avatar.jpg',
-        Gender: '',
+        email: 'test@example.com',
+        avatar: 'avatar.jpg',
+        gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -185,12 +185,36 @@ describe('userSaga', () => {
       expect(generator.next().done).toBe(true);
     });
 
+    it('Should handle successful user creation with 201 status', () => {
+      const mockUserData: User = {
+        userId: '1',
+        email: 'test@example.com',
+        avatar: 'avatar.jpg',
+        gender: '',
+        nationality: '',
+        city: '',
+        university: 'Test University',
+        major: 'Computer Science',
+        preferredLanguage: '',
+        lastJoinDate: new Date(),
+      };
+
+      const mockResponse = { status: 201, data: mockUserData, ok: true };
+      const action = { type: 'user/createUser', payload: mockUserData };
+
+      const generator = handleCreateUser(action);
+      const callEffect = generator.next().value;
+      expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
+      expect(generator.next(mockResponse).value).toEqual(put(createUserSuccess(mockUserData)));
+      expect(generator.next().done).toBe(true);
+    });
+
     it('Should handle user creation failure', () => {
       const mockUserData: User = {
         userId: '1',
-        Email: 'test@example.com',
-        Avatar: 'avatar.jpg',
-        Gender: '',
+        email: 'test@example.com',
+        avatar: 'avatar.jpg',
+        gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -214,9 +238,9 @@ describe('userSaga', () => {
     it('Should handle user creation error', () => {
       const mockUserData: User = {
         userId: '1',
-        Email: 'test@example.com',
-        Avatar: 'avatar.jpg',
-        Gender: '',
+        email: 'test@example.com',
+        avatar: 'avatar.jpg',
+        gender: '',
         nationality: '',
         city: '',
         university: 'Test University',

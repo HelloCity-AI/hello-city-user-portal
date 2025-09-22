@@ -74,6 +74,20 @@ describe('fetchWithAuth', () => {
     const headers = mockFetch.mock.calls[0][1]?.headers as Headers;
     expect(headers.get('Authorization')).toBe('Bearer mock-access-token');
     expect(headers.get('Custom-Header')).toBe('custom-value');
-    expect(headers.get('Content-Type')).toBe('application/json');
+    expect(headers.get('Content-Type')).toBeNull(); // No Content-Type for GET requests without body
+  });
+
+  it('should not override caller-provided Content-Type', async () => {
+    await fetchWithAuth('https://api.example.com/test', {
+      method: 'POST',
+      body: JSON.stringify({ test: 'data' }),
+      headers: {
+        'Content-Type': 'application/xml',
+      },
+    });
+
+    const headers = mockFetch.mock.calls[0][1]?.headers as Headers;
+    expect(headers.get('Authorization')).toBe('Bearer mock-access-token');
+    expect(headers.get('Content-Type')).toBe('application/xml'); // Should preserve caller's Content-Type
   });
 });
