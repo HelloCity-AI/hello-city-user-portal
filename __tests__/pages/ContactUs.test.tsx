@@ -16,12 +16,17 @@ const renderContactUs = () => {
   return render(
     <TestProviders>
       <ContactUs />
-    </TestProviders>
+    </TestProviders>,
   );
 };
 
 // Helper function to fill out the form
-const fillOutForm = async (user: any, name = 'John Doe', email = 'john@example.com', message = 'Test message') => {
+const fillOutForm = async (
+  user: any,
+  name = 'John Doe',
+  email = 'john@example.com',
+  message = 'Test message',
+) => {
   await user.type(screen.getByLabelText(/name/i), name);
   await user.type(screen.getByLabelText(/email/i), email);
   await user.type(screen.getByLabelText(/message/i), message);
@@ -54,7 +59,7 @@ const getExpectedApiCall = (name: string, email: string, message: string) => ({
       subject: `New Contact Us from ${name}`,
       message: `From: ${email}\n\n${message}`,
     }),
-  }
+  },
 });
 
 describe('ContactUs', () => {
@@ -87,7 +92,7 @@ describe('ContactUs', () => {
 
   test('Shows loading state when submitting', async () => {
     const user = userEvent.setup();
-    mockFetch.mockImplementation(() => new Promise(resolve => setTimeout(resolve, 100)));
+    mockFetch.mockImplementation(() => new Promise((resolve) => setTimeout(resolve, 100)));
 
     renderContactUs();
     await fillOutForm(user);
@@ -113,7 +118,7 @@ describe('ContactUs', () => {
     const user = userEvent.setup();
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ success: true })
+      json: async () => ({ success: true }),
     });
 
     renderContactUs();
@@ -128,7 +133,7 @@ describe('ContactUs', () => {
     const user = userEvent.setup();
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: async () => ({ success: true })
+      json: async () => ({ success: true }),
     });
 
     renderContactUs();
@@ -150,7 +155,7 @@ describe('ContactUs', () => {
     const user = userEvent.setup();
     mockFetch.mockResolvedValueOnce({
       ok: false,
-      status: 500
+      status: 500,
     });
 
     renderContactUs();
