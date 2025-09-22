@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button, Typography, Alert } from '@mui/material';
 import InputBox from '@/components/InputBox/InputBox';
 import { Trans, useLingui } from '@lingui/react';
 
@@ -20,10 +20,43 @@ const ContactUs = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [alertMessage, setAlertMessage] = useState<{
+    type: 'success' | 'error';
+    text: string;
+  } | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Submitted:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    setLoading(true);
+    setAlertMessage(null);
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_EMAIL_API}/email/send`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          to: 'support@hellocity.com',
+          subject: `New Contact Us from ${name}`,
+          message: `From: ${email}\n\n${message}`,
+        }),
+      });
+
+      if (response.ok) {
+        setAlertMessage({ type: 'success', text: 'Message sent successfully!' });
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setAlertMessage({ type: 'error', text: 'Failed to send message. Please try again.' });
+      }
+    } catch (error) {
+      setAlertMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,12 +65,19 @@ const ContactUs = () => {
         <Trans id="contact-us.title">Contact Us</Trans>
       </Typography>
 
+      {alertMessage && (
+        <Alert severity={alertMessage.type} sx={{ mb: 2 }}>
+          {alertMessage.text}
+        </Alert>
+      )}
+
       <form onSubmit={handleSubmit}>
         <InputBox
           label={i18n._('contact-us.name', { default: 'Name' })}
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          disabled={loading}
         />
 
         <InputBox
@@ -46,6 +86,7 @@ const ContactUs = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          disabled={loading}
         />
 
         <InputBox
@@ -54,10 +95,11 @@ const ContactUs = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           required
+          disabled={loading}
         />
 
-        <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }}>
-          <Trans id="contact-us.submit">Submit</Trans>
+        <Button variant="contained" type="submit" fullWidth sx={{ mt: 2 }} disabled={loading}>
+          {loading ? 'Sending...' : <Trans id="contact-us.submit">Submit</Trans>}
         </Button>
       </form>
     </Box>
