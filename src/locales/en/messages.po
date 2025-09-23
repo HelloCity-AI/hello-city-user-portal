@@ -37,27 +37,27 @@ msgid "notFound.sub"
 msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:32
+#: src/app/[lang]/contact-us/page.tsx:65
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:37
+#: src/app/[lang]/contact-us/page.tsx:76
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:44
+#: src/app/[lang]/contact-us/page.tsx:84
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:52
+#: src/app/[lang]/contact-us/page.tsx:93
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:60
+#: src/app/[lang]/contact-us/page.tsx:102
 msgid "contact-us.submit"
 msgstr "Submit"
 
