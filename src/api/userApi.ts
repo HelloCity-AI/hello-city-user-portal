@@ -16,13 +16,21 @@ export const createUser = async (newUser: User) => {
 
   // Add required fields
   formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
-  formData.append('Email', newUser.email);
+  formData.append('Email', newUser.Email);
 
   // Add optional fields
-  formData.append('Gender', newUser.gender?.toString() ?? '');
-  formData.append('Nationality', newUser.nationality ?? '');
-  formData.append('City', newUser.city ?? '');
-  formData.append('PreferredLanguage', newUser.preferredLanguage?.toString() ?? '');
+  if (newUser.Gender) {
+    formData.append('Gender', newUser.Gender.toString());
+  }
+  if (newUser.nationality) {
+    formData.append('Nationality', newUser.nationality);
+  }
+  if (newUser.city) {
+    formData.append('City', newUser.city);
+  }
+  if (newUser.preferredLanguage) {
+    formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
+  }
 
   // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
@@ -42,50 +50,6 @@ export const createUser = async (newUser: User) => {
   const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, formData, {
     headers,
   });
-  return response;
-};
-
-export const updateUser = async (updatedUser: User) => {
-  // Get access token
-  const tokenResponse = await fetch('/api/auth/token');
-  let accessToken = '';
-
-  if (tokenResponse.ok) {
-    const tokenData = await tokenResponse.json();
-    accessToken = tokenData.accessToken || '';
-  }
-
-  // Create FormData object to match backend's multipart/form-data requirements
-  const formData = new FormData();
-
-  formData.append('Username', updatedUser.email || 'defaultUsername');
-  formData.append('Email', updatedUser.email);
-
-  formData.append('Gender', updatedUser.gender?.toString() ?? '');
-  formData.append('Nationality', updatedUser.nationality ?? '');
-  formData.append('City', updatedUser.city ?? '');
-  formData.append('University', updatedUser.university ?? '');
-  formData.append('Major', updatedUser.major ?? '');
-  formData.append('PreferredLanguage', updatedUser.preferredLanguage?.toString() ?? '');
-
-  const headers: Record<string, string> = {
-    'Content-Type': 'multipart/form-data',
-    Accept: '*/*',
-  };
-
-  // If there's an access token, add it to request headers
-  if (accessToken) {
-    headers.Authorization = `Bearer ${accessToken}`;
-  }
-
-  // Use PUT with user ID in the URL path to match the controller endpoint
-  const response = await axios.put(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${updatedUser.userId}`,
-    formData,
-    {
-      headers,
-    },
-  );
   return response;
 };
 
