@@ -71,7 +71,6 @@ export function* handleFetchUser(): Generator<unknown, void, any> {
       return;
     }
     if (res.status === 200) {
-      console.log(res.data);
       yield put(setUser(res.data));
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
       return;

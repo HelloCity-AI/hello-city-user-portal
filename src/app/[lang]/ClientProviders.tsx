@@ -4,7 +4,7 @@ import type { ReactNode } from 'react';
 import { I18nProvider } from '@/contexts/I18nProvider';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import Box from '@mui/material/Box';
-import { NavBar } from '@/components/NavBar';
+import { NavBar } from '@/compoundComponents/NavBar';
 import type { Messages } from '@lingui/core';
 import { usePathname } from 'next/navigation';
 

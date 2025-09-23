@@ -132,6 +132,9 @@ npm run test:watch
 
 # 生成覆盖率报告
 npm run test:coverage
+
+# 端到端测试
+npm run test:e2e
 ```
 
 测试文件位置：
@@ -199,7 +202,8 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 
 ### UI 和样式
 
-- [Material-UI](https://mui.com/) - React 组件库
+- [Material-UI v7.2+](https://mui.com/) - React 组件库
+- [MUI X Date Pickers](https://mui.com/x/react-date-pickers/) - 高级日期时间组件
 - [Tailwind CSS](https://tailwindcss.com/) - 原子化 CSS 框架
 - 自定义主题 (品牌色彩和渐变)
 
@@ -229,17 +233,20 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 
 ```
 src/
-├── app/                    # Next.js App Router (页面, 布局)
-├── components/             # 可复用 UI 组件
-├── compoundComponents/     # 复杂组合组件
-├── store/                  # Redux store, slices, sagas
-├── contexts/               # React contexts (语言, i18n)
-├── api/                    # API 层 (带认证)
-├── locales/                # i18n 消息目录
-├── theme/                  # Material-UI 主题配置
+├── app/[lang]/             # Next.js App Router 动态语言路由
+├── components/             # 原子化可复用组件
+├── compoundComponents/     # 复杂多部分组件 (NavBar, Modals)
+├── store/                  # Redux Toolkit + Saga 状态管理
+├── api/                    # API 层 (Auth0 认证)
+├── contexts/               # React contexts (语言, I18n)
+├── hooks/                  # 自定义 React hooks
+├── locales/                # i18n 消息目录 (en/zh po格式)
+├── stories/                # Storybook 组件文档
 ├── types/                  # TypeScript 类型定义
-├── utils/                  # 工具函数
-└── stories/                # Storybook 故事
+├── utils/                  # 工具函数 (fetchWithAuth, serverI18n)
+├── lib/                    # 第三方库配置
+├── theme/                  # Material-UI 主题配置
+└── enums/                  # TypeScript 枚举
 ```
 
 ### 关键配置文件
