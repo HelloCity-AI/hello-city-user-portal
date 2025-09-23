@@ -480,6 +480,11 @@ msgstr "Submit"
 #~ msgstr "Message is required."
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:30
+#~ msgid "form.cancel"
+#~ msgstr "Cancel"
+
+#. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
 msgid "NavBar.Back"
 msgstr "← Back"
@@ -490,12 +495,8 @@ msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
-msgstr "Cancel"
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
 msgid "cancel.button"
 msgstr "Cancel"
 
