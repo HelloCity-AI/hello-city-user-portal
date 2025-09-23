@@ -50,7 +50,7 @@ const HeroSection = async ({ locale }: { locale: string }) => {
           </Typography>
           <Button
             component={Link}
-            href={`/${locale}`}
+            href={`/${locale}/assistant`}
             variant="primary"
             sx={{ marginTop: '6px' }}
             className="group w-[200px] font-semibold"

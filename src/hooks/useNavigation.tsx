@@ -20,9 +20,8 @@ export const useNavigation = (): NavConfig => {
     },
     {
       id: 'chat',
-      href: `/${language}`,
+      href: `/${language}/assistant`,
       label: <Trans id="NavBar.Chat" message="Chat" />,
-      onClick: () => alert('chat'),
     },
     {
       id: 'contact',
