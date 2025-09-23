@@ -414,13 +414,9 @@ msgstr "Are you sure you want to log out?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:35
 msgid "cancel.button"
-msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
@@ -444,6 +440,11 @@ msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "Creating..."
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "Got it"
@@ -459,7 +460,7 @@ msgid "NavBar.Home"
 msgstr "Home"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "I'm all set"
 

@@ -2,15 +2,19 @@
 import { Button, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import { useUser } from '@auth0/nextjs-auth0';
+import { useDispatch, useSelector } from 'react-redux';
 import type { User } from '@/types/User.types';
 import { defaultUser } from '@/types/User.types';
-import { createUser } from '@/api/userApi';
+import { createUser } from '@/store/slices/user';
 import { Trans } from '@lingui/react';
 import PersonalInfo from './PersonalInfo';
-import { AxiosError } from 'axios';
+import type { RootState } from '@/store';
 
 const Page = () => {
   const { user, isLoading } = useUser();
+  const dispatch = useDispatch();
+  const { isCreating, createError, data: userData } = useSelector((state: RootState) => state.user);
+
   const [formData, setFormData] = useState<User>({
     ...defaultUser,
     userId: '', // This will be used as username
@@ -30,7 +34,23 @@ const Page = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Handle successful user creation
+  useEffect(() => {
+    if (userData && !isCreating && !createError) {
+      // After successful creation, redirect to homepage
+      // Note: Removed localStorage storage to avoid PII data leakage risk
+      window.location.href = '/';
+    }
+  }, [userData, isCreating, createError]);
+
+  // Handle creation errors
+  useEffect(() => {
+    if (createError) {
+      alert('Failed to create user: ' + createError);
+    }
+  }, [createError]);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.userId) {
@@ -43,18 +63,8 @@ const Page = () => {
       return;
     }
 
-    try {
-      console.log('Form Sent: ', formData);
-      const response = await createUser(formData);
-      localStorage.setItem('userData', JSON.stringify(response.data?.data));
-      // After successful creation, can redirect to homepage or other pages
-      window.location.href = '/';
-    } catch (error: unknown) {
-      if (error instanceof AxiosError) {
-        console.error('Error:', error.response?.data || error.message);
-        alert('Failed to create user: ' + (error.response?.data?.message || error.message));
-      }
-    }
+    console.log('Form Sent: ', formData);
+    dispatch(createUser(formData));
   };
 
   // If user information is loading, show loading state
@@ -99,8 +109,19 @@ const Page = () => {
         <PersonalInfo formData={formData} handleChange={handleChange} />
 
         <div className="w-full">
-          <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
-            <Trans id="I'm all set" message="I'm all set" />
+          <Button
+            variant="contained"
+            color="primary"
+            fullWidth
+            type="submit"
+            className="mt-4"
+            disabled={isCreating}
+          >
+            {isCreating ? (
+              <Trans id="Creating..." message="Creating..." />
+            ) : (
+              <Trans id="I'm all set" message="I'm all set" />
+            )}
           </Button>
         </div>
       </div>

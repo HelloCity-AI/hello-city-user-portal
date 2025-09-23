@@ -471,13 +471,9 @@ msgstr "您确定要登出账户吗？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:35
 msgid "cancel.button"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
@@ -501,6 +497,11 @@ msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "创建中..."
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "知道了"
@@ -516,7 +517,7 @@ msgid "NavBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "我准备好了"
 
