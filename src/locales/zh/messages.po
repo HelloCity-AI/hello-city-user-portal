@@ -24,116 +24,19 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:65
-msgid "profile.title"
-msgstr "个人资料设置"
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "未找到该页面"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:68
-msgid "profile.subtitle"
-msgstr "管理您的个人信息和偏好设置"
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "让我们帮你更快融入新生活。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:72
-msgid "profile.personal-info"
-msgstr "个人信息"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:78
-#: src/app/[lang]/profile/page.tsx:150
-msgid "profile.email"
-msgstr "电子邮箱"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:85
-#: src/app/[lang]/profile/page.tsx:161
-msgid "profile.nationality"
-msgstr "国籍"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:92
-#: src/app/[lang]/profile/page.tsx:171
-msgid "profile.city"
-msgstr "城市"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:99
-#: src/app/[lang]/profile/page.tsx:184
-msgid "profile.gender"
-msgstr "性别"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:106
-#: src/app/[lang]/profile/page.tsx:204
-msgid "profile.university"
-msgstr "大学"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:113
-#: src/app/[lang]/profile/page.tsx:214
-msgid "profile.major"
-msgstr "专业"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:120
-#: src/app/[lang]/profile/page.tsx:224
-msgid "profile.preferred-language"
-msgstr "首选语言"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:133
-msgid "profile.edit-button"
-msgstr "编辑个人资料"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:144
-msgid "profile.edit-title"
-msgstr "编辑个人信息"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:154
-msgid "profile.email-placeholder"
-msgstr "请输入您的电子邮箱"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:164
-msgid "profile.nationality-placeholder"
-msgstr "请输入您的国籍"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:174
-msgid "profile.city-placeholder"
-msgstr "请输入您所在的城市"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:207
-msgid "profile.university-placeholder"
-msgstr "请输入您的大学名称"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:217
-msgid "profile.major-placeholder"
-msgstr "请输入您的专业"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:227
-msgid "profile.preferred-language-placeholder"
-msgstr "请输入您的首选语言"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:237
-msgid "profile.refresh"
-msgstr "重置"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:243
-msgid "profile.cancel"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:246
-msgid "profile.submit"
-msgstr "提交"
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:65
@@ -505,6 +408,13 @@ msgstr "提交"
 #~ msgid "Testimonials.Title8"
 #~ msgstr "商业顾问"
 
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/components/NavBar/DesktopNavBar.tsx:138
+#: src/components/NavBar/MobileNavBar.tsx:122
+#~ msgid "NaveBar.Sign In"
+#~ msgstr "登录"
+
 #. js-lingui-explicit-id
 #~ msgid "error.name"
 #~ msgstr "姓名只能包含字母，且不能为空。"
@@ -530,7 +440,22 @@ msgstr "提交"
 #~ msgstr "请输入信息。"
 
 #. js-lingui-explicit-id
-#: src/components/NavBar/MobileNavBar.tsx:93
+#: src/components/dropdownMenuOptions.example.tsx:18
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:32
+#~ msgid "Subscription"
+#~ msgstr "订阅管理"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "主题"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
 msgid "NavBar.Back"
 msgstr "← 返回"
 
@@ -540,22 +465,24 @@ msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:30
-msgid "form.cancel"
-msgstr "取消"
+#: src/hooks/useLogoutConfirm.tsx:32
+msgid "Are you sure you want to log out?"
+msgstr "您确定要登出账户吗？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
+#: src/hooks/useLogoutConfirm.tsx:35
 msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:37
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
 msgid "NavBar.ChangeLanguage"
 msgstr "切换语言"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:26
+#: src/hooks/useNavigation.tsx:24
 msgid "NavBar.Chat"
 msgstr "聊天"
 
@@ -565,9 +492,14 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:32
+#: src/hooks/useNavigation.tsx:30
 msgid "NavBar.ContactUs"
 msgstr "联系我们"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "创建中..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
@@ -580,12 +512,12 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:21
+#: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:103
+#: src/app/[lang]/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -595,7 +527,9 @@ msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:39
+#: src/hooks/useLogoutConfirm.tsx:30
+#: src/hooks/useLogoutConfirm.tsx:34
+#: src/hooks/useUserMenu.tsx:34
 msgid "Logout"
 msgstr "登出"
 
@@ -603,7 +537,7 @@ msgstr "登出"
 #~ msgstr "返回"
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:11
+#: src/hooks/useUserMenu.tsx:27
 msgid "Profile"
 msgstr "个人资料"
 
@@ -617,15 +551,10 @@ msgstr "头像"
 msgid "profile.avatar.remove"
 msgstr "删除照片"
 
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:18
-msgid "Settings"
-msgstr "设置"
-
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/components/NavBar/DesktopNavBar.tsx:138
-#: src/components/NavBar/MobileNavBar.tsx:123
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
 msgid "NavBar.Sign In"
 msgstr "登录"
 
@@ -633,11 +562,6 @@ msgstr "登录"
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
 msgstr "提交"
-
-#. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:32
-msgid "Subscription"
-msgstr "订阅管理"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -650,11 +574,6 @@ msgid "file.upload.progress"
 msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
-#: src/components/dropdownMenuOptions.example.tsx:25
-msgid "Theme"
-msgstr "主题"
-
-#. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:15
+#: src/hooks/useTryHelloCity.tsx:16
 msgid "NavBar.Try HelloCity"
 msgstr "试用 HelloCity"

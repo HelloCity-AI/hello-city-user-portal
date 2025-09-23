@@ -1,101 +1,123 @@
 import type { User } from '@/types/User.types';
-import axios from 'axios';
+import { fetchWithAuth } from '@/utils/fetchWithAuth';
 
-export const createUser = async (newUser: User) => {
-  // Get access token
-  const tokenResponse = await fetch('/api/auth/token');
-  let accessToken = '';
+/**
+ * Unified User API Service
+ * All user-related API calls with consistent authentication and error handling
+ */
 
-  if (tokenResponse.ok) {
-    const tokenData = await tokenResponse.json();
-    accessToken = tokenData.accessToken || '';
+/**
+ * Get the base URL for API calls
+ * @returns The base URL from environment variables
+ */
+const getBaseUrl = (): string => {
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+  if (!baseUrl) {
+    throw new Error('NEXT_PUBLIC_BACKEND_URL environment variable is not set');
+  }
+  return baseUrl;
+};
+
+/**
+ * Fetch current user profile
+ * @returns Promise<Response> - Response from the API
+ */
+export const fetchCurrentUser = async (): Promise<Response> => {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/me`, {
+    method: 'GET',
+  });
+  return response;
+};
+
+/**
+ * Create a new user profile
+ * @param newUser - User data to create
+ * @returns Promise<Response> - Response from the API
+ */
+export const createUser = async (newUser: User): Promise<Response> => {
+  // Validate userId to avoid potential conflicts with default username
+  if (!newUser.userId || newUser.userId.trim() === '') {
+    throw new Error('User ID is required and cannot be empty');
+  }
+
+  if (newUser.userId === 'defaultUsername') {
+    throw new Error('User ID cannot be "defaultUsername" as it conflicts with system defaults');
   }
 
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
-  formData.append('Email', newUser.email);
+  formData.append('Username', newUser.userId);
+  formData.append('Email', newUser.Email);
 
   // Add optional fields
-  formData.append('Gender', newUser.gender?.toString() ?? '');
-  formData.append('Nationality', newUser.nationality ?? '');
-  formData.append('City', newUser.city ?? '');
-  formData.append('PreferredLanguage', newUser.preferredLanguage?.toString() ?? '');
+  if (newUser.Gender) {
+    formData.append('Gender', newUser.Gender.toString());
+  }
+  if (newUser.nationality) {
+    formData.append('Nationality', newUser.nationality);
+  }
+  if (newUser.city) {
+    formData.append('City', newUser.city);
+  }
+  if (newUser.preferredLanguage) {
+    formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
+  }
 
   // If there's an avatar file, it can also be added
   // if (newUser.Avatar && newUser.Avatar instanceof File) {
   //   formData.append('File', newUser.Avatar);
   // }
 
-  const headers: Record<string, string> = {
-    'Content-Type': 'multipart/form-data',
-    Accept: '*/*',
-  };
-
-  // If there's an access token, add it to request headers
-  if (accessToken) {
-    headers.Authorization = `Bearer ${accessToken}`;
-  }
-
-  const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user`, formData, {
-    headers,
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user`, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      // Don't set Content-Type for FormData, let the browser set it with boundary
+      Accept: '*/*',
+    },
   });
   return response;
 };
 
-export const updateUser = async (updatedUser: User) => {
-  // Get access token
-  const tokenResponse = await fetch('/api/auth/token');
-  let accessToken = '';
-
-  if (tokenResponse.ok) {
-    const tokenData = await tokenResponse.json();
-    accessToken = tokenData.accessToken || '';
-  }
-
-  // Create FormData object to match backend's multipart/form-data requirements
-  const formData = new FormData();
-
-  formData.append('Username', updatedUser.email || 'defaultUsername');
-  formData.append('Email', updatedUser.email);
-
-  formData.append('Gender', updatedUser.gender?.toString() ?? '');
-  formData.append('Nationality', updatedUser.nationality ?? '');
-  formData.append('City', updatedUser.city ?? '');
-  formData.append('University', updatedUser.university ?? '');
-  formData.append('Major', updatedUser.major ?? '');
-  formData.append('PreferredLanguage', updatedUser.preferredLanguage?.toString() ?? '');
-
-  const headers: Record<string, string> = {
-    'Content-Type': 'multipart/form-data',
-    Accept: '*/*',
-  };
-
-  // If there's an access token, add it to request headers
-  if (accessToken) {
-    headers.Authorization = `Bearer ${accessToken}`;
-  }
-
-  // Use PUT with user ID in the URL path to match the controller endpoint
-  const response = await axios.put(
-    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${updatedUser.userId}`,
-    formData,
-    {
-      headers,
+/**
+ * Update user profile
+ * @param userId - User ID to update
+ * @param userData - Updated user data
+ * @returns Promise<Response> - Response from the API
+ */
+export const updateUser = async (userId: string, userData: Partial<User>): Promise<Response> => {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'PUT',
+    body: JSON.stringify(userData),
+    headers: {
+      'Content-Type': 'application/json',
     },
-  );
+  });
   return response;
 };
 
-// Used in demo, currently unused, waiting for new ticket
-export const fetchUser = async (newUserId: string) => {
-  const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${newUserId}`, {
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: '*/*',
-    },
+/**
+ * Fetch user by ID (for demo purposes)
+ * @param userId - User ID to fetch
+ * @returns Promise<Response> - Response from the API
+ */
+export const fetchUserById = async (userId: string): Promise<Response> => {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'GET',
+  });
+  return response;
+};
+
+/**
+ * Delete user profile
+ * @param userId - User ID to delete
+ * @returns Promise<Response> - Response from the API
+ */
+export const deleteUser = async (userId: string): Promise<Response> => {
+  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
+    method: 'DELETE',
   });
   return response;
 };

@@ -12,6 +12,8 @@ export interface UserState {
   data: User | null;
   error: string | null;
   authStatus: AuthState;
+  isCreating: boolean;
+  createError: string | null;
 }
 
 const initialState: UserState = {
@@ -19,6 +21,8 @@ const initialState: UserState = {
   data: null,
   error: null,
   authStatus: AuthState.Unauthenticated,
+  isCreating: false,
+  createError: null,
 };
 
 const userSlice = createSlice({
@@ -34,6 +38,8 @@ const userSlice = createSlice({
       state.error = null;
       state.authStatus = AuthState.Unauthenticated;
       state.isLoading = false;
+      state.isCreating = false;
+      state.createError = null;
     },
     setAuth: (state, action: PayloadAction<AuthState>) => {
       state.authStatus = action.payload;
@@ -47,8 +53,32 @@ const userSlice = createSlice({
       state.isLoading = false;
     },
     fetchUser: () => {},
+    createUser: (state, action: PayloadAction<User>) => {
+      state.isCreating = true;
+      state.createError = null;
+    },
+    createUserSuccess: (state, action: PayloadAction<User>) => {
+      state.data = action.payload;
+      state.isCreating = false;
+      state.createError = null;
+      state.authStatus = AuthState.AuthenticatedWithProfile;
+    },
+    createUserFailure: (state, action: PayloadAction<string>) => {
+      state.isCreating = false;
+      state.createError = action.payload;
+    },
   },
 });
 
-export const { setUser, logOut, setLoading, fetchUser, setError, setAuth } = userSlice.actions;
+export const {
+  setUser,
+  logOut,
+  setLoading,
+  fetchUser,
+  setError,
+  setAuth,
+  createUser,
+  createUserSuccess,
+  createUserFailure,
+} = userSlice.actions;
 export default userSlice.reducer;
