@@ -38,9 +38,9 @@ const ContactUs = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          to: 'support@hellocity.com',
-          subject: `New Contact Us from ${name}`,
-          message: `From: ${email}\n\n${message}`,
+          name: name,
+          email: email,
+          message: message,
         }),
       });
 
