@@ -5,6 +5,7 @@ import ValuePropositionSection from './sections/ValuePropositionSection';
 import HowItWorksSection from './sections/HowItWorksSection';
 import CallToActionsSection from './sections/CallToActionsSection';
 import TestimonialsSection from './sections/TestimonialsSection';
+import FAQSection from './sections/FAQSection'
 
 export default function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;
@@ -15,6 +16,7 @@ export default function Home({ params }: { params: { lang: string } }) {
       <ValuePropositionSection locale={lang} />
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
+      <FAQSection locale={lang} />
       <CallToActionsSection locale={lang} />
     </React.Fragment>
   );
