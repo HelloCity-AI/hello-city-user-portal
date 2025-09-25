@@ -12,7 +12,7 @@ import {
   SUPPORTED_LANGUAGES,
   LOGO_CONFIG,
   type SupportedLanguage,
-} from '../../components/NavBar/navConfig';
+} from '../../compoundComponents/NavBar/navConfig';
 
 const SUPPORTED = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
 const LOWER_TO_CANON = SUPPORTED.reduce(
