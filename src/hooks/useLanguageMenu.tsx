@@ -24,31 +24,35 @@ const useLanguageMenu = () => {
   const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
 
   // Language options for dropdown
-  const optionsForDropdown: MenuOption[] = ALL_LANGUAGES.map((lang) => {
+  const languageOptionsForDropdown: MenuOption[] = ALL_LANGUAGES.map((lang) => {
     const isSupported = availableLanguages.includes(lang.code);
     return {
+      id: lang.code,
       label: lang.label,
       value: lang.code,
       onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+      icon: null,
+      divider: false,
     };
   });
 
   // Language options for drawer
-  const childrenNavItems: NavItem[] = ALL_LANGUAGES.map((lang) => {
+  const languageOptionsForDrawer: NavItem[] = ALL_LANGUAGES.map((lang) => {
     const isSupported = availableLanguages.includes(lang.code);
     return {
       id: lang.code,
       href: '',
       label: lang.label,
       onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+      childrenItem: undefined,
     };
   });
 
   return {
     currentLanguage,
     shortLabel: currentLanguage.shortLabel,
-    optionsForDropdown,
-    childrenNavItems,
+    languageOptionsForDropdown,
+    languageOptionsForDrawer,
   };
 };
 

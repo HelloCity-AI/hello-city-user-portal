@@ -27,7 +27,7 @@ const LanguageMenu: React.FC<LanguageMenuProps> = ({
   transformOrigin,
   anchorOrigin,
 }) => {
-  const { optionsForDropdown: options } = useLanguageMenu();
+  const { languageOptionsForDropdown: options } = useLanguageMenu();
 
   return (
     <Dropdown

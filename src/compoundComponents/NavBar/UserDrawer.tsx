@@ -39,7 +39,7 @@ const UserDrawer: React.FC<UserDrawerProps> = ({
       <List className="px-7">
         {options.map((option) => {
           return (
-            <React.Fragment key={option.value}>
+            <React.Fragment key={option.id}>
               <ListItemButton onClick={() => handleClick(option.onClick)}>
                 {option.icon && (
                   <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>

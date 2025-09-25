@@ -8,6 +8,7 @@ const TestIcon: React.FC = () => <svg />;
 
 const testOptions: MenuOption[] = [
   {
+    id: 'profile',
     label: 'Profile',
     value: 'profile',
     onClick: jest.fn(),
@@ -15,6 +16,7 @@ const testOptions: MenuOption[] = [
     divider: false,
   },
   {
+    id: 'settings',
     label: 'Settings',
     value: 'settings',
     onClick: jest.fn(),
@@ -22,6 +24,7 @@ const testOptions: MenuOption[] = [
     divider: true,
   },
   {
+    id: 'logout',
     label: 'Logout',
     value: 'logout',
     onClick: jest.fn(),
