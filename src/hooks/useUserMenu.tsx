@@ -24,6 +24,7 @@ const useUserMenu = () => {
 
   const options = [
     {
+      id: 'profile',
       label: <Trans id="Profile" message="Profile" />,
       value: 'profile',
       icon: PersonOutlineIcon,
@@ -31,6 +32,7 @@ const useUserMenu = () => {
       onClick: () => goProfile(),
     },
     {
+      id: 'logout',
       label: <Trans id="Logout" message="Logout" />,
       value: 'logout',
       icon: Logout,
