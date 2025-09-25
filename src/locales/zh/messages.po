@@ -24,21 +24,6 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "未找到该页面"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "让我们帮你更快融入新生活。"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
-
-#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "联系我们"
@@ -512,6 +497,11 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
+
+#. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "首页"
@@ -527,6 +517,11 @@ msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "让我们帮你更快融入新生活。"
+
+#. js-lingui-explicit-id
 #: src/hooks/useLogoutConfirm.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:34
 #: src/hooks/useUserMenu.tsx:34
@@ -535,6 +530,11 @@ msgstr "登出"
 
 #~ msgid "NaveBar.Back"
 #~ msgstr "返回"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "未找到该页面"
 
 #. js-lingui-explicit-id
 #: src/hooks/useUserMenu.tsx:27

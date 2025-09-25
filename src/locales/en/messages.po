@@ -22,21 +22,6 @@ msgid "validation.required"
 msgstr "{label} is required."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "Page not found"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "Let’s help you settle in."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
-
-#. js-lingui-explicit-id
 #: src/app/[lang]/contact-us/page.tsx:32
 msgid "contact-us.title"
 msgstr "Contact Us"
@@ -455,6 +440,11 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+
+#. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "Home"
@@ -470,11 +460,21 @@ msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "Let’s help you settle in."
+
+#. js-lingui-explicit-id
 #: src/hooks/useLogoutConfirm.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:34
 #: src/hooks/useUserMenu.tsx:34
 msgid "Logout"
 msgstr "Logout"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "Page not found"
 
 #. js-lingui-explicit-id
 #: src/hooks/useUserMenu.tsx:27
