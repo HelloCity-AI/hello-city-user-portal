@@ -24,6 +24,21 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "未找到该页面"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "让我们帮你更快融入新生活。"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:65
 msgid "contact-us.title"
 msgstr "联系我们"
@@ -159,21 +174,6 @@ msgstr "取消"
 #: src/app/[lang]/(app)/profile/page.tsx:246
 msgid "profile.submit"
 msgstr "提交"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "未找到该页面"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "让我们帮你更快融入新生活。"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93

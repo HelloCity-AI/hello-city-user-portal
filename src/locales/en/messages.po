@@ -22,6 +22,21 @@ msgid "validation.required"
 msgstr "{label} is required."
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "Page not found"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "Let’s help you settle in."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:65
 msgid "contact-us.title"
 msgstr "Contact Us"
@@ -157,21 +172,6 @@ msgstr "Cancel"
 #: src/app/[lang]/(app)/profile/page.tsx:246
 msgid "profile.submit"
 msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "Page not found"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "Let’s help you settle in."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
