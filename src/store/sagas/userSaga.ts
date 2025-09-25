@@ -10,7 +10,7 @@ import {
   createUserSuccess,
   createUserFailure,
 } from '../slices/user';
-import { fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
+import { fetchUser as fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
@@ -18,46 +18,42 @@ import type { PayloadAction } from '@reduxjs/toolkit';
  * API wrapper for fetching current user with proper error handling
  */
 export async function fetchUserApiWrapper() {
-  const response = await fetchCurrentUser();
-
-  // Convert Response to axios-like format for backward compatibility
-  let data = null;
-  if (response.ok) {
-    try {
-      data = await response.json();
-    } catch (jsonError) {
-      console.error('Failed to parse JSON response:', jsonError);
-      data = null;
-    }
+  try {
+    const response = await fetchCurrentUser(''); // fetchUser requires userId parameter
+    return {
+      status: response.status,
+      data: response.data,
+      ok: response.status >= 200 && response.status < 300,
+    };
+  } catch (error) {
+    console.error('Failed to fetch user:', error);
+    return {
+      status: 500,
+      data: null,
+      ok: false,
+    };
   }
-  return {
-    status: response.status,
-    data,
-    ok: response.ok,
-  };
 }
 
 /**
  * API wrapper for creating user with proper error handling
  */
 export async function createUserApiWrapper(userData: User) {
-  const response = await createUserApi(userData);
-
-  // Convert Response to axios-like format for backward compatibility
-  let data = null;
-  if (response.ok) {
-    try {
-      data = await response.json();
-    } catch (jsonError) {
-      console.error('Failed to parse JSON response:', jsonError);
-      data = null;
-    }
+  try {
+    const response = await createUserApi(userData);
+    return {
+      status: response.status,
+      data: response.data,
+      ok: response.status >= 200 && response.status < 300,
+    };
+  } catch (error) {
+    console.error('Failed to create user:', error);
+    return {
+      status: 500,
+      data: null,
+      ok: false,
+    };
   }
-  return {
-    status: response.status,
-    data,
-    ok: response.ok,
-  };
 }
 
 export function* handleFetchUser(): Generator<unknown, void, any> {
@@ -73,38 +69,28 @@ export function* handleFetchUser(): Generator<unknown, void, any> {
     if (res.status === 200) {
       yield put(setUser(res.data));
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
-      return;
+    } else {
+      yield put(setError(`Failed to fetch user: ${res.status}`));
     }
-    if (res.status === 404) {
-      yield put(setUser(null));
-      yield put(setAuth(AuthState.AuthenticatedButNoProfile));
-    }
-  } catch (error) {
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
-    yield put(setError(errorMessage));
+  } catch (error: any) {
+    console.error('Error in handleFetchUser:', error);
+    yield put(setError(error.message || 'Unknown error occurred'));
   } finally {
     yield put(setLoading(false));
   }
 }
 
-/**
- * Saga handler for creating a new user
- */
 export function* handleCreateUser(action: PayloadAction<User>): Generator<unknown, void, any> {
   try {
-    const userData = action.payload;
-    const res = yield call(createUserApiWrapper, userData);
-
-    if (res.ok && (res.status === 200 || res.status === 201)) {
+    const res = yield call(createUserApiWrapper, action.payload);
+    if (res.status === 201 || res.status === 200) {
       yield put(createUserSuccess(res.data));
     } else {
-      const errorMessage = res.data?.error || `Failed to create user (Status: ${res.status})`;
-      yield put(createUserFailure(errorMessage));
+      yield put(createUserFailure(`Failed to create user: ${res.status}`));
     }
-  } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : 'An unknown error occurred while creating user';
-    yield put(createUserFailure(errorMessage));
+  } catch (error: any) {
+    console.error('Error in handleCreateUser:', error);
+    yield put(createUserFailure(error.message || 'Unknown error occurred'));
   }
 }
 

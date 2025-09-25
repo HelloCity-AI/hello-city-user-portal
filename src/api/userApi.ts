@@ -1,54 +1,11 @@
 import type { User } from '@/types/User.types';
-import { fetchWithAuth } from '@/utils/fetchWithAuth';
 
-/**
- * Unified User API Service
- * All user-related API calls with consistent authentication and error handling
- */
-
-/**
- * Get the base URL for API calls
- * @returns The base URL from environment variables
- */
-const getBaseUrl = (): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  if (!baseUrl) {
-    throw new Error('NEXT_PUBLIC_BACKEND_URL environment variable is not set');
-  }
-  return baseUrl;
-};
-
-/**
- * Fetch current user profile
- * @returns Promise<Response> - Response from the API
- */
-export const fetchCurrentUser = async (): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/me`, {
-    method: 'GET',
-  });
-  return response;
-};
-
-/**
- * Create a new user profile
- * @param newUser - User data to create
- * @returns Promise<Response> - Response from the API
- */
-export const createUser = async (newUser: User): Promise<Response> => {
-  // Validate userId to avoid potential conflicts with default username
-  if (!newUser.userId || newUser.userId.trim() === '') {
-    throw new Error('User ID is required and cannot be empty');
-  }
-
-  if (newUser.userId === 'defaultUsername') {
-    throw new Error('User ID cannot be "defaultUsername" as it conflicts with system defaults');
-  }
-
+export const createUser = async (newUser: User) => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId);
+  formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
   formData.append('Email', newUser.Email);
 
   // Add optional fields
@@ -70,54 +27,39 @@ export const createUser = async (newUser: User): Promise<Response> => {
   //   formData.append('File', newUser.Avatar);
   // }
 
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user`, {
+  // Use unified /api/user/me endpoint for all user operations
+  const response = await fetch('/api/user/me', {
     method: 'POST',
     body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  return {
+    data: await response.json(),
+    status: response.status,
+  };
+};
+
+// Used in demo, currently unused, waiting for new ticket
+export const fetchUser = async (newUserId: string) => {
+  // Use unified /api/user/me endpoint for all user operations
+  const response = await fetch('/api/user/me', {
+    method: 'GET',
     headers: {
-      // Don't set Content-Type for FormData, let the browser set it with boundary
+      'Content-Type': 'application/json',
       Accept: '*/*',
     },
   });
-  return response;
-};
 
-/**
- * Update user profile
- * @param userId - User ID to update
- * @param userData - Updated user data
- * @returns Promise<Response> - Response from the API
- */
-export const updateUser = async (userId: string, userData: Partial<User>): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'PUT',
-    body: JSON.stringify(userData),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  return response;
-};
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
 
-/**
- * Fetch user by ID (for demo purposes)
- * @param userId - User ID to fetch
- * @returns Promise<Response> - Response from the API
- */
-export const fetchUserById = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'GET',
-  });
-  return response;
-};
-
-/**
- * Delete user profile
- * @param userId - User ID to delete
- * @returns Promise<Response> - Response from the API
- */
-export const deleteUser = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'DELETE',
-  });
-  return response;
+  return {
+    data: await response.json(),
+    status: response.status,
+  };
 };
