@@ -17,21 +17,23 @@ import userSaga, {
   createUserApiWrapper,
 } from '@/store/sagas/userSaga';
 import type { User } from '@/types/User.types';
-import { fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
+import { fetchUser as fetchCurrentUserApi, createUser as createUserApi } from '@/api/userApi';
 
 // Mock the fetchWithAuth utility
 jest.mock('@/utils/fetchWithAuth', () => ({
   fetchWithAuth: jest.fn(),
 }));
 
-// Mock the unified API service
+// Mock the userApi module
 jest.mock('@/api/userApi', () => ({
-  fetchCurrentUser: jest.fn(),
-  createUserApi: jest.fn(),
+  fetchUser: jest.fn(),
+  createUser: jest.fn(),
 }));
 
-const mockedFetchCurrentUser = fetchCurrentUser as jest.MockedFunction<typeof fetchCurrentUser>;
-const mockedCreateUserApi = createUserApi as jest.MockedFunction<typeof createUserApi>;
+const mockedFetchCurrentUser = fetchCurrentUserApi as jest.MockedFunction<
+  typeof fetchCurrentUserApi
+>;
+const mockedCreateUser = createUserApi as jest.MockedFunction<typeof createUserApi>;
 
 const createMockResponse = <T>(data: T, status = 200, ok = true): Response =>
   ({
@@ -62,9 +64,9 @@ describe('userSaga', () => {
     it('Should handle successful API call with 200 status', () => {
       const mockUserData: User = {
         userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
+        Email: 'test@example.com',
+        Avatar: 'avatar.jpg',
+        Gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -94,8 +96,9 @@ describe('userSaga', () => {
 
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.next(mockResponse).value).toEqual(put(setUser(null)));
-      expect(generator.next().value).toEqual(put(setAuth(AuthState.AuthenticatedButNoProfile)));
+      expect(generator.next(mockResponse).value).toEqual(
+        put(setError('Failed to fetch user: 404')),
+      );
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
@@ -115,26 +118,28 @@ describe('userSaga', () => {
     });
 
     it('Should handle API errors', () => {
-      const mockError = new Error('Network error');
+      const mockErrorResponse = { status: 500, data: null, ok: false };
 
       const generator = handleFetchUser();
       expect(generator.next().value).toEqual(put(setLoading(true)));
 
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(mockError).value).toEqual(put(setError('Network error')));
+      expect(generator.next(mockErrorResponse).value).toEqual(
+        put(setError('Failed to fetch user: 500')),
+      );
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
 
     it('Should handle errors with message via catch', () => {
-      const error = new Error('Request failed with status code 500');
+      const mockError = new Error('Request failed with status code 500');
 
       const generator = handleFetchUser();
       expect(generator.next().value).toEqual(put(setLoading(true)));
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(error).value).toEqual(
+      expect(generator.throw(mockError).value).toEqual(
         put(setError('Request failed with status code 500')),
       );
       expect(generator.next().value).toEqual(put(setLoading(false)));
@@ -148,9 +153,7 @@ describe('userSaga', () => {
       expect(generator.next().value).toEqual(put(setLoading(true)));
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(unknownError).value).toEqual(
-        put(setError('An unknown error occurred')),
-      );
+      expect(generator.throw(unknownError).value).toEqual(put(setError('Unknown error occurred')));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
@@ -164,9 +167,9 @@ describe('userSaga', () => {
     it('Should handle successful user creation with 200 status', () => {
       const mockUserData: User = {
         userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
+        Email: 'test@example.com',
+        Avatar: 'avatar.jpg',
+        Gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -188,9 +191,9 @@ describe('userSaga', () => {
     it('Should handle successful user creation with 201 status', () => {
       const mockUserData: User = {
         userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
+        Email: 'test@example.com',
+        Avatar: 'avatar.jpg',
+        Gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -212,9 +215,9 @@ describe('userSaga', () => {
     it('Should handle user creation failure', () => {
       const mockUserData: User = {
         userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
+        Email: 'test@example.com',
+        Avatar: 'avatar.jpg',
+        Gender: '',
         nationality: '',
         city: '',
         university: 'Test University',
@@ -230,7 +233,7 @@ describe('userSaga', () => {
       const callEffect = generator.next().value;
       expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
       expect(generator.next(mockResponse).value).toEqual(
-        put(createUserFailure('User already exists')),
+        put(createUserFailure('Failed to create user: 400')),
       );
       expect(generator.next().done).toBe(true);
     });
@@ -238,9 +241,9 @@ describe('userSaga', () => {
     it('Should handle user creation error', () => {
       const mockUserData: User = {
         userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
+        Email: 'test@example.com',
+        Avatar: 'avatar.jpg',
+        Gender: '',
         nationality: '',
         city: '',
         university: 'Test University',

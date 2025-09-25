@@ -1,16 +1,10 @@
-import { createUser, fetchCurrentUser } from '@/api/userApi';
+import { createUser, fetchUser } from '@/api/userApi';
 import { defaultUser } from '@/types/User.types';
-
-// Mock the fetchWithAuth utility
-jest.mock('@/utils/fetchWithAuth', () => ({
-  fetchWithAuth: jest.fn(),
-}));
 
 // Mock fetch for Node.js environment
 global.fetch = jest.fn();
 
-const { fetchWithAuth } = require('@/utils/fetchWithAuth');
-const mockedFetchWithAuth = fetchWithAuth as jest.MockedFunction<typeof fetchWithAuth>;
+const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;
 
 describe('createUser API', () => {
   beforeAll(() => {
@@ -27,21 +21,18 @@ describe('createUser API', () => {
       json: async () => ({ userId: '12345' }),
     } as Response;
 
-    mockedFetchWithAuth.mockResolvedValue(mockResponse);
+    mockedFetch.mockResolvedValue(mockResponse);
 
     const newUser = {
       ...defaultUser,
       userId: 'paul123',
-      username: 'paul',
       Email: 'paul@example.com',
-      password: 'abc123',
-      confirmPassword: 'abc123',
     };
 
     const result = await createUser(newUser);
 
-    expect(mockedFetchWithAuth).toHaveBeenCalledWith(
-      'http://localhost:5000/api/user',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      '/api/user/me',
       expect.objectContaining({
         method: 'POST',
         body: expect.any(FormData),
@@ -56,19 +47,19 @@ describe('createUser API', () => {
       json: async () => ({ error: 'Bad Request' }),
     } as Response;
 
-    mockedFetchWithAuth.mockResolvedValue(errorResponse);
+    mockedFetch.mockResolvedValue(errorResponse);
 
     const testUser = {
       ...defaultUser,
       userId: 'testUser123',
       Email: 'test@example.com',
     };
-    const result = await createUser(testUser);
-    expect(result.status).toBe(400);
+
+    await expect(createUser(testUser)).rejects.toThrow('HTTP error! status: 400');
   });
 });
 
-describe('fetchCurrentUser API', () => {
+describe('fetchUser API', () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
@@ -81,12 +72,12 @@ describe('fetchCurrentUser API', () => {
       json: async () => mockUserData,
     } as Response;
 
-    mockedFetchWithAuth.mockResolvedValue(mockResponse);
+    mockedFetch.mockResolvedValue(mockResponse);
 
-    const result = await fetchCurrentUser();
+    const result = await fetchUser('123');
 
-    expect(mockedFetchWithAuth).toHaveBeenCalledWith(
-      'http://localhost:5000/api/user/me',
+    expect(mockedFetch).toHaveBeenCalledWith(
+      '/api/user/me',
       expect.objectContaining({
         method: 'GET',
       }),
