@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
-import ProfilePage from '../src/app/[lang]/profile/page';
+import ProfilePage from '../src/app/[lang]/(app)/profile/page';
 import { defaultUser } from '../src/types/User.types';
 
 // Create a mock store

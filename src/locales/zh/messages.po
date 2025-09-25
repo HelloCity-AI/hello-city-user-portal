@@ -24,6 +24,143 @@ msgid "validation.required"
 msgstr "{label}是必填项。"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:65
+msgid "contact-us.title"
+msgstr "联系我们"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:76
+msgid "contact-us.name"
+msgstr "姓名"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:84
+msgid "contact-us.email"
+msgstr "电子邮件"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:93
+msgid "contact-us.message"
+msgstr "信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:102
+msgid "contact-us.submit"
+msgstr "提交"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:65
+msgid "profile.title"
+msgstr "个人资料设置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:68
+msgid "profile.subtitle"
+msgstr "管理您的个人信息和偏好设置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:72
+msgid "profile.personal-info"
+msgstr "个人信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:78
+#: src/app/[lang]/(app)/profile/page.tsx:150
+msgid "profile.email"
+msgstr "电子邮箱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:85
+#: src/app/[lang]/(app)/profile/page.tsx:161
+msgid "profile.nationality"
+msgstr "国籍"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:92
+#: src/app/[lang]/(app)/profile/page.tsx:171
+msgid "profile.city"
+msgstr "城市"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:99
+#: src/app/[lang]/(app)/profile/page.tsx:184
+msgid "profile.gender"
+msgstr "性别"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:106
+#: src/app/[lang]/(app)/profile/page.tsx:204
+msgid "profile.university"
+msgstr "大学"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:113
+#: src/app/[lang]/(app)/profile/page.tsx:214
+msgid "profile.major"
+msgstr "专业"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:120
+#: src/app/[lang]/(app)/profile/page.tsx:224
+msgid "profile.preferred-language"
+msgstr "首选语言"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:133
+msgid "profile.edit-button"
+msgstr "编辑个人资料"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:144
+msgid "profile.edit-title"
+msgstr "编辑个人信息"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:154
+msgid "profile.email-placeholder"
+msgstr "请输入您的电子邮箱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:164
+msgid "profile.nationality-placeholder"
+msgstr "请输入您的国籍"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:174
+msgid "profile.city-placeholder"
+msgstr "请输入您所在的城市"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:207
+msgid "profile.university-placeholder"
+msgstr "请输入您的大学名称"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:217
+msgid "profile.major-placeholder"
+msgstr "请输入您的专业"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:227
+msgid "profile.preferred-language-placeholder"
+msgstr "请输入您的首选语言"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:237
+msgid "profile.refresh"
+msgstr "重置"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:243
+msgid "profile.cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:246
+msgid "profile.submit"
+msgstr "提交"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:140
 msgid "notFound.pageNotFound"
 msgstr "未找到该页面"
@@ -37,143 +174,6 @@ msgstr "让我们帮你更快融入新生活。"
 #: src/app/[lang]/not-found.tsx:157
 msgid "notFound.sub"
 msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:65
-msgid "profile.title"
-msgstr "个人资料设置"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:68
-msgid "profile.subtitle"
-msgstr "管理您的个人信息和偏好设置"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:72
-msgid "profile.personal-info"
-msgstr "个人信息"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:78
-#: src/app/[lang]/profile/page.tsx:150
-msgid "profile.email"
-msgstr "电子邮箱"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:85
-#: src/app/[lang]/profile/page.tsx:161
-msgid "profile.nationality"
-msgstr "国籍"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:92
-#: src/app/[lang]/profile/page.tsx:171
-msgid "profile.city"
-msgstr "城市"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:99
-#: src/app/[lang]/profile/page.tsx:184
-msgid "profile.gender"
-msgstr "性别"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:106
-#: src/app/[lang]/profile/page.tsx:204
-msgid "profile.university"
-msgstr "大学"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:113
-#: src/app/[lang]/profile/page.tsx:214
-msgid "profile.major"
-msgstr "专业"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:120
-#: src/app/[lang]/profile/page.tsx:224
-msgid "profile.preferred-language"
-msgstr "首选语言"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:133
-msgid "profile.edit-button"
-msgstr "编辑个人资料"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:144
-msgid "profile.edit-title"
-msgstr "编辑个人信息"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:154
-msgid "profile.email-placeholder"
-msgstr "请输入您的电子邮箱"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:164
-msgid "profile.nationality-placeholder"
-msgstr "请输入您的国籍"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:174
-msgid "profile.city-placeholder"
-msgstr "请输入您所在的城市"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:207
-msgid "profile.university-placeholder"
-msgstr "请输入您的大学名称"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:217
-msgid "profile.major-placeholder"
-msgstr "请输入您的专业"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:227
-msgid "profile.preferred-language-placeholder"
-msgstr "请输入您的首选语言"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:237
-msgid "profile.refresh"
-msgstr "重置"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:243
-msgid "profile.cancel"
-msgstr "取消"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:246
-msgid "profile.submit"
-msgstr "提交"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:65
-msgid "contact-us.title"
-msgstr "联系我们"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:76
-msgid "contact-us.name"
-msgstr "姓名"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:84
-msgid "contact-us.email"
-msgstr "电子邮件"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:93
-msgid "contact-us.message"
-msgstr "信息"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:102
-msgid "contact-us.submit"
-msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
@@ -604,12 +604,12 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:30
+#: src/hooks/useNavigation.tsx:29
 msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:121
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:121
 msgid "Creating..."
 msgstr "创建中..."
 
@@ -629,7 +629,7 @@ msgid "NavBar.Home"
 msgstr "首页"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:123
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:123
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -686,6 +686,6 @@ msgid "file.upload.progress"
 msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:16
+#: src/hooks/useTryHelloCity.tsx:9
 msgid "NavBar.Try HelloCity"
 msgstr "试用 HelloCity"
