@@ -79,7 +79,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
                         sx={{ width: '100%', display: 'flex', justifyContent: 'space-between' }}
                         onClick={() => handleClick(itemIndex)}
                       >
-                        <Typography component="span" variant="body2" className="font-medium">
+                        <Typography component="span" variant="body2">
                           {item.label}
                         </Typography>
                         {item.childrenItem && (

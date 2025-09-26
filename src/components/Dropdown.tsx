@@ -9,9 +9,11 @@ import Typography from '@mui/material/Typography';
 import UserProfileCard from './UserLabel';
 import type { MenuOption } from '@/types/menu';
 import type { ReactNode } from 'react';
+import Button from '@mui/material/Button';
 
 interface DropdownProps {
   anchorElContent: ReactNode;
+  disableIconButton?: boolean;
   dropdownOptions: MenuOption[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
@@ -26,6 +28,7 @@ interface DropdownProps {
 
 const DropDown: React.FC<DropdownProps> = ({
   anchorElContent,
+  disableIconButton,
   dropdownOptions,
   showUserLabel,
   textAlignCenter,
@@ -69,9 +72,25 @@ const DropDown: React.FC<DropdownProps> = ({
     };
   };
 
-  return (
-    <React.Fragment>
-      {/* AnchorEL */}
+  const renderAnchorButton = () => {
+    if (disableIconButton) {
+      return (
+        <Button
+          onClick={(event) => setAnchorEl(event.currentTarget as HTMLElement)}
+          size="small"
+          sx={{ ml: 2 }}
+          aria-controls={open ? 'account-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          aria-label="open menu"
+          disableRipple={disableHover}
+        >
+          {anchorElContent}
+        </Button>
+      );
+    }
+
+    return (
       <IconButton
         onClick={(event) => setAnchorEl(event.currentTarget as HTMLElement)}
         size="small"
@@ -84,6 +103,13 @@ const DropDown: React.FC<DropdownProps> = ({
       >
         {anchorElContent}
       </IconButton>
+    );
+  };
+
+  return (
+    <React.Fragment>
+      {/* AnchorEL */}
+      {renderAnchorButton()}
       {/* Menu Paper*/}
       <Menu
         key={Number(hasRenderedOnce)}
@@ -104,16 +130,19 @@ const DropDown: React.FC<DropdownProps> = ({
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
         {/* Dropdown items */}
-        {dropdownOptions.map((option: MenuOption) => {
+        {dropdownOptions?.map((option: MenuOption) => {
           return (
-            <React.Fragment key={option.value}>
+            <React.Fragment key={option.id}>
               <MenuItem onClick={() => option.onClick(option.value)}>
                 {option.icon && (
                   <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
                     {option.icon && <option.icon fontSize="small" />}
                   </ListItemIcon>
                 )}
-                <Typography sx={textAlignCenter ? { textAlign: 'center', flexGrow: 1 } : {}}>
+                <Typography
+                  sx={textAlignCenter ? { textAlign: 'center', flexGrow: 1 } : {}}
+                  variant="body2"
+                >
                   {option.label}
                 </Typography>
               </MenuItem>

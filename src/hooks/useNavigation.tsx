@@ -17,16 +17,22 @@ export const useNavigation = (): NavConfig => {
       id: 'home',
       href: `/${language}`,
       label: <Trans id="NavBar.Home" message="Home" />,
+      onClick: undefined,
+      childrenItem: undefined,
     },
     {
       id: 'chat',
       href: `/${language}/assistant`,
       label: <Trans id="NavBar.Chat" message="Chat" />,
+      onClick:undefined,
+      childrenItem: undefined,
     },
     {
       id: 'contact',
       href: `/${language}/contact-us`,
       label: <Trans id="NavBar.ContactUs" message="Contact Us" />,
+      onClick: undefined,
+      childrenItem: undefined,
     },
   ];
 
