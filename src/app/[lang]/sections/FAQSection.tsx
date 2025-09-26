@@ -16,52 +16,50 @@ import IconButton from '@mui/material/IconButton';
 
 type FAQ = { key: string; question: string; answer: string };
 
+const faqs: FAQ[] = [
+  {
+    key: 'faq1',
+    question: 'What is HelloCity?',
+    answer:
+      'HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city.',
+  },
+  {
+    key: 'faq2',
+    question: 'Is HelloCity free to use?',
+    answer:
+      'You can start for free. Premium options are available for more personalized guidance and advanced features.',
+  },
+  {
+    key: 'faq3',
+    question: 'Which cities are supported?',
+    answer:
+      'We cover major global cities and expand regularly. Check inside the product for the latest supported locations.',
+  },
+  {
+    key: 'faq4',
+    question: 'Do I need an account to get started?',
+    answer:
+      'No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines.',
+  },
+  {
+    key: 'faq5',
+    question: 'Does HelloCity work well on mobile?',
+    answer:
+      'Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.',
+  },
+];
+
 const FAQSection: React.FC = () => {
-  // Local search state
   const [q, setQ] = useState('');
 
-  // Static FAQs (kept in HTML for SEO)
-  const faqs: FAQ[] = [
-    {
-      key: 'faq1',
-      question: 'What is HelloCity?',
-      answer:
-        'HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city.',
-    },
-    {
-      key: 'faq2',
-      question: 'Is HelloCity free to use?',
-      answer:
-        'You can start for free. Premium options are available for more personalized guidance and advanced features.',
-    },
-    {
-      key: 'faq3',
-      question: 'Which cities are supported?',
-      answer:
-        'We cover major global cities and expand regularly. Check inside the product for the latest supported locations.',
-    },
-    {
-      key: 'faq4',
-      question: 'Do I need an account to get started?',
-      answer:
-        'No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines.',
-    },
-    {
-      key: 'faq5',
-      question: 'Does HelloCity work well on mobile?',
-      answer:
-        'Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.',
-    },
-  ];
-
-  // Filter by keyword (question or answer)
+  // 👉 useMemo 只依赖 q
   const filtered = useMemo(() => {
     const kw = q.trim().toLowerCase();
     if (!kw) return faqs;
     return faqs.filter(
       (f) => f.question.toLowerCase().includes(kw) || f.answer.toLowerCase().includes(kw),
     );
-  }, [q, faqs]);
+  }, [q]);
 
   // Expand first when only one result
   const singleOpenKey = filtered.length === 1 ? filtered[0].key : null;
@@ -110,7 +108,7 @@ const FAQSection: React.FC = () => {
             }}
           />
 
-          {/* Result count (optional) */}
+          {/* Result count */}
           <Typography variant="caption" color="text.secondary" className="mx-auto mt-1">
             {filtered.length} result{filtered.length === 1 ? '' : 's'}
           </Typography>
