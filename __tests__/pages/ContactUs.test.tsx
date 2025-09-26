@@ -16,7 +16,7 @@ const renderContactUs = () => {
   return render(
     <TestProviders>
       <ContactUs />
-    </TestProviders>,
+    </TestProviders>
   );
 };
 
@@ -25,7 +25,7 @@ const fillOutForm = async (
   user: any,
   name = 'John Doe',
   email = 'john@example.com',
-  message = 'Test message',
+  message = 'Test message'
 ) => {
   await user.type(screen.getByLabelText(/name/i), name);
   await user.type(screen.getByLabelText(/email/i), email);
@@ -34,7 +34,7 @@ const fillOutForm = async (
 
 // Helper function to submit the form
 const submitForm = async (user: any) => {
-  const submitButton = screen.getByRole('button', { name: /submit|sending/i });
+  const submitButton = screen.getByRole('button', { name: /submit/i });
   await user.click(submitButton);
 };
 
@@ -70,9 +70,12 @@ describe('ContactUs', () => {
   test('Renders the contact form correctly', () => {
     renderContactUs();
 
-    expect(screen.getByRole('heading', { name: /contact us/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /contact us/i })
+    ).toBeInTheDocument();
 
-    const { nameInput, emailInput, messageInput, submitButton } = getFormElements();
+    const { nameInput, emailInput, messageInput, submitButton } =
+      getFormElements();
     expect(nameInput).toBeInTheDocument();
     expect(emailInput).toBeInTheDocument();
     expect(messageInput).toBeInTheDocument();
@@ -92,12 +95,13 @@ describe('ContactUs', () => {
 
   test('Shows loading state when submitting', async () => {
     const user = userEvent.setup();
-    mockFetch.mockImplementation(() => new Promise((resolve) => setTimeout(resolve, 100)));
+    mockFetch.mockImplementation(
+      () => new Promise((resolve) => setTimeout(resolve, 100))
+    );
 
     renderContactUs();
     await fillOutForm(user);
 
-    // Get form elements before submit (when button still shows "Submit")
     const nameInput = screen.getByLabelText(/name/i);
     const emailInput = screen.getByLabelText(/email/i);
     const messageInput = screen.getByLabelText(/message/i);
@@ -105,10 +109,10 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     // Check loading state
-    expect(screen.getByText(/sending.../i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /sending.../i })).toBeDisabled();
+    expect(screen.getByRole('button')).toBeDisabled();
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
 
-    // Check that inputs are disabled
+    // Inputs should be disabled
     expect(nameInput).toBeDisabled();
     expect(emailInput).toBeDisabled();
     expect(messageInput).toBeDisabled();
@@ -125,7 +129,11 @@ describe('ContactUs', () => {
     await fillOutForm(user);
     await submitForm(user);
 
-    const expected = getExpectedApiCall('John Doe', 'john@example.com', 'Test message');
+    const expected = getExpectedApiCall(
+      'John Doe',
+      'john@example.com',
+      'Test message'
+    );
     expect(mockFetch).toHaveBeenCalledWith(expected.url, expected.options);
   });
 
@@ -141,10 +149,12 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     await waitFor(() => {
-      expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/message sent successfully/i)
+      ).toBeInTheDocument();
     });
 
-    // Check that form is cleared
+    // Form is cleared
     const { nameInput, emailInput, messageInput } = getFormElements();
     expect(nameInput).toHaveValue('');
     expect(emailInput).toHaveValue('');
@@ -163,10 +173,12 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     await waitFor(() => {
-      expect(screen.getByText(/failed to send message/i)).toBeInTheDocument();
+      expect(
+        screen.getByText(/failed to send message/i)
+      ).toBeInTheDocument();
     });
 
-    // Form should not be cleared on error
+    // Form is not cleared
     expect(screen.getByDisplayValue('John Doe')).toBeInTheDocument();
     expect(screen.getByDisplayValue('john@example.com')).toBeInTheDocument();
     expect(screen.getByDisplayValue('Test message')).toBeInTheDocument();
@@ -189,10 +201,9 @@ describe('ContactUs', () => {
     const user = userEvent.setup();
     renderContactUs();
 
-    // Try to submit without filling fields
     await submitForm(user);
 
-    // Form should not submit (no API call should be made)
+    // API call should not be made
     expect(mockFetch).not.toHaveBeenCalled();
   });
 });
