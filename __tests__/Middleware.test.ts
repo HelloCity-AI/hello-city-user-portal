@@ -182,37 +182,37 @@ describe('middleware', () => {
 
   describe('Protected page authentication', () => {
     describe('Chat page protection', () => {
-      it('Blocks unauthenticated users from /en/chat', async () => {
+      it('Blocks unauthenticated users from /en/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue(null);
 
-        const res = await middleware(createRequest('/en/chat'));
+        const res = await middleware(createRequest('/en/assistant'));
 
         expect(res?.status).toBe(307);
         expect(res?.headers.get('location')).toBe('http://localhost:3000/en/');
       });
 
-      it('Blocks unauthenticated users from /zh/chat', async () => {
+      it('Blocks unauthenticated users from /zh/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue(null);
 
-        const res = await middleware(createRequest('/zh/chat'));
+        const res = await middleware(createRequest('/zh/assistant'));
 
         expect(res?.status).toBe(307);
         expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
       });
 
-      it('Allows authenticated users to access /en/chat', async () => {
+      it('Allows authenticated users to access /en/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
 
-        const res = await middleware(createRequest('/en/chat'));
+        const res = await middleware(createRequest('/en/assistant'));
 
         expect(res?.status).toBe(200);
         expect(res?.headers.get('location')).toBeNull();
       });
 
-      it('Allows authenticated users to access /zh/chat', async () => {
+      it('Allows authenticated users to access /zh/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
 
-        const res = await middleware(createRequest('/zh/chat'));
+        const res = await middleware(createRequest('/zh/assistant'));
 
         expect(res?.status).toBe(200);
         expect(res?.headers.get('location')).toBeNull();

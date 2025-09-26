@@ -5,9 +5,9 @@ import { InputBox } from '@/components';
 import { Button, MenuItem, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import { defaultUser, type User } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
-import ProfileSideBar from '../../../components/ProfileSideBar';
-import Modal from '../../../components/Modal';
-import { updateUser } from '../../../api/userApi';
+import ProfileSideBar from '../../../../components/ProfileSideBar';
+import Modal from '../../../../components/Modal';
+import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
 import { type RootState } from '@/store';
 import { fetchUser } from '@/store/slices/user';
@@ -35,7 +35,7 @@ const Page = () => {
 
   const OnSubmit = async () => {
     try {
-      await updateUser(userInfo);
+      await updateUser(userInfo.userId, userInfo);
       dispatch(fetchUser());
       setIsEditModalOpen(false);
     } catch (error) {

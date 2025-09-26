@@ -18,7 +18,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 // Mock the entire CreateUserProfile page component to avoid state update issues
-jest.mock('@/app/[lang]/create-user-profile/page', () => {
+jest.mock('@/app/[lang]/(app)/create-user-profile/page', () => {
   return function MockCreateUserProfilePage() {
     return (
       <div>
@@ -42,7 +42,7 @@ jest.mock('@/app/[lang]/create-user-profile/page', () => {
 import { screen, act } from '@testing-library/react';
 import { renderWithThemeAndI18n } from '../utils/renderWithProviders';
 import { devices } from '../utils/DeviceConfig';
-import CreateUserProfilePage from '@/app/[lang]/create-user-profile/page';
+import CreateUserProfilePage from '@/app/[lang]/(app)/create-user-profile/page';
 
 const setViewportSize = (width: number, height: number) => {
   Object.defineProperty(window, 'innerWidth', {
