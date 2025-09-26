@@ -1,14 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import {
-  Box,
-  Button,
-  Typography,
-  Alert,
-  Paper,
-  CircularProgress,
-} from '@mui/material';
+import { Box, Button, Typography, Alert, Paper, CircularProgress } from '@mui/material';
 import InputBox from '@/components/InputBox/InputBox';
 import { Trans, useLingui } from '@lingui/react';
 
@@ -39,14 +32,11 @@ const ContactUs = () => {
     setAlertMessage(null);
 
     try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_EMAIL_API}/email/send`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, message }),
-        }
-      );
+      const response = await fetch(`${process.env.NEXT_PUBLIC_EMAIL_API}/email/send`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
 
       if (response.ok) {
         setAlertMessage({
@@ -95,22 +85,11 @@ const ContactUs = () => {
           bgcolor: 'background.paper',
         }}
       >
-        <Typography
-          variant="h5"
-          align="center"
-          fontWeight="bold"
-          gutterBottom
-        >
+        <Typography variant="h5" align="center" fontWeight="bold" gutterBottom>
           <Trans id="contact-us.title">Contact Us</Trans>
         </Typography>
-        <Typography
-          variant="body2"
-          align="center"
-          color="text.secondary"
-          sx={{ mb: 3 }}
-        >
-          We’d love to hear from you. Fill out the form and we’ll get back to
-          you soon.
+        <Typography variant="body2" align="center" color="text.secondary" sx={{ mb: 3 }}>
+          We’d love to hear from you. Fill out the form and we’ll get back to you soon.
         </Typography>
 
         {alertMessage && (

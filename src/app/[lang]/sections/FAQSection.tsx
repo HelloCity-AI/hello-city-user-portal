@@ -53,7 +53,7 @@ const FAQSection: React.FC = () => {
           'Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.',
       },
     ],
-    []
+    [],
   );
 
   // Filter by keyword (question or answer)
@@ -61,9 +61,7 @@ const FAQSection: React.FC = () => {
     const kw = q.trim().toLowerCase();
     if (!kw) return faqs;
     return faqs.filter(
-      (f) =>
-        f.question.toLowerCase().includes(kw) ||
-        f.answer.toLowerCase().includes(kw)
+      (f) => f.question.toLowerCase().includes(kw) || f.answer.toLowerCase().includes(kw),
     );
   }, [q, faqs]);
 
@@ -97,7 +95,7 @@ const FAQSection: React.FC = () => {
             fullWidth
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            className="max-w-2xl mx-auto"
+            className="mx-auto max-w-2xl"
             InputProps={{
               className: 'rounded-2xl',
               endAdornment: (
@@ -109,29 +107,21 @@ const FAQSection: React.FC = () => {
           />
 
           {/* Result count (optional) */}
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            className="mx-auto mt-1"
-          >
+          <Typography variant="caption" color="text.secondary" className="mx-auto mt-1">
             {filtered.length} result{filtered.length === 1 ? '' : 's'}
           </Typography>
 
           {/* FAQ list */}
-          <div className="w-full max-w-3xl mx-auto flex flex-col gap-4 mt-2">
+          <div className="mx-auto mt-2 flex w-full max-w-3xl flex-col gap-4">
             {filtered.length === 0 ? (
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                className="text-center"
-              >
+              <Typography variant="body2" color="text.secondary" className="text-center">
                 No matching questions. Try another keyword.
               </Typography>
             ) : (
               filtered.map((faq) => (
                 <Accordion
                   key={faq.key}
-                  className="rounded-xl shadow-sm border border-gray-200 cursor-pointer"
+                  className="cursor-pointer rounded-xl border border-gray-200 shadow-sm"
                   defaultExpanded={singleOpenKey === faq.key}
                 >
                   <AccordionSummary
@@ -139,10 +129,7 @@ const FAQSection: React.FC = () => {
                     aria-controls={`${faq.key}-content`}
                     id={`${faq.key}-header`}
                   >
-                    <Typography
-                      variant="subtitle1"
-                      className="font-semibold"
-                    >
+                    <Typography variant="subtitle1" className="font-semibold">
                       {faq.question}
                     </Typography>
                   </AccordionSummary>
