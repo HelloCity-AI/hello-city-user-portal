@@ -12,54 +12,60 @@ import SectionContent from '@/components/HomepageSections/SectionContent';
 import SectionContentArea from '@/components/HomepageSections/SectionContentArea';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
-import IconButton from '@mui/material/IconButton';
 
 type FAQ = { key: string; question: string; answer: string };
 
-const faqs: FAQ[] = [
-  {
-    key: 'faq1',
-    question: 'What is HelloCity?',
-    answer:
-      'HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city.',
-  },
-  {
-    key: 'faq2',
-    question: 'Is HelloCity free to use?',
-    answer:
-      'You can start for free. Premium options are available for more personalized guidance and advanced features.',
-  },
-  {
-    key: 'faq3',
-    question: 'Which cities are supported?',
-    answer:
-      'We cover major global cities and expand regularly. Check inside the product for the latest supported locations.',
-  },
-  {
-    key: 'faq4',
-    question: 'Do I need an account to get started?',
-    answer:
-      'No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines.',
-  },
-  {
-    key: 'faq5',
-    question: 'Does HelloCity work well on mobile?',
-    answer:
-      'Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.',
-  },
-];
-
 const FAQSection: React.FC = () => {
+  // Local search state
   const [q, setQ] = useState('');
 
-  // 👉 useMemo 只依赖 q
+  // Static FAQs (kept in HTML for SEO)
+  const faqs: FAQ[] = useMemo(
+    () => [
+      {
+        key: 'faq1',
+        question: 'What is HelloCity?',
+        answer:
+          'HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city.',
+      },
+      {
+        key: 'faq2',
+        question: 'Is HelloCity free to use?',
+        answer:
+          'You can start for free. Premium options are available for more personalized guidance and advanced features.',
+      },
+      {
+        key: 'faq3',
+        question: 'Which cities are supported?',
+        answer:
+          'We cover major global cities and expand regularly. Check inside the product for the latest supported locations.',
+      },
+      {
+        key: 'faq4',
+        question: 'Do I need an account to get started?',
+        answer:
+          'No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines.',
+      },
+      {
+        key: 'faq5',
+        question: 'Does HelloCity work well on mobile?',
+        answer:
+          'Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.',
+      },
+    ],
+    []
+  );
+
+  // Filter by keyword (question or answer)
   const filtered = useMemo(() => {
     const kw = q.trim().toLowerCase();
     if (!kw) return faqs;
     return faqs.filter(
-      (f) => f.question.toLowerCase().includes(kw) || f.answer.toLowerCase().includes(kw),
+      (f) =>
+        f.question.toLowerCase().includes(kw) ||
+        f.answer.toLowerCase().includes(kw)
     );
-  }, [q]);
+  }, [q, faqs]);
 
   // Expand first when only one result
   const singleOpenKey = filtered.length === 1 ? filtered[0].key : null;
@@ -86,44 +92,46 @@ const FAQSection: React.FC = () => {
 
           {/* Search box */}
           <TextField
-            placeholder="Ask a question..."
+            placeholder="Please write your own question..."
             variant="outlined"
             fullWidth
             value={q}
             onChange={(e) => setQ(e.target.value)}
-            className="mx-auto max-w-2xl"
+            className="max-w-2xl mx-auto"
             InputProps={{
               className: 'rounded-2xl',
               endAdornment: (
                 <InputAdornment position="end">
-                  <IconButton
-                    onClick={() => console.log('Search clicked:', q)}
-                    edge="end"
-                    sx={{ cursor: 'pointer' }}
-                  >
-                    <SearchIcon color="action" />
-                  </IconButton>
+                  <SearchIcon color="action" className="cursor-pointer" />
                 </InputAdornment>
               ),
             }}
           />
 
-          {/* Result count */}
-          <Typography variant="caption" color="text.secondary" className="mx-auto mt-1">
+          {/* Result count (optional) */}
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            className="mx-auto mt-1"
+          >
             {filtered.length} result{filtered.length === 1 ? '' : 's'}
           </Typography>
 
           {/* FAQ list */}
-          <div className="mx-auto mt-2 flex w-full max-w-3xl flex-col gap-4">
+          <div className="w-full max-w-3xl mx-auto flex flex-col gap-4 mt-2">
             {filtered.length === 0 ? (
-              <Typography variant="body2" color="text.secondary" className="text-center">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                className="text-center"
+              >
                 No matching questions. Try another keyword.
               </Typography>
             ) : (
               filtered.map((faq) => (
                 <Accordion
                   key={faq.key}
-                  className="rounded-xl border border-gray-200 shadow-sm"
+                  className="rounded-xl shadow-sm border border-gray-200 cursor-pointer"
                   defaultExpanded={singleOpenKey === faq.key}
                 >
                   <AccordionSummary
@@ -131,7 +139,10 @@ const FAQSection: React.FC = () => {
                     aria-controls={`${faq.key}-content`}
                     id={`${faq.key}-header`}
                   >
-                    <Typography variant="subtitle1" className="font-semibold">
+                    <Typography
+                      variant="subtitle1"
+                      className="font-semibold"
+                    >
                       {faq.question}
                     </Typography>
                   </AccordionSummary>
