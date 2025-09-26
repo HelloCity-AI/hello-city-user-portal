@@ -151,27 +151,27 @@ msgid "profile.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:65
+#: src/app/[lang]/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:76
+#: src/app/[lang]/contact-us/page.tsx:104
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:84
+#: src/app/[lang]/contact-us/page.tsx:112
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:93
+#: src/app/[lang]/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:102
+#: src/app/[lang]/contact-us/page.tsx:141
 msgid "contact-us.submit"
 msgstr "提交"
 
@@ -594,7 +594,7 @@ msgid "NavBar.ChangeLanguage"
 msgstr "切换语言"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:24
+#: src/hooks/useNavigation.tsx:26
 msgid "NavBar.Chat"
 msgstr "聊天"
 
@@ -604,7 +604,7 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:30
+#: src/hooks/useNavigation.tsx:33
 msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
@@ -641,7 +641,7 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #. js-lingui-explicit-id
 #: src/hooks/useLogoutConfirm.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:34
+#: src/hooks/useUserMenu.tsx:36
 msgid "Logout"
 msgstr "登出"
 
@@ -649,7 +649,7 @@ msgstr "登出"
 #~ msgstr "返回"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:27
+#: src/hooks/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "个人资料"
 

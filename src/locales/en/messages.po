@@ -149,27 +149,27 @@ msgid "profile.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:65
+#: src/app/[lang]/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:76
+#: src/app/[lang]/contact-us/page.tsx:104
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:84
+#: src/app/[lang]/contact-us/page.tsx:112
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:93
+#: src/app/[lang]/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:102
+#: src/app/[lang]/contact-us/page.tsx:141
 msgid "contact-us.submit"
 msgstr "Submit"
 
@@ -537,7 +537,7 @@ msgid "NavBar.ChangeLanguage"
 msgstr "Change Language"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:24
+#: src/hooks/useNavigation.tsx:26
 msgid "NavBar.Chat"
 msgstr "Chat"
 
@@ -547,7 +547,7 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:30
+#: src/hooks/useNavigation.tsx:33
 msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
@@ -584,12 +584,12 @@ msgstr "Invalid File size or type. Please upload an image file under 5MB"
 #. js-lingui-explicit-id
 #: src/hooks/useLogoutConfirm.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:34
+#: src/hooks/useUserMenu.tsx:36
 msgid "Logout"
 msgstr "Logout"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:27
+#: src/hooks/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "Profile"
 
