@@ -4,11 +4,12 @@ import { act, screen, within, waitFor, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
-import type { DropdownOptionProps } from '@/components/Dropdown';
+import type { MenuOption } from '@/types/menu';
 
 const fireMenuItem = jest.fn();
-const baseTestOptions: DropdownOptionProps[] = [
+const baseTestOptions: MenuOption[] = [
   {
+    id: 'profile',
     label: 'Profile',
     value: 'profile',
     icon: AccountCircleIcon,
@@ -16,6 +17,7 @@ const baseTestOptions: DropdownOptionProps[] = [
     onClick: fireMenuItem,
   },
   {
+    id: 'logout',
     label: 'Logout',
     value: 'logout',
     icon: null,
@@ -23,8 +25,8 @@ const baseTestOptions: DropdownOptionProps[] = [
     onClick: fireMenuItem,
   },
 ];
-const testOptionsWithoutIcon: DropdownOptionProps[] = [
-  { label: 'Profile', value: 'profile', onClick: fireMenuItem },
+const testOptionsWithoutIcon: MenuOption[] = [
+  { id: 'profile', label: 'Profile', value: 'profile', onClick: fireMenuItem },
 ];
 
 const renderDropdown = (props = {}) => {
@@ -111,6 +113,29 @@ describe('DropDown component', () => {
       });
       const paper = document.querySelector('.MuiPaper-root') as HTMLElement;
       expect(paper).toHaveStyle({ marginTop: '0rem' });
+    });
+
+    it('Renders IconButton by default', () => {
+      renderDropdown();
+      const iconButton = document.querySelector('[aria-label="open menu"]');
+      expect(iconButton?.tagName.toLowerCase()).toBe('button');
+      expect(iconButton?.closest('.MuiIconButton-root')).toBeInTheDocument();
+    });
+
+    it('Renders Button when disableIconButton=true', () => {
+      renderDropdown({ disableIconButton: true });
+      const button = document.querySelector('[aria-label="open menu"]');
+      expect(button?.tagName.toLowerCase()).toBe('button');
+      expect(button).toBeInTheDocument();
+      expect(button?.closest('.MuiIconButton-root')).not.toBeInTheDocument();
+    });
+
+    it('Handles undefined dropdownOptions gracefully', () => {
+      expect(() => {
+        renderWithTheme(
+          <Dropdown anchorElContent={<span>open</span>} dropdownOptions={undefined as any} />,
+        );
+      }).not.toThrow();
     });
   });
 

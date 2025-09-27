@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useEffect } from 'react';
+import React, { createContext, useContext, useEffect, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import linguiConfig from '../../lingui.config';
 import { i18n } from '../i18n';
@@ -41,18 +41,21 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, [language]);
 
-  const setLanguage = (lang: Language) => {
-    if (!linguiConfig.locales.includes(lang)) {
-      console.warn(`Unsupported language: ${lang}`);
-      return;
-    }
+  const setLanguage = useCallback(
+    (lang: Language) => {
+      if (!linguiConfig.locales.includes(lang)) {
+        console.warn(`Unsupported language: ${lang}`);
+        return;
+      }
 
-    // Replace the current language in the pathname
-    const segments = pathname.split('/');
-    segments[1] = lang;
-    const newPath = segments.join('/');
-    router.push(newPath);
-  };
+      // Replace the current language in the pathname
+      const segments = pathname.split('/');
+      segments[1] = lang;
+      const newPath = segments.join('/');
+      router.push(newPath);
+    },
+    [pathname, router],
+  );
 
   const isLanguage = (lang: Language) => language === lang;
 

@@ -1,8 +1,20 @@
-import React from 'react';
+/* eslint-disable @next/next/no-img-element */
+import React, { createElement } from 'react';
 import { render, screen, act } from '@testing-library/react';
-import NavBar from '@/components/NavBar/NavBar';
+import NavBar from '@/compoundComponents/NavBar/NavBar';
 import { TestProviders } from '../utils/TestWrapper';
 import { devices } from '../utils/DeviceConfig';
+
+// Local mock for next/image to avoid passing unsupported boolean props (e.g., fill) to DOM
+jest.mock('next/image', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MockNextImage = ({ src, alt, width, height, sizes }: any) => {
+    const resolvedSrc = typeof src === 'string' ? src : (src?.src ?? '');
+    return createElement('img', { src: resolvedSrc, alt, width, height, sizes });
+  };
+  MockNextImage.displayName = 'MockNextImage';
+  return MockNextImage;
+});
 
 const mockMatchMedia = jest.fn();
 Object.defineProperty(window, 'matchMedia', {

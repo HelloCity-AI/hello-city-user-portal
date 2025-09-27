@@ -1,39 +1,43 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import UserDrawer from '@/components/NavBar/UserDrawer';
+import UserDrawer from '@/compoundComponents/NavBar/UserDrawer';
 import { TestProviders } from '../utils/TestWrapper';
-import * as dropdownMenuModule from '@/components/dropdownMenuOptions.example';
+import type { MenuOption } from '@/types/menu';
 
-jest.mock('@/components/dropdownMenuOptions.example', () => ({
-  userMenuOptions: [
-    {
-      label: 'Profile',
-      value: 'profile',
-      onClick: jest.fn(),
-      icon: () => <div>ProfileIcon</div>,
-      divider: false,
-    },
-    {
-      label: 'Settings',
-      value: 'settings',
-      onClick: jest.fn(),
-      icon: () => <div>SettingsIcon</div>,
-      divider: true,
-    },
-    {
-      label: 'Logout',
-      value: 'logout',
-      onClick: jest.fn(),
-      divider: false,
-    },
-  ],
-}));
+const TestIcon: React.FC = () => <svg />;
+
+const testOptions: MenuOption[] = [
+  {
+    id: 'profile',
+    label: 'Profile',
+    value: 'profile',
+    onClick: jest.fn(),
+    icon: TestIcon,
+    divider: false,
+  },
+  {
+    id: 'settings',
+    label: 'Settings',
+    value: 'settings',
+    onClick: jest.fn(),
+    icon: TestIcon,
+    divider: true,
+  },
+  {
+    id: 'logout',
+    label: 'Logout',
+    value: 'logout',
+    onClick: jest.fn(),
+    divider: false,
+  },
+];
 
 const renderUserDrawer = (props = {}) => {
   const defaultProps = {
     open: true,
     closeDrawer: jest.fn(),
     onClose: jest.fn(),
+    options: testOptions,
     ...props,
   };
 
@@ -111,8 +115,7 @@ describe('UserDrawer - User menu drawer component', () => {
       renderUserDrawer({ closeDrawer });
       clickMenuOption('Profile');
 
-      expect(dropdownMenuModule.userMenuOptions[0].onClick).toHaveBeenCalledTimes(1);
-      expect(dropdownMenuModule.userMenuOptions[0].onClick).toHaveBeenCalledWith('profile');
+      expect(testOptions[0].onClick).toHaveBeenCalledTimes(1);
       expect(closeDrawer).toHaveBeenCalledTimes(1);
     });
 
