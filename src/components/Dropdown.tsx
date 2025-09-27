@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import UserProfileCard from './UserLabel';
 import type { MenuOption } from '@/types/menu';
 import type { ReactNode } from 'react';
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 interface DropdownProps {
   anchorElContent: ReactNode;
@@ -68,6 +68,10 @@ const DropDown: React.FC<DropdownProps> = ({
     return {
       '& .MuiPaper-root': {
         marginTop,
+        backgroundColor: '#ffffff',
+        backdropFilter: 'blur(8px)',
+        border: '1px solid rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1)',
       },
     };
   };
@@ -75,18 +79,30 @@ const DropDown: React.FC<DropdownProps> = ({
   const renderAnchorButton = () => {
     if (disableIconButton) {
       return (
-        <Button
+        <Box
+          component="button"
           onClick={(event) => setAnchorEl(event.currentTarget as HTMLElement)}
-          size="small"
-          sx={{ ml: 2 }}
           aria-controls={open ? 'account-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           aria-label="open menu"
-          disableRipple={disableHover}
+          sx={{
+            border: 'none',
+            background: 'none',
+            cursor: 'pointer',
+            padding: 0,
+            margin: 0,
+            borderRadius: '8px',
+            transition: 'background-color 0.2s ease-out',
+            ...(!disableHover && {
+              '&:hover': {
+                backgroundColor: 'rgba(0, 0, 0, 0.05)', // 对应 hover:bg-black/5
+              },
+            }),
+          }}
         >
           {anchorElContent}
-        </Button>
+        </Box>
       );
     }
 
@@ -94,7 +110,6 @@ const DropDown: React.FC<DropdownProps> = ({
       <IconButton
         onClick={(event) => setAnchorEl(event.currentTarget as HTMLElement)}
         size="small"
-        sx={{ ml: 2 }}
         aria-controls={open ? 'account-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}

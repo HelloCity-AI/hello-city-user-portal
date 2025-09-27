@@ -85,23 +85,23 @@ describe('UserAvatar', () => {
     renderWithProviders(<UserAvatar />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '32px', height: '32px' });
+    expect(avatarContainer).toHaveStyle({ width: '2rem', height: '2rem' });
   });
 
   it('renders with custom size when size prop provided', () => {
-    const customSize = 48;
+    const customSize = '3rem';
     renderWithProviders(<UserAvatar size={customSize} />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '48px', height: '48px' });
+    expect(avatarContainer).toHaveStyle({ width: '3rem', height: '3rem' });
   });
 
   it('renders with string size value', () => {
-    const customSize = '64px';
+    const customSize = '4rem';
     renderWithProviders(<UserAvatar size={customSize} />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '64px', height: '64px' });
+    expect(avatarContainer).toHaveStyle({ width: '4rem', height: '4rem' });
   });
 
   it('has cursor pointer style', () => {

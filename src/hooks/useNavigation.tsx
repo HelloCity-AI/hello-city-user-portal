@@ -24,7 +24,7 @@ export const useNavigation = (): NavConfig => {
       id: 'chat',
       href: `/${language}/assistant`,
       label: <Trans id="NavBar.Chat" message="Chat" />,
-      onClick:undefined,
+      onClick: undefined,
       childrenItem: undefined,
     },
     {

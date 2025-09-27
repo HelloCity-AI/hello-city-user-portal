@@ -63,7 +63,7 @@ const UserProfileCard: React.FC<UserData> = ({
           @{email}
         </span>
         <div className="mt-1 flex items-center gap-1 text-sm text-gray-500">
-          <span className="material-icons shrink-0 text-base text-gray-500">access_time</span>
+          {/* <span className="material-icons shrink-0 text-base text-gray-500">access_time</span> */}
           <span
             className={`block min-w-0 ${textMode}`}
             title={showTooltip ? `last login: ${last}` : undefined}
