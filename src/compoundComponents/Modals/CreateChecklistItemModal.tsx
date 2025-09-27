@@ -78,21 +78,21 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
   const handleDateChange = (newDate: dayjs.Dayjs | null) => {
     setFormData((prev) => ({
       ...prev,
-      dueDate: newDate
+      dueDate: newDate,
     }));
   };
 
   const handleBlur = (field: string) => {
-    setTouched(prev => ({
+    setTouched((prev) => ({
       ...prev,
-      [field]: true
+      [field]: true,
     }));
   };
 
   const handleSubmit = async () => {
     setTouched({
       title: true,
-      description: true
+      description: true,
     });
 
     if (!isFormValid()) return;
@@ -127,7 +127,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
     });
     setTouched({
       title: false,
-      description: false
+      description: false,
     });
     setSubmitError('');
   };
@@ -176,8 +176,8 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
               touched.title && (!formData.title.trim() || formData.title === '')
                 ? i18n._('create-checklist.title-required', { default: 'Title is required' })
                 : i18n._('create-checklist.title-helper', {
-                  default: 'Give your checklist item a clear, concise name',
-                })
+                    default: 'Give your checklist item a clear, concise name',
+                  })
             }
             disabled={isSubmitting}
           />
@@ -189,20 +189,22 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
             })}
             value={formData.description}
             onChange={(e) => handleInputChange('description', e.target.value)}
-            onBlur={() => handleBlur('description')}  // 添加这一行
+            onBlur={() => handleBlur('description')} // 添加这一行
             fullWidth
             multiline
             rows={3}
             required
-            error={touched.description && (formData.description === '' || !formData.description.trim())}
+            error={
+              touched.description && (formData.description === '' || !formData.description.trim())
+            }
             helperText={
               touched.description && (!formData.description.trim() || formData.description === '')
                 ? i18n._('create-checklist.description-required', {
-                  default: 'Description is required',
-                })
+                    default: 'Description is required',
+                  })
                 : i18n._('create-checklist.description-helper', {
-                  default: 'Provide details about this task - what needs to be accomplished?',
-                })
+                    default: 'Provide details about this task - what needs to be accomplished?',
+                  })
             }
             disabled={isSubmitting}
           />

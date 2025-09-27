@@ -66,8 +66,6 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
     setModalOpen(false);
   };
 
-
-
   return (
     <>
       {variant === 'fab' ? (
@@ -78,8 +76,7 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
           onClick={handleOpenModal}
           sx={sx}
           aria-label="add checklist item"
-        >
-        </Fab>
+        ></Fab>
       ) : (
         <Button
           variant="contained"

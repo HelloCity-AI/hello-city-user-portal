@@ -2,7 +2,6 @@ jest.mock('@/utils/fetchWithAuth', () => ({
   fetchWithAuth: jest.fn(),
 }));
 
-
 import { checklistApi } from '@/api/checklistApi';
 import { fetchWithAuth } from '@/utils/fetchWithAuth';
 import dayjs from 'dayjs';
@@ -45,7 +44,7 @@ describe('checklistApi', () => {
       expect.objectContaining({
         method: 'POST',
         body: expect.stringContaining('"dueDate":"2025-09-26"'),
-      })
+      }),
     );
     expect(result).toEqual(mockChecklistItem);
   });
@@ -71,7 +70,7 @@ describe('checklistApi', () => {
       expect.any(String),
       expect.objectContaining({
         body: expect.stringContaining('"dueDate":""'),
-      })
+      }),
     );
   });
 
@@ -83,7 +82,7 @@ describe('checklistApi', () => {
 
     const result = await checklistApi.getChecklistItems(userId);
     expect(fetchWithAuth).toHaveBeenCalledWith(
-      expect.stringContaining(`/api/user/${userId}/checklist-item`)
+      expect.stringContaining(`/api/user/${userId}/checklist-item`),
     );
     expect(result).toEqual([mockChecklistItem]);
   });
@@ -91,9 +90,9 @@ describe('checklistApi', () => {
   it('getChecklistItems should throw error on failed response', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({ ok: false });
 
-    await expect(
-      checklistApi.getChecklistItems(userId)
-    ).rejects.toThrow('Failed to fetch checklist items');
+    await expect(checklistApi.getChecklistItems(userId)).rejects.toThrow(
+      'Failed to fetch checklist items',
+    );
   });
 
   it('updateChecklistItem should PUT', async () => {
@@ -108,7 +107,7 @@ describe('checklistApi', () => {
     const result = await checklistApi.updateChecklistItem(userId, itemId, updateData);
     expect(fetchWithAuth).toHaveBeenCalledWith(
       expect.stringContaining(`/api/user/${userId}/checklist-item?itemId=${itemId}`),
-      expect.objectContaining({ method: 'PUT' })
+      expect.objectContaining({ method: 'PUT' }),
     );
     expect(result).toEqual(mockChecklistItem);
   });
@@ -117,7 +116,7 @@ describe('checklistApi', () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({ ok: false });
 
     await expect(
-      checklistApi.updateChecklistItem(userId, 'item-id', { title: 'Updated' })
+      checklistApi.updateChecklistItem(userId, 'item-id', { title: 'Updated' }),
     ).rejects.toThrow('Failed to update checklist item');
   });
 
@@ -128,16 +127,16 @@ describe('checklistApi', () => {
     await checklistApi.deleteChecklistItem(userId, itemId);
     expect(fetchWithAuth).toHaveBeenCalledWith(
       expect.stringContaining(`/api/user/${userId}/checklist-item?itemId=${itemId}`),
-      expect.objectContaining({ method: 'DELETE' })
+      expect.objectContaining({ method: 'DELETE' }),
     );
   });
 
   it('deleteChecklistItem should throw error on failed response', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({ ok: false });
 
-    await expect(
-      checklistApi.deleteChecklistItem(userId, 'item-id')
-    ).rejects.toThrow('Failed to delete checklist item');
+    await expect(checklistApi.deleteChecklistItem(userId, 'item-id')).rejects.toThrow(
+      'Failed to delete checklist item',
+    );
   });
 
   it('should throw error on failed response', async () => {
@@ -151,7 +150,7 @@ describe('checklistApi', () => {
         isComplete: false,
         importance: 'Low',
         dueDate: dayjs('2025-09-26'),
-      })
+      }),
     ).rejects.toThrow('Failed to create checklist item');
   });
 });
