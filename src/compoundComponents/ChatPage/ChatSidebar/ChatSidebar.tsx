@@ -36,20 +36,12 @@ export default function ChatSidebar({
   chatHistory = [],
   activeSessionId,
 }: ChatSidebarProps) {
-  const handleLanguageSwitch = () => {
-    console.log('Language switch clicked');
-  };
-
   const handleNewChat = () => {
     console.log('New chat clicked');
   };
 
   const handleSearch = () => {
     console.log('Search clicked');
-  };
-
-  const handleUserMenu = () => {
-    console.log('User menu clicked');
   };
 
   const handleHistoryClick = (sessionId: string) => {
@@ -59,11 +51,7 @@ export default function ChatSidebar({
   return (
     <DrawerContainer>
       {/*Top Section - Logo section */}
-      <LogoSection
-        isCollapsed={isCollapsed}
-        onToggle={onToggle}
-        onLanguageSwitch={handleLanguageSwitch}
-      />
+      <LogoSection isCollapsed={isCollapsed} onToggle={onToggle} />
 
       {/* Main Actions - Action buttons section */}
       <div className="mt-2">
@@ -85,7 +73,7 @@ export default function ChatSidebar({
       </div>
 
       {/* Bottom Section - User section */}
-      <UserSection isCollapsed={isCollapsed} onClick={handleUserMenu} />
+      <UserSection isCollapsed={isCollapsed} />
     </DrawerContainer>
   );
 }

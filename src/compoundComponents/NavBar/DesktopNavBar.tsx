@@ -140,6 +140,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
         }
         layout="horizontal"
         textAlignCenter
+        disableHover
       />
       {renderAuthSection()}
       <Button

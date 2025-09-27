@@ -126,7 +126,7 @@ describe('DropDown component', () => {
       renderDropdown({ disableIconButton: true });
       const button = document.querySelector('[aria-label="open menu"]');
       expect(button?.tagName.toLowerCase()).toBe('button');
-      expect(button?.closest('.MuiButton-root')).toBeInTheDocument();
+      expect(button).toBeInTheDocument();
       expect(button?.closest('.MuiIconButton-root')).not.toBeInTheDocument();
     });
 

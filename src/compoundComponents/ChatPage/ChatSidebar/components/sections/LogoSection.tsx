@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { IconButton, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,11 +9,12 @@ import ItemWrapper from '../layout/ItemWrapper';
 import ResponsiveIconContainer from '../layout/ResponsiveIconContainer';
 import ResponsiveContainer from '../layout/ResponsiveContainer';
 import CollapseToggleButton from '../ui/CollapseToggleButton';
+import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
+import { useState, useEffect } from 'react';
 
 interface LogoSectionProps {
   isCollapsed: boolean;
   onToggle: () => void;
-  onLanguageSwitch: () => void;
 }
 
 /**
@@ -22,9 +23,17 @@ interface LogoSectionProps {
  * Expanded: Logo(40px) + Name(120px) + Language(40px) = 200px + floating collapse button
  * Collapsed: Logo(40px) + Name(0px) + Language(0px) = 40px + floating collapse button
  */
-export default function LogoSection({ isCollapsed, onToggle, onLanguageSwitch }: LogoSectionProps) {
+export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps) {
   const router = useRouter();
   const { language } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleLogoClick = () => {
     router.push(`/${language}`);
@@ -59,15 +68,15 @@ export default function LogoSection({ isCollapsed, onToggle, onLanguageSwitch }:
           </ResponsiveContainer>
         </div>
 
-        {/* Language button container - 40px -> 0px */}
+        {/* Language menu container - 40px -> 0px */}
         <ResponsiveIconContainer isCollapsed={isCollapsed} responsive>
-          <IconButton
-            size="small"
-            onClick={onLanguageSwitch}
-            className="h-8 w-8 text-gray-600 hover:bg-black/5"
-          >
-            <LanguageIcon fontSize="small" />
-          </IconButton>
+          <LanguageMenu
+            trigger={<LanguageIcon fontSize="small" />}
+            layout={isMobile ? 'vertical' : 'horizontal'}
+            textAlignCenter={true}
+            anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+            transformOrigin={{ horizontal: 'center', vertical: 'top' }}
+          />
         </ResponsiveIconContainer>
 
         {/* Collapse toggle button - Independent floating component */}

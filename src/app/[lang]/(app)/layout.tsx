@@ -2,7 +2,7 @@
 
 import Box from '@mui/material/Box';
 import ChatSidebar from '@/compoundComponents/ChatPage/ChatSidebar';
-import SectionBackground from '@/components/ChatSections/SectionBackground';
+import SectionBackground from '@/components/AppPageSections/SectionBackground';
 import {
   mockChatHistory,
   defaultActiveSessionId,

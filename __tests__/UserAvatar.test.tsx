@@ -85,7 +85,7 @@ describe('UserAvatar', () => {
     renderWithProviders(<UserAvatar />, mockUserWithAvatar);
 
     const avatarContainer = screen.getByRole('img', { name: 'User Avatar' }).parentElement;
-    expect(avatarContainer).toHaveStyle({ width: '32px', height: '32px' });
+    expect(avatarContainer).toHaveStyle({ width: '2rem', height: '2rem' });
   });
 
   it('renders with custom size when size prop provided', () => {

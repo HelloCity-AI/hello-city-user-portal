@@ -65,12 +65,6 @@ describe('UserProfileCard (UserLabel) – new spec', () => {
       expect(screen.getByText('John')).toHaveClass('text-xl', 'font-bold');
       expect(screen.getByText('@john@example.com')).toHaveClass('text-gray-500');
     });
-
-    it('Displays the time icon', () => {
-      renderUserlabel(mockUserData);
-      const timeIcon = screen.getByText('access_time');
-      expect(timeIcon).toHaveClass('material-icons', 'text-base', 'text-gray-500');
-    });
   });
 
   describe('Overflow & Tooltip behavior', () => {

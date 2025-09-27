@@ -7,12 +7,12 @@ import {
   ConversationScrollButton,
 } from '@/components/ai-elements/Conversation';
 import type { PromptInputMessage } from '@/components/ai-elements/PromptInput';
-import MainContentContainer from '../layout/MainContentContainer';
-import MessageBubble from '../ui/MessageBubble';
+import ChatMainContentContainer from '../../../components/AppPageSections/ChatMainContentContainer';
+import MessageBubble from './components/ui/MessageBubble';
 import { useState, useCallback } from 'react';
 import type { UIMessage } from 'ai';
-import { ConversationPromptInput } from '../ui/ConversationPromptInput';
-import ChatEmptyState from '../ui/ChatEmptyState';
+import { ConversationPromptInput } from './components/ui/ConversationPromptInput';
+import ChatEmptyState from './components/ui/ChatEmptyState';
 
 // 假的AI回复消息列表
 const fakeAIReplies = [
@@ -28,7 +28,7 @@ const fakeAIReplies = [
   "I see what you're getting at. Here's how I would approach it:",
 ];
 
-const ChatConversation = () => {
+const ChatMainArea = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<UIMessage[]>([]);
   const [isAIReplying, setIsAIReplying] = useState(false);
@@ -73,7 +73,7 @@ const ChatConversation = () => {
   };
 
   return (
-    <MainContentContainer>
+    <ChatMainContentContainer>
       {/* Messages Area - Direct Conversation component as flex-1 */}
       <Conversation>
         <ConversationContent>
@@ -112,8 +112,8 @@ const ChatConversation = () => {
         onSubmit={handleSubmit}
         isAIReplying={isAIReplying}
       />
-    </MainContentContainer>
+    </ChatMainContentContainer>
   );
 };
 
-export default ChatConversation;
+export default ChatMainArea;

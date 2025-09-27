@@ -164,7 +164,7 @@ msgstr "我准备好了"
 #. js-lingui-explicit-id
 #: src/hooks/useLogoutConfirm.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:34
+#: src/hooks/useUserMenu.tsx:36
 msgid "Logout"
 msgstr "登出"
 
@@ -179,12 +179,12 @@ msgid "NavBar.ChangeLanguage"
 msgstr "切换语言"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:24
+#: src/hooks/useNavigation.tsx:26
 msgid "NavBar.Chat"
 msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:29
+#: src/hooks/useNavigation.tsx:33
 msgid "NavBar.ContactUs"
 msgstr "联系我们"
 
@@ -195,7 +195,7 @@ msgstr "首页"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:111
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:120
 msgid "NavBar.Sign In"
 msgstr "登录"
@@ -223,7 +223,7 @@ msgid "Pick a date"
 msgstr "选择日期"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:27
+#: src/hooks/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "个人资料"
 
@@ -458,11 +458,841 @@ msgid "account.title"
 msgstr "HelloCity账户"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+msgid "ai.thinking"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
 #: src/hooks/useLogoutConfirm.tsx:35
 msgid "cancel.button"
 msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:74
+msgid "chat.disclaimer"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:54
+msgid "chat.input.hint.press"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:60
+msgid "chat.input.hint.send"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
+msgid "chat.welcome.subtitle"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
+msgid "chat.welcome.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
+msgid "checklist.add.button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+msgid "checklist.due.label"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
+msgid "checklist.empty.all"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
+msgid "checklist.empty.completed"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
+msgid "checklist.empty.incomplete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
+msgid "checklist.filter.all"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:19
+msgid "checklist.filter.completed"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:23
+msgid "checklist.filter.incomplete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
+msgid "checklist.importance.high"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
+msgid "checklist.importance.low"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
+msgid "checklist.importance.medium"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
+msgid "checklist.importance.urgent"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
+msgid "checklist.progress"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:71
+msgid "cities.adelaide.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:66
+msgid "cities.adelaide.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:76
+msgid "cities.adelaide.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:532
+msgid "cities.amsterdam.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:527
+msgid "cities.amsterdam.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:537
+msgid "cities.amsterdam.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:621
+msgid "cities.auckland.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:616
+msgid "cities.auckland.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:626
+msgid "cities.auckland.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
+msgid "cities.bali.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
+msgid "cities.bali.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:702
+msgid "cities.bali.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:681
+msgid "cities.bangkok.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
+msgid "cities.bangkok.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:687
+msgid "cities.bangkok.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:172
+msgid "cities.beijing.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:167
+msgid "cities.beijing.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:177
+msgid "cities.beijing.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+msgid "cities.berlin.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
+msgid "cities.berlin.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+msgid "cities.berlin.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:461
+msgid "cities.boston.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:456
+msgid "cities.boston.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:466
+msgid "cities.boston.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:43
+msgid "cities.brisbane.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:38
+msgid "cities.brisbane.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:48
+msgid "cities.brisbane.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:143
+msgid "cities.calgary.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:138
+msgid "cities.calgary.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:148
+msgid "cities.calgary.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:246
+msgid "cities.chengdu.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:241
+msgid "cities.chengdu.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:251
+msgid "cities.chengdu.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+msgid "cities.chicago.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:442
+msgid "cities.chicago.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:452
+msgid "cities.chicago.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:260
+msgid "cities.chongqing.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:255
+msgid "cities.chongqing.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:265
+msgid "cities.chongqing.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:651
+msgid "cities.christchurch.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:646
+msgid "cities.christchurch.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:656
+msgid "cities.christchurch.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:710
+msgid "cities.default.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:706
+msgid "cities.default.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:711
+msgid "cities.default.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:666
+msgid "cities.dubai.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:661
+msgid "cities.dubai.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
+msgid "cities.dubai.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:546
+msgid "cities.dublin.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:541
+msgid "cities.dublin.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:552
+msgid "cities.dublin.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:562
+msgid "cities.edinburgh.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:557
+msgid "cities.edinburgh.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
+msgid "cities.edinburgh.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:85
+msgid "cities.goldcoast.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:80
+msgid "cities.goldcoast.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:90
+msgid "cities.goldcoast.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:204
+msgid "cities.guangzhou.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:199
+msgid "cities.guangzhou.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:209
+msgid "cities.guangzhou.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
+msgid "cities.hamburg.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:601
+msgid "cities.hamburg.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:611
+msgid "cities.hamburg.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:288
+msgid "cities.hangzhou.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
+msgid "cities.hangzhou.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
+msgid "cities.hangzhou.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:232
+msgid "cities.hongkong.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
+msgid "cities.hongkong.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:237
+msgid "cities.hongkong.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:347
+msgid "cities.kyoto.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:342
+msgid "cities.kyoto.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:352
+msgid "cities.kyoto.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:490
+msgid "cities.london.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
+msgid "cities.london.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:495
+msgid "cities.london.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:391
+msgid "cities.losangeles.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
+msgid "cities.losangeles.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:396
+msgid "cities.losangeles.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
+msgid "cities.macau.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:297
+msgid "cities.macau.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
+msgid "cities.macau.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:578
+msgid "cities.manchester.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:573
+msgid "cities.manchester.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+msgid "cities.manchester.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:27
+msgid "cities.melbourne.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:22
+msgid "cities.melbourne.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:33
+msgid "cities.melbourne.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:419
+msgid "cities.miami.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:414
+msgid "cities.miami.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:424
+msgid "cities.miami.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:127
+msgid "cities.montreal.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:122
+msgid "cities.montreal.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:133
+msgid "cities.montreal.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
+msgid "cities.munich.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:587
+msgid "cities.munich.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:597
+msgid "cities.munich.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:377
+msgid "cities.newyork.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:372
+msgid "cities.newyork.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:382
+msgid "cities.newyork.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:333
+msgid "cities.osaka.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
+msgid "cities.osaka.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:338
+msgid "cities.osaka.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:157
+msgid "cities.ottawa.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:152
+msgid "cities.ottawa.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:162
+msgid "cities.ottawa.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
+msgid "cities.paris.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:499
+msgid "cities.paris.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:509
+msgid "cities.paris.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:57
+msgid "cities.perth.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:52
+msgid "cities.perth.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:62
+msgid "cities.perth.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
+msgid "cities.sanfrancisco.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:400
+msgid "cities.sanfrancisco.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:410
+msgid "cities.sanfrancisco.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:433
+msgid "cities.seattle.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
+msgid "cities.seattle.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+msgid "cities.seattle.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:190
+msgid "cities.shanghai.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:185
+msgid "cities.shanghai.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:195
+msgid "cities.shanghai.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
+msgid "cities.shenzhen.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:213
+msgid "cities.shenzhen.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
+msgid "cities.shenzhen.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:362
+msgid "cities.singapore.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:357
+msgid "cities.singapore.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:367
+msgid "cities.singapore.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:13
+msgid "cities.sydney.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:8
+msgid "cities.sydney.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:18
+msgid "cities.sydney.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
+msgid "cities.tokyo.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
+msgid "cities.tokyo.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:324
+msgid "cities.tokyo.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:99
+msgid "cities.toronto.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:94
+msgid "cities.toronto.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:104
+msgid "cities.toronto.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:113
+msgid "cities.vancouver.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:108
+msgid "cities.vancouver.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:118
+msgid "cities.vancouver.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:475
+msgid "cities.washingtondc.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:470
+msgid "cities.washingtondc.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:480
+msgid "cities.washingtondc.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:635
+msgid "cities.wellington.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:630
+msgid "cities.wellington.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:641
+msgid "cities.wellington.tagline"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:274
+msgid "cities.xian.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:269
+msgid "cities.xian.name"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:279
+msgid "cities.xian.tagline"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -574,116 +1404,131 @@ msgid "profile.avatar.title"
 msgstr "头像"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:243
+#: src/app/[lang]/(app)/profile/page.tsx:242
 msgid "profile.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:92
-#: src/app/[lang]/(app)/profile/page.tsx:171
+#: src/app/[lang]/(app)/profile/page.tsx:91
+#: src/app/[lang]/(app)/profile/page.tsx:170
 msgid "profile.city"
 msgstr "城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/(app)/profile/page.tsx:173
 msgid "profile.city-placeholder"
 msgstr "请输入您所在的城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:133
+#: src/app/[lang]/(app)/profile/page.tsx:132
 msgid "profile.edit-button"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:144
+#: src/app/[lang]/(app)/profile/page.tsx:143
 msgid "profile.edit-title"
 msgstr "编辑个人信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:78
-#: src/app/[lang]/(app)/profile/page.tsx:150
+#: src/app/[lang]/(app)/profile/page.tsx:77
+#: src/app/[lang]/(app)/profile/page.tsx:149
 msgid "profile.email"
 msgstr "电子邮箱"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:154
+#: src/app/[lang]/(app)/profile/page.tsx:153
 msgid "profile.email-placeholder"
 msgstr "请输入您的电子邮箱"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:99
-#: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/(app)/profile/page.tsx:98
+#: src/app/[lang]/(app)/profile/page.tsx:183
 msgid "profile.gender"
 msgstr "性别"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:113
-#: src/app/[lang]/(app)/profile/page.tsx:214
+#: src/app/[lang]/(app)/profile/page.tsx:112
+#: src/app/[lang]/(app)/profile/page.tsx:213
 msgid "profile.major"
 msgstr "专业"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/(app)/profile/page.tsx:216
 msgid "profile.major-placeholder"
 msgstr "请输入您的专业"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:85
-#: src/app/[lang]/(app)/profile/page.tsx:161
+#: src/app/[lang]/(app)/profile/page.tsx:84
+#: src/app/[lang]/(app)/profile/page.tsx:160
 msgid "profile.nationality"
 msgstr "国籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:164
+#: src/app/[lang]/(app)/profile/page.tsx:163
 msgid "profile.nationality-placeholder"
 msgstr "请输入您的国籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:72
+#: src/app/[lang]/(app)/profile/page.tsx:71
 msgid "profile.personal-info"
 msgstr "个人信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:120
-#: src/app/[lang]/(app)/profile/page.tsx:224
+#: src/app/[lang]/(app)/profile/page.tsx:119
+#: src/app/[lang]/(app)/profile/page.tsx:223
 msgid "profile.preferred-language"
 msgstr "首选语言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/(app)/profile/page.tsx:226
 msgid "profile.preferred-language-placeholder"
 msgstr "请输入您的首选语言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/(app)/profile/page.tsx:236
 msgid "profile.refresh"
 msgstr "重置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:246
+#: src/app/[lang]/(app)/profile/page.tsx:245
 msgid "profile.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:68
+#: src/app/[lang]/(app)/profile/page.tsx:67
 msgid "profile.subtitle"
 msgstr "管理您的个人信息和偏好设置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/(app)/profile/page.tsx:64
 msgid "profile.title"
 msgstr "个人资料设置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:106
-#: src/app/[lang]/(app)/profile/page.tsx:204
+#: src/app/[lang]/(app)/profile/page.tsx:105
+#: src/app/[lang]/(app)/profile/page.tsx:203
 msgid "profile.university"
 msgstr "大学"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:207
+#: src/app/[lang]/(app)/profile/page.tsx:206
 msgid "profile.university-placeholder"
 msgstr "请输入您的大学名称"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+msgid "sidebar.actions.newChat"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+msgid "sidebar.actions.searchChat"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:38
+msgid "sidebar.history.title"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/InputBox/InputBox.tsx:60

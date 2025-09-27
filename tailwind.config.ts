@@ -116,7 +116,6 @@ const config: Config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
-        'chat-user': '20px 20px 4px 20px',
       },
       keyframes: {
         marquee: {

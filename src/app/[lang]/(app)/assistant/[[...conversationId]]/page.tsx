@@ -4,13 +4,7 @@ import { useState } from 'react';
 import ChatMainArea from '@/compoundComponents/ChatPage/ChatMainArea';
 import ChecklistPanel from '@/compoundComponents/ChatPage/ChecklistPanel';
 
-interface ChatPageProps {
-  params: {
-    lang: string;
-  };
-}
-
-export default function ChatPage({ params: _params }: ChatPageProps) {
+export default function ChatPage() {
   const [isChecklistPanelCollapsed, setChecklistPanelCollapsed] = useState(true);
 
   return (
