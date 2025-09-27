@@ -110,19 +110,19 @@ export const UserStates: Story = {
       <Stack spacing={2}>
         <Box display="flex" alignItems="center" gap={2}>
           <Provider store={createMockStore(mockUserWithAvatar)}>
-            <UserAvatar size={40} />
+            <UserAvatar size="2.5rem" />
           </Provider>
           <Typography>User with avatar image</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap={2}>
           <Provider store={createMockStore(mockUserWithoutAvatar)}>
-            <UserAvatar size={40} />
+            <UserAvatar size="2.5rem" />
           </Provider>
           <Typography>User without avatar (shows email initial)</Typography>
         </Box>
         <Box display="flex" alignItems="center" gap={2}>
           <Provider store={createMockStore(null)}>
-            <UserAvatar size={40} />
+            <UserAvatar size="2.5rem" />
           </Provider>
           <Typography>No user data</Typography>
         </Box>

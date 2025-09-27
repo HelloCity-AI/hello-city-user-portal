@@ -95,7 +95,9 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
 
   const renderAuthSection = () => {
     if (hasAuthenticated) {
-      return <UserMenu trigger={<UserAvatar size={40} role="button" aria-label="User menu" />} />;
+      return (
+        <UserMenu trigger={<UserAvatar size="2.5rem" role="button" aria-label="User menu" />} />
+      );
     }
 
     return (
