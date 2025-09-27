@@ -5,7 +5,7 @@ import ValuePropositionSection from './sections/ValuePropositionSection';
 import HowItWorksSection from './sections/HowItWorksSection';
 import CallToActionsSection from './sections/CallToActionsSection';
 import TestimonialsSection from './sections/TestimonialsSection';
-import { ChecklistFab } from '../../components/ChecklistFab';
+import { CreateChecklistItemButton } from '@/components/CreateChecklistItemButton';
 
 export default function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;
@@ -17,7 +17,7 @@ export default function Home({ params }: { params: { lang: string } }) {
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
       <CallToActionsSection locale={lang} />
-      <ChecklistFab />
+      <CreateChecklistItemButton />
     </React.Fragment>
   );
 }

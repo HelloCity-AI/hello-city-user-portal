@@ -5,12 +5,13 @@ import { Button, Fab } from '@mui/material';
 import type { ButtonProps, FabProps } from '@mui/material';
 import { Add as AddIcon } from '@mui/icons-material';
 import { Trans } from '@lingui/react';
-import { CreateChecklistItemModal } from '../compoundComponents/Modals/CreateChecklistItemModal';
-import { checklistApi } from '../api/checklistApi';
-import type { CreateChecklistItemRequest } from '../types/checkList.types';
-
+import { CreateChecklistItemModal } from '@/compoundComponents/Modals/CreateChecklistItemModal';
+import { checklistApi } from '@/api/checklistApi';
+import type { CreateChecklistItemRequest } from '@/types/checkList.types';
+import dayjs from 'dayjs';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store';
 interface CreateChecklistItemButtonProps {
-  userId: string;
   onItemCreated?: () => void;
   variant?: 'button' | 'fab';
   size?: ButtonProps['size'];
@@ -20,9 +21,7 @@ interface CreateChecklistItemButtonProps {
   fullWidth?: boolean;
   sx?: ButtonProps['sx'] | FabProps['sx'];
 }
-
 export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps> = ({
-  userId,
   onItemCreated,
   variant = 'button',
   size = 'medium',
@@ -32,12 +31,26 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
   fullWidth = true,
   sx,
 }) => {
+  const userId = useSelector((state: RootState) => state.user.data?.userId);
   const [modalOpen, setModalOpen] = useState(false);
+  const [form, setForm] = useState<CreateChecklistItemRequest>({
+    ownerId: userId || '',
+    title: '',
+    description: '',
+    isComplete: false,
+    importance: 'Low',
+    dueDate: null,
+  });
 
   const handleSubmit = async (data: CreateChecklistItemRequest) => {
+    if (!userId) {
+      console.error('User ID is missing');
+      return;
+    }
     try {
       await checklistApi.createChecklistItem(userId, data);
       setModalOpen(false);
+      setForm({ ...form, title: '', description: '', dueDate: dayjs() });
       onItemCreated?.();
     } catch (error) {
       console.error('Failed to create checklist item:', error);
@@ -53,6 +66,8 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
     setModalOpen(false);
   };
 
+
+
   return (
     <>
       {variant === 'fab' ? (
@@ -64,7 +79,6 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
           sx={sx}
           aria-label="add checklist item"
         >
-          <AddIcon />
         </Fab>
       ) : (
         <Button
@@ -81,11 +95,12 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
         </Button>
       )}
 
+      {/* only show modal when open */}
       <CreateChecklistItemModal
         open={modalOpen}
         onClose={handleCloseModal}
         onSubmit={handleSubmit}
-        userId={userId}
+        userId={userId ?? ''}
       />
     </>
   );

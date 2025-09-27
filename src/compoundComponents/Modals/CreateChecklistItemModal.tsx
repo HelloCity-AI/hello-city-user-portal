@@ -21,7 +21,8 @@ import {
 } from '@mui/material';
 import { Trans, useLingui } from '@lingui/react';
 import type { CreateChecklistItemRequest } from '../../types/checkList.types';
-
+import DatePicker from '@/components/DatePicker';
+import dayjs from 'dayjs';
 interface CreateChecklistItemModalProps {
   open: boolean;
   onClose: () => void;
@@ -43,18 +44,57 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
     description: '',
     isComplete: false,
     importance: 'Low',
+    dueDate: dayjs().add(7, 'day'),
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string>('');
 
+  const [touched, setTouched] = useState<Record<string, boolean>>({
+    title: false,
+    description: false,
+  });
+
   const handleInputChange = (field: keyof CreateChecklistItemRequest, value: unknown) => {
+    setFormData((prev) => {
+      const newData = {
+        ...prev,
+        [field]: value,
+      };
+
+      if (field === 'title' || field === 'description') {
+        if (typeof value === 'string' && value === '') {
+          setTimeout(() => {
+            const element = document.getElementById(field as string);
+            if (element) {
+              element.setAttribute('aria-invalid', 'true');
+            }
+          }, 0);
+        }
+      }
+
+      return newData;
+    });
+  };
+  const handleDateChange = (newDate: dayjs.Dayjs | null) => {
     setFormData((prev) => ({
       ...prev,
-      [field]: value,
+      dueDate: newDate
+    }));
+  };
+
+  const handleBlur = (field: string) => {
+    setTouched(prev => ({
+      ...prev,
+      [field]: true
     }));
   };
 
   const handleSubmit = async () => {
+    setTouched({
+      title: true,
+      description: true
+    });
+
     if (!isFormValid()) return;
 
     setIsSubmitting(true);
@@ -63,6 +103,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
     try {
       await onSubmit(formData);
       resetForm();
+      onClose();
     } catch (error) {
       console.error('Failed to create checklist item:', error);
       setSubmitError(
@@ -82,6 +123,11 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
       description: '',
       isComplete: false,
       importance: 'Low',
+      dueDate: dayjs(null),
+    });
+    setTouched({
+      title: false,
+      description: false
     });
     setSubmitError('');
   };
@@ -116,49 +162,56 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
           {submitError && <Alert severity="error">{submitError}</Alert>}
 
           <TextField
-            label={<Trans id="create-checklist.title-field" message="Title *" />}
+            label={<Trans id="create-checklist.title-field" message="Title" />}
             placeholder={i18n._('create-checklist.title-placeholder', {
               default: 'Enter a clear, descriptive title for your task',
             })}
             value={formData.title}
             onChange={(e) => handleInputChange('title', e.target.value)}
+            onBlur={() => handleBlur('title')}
             fullWidth
             required
-            error={!formData.title.trim() && formData.title !== ''}
+            error={touched.title && (formData.title === '' || !formData.title.trim())}
             helperText={
-              !formData.title.trim() && formData.title !== ''
+              touched.title && (!formData.title.trim() || formData.title === '')
                 ? i18n._('create-checklist.title-required', { default: 'Title is required' })
                 : i18n._('create-checklist.title-helper', {
-                    default: 'Give your checklist item a clear, concise name',
-                  })
+                  default: 'Give your checklist item a clear, concise name',
+                })
             }
             disabled={isSubmitting}
           />
 
           <TextField
-            label={<Trans id="create-checklist.description-field" message="Description *" />}
+            label={<Trans id="create-checklist.description-field" message="Description" />}
             placeholder={i18n._('create-checklist.description-placeholder', {
               default: 'Describe what needs to be done, any important details, or steps involved',
             })}
             value={formData.description}
             onChange={(e) => handleInputChange('description', e.target.value)}
+            onBlur={() => handleBlur('description')}  // 添加这一行
             fullWidth
             multiline
             rows={3}
             required
-            error={!formData.description.trim() && formData.description !== ''}
+            error={touched.description && (formData.description === '' || !formData.description.trim())}
             helperText={
-              !formData.description.trim() && formData.description !== ''
+              touched.description && (!formData.description.trim() || formData.description === '')
                 ? i18n._('create-checklist.description-required', {
-                    default: 'Description is required',
-                  })
+                  default: 'Description is required',
+                })
                 : i18n._('create-checklist.description-helper', {
-                    default: 'Provide details about this task - what needs to be accomplished?',
-                  })
+                  default: 'Provide details about this task - what needs to be accomplished?',
+                })
             }
             disabled={isSubmitting}
           />
-
+          <DatePicker
+            label={<Trans id="create-checklist.due-date" message="Due Date" />}
+            value={formData.dueDate}
+            onChange={handleDateChange}
+            disabled={isSubmitting}
+          />
           <FormControl fullWidth disabled={isSubmitting}>
             <InputLabel>
               <Trans id="create-checklist.importance-field" message="Importance" />

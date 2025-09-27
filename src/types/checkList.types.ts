@@ -1,3 +1,5 @@
+import type dayjs from "dayjs";
+
 export interface ChecklistItem {
   checklistItemId: string;
   ownerId: string;
@@ -5,6 +7,7 @@ export interface ChecklistItem {
   description: string;
   isComplete: boolean;
   importance: 'Low' | 'Medium' | 'High';
+  dueDate: dayjs.Dayjs | null;
   userOwner?: {
     userId: string;
     username: string;
@@ -30,4 +33,5 @@ export interface CreateChecklistItemRequest {
   description: string;
   isComplete: boolean;
   importance: 'Low' | 'Medium' | 'High';
+  dueDate: dayjs.Dayjs | null;
 }
