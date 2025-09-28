@@ -290,7 +290,12 @@ export const cityData: Record<CityCode, CityInfo> = {
         message="Paradise on earth with West Lake's serene beauty and tech innovation"
       />
     ),
-    tagline: <Trans id="cities.hangzhou.tagline" message="Where nature meets innovation" />,
+    tagline: (
+      <Trans
+        id="cities.hangzhou.tagline"
+        message="West Lake poetry meets a thriving digital economy"
+      />
+    ),
   },
   macau: {
     code: 'macau',
@@ -594,7 +599,9 @@ export const cityData: Record<CityCode, CityInfo> = {
         message="Bavarian capital blending traditional charm with modern innovation"
       />
     ),
-    tagline: <Trans id="cities.munich.tagline" message="Where tradition meets innovation" />,
+    tagline: (
+      <Trans id="cities.munich.tagline" message="Beer halls, Baroque beauty, and Bavarian warmth" />
+    ),
   },
   hamburg: {
     code: 'hamburg',
@@ -684,22 +691,25 @@ export const cityData: Record<CityCode, CityInfo> = {
       />
     ),
     tagline: (
-      <Trans id="cities.bangkok.tagline" message="The city that never sleeps in Southeast Asia" />
+      <Trans
+        id="cities.bangkok.tagline"
+        message="City of Angels with dazzling temples and night markets"
+      />
     ),
   },
   bali: {
     code: 'bali',
-    name: <Trans id="cities.bali.name" message="Bali" />,
+    name: <Trans id="cities.bali.name" message="Bali Island" />,
     heroImage:
       'https://images.unsplash.com/photo-1729605411729-b48129161e68?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0',
     fallbackImage: '/images/default-city-image.jpg',
     description: (
       <Trans
         id="cities.bali.description"
-        message="Island paradise with spiritual culture and tropical beauty"
+        message="Indonesia's island province famed for temples, rice terraces, and beaches"
       />
     ),
-    tagline: <Trans id="cities.bali.tagline" message="Island of gods and endless summers" />,
+    tagline: <Trans id="cities.bali.tagline" message="Island of the Gods, your tropical escape" />,
   },
   default: {
     code: 'default',
