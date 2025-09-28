@@ -492,7 +492,7 @@ msgstr "开始与AI助手的对话，获得个性化的城市生活指导"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
 msgid "chat.welcome.title"
-msgstr "欢迎使用HelloCity助手"
+msgstr "欢迎使用HelloCity"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
