@@ -325,7 +325,7 @@ describe('/api/user/me', () => {
       expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
       expect(mockDeleteUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
       expect(response.status).toBe(204);
-      
+
       // For 204 responses, there should be no body to parse
       const text = await response.text();
       expect(text).toBe('');
