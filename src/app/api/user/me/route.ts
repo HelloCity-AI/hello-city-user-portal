@@ -124,6 +124,12 @@ export async function DELETE(_request: NextRequest) {
     try {
       const apiUrl = getBackendUrl()!;
       const response = await deleteUserProfile(tokenResult.token, apiUrl);
+      
+      // For 204 No Content, return response without body
+      if (response.status === 204) {
+        return new NextResponse(null, { status: 204 });
+      }
+      
       return NextResponse.json(response.data, { status: response.status });
     } catch (axiosError) {
       if (axios.isAxiosError(axiosError)) {

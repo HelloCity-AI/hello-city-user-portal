@@ -42,18 +42,16 @@ import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
 import axios from 'axios';
 
 // Type the mocked functions
-const mockGetAccessTokenWithValidation = getAccessTokenWithValidation as jest.MockedFunction<
-  typeof getAccessTokenWithValidation
->;
-const mockValidateBackendUrl = validateBackendUrl as jest.MockedFunction<typeof validateBackendUrl>;
-const mockGetBackendUrl = getBackendUrl as jest.MockedFunction<typeof getBackendUrl>;
-const mockFetchUserProfile = fetchUserProfile as jest.MockedFunction<typeof fetchUserProfile>;
-const mockCreateUserProfile = createUserProfile as jest.MockedFunction<typeof createUserProfile>;
-const mockUpdateUserProfile = updateUserProfile as jest.MockedFunction<typeof updateUserProfile>;
-const mockDeleteUserProfile = deleteUserProfile as jest.MockedFunction<typeof deleteUserProfile>;
-const mockHandleApiError = handleApiError as jest.MockedFunction<typeof handleApiError>;
-const mockHandleAxiosError = handleAxiosError as jest.MockedFunction<typeof handleAxiosError>;
-const mockAxiosIsAxiosError = axios.isAxiosError as jest.MockedFunction<typeof axios.isAxiosError>;
+const mockGetAccessTokenWithValidation = getAccessTokenWithValidation as jest.Mock;
+const mockValidateBackendUrl = validateBackendUrl as jest.Mock;
+const mockGetBackendUrl = getBackendUrl as jest.Mock;
+const mockFetchUserProfile = fetchUserProfile as jest.Mock;
+const mockCreateUserProfile = createUserProfile as jest.Mock;
+const mockUpdateUserProfile = updateUserProfile as jest.Mock;
+const mockDeleteUserProfile = deleteUserProfile as jest.Mock;
+const mockHandleApiError = handleApiError as jest.Mock;
+const mockHandleAxiosError = handleAxiosError as jest.Mock;
+const mockAxiosIsAxiosError = axios.isAxiosError as unknown as jest.Mock;
 
 // Mock data
 const mockUserData = {
@@ -321,14 +319,16 @@ describe('/api/user/me', () => {
 
       // Act
       const response = await DELETE(request);
-      const responseData = await response.json();
 
       // Assert
       expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
       expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
       expect(mockDeleteUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
       expect(response.status).toBe(204);
-      expect(responseData).toBeNull();
+      
+      // For 204 responses, there should be no body to parse
+      const text = await response.text();
+      expect(text).toBe('');
     });
 
     it('should handle axios errors', async () => {
