@@ -132,7 +132,23 @@ if (!global.Response) {
   } as never;
 }
 
+// Minimal FormData polyfill for tests
+if (typeof (globalThis as any).FormData === 'undefined') {
+  class MinimalFormData {
+    private _data: Array<[string, any]> = [];
+    append(name: string, value: any): void {
+      this._data.push([String(name), value]);
+    }
+    // Optional helpers for debugging/matchers if needed later
+    entries(): IterableIterator<[string, any]> {
+      return this._data[Symbol.iterator]() as IterableIterator<[string, any]>;
+    }
+  }
+  (globalThis as any).FormData = MinimalFormData;
+}
+
 if (typeof window !== 'undefined') {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   window.HTMLElement.prototype.scrollIntoView = function () {};
 }
 
@@ -143,6 +159,7 @@ class ResizeObserver {
   disconnect() {}
 }
 if (typeof window !== 'undefined') {
+  // @ts-ignore
   window.ResizeObserver = ResizeObserver;
 }
 // Mock Next.js navigation hooks
@@ -256,7 +273,7 @@ jest.mock('next/image', () => ({
     }),
 }));
 
-// Mock mui style
+// MUI theme useTheme mock with custom tokens for tests
 jest.mock('@mui/material/styles', () => ({
   ...jest.requireActual('@mui/material/styles'),
   useTheme: () => ({

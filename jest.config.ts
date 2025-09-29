@@ -98,7 +98,12 @@ const config: InitialOptionsTsJest = {
   // ],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  moduleNameMapper: { '^@/(.*)$': '<rootDir>/src/$1' },
+  moduleNameMapper: {
+    '^@/lib/api-client$': '<rootDir>/__tests__/__mocks__/@/lib/api-client.js',
+    '^@auth0/nextjs-auth0$': '<rootDir>/__tests__/__mocks__/@auth0/nextjs-auth0.js',
+    '^@auth0/nextjs-auth0/server$': '<rootDir>/__tests__/__mocks__/@auth0/nextjs-auth0-server.js',
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -188,10 +193,7 @@ const config: InitialOptionsTsJest = {
   // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-  // transformIgnorePatterns: [
-  //   "/node_modules/",
-  //   "\\.pnp\\.[^\\/]+$"
-  // ],
+  transformIgnorePatterns: ['/node_modules/(?!@auth0)', '\\.pnp\\.[^\\/]+$'],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

@@ -1,511 +1,380 @@
+/**
+ * @jest-environment node
+ */
+
+import { NextRequest, NextResponse } from 'next/server';
+
+// Mock all dependencies before importing the route handlers
+jest.mock('@/lib/auth-utils', () => ({
+  getAccessTokenWithValidation: jest.fn(),
+  validateBackendUrl: jest.fn(),
+  getBackendUrl: jest.fn(),
+}));
+
+jest.mock('@/lib/api-client', () => ({
+  fetchUserProfile: jest.fn(),
+  createUserProfile: jest.fn(),
+  updateUserProfile: jest.fn(),
+  deleteUserProfile: jest.fn(),
+}));
+
+jest.mock('axios', () => ({
+  isAxiosError: jest.fn(),
+}));
+
+jest.mock('@/lib/error-handlers', () => ({
+  handleApiError: jest.fn(),
+  handleAxiosError: jest.fn(),
+}));
+
+// Import route handlers after mocking
+import { GET, POST, PUT, DELETE } from '@/app/api/user/me/route';
+
+// Import mocked modules to get typed references
+import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
+import {
+  fetchUserProfile,
+  createUserProfile,
+  updateUserProfile,
+  deleteUserProfile,
+} from '@/lib/api-client';
+import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
 import axios from 'axios';
-import type { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
-import { auth0 } from '@/lib/auth0';
-import { AccessTokenError } from '@auth0/nextjs-auth0/errors';
-import type { UserProfileResponse } from '@/app/api/types/response.types';
-import type { User } from '@/types/User.types';
 
-// Debug mode test:  let x=1;const    y =   2;
+// Type the mocked functions
+const mockGetAccessTokenWithValidation = getAccessTokenWithValidation as jest.MockedFunction<
+  typeof getAccessTokenWithValidation
+>;
+const mockValidateBackendUrl = validateBackendUrl as jest.MockedFunction<typeof validateBackendUrl>;
+const mockGetBackendUrl = getBackendUrl as jest.MockedFunction<typeof getBackendUrl>;
+const mockFetchUserProfile = fetchUserProfile as jest.MockedFunction<typeof fetchUserProfile>;
+const mockCreateUserProfile = createUserProfile as jest.MockedFunction<typeof createUserProfile>;
+const mockUpdateUserProfile = updateUserProfile as jest.MockedFunction<typeof updateUserProfile>;
+const mockDeleteUserProfile = deleteUserProfile as jest.MockedFunction<typeof deleteUserProfile>;
+const mockHandleApiError = handleApiError as jest.MockedFunction<typeof handleApiError>;
+const mockHandleAxiosError = handleAxiosError as jest.MockedFunction<typeof handleAxiosError>;
+const mockAxiosIsAxiosError = axios.isAxiosError as jest.MockedFunction<typeof axios.isAxiosError>;
 
-jest.mock('axios');
-jest.mock('@/lib/auth0', () => ({
-  auth0: {
-    getAccessToken: jest.fn(),
-  },
-}));
-jest.mock('@auth0/nextjs-auth0/errors', () => ({
-  AccessTokenError: class MockAccessTokenError extends Error {
-    code: string;
-    constructor(code: string, message: string) {
-      super(message);
-      this.name = 'AccessTokenError';
-      this.code = code;
-    }
-  },
-}));
-
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-const mockedAuth0 = auth0 as jest.Mocked<typeof auth0>;
-
-let mockedIsAxiosError: jest.MockedFunction<typeof axios.isAxiosError>;
-
-beforeAll(() => {
-  // Set up axios.isAxiosError mock
-  Object.defineProperty(mockedAxios, 'isAxiosError', {
-    value: jest.fn<boolean, [unknown]>(),
-    writable: true,
-  });
-  mockedIsAxiosError = mockedAxios.isAxiosError as jest.MockedFunction<typeof axios.isAxiosError>;
-});
-
-afterAll(() => {
-  // Restore axios.isAxiosError to prevent test pollution
-  // Restore to basic function to prevent test pollution
-  Object.defineProperty(mockedAxios, 'isAxiosError', {
-    value: () => false,
-    writable: true,
-  });
-});
-
-const createMockAxiosResponse = <T>(data: T, status = 200) => ({
-  data,
-  status,
-  statusText: 'OK',
-  headers: {},
-  config: {
-    url: '',
-    method: 'get',
-    headers: {},
-  },
-});
-
-const createMockNextResponse = (
-  data: unknown,
-  status: number,
-  headers?: Record<string, string>,
-) => ({
-  json: data,
-  status,
-  headers,
-});
-
-type AccessTokenLike = { token: string | null; expiresAt: number; scope: string };
-const createMockTokenResponse = (token: string | null): AccessTokenLike => ({
-  token,
-  expiresAt: Date.now() + 3600000,
-  scope: 'read:profile',
-});
-
-// Helper to cast AccessTokenLike to auth0's expected type when needed
-const createMockAuth0TokenResponse = (token: string | null) =>
-  createMockTokenResponse(token) as unknown as Awaited<ReturnType<typeof auth0.getAccessToken>>;
-
-const setupEnvironment = (backendUrl?: string) => {
-  const originalEnv = { ...process.env };
-  if (backendUrl !== undefined) {
-    process.env.NEXT_PUBLIC_BACKEND_URL = backendUrl;
-  } else {
-    delete process.env.NEXT_PUBLIC_BACKEND_URL;
-  }
-  return () => {
-    process.env = originalEnv;
-  };
+// Mock data
+const mockUserData = {
+  userId: '123',
+  Email: 'test@example.com',
+  FirstName: 'Test',
+  LastName: 'User',
 };
 
-describe('FetchUserProfile', () => {
-  let fetchUserProfile: (token: string, backendUrl: string) => Promise<UserProfileResponse>;
+const mockToken = 'mock-access-token';
+const mockApiUrl = 'https://api.example.com';
 
-  const TEST_TOKEN = 'test-token';
-  const TEST_BACKEND_URL = 'http://localhost:5001';
-
-  beforeAll(async () => {
-    const { fetchUserProfile: fn } = await import('@/app/api/user/me/route');
-    fetchUserProfile = fn;
-  });
-
+describe('/api/user/me', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-  });
 
-  it('Should make correct API call with token and return user data', async () => {
-    const mockUserData: Partial<User> = {
-      userId: '1',
-      Email: 'test@example.com',
-      Avatar: 'avatar.jpg',
-    };
-
-    mockedAxios.get.mockResolvedValue(createMockAxiosResponse(mockUserData, 200));
-
-    const result = await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
-
-    expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
-      headers: {
-        Accept: 'application/json',
-        Authorization: 'Bearer test-token',
-        'Cache-Control': 'no-store',
-      },
-      timeout: 10000,
-      validateStatus: expect.any(Function),
+    // Default successful mocks
+    mockValidateBackendUrl.mockReturnValue(null);
+    mockGetAccessTokenWithValidation.mockResolvedValue({
+      token: mockToken,
     });
-    expect(result.status).toBe(200);
-    expect(result.data).toEqual(mockUserData);
-  });
+    mockGetBackendUrl.mockReturnValue(mockApiUrl);
 
-  it('Should handle 404 response', async () => {
-    mockedAxios.get.mockResolvedValue(createMockAxiosResponse(null, 404));
-
-    const result = await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
-
-    expect(result.status).toBe(404);
-    expect(result.data).toBe(null);
-  });
-
-  it('Should reject for 403 status codes', async () => {
-    const axiosError = {
-      isAxiosError: true,
-      response: { status: 403, data: { error: 'Forbidden' } },
-    };
-
-    mockedAxios.get.mockRejectedValue(axiosError);
-
-    await expect(fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL)).rejects.toBe(axiosError);
-  });
-
-  it('Should reject for 500 status codes', async () => {
-    const axiosError = {
-      isAxiosError: true,
-      response: { status: 500, data: { error: 'Internal Server Error' } },
-    };
-
-    mockedAxios.get.mockRejectedValue(axiosError);
-
-    await expect(fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL)).rejects.toBe(axiosError);
-  });
-
-  it('Should configure validateStatus correctly', async () => {
-    mockedAxios.get.mockResolvedValue(createMockAxiosResponse({}, 200));
-
-    await fetchUserProfile(TEST_TOKEN, TEST_BACKEND_URL);
-
-    const axiosCall = mockedAxios.get.mock.calls[0];
-    const config = axiosCall[1];
-    const validateStatusFn = config?.validateStatus;
-
-    expect(validateStatusFn).toBeDefined();
-    expect(validateStatusFn!(200)).toBe(true);
-    expect(validateStatusFn!(404)).toBe(true);
-    expect(validateStatusFn!(403)).toBe(false);
-    expect(validateStatusFn!(500)).toBe(false);
-  });
-});
-
-describe('GET Handler', () => {
-  let GET: (request: NextRequest) => Promise<Response>;
-  let restoreEnv: () => void;
-  let nextResponseJsonSpy: jest.SpyInstance;
-
-  beforeAll(async () => {
-    const { GET: handler } = await import('@/app/api/user/me/route');
-    GET = handler;
-  });
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-    restoreEnv = setupEnvironment('http://localhost:5001');
-
-    // Set up NextResponse.json spy
-    nextResponseJsonSpy = jest
-      .spyOn(NextResponse, 'json')
-      .mockImplementation((data: unknown, init?: ResponseInit) => {
-        const options = init as { status?: number; headers?: Record<string, string> } | undefined;
-        return createMockNextResponse(data, options?.status || 200, options?.headers) as never;
-      });
-  });
-
-  afterEach(() => {
-    restoreEnv();
-  });
-
-  describe('Success scenarios', () => {
-    it('Should return user data when everything is valid', async () => {
-      const mockUserData = { userId: '1', Email: 'test@example.com' };
-      const mockRequest = {} as NextRequest;
-
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockResolvedValue(createMockAxiosResponse(mockUserData, 200));
-
-      await GET(mockRequest);
-
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(mockUserData, { status: 200 });
+    // Reset API client mocks to default successful responses
+    mockFetchUserProfile.mockResolvedValue({
+      data: mockUserData,
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config: {} as any,
     });
 
-    it('Should passthrough 404 when backend returns not found', async () => {
-      const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockResolvedValue(createMockAxiosResponse(null, 404));
+    mockCreateUserProfile.mockResolvedValue({
+      data: { userId: '12345' },
+      status: 201,
+      statusText: 'Created',
+      headers: {},
+      config: {} as any,
+    });
 
-      await GET(mockRequest);
+    mockUpdateUserProfile.mockResolvedValue({
+      data: mockUserData,
+      status: 200,
+      statusText: 'OK',
+      headers: {},
+      config: {} as any,
+    });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(null, { status: 404 });
+    mockDeleteUserProfile.mockResolvedValue({
+      data: null,
+      status: 204,
+      statusText: 'No Content',
+      headers: {},
+      config: {} as any,
     });
   });
 
-  describe('Authentication errors', () => {
-    it('Should handle AccessTokenError from auth0', async () => {
-      const mockRequest = {} as NextRequest;
-      const accessTokenError = new AccessTokenError('invalid_session', 'Session expired');
+  describe('GET /api/user/me', () => {
+    it('should successfully fetch user profile', async () => {
+      // Arrange
+      const request = new NextRequest('http://localhost:3000/api/user/me');
 
-      mockedAuth0.getAccessToken.mockRejectedValue(accessTokenError);
+      // Act
+      const response = await GET(request);
+      const responseData = await response.json();
 
-      await GET(mockRequest);
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
+      expect(mockFetchUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
+      expect(response.status).toBe(200);
+      expect(responseData).toEqual(mockUserData);
+    });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Unauthorized',
-          code: 'invalid_session',
-          details: 'Session expired',
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Missing Session"',
-          },
-        },
+    it('should return error when backend URL validation fails', async () => {
+      // Arrange
+      const mockErrorResponse = NextResponse.json(
+        { error: 'Backend URL not configured' },
+        { status: 500 },
       );
+      mockValidateBackendUrl.mockReturnValue(mockErrorResponse);
+
+      const request = new NextRequest('http://localhost:3000/api/user/me');
+
+      // Act
+      const response = await GET(request);
+
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).not.toHaveBeenCalled();
+      expect(mockFetchUserProfile).not.toHaveBeenCalled();
+      expect(response).toBe(mockErrorResponse);
     });
 
-    it('Should pass null token to backend and handle 401 response', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = {
-        isAxiosError: true,
-        response: { status: 401, data: { error: 'Unauthorized' } },
-        message: 'Request failed with status code 401',
-      };
-
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(null));
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
-
-      await GET(mockRequest);
-
-      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
-        headers: {
-          Authorization: 'Bearer null',
-          'Cache-Control': 'no-store',
-          Accept: 'application/json',
-        },
-        timeout: 10000,
-        validateStatus: expect.any(Function),
+    it('should return error when token validation fails', async () => {
+      // Arrange
+      const mockErrorResponse = NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      mockGetAccessTokenWithValidation.mockResolvedValue({
+        error: mockErrorResponse,
       });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Unauthorized',
-          code: 'BACKEND_UNAUTHORIZED',
-          details: 'Request failed with status code 401',
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-          },
-        },
-      );
+      const request = new NextRequest('http://localhost:3000/api/user/me');
+
+      // Act
+      const response = await GET(request);
+
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
+      expect(mockFetchUserProfile).not.toHaveBeenCalled();
+      expect(response).toBe(mockErrorResponse);
     });
 
-    it('Should pass undefined token to backend and handle 401 response', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = {
-        isAxiosError: true,
-        response: { status: 401, data: { error: 'Unauthorized' } },
-        message: 'Request failed with status code 401',
-      };
+    it('should handle API errors', async () => {
+      // Arrange
+      const mockError = new Error('API Error');
+      const mockErrorResponse = NextResponse.json(
+        { error: 'Internal Server Error' },
+        { status: 500 },
+      );
+      mockFetchUserProfile.mockRejectedValue(mockError);
+      mockHandleApiError.mockReturnValue(mockErrorResponse);
 
-      mockedAuth0.getAccessToken.mockResolvedValue(undefined as never);
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
+      const request = new NextRequest('http://localhost:3000/api/user/me');
 
-      await GET(mockRequest);
+      // Act
+      const response = await GET(request);
 
-      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
-        headers: {
-          Authorization: 'Bearer undefined',
-          'Cache-Control': 'no-store',
-          Accept: 'application/json',
-        },
-        timeout: 10000,
-        validateStatus: expect.any(Function),
+      // Assert
+      expect(mockFetchUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
+      expect(mockHandleApiError).toHaveBeenCalledWith(mockError, 'getting ME profile');
+      expect(response).toBe(mockErrorResponse);
+    });
+  });
+
+  describe('POST /api/user/me', () => {
+    it('should successfully create user profile', async () => {
+      // Arrange
+      const mockFormData = new FormData();
+      mockFormData.append('firstName', 'Test');
+      mockFormData.append('lastName', 'User');
+      mockFormData.append('email', 'test@example.com');
+
+      const request = new NextRequest('http://localhost:3000/api/user/me', {
+        method: 'POST',
+        body: mockFormData,
       });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Unauthorized',
-          code: 'BACKEND_UNAUTHORIZED',
-          details: 'Request failed with status code 401',
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-          },
-        },
+      // Act
+      const response = await POST(request);
+      const responseData = await response.json();
+
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
+      expect(mockCreateUserProfile).toHaveBeenCalledWith(
+        mockToken,
+        mockApiUrl,
+        expect.any(FormData),
       );
+      expect(response.status).toBe(201);
+      expect(responseData).toEqual({ userId: '12345' });
     });
 
-    it('Should pass empty string token to backend and handle 401 response', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = {
+    it('should handle axios errors', async () => {
+      // Arrange
+      const mockAxiosError = {
         isAxiosError: true,
-        response: { status: 401, data: { error: 'Unauthorized' } },
-        message: 'Request failed with status code 401',
+        response: { status: 400, data: { message: 'Bad Request' } },
       };
+      const mockErrorResponse = NextResponse.json({ error: 'Bad Request' }, { status: 400 });
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse(''));
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
+      mockCreateUserProfile.mockRejectedValue(mockAxiosError);
+      mockAxiosIsAxiosError.mockReturnValue(true);
+      mockHandleAxiosError.mockReturnValue(mockErrorResponse);
 
-      await GET(mockRequest);
-
-      expect(mockedAxios.get).toHaveBeenCalledWith('http://localhost:5001/api/user/me', {
-        headers: {
-          Authorization: 'Bearer ',
-          'Cache-Control': 'no-store',
-          Accept: 'application/json',
-        },
-        timeout: 10000,
-        validateStatus: expect.any(Function),
+      const request = new NextRequest('http://localhost:3000/api/user/me', {
+        method: 'POST',
+        body: new FormData(),
       });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Unauthorized',
-          code: 'BACKEND_UNAUTHORIZED',
-          details: 'Request failed with status code 401',
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-          },
-        },
+      // Act
+      const response = await POST(request);
+
+      // Assert
+      expect(mockCreateUserProfile).toHaveBeenCalledWith(
+        mockToken,
+        mockApiUrl,
+        expect.any(FormData),
       );
+      expect(mockAxiosIsAxiosError).toHaveBeenCalledWith(mockAxiosError);
+      expect(mockHandleAxiosError).toHaveBeenCalledWith(mockAxiosError, 'create user');
+      expect(response).toBe(mockErrorResponse);
     });
   });
 
-  describe('Configuration errors', () => {
-    it('Should return 500 when backend URL is not configured', async () => {
-      restoreEnv();
-      restoreEnv = setupEnvironment();
-
-      const mockRequest = {} as NextRequest;
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-
-      await GET(mockRequest);
-
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        { error: 'Backend URL is not configured (NEXT_PUBLIC_BACKEND_URL)' },
-        { status: 500 },
-      );
-    });
-  });
-
-  describe('Backend errors', () => {
-    it('Should return 401 with proper headers when backend returns 401', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = {
-        isAxiosError: true,
-        response: { status: 401, data: { error: 'Unauthorized' } },
-        message: 'Request failed with status code 401',
+  describe('PUT /api/user/me', () => {
+    it('should successfully update user profile', async () => {
+      // Arrange
+      const updateData = {
+        firstName: 'Updated',
+        lastName: 'User',
+        email: 'updated@example.com',
       };
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('invalid-token'));
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
+      // Override the default mock for this specific test
+      mockUpdateUserProfile.mockResolvedValue({
+        data: { ...mockUserData, ...updateData },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: {} as any,
+      });
 
-      await GET(mockRequest);
+      const request = new NextRequest('http://localhost:3000/api/user/me', {
+        method: 'PUT',
+        body: JSON.stringify(updateData),
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Unauthorized',
-          code: 'BACKEND_UNAUTHORIZED',
-          details: 'Request failed with status code 401',
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-          },
-        },
-      );
+      // Act
+      const response = await PUT(request);
+      const responseData = await response.json();
+
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
+      expect(response.status).toBe(200);
+      expect(responseData).toEqual({ ...mockUserData, ...updateData });
     });
 
-    it('Should handle other axios errors with response', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = {
+    it('should handle axios errors', async () => {
+      // Arrange
+      const mockAxiosError = {
         isAxiosError: true,
-        response: { status: 500, data: { error: 'Internal Server Error' } },
-        message: 'Request failed with status code 500',
+        response: { status: 404, data: { message: 'User not found' } },
       };
+      const mockErrorResponse = NextResponse.json({ error: 'User not found' }, { status: 404 });
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
+      mockUpdateUserProfile.mockRejectedValue(mockAxiosError);
+      mockAxiosIsAxiosError.mockReturnValue(true);
+      mockHandleAxiosError.mockReturnValue(mockErrorResponse);
 
-      await GET(mockRequest);
+      const request = new NextRequest('http://localhost:3000/api/user/me', {
+        method: 'PUT',
+        body: JSON.stringify({}),
+      });
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Error occurred while getting ME profile',
-          details: 'Request failed with status code 500',
-        },
-        { status: 500 },
-      );
-    });
+      // Act
+      const response = await PUT(request);
 
-    it('Should handle axios errors without response', async () => {
-      const mockRequest = {} as NextRequest;
-      const axiosError = new Error('Network Error');
-      Object.assign(axiosError, { isAxiosError: true });
-
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockRejectedValue(axiosError);
-      mockedIsAxiosError.mockReturnValue(true);
-
-      await GET(mockRequest);
-
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Error occurred while getting ME profile',
-          details: 'Network Error',
-        },
-        { status: 500 },
-      );
+      // Assert
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, {});
+      expect(mockAxiosIsAxiosError).toHaveBeenCalledWith(mockAxiosError);
+      expect(mockHandleAxiosError).toHaveBeenCalledWith(mockAxiosError, 'update user');
+      expect(response).toBe(mockErrorResponse);
     });
   });
 
-  describe('Generic errors', () => {
-    it('Should handle non-axios errors', async () => {
-      const mockRequest = {} as NextRequest;
-      const genericError = new Error('Unexpected error');
+  describe('DELETE /api/user/me', () => {
+    it('should successfully delete user profile', async () => {
+      // Arrange
+      const request = new NextRequest('http://localhost:3000/api/user/me');
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockRejectedValue(genericError);
-      mockedIsAxiosError.mockReturnValue(false);
+      // Act
+      const response = await DELETE(request);
+      const responseData = await response.json();
 
-      await GET(mockRequest);
-
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Error occurred while getting ME profile',
-          details: 'Unexpected error',
-        },
-        { status: 500 },
-      );
+      // Assert
+      expect(mockValidateBackendUrl).toHaveBeenCalledTimes(1);
+      expect(mockGetAccessTokenWithValidation).toHaveBeenCalledTimes(1);
+      expect(mockDeleteUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
+      expect(response.status).toBe(204);
+      expect(responseData).toBeNull();
     });
 
-    it('Should handle non-Error objects', async () => {
-      const mockRequest = {} as NextRequest;
-      const stringError = 'Something went wrong';
+    it('should handle axios errors', async () => {
+      // Arrange
+      const mockAxiosError = {
+        isAxiosError: true,
+        response: { status: 404, data: { message: 'User not found' } },
+      };
+      const mockErrorResponse = NextResponse.json({ error: 'User not found' }, { status: 404 });
 
-      mockedAuth0.getAccessToken.mockResolvedValue(createMockAuth0TokenResponse('valid-token'));
-      mockedAxios.get.mockRejectedValue(stringError);
-      mockedIsAxiosError.mockReturnValue(false);
+      mockDeleteUserProfile.mockRejectedValue(mockAxiosError);
+      mockAxiosIsAxiosError.mockReturnValue(true);
+      mockHandleAxiosError.mockReturnValue(mockErrorResponse);
 
-      await GET(mockRequest);
+      const request = new NextRequest('http://localhost:3000/api/user/me');
 
-      expect(nextResponseJsonSpy).toHaveBeenCalledWith(
-        {
-          error: 'Error occurred while getting ME profile',
-          details: 'Something went wrong',
-        },
+      // Act
+      const response = await DELETE(request);
+
+      // Assert
+      expect(mockDeleteUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
+      expect(mockAxiosIsAxiosError).toHaveBeenCalledWith(mockAxiosError);
+      expect(mockHandleAxiosError).toHaveBeenCalledWith(mockAxiosError, 'delete user');
+      expect(response).toBe(mockErrorResponse);
+    });
+
+    it('should handle general API errors', async () => {
+      // Arrange
+      const mockError = new Error('General Error');
+      const mockErrorResponse = NextResponse.json(
+        { error: 'Internal Server Error' },
         { status: 500 },
       );
+      mockDeleteUserProfile.mockRejectedValue(mockError);
+      mockAxiosIsAxiosError.mockReturnValue(false);
+      mockHandleApiError.mockReturnValue(mockErrorResponse);
+
+      const request = new NextRequest('http://localhost:3000/api/user/me');
+
+      // Act
+      const response = await DELETE(request);
+
+      // Assert
+      expect(mockDeleteUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
+      expect(mockHandleApiError).toHaveBeenCalledWith(mockError, 'deleting user');
+      expect(response).toBe(mockErrorResponse);
     });
   });
 });

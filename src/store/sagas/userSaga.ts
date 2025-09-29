@@ -10,23 +10,34 @@ import {
   createUserSuccess,
   createUserFailure,
 } from '../slices/user';
-import { fetchUser as fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 /**
  * API wrapper for fetching current user with proper error handling
+ * Now uses App Router endpoint instead of direct backend call
  */
 export async function fetchUserApiWrapper() {
   try {
-    const response = await fetchCurrentUser(''); // fetchUser requires userId parameter
+    // Call the App Router endpoint instead of direct backend API
+    const response = await fetch('/api/user/me', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      cache: 'no-store',
+    });
+
+    const data = response.ok ? await response.json() : null;
+
     return {
       status: response.status,
-      data: response.data,
-      ok: response.status >= 200 && response.status < 300,
+      data: data,
+      ok: response.ok,
     };
   } catch (error) {
     console.error('Failed to fetch user:', error);
+
     return {
       status: 500,
       data: null,
@@ -37,17 +48,30 @@ export async function fetchUserApiWrapper() {
 
 /**
  * API wrapper for creating user with proper error handling
+ * Now uses App Router endpoint instead of direct backend call
  */
-export async function createUserApiWrapper(userData: User) {
+export async function createUserApiWrapper(newUser: User) {
   try {
-    const response = await createUserApi(userData);
+    // Call the App Router endpoint instead of direct backend API
+    const response = await fetch('/api/user/me', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+      cache: 'no-store',
+    });
+
+    const data = response.ok ? await response.json() : null;
+
     return {
       status: response.status,
-      data: response.data,
-      ok: response.status >= 200 && response.status < 300,
+      data: data,
+      ok: response.ok,
     };
   } catch (error) {
     console.error('Failed to create user:', error);
+
     return {
       status: 500,
       data: null,

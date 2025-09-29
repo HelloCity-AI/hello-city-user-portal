@@ -1,11 +1,34 @@
 import type { User } from '@/types/User.types';
+import {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  deleteUserProfile,
+  createApiClient,
+} from '@/lib/api-client';
+import { getAccessTokenWithValidation, getBackendUrl } from '@/lib/auth-utils';
 
+/**
+ * @deprecated Use createUserProfile from @/lib/api-client instead
+ * This function is kept for backward compatibility but will be removed in future versions
+ */
 export const createUser = async (newUser: User) => {
+  // Get access token and backend URL
+  const tokenResponse = await getAccessTokenWithValidation();
+  if ('error' in tokenResponse) {
+    throw new Error('Failed to get access token');
+  }
+
+  const backendUrl = getBackendUrl();
+  if (!backendUrl) {
+    throw new Error('Backend URL is not configured');
+  }
+
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId || 'defaultUsername'); // Use userId as username, or can add separate username field
+  formData.append('Username', newUser.userId || 'defaultUsername');
   formData.append('Email', newUser.Email);
 
   // Add optional fields
@@ -22,44 +45,46 @@ export const createUser = async (newUser: User) => {
     formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
   }
 
-  // If there's an avatar file, it can also be added
-  // if (newUser.Avatar && newUser.Avatar instanceof File) {
-  //   formData.append('File', newUser.Avatar);
-  // }
-
-  // Use unified /api/user/me endpoint for all user operations
-  const response = await fetch('/api/user/me', {
-    method: 'POST',
-    body: formData,
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
-  }
+  // Use the new api-client function
+  const response = await createUserProfile(tokenResponse.token, backendUrl, formData);
 
   return {
-    data: await response.json(),
+    data: response.data,
     status: response.status,
   };
 };
 
-// Used in demo, currently unused, waiting for new ticket
+/**
+ * @deprecated Use fetchUserProfile from @/lib/api-client instead
+ * This function is kept for backward compatibility but will be removed in future versions
+ * Used in demo, currently unused, waiting for new ticket
+ */
 export const fetchUser = async (newUserId: string) => {
-  // Use unified /api/user/me endpoint for all user operations
-  const response = await fetch('/api/user/me', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: '*/*',
-    },
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+  // Get access token and backend URL
+  const tokenResponse = await getAccessTokenWithValidation();
+  if ('error' in tokenResponse) {
+    throw new Error('Failed to get access token');
   }
 
+  const backendUrl = getBackendUrl();
+  if (!backendUrl) {
+    throw new Error('Backend URL is not configured');
+  }
+
+  // Use the new api-client function
+  const response = await fetchUserProfile(tokenResponse.token, backendUrl);
+
   return {
-    data: await response.json(),
+    data: response.data,
     status: response.status,
   };
 };
+
+// Re-export the new API functions for easier migration
+export {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  deleteUserProfile,
+  createApiClient,
+} from '@/lib/api-client';
