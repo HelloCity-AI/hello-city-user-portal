@@ -105,7 +105,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
     if (hasAuthenticated) {
       return (
         <IconButton onClick={handleUserDrawer} aria-label="User menu">
-          <UserAvatar size={32} />
+          <UserAvatar size="2rem" />
         </IconButton>
       );
     }

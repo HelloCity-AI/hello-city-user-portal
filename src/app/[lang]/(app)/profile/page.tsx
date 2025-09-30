@@ -5,12 +5,12 @@ import { InputBox } from '@/components';
 import { Button, MenuItem, TextField, Typography, CircularProgress, Alert } from '@mui/material';
 import { defaultUser, type User } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
-import ProfileSideBar from '../../../components/ProfileSideBar';
-import Modal from '../../../components/Modal';
-import { updateUser } from '../../../api/userApi';
+import Modal from '../../../../components/Modal';
+import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
 import { type RootState } from '@/store';
 import { fetchUser } from '@/store/slices/user';
+import ChatMainContentContainer from '@/components/AppPageSections/ChatMainContentContainer';
 
 const Page = () => {
   const { i18n } = useLingui();
@@ -35,7 +35,7 @@ const Page = () => {
 
   const OnSubmit = async () => {
     try {
-      await updateUser(userInfo);
+      await updateUser(userInfo.userId, userInfo);
       dispatch(fetchUser());
       setIsEditModalOpen(false);
     } catch (error) {
@@ -52,10 +52,9 @@ const Page = () => {
   }
 
   return (
-    <div className="flex h-[100vh] w-[100vw] bg-slate-100" key={tick}>
-      <ProfileSideBar />
-      <div className="ml-[80px] flex flex-1 items-center justify-center pl-4 lg:ml-[15%]">
-        <div className="z-10 flex h-auto w-11/12 max-w-4xl flex-col gap-6 rounded-3xl bg-white p-6 lg:w-3/5">
+    <ChatMainContentContainer>
+      <div className="flex items-center justify-center px-4" key={tick}>
+        <div className="z-10 flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {error}
@@ -77,7 +76,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
               </Typography>
-              <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.Email || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -98,7 +97,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.gender', { default: 'Gender' })}
               </Typography>
-              <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.Gender || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -149,7 +148,7 @@ const Page = () => {
                 <InputBox
                   label={i18n._('profile.email', { default: 'Email' })}
                   fieldType="email"
-                  value={userInfo.email || ''}
+                  value={userInfo.Email || ''}
                   name="email"
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
@@ -185,7 +184,7 @@ const Page = () => {
                     name="gender"
                     variant="outlined"
                     required
-                    value={userInfo.gender || ''}
+                    value={userInfo.Gender || ''}
                     onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
                     InputLabelProps={{ shrink: true }}
                     helperText=" "
@@ -249,7 +248,7 @@ const Page = () => {
           </form>
         </Modal>
       </div>
-    </div>
+    </ChatMainContentContainer>
   );
 };
 

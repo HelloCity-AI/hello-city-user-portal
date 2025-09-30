@@ -9,6 +9,7 @@ module.exports = {
     },
   ],
   format: 'po',
+  orderBy: 'messageId',
   extractorParserOptions: {
     flow: false,
   },

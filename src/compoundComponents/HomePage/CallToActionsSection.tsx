@@ -22,7 +22,7 @@ const CallToActionsSection = async ({ locale }: { locale: string }) => {
         </Typography>
         <Button
           component={Link}
-          href={`/${locale}`}
+          href={`/${locale}/assistant`}
           className="group mt-5 rounded-full bg-white px-10 py-3 font-semibold"
           sx={{ color: 'theme.plate.primary' }}
         >

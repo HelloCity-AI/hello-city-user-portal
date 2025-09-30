@@ -1,11 +1,14 @@
 import React from 'react';
-import HeroSection from './sections/HeroSection';
-import AdventureShowcaseSection from './sections/AdventureShowcaseSection';
-import ValuePropositionSection from './sections/ValuePropositionSection';
-import HowItWorksSection from './sections/HowItWorksSection';
-import CallToActionsSection from './sections/CallToActionsSection';
-import TestimonialsSection from './sections/TestimonialsSection';
-import FAQSection from './sections/FAQSection';
+import {
+  HeroSection,
+  AdventureShowcaseSection,
+  ValuePropositionSection,
+  HowItWorksSection,
+  CallToActionsSection,
+  TestimonialsSection, 
+} from '@/compoundComponents';
+
+import FAQSection from '@/compoundComponents/HomePage/FAQSection';
 
 export default function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;

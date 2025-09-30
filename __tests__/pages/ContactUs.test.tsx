@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import ContactUs from '../../src/app/[lang]/contact-us/page';
+import ContactUs from '../../src/app/[lang]/(site)/contact-us/page';
 import { TestProviders } from '../utils/TestWrapper';
 
 // Mock the fetch function
@@ -104,7 +104,12 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     // Check loading state
-    expect(screen.getByRole('button')).toBeDisabled();
+expect(
+  screen.getByRole('button', { name: /submit/i })
+).toBeDisabled();
+
+
+
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
 
     // Inputs should be disabled

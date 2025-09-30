@@ -12,185 +12,8 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
-#: src/stories/DatePicker.stories.tsx:17
-msgid "Pick a date"
-msgstr "Pick a date"
-
-#. js-lingui-explicit-id
-#: src/components/InputBox/InputBox.tsx:60
-msgid "validation.required"
-msgstr "{label} is required."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "Page not found"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "Let’s help you settle in."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:65
-msgid "profile.title"
-msgstr "Profile Settings"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:68
-msgid "profile.subtitle"
-msgstr "Manage your personal information and preferences"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:72
-msgid "profile.personal-info"
-msgstr "Personal Information"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:78
-#: src/app/[lang]/profile/page.tsx:150
-msgid "profile.email"
-msgstr "Email"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:85
-#: src/app/[lang]/profile/page.tsx:161
-msgid "profile.nationality"
-msgstr "Nationality"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:92
-#: src/app/[lang]/profile/page.tsx:171
-msgid "profile.city"
-msgstr "City"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:99
-#: src/app/[lang]/profile/page.tsx:184
-msgid "profile.gender"
-msgstr "Gender"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:106
-#: src/app/[lang]/profile/page.tsx:204
-msgid "profile.university"
-msgstr "University"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:113
-#: src/app/[lang]/profile/page.tsx:214
-msgid "profile.major"
-msgstr "Major"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:120
-#: src/app/[lang]/profile/page.tsx:224
-msgid "profile.preferred-language"
-msgstr "Preferred Language"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:133
-msgid "profile.edit-button"
-msgstr "Edit Profile"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:144
-msgid "profile.edit-title"
-msgstr "Edit Profile Information"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:154
-msgid "profile.email-placeholder"
-msgstr "Please enter your email"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:164
-msgid "profile.nationality-placeholder"
-msgstr "Please enter your nationality"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:174
-msgid "profile.city-placeholder"
-msgstr "Please enter your city"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:207
-msgid "profile.university-placeholder"
-msgstr "Please enter your university"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:217
-msgid "profile.major-placeholder"
-msgstr "Please enter your major"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:227
-msgid "profile.preferred-language-placeholder"
-msgstr "Please enter your preferred language"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:237
-msgid "profile.refresh"
-msgstr "Refresh"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:243
-msgid "profile.cancel"
-msgstr "Cancel"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/profile/page.tsx:246
-msgid "profile.submit"
-msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:89
-msgid "contact-us.title"
-msgstr "Contact Us"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:104
-msgid "contact-us.name"
-msgstr "Name"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:112
-msgid "contact-us.email"
-msgstr "Email"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:121
-msgid "contact-us.message"
-msgstr "Message"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/contact-us/page.tsx:141
-msgid "contact-us.submit"
-msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
-#~ msgid "AdventureShowcase.Title"
-#~ msgstr "Your adventure awaits"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
-#~ msgid "AdventureShowcase.Description"
-#~ msgstr "Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city."
-
-#. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
-#~ msgstr "Ready for Takeoff"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
-#~ msgid "AdventureShowcase.Case1.Title"
 #~ msgstr "Ready for Takeoff"
 
 #. js-lingui-explicit-id
@@ -199,13 +22,13 @@ msgstr "Submit"
 #~ msgstr "Start your journey to a new adventure"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
-#~ msgid "AdventureShowcase.Case2.Alt"
-#~ msgstr "New Connections"
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
+#~ msgid "AdventureShowcase.Case1.Title"
+#~ msgstr "Ready for Takeoff"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
-#~ msgid "AdventureShowcase.Case2.Title"
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
+#~ msgid "AdventureShowcase.Case2.Alt"
 #~ msgstr "New Connections"
 
 #. js-lingui-explicit-id
@@ -214,13 +37,13 @@ msgstr "Submit"
 #~ msgstr "Meet amazing people and build lasting relationships"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
-#~ msgid "AdventureShowcase.Case3.Alt"
-#~ msgstr "Dreams Realized"
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
+#~ msgid "AdventureShowcase.Case2.Title"
+#~ msgstr "New Connections"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
-#~ msgid "AdventureShowcase.Case3.Title"
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
+#~ msgid "AdventureShowcase.Case3.Alt"
 #~ msgstr "Dreams Realized"
 
 #. js-lingui-explicit-id
@@ -229,9 +52,49 @@ msgstr "Submit"
 #~ msgstr "Turn your dreams into reality in a new city"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
+#~ msgid "AdventureShowcase.Case3.Title"
+#~ msgstr "Dreams Realized"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
+#~ msgid "AdventureShowcase.Description"
+#~ msgstr "Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+#~ msgid "AdventureShowcase.Title"
+#~ msgstr "Your adventure awaits"
+
+#. js-lingui-explicit-id
+#: src/hooks/useLogoutConfirm.tsx:32
+msgid "Are you sure you want to log out?"
+msgstr "Are you sure you want to log out?"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Description"
+#~ msgstr "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Title"
+#~ msgstr "Ready to make your move?"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:121
+msgid "Creating..."
+msgstr "Creating..."
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "Melbourne skyline at golden hour, welcoming newcomers with HelloCity"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Description"
+#~ msgstr "Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -244,24 +107,14 @@ msgstr "Submit"
 #~ msgstr "for Every City"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Description"
-#~ msgstr "Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Title"
-#~ msgstr "From planning to living your dream"
-
-#. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Description"
 #~ msgstr "Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step1.Title"
-#~ msgstr "Dream & Plan"
+#~ msgid "HowItWorks.ImageAlt"
+#~ msgstr "Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
@@ -270,8 +123,8 @@ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step2.Title"
-#~ msgstr "Prepare & Organize"
+#~ msgid "HowItWorks.Step1.Title"
+#~ msgstr "Dream & Plan"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
@@ -280,8 +133,8 @@ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step3.Title"
-#~ msgstr "Arrive & Thrive"
+#~ msgid "HowItWorks.Step2.Title"
+#~ msgstr "Prepare & Organize"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
@@ -290,173 +143,71 @@ msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.ImageAlt"
-#~ msgstr "Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset."
+#~ msgid "HowItWorks.Step3.Title"
+#~ msgstr "Arrive & Thrive"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Title"
-#~ msgstr "Why choose HelloCity?"
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Title"
+#~ msgstr "From planning to living your dream"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Description"
-#~ msgstr "We understand that moving to a new city can be overwhelming. That's why we've built the most comprehensive city landing assistant."
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:123
+msgid "I'm all set"
+msgstr "I'm all set"
+
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:54
+#~ msgid "chat.input.hint.press"
+#~ msgstr "Press"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Title"
-#~ msgstr "Personalized Guidance"
+#: src/hooks/useLogoutConfirm.tsx:30
+#: src/hooks/useLogoutConfirm.tsx:34
+#: src/hooks/useUserMenu.tsx:36
+msgid "Logout"
+msgstr "Logout"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Description"
-#~ msgstr "Get tailored advice based on your situation, destination, and timeline. No generic answers."
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
+msgid "NavBar.Back"
+msgstr "← Back"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Title"
-#~ msgstr "Step-by-step Checklists"
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
+msgid "NavBar.ChangeLanguage"
+msgstr "Change Language"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Description"
-#~ msgstr "Never miss important tasks with our comprehensive checklists for every type of move."
+#: src/hooks/useNavigation.tsx:26
+msgid "NavBar.Chat"
+msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Title"
-#~ msgstr "Timeline Planning"
+#: src/hooks/useNavigation.tsx:33
+msgid "NavBar.ContactUs"
+msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Description"
-#~ msgstr "Know exactly when to do what with realistic timelines and deadline reminders."
+#: src/hooks/useNavigation.tsx:33
+#~ msgid "NavBar.ContactUs======="
+#~ msgstr "undefined<<<<<<< HEAD"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Title"
-#~ msgstr "Ready to make your move?"
+#: src/hooks/useNavigation.tsx:19
+msgid "NavBar.Home"
+msgstr "Home"
+
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:111
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
+msgid "NavBar.Sign In"
+msgstr "Sign In"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Description"
-#~ msgstr "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title"
-#~ msgstr "Loved by thousands of users"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Description"
-#~ msgstr "See what people are saying about HelloCity — hear from students, professionals, and families who turned uncertainty into confidence with our step-by-step relocation tools."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review1"
-#~ msgstr "I moved to Sydney for work and honestly had no idea where to start. HelloCity broke everything down into simple steps—documents, banking, housing. Without it, I'd probably still be stuck Googling things at midnight. Lifesaver."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name1"
-#~ msgstr "Zhang Wei"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title1"
-#~ msgstr "Product Manager"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review2"
-#~ msgstr "When I relocated, I was worried I'd waste weeks just figuring out how to open a bank account or set up utilities. HelloCity made it super straightforward. I got settled in a few days and could actually focus on creating content instead of stressing."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name2"
-#~ msgstr "Ayaka Tanaka"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title2"
-#~ msgstr "Content Creator"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review3"
-#~ msgstr "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a checklist in my pocket. It really reduced my stress, and I could spend more time enjoying campus life."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name3"
-#~ msgstr "Rajesh Kumar"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title3"
-#~ msgstr "Student"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review4"
-#~ msgstr "As a freelancer, I move around a lot for projects. HelloCity has been my go-to whenever I need to set up in a new city quickly. The timeline feature is clutch - helps me plan everything around my project deadlines. Only wish they had more info on coworking spaces."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name4"
-#~ msgstr "Maria Santos"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title4"
-#~ msgstr "Freelance Designer"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review5"
-#~ msgstr "Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific checklists covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name5"
-#~ msgstr "Solon Mok"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title5"
-#~ msgstr "Marketing Director"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review6"
-#~ msgstr "Fresh out of university and completely overwhelmed by adult life, HelloCity was like having a mentor guide me through every step. From setting up my first apartment to understanding local banking, it made the transition from student to working professional so much smoother."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name6"
-#~ msgstr "Emma Wilson"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title6"
-#~ msgstr "Junior Software Developer"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review7"
-#~ msgstr "As expats moving from Singapore to Melbourne, we were worried about everything - schools, healthcare, even simple things like grocery shopping. HelloCity's location-specific guides were incredibly detailed and saved us months of research and mistakes."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name7"
-#~ msgstr "Priya Sharma"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title7"
-#~ msgstr "Operations Manager"
+#: src/hooks/useTryHelloCity.tsx:9
+msgid "NavBar.Try HelloCity"
+msgstr "Try HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
@@ -471,28 +222,14 @@ msgstr "Submit"
 #~ msgstr "Sign In"
 
 #. js-lingui-explicit-id
-#~ msgid "error.name"
-#~ msgstr "Only letters are allowed and name is required."
+#: src/stories/DatePicker.stories.tsx:17
+msgid "Pick a date"
+msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#~ msgid "error.email"
-#~ msgstr "Please enter a valid email address."
-
-#. js-lingui-explicit-id
-#~ msgid "error.password"
-#~ msgstr "Password must be 6-20 characters with uppercase, lowercase, number, and special character."
-
-#. js-lingui-explicit-id
-#~ msgid "error.repeatPassword"
-#~ msgstr "Passwords do not match."
-
-#. js-lingui-explicit-id
-#~ msgid "error.phone"
-#~ msgstr "Only numbers are allowed."
-
-#. js-lingui-explicit-id
-#~ msgid "error.message"
-#~ msgstr "Message is required."
+#: src/hooks/useUserMenu.tsx:28
+msgid "Profile"
+msgstr "Profile"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
@@ -505,24 +242,178 @@ msgstr "Submit"
 #~ msgstr "Subscription"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Description"
+#~ msgstr "See what people are saying about HelloCity — hear from students, professionals, and families who turned uncertainty into confidence with our step-by-step relocation tools."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name1"
+#~ msgstr "Zhang Wei"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name2"
+#~ msgstr "Ayaka Tanaka"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name3"
+#~ msgstr "Rajesh Kumar"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name4"
+#~ msgstr "Maria Santos"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name5"
+#~ msgstr "Solon Mok"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name6"
+#~ msgstr "Emma Wilson"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name7"
+#~ msgstr "Priya Sharma"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review1"
+#~ msgstr "I moved to Sydney for work and honestly had no idea where to start. HelloCity broke everything down into simple steps—documents, banking, housing. Without it, I'd probably still be stuck Googling things at midnight. Lifesaver."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review2"
+#~ msgstr "When I relocated, I was worried I'd waste weeks just figuring out how to open a bank account or set up utilities. HelloCity made it super straightforward. I got settled in a few days and could actually focus on creating content instead of stressing."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review3"
+#~ msgstr "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a checklist in my pocket. It really reduced my stress, and I could spend more time enjoying campus life."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review4"
+#~ msgstr "As a freelancer, I move around a lot for projects. HelloCity has been my go-to whenever I need to set up in a new city quickly. The timeline feature is clutch - helps me plan everything around my project deadlines. Only wish they had more info on coworking spaces."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review5"
+#~ msgstr "Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific checklists covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review6"
+#~ msgstr "Fresh out of university and completely overwhelmed by adult life, HelloCity was like having a mentor guide me through every step. From setting up my first apartment to understanding local banking, it made the transition from student to working professional so much smoother."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review7"
+#~ msgstr "As expats moving from Singapore to Melbourne, we were worried about everything - schools, healthcare, even simple things like grocery shopping. HelloCity's location-specific guides were incredibly detailed and saved us months of research and mistakes."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title"
+#~ msgstr "Loved by thousands of users"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title1"
+#~ msgstr "Product Manager"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title2"
+#~ msgstr "Content Creator"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title3"
+#~ msgstr "Student"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title4"
+#~ msgstr "Freelance Designer"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title5"
+#~ msgstr "Marketing Director"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title6"
+#~ msgstr "Junior Software Developer"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title7"
+#~ msgstr "Operations Manager"
+
+#. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "Theme"
 
-#. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
-msgid "NavBar.Back"
-msgstr "← Back"
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ...>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:112
-msgid "profile.avatar.add"
-msgstr "Add Profile Picture"
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card1.Description"
+#~ msgstr "Get tailored advice based on your situation, destination, and timeline. No generic answers."
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:32
-msgid "Are you sure you want to log out?"
-msgstr "Are you sure you want to log out?"
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card1.Title"
+#~ msgstr "Personalized Guidance"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card2.Description"
+#~ msgstr "Never miss important tasks with our comprehensive checklists for every type of move."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card2.Title"
+#~ msgstr "Step-by-step Checklists"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card3.Description"
+#~ msgstr "Know exactly when to do what with realistic timelines and deadline reminders."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card3.Title"
+#~ msgstr "Timeline Planning"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Description"
+#~ msgstr "We understand that moving to a new city can be overwhelming. That's why we've built the most comprehensive city landing assistant."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Title"
+#~ msgstr "Why choose HelloCity?"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:90
+msgid "account.title"
+msgstr "HelloCity Account"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+msgid "ai.thinking"
+msgstr "AI正在思考..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -532,14 +423,829 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
-msgid "NavBar.ChangeLanguage"
-msgstr "Change Language"
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:74
+msgid "chat.disclaimer"
+msgstr "AI may make mistakes. Please verify important information."
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "Chat"
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:54
+msgid "chat.input.hint.press"
+msgstr "Press"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:60
+msgid "chat.input.hint.send"
+msgstr "to send"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
+msgid "chat.welcome.subtitle"
+msgstr "Type a question below and I'll guide you through your new city."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
+msgid "chat.welcome.title"
+msgstr "Welcome to HelloCity"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
+msgid "checklist.add.button"
+msgstr "Add New Item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+msgid "checklist.due.label"
+msgstr "Due: {date}"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
+msgid "checklist.empty.all"
+msgstr "No checklist items"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
+msgid "checklist.empty.completed"
+msgstr "No completed items"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
+msgid "checklist.empty.incomplete"
+msgstr "No incomplete items"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
+msgid "checklist.filter.all"
+msgstr "All"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:19
+msgid "checklist.filter.completed"
+msgstr "Completed"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:23
+msgid "checklist.filter.incomplete"
+msgstr "Incomplete"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
+msgid "checklist.importance.high"
+msgstr "HIGH"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
+msgid "checklist.importance.low"
+msgstr "LOW"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
+msgid "checklist.importance.medium"
+msgstr "MED"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
+msgid "checklist.importance.urgent"
+msgstr "URGENT"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
+msgid "checklist.progress"
+msgstr "Progress"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:71
+msgid "cities.adelaide.description"
+msgstr "Festival city surrounded by world-renowned wine regions"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:66
+msgid "cities.adelaide.name"
+msgstr "Adelaide"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:76
+msgid "cities.adelaide.tagline"
+msgstr "Festivals, wine, and good living"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:537
+msgid "cities.amsterdam.description"
+msgstr "Venice of the North with canals, culture, and liberal spirit"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:532
+msgid "cities.amsterdam.name"
+msgstr "Amsterdam"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:542
+msgid "cities.amsterdam.tagline"
+msgstr "Canals, culture, and innovation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
+msgid "cities.auckland.description"
+msgstr "City of Sails with stunning harbors and outdoor lifestyle"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
+msgid "cities.auckland.name"
+msgstr "Auckland"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:633
+msgid "cities.auckland.tagline"
+msgstr "Where urban meets nature"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:707
+msgid "cities.bali.description"
+msgstr "Indonesia's island province famed for temples, rice terraces, and beaches"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:702
+msgid "cities.bali.name"
+msgstr "Bali Island"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:712
+msgid "cities.bali.tagline"
+msgstr "Island of the Gods, your tropical escape"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:688
+msgid "cities.bangkok.description"
+msgstr "Vibrant capital with temples, street food, and modern energy"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:683
+msgid "cities.bangkok.name"
+msgstr "Bangkok"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:694
+msgid "cities.bangkok.tagline"
+msgstr "City of Angels with dazzling temples and night markets"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:172
+msgid "cities.beijing.description"
+msgstr "China's capital with ancient history and modern innovation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:167
+msgid "cities.beijing.name"
+msgstr "Beijing"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:177
+msgid "cities.beijing.tagline"
+msgstr "Where tradition meets the future"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+msgid "cities.berlin.description"
+msgstr "Dynamic capital with rich history and vibrant cultural scene"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+msgid "cities.berlin.name"
+msgstr "Berlin"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:528
+msgid "cities.berlin.tagline"
+msgstr "Unity, creativity, and freedom"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:466
+msgid "cities.boston.description"
+msgstr "Historic cradle of liberty with world-class universities"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:461
+msgid "cities.boston.name"
+msgstr "Boston"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:471
+msgid "cities.boston.tagline"
+msgstr "Where American history comes alive"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:43
+msgid "cities.brisbane.description"
+msgstr "Sunny Queensland capital with river city charm"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:38
+msgid "cities.brisbane.name"
+msgstr "Brisbane"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:48
+msgid "cities.brisbane.tagline"
+msgstr "Sunshine and river city lifestyle"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:143
+msgid "cities.calgary.description"
+msgstr "Gateway to the Canadian Rockies with western hospitality"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:138
+msgid "cities.calgary.name"
+msgstr "Calgary"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:148
+msgid "cities.calgary.tagline"
+msgstr "Where prairies meet the mountains"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:246
+msgid "cities.chengdu.description"
+msgstr "Sichuan's cultural heart with spicy cuisine and pandas"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:241
+msgid "cities.chengdu.name"
+msgstr "Chengdu"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:251
+msgid "cities.chengdu.tagline"
+msgstr "Land of abundance and leisure"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:452
+msgid "cities.chicago.description"
+msgstr "Windy City with stunning architecture and deep-dish pizza"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+msgid "cities.chicago.name"
+msgstr "Chicago"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:457
+msgid "cities.chicago.tagline"
+msgstr "America's architectural capital"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:260
+msgid "cities.chongqing.description"
+msgstr "Mountain city with hot pot culture and Yangtze River views"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:255
+msgid "cities.chongqing.name"
+msgstr "Chongqing"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:265
+msgid "cities.chongqing.tagline"
+msgstr "The mountain metropolis"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:658
+msgid "cities.christchurch.description"
+msgstr "Garden City rebuilding with innovation and resilience"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:653
+msgid "cities.christchurch.name"
+msgstr "Christchurch"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:663
+msgid "cities.christchurch.tagline"
+msgstr "Rising stronger from the garden"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:720
+msgid "cities.default.description"
+msgstr "Discover your next destination"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:716
+msgid "cities.default.name"
+msgstr "Explore Cities"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:721
+msgid "cities.default.tagline"
+msgstr "Begin your city exploration journey"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:673
+msgid "cities.dubai.description"
+msgstr "Futuristic metropolis with luxury shopping and architectural marvels"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:668
+msgid "cities.dubai.name"
+msgstr "Dubai"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:678
+msgid "cities.dubai.tagline"
+msgstr "Where the future begins today"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:551
+msgid "cities.dublin.description"
+msgstr "Literary capital with Georgian architecture and warm hospitality"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:546
+msgid "cities.dublin.name"
+msgstr "Dublin"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:557
+msgid "cities.dublin.tagline"
+msgstr "Céad míle fáilte - A hundred thousand welcomes"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:567
+msgid "cities.edinburgh.description"
+msgstr "Scotland's historic capital with castle and festival culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:562
+msgid "cities.edinburgh.name"
+msgstr "Edinburgh"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:573
+msgid "cities.edinburgh.tagline"
+msgstr "Where Scotland's heart beats strongest"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:85
+msgid "cities.goldcoast.description"
+msgstr "Coastal paradise with world-class beaches and entertainment"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:80
+msgid "cities.goldcoast.name"
+msgstr "Gold Coast"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:90
+msgid "cities.goldcoast.tagline"
+msgstr "Where surf meets sky"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:204
+msgid "cities.guangzhou.description"
+msgstr "Southern China's commercial center with Cantonese heritage"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:199
+msgid "cities.guangzhou.name"
+msgstr "Guangzhou"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:209
+msgid "cities.guangzhou.tagline"
+msgstr "Gateway to South China"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:613
+msgid "cities.hamburg.description"
+msgstr "Maritime gateway with rich port heritage and modern urban culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:608
+msgid "cities.hamburg.name"
+msgstr "Hamburg"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:618
+msgid "cities.hamburg.tagline"
+msgstr "Gateway to the world"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:288
+msgid "cities.hangzhou.description"
+msgstr "Paradise on earth with West Lake's serene beauty and tech innovation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
+msgid "cities.hangzhou.name"
+msgstr "Hangzhou"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:294
+msgid "cities.hangzhou.tagline"
+msgstr "West Lake poetry meets a thriving digital economy"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:232
+msgid "cities.hongkong.description"
+msgstr "International finance center where East meets West"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
+msgid "cities.hongkong.name"
+msgstr "Hong Kong"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:237
+msgid "cities.hongkong.tagline"
+msgstr "Asia's World City"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:352
+msgid "cities.kyoto.description"
+msgstr "Ancient imperial capital with temples and traditional arts"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:347
+msgid "cities.kyoto.name"
+msgstr "Kyoto"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:357
+msgid "cities.kyoto.tagline"
+msgstr "Timeless beauty and tradition"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:495
+msgid "cities.london.description"
+msgstr "Historic capital with iconic landmarks and global finance"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:490
+msgid "cities.london.name"
+msgstr "London"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:500
+msgid "cities.london.tagline"
+msgstr "Where history meets modernity"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:396
+msgid "cities.losangeles.description"
+msgstr "City of dreams, entertainment capital of the world"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:391
+msgid "cities.losangeles.name"
+msgstr "Los Angeles"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:401
+msgid "cities.losangeles.tagline"
+msgstr "City of Angels"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:307
+msgid "cities.macau.description"
+msgstr "East meets West in this vibrant gaming and cultural hub"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
+msgid "cities.macau.name"
+msgstr "Macau"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:313
+msgid "cities.macau.tagline"
+msgstr "Where Portuguese charm meets Chinese heritage"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+msgid "cities.manchester.description"
+msgstr "Industrial heritage meets modern innovation and football passion"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:578
+msgid "cities.manchester.name"
+msgstr "Manchester"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:588
+msgid "cities.manchester.tagline"
+msgstr "The original modern city"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:27
+msgid "cities.melbourne.description"
+msgstr "Australia's cultural capital with world-class coffee and arts"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:22
+msgid "cities.melbourne.name"
+msgstr "Melbourne"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:33
+msgid "cities.melbourne.tagline"
+msgstr "Culture, coffee, and endless possibilities"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:424
+msgid "cities.miami.description"
+msgstr "Tropical paradise with Art Deco charm and Latin culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:419
+msgid "cities.miami.name"
+msgstr "Miami"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:429
+msgid "cities.miami.tagline"
+msgstr "The Magic City"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:127
+msgid "cities.montreal.description"
+msgstr "European charm in North America with rich French culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:122
+msgid "cities.montreal.name"
+msgstr "Montreal"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:133
+msgid "cities.montreal.tagline"
+msgstr "European elegance, North American spirit"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:597
+msgid "cities.munich.description"
+msgstr "Bavarian capital blending traditional charm with modern innovation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
+msgid "cities.munich.name"
+msgstr "Munich"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:603
+msgid "cities.munich.tagline"
+msgstr "Beer halls, Baroque beauty, and Bavarian warmth"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:382
+msgid "cities.newyork.description"
+msgstr "The city that never sleeps, melting pot of cultures"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:377
+msgid "cities.newyork.name"
+msgstr "New York"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:387
+msgid "cities.newyork.tagline"
+msgstr "The Big Apple"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:338
+msgid "cities.osaka.description"
+msgstr "Japan's kitchen with incredible street food and friendly culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:333
+msgid "cities.osaka.name"
+msgstr "Osaka"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:343
+msgid "cities.osaka.tagline"
+msgstr "The nation's kitchen"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:157
+msgid "cities.ottawa.description"
+msgstr "Canada's capital with historic charm and governmental elegance"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:152
+msgid "cities.ottawa.name"
+msgstr "Ottawa"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:162
+msgid "cities.ottawa.tagline"
+msgstr "Capital beauty, timeless tradition"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:509
+msgid "cities.paris.description"
+msgstr "City of Light with art, culture, and culinary excellence"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
+msgid "cities.paris.name"
+msgstr "Paris"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:514
+msgid "cities.paris.tagline"
+msgstr "L'art de vivre at its finest"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:57
+msgid "cities.perth.description"
+msgstr "Western Australia's coastal gem with pristine beaches"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:52
+msgid "cities.perth.name"
+msgstr "Perth"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:62
+msgid "cities.perth.tagline"
+msgstr "Where the west coast comes alive"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:410
+msgid "cities.sanfrancisco.description"
+msgstr "Tech hub with Golden Gate Bridge and diverse neighborhoods"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
+msgid "cities.sanfrancisco.name"
+msgstr "San Francisco"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:415
+msgid "cities.sanfrancisco.tagline"
+msgstr "The Golden Gate City"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+msgid "cities.seattle.description"
+msgstr "Emerald City with Space Needle and innovative tech culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:433
+msgid "cities.seattle.name"
+msgstr "Seattle"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
+msgid "cities.seattle.tagline"
+msgstr "Where innovation meets nature"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:190
+msgid "cities.shanghai.description"
+msgstr "Global financial hub with stunning skyline and rich culture"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:185
+msgid "cities.shanghai.name"
+msgstr "Shanghai"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:195
+msgid "cities.shanghai.tagline"
+msgstr "The Pearl of the Orient"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
+msgid "cities.shenzhen.description"
+msgstr "China's Silicon Valley with cutting-edge technology"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:213
+msgid "cities.shenzhen.name"
+msgstr "Shenzhen"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
+msgid "cities.shenzhen.tagline"
+msgstr "Innovation at the speed of light"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:367
+msgid "cities.singapore.description"
+msgstr "Garden city and global hub of Southeast Asia"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:362
+msgid "cities.singapore.name"
+msgstr "Singapore"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:372
+msgid "cities.singapore.tagline"
+msgstr "The Lion City"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:13
+msgid "cities.sydney.description"
+msgstr "Australia's vibrant harbor city with iconic landmarks"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:8
+msgid "cities.sydney.name"
+msgstr "Sydney"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:18
+msgid "cities.sydney.tagline"
+msgstr "Where dreams meet the harbor"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:324
+msgid "cities.tokyo.description"
+msgstr "Japan's vibrant capital blending tradition and modernity"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
+msgid "cities.tokyo.name"
+msgstr "Tokyo"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:329
+msgid "cities.tokyo.tagline"
+msgstr "Where ancient meets ultra-modern"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:99
+msgid "cities.toronto.description"
+msgstr "Canada's largest city, a vibrant multicultural metropolis"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:94
+msgid "cities.toronto.name"
+msgstr "Toronto"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:104
+msgid "cities.toronto.tagline"
+msgstr "Where diversity meets opportunity"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:113
+msgid "cities.vancouver.description"
+msgstr "Pacific coastal city where mountains meet the sea"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:108
+msgid "cities.vancouver.name"
+msgstr "Vancouver"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:118
+msgid "cities.vancouver.tagline"
+msgstr "Where mountains embrace the ocean"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:480
+msgid "cities.washingtondc.description"
+msgstr "Nation's capital with monuments and political power"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:475
+msgid "cities.washingtondc.name"
+msgstr "Washington DC"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
+msgid "cities.washingtondc.tagline"
+msgstr "The heart of American democracy"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:642
+msgid "cities.wellington.description"
+msgstr "New Zealand's creative capital with harbor views and cultural vibrancy"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:637
+msgid "cities.wellington.name"
+msgstr "Wellington"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:648
+msgid "cities.wellington.tagline"
+msgstr "The coolest little capital in the world"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:274
+msgid "cities.xian.description"
+msgstr "Ancient capital home to the Terracotta Warriors"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:269
+msgid "cities.xian.name"
+msgstr "Xi'an"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:279
+msgid "cities.xian.tagline"
+msgstr "Eternal city of dynasties>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -547,34 +1253,129 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:33
-msgid "NavBar.ContactUs"
+#: src/app/[lang]/(site)/contact-us/page.tsx:112
+msgid "contact-us.email"
+msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:121
+msgid "contact-us.message"
+msgstr "Message"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:104
+msgid "contact-us.name"
+msgstr "Name"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:143
+msgid "contact-us.submit"
+msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:89
+msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:121
-msgid "Creating..."
-msgstr "Creating..."
+#: src/app/[lang]/(site)/contact-us/page.tsx:65
+#~ msgid "contact-us.title>>>>>>> origin/main"
+#~ msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/Modals/InfoModal.tsx:22
-msgid "info.button"
-msgstr "Got it"
+#: src/compoundComponents/HomePage/FAQSection.tsx:32
+msgid "contact.faq.a1"
+msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:90
-msgid "account.title"
-msgstr "HelloCity Account"
+#: src/compoundComponents/HomePage/FAQSection.tsx:44
+msgid "contact.faq.a2"
+msgstr "You can start for free. Premium options are available for more personalized guidance and advanced features."
 
 #. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:19
-msgid "NavBar.Home"
-msgstr "Home"
+#: src/compoundComponents/HomePage/FAQSection.tsx:56
+msgid "contact.faq.a3"
+msgstr "We cover major global cities and expand regularly. Check inside the product for the latest supported locations."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/create-user-profile/page.tsx:123
-msgid "I'm all set"
-msgstr "I'm all set"
+#: src/compoundComponents/HomePage/FAQSection.tsx:68
+msgid "contact.faq.a4"
+msgstr "No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:80
+msgid "contact.faq.a5"
+msgstr "Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:29
+msgid "contact.faq.q1"
+msgstr "What is HelloCity?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:41
+msgid "contact.faq.q2"
+msgstr "Is HelloCity free to use?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:53
+msgid "contact.faq.q3"
+msgstr "Which cities are supported?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:65
+msgid "contact.faq.q4"
+msgstr "Do I need an account to get started?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:77
+msgid "contact.faq.q5"
+msgstr "Does HelloCity work well on mobile?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:161
+msgid "contact.faq.results"
+msgstr "results"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:131
+msgid "contact.faq.searchPlaceholder"
+msgstr "Please write your own question..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:124
+msgid "contact.faq.subtitle"
+msgstr "Find quick answers to the most common questions about HelloCity."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:116
+msgid "contact.faq.title"
+msgstr "Frequently Asked Questions"
+
+
+#. js-lingui-explicit-id
+#~ msgid "error.email"
+#~ msgstr "Please enter a valid email address."
+
+#. js-lingui-explicit-id
+#~ msgid "error.message"
+#~ msgstr "Message is required."
+
+#. js-lingui-explicit-id
+#~ msgid "error.name"
+#~ msgstr "Only letters are allowed and name is required."
+
+#. js-lingui-explicit-id
+#~ msgid "error.password"
+#~ msgstr "Password must be 6-20 characters with uppercase, lowercase, number, and special character."
+
+#. js-lingui-explicit-id
+#~ msgid "error.phone"
+#~ msgstr "Only numbers are allowed."
+
+#. js-lingui-explicit-id
+#~ msgid "error.repeatPassword"
+#~ msgstr "Passwords do not match."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:25
@@ -582,38 +1383,9 @@ msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:36
-msgid "Logout"
-msgstr "Logout"
-
-#. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:28
-msgid "Profile"
-msgstr "Profile"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
-msgid "profile.avatar.title"
-msgstr "Profile Picture"
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:118
-msgid "profile.avatar.remove"
-msgstr "Remove Picture"
-
-#. Sign In button label
-#. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:109
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
-msgid "NavBar.Sign In"
-msgstr "Sign In"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/Modals/FormModal.tsx:29
-msgid "form.submit"
-msgstr "Submit"
+#: src/components/ProfileImageUploader.tsx:34
+msgid "file.upload.progress"
+msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -621,11 +1393,177 @@ msgid "file.upload.success"
 msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "form.submit"
+msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:16
-msgid "NavBar.Try HelloCity"
-msgstr "Try HelloCity"
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "info.button"
+msgstr "Got it"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:151
+msgid "notFound.headline"
+msgstr "Let’s help you settle in."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:140
+msgid "notFound.pageNotFound"
+msgstr "Page not found"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:157
+msgid "notFound.sub"
+msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:112
+msgid "profile.avatar.add"
+msgstr "Add Profile Picture"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:118
+msgid "profile.avatar.remove"
+msgstr "Remove Picture"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:94
+msgid "profile.avatar.title"
+msgstr "Profile Picture"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:242
+msgid "profile.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:91
+#: src/app/[lang]/(app)/profile/page.tsx:170
+msgid "profile.city"
+msgstr "City"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:173
+msgid "profile.city-placeholder"
+msgstr "Please enter your city"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:132
+msgid "profile.edit-button"
+msgstr "Edit Profile"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:143
+msgid "profile.edit-title"
+msgstr "Edit Profile Information"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:77
+#: src/app/[lang]/(app)/profile/page.tsx:149
+msgid "profile.email"
+msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:153
+msgid "profile.email-placeholder"
+msgstr "Please enter your email"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:98
+#: src/app/[lang]/(app)/profile/page.tsx:183
+msgid "profile.gender"
+msgstr "Gender"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:112
+#: src/app/[lang]/(app)/profile/page.tsx:213
+msgid "profile.major"
+msgstr "Major"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:216
+msgid "profile.major-placeholder"
+msgstr "Please enter your major"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:84
+#: src/app/[lang]/(app)/profile/page.tsx:160
+msgid "profile.nationality"
+msgstr "Nationality"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:163
+msgid "profile.nationality-placeholder"
+msgstr "Please enter your nationality"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:71
+msgid "profile.personal-info"
+msgstr "Personal Information"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:119
+#: src/app/[lang]/(app)/profile/page.tsx:223
+msgid "profile.preferred-language"
+msgstr "Preferred Language"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:226
+msgid "profile.preferred-language-placeholder"
+msgstr "Please enter your preferred language"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:236
+msgid "profile.refresh"
+msgstr "Refresh"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:245
+msgid "profile.submit"
+msgstr "Submit"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:67
+msgid "profile.subtitle"
+msgstr "Manage your personal information and preferences"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:64
+msgid "profile.title"
+msgstr "Profile Settings"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:105
+#: src/app/[lang]/(app)/profile/page.tsx:203
+msgid "profile.university"
+msgstr "University"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:206
+msgid "profile.university-placeholder"
+msgstr "Please enter your university"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+msgid "sidebar.actions.newChat"
+msgstr "New Chat"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+msgid "sidebar.actions.searchChat"
+msgstr "Search Chat"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:38
+msgid "sidebar.history.title"
+msgstr "HISTORY"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:60
+msgid "validation.required"
+msgstr "{label} is required."
+
+#: src/app/[lang]/(site)/contact-us/page.tsx:84
+#~ msgid "contact-us.email"
+#~ msgstr "Email"
