@@ -1268,7 +1268,7 @@ msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:143
+#: src/app/[lang]/(site)/contact-us/page.tsx:142
 msgid "contact-us.submit"
 msgstr "Submit"
 
@@ -1283,75 +1283,74 @@ msgstr "Contact Us"
 #~ msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:32
+#: src/compoundComponents/HomePage/FAQSection.tsx:30
 msgid "contact.faq.a1"
 msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:44
+#: src/compoundComponents/HomePage/FAQSection.tsx:40
 msgid "contact.faq.a2"
 msgstr "You can start for free. Premium options are available for more personalized guidance and advanced features."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:56
+#: src/compoundComponents/HomePage/FAQSection.tsx:50
 msgid "contact.faq.a3"
 msgstr "We cover major global cities and expand regularly. Check inside the product for the latest supported locations."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:68
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.a4"
 msgstr "No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:80
+#: src/compoundComponents/HomePage/FAQSection.tsx:70
 msgid "contact.faq.a5"
 msgstr "Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:29
+#: src/compoundComponents/HomePage/FAQSection.tsx:28
 msgid "contact.faq.q1"
 msgstr "What is HelloCity?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:41
+#: src/compoundComponents/HomePage/FAQSection.tsx:38
 msgid "contact.faq.q2"
 msgstr "Is HelloCity free to use?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:53
+#: src/compoundComponents/HomePage/FAQSection.tsx:48
 msgid "contact.faq.q3"
 msgstr "Which cities are supported?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:65
+#: src/compoundComponents/HomePage/FAQSection.tsx:58
 msgid "contact.faq.q4"
 msgstr "Do I need an account to get started?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:77
+#: src/compoundComponents/HomePage/FAQSection.tsx:68
 msgid "contact.faq.q5"
 msgstr "Does HelloCity work well on mobile?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:161
+#: src/compoundComponents/HomePage/FAQSection.tsx:152
 msgid "contact.faq.results"
 msgstr "results"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:131
+#: src/compoundComponents/HomePage/FAQSection.tsx:126
 msgid "contact.faq.searchPlaceholder"
 msgstr "Please write your own question..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:124
+#: src/compoundComponents/HomePage/FAQSection.tsx:119
 msgid "contact.faq.subtitle"
 msgstr "Find quick answers to the most common questions about HelloCity."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:116
+#: src/compoundComponents/HomePage/FAQSection.tsx:111
 msgid "contact.faq.title"
 msgstr "Frequently Asked Questions"
-
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
