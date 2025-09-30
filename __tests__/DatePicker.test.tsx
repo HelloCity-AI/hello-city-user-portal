@@ -7,12 +7,7 @@ import { jest } from '@jest/globals';
 const renderDatePicker = (props = {}) => {
   const onChange = jest.fn();
   const utils = render(
-    <DatePicker
-      value={dayjs()}
-      onChange={onChange}
-      label="Pick a date"
-      {...props}
-    />
+    <DatePicker value={dayjs()} onChange={onChange} label="Pick a date" {...props} />,
   );
   return {
     onChange,

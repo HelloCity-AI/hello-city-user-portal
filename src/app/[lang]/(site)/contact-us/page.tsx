@@ -134,8 +134,7 @@ const ContactUs = () => {
               fullWidth
               sx={{ mt: 1, py: 1.5, fontWeight: 'bold', borderRadius: 2 }}
               disabled={loading}
-                aria-label="Submit"
-
+              aria-label="Submit"
             >
               {loading ? (
                 <CircularProgress size={22} color="inherit" />

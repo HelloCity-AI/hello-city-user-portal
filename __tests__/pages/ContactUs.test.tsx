@@ -104,11 +104,7 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     // Check loading state
-expect(
-  screen.getByRole('button', { name: /submit/i })
-).toBeDisabled();
-
-
+    expect(screen.getByRole('button', { name: /submit/i })).toBeDisabled();
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
 

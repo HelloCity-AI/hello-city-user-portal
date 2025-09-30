@@ -1,10 +1,7 @@
 // File: src/components/DatePicker.tsx
 import React from 'react';
 import { TextField } from '@mui/material';
-import {
-  DatePicker as MUIDatePicker,
-  LocalizationProvider,
-} from '@mui/x-date-pickers';
+import { DatePicker as MUIDatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import type dayjs from 'dayjs';
 
@@ -24,9 +21,7 @@ const DatePicker: React.FC<Props> = ({ value, onChange, label, disabled }) => {
         onChange={onChange}
         disabled={disabled}
         slotProps={{
-          textField: {
-            
-          },
+          textField: {},
         }}
         renderInput={(params) => <TextField {...params} fullWidth />}
       />

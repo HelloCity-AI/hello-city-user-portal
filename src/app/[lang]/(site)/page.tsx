@@ -5,7 +5,7 @@ import {
   ValuePropositionSection,
   HowItWorksSection,
   CallToActionsSection,
-  TestimonialsSection, 
+  TestimonialsSection,
 } from '@/compoundComponents';
 
 import FAQSection from '@/compoundComponents/HomePage/FAQSection';

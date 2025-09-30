@@ -25,61 +25,50 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       key: 'faq1',
-      question: (
-        <Trans id="contact.faq.q1">What is HelloCity?</Trans>
-      ),
+      question: <Trans id="contact.faq.q1">What is HelloCity?</Trans>,
       answer: (
         <Trans id="contact.faq.a1">
-          HelloCity is your AI companion for relocation, providing step-by-step
-          checklists and timelines to simplify moving to a new city.
+          HelloCity is your AI companion for relocation, providing step-by-step checklists and
+          timelines to simplify moving to a new city.
         </Trans>
       ),
     },
     {
       key: 'faq2',
-      question: (
-        <Trans id="contact.faq.q2">Is HelloCity free to use?</Trans>
-      ),
+      question: <Trans id="contact.faq.q2">Is HelloCity free to use?</Trans>,
       answer: (
         <Trans id="contact.faq.a2">
-          You can start for free. Premium options are available for more
-          personalized guidance and advanced features.
+          You can start for free. Premium options are available for more personalized guidance and
+          advanced features.
         </Trans>
       ),
     },
     {
       key: 'faq3',
-      question: (
-        <Trans id="contact.faq.q3">Which cities are supported?</Trans>
-      ),
+      question: <Trans id="contact.faq.q3">Which cities are supported?</Trans>,
       answer: (
         <Trans id="contact.faq.a3">
-          We cover major global cities and expand regularly. Check inside the
-          product for the latest supported locations.
+          We cover major global cities and expand regularly. Check inside the product for the latest
+          supported locations.
         </Trans>
       ),
     },
     {
       key: 'faq4',
-      question: (
-        <Trans id="contact.faq.q4">Do I need an account to get started?</Trans>
-      ),
+      question: <Trans id="contact.faq.q4">Do I need an account to get started?</Trans>,
       answer: (
         <Trans id="contact.faq.a4">
-          No account is required for basic browsing. Creating an account unlocks
-          saved progress, reminders, and tailored timelines.
+          No account is required for basic browsing. Creating an account unlocks saved progress,
+          reminders, and tailored timelines.
         </Trans>
       ),
     },
     {
       key: 'faq5',
-      question: (
-        <Trans id="contact.faq.q5">Does HelloCity work well on mobile?</Trans>
-      ),
+      question: <Trans id="contact.faq.q5">Does HelloCity work well on mobile?</Trans>,
       answer: (
         <Trans id="contact.faq.a5">
-          Yes. HelloCity is responsive and works smoothly on desktop, tablet,
-          and mobile screens.
+          Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens.
         </Trans>
       ),
     },
@@ -97,8 +86,14 @@ const FAQSection: React.FC = () => {
       ...faqs.filter(
         (f) =>
           f.key !== DEFAULT_FAQ_KEY &&
-          (i18n._((f.question as any).props.id).toLowerCase().includes(kw) ||
-            i18n._((f.answer as any).props.id).toLowerCase().includes(kw)),
+          (i18n
+            ._((f.question as any).props.id)
+            .toLowerCase()
+            .includes(kw) ||
+            i18n
+              ._((f.answer as any).props.id)
+              .toLowerCase()
+              .includes(kw)),
       ),
     ];
   }, [q, isComposing, i18n]);
@@ -152,15 +147,9 @@ const FAQSection: React.FC = () => {
           />
 
           {/* Result count */}
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            className="mx-auto mt-1"
-          >
+          <Typography variant="caption" color="text.secondary" className="mx-auto mt-1">
             {filtered.length}{' '}
-            <Trans id="contact.faq.results">
-              result{filtered.length === 1 ? '' : 's'}
-            </Trans>
+            <Trans id="contact.faq.results">result{filtered.length === 1 ? '' : 's'}</Trans>
           </Typography>
 
           {/* FAQ 列表 */}
@@ -169,9 +158,7 @@ const FAQSection: React.FC = () => {
               <Accordion
                 key={faq.key}
                 expanded={expanded === faq.key}
-                onChange={(_, isExpanded) =>
-                  setExpanded(isExpanded ? faq.key : false)
-                }
+                onChange={(_, isExpanded) => setExpanded(isExpanded ? faq.key : false)}
                 disableGutters
                 sx={{
                   border: '1px solid #e0e0e0',
