@@ -1,23 +1,18 @@
 'use client';
 
+import { useState } from 'react';
 import DrawerContainer from './components/layout/DrawerContainer';
 import LogoSection from './components/sections/LogoSection';
 import ActionsSection from './components/sections/ActionsSection';
 import HistorySection from './components/sections/HistorySection';
 import UserSection from './components/sections/UserSection';
+import { mockChatHistory, defaultActiveSessionId } from './mockChatHistory';
 
 export interface ChatHistoryItem {
   id: string;
   title: string;
   createdAt: Date;
   isActive: boolean;
-}
-
-export interface ChatSidebarProps {
-  isCollapsed: boolean;
-  onToggle: () => void;
-  chatHistory?: ChatHistoryItem[];
-  activeSessionId?: string;
 }
 
 /**
@@ -29,13 +24,15 @@ export interface ChatSidebarProps {
  * - Each Item: expanded 240px, collapsed 40px
  * - Icon container: fixed 40px, perfectly centered
  * - Responsive container: precise width and opacity control
+ * - Self-contained: manages its own collapse state and data
  */
-export default function ChatSidebar({
-  isCollapsed,
-  onToggle,
-  chatHistory = [],
-  activeSessionId,
-}: ChatSidebarProps) {
+export default function ChatSidebar() {
+  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>(mockChatHistory);
+
+  const handleToggle = () => {
+    setIsCollapsed(!isCollapsed);
+  };
   const handleNewChat = () => {
     console.log('New chat clicked');
   };
@@ -51,7 +48,7 @@ export default function ChatSidebar({
   return (
     <DrawerContainer>
       {/*Top Section - Logo section */}
-      <LogoSection isCollapsed={isCollapsed} onToggle={onToggle} />
+      <LogoSection isCollapsed={isCollapsed} onToggle={handleToggle} />
 
       {/* Main Actions - Action buttons section */}
       <div className="mt-2">
@@ -68,7 +65,8 @@ export default function ChatSidebar({
           isCollapsed={isCollapsed}
           chatHistory={chatHistory}
           onHistoryClick={handleHistoryClick}
-          activeSessionId={activeSessionId}
+          activeSessionId={defaultActiveSessionId}
+          setChatHistory={setChatHistory}
         />
       </div>
 

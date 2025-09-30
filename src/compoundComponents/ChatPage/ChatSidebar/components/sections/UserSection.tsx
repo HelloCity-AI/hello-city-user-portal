@@ -7,6 +7,7 @@ import ResponsiveContainer from '../layout/ResponsiveContainer';
 import UserAvatar from '@/compoundComponents/UserAvatar';
 import UserName from '@/compoundComponents/UserName';
 import UserMenu from '@/compoundComponents/Menus/UserMenu';
+import IconButton from '@mui/material/IconButton';
 
 interface UserSectionProps {
   isCollapsed: boolean;
@@ -39,9 +40,13 @@ export default function UserSection({ isCollapsed }: UserSectionProps) {
 
             {/* Arrow container - 40px(w-10) when expanded, 0px when collapsed, contains up arrow icon */}
             <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-10">
-              <div className="flex w-full items-center justify-center">
+              <IconButton
+                component="div"
+                className="flex w-full items-center justify-center"
+                disableRipple
+              >
                 <KeyboardArrowUpOutlinedIcon className="text-base text-gray-500 transition-transform duration-200 ease-out" />
-              </div>
+              </IconButton>
             </ResponsiveContainer>
           </div>
         }

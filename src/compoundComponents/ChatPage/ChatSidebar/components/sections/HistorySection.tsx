@@ -5,19 +5,14 @@ import { Trans } from '@lingui/react';
 import HistoryItem from '../ui/HistoryItem';
 import { mergeClassNames } from '@/utils/classNames';
 import { TEXT_STYLES } from '../../constants';
-
-interface ChatHistoryItem {
-  id: string;
-  title: string;
-  createdAt: Date;
-  isActive: boolean;
-}
+import type { ChatHistoryItem } from '../../ChatSidebar';
 
 interface HistorySectionProps {
   isCollapsed: boolean;
   chatHistory: ChatHistoryItem[];
   onHistoryClick: (sessionId: string) => void;
   activeSessionId?: string;
+  setChatHistory: (chatHistory: ChatHistoryItem[]) => void;
 }
 
 /**
@@ -29,7 +24,22 @@ export default function HistorySection({
   chatHistory,
   onHistoryClick,
   activeSessionId,
+  setChatHistory,
 }: HistorySectionProps) {
+  const handleDelete = (conversationId: string) => {
+    // TODO update with saga, will not handle logic in this component later
+    const updatedChatHistory = chatHistory.filter((item) => item.id !== conversationId);
+    setChatHistory(updatedChatHistory);
+  };
+
+  const handleRename = (conversationId: string, updatedTitle: string) => {
+    // TODO update with saga, will not handle logic in this component later
+    const updatedChatHistory = chatHistory.map((item) =>
+      item.id === conversationId ? { ...item, title: updatedTitle } : item,
+    );
+    setChatHistory(updatedChatHistory);
+  };
+
   return (
     <>
       {/* HISTORY title area */}
@@ -53,6 +63,9 @@ export default function HistorySection({
             isCollapsed={isCollapsed}
             onClick={() => onHistoryClick(item.id)}
             isActive={item.id === activeSessionId}
+            conversationId={item.id}
+            onDelete={handleDelete}
+            onRename={handleRename}
           />
         ))}
       </div>
