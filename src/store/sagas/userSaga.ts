@@ -1,19 +1,70 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { setUser, setLoading, fetchUser, setError, setAuth, AuthState } from '../slices/user';
-import axios, { type AxiosResponse } from 'axios';
+import {
+  setUser,
+  setLoading,
+  fetchUser,
+  setError,
+  setAuth,
+  AuthState,
+  createUser,
+  createUserSuccess,
+  createUserFailure,
+} from '../slices/user';
+import { fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
+import type { User } from '@/types/User.types';
+import type { PayloadAction } from '@reduxjs/toolkit';
 
-export async function fetchUserApi() {
-  const res = await axios.get(`/api/user/me`, {
-    timeout: 10000,
-    validateStatus: (status) => status === 200 || status === 404 || status === 401,
-  });
-  return res;
+/**
+ * API wrapper for fetching current user with proper error handling
+ */
+export async function fetchUserApiWrapper() {
+  const response = await fetchCurrentUser();
+
+  // Convert Response to axios-like format for backward compatibility
+  let data = null;
+  if (response.ok) {
+    try {
+      data = await response.json();
+    } catch (jsonError) {
+      console.error('Failed to parse JSON response:', jsonError);
+      data = null;
+    }
+  }
+  return {
+    status: response.status,
+    data,
+    ok: response.ok,
+  };
 }
 
-export function* handleFetchUser(): Generator<unknown, void, AxiosResponse> {
+/**
+ * API wrapper for creating user with proper error handling
+ */
+export async function createUserApiWrapper(userData: User) {
+  const response = await createUserApi(userData);
+
+  // Convert Response to axios-like format for backward compatibility
+  let data = null;
+  if (response.ok) {
+    try {
+      data = await response.json();
+    } catch (jsonError) {
+      console.error('Failed to parse JSON response:', jsonError);
+      data = null;
+    }
+  }
+  return {
+    status: response.status,
+    data,
+    ok: response.ok,
+  };
+}
+
+export function* handleFetchUser(): Generator<unknown, void, any> {
   try {
     yield put(setLoading(true));
-    const res = yield call(fetchUserApi);
+    const res = yield call(fetchUserApiWrapper);
+
     if (res.status === 401) {
       yield put(setAuth(AuthState.Unauthenticated));
       yield put(setUser(null));
@@ -29,16 +80,35 @@ export function* handleFetchUser(): Generator<unknown, void, AxiosResponse> {
       yield put(setAuth(AuthState.AuthenticatedButNoProfile));
     }
   } catch (error) {
-    if (axios.isAxiosError(error) && error.response?.data?.error) {
-      yield put(setError(error.response.data.error));
-    } else {
-      yield put(setError((error as Error).message));
-    }
+    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+    yield put(setError(errorMessage));
   } finally {
     yield put(setLoading(false));
   }
 }
 
+/**
+ * Saga handler for creating a new user
+ */
+export function* handleCreateUser(action: PayloadAction<User>): Generator<unknown, void, any> {
+  try {
+    const userData = action.payload;
+    const res = yield call(createUserApiWrapper, userData);
+
+    if (res.ok && (res.status === 200 || res.status === 201)) {
+      yield put(createUserSuccess(res.data));
+    } else {
+      const errorMessage = res.data?.error || `Failed to create user (Status: ${res.status})`;
+      yield put(createUserFailure(errorMessage));
+    }
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'An unknown error occurred while creating user';
+    yield put(createUserFailure(errorMessage));
+  }
+}
+
 export default function* userSaga() {
   yield takeLatest(fetchUser.type, handleFetchUser);
+  yield takeLatest(createUser.type, handleCreateUser);
 }

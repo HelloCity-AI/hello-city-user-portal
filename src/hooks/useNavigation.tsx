@@ -5,48 +5,34 @@ import type {
   NavConfig,
   SupportedLanguage,
   LanguageInfo,
-} from '@/components/NavBar/navConfig';
-import { SUPPORTED_LANGUAGES, LOGO_CONFIG } from '@/components/NavBar/navConfig';
+} from '@/compoundComponents/NavBar/navConfig';
+import { SUPPORTED_LANGUAGES, LOGO_CONFIG } from '@/compoundComponents/NavBar/navConfig';
 
 export const useNavigation = (): NavConfig => {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
 
   const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
-  const availableLanguages: LanguageInfo[] = Object.values(SUPPORTED_LANGUAGES);
-
   const navItems: NavItem[] = [
     {
       id: 'home',
       href: `/${language}`,
       label: <Trans id="NavBar.Home" message="Home" />,
+      onClick: undefined,
+      childrenItem: undefined,
     },
     {
       id: 'chat',
-      href: `/${language}`,
+      href: `/${language}/assistant`,
       label: <Trans id="NavBar.Chat" message="Chat" />,
-      onClick: () => alert('chat'),
+      onClick: undefined,
+      childrenItem: undefined,
     },
     {
       id: 'contact',
       href: `/${language}/contact-us`,
       label: <Trans id="NavBar.ContactUs" message="Contact Us" />,
-    },
-    {
-      id: 'change language',
-      href: '',
-      label: <Trans id="NavBar.ChangeLanguage" message="Change Language" />,
-      childrenItem: availableLanguages.map((lang) => ({
-        id: lang.code,
-        href: '',
-        label: lang.label,
-        onClick: () => {
-          if (lang.code === 'en' || lang.code === 'zh') {
-            setLanguage(lang.code);
-          } else {
-            alert('Coming soon');
-          }
-        },
-      })),
+      onClick: undefined,
+      childrenItem: undefined,
     },
   ];
 

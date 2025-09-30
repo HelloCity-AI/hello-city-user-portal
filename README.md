@@ -110,6 +110,9 @@ npm run test:watch
 
 # Generate coverage report
 npm run test:coverage
+
+# End-to-end tests
+npm run test:e2e
 ```
 
 Test files location:
@@ -203,7 +206,8 @@ Automatically enforces code quality standards:
 
 ### UI & Styling
 
-- [Material-UI](https://mui.com/) - React component library
+- [Material-UI v7.2+](https://mui.com/) - React component library
+- [MUI X Date Pickers](https://mui.com/x/react-date-pickers/) - Advanced date/time components
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - Custom theme with brand colors and gradients
 
@@ -233,17 +237,20 @@ Automatically enforces code quality standards:
 
 ```
 src/
-├── app/                    # Next.js App Router (pages, layouts)
-├── components/             # Reusable UI components
-├── compoundComponents/     # Complex composed components
-├── store/                  # Redux store, slices, sagas
-├── contexts/               # React contexts (Language, i18n)
-├── api/                    # API layer with authentication
-├── locales/                # i18n message catalogs
-├── theme/                  # Material-UI theme configuration
+├── app/[lang]/             # Next.js App Router with i18n routing
+├── components/             # Atomic reusable components
+├── compoundComponents/     # Complex multi-part components (NavBar, Modals)
+├── store/                  # Redux Toolkit + Saga state management
+├── api/                    # API layer with Auth0 authentication
+├── contexts/               # React contexts (Language, I18n)
+├── hooks/                  # Custom React hooks
+├── locales/                # i18n message catalogs (en/zh po format)
+├── stories/                # Storybook component documentation
 ├── types/                  # TypeScript type definitions
-├── utils/                  # Utility functions
-└── stories/                # Storybook stories
+├── utils/                  # Utility functions (fetchWithAuth, serverI18n)
+├── lib/                    # Third-party library configurations
+├── theme/                  # Material-UI theme configuration
+└── enums/                  # TypeScript enums
 ```
 
 ### Key Configuration Files

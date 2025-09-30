@@ -48,6 +48,9 @@ const Modal: React.FC<BaseModalProps> = ({
             pb: 1.5,
           },
         },
+        backdrop: {
+          sx: { backdropFilter: 'blur(2px)', backgroundColor: 'rgba(0, 0, 0, 0.3)' },
+        },
       }}
     >
       <IconButton
