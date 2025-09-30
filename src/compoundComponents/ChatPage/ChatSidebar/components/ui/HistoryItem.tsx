@@ -27,7 +27,7 @@ interface HistoryItemProps {
 
 /**
  * History Item Component (Individual History Entry)
- * Expanded: Text(200px) + ResponsiveIconContainer(40px) = 240px
+ * Expanded: Text(176px) + ResponsiveIconContainer(32px) + ResponsiveIconContainer(32px) = 240px
  * Collapsed: Text(0px) + ResponsiveIconContainer(0px) = 0px (completely hidden)
  * Uses Tailwind CSS for styling with responsive width transitions
  */
@@ -123,8 +123,8 @@ export default function HistoryItem({
             },
           )}
         >
-          {/* History text container - 200px -> 0px (responsive width) */}
-          <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[160px]">
+          {/* History text container - 176px -> 0px (responsive width) */}
+          <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[176px]">
             <div onClick={isEditing ? undefined : onClick} className="w-full">
               {isEditing ? (
                 <TextField

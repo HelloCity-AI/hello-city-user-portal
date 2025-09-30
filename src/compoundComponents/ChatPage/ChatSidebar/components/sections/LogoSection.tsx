@@ -20,8 +20,8 @@ interface LogoSectionProps {
 /**
  * Logo Section Component - Header area of the sidebar
  * Contains logo, application name, language switcher, and uses CollapseToggleButton
- * Expanded: Logo(40px) + Name(120px) + Language(40px) = 200px + floating collapse button
- * Collapsed: Logo(40px) + Name(0px) + Language(0px) = 40px + floating collapse button
+ * Expanded: Logo(32px) + Name(144px) + Language(32px) = 208px + floating collapse button
+ * Collapsed: Logo(32px) + Name(0px) + Language(0px) = 32px + floating collapse button
  */
 export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps) {
   const router = useRouter();
@@ -46,8 +46,8 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
           onClick={isCollapsed ? onToggle : handleLogoClick}
           className="flex cursor-pointer items-center"
         >
-          {/* Logo icon container - Fixed 40px width */}
-          <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-lg bg-white">
+          {/* Logo icon container - Fixed 32px width */}
+          <div className="relative z-10 flex h-10 w-8 items-center justify-center rounded-lg bg-white">
             <Image
               src="/images/logo-chat-page.png"
               alt="HelloCity"
@@ -57,8 +57,8 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
             />
           </div>
 
-          {/* Application name area - 120px -> 0px */}
-          <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[120px]">
+          {/* Application name area - 144px -> 0px */}
+          <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[144px]">
             <Typography
               variant="h6"
               className="select-none whitespace-nowrap pl-3 text-lg font-bold text-gray-800"
@@ -68,7 +68,7 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
           </ResponsiveContainer>
         </div>
 
-        {/* Language menu container - 40px -> 0px */}
+        {/* Language menu container - 32px -> 0px */}
         <ResponsiveIconContainer isCollapsed={isCollapsed} responsive>
           <LanguageMenu
             trigger={<LanguageIcon fontSize="small" />}
