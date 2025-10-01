@@ -1343,7 +1343,7 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/components/CreateChecklistItemButton.tsx:91
+#: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "添加清单项目"
 

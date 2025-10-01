@@ -1285,7 +1285,7 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/components/CreateChecklistItemButton.tsx:91
+#: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "Add new checklist item"
 
