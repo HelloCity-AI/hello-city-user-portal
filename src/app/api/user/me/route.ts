@@ -1,18 +1,15 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import axios from 'axios';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
-import { handleAxiosError, handleApiError } from '@/lib/error-handlers';
-import {
-  fetchUserProfile,
-  createUserProfile,
-  updateUserProfile,
-  deleteUserProfile,
-} from '@/lib/api-client';
+import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
+import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import type { User } from '@/types/User.types';
+import axios from 'axios';
 
 /**
  * Get current user profile
+ * This endpoint is used by userSaga.ts for fetching user data
  */
-export async function GET(_request: NextRequest) {
+export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
     // Validate backend URL
     const backendUrlError = validateBackendUrl();
@@ -30,49 +27,15 @@ export async function GET(_request: NextRequest) {
     const userResponse = await fetchUserProfile(tokenResult.token, apiUrl);
     return NextResponse.json(userResponse.data, { status: userResponse.status });
   } catch (error) {
-    return handleApiError(error, 'getting ME profile');
-  }
-}
-
-/**
- * Create a new user profile
- */
-export async function POST(request: NextRequest) {
-  try {
-    // Validate backend URL
-    const backendUrlError = validateBackendUrl();
-    if (backendUrlError) {
-      return backendUrlError;
-    }
-
-    // Get access token
-    const tokenResult = await getAccessTokenWithValidation();
-    if (tokenResult.error) {
-      return tokenResult.error;
-    }
-
-    // Get the form data from the request
-    const formData = await request.formData();
-
-    try {
-      const apiUrl = getBackendUrl()!;
-      const response = await createUserProfile(tokenResult.token, apiUrl, formData);
-      return NextResponse.json(response.data, { status: response.status });
-    } catch (axiosError) {
-      if (axios.isAxiosError(axiosError)) {
-        return handleAxiosError(axiosError, 'create user');
-      }
-      throw axiosError;
-    }
-  } catch (error) {
-    return handleApiError(error, 'creating user');
+    return handleApiError(error, 'getting user profile');
   }
 }
 
 /**
  * Update current user profile
+ * This endpoint is used for programmatic updates (e.g., Redux Saga)
  */
-export async function PUT(request: NextRequest) {
+export async function PUT(request: NextRequest): Promise<NextResponse> {
   try {
     // Validate backend URL
     const backendUrlError = validateBackendUrl();
@@ -87,7 +50,7 @@ export async function PUT(request: NextRequest) {
     }
 
     // Get the JSON data from the request
-    const userData = await request.json();
+    const userData: Partial<User> = await request.json();
 
     try {
       const apiUrl = getBackendUrl()!;
@@ -101,43 +64,5 @@ export async function PUT(request: NextRequest) {
     }
   } catch (error) {
     return handleApiError(error, 'updating user');
-  }
-}
-
-/**
- * Delete current user profile
- */
-export async function DELETE(_request: NextRequest) {
-  try {
-    // Validate backend URL
-    const backendUrlError = validateBackendUrl();
-    if (backendUrlError) {
-      return backendUrlError;
-    }
-
-    // Get access token
-    const tokenResult = await getAccessTokenWithValidation();
-    if (tokenResult.error) {
-      return tokenResult.error;
-    }
-
-    try {
-      const apiUrl = getBackendUrl()!;
-      const response = await deleteUserProfile(tokenResult.token, apiUrl);
-
-      // For 204 No Content, return response without body
-      if (response.status === 204) {
-        return new NextResponse(null, { status: 204 });
-      }
-
-      return NextResponse.json(response.data, { status: response.status });
-    } catch (axiosError) {
-      if (axios.isAxiosError(axiosError)) {
-        return handleAxiosError(axiosError, 'delete user');
-      }
-      throw axiosError;
-    }
-  } catch (error) {
-    return handleApiError(error, 'deleting user');
   }
 }

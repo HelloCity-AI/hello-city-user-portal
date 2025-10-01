@@ -14,6 +14,8 @@ export interface UserState {
   authStatus: AuthState;
   isCreating: boolean;
   createError: string | null;
+  isUpdating: boolean;
+  updateError: string | null;
 }
 
 const initialState: UserState = {
@@ -23,6 +25,8 @@ const initialState: UserState = {
   authStatus: AuthState.Unauthenticated,
   isCreating: false,
   createError: null,
+  isUpdating: false,
+  updateError: null,
 };
 
 const userSlice = createSlice({
@@ -40,6 +44,8 @@ const userSlice = createSlice({
       state.isLoading = false;
       state.isCreating = false;
       state.createError = null;
+      state.isUpdating = false;
+      state.updateError = null;
     },
     setAuth: (state, action: PayloadAction<AuthState>) => {
       state.authStatus = action.payload;
@@ -67,6 +73,19 @@ const userSlice = createSlice({
       state.isCreating = false;
       state.createError = action.payload;
     },
+    updateUser: (state, action: PayloadAction<User>) => {
+      state.isUpdating = true;
+      state.updateError = null;
+    },
+    updateUserSuccess: (state, action: PayloadAction<User>) => {
+      state.data = action.payload;
+      state.isUpdating = false;
+      state.updateError = null;
+    },
+    updateUserFailure: (state, action: PayloadAction<string>) => {
+      state.isUpdating = false;
+      state.updateError = action.payload;
+    },
   },
 });
 
@@ -80,5 +99,8 @@ export const {
   createUser,
   createUserSuccess,
   createUserFailure,
+  updateUser,
+  updateUserSuccess,
+  updateUserFailure,
 } = userSlice.actions;
 export default userSlice.reducer;

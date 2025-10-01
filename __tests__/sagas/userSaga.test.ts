@@ -1,5 +1,10 @@
-// Mock fetch API for testing App Router endpoints
+// Mock global fetch
 global.fetch = jest.fn();
+
+// Mock the Server Action
+jest.mock('@/actions/user', () => ({
+  createUserAction: jest.fn(),
+}));
 
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
@@ -9,8 +14,10 @@ import { Cities, Genders, Nationalities, Languages } from '@/enums/UserAttribute
 import userSaga, {
   fetchUserApiWrapper,
   createUserApiWrapper,
+  updateUserApiWrapper,
   handleFetchUser,
   handleCreateUser,
+  handleUpdateUser,
 } from '@/store/sagas/userSaga';
 import {
   setUser,
@@ -21,9 +28,14 @@ import {
   createUser,
   createUserSuccess,
   createUserFailure,
+  updateUser,
+  updateUserSuccess,
+  updateUserFailure,
 } from '@/store/slices/user';
-// Create typed mock for fetch
+import { createUserAction } from '@/actions/user';
+
 const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+const mockedCreateUserAction = createUserAction as jest.MockedFunction<typeof createUserAction>;
 
 describe('userSaga', () => {
   beforeEach(() => {
@@ -84,23 +96,29 @@ describe('userSaga', () => {
         lastJoinDate: new Date('2023-02-01'),
       };
 
-      // Mock fetch to return successful response
-      mockedFetch.mockResolvedValue({
-        ok: true,
+      // Mock Server Action to return successful response
+      mockedCreateUserAction.mockResolvedValue({
+        success: true,
+        data: { userId: '12345' },
         status: 201,
-        json: jest.fn().mockResolvedValue({ userId: '12345' }),
-      } as any);
+      });
 
       const result = await createUserApiWrapper(newUser);
 
-      expect(mockedFetch).toHaveBeenCalledWith('/api/user/me', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newUser),
-        cache: 'no-store',
-      });
+      // Verify Server Action was called with FormData
+      expect(mockedCreateUserAction).toHaveBeenCalledWith(expect.any(FormData));
+
+      // Verify the FormData contains expected fields
+      const formDataCall = mockedCreateUserAction.mock.calls[0][0] as FormData;
+      expect(formDataCall.get('Email')).toBe('newuser@example.com');
+      expect(formDataCall.get('Gender')).toBe(Genders.Female);
+      expect(formDataCall.get('City')).toBe(Cities.Melbourne);
+      expect(formDataCall.get('Nationality')).toBe(Nationalities.Korea);
+      expect(formDataCall.get('Languages')).toBe(Languages.English);
+      expect(formDataCall.get('Avatar')).toBe('new-avatar-url');
+      expect(formDataCall.get('University')).toBe('New University');
+      expect(formDataCall.get('Major')).toBe('Engineering');
+
       expect(result).toMatchObject({ status: 201, ok: true });
       expect(result.data).toBeDefined();
       // eslint-disable-next-line no-console
@@ -121,8 +139,8 @@ describe('userSaga', () => {
         lastJoinDate: new Date('2023-03-01'),
       };
 
-      // Mock fetch to return error response
-      mockedFetch.mockRejectedValue(new Error('Creation error'));
+      // Mock Server Action to return error response
+      mockedCreateUserAction.mockRejectedValue(new Error('Creation error'));
 
       const result = await createUserApiWrapper(newUser);
       expect(result).toEqual({ status: 500, data: null, ok: false });
@@ -233,11 +251,12 @@ describe('userSaga', () => {
   });
 
   describe('userSaga watcher', () => {
-    it('should watch for fetchUser and createUser actions', () => {
+    it('should watch for fetchUser, createUser, and updateUser actions', () => {
       const generator = userSaga();
 
       expect(generator.next().value).toEqual(takeLatest(fetchUser.type, handleFetchUser));
       expect(generator.next().value).toEqual(takeLatest(createUser.type, handleCreateUser));
+      expect(generator.next().value).toEqual(takeLatest(updateUser.type, handleUpdateUser));
       expect(generator.next().done).toBe(true);
     });
   });
