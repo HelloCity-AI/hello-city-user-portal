@@ -82,7 +82,7 @@ msgstr "Are you sure you want to log out?"
 #~ msgstr "Ready to make your move?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:121
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -152,7 +152,8 @@ msgstr "Creating..."
 #~ msgstr "From planning to living your dream"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:123
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:176
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -352,6 +353,15 @@ msgstr "Profile"
 #~ msgid "Theme"
 #~ msgstr "Theme"
 
+#: src/components/ProfileImageEditor.tsx:39
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ..."
+
+#: src/components/ProfileImageEditor.tsx:100
+#: src/components/ProfileImageUploader.tsx:72
+#~ msgid "profile.avatar.title"
+#~ msgstr "Profile Picture"
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card1.Description"
@@ -393,10 +403,10 @@ msgstr "Profile"
 #~ msgstr "Why choose HelloCity?"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:118
-#: src/components/ProfileImageUploader.tsx:95
-msgid "profile.avatar.add"
-msgstr "Add Profile Picture"
+#: src/components/ProfileImageEditor.tsx:96
+#: src/components/ProfileImageUploader.tsx:68
+msgid "account.title"
+msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
@@ -1272,10 +1282,6 @@ msgstr "Contact Us"
 #. js-lingui-explicit-id
 #~ msgid "error.message"
 #~ msgstr "Message is required."
-#: src/components/ProfileImageEditor.tsx:96
-#: src/components/ProfileImageUploader.tsx:68
-msgid "account.title"
-msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
 #~ msgid "error.name"
@@ -1300,12 +1306,12 @@ msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
+#: src/components/ProfileImageEditor.tsx:39
 msgid "file.upload.progress"
 msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:41
+#: src/components/ProfileImageEditor.tsx:47
 msgid "file.upload.success"
 msgstr "The image is uploaded"
 
@@ -1335,13 +1341,10 @@ msgid "notFound.sub"
 msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:112
+#: src/components/ProfileImageEditor.tsx:118
+#: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
-#: src/components/ProfileImageEditor.tsx:100
-#: src/components/ProfileImageUploader.tsx:72
-msgid "profile.avatar.title"
-msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:124
@@ -1350,7 +1353,8 @@ msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageEditor.tsx:100
+#: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
@@ -1460,14 +1464,6 @@ msgstr "Profile Settings"
 #: src/app/[lang]/(app)/profile/page.tsx:203
 msgid "profile.university"
 msgstr "University"
-#: src/components/ProfileImageEditor.tsx:39
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
-
-#. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:47
-msgid "file.upload.success"
-msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:206
@@ -1493,3 +1489,8 @@ msgstr "HISTORY"
 #: src/components/InputBox/InputBox.tsx:60
 msgid "validation.required"
 msgstr "{label} is required."
+
+#: src/components/ProfileImageEditor.tsx:96
+#: src/components/ProfileImageUploader.tsx:68
+#~ msgid "account.title"
+#~ msgstr "HelloCity Account"
