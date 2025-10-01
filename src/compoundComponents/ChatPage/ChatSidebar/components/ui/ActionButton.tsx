@@ -16,8 +16,8 @@ interface ActionButtonProps {
 
 /**
  * Action Button Component (New Chat, Search, etc.)
- * Expanded: Icon(40px) + Text(200px) = 240px
- * Collapsed: Icon(40px) + Text(0px) = 40px
+ * Expanded: Icon(32px) + Text(208px) = 240px
+ * Collapsed: Icon(32px) + Text(0px) = 32px
  * Uses Tailwind CSS for styling with hover effects
  */
 export default function ActionButton({ icon, text, isCollapsed, onClick }: ActionButtonProps) {
@@ -27,11 +27,11 @@ export default function ActionButton({ icon, text, isCollapsed, onClick }: Actio
         onClick={onClick}
         className={`flex h-10 cursor-pointer items-center rounded-lg ${HOVER_EFFECTS.light}`}
       >
-        {/* Icon container - fixed 40px, always visible */}
+        {/* Icon container - fixed 32px, always visible */}
         <ResponsiveIconContainer>{icon}</ResponsiveIconContainer>
 
-        {/* Text container - 200px -> 0px (responsive width) */}
-        <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[200px]">
+        {/* Text container - 208px -> 0px (responsive width) */}
+        <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[208px]">
           <Typography
             variant="body2"
             className={`${TEXT_STYLES.sidebarText} font-medium text-primaryBlack`}

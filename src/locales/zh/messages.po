@@ -13,13 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#~ msgid "NaveBar.Back"
-#~ msgstr "返回"
-
-#: src/compoundComponents/Modals/FormModal.tsx:30
-#~ msgid "form.cancel"
-#~ msgstr "取消"
-
+ 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
@@ -76,7 +70,7 @@ msgstr ""
 #~ msgstr "精彩人生，即将启程"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:32
+#: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Are you sure you want to log out?"
 msgstr "您确定要登出账户吗？"
 
@@ -182,9 +176,9 @@ msgstr "我准备好了"
 #~ msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/modals/useLogoutConfirm.tsx:30
+#: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
 msgstr "登出"
 
@@ -247,7 +241,7 @@ msgid "Pick a date"
 msgstr "选择日期"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "个人资料"
 
@@ -436,9 +430,9 @@ msgstr "个人资料"
 #~ msgid "Theme"
 #~ msgstr "主题"
 
-#: src/components/dropdownMenuOptions.example.tsx:18
-#~ msgid "Settings"
-#~ msgstr "设置"
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -466,6 +460,10 @@ msgstr "个人资料"
 #~ msgid "ValueProposition.Title"
 #~ msgstr "为什么选择HelloCity？"
 
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AI正在思考中..."
+
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
@@ -474,7 +472,7 @@ msgstr "HelloCity账户"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 msgid "ai.thinking"
-msgstr "AI正在思考中..."
+msgstr ""
 
 #: src/components/ProfileImageUploader.tsx:112
 #~ msgid "profile.avatar.add"
@@ -483,7 +481,7 @@ msgstr "AI正在思考中..."
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:35
+#: src/hooks/modals/useLogoutConfirm.tsx:35
 msgid "cancel.button"
 msgstr "取消"
 
@@ -510,7 +508,7 @@ msgstr "开始与AI助手的对话，获得个性化的城市生活指导"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
 msgid "chat.welcome.title"
-msgstr "欢迎使用HelloCity助手"
+msgstr "欢迎使用HelloCity"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
@@ -593,64 +591,64 @@ msgid "cities.adelaide.tagline"
 msgstr "红酒之城，节庆之都"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:532
-msgid "cities.amsterdam.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:527
-msgid "cities.amsterdam.name"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:537
+msgid "cities.amsterdam.description"
+msgstr "北方威尼斯，拥有运河、文化和自由精神"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:532
+msgid "cities.amsterdam.name"
+msgstr "阿姆斯特丹"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:542
 msgid "cities.amsterdam.tagline"
-msgstr ""
+msgstr "运河、文化与创新"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:621
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
 msgid "cities.auckland.description"
-msgstr ""
+msgstr "帆之都，拥有迷人港湾与户外生活方式"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:616
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
 msgid "cities.auckland.name"
-msgstr ""
+msgstr "奥克兰"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:626
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:633
 msgid "cities.auckland.tagline"
-msgstr ""
+msgstr "城市与自然的交汇之地"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:707
 msgid "cities.bali.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
-msgid "cities.bali.name"
-msgstr ""
+msgstr "印度尼西亚的岛屿省份，以庙宇、梯田与海滩闻名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:702
+msgid "cities.bali.name"
+msgstr "巴厘岛"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:712
 msgid "cities.bali.tagline"
-msgstr ""
+msgstr "众神之岛，热带度假天堂"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:681
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:688
 msgid "cities.bangkok.description"
-msgstr ""
+msgstr "充满活力的首都，集寺庙、小吃与现代能量于一体"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:683
 msgid "cities.bangkok.name"
-msgstr ""
+msgstr "曼谷"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:687
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:694
 msgid "cities.bangkok.tagline"
-msgstr ""
+msgstr "天使之城，寺庙与夜市璀璨"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:172
@@ -668,34 +666,34 @@ msgid "cities.beijing.tagline"
 msgstr "古都魅力，现代活力"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
-msgid "cities.berlin.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
-msgid "cities.berlin.name"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+msgid "cities.berlin.description"
+msgstr "充满活力的首都，历史深厚，文化场景繁荣"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+msgid "cities.berlin.name"
+msgstr "柏林"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:528
 msgid "cities.berlin.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:461
-msgid "cities.boston.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:456
-msgid "cities.boston.name"
-msgstr ""
+msgstr "统一、创意与自由"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:466
+msgid "cities.boston.description"
+msgstr "自由之城的历史摇篮，云集世界级大学"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:461
+msgid "cities.boston.name"
+msgstr "波士顿"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:471
 msgid "cities.boston.tagline"
-msgstr ""
+msgstr "在这里感受鲜活的美国历史"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:43
@@ -715,7 +713,7 @@ msgstr "阳光之城，悠闲生活"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:143
 msgid "cities.calgary.description"
-msgstr "加拿大能源之都，以牛仔节和洛矶山美景闻名"
+msgstr "通往加拿大落基山脉的门户，洋溢着西部热情"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:138
@@ -725,12 +723,12 @@ msgstr "卡尔加里"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:148
 msgid "cities.calgary.tagline"
-msgstr "牛仔之城，能源中心"
+msgstr "大草原与群山在此相遇"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:246
 msgid "cities.chengdu.description"
-msgstr "中国西南的文化中心，以悠闲生活和美食文化闻名"
+msgstr "中国西南的文化心脏，以麻辣美食和大熊猫闻名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:241
@@ -740,112 +738,112 @@ msgstr "成都"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:251
 msgid "cities.chengdu.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
-msgid "cities.chicago.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:442
-msgid "cities.chicago.name"
-msgstr ""
+msgstr "天府之国，闲适人生"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:452
+msgid "cities.chicago.description"
+msgstr "风城以壮丽天际线与深盘披萨闻名"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+msgid "cities.chicago.name"
+msgstr "芝加哥"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:457
 msgid "cities.chicago.tagline"
-msgstr ""
+msgstr "美国的建筑之都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:260
 msgid "cities.chongqing.description"
-msgstr ""
+msgstr "山城江城，火锅文化与长江风光交织"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:255
 msgid "cities.chongqing.name"
-msgstr ""
+msgstr "重庆"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:265
 msgid "cities.chongqing.tagline"
-msgstr ""
+msgstr "立体山城，热辣之都"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:651
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:658
 msgid "cities.christchurch.description"
-msgstr ""
+msgstr "新西兰花园城市，在创新与韧性中重建"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:646
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:653
 msgid "cities.christchurch.name"
-msgstr ""
+msgstr "基督城"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:656
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:663
 msgid "cities.christchurch.tagline"
-msgstr ""
+msgstr "花园再生的韧性之城"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:710
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:720
 msgid "cities.default.description"
-msgstr ""
+msgstr "发现你的下一座理想城市"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:706
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:716
 msgid "cities.default.name"
-msgstr ""
+msgstr "探索城市"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:711
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:721
 msgid "cities.default.tagline"
-msgstr ""
+msgstr "开启城市探索旅程"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:666
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:673
 msgid "cities.dubai.description"
-msgstr ""
+msgstr "未来感都会，奢华购物与建筑奇观汇聚"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:661
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:668
 msgid "cities.dubai.name"
-msgstr ""
+msgstr "迪拜"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:678
 msgid "cities.dubai.tagline"
-msgstr ""
+msgstr "未来在此提前到来"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:551
+msgid "cities.dublin.description"
+msgstr "文学之都，乔治风格建筑与热情好客兼备"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:546
-msgid "cities.dublin.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:541
 msgid "cities.dublin.name"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:552
-msgid "cities.dublin.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:562
-msgid "cities.edinburgh.description"
-msgstr ""
+msgstr "都柏林"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:557
-msgid "cities.edinburgh.name"
-msgstr ""
+msgid "cities.dublin.tagline"
+msgstr "爱尔兰的十万次欢迎"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:567
+msgid "cities.edinburgh.description"
+msgstr "苏格兰历史名城，城堡与艺术节闻名"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:562
+msgid "cities.edinburgh.name"
+msgstr "爱丁堡"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:573
 msgid "cities.edinburgh.tagline"
-msgstr ""
+msgstr "苏格兰心跳最强之处"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:85
@@ -865,7 +863,7 @@ msgstr "金色沙滩，度假天堂"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:204
 msgid "cities.guangzhou.description"
-msgstr "南中国的商贸中心，以开放包容和美食文化闻名"
+msgstr "华南商贸中心，承载粤语与岭南美食传统"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:199
@@ -878,34 +876,34 @@ msgid "cities.guangzhou.tagline"
 msgstr "花城风采，开放门户"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:613
 msgid "cities.hamburg.description"
-msgstr ""
+msgstr "海港门户，拥有深厚港口遗产与现代都市文化"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:601
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:608
 msgid "cities.hamburg.name"
-msgstr ""
+msgstr "汉堡"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:611
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:618
 msgid "cities.hamburg.tagline"
-msgstr ""
+msgstr "通向世界的门户"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:288
 msgid "cities.hangzhou.description"
-msgstr ""
+msgstr "人间天堂，西湖静美与数字经济相辅相成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
 msgid "cities.hangzhou.name"
-msgstr ""
+msgstr "杭州"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:294
 msgid "cities.hangzhou.tagline"
-msgstr ""
+msgstr "西湖诗意与数字经济交汇"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:232
@@ -920,82 +918,82 @@ msgstr "香港"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:237
 msgid "cities.hongkong.tagline"
-msgstr "东方之珠，金融中心"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:347
-msgid "cities.kyoto.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:342
-msgid "cities.kyoto.name"
-msgstr ""
+msgstr "亚洲的国际都会"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:352
+msgid "cities.kyoto.description"
+msgstr "日本古都，遍布神社寺庙与传统艺术"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:347
+msgid "cities.kyoto.name"
+msgstr "京都"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:357
 msgid "cities.kyoto.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:490
-msgid "cities.london.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
-msgid "cities.london.name"
-msgstr ""
+msgstr "永恒之美，传承之城"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:495
+msgid "cities.london.description"
+msgstr "历史悠久的首都，拥有标志性地标和全球金融中心"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:490
+msgid "cities.london.name"
+msgstr "伦敦"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:500
 msgid "cities.london.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:391
-msgid "cities.losangeles.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
-msgid "cities.losangeles.name"
-msgstr ""
+msgstr "历史与现代的交汇"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:396
+msgid "cities.losangeles.description"
+msgstr "梦想之城，全球娱乐产业中心"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:391
+msgid "cities.losangeles.name"
+msgstr "洛杉矶"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:401
 msgid "cities.losangeles.tagline"
-msgstr ""
+msgstr "天使之城"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:307
+msgid "cities.macau.description"
+msgstr "东西文化交融的活力城市，集娱乐与历史于一体"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
-msgid "cities.macau.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:297
 msgid "cities.macau.name"
-msgstr ""
+msgstr "澳门"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:313
 msgid "cities.macau.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:578
-msgid "cities.manchester.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:573
-msgid "cities.manchester.name"
-msgstr ""
+msgstr "葡式风情与中华传承相遇之地"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+msgid "cities.manchester.description"
+msgstr "工业遗产与现代创新、足球激情并存"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:578
+msgid "cities.manchester.name"
+msgstr "曼彻斯特"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:588
 msgid "cities.manchester.tagline"
-msgstr ""
+msgstr "原创新现代之城"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:27
@@ -1010,22 +1008,22 @@ msgstr "墨尔本"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:33
 msgid "cities.melbourne.tagline"
-msgstr "文化之都，生活之美"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:419
-msgid "cities.miami.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:414
-msgid "cities.miami.name"
-msgstr ""
+msgstr "文化、咖啡与无限可能"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:424
+msgid "cities.miami.description"
+msgstr "热带天堂，装饰艺术风情与拉丁文化交织"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:419
+msgid "cities.miami.name"
+msgstr "迈阿密"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:429
 msgid "cities.miami.tagline"
-msgstr ""
+msgstr "魔力之城"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:127
@@ -1040,52 +1038,52 @@ msgstr "蒙特利尔"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:133
 msgid "cities.montreal.tagline"
-msgstr "法式风情，艺术之都"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
-msgid "cities.munich.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:587
-msgid "cities.munich.name"
-msgstr ""
+msgstr "欧陆风雅，北美精神"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:597
+msgid "cities.munich.description"
+msgstr "巴伐利亚首府，传统魅力与现代创新交融"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
+msgid "cities.munich.name"
+msgstr "慕尼黑"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:603
 msgid "cities.munich.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:377
-msgid "cities.newyork.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:372
-msgid "cities.newyork.name"
-msgstr ""
+msgstr "啤酒大厅、巴洛克之美与巴伐利亚温情"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:382
+msgid "cities.newyork.description"
+msgstr "不夜之城，世界文化的大熔炉"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:377
+msgid "cities.newyork.name"
+msgstr "纽约"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:387
 msgid "cities.newyork.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:333
-msgid "cities.osaka.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
-msgid "cities.osaka.name"
-msgstr ""
+msgstr "大苹果的无限机遇"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:338
+msgid "cities.osaka.description"
+msgstr "日本的厨房，街头美食与热情文化满载"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:333
+msgid "cities.osaka.name"
+msgstr "大阪"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:343
 msgid "cities.osaka.tagline"
-msgstr ""
+msgstr "天下厨房"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:157
@@ -1100,22 +1098,22 @@ msgstr "渥太华"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:162
 msgid "cities.ottawa.tagline"
-msgstr "首都风范，政治中心"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
-msgid "cities.paris.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:499
-msgid "cities.paris.name"
-msgstr ""
+msgstr "首都之美，永恒传承"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:509
+msgid "cities.paris.description"
+msgstr "光之城，艺术、文化与美食交织"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
+msgid "cities.paris.name"
+msgstr "巴黎"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:514
 msgid "cities.paris.tagline"
-msgstr ""
+msgstr "生活艺术的极致展现"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:57
@@ -1133,39 +1131,39 @@ msgid "cities.perth.tagline"
 msgstr "西海岸明珠"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
-msgid "cities.sanfrancisco.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:400
-msgid "cities.sanfrancisco.name"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:410
+msgid "cities.sanfrancisco.description"
+msgstr "科技枢纽，金门大桥与多元社区闻名"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
+msgid "cities.sanfrancisco.name"
+msgstr "旧金山"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:415
 msgid "cities.sanfrancisco.tagline"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:433
-msgid "cities.seattle.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
-msgid "cities.seattle.name"
-msgstr ""
+msgstr "金门之城"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+msgid "cities.seattle.description"
+msgstr "翡翠之城，太空针塔与创新科技相辉映"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:433
+msgid "cities.seattle.name"
+msgstr "西雅图"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
 msgid "cities.seattle.tagline"
-msgstr ""
+msgstr "创新与自然的交汇之地"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:190
 msgid "cities.shanghai.description"
-msgstr "中国的经济中心，以国际化水平和现代天际线闻名"
+msgstr "全球金融枢纽，拥有壮丽天际线与深厚文化底蕴"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:185
@@ -1190,22 +1188,22 @@ msgstr "深圳"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
 msgid "cities.shenzhen.tagline"
-msgstr "科技之城，创新之都"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:362
-msgid "cities.singapore.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:357
-msgid "cities.singapore.name"
-msgstr ""
+msgstr "以光速创新的科技之城"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:367
+msgid "cities.singapore.description"
+msgstr "花园城市，东南亚的全球枢纽"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:362
+msgid "cities.singapore.name"
+msgstr "新加坡"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:372
 msgid "cities.singapore.tagline"
-msgstr ""
+msgstr "狮城风采"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:13
@@ -1215,7 +1213,7 @@ msgstr "澳大利亚的港口城市，以歌剧院和海港大桥闻名"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:8
 msgid "cities.sydney.name"
-msgstr "惉尼"
+msgstr "悉尼"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:18
@@ -1223,19 +1221,19 @@ msgid "cities.sydney.tagline"
 msgstr "魅力港口，无限可能"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
-msgid "cities.tokyo.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
-msgid "cities.tokyo.name"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:324
+msgid "cities.tokyo.description"
+msgstr "日本充满活力的首都，传统与现代完美结合"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
+msgid "cities.tokyo.name"
+msgstr "东京"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:329
 msgid "cities.tokyo.tagline"
-msgstr ""
+msgstr "古代与超现代的交融"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:99
@@ -1268,48 +1266,53 @@ msgid "cities.vancouver.tagline"
 msgstr "山海之城，生活之美"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:475
-msgid "cities.washingtondc.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:470
-msgid "cities.washingtondc.name"
-msgstr ""
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:480
+msgid "cities.washingtondc.description"
+msgstr "美国首都，汇聚纪念碑与政治权力核心"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:475
+msgid "cities.washingtondc.name"
+msgstr "华盛顿特区"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
 msgid "cities.washingtondc.tagline"
-msgstr ""
+msgstr "美国民主的心脏"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:635
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:642
 msgid "cities.wellington.description"
-msgstr ""
+msgstr "新西兰的创意首都，拥有海港美景与文化活力"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:630
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:637
 msgid "cities.wellington.name"
-msgstr ""
+msgstr "惠灵顿"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:641
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:648
 msgid "cities.wellington.tagline"
-msgstr ""
+msgstr "世界上最酷的小首都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:274
 msgid "cities.xian.description"
-msgstr ""
+msgstr "千年古都，兵马俑的故乡"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:269
 msgid "cities.xian.name"
-msgstr ""
+msgstr "西安"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:279
 msgid "cities.xian.tagline"
+msgstr "千年王朝的永恒之城"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+msgid "common.cancel"
 msgstr ""
 
 #. js-lingui-explicit-id
@@ -1343,6 +1346,7 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
+
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "添加清单项目"
@@ -1453,6 +1457,31 @@ msgstr "请输入任务标题"
 msgid "create-checklist.title-required"
 msgstr "标题是必填项"
 
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
+msgid "delete-conversation"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
+msgid "edit-conversation-title"
+msgstr ""
+
+
 #. js-lingui-explicit-id
 #~ msgid "error.email"
 #~ msgstr "请输入有效的邮箱地址。"
@@ -1485,7 +1514,7 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
-msgstr "图片上传中..."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41
@@ -1674,7 +1703,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "搜索对话"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:38
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:48
 msgid "sidebar.history.title"
 msgstr "对话历史"
 

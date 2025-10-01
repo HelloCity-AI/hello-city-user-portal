@@ -137,7 +137,7 @@ export default function NotFound() {
               sx={{ maxWidth: 720 }}
             >
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                <Trans id="notFound.pageNotFound">Page not found</Trans>
+                <Trans id="notFound.pageNotFound" message="Page not found" />
               </Typography>
               <Typography
                 variant="h3"
@@ -148,16 +148,16 @@ export default function NotFound() {
                   lineHeight: 1.15,
                 }}
               >
-                <Trans id="notFound.headline">Let’s help you settle in.</Trans>
+                <Trans id="notFound.headline" message="Let's help you settle in." />
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.125rem' } }}
               >
-                <Trans id="notFound.sub">
-                  HelloCity supports international students with housing, banking, transport and
-                  community—so your new life starts smoothly.
-                </Trans>
+                <Trans
+                  id="notFound.sub"
+                  message="HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly."
+                />
               </Typography>
             </Stack>
           </Stack>
