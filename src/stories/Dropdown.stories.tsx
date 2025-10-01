@@ -26,7 +26,7 @@ const userMenuDisplayOptions: MenuOption[] = [
     value: 'profile',
     icon: PaymentOutlinedIcon,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('profile'),
   },
   {
     id: 'settings',
@@ -34,7 +34,7 @@ const userMenuDisplayOptions: MenuOption[] = [
     value: 'settings',
     icon: SettingsOutlinedIcon,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('settings'),
   },
   {
     id: 'theme',
@@ -42,7 +42,7 @@ const userMenuDisplayOptions: MenuOption[] = [
     value: 'theme',
     icon: ContrastOutlinedIcon,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('theme'),
   },
   {
     id: 'subscription',
@@ -50,7 +50,7 @@ const userMenuDisplayOptions: MenuOption[] = [
     value: 'subscription',
     icon: PaymentOutlinedIcon,
     divider: true,
-    onClick: (value) => alert(value),
+    onClick: () => alert('subscription'),
   },
   {
     id: 'logout',
@@ -58,7 +58,7 @@ const userMenuDisplayOptions: MenuOption[] = [
     value: 'logout',
     icon: Logout,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('logout'),
   },
 ];
 
@@ -69,7 +69,7 @@ const languageMenuDisplayOptions: MenuOption[] = [
     value: 'zh-CN',
     icon: null,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('zh-CN'),
   },
   {
     id: 'zh-tw',
@@ -77,7 +77,7 @@ const languageMenuDisplayOptions: MenuOption[] = [
     value: 'zh-TW',
     icon: null,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('zh-TW'),
   },
   {
     id: 'en-uk',
@@ -85,7 +85,7 @@ const languageMenuDisplayOptions: MenuOption[] = [
     value: 'en-UK',
     icon: null,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('en-UK'),
   },
   {
     id: 'ja-jp',
@@ -93,7 +93,7 @@ const languageMenuDisplayOptions: MenuOption[] = [
     value: 'ja-JP',
     icon: null,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('ja-JP'),
   },
   {
     id: 'ko-kr',
@@ -101,7 +101,7 @@ const languageMenuDisplayOptions: MenuOption[] = [
     value: 'ko-KR',
     icon: null,
     divider: false,
-    onClick: (value) => alert(value),
+    onClick: () => alert('ko-KR'),
   },
 ];
 

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Dropdown from '@/components/Dropdown';
-import useLanguageMenu from '@/hooks/useLanguageMenu';
+import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
 
 interface LanguageMenuProps {
   trigger: React.ReactNode; // anchorElContent for Dropdown

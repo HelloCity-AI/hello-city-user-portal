@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
-import useLogoutConfirm from '@/hooks/useLogoutConfirm';
+import useLogoutConfirm from '@/hooks/modals/useLogoutConfirm';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Logout from '@mui/icons-material/Logout';
 import { Trans } from '@lingui/react';

@@ -72,7 +72,7 @@ msgstr ""
 #~ msgstr "精彩人生，即将启程"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:32
+#: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Are you sure you want to log out?"
 msgstr "您确定要登出账户吗？"
 
@@ -162,9 +162,9 @@ msgid "I'm all set"
 msgstr "我准备好了"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/modals/useLogoutConfirm.tsx:30
+#: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
 msgstr "登出"
 
@@ -223,7 +223,7 @@ msgid "Pick a date"
 msgstr "选择日期"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "个人资料"
 
@@ -465,7 +465,7 @@ msgstr "AI正在思考中..."
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:35
+#: src/hooks/modals/useLogoutConfirm.tsx:35
 msgid "cancel.button"
 msgstr "取消"
 
@@ -1295,6 +1295,11 @@ msgid "cities.xian.tagline"
 msgstr "千年王朝的永恒之城"
 
 #. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+msgid "common.cancel"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
 msgid "confirm.button"
 msgstr "确认"
@@ -1323,6 +1328,31 @@ msgstr "提交"
 #: src/app/[lang]/(site)/contact-us/page.tsx:65
 msgid "contact-us.title"
 msgstr "联系我们"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
+msgid "delete-conversation"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
+msgid "edit-conversation-title"
+msgstr ""
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
@@ -1526,7 +1556,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "搜索对话"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:38
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:48
 msgid "sidebar.history.title"
 msgstr "对话历史"
 

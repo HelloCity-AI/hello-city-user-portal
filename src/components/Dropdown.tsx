@@ -148,7 +148,7 @@ const DropDown: React.FC<DropdownProps> = ({
         {dropdownOptions?.map((option: MenuOption) => {
           return (
             <React.Fragment key={option.id}>
-              <MenuItem onClick={() => option.onClick(option.value)}>
+              <MenuItem onClick={() => option.onClick()}>
                 {option.icon && (
                   <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
                     {option.icon && <option.icon fontSize="small" />}
