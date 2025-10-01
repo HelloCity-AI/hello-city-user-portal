@@ -10,11 +10,10 @@ const uploadFile = (file: File) => {
   fireEvent.change(input, { target: { files: [file] } });
 };
 
-
 describe('ProfileImageUploader', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    render(<ProfileImageUploader selectedImage={jest.fn()} />)
+    render(<ProfileImageUploader selectedImage={jest.fn()} />);
   });
 
   beforeAll(() => {
@@ -23,13 +22,11 @@ describe('ProfileImageUploader', () => {
 
   describe('UX responses test', () => {
     test('Default image testing ', () => {
-      
       const defaultImg = screen.getByAltText('Default Avatar');
       expect(defaultImg).toHaveAttribute('src', '/images/default-avatar.jpg');
     });
 
     test('Testing uploads an image file, show preview and remove photos', async () => {
-
       uploadFile(new File(['fakeFile'], 'avatar.png', { type: 'image/png' }));
       // expect(await screen.findByText(/The image is uploading .../i)).toBeInTheDocument();
       // expect(screen.getByRole('progressbar')).toBeInTheDocument();
