@@ -87,6 +87,8 @@ export async function createUserApiWrapper(newUser: User) {
     if (newUser.Avatar) formData.append('Avatar', newUser.Avatar);
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
+    // Ensure backend-required username field is present
+    if (newUser.userId) formData.append('Username', newUser.userId);
 
     // Call the Server Action
     const result = await createUserAction(formData);
