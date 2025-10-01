@@ -13,6 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+ 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
@@ -73,6 +74,14 @@ msgstr ""
 msgid "Are you sure you want to log out?"
 msgstr "您确定要登出账户吗？"
 
+#: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "选择日期"
+
+#: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NavBar.Back"
+#~ msgstr "← 返回"
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
 #~ msgid "CallToAction.Description"
@@ -87,6 +96,10 @@ msgstr "您确定要登出账户吗？"
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "Creating..."
 msgstr "创建中..."
+
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "主题"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -159,12 +172,20 @@ msgstr "创建中..."
 msgid "I'm all set"
 msgstr "我准备好了"
 
+#: src/hooks/useNavigation.tsx:26
+#~ msgid "NavBar.Chat"
+#~ msgstr "聊天"
+
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:36
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
 msgstr "登出"
+
+#: src/app/[lang]/create-user-profile/page.tsx:103
+#~ msgid "I'm all set"
+#~ msgstr "我准备好了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:99
@@ -421,18 +442,8 @@ msgstr "个人资料"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Title"
-#~ msgstr "个性化指导"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card2.Description"
 #~ msgstr "全面的清单覆盖各种迁移类型，确保重要事项不遗漏。"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Title"
-#~ msgstr "分步清单"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -441,14 +452,10 @@ msgstr "个人资料"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Title"
-#~ msgstr "时间规划"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Description"
 #~ msgstr "我们深知迁移到新城市可能让人不知所措。正因如此，我们打造了最全面的城市安居助手。"
 
+#. Sign In button label
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
@@ -468,6 +475,10 @@ msgstr "HelloCity账户"
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 msgid "ai.thinking"
 msgstr ""
+
+#: src/components/ProfileImageUploader.tsx:112
+#~ msgid "profile.avatar.add"
+#~ msgstr "添加头像"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -1337,6 +1348,117 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
+
+#: src/components/CreateChecklistItemButton.tsx:85
+msgid "create-checklist-button.add-item"
+msgstr "添加清单项目"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:292
+msgid "create-checklist.cancel"
+msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:303
+msgid "create-checklist.create"
+msgstr "创建项目"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:301
+msgid "create-checklist.creating"
+msgstr "正在创建..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:186
+msgid "create-checklist.description-field"
+msgstr "描述"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:205
+msgid "create-checklist.description-helper"
+msgstr "提供关于此任务的详细信息"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:187
+msgid "create-checklist.description-placeholder"
+msgstr "请描述需要完成的任务及相关细节"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:202
+msgid "create-checklist.description-required"
+msgstr "描述是必填项"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:212
+msgid "create-checklist.due-date"
+msgstr "截止日期"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:112
+msgid "create-checklist.error.create"
+msgstr "创建清单项目失败"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:219
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
+msgid "create-checklist.importance-field"
+msgstr "重要性"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:258
+msgid "create-checklist.importance-helper"
+msgstr "该任务的重要性"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:252
+msgid "create-checklist.importance-high-desc"
+msgstr "紧急"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:232
+msgid "create-checklist.importance-low-desc"
+msgstr "可以等待"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:242
+msgid "create-checklist.importance-medium-desc"
+msgstr "应该尽快完成"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:276
+msgid "create-checklist.mark-completed"
+msgstr "标记为已完成"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:279
+msgid "create-checklist.mark-completed-helper"
+msgstr "如果任务已完成，请勾选此项"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:157
+msgid "create-checklist.title"
+msgstr "创建新的清单项目"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:165
+msgid "create-checklist.title-field"
+msgstr "标题"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:178
+msgid "create-checklist.title-helper"
+msgstr "为您的清单项目起一个简洁明了的名称"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:166
+msgid "create-checklist.title-placeholder"
+msgstr "请输入任务标题"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:177
+msgid "create-checklist.title-required"
+msgstr "标题是必填项"
+
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
 msgid "conversation.delete.confirm"
 msgstr ""
@@ -1360,6 +1482,7 @@ msgstr ""
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
 msgid "edit-conversation-title"
 msgstr ""
+
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
@@ -1407,9 +1530,28 @@ msgid "form.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:249
+msgid "importance.high"
+msgstr "高"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:229
+msgid "importance.low"
+msgstr "低"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:239
+msgid "importance.medium"
+msgstr "中"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "知道了"
+
+#: src/hooks/useTryHelloCity.tsx:15
+#~ msgid "NavBar.Try HelloCity"
+#~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:151
@@ -1575,3 +1717,11 @@ msgstr "对话历史"
 #: src/components/InputBox/InputBox.tsx:60
 msgid "validation.required"
 msgstr "{label}是必填项。"
+
+#: src/components/ProfileImageUploader.tsx:90
+#~ msgid "account.title"
+#~ msgstr "HelloCity账户"
+
+#: src/hooks/useNavigation.tsx:21
+#~ msgid "NavBar.Home"
+#~ msgstr "首页"
