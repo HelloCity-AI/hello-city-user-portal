@@ -423,7 +423,6 @@ msgstr "Profile"
 #~ msgstr "AI正在思考..."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:96
 #: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
 msgstr "HelloCity Account"
@@ -436,6 +435,10 @@ msgstr "AI正在思考..."
 #: src/components/ProfileImageUploader.tsx:112
 #~ msgid "profile.avatar.add"
 #~ msgstr "Add Profile Picture"
+
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#~ msgid "conversation.delete.confirm"
+#~ msgstr "Delete"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -1305,7 +1308,21 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr "Delete"
 
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr "Delete Conversation"
+
+#. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "Add new checklist item"
@@ -1416,20 +1433,6 @@ msgstr "Enter a clear, descriptive title for your task"
 msgid "create-checklist.title-required"
 msgstr "Title is required"
 
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
-msgid "conversation.delete.confirm"
-msgstr "Delete"
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
-msgid "conversation.delete.description"
-msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
-msgid "conversation.delete.title"
-msgstr "Delete Conversation"
-
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
 msgid "delete-conversation"
@@ -1439,7 +1442,6 @@ msgstr "Delete Conversation"
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
 msgid "edit-conversation-title"
 msgstr "Rename History"
-
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
@@ -1466,20 +1468,19 @@ msgstr "Rename History"
 #~ msgstr "Passwords do not match."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:30
 #: src/components/ProfileImageUploader.tsx:31
 msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:39
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:47
-msgid "file.upload.success"
-msgstr "The image is uploaded"
+#~ msgid "file.upload.success"
+#~ msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1530,19 +1531,16 @@ msgid "notFound.sub"
 msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:118
 #: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:124
 #: src/components/ProfileImageUploader.tsx:101
 msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:100
 #: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
