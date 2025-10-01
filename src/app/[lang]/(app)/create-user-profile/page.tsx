@@ -94,7 +94,6 @@ const Page = () => {
       return;
     }
 
-    console.log('Form Sent: ', formData);
     dispatch(createUser(formData));
   };
 
@@ -146,10 +145,10 @@ const Page = () => {
             </div>
           )}
           
-          <button
+          <Button
             type="button"
             onClick={() => setUploaderOpen(true)}
-            className="mb-6 flex items-center justify-center overflow-hidden rounded-full border-2 border-indigo-600 object-cover"
+            className="mb-6 flex items-center justify-center overflow-hidden rounded-full object-cover"
           >
             <Image
               src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
@@ -158,7 +157,7 @@ const Page = () => {
               height={100}
               className="h-[100px] w-[100px] rounded-full object-cover"
             />
-          </button>
+          </Button>
 
           <div className="w-full">
             <input
