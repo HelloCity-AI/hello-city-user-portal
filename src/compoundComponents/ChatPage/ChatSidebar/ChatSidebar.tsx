@@ -30,9 +30,6 @@ export default function ChatSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>(mockChatHistory);
 
-  const handleToggle = () => {
-    setIsCollapsed(!isCollapsed);
-  };
   const handleNewChat = () => {
     console.log('New chat clicked');
   };
@@ -48,7 +45,7 @@ export default function ChatSidebar() {
   return (
     <DrawerContainer>
       {/*Top Section - Logo section */}
-      <LogoSection isCollapsed={isCollapsed} onToggle={handleToggle} />
+      <LogoSection isCollapsed={isCollapsed} onToggle={() => setIsCollapsed((prev) => !prev)} />
 
       {/* Main Actions - Action buttons section */}
       <div className="mt-2">

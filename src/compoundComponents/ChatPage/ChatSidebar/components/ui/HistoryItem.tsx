@@ -77,10 +77,6 @@ export default function HistoryItem({
     setEditText(text);
   };
 
-  const handleBlur = () => {
-    handleCancel();
-  };
-
   // Semantic display state for better readability
   const displayState = {
     // Basic states
@@ -130,10 +126,10 @@ export default function HistoryItem({
                 <TextField
                   inputRef={inputRef}
                   value={editText}
-                  onChange={(e) => setEditText(e.target.value)}
+                  onChange={({ target: { value } }) => setEditText(value)}
                   variant="standard"
                   size="small"
-                  onBlur={handleBlur}
+                  onBlur={handleCancel}
                   onKeyDown={handleKeyDown}
                   sx={{
                     '& .MuiInput-root:before': { display: 'none' },

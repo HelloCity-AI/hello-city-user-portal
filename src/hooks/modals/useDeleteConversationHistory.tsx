@@ -15,17 +15,16 @@ const useDeleteConversation = (onDelete: () => void) => {
   const [open, setOpen] = useState(false);
 
   const show = () => setOpen(true);
-  const hide = () => setOpen(false);
 
   const handleDelete = () => {
     onDelete();
-    hide();
+    setOpen(false);
   };
 
   const ModalNode = (
     <ConfirmModal
       open={open}
-      onClose={hide}
+      onClose={() => setOpen(false)}
       isWarning
       title={<Trans id="conversation.delete.title" message="Delete Conversation" />}
       description={

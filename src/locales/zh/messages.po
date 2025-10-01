@@ -1295,7 +1295,7 @@ msgid "cities.xian.tagline"
 msgstr "千年王朝的永恒之城"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:38
+#: src/hooks/modals/useDeleteConversationHistory.tsx:37
 msgid "common.cancel"
 msgstr ""
 
@@ -1330,17 +1330,17 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
 msgid "conversation.delete.confirm"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:32
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
 msgid "conversation.delete.description"
 msgstr ""
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:30
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
 msgid "conversation.delete.title"
 msgstr ""
 

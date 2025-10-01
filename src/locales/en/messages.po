@@ -1235,7 +1235,7 @@ msgid "cities.xian.tagline"
 msgstr "Eternal city of dynasties"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:38
+#: src/hooks/modals/useDeleteConversationHistory.tsx:37
 msgid "common.cancel"
 msgstr "Cancel"
 
@@ -1270,17 +1270,17 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
 msgid "conversation.delete.confirm"
 msgstr "Delete"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:32
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
 msgid "conversation.delete.description"
 msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:30
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
 msgid "conversation.delete.title"
 msgstr "Delete Conversation"
 
