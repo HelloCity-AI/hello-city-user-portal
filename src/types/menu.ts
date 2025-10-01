@@ -6,7 +6,7 @@ export interface MenuOption {
   value: string;
   icon?: React.ElementType | null;
   divider?: boolean;
-  onClick: (value?: string) => void | ReactNode;
+  onClick: () => void;
 }
 
 export type DropdownOptionProps = MenuOption;

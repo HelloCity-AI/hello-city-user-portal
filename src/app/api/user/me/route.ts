@@ -1,89 +1,68 @@
-import { auth0 } from '@/lib/auth0';
-import { AccessTokenError } from '@auth0/nextjs-auth0/errors';
-import axios from 'axios';
 import { type NextRequest, NextResponse } from 'next/server';
+import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
+import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
+import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import type { User } from '@/types/User.types';
+import axios from 'axios';
 
-export async function fetchUserProfile(token: string, backendUrl: string) {
-  const userResponse = await axios.get(`${backendUrl}/api/user/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Cache-Control': 'no-store',
-      Accept: 'application/json',
-    },
-    timeout: 10000,
-    validateStatus: (status) => status === 200 || status === 404,
-  });
-  return userResponse;
-}
-
-export async function GET(_request: NextRequest) {
+/**
+ * Get current user profile
+ * This endpoint is used by userSaga.ts for fetching user data
+ */
+export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
-    const tokenResponse = await auth0.getAccessToken();
-    const token = tokenResponse?.token;
-
-    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    if (!apiUrl) {
-      return NextResponse.json(
-        { error: 'Backend URL is not configured (NEXT_PUBLIC_BACKEND_URL)' },
-        { status: 500 },
-      );
+    // Validate backend URL
+    const backendUrlError = validateBackendUrl();
+    if (backendUrlError) {
+      return backendUrlError;
     }
 
-    const userResponse = await fetchUserProfile(token, apiUrl);
+    // Get access token
+    const tokenResult = await getAccessTokenWithValidation();
+    if (tokenResult.error) {
+      return tokenResult.error;
+    }
+
+    const apiUrl = getBackendUrl()!;
+    const userResponse = await fetchUserProfile(tokenResult.token, apiUrl);
     return NextResponse.json(userResponse.data, { status: userResponse.status });
   } catch (error) {
-    if (error instanceof AccessTokenError) {
-      return NextResponse.json(
-        {
-          error: 'Unauthorized',
-          code: error.code,
-          details: error.message,
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Missing Session"',
-          },
-        },
-      );
+    return handleApiError(error, 'getting user profile');
+  }
+}
+
+/**
+ * Update current user profile
+ * This endpoint is used for programmatic updates (e.g., Redux Saga)
+ */
+export async function PUT(request: NextRequest): Promise<NextResponse> {
+  try {
+    // Validate backend URL
+    const backendUrlError = validateBackendUrl();
+    if (backendUrlError) {
+      return backendUrlError;
     }
 
-    if (axios.isAxiosError(error)) {
-      if (error.response?.status === 401) {
-        return NextResponse.json(
-          {
-            error: 'Unauthorized',
-            code: 'BACKEND_UNAUTHORIZED',
-            details: error.message,
-          },
-          {
-            status: error.response.status,
-            headers: {
-              'WWW-Authenticate':
-                'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-            },
-          },
-        );
-      }
-
-      if (error.response) {
-        return NextResponse.json(
-          {
-            error: 'Error occurred while getting ME profile',
-            details: error.message,
-          },
-          { status: error.response.status },
-        );
-      }
+    // Get access token
+    const tokenResult = await getAccessTokenWithValidation();
+    if (tokenResult.error) {
+      return tokenResult.error;
     }
 
-    return NextResponse.json(
-      {
-        error: 'Error occurred while getting ME profile',
-        details: error instanceof Error ? error.message : String(error),
-      },
-      { status: 500 },
-    );
+    // Get the JSON data from the request
+    const userData: Partial<User> = await request.json();
+
+    try {
+      const apiUrl = getBackendUrl()!;
+      const response = await updateUserProfile(tokenResult.token, apiUrl, userData);
+      return NextResponse.json(response.data, { status: response.status });
+    } catch (axiosError) {
+      if (axios.isAxiosError(axiosError)) {
+        return handleAxiosError(axiosError, 'update user');
+      }
+      throw axiosError;
+    }
+  } catch (error) {
+    return handleApiError(error, 'updating user');
   }
 }

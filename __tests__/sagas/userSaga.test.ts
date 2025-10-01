@@ -1,276 +1,263 @@
+// Mock global fetch
+global.fetch = jest.fn();
+
+// Mock the Server Action
+jest.mock('@/actions/user', () => ({
+  createUserAction: jest.fn(),
+}));
+
 import { put, takeLatest, call } from 'redux-saga/effects';
+import { PayloadAction } from '@reduxjs/toolkit';
+import { User } from '@/types/User.types';
+import { AuthState } from '@/store/slices/user';
+import { Cities, Genders, Nationalities, Languages } from '@/enums/UserAttributes';
+import userSaga, {
+  fetchUserApiWrapper,
+  createUserApiWrapper,
+  updateUserApiWrapper,
+  handleFetchUser,
+  handleCreateUser,
+  handleUpdateUser,
+} from '@/store/sagas/userSaga';
 import {
   setUser,
   setLoading,
-  fetchUser,
   setError,
   setAuth,
-  AuthState,
+  fetchUser,
   createUser,
   createUserSuccess,
   createUserFailure,
+  updateUser,
+  updateUserSuccess,
+  updateUserFailure,
 } from '@/store/slices/user';
-import userSaga, {
-  handleFetchUser,
-  handleCreateUser,
-  fetchUserApiWrapper,
-  createUserApiWrapper,
-} from '@/store/sagas/userSaga';
-import type { User } from '@/types/User.types';
-import { fetchCurrentUser, createUser as createUserApi } from '@/api/userApi';
+import { createUserAction } from '@/actions/user';
 
-// Mock the fetchWithAuth utility
-jest.mock('@/utils/fetchWithAuth', () => ({
-  fetchWithAuth: jest.fn(),
-}));
-
-// Mock the unified API service
-jest.mock('@/api/userApi', () => ({
-  fetchCurrentUser: jest.fn(),
-  createUserApi: jest.fn(),
-}));
-
-const mockedFetchCurrentUser = fetchCurrentUser as jest.MockedFunction<typeof fetchCurrentUser>;
-const mockedCreateUserApi = createUserApi as jest.MockedFunction<typeof createUserApi>;
-
-const createMockResponse = <T>(data: T, status = 200, ok = true): Response =>
-  ({
-    ok,
-    status,
-    statusText: ok ? 'OK' : 'Error',
-    json: async () => data,
-    text: async () => JSON.stringify(data),
-    headers: new Headers(),
-    url: '',
-    redirected: false,
-    type: 'basic',
-    body: null,
-    bodyUsed: false,
-    clone: jest.fn(),
-    arrayBuffer: jest.fn(),
-    blob: jest.fn(),
-    formData: jest.fn(),
-    bytes: jest.fn(),
-  }) as unknown as Response;
+const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+const mockedCreateUserAction = createUserAction as jest.MockedFunction<typeof createUserAction>;
 
 describe('userSaga', () => {
-  describe('HandleFetchUser', () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
-    });
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-    it('Should handle successful API call with 200 status', () => {
-      const mockUserData: User = {
-        userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
-        nationality: '',
-        city: '',
-        university: 'Test University',
-        major: 'Computer Science',
-        preferredLanguage: '',
-        lastJoinDate: new Date(),
+  const mockUser: User = {
+    userId: 'test-user-id',
+    Email: 'test@example.com',
+    Avatar: 'avatar-url',
+    Gender: Genders.Male,
+    nationality: Nationalities.China,
+    city: Cities.Sydney,
+    university: 'Test University',
+    major: 'Computer Science',
+    preferredLanguage: Languages.English,
+    lastJoinDate: new Date('2023-01-01'),
+  };
+
+  describe('fetchUserApiWrapper', () => {
+    it('should fetch user successfully', async () => {
+      // Mock fetch to return successful response
+      mockedFetch.mockResolvedValue({
+        ok: true,
+        status: 200,
+        json: jest.fn().mockResolvedValue(mockUser),
+      } as any);
+
+      const result = await fetchUserApiWrapper();
+
+      // eslint-disable-next-line no-console
+      console.log('fetchUserApiWrapper result:', result);
+
+      expect(mockedFetch).toHaveBeenCalledWith('/api/user/me', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store',
+      });
+      expect(result).toMatchObject({ status: 200, ok: true });
+      expect(result.data).toBeDefined();
+    });
+  });
+
+  describe('createUserApiWrapper', () => {
+    it('should create user successfully', async () => {
+      const newUser: User = {
+        userId: 'new-user-id',
+        Email: 'newuser@example.com',
+        Avatar: 'new-avatar-url',
+        Gender: Genders.Female,
+        nationality: Nationalities.Korea,
+        city: Cities.Melbourne,
+        university: 'New University',
+        major: 'Engineering',
+        preferredLanguage: Languages.English,
+        lastJoinDate: new Date('2023-02-01'),
       };
 
-      const mockResponse = { status: 200, data: mockUserData, ok: true };
+      // Mock Server Action to return successful response
+      mockedCreateUserAction.mockResolvedValue({
+        success: true,
+        data: { userId: '12345' },
+        status: 201,
+      });
+
+      const result = await createUserApiWrapper(newUser);
+
+      // Verify Server Action was called with FormData
+      expect(mockedCreateUserAction).toHaveBeenCalledWith(expect.any(FormData));
+
+      // Verify the FormData contains expected fields
+      const formDataCall = mockedCreateUserAction.mock.calls[0][0] as FormData;
+      expect(formDataCall.get('Email')).toBe('newuser@example.com');
+      expect(formDataCall.get('Gender')).toBe(Genders.Female);
+      expect(formDataCall.get('City')).toBe(Cities.Melbourne);
+      expect(formDataCall.get('Nationality')).toBe(Nationalities.Korea);
+      expect(formDataCall.get('Languages')).toBe(Languages.English);
+      expect(formDataCall.get('Avatar')).toBe('new-avatar-url');
+      expect(formDataCall.get('University')).toBe('New University');
+      expect(formDataCall.get('Major')).toBe('Engineering');
+
+      expect(result).toMatchObject({ status: 201, ok: true });
+      expect(result.data).toBeDefined();
+      // eslint-disable-next-line no-console
+      console.log('createUserApiWrapper result:', result);
+    });
+
+    it('should handle errors during user creation', async () => {
+      const newUser: User = {
+        userId: 'error-user-id',
+        Email: 'error@example.com',
+        Avatar: 'error-avatar-url',
+        Gender: Genders.Other,
+        nationality: Nationalities.Japan,
+        city: Cities.Adelaide,
+        university: 'Error University',
+        major: 'Mathematics',
+        preferredLanguage: Languages.Chinese,
+        lastJoinDate: new Date('2023-03-01'),
+      };
+
+      // Mock Server Action to return error response
+      mockedCreateUserAction.mockRejectedValue(new Error('Creation error'));
+
+      const result = await createUserApiWrapper(newUser);
+      expect(result).toEqual({ status: 500, data: null, ok: false });
+    });
+  });
+
+  describe('handleFetchUser', () => {
+    it('should handle successful user fetch', () => {
+      const mockResponse = {
+        status: 200,
+        data: mockUser,
+        ok: true,
+      };
 
       const generator = handleFetchUser();
-      expect(generator.next().value).toEqual(put(setLoading(true)));
 
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.next(mockResponse).value).toEqual(put(setUser(mockResponse.data)));
+      expect(generator.next().value).toEqual(put(setLoading(true)));
+      expect(generator.next().value).toEqual(call(fetchUserApiWrapper));
+      expect(generator.next(mockResponse).value).toEqual(put(setUser(mockUser)));
       expect(generator.next().value).toEqual(put(setAuth(AuthState.AuthenticatedWithProfile)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
 
-    it('Should handle API call with 404 status', () => {
-      const mockResponse = { status: 404, data: null, ok: false };
+    it('should handle 401 unauthorized', () => {
+      const mockResponse = {
+        status: 401,
+        data: null,
+        ok: false,
+      };
 
       const generator = handleFetchUser();
+
       expect(generator.next().value).toEqual(put(setLoading(true)));
-
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.next(mockResponse).value).toEqual(put(setUser(null)));
-      expect(generator.next().value).toEqual(put(setAuth(AuthState.AuthenticatedButNoProfile)));
-      expect(generator.next().value).toEqual(put(setLoading(false)));
-      expect(generator.next().done).toBe(true);
-    });
-
-    it('Should handle API call with 401 status', () => {
-      const mockResponse = { status: 401, data: null, ok: false };
-
-      const generator = handleFetchUser();
-      expect(generator.next().value).toEqual(put(setLoading(true)));
-
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
+      expect(generator.next().value).toEqual(call(fetchUserApiWrapper));
       expect(generator.next(mockResponse).value).toEqual(put(setAuth(AuthState.Unauthenticated)));
       expect(generator.next().value).toEqual(put(setUser(null)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
 
-    it('Should handle API errors', () => {
-      const mockError = new Error('Network error');
-
+    it('should handle user fetch error', () => {
+      const error = new Error('Fetch failed');
       const generator = handleFetchUser();
+
       expect(generator.next().value).toEqual(put(setLoading(true)));
-
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(mockError).value).toEqual(put(setError('Network error')));
-      expect(generator.next().value).toEqual(put(setLoading(false)));
-      expect(generator.next().done).toBe(true);
-    });
-
-    it('Should handle errors with message via catch', () => {
-      const error = new Error('Request failed with status code 500');
-
-      const generator = handleFetchUser();
-      expect(generator.next().value).toEqual(put(setLoading(true)));
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(error).value).toEqual(
-        put(setError('Request failed with status code 500')),
-      );
-      expect(generator.next().value).toEqual(put(setLoading(false)));
-      expect(generator.next().done).toBe(true);
-    });
-
-    it('Should handle unknown errors via catch', () => {
-      const unknownError = 'Unknown error';
-
-      const generator = handleFetchUser();
-      expect(generator.next().value).toEqual(put(setLoading(true)));
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(fetchUserApiWrapper));
-      expect(generator.throw(unknownError).value).toEqual(
-        put(setError('An unknown error occurred')),
-      );
+      expect(generator.next().value).toEqual(call(fetchUserApiWrapper));
+      expect(generator.throw(error).value).toEqual(put(setError('Fetch failed')));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
   });
 
   describe('handleCreateUser', () => {
-    beforeEach(() => {
-      jest.clearAllMocks();
-    });
-
-    it('Should handle successful user creation with 200 status', () => {
-      const mockUserData: User = {
-        userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
-        nationality: '',
-        city: '',
-        university: 'Test University',
-        major: 'Computer Science',
-        preferredLanguage: '',
-        lastJoinDate: new Date(),
+    it('should handle successful user creation', () => {
+      const newUser: User = {
+        userId: 'new-user-id',
+        Email: 'newuser@example.com',
+        Avatar: 'new-avatar-url',
+        Gender: Genders.Female,
+        nationality: Nationalities.Korea,
+        city: Cities.Perth,
+        university: 'New University',
+        major: 'Engineering',
+        preferredLanguage: Languages.English,
+        lastJoinDate: new Date('2023-02-01'),
       };
 
-      const mockResponse = { status: 200, data: mockUserData, ok: true };
-      const action = { type: 'user/createUser', payload: mockUserData };
+      const mockResponse = {
+        status: 201,
+        data: newUser,
+        ok: true,
+      };
 
+      const action: PayloadAction<User> = { type: 'createUser', payload: newUser };
       const generator = handleCreateUser(action);
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
-      expect(generator.next(mockResponse).value).toEqual(put(createUserSuccess(mockUserData)));
+
+      expect(generator.next().value).toEqual(call(createUserApiWrapper, newUser));
+      expect(generator.next(mockResponse).value).toEqual(put(createUserSuccess(newUser)));
       expect(generator.next().done).toBe(true);
     });
 
-    it('Should handle successful user creation with 201 status', () => {
-      const mockUserData: User = {
-        userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
-        nationality: '',
-        city: '',
-        university: 'Test University',
-        major: 'Computer Science',
-        preferredLanguage: '',
-        lastJoinDate: new Date(),
+    it('should handle creation error', () => {
+      const newUser: User = {
+        userId: 'error-user-id',
+        Email: 'error@example.com',
+        Avatar: 'error-avatar-url',
+        Gender: Genders.Other,
+        nationality: Nationalities.Japan,
+        city: Cities.Adelaide,
+        university: 'Error University',
+        major: 'Mathematics',
+        preferredLanguage: Languages.Chinese,
+        lastJoinDate: new Date('2023-03-01'),
       };
 
-      const mockResponse = { status: 201, data: mockUserData, ok: true };
-      const action = { type: 'user/createUser', payload: mockUserData };
-
+      const action: PayloadAction<User> = { type: 'createUser', payload: newUser };
       const generator = handleCreateUser(action);
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
-      expect(generator.next(mockResponse).value).toEqual(put(createUserSuccess(mockUserData)));
-      expect(generator.next().done).toBe(true);
-    });
 
-    it('Should handle user creation failure', () => {
-      const mockUserData: User = {
-        userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
-        nationality: '',
-        city: '',
-        university: 'Test University',
-        major: 'Computer Science',
-        preferredLanguage: '',
-        lastJoinDate: new Date(),
-      };
+      const failedResponse = { status: 500, data: null, ok: false };
 
-      const mockResponse = { status: 400, data: { error: 'User already exists' }, ok: false };
-      const action = { type: 'user/createUser', payload: mockUserData };
-
-      const generator = handleCreateUser(action);
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
-      expect(generator.next(mockResponse).value).toEqual(
-        put(createUserFailure('User already exists')),
+      expect(generator.next().value).toEqual(call(createUserApiWrapper, newUser));
+      expect(generator.next(failedResponse).value).toEqual(
+        put(createUserFailure('Failed to create user: 500')),
       );
-      expect(generator.next().done).toBe(true);
-    });
-
-    it('Should handle user creation error', () => {
-      const mockUserData: User = {
-        userId: '1',
-        email: 'test@example.com',
-        avatar: 'avatar.jpg',
-        gender: '',
-        nationality: '',
-        city: '',
-        university: 'Test University',
-        major: 'Computer Science',
-        preferredLanguage: '',
-        lastJoinDate: new Date(),
-      };
-
-      const mockError = new Error('Network error');
-      const action = { type: 'user/createUser', payload: mockUserData };
-
-      const generator = handleCreateUser(action);
-      const callEffect = generator.next().value;
-      expect(callEffect).toEqual(call(createUserApiWrapper, mockUserData));
-      expect(generator.throw(mockError).value).toEqual(put(createUserFailure('Network error')));
       expect(generator.next().done).toBe(true);
     });
   });
 
-  describe('userSaga root', () => {
-    it('Should watch for fetchUser and createUser actions with takeLatest', () => {
-      const userSagaGenerator = userSaga();
+  describe('userSaga watcher', () => {
+    it('should watch for fetchUser, createUser, and updateUser actions', () => {
+      const generator = userSaga();
 
-      const fetchEffect = userSagaGenerator.next().value;
-      expect(fetchEffect).toEqual(takeLatest(fetchUser.type, handleFetchUser));
-
-      const createEffect = userSagaGenerator.next().value;
-      expect(createEffect).toEqual(takeLatest(createUser.type, handleCreateUser));
-
-      expect(userSagaGenerator.next().done).toBe(true);
+      expect(generator.next().value).toEqual(takeLatest(fetchUser.type, handleFetchUser));
+      expect(generator.next().value).toEqual(takeLatest(createUser.type, handleCreateUser));
+      expect(generator.next().value).toEqual(takeLatest(updateUser.type, handleUpdateUser));
+      expect(generator.next().done).toBe(true);
     });
   });
 });

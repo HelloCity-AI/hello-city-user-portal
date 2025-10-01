@@ -2,12 +2,7 @@
  * Mock data for chat history - 临时数据，待 server API 集成时移除
  */
 
-export interface ChatHistoryItem {
-  id: string;
-  title: string;
-  createdAt: Date;
-  isActive: boolean;
-}
+import type { ChatHistoryItem } from './ChatSidebar';
 
 export const mockChatHistory: ChatHistoryItem[] = [
   {

@@ -22,6 +22,8 @@ describe('user slice', () => {
     authStatus: AuthState.Unauthenticated,
     isCreating: false,
     createError: null,
+    isUpdating: false,
+    updateError: null,
   };
 
   const mockUser: User = {
@@ -97,6 +99,8 @@ describe('user slice', () => {
         authStatus: AuthState.AuthenticatedWithProfile,
         isCreating: false,
         createError: null,
+        isUpdating: false,
+        updateError: null,
       };
 
       const actual = userReducer(previousState, logOut());
@@ -112,6 +116,8 @@ describe('user slice', () => {
         authStatus: AuthState.AuthenticatedWithProfile,
         isCreating: true,
         createError: 'Creation failed',
+        isUpdating: false,
+        updateError: null,
       };
 
       const actual = userReducer(previousState, logOut());
@@ -264,6 +270,8 @@ describe('user slice', () => {
         authStatus: AuthState.AuthenticatedWithProfile,
         isCreating: false,
         createError: null,
+        isUpdating: false,
+        updateError: null,
       };
 
       const actual = userReducer(previousState, fetchUser());

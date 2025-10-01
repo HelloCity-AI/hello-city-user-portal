@@ -1,54 +1,34 @@
 import type { User } from '@/types/User.types';
-import { fetchWithAuth } from '@/utils/fetchWithAuth';
+import {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  deleteUserProfile,
+  createApiClient,
+} from '@/lib/api-client';
+import { getAccessTokenWithValidation, getBackendUrl } from '@/lib/auth-utils';
 
 /**
- * Unified User API Service
- * All user-related API calls with consistent authentication and error handling
+ * @deprecated Use createUserProfile from @/lib/api-client instead
+ * This function is kept for backward compatibility but will be removed in future versions
  */
-
-/**
- * Get the base URL for API calls
- * @returns The base URL from environment variables
- */
-const getBaseUrl = (): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-  if (!baseUrl) {
-    throw new Error('NEXT_PUBLIC_BACKEND_URL environment variable is not set');
-  }
-  return baseUrl;
-};
-
-/**
- * Fetch current user profile
- * @returns Promise<Response> - Response from the API
- */
-export const fetchCurrentUser = async (): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/me`, {
-    method: 'GET',
-  });
-  return response;
-};
-
-/**
- * Create a new user profile
- * @param newUser - User data to create
- * @returns Promise<Response> - Response from the API
- */
-export const createUser = async (newUser: User): Promise<Response> => {
-  // Validate userId to avoid potential conflicts with default username
-  if (!newUser.userId || newUser.userId.trim() === '') {
-    throw new Error('User ID is required and cannot be empty');
+export const createUser = async (newUser: User) => {
+  // Get access token and backend URL
+  const tokenResponse = await getAccessTokenWithValidation();
+  if ('error' in tokenResponse) {
+    throw new Error('Failed to get access token');
   }
 
-  if (newUser.userId === 'defaultUsername') {
-    throw new Error('User ID cannot be "defaultUsername" as it conflicts with system defaults');
+  const backendUrl = getBackendUrl();
+  if (!backendUrl) {
+    throw new Error('Backend URL is not configured');
   }
 
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
   // Add required fields
-  formData.append('Username', newUser.userId);
+  formData.append('Username', newUser.userId || 'defaultUsername');
   formData.append('Email', newUser.Email);
 
   // Add optional fields
@@ -69,59 +49,50 @@ export const createUser = async (newUser: User): Promise<Response> => {
     formData.append('File', newUser.avatarFile);
   }
 
-  // If there's an avatar file, it can also be added
-  // if (newUser.Avatar && newUser.Avatar instanceof File) {
-  //   formData.append('File', newUser.Avatar);
-  // }
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile);
+  }
 
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user`, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      // Don't set Content-Type for FormData, let the browser set it with boundary
-      Accept: '*/*',
-    },
-  });
-  return response;
+  // Use the new api-client function
+  const response = await createUserProfile(tokenResponse.token, backendUrl, formData);
+
+  return {
+    data: response.data,
+    status: response.status,
+  };
 };
 
 /**
- * Update user profile
- * @param userId - User ID to update
- * @param userData - Updated user data
- * @returns Promise<Response> - Response from the API
+ * @deprecated Use fetchUserProfile from @/lib/api-client instead
+ * This function is kept for backward compatibility but will be removed in future versions
+ * Used in demo, currently unused, waiting for new ticket
  */
-export const updateUser = async (userId: string, userData: Partial<User>): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'PUT',
-    body: JSON.stringify(userData),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  return response;
+export const fetchUser = async (newUserId: string) => {
+  // Get access token and backend URL
+  const tokenResponse = await getAccessTokenWithValidation();
+  if ('error' in tokenResponse) {
+    throw new Error('Failed to get access token');
+  }
+
+  const backendUrl = getBackendUrl();
+  if (!backendUrl) {
+    throw new Error('Backend URL is not configured');
+  }
+
+  // Use the new api-client function
+  const response = await fetchUserProfile(tokenResponse.token, backendUrl);
+
+  return {
+    data: response.data,
+    status: response.status,
+  };
 };
 
-/**
- * Fetch user by ID (for demo purposes)
- * @param userId - User ID to fetch
- * @returns Promise<Response> - Response from the API
- */
-export const fetchUserById = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'GET',
-  });
-  return response;
-};
-
-/**
- * Delete user profile
- * @param userId - User ID to delete
- * @returns Promise<Response> - Response from the API
- */
-export const deleteUser = async (userId: string): Promise<Response> => {
-  const response = await fetchWithAuth(`${getBaseUrl()}/api/user/${userId}`, {
-    method: 'DELETE',
-  });
-  return response;
-};
+// Re-export the new API functions for easier migration
+export {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  deleteUserProfile,
+  createApiClient,
+} from '@/lib/api-client';
