@@ -1,15 +1,8 @@
-import { renderHook, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { useNavigation } from '@/hooks/useNavigation';
 import { TestProviders } from '../utils/TestWrapper';
 
-const mockAlert = jest.fn();
-global.alert = mockAlert;
-
 describe('useNavigation', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('Returns navigation config with correct structure', () => {
     const { result } = renderHook(() => useNavigation(), {
       wrapper: TestProviders,
@@ -22,16 +15,16 @@ describe('useNavigation', () => {
     expect(logo.href).toBe('/en/');
   });
 
-  it('Executes onClick handlers correctly', () => {
+  it('Chat navigation item uses href instead of onClick', () => {
     const { result } = renderHook(() => useNavigation(), {
       wrapper: TestProviders,
     });
 
     const { navItems } = result.current;
+    const chatItem = navItems[1]; // chat item
 
-    // Test chat alert (contact item has no onClick, it uses href)
-    act(() => navItems[1].onClick?.()); // chat
-
-    expect(mockAlert).toHaveBeenCalledWith('chat');
+    // Chat item should have href but no onClick handler
+    expect(chatItem.href).toBe('/en/assistant');
+    expect(chatItem.onClick).toBeUndefined();
   });
 });

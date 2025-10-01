@@ -12,10 +12,10 @@ import HamburgerMenuIcon from './HamburgerMenuIcon';
 import NavDrawer from './NavDrawer';
 import UserDrawer from './UserDrawer';
 import UserAvatar from '@/compoundComponents/UserAvatar';
-import useUserMenu from '@/hooks/useUserMenu';
+import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
-import useLanguageMenu from '@/hooks/useLanguageMenu';
+import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
 
 const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
@@ -27,14 +27,14 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
   const { logo, navItems } = navConfig;
   const { options: userMenuOptions, ModalNode } = useUserMenu();
 
-  const { childrenNavItems } = useLanguageMenu();
+  const { languageOptionsForDrawer } = useLanguageMenu();
 
   // Build menu stack directly; the dataset is small and recomputation is cheap.
   const languageRoot: NavItem = {
     id: 'change language',
     href: '',
     label: <Trans id="NavBar.ChangeLanguage" message="Change Language" />,
-    childrenItem: childrenNavItems,
+    childrenItem: languageOptionsForDrawer,
   };
   const rootMenu: NavItem[] = [...navItems, languageRoot];
   const menuStack: NavItem[][] = [rootMenu];
@@ -105,7 +105,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
     if (hasAuthenticated) {
       return (
         <IconButton onClick={handleUserDrawer} aria-label="User menu">
-          <UserAvatar size={32} />
+          <UserAvatar size="2rem" />
         </IconButton>
       );
     }

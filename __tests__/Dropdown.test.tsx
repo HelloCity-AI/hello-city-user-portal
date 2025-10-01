@@ -9,6 +9,7 @@ import type { MenuOption } from '@/types/menu';
 const fireMenuItem = jest.fn();
 const baseTestOptions: MenuOption[] = [
   {
+    id: 'profile',
     label: 'Profile',
     value: 'profile',
     icon: AccountCircleIcon,
@@ -16,6 +17,7 @@ const baseTestOptions: MenuOption[] = [
     onClick: fireMenuItem,
   },
   {
+    id: 'logout',
     label: 'Logout',
     value: 'logout',
     icon: null,
@@ -24,7 +26,7 @@ const baseTestOptions: MenuOption[] = [
   },
 ];
 const testOptionsWithoutIcon: MenuOption[] = [
-  { label: 'Profile', value: 'profile', onClick: fireMenuItem },
+  { id: 'profile', label: 'Profile', value: 'profile', onClick: fireMenuItem },
 ];
 
 const renderDropdown = (props = {}) => {
@@ -112,6 +114,29 @@ describe('DropDown component', () => {
       const paper = document.querySelector('.MuiPaper-root') as HTMLElement;
       expect(paper).toHaveStyle({ marginTop: '0rem' });
     });
+
+    it('Renders IconButton by default', () => {
+      renderDropdown();
+      const iconButton = document.querySelector('[aria-label="open menu"]');
+      expect(iconButton?.tagName.toLowerCase()).toBe('button');
+      expect(iconButton?.closest('.MuiIconButton-root')).toBeInTheDocument();
+    });
+
+    it('Renders Button when disableIconButton=true', () => {
+      renderDropdown({ disableIconButton: true });
+      const button = document.querySelector('[aria-label="open menu"]');
+      expect(button?.tagName.toLowerCase()).toBe('button');
+      expect(button).toBeInTheDocument();
+      expect(button?.closest('.MuiIconButton-root')).not.toBeInTheDocument();
+    });
+
+    it('Handles undefined dropdownOptions gracefully', () => {
+      expect(() => {
+        renderWithTheme(
+          <Dropdown anchorElContent={<span>open</span>} dropdownOptions={undefined as any} />,
+        );
+      }).not.toThrow();
+    });
   });
 
   describe('UX Interactions', () => {
@@ -125,7 +150,7 @@ describe('DropDown component', () => {
       await userEvent.click(screen.getByText('Profile'));
 
       expect(fireMenuItem).toHaveBeenCalledTimes(1);
-      expect(fireMenuItem).toHaveBeenCalledWith('profile');
+      expect(fireMenuItem).toHaveBeenCalledWith();
       await waitFor(() => {
         expect(screen.queryByRole('menu')).not.toBeInTheDocument();
       });

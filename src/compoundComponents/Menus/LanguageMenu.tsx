@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Dropdown from '@/components/Dropdown';
-import useLanguageMenu from '@/hooks/useLanguageMenu';
+import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
 
 interface LanguageMenuProps {
   trigger: React.ReactNode; // anchorElContent for Dropdown
+  disableHover?: boolean;
   layout?: 'vertical' | 'horizontal';
   textAlignCenter?: boolean;
   transformOrigin?: {
@@ -26,8 +27,9 @@ const LanguageMenu: React.FC<LanguageMenuProps> = ({
   textAlignCenter = true,
   transformOrigin,
   anchorOrigin,
+  disableHover,
 }) => {
-  const { optionsForDropdown: options } = useLanguageMenu();
+  const { languageOptionsForDropdown: options } = useLanguageMenu();
 
   return (
     <Dropdown
@@ -37,7 +39,7 @@ const LanguageMenu: React.FC<LanguageMenuProps> = ({
       textAlignCenter={textAlignCenter}
       transformOrigin={transformOrigin}
       anchorOrigin={anchorOrigin}
-      disableHover
+      disableHover={disableHover}
     />
   );
 };

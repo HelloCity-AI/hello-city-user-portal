@@ -6,8 +6,9 @@ import Avatar from '@mui/material/Avatar';
 import Dropdown from '@/components/Dropdown';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import type { MenuOption } from '@/types/menu';
+import Box from '@mui/material/Box';
 interface DropdownDisplayProps {
-  anchorElContent: React.ReactNode;
+  disableIconButton: boolean;
   dropdownOptions: MenuOption[];
   showUserLabel?: boolean;
   textAlignCenter?: boolean;
@@ -20,82 +21,92 @@ interface DropdownDisplayProps {
 
 const userMenuDisplayOptions: MenuOption[] = [
   {
+    id: 'profile',
     label: 'Profile',
     value: 'profile',
     icon: PaymentOutlinedIcon,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('profile'),
   },
   {
+    id: 'settings',
     label: 'Settings',
     value: 'settings',
     icon: SettingsOutlinedIcon,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('settings'),
   },
   {
+    id: 'theme',
     label: 'Theme',
     value: 'theme',
     icon: ContrastOutlinedIcon,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('theme'),
   },
   {
+    id: 'subscription',
     label: 'Subscription',
     value: 'subscription',
     icon: PaymentOutlinedIcon,
     divider: true,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('subscription'),
   },
   {
+    id: 'logout',
     label: 'Logout',
     value: 'logout',
     icon: Logout,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('logout'),
   },
 ];
 
 const languageMenuDisplayOptions: MenuOption[] = [
   {
+    id: 'zh-cn',
     label: '简体中文',
     value: 'zh-CN',
     icon: null,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('zh-CN'),
   },
   {
+    id: 'zh-tw',
     label: '繁體中文',
     value: 'zh-TW',
     icon: null,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('zh-TW'),
   },
   {
+    id: 'en-uk',
     label: 'English',
     value: 'en-UK',
     icon: null,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('en-UK'),
   },
   {
+    id: 'ja-jp',
     label: '日本語',
     value: 'ja-JP',
     icon: null,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('ja-JP'),
   },
   {
+    id: 'ko-kr',
     label: '한국어',
     value: 'ko-KR',
     icon: null,
     divider: false,
-    onClick: (value: string) => alert(value),
+    onClick: () => alert('ko-KR'),
   },
 ];
 
 const DropdownDisplay: React.FC<DropdownDisplayProps> = ({
-  anchorElContent,
+  disableIconButton,
   dropdownOptions,
   showUserLabel,
   textAlignCenter,
@@ -105,8 +116,8 @@ const DropdownDisplay: React.FC<DropdownDisplayProps> = ({
   anchorOriginHorizontal = 'right',
   anchorOriginVertical = 'bottom',
 }) => {
-  const content = anchorElContent ? (
-    anchorElContent
+  const content = disableIconButton ? (
+    <Box sx={{ width: 60, py: 0.5, cursor: 'pointer' }}>TestMenu</Box>
   ) : (
     <Avatar
       sx={{ width: 40, height: 40, cursor: 'pointer' }}
@@ -118,6 +129,7 @@ const DropdownDisplay: React.FC<DropdownDisplayProps> = ({
   return (
     <Dropdown
       anchorElContent={content}
+      disableIconButton={disableIconButton}
       dropdownOptions={dropdownOptions}
       showUserLabel={showUserLabel}
       textAlignCenter={textAlignCenter}
@@ -138,6 +150,9 @@ const meta: Meta<typeof DropdownDisplay> = {
     dropdownOptions: {
       control: { type: 'radio' },
       options: [userMenuDisplayOptions, languageMenuDisplayOptions],
+    },
+    disableIconButton: {
+      control: 'boolean',
     },
     layout: {
       control: { type: 'radio' },

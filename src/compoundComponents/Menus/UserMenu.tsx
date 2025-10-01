@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Dropdown from '@/components/Dropdown';
-import useUserMenu from '@/hooks/useUserMenu';
+import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { ReactNode } from 'react';
 
 interface UserMenuProps {
@@ -15,6 +15,8 @@ interface UserMenuProps {
     vertical: 'top' | 'center' | 'bottom';
   };
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
+  disableIconButton?: boolean;
+  disableHover?: boolean;
 }
 
 /**
@@ -30,6 +32,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
   textAlignCenter,
   transformOrigin,
   anchorOrigin,
+  disableIconButton,
+  disableHover,
 }) => {
   const { options, ModalNode } = useUserMenu();
 
@@ -43,6 +47,8 @@ const UserMenu: React.FC<UserMenuProps> = ({
         textAlignCenter={textAlignCenter}
         transformOrigin={transformOrigin}
         anchorOrigin={anchorOrigin}
+        disableIconButton={disableIconButton}
+        disableHover={disableHover}
       />
       {ModalNode}
     </React.Fragment>

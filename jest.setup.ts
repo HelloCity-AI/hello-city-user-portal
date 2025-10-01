@@ -241,6 +241,8 @@ jest.mock('@lingui/react', () => {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
         _: (id: string, _values?: any) => id,
         locale: 'en',
+        on: jest.fn(),
+        removeListener: jest.fn(),
       },
     }),
   };
