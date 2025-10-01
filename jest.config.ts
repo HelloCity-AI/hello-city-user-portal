@@ -101,6 +101,7 @@ const config: InitialOptionsTsJest = {
   moduleNameMapper: {
     '^@auth0/nextjs-auth0$': '<rootDir>/__tests__/__mocks__/@auth0/nextjs-auth0.js',
     '^@auth0/nextjs-auth0/server$': '<rootDir>/__tests__/__mocks__/@auth0/nextjs-auth0-server.js',
+    '^@auth0/nextjs-auth0/errors$': '<rootDir>/__tests__/__mocks__/@auth0/nextjs-auth0-errors.js',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
 

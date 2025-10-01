@@ -83,7 +83,7 @@ if (!globalThis.Request) {
     body?: BodyInit | null;
     constructor(input: string | Request, init: RequestInit = {}) {
       const fromReq = typeof input === 'string' ? undefined : (input as Request);
-      this.url = typeof input === 'string' ? input : fromReq!.url;
+      this.url = typeof input === 'string' ? input : (fromReq?.url ?? '');
       // Merge semantics: init overrides input, fall back to GET
       this.method = init.method ?? (fromReq as Request)?.method ?? 'GET';
       this.headers = new Headers(init.headers ?? (fromReq as Request)?.headers ?? {});
