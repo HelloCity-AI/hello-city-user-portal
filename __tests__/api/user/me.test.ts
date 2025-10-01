@@ -26,11 +26,7 @@ jest.mock('next/server', () => ({
 
 import { NextRequest } from 'next/server';
 import { GET, PUT } from '@/app/api/user/me/route';
-import {
-  getAccessTokenWithValidation,
-  validateBackendUrl,
-  getBackendUrl,
-} from '@/lib/auth-utils';
+import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
 import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
 import axios from 'axios';
@@ -324,10 +320,7 @@ describe('/api/user/me', () => {
       const response = await PUT(request);
 
       // Assert
-      expect(mockHandleApiError).toHaveBeenCalledWith(
-        expect.any(Error),
-        'updating user'
-      );
+      expect(mockHandleApiError).toHaveBeenCalledWith(expect.any(Error), 'updating user');
       expect(response).toBe(mockErrorResponse);
     });
   });
