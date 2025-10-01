@@ -12,6 +12,8 @@ import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
+import type { RootState } from '@/store';
+
 
 const Page = () => {
   const { user, isLoading } = useUser();
@@ -26,7 +28,14 @@ const Page = () => {
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const [uploaderOpen, setUploaderOpen] = useState<boolean>(false);
-  const prevObjectUrlRef = useRef<string | null>(null);
+  const prevObjectUrl = useRef<string | null>(null);
+
+  const revokeUrl = () => {
+    if(prevObjectUrl.current) {
+      URL.revokeObjectURL(prevObjectUrl.current)
+      prevObjectUrl.current = null
+    }
+  }
 
   // Set Email after Auth0 user information is loaded
   useEffect(() => {
@@ -39,12 +48,7 @@ const Page = () => {
   }, [user]);
 
   useEffect(() => {
-    return () => {
-      if (prevObjectUrlRef.current) {
-        URL.revokeObjectURL(prevObjectUrlRef.current);
-        prevObjectUrlRef.current = null;
-      }
-    };
+    return () => revokeUrl();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -52,21 +56,15 @@ const Page = () => {
   };
 
   const handleSelectImage = (file: File | null) => {
+    revokeUrl()
+    if(!file) return setAvatarPreview(null);
+    const url = URL.createObjectURL(file);
+    setAvatarPreview(url);
     setProfileImage(file);
-    if (file) {
-      const url = URL.createObjectURL(file);
-      if (prevObjectUrlRef.current) URL.revokeObjectURL(prevObjectUrlRef.current);
-      prevObjectUrlRef.current = url;
-      setAvatarPreview(url);
-    }
-    if (!file && prevObjectUrlRef.current) {
-      URL.revokeObjectURL(prevObjectUrlRef.current);
-      prevObjectUrlRef.current = null;
-      setAvatarPreview(null);
-    }
+    prevObjectUrl.current = url;
+    setFormData({ ...formData, avatarFile: file })
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   // Handle successful user creation
   useEffect(() => {
     if (userData && !isCreating && !createError) {
@@ -117,48 +115,48 @@ const Page = () => {
 
   return (
     <>
-      {uploaderOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-2">
-          <div className="rounded-2xl bg-white px-4 pb-2 pt-8">
-            <ProfileImageUploader
-              selectedImage={handleSelectImage}
-              initialPreview={avatarPreview}
-            />
-            <div className="flex items-center justify-end pt-2">
-              <Typography variant="body2" className="p-2">
-                Return to Sign Up
-              </Typography>
-              <IconButton onClick={() => setUploaderOpen(false)}>
-                <CloseIcon color="primary" fontSize="medium" />
-              </IconButton>
-            </div>
-          </div>
-        </div>
-      )}
-
       <form
         onSubmit={handleSubmit}
         className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
       >
         <div className="absolute inset-0 bg-black/25" />
-        <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]" />
+        <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]" >
           <div className="mb-6 text-center">
             <Typography variant="h3" className="text-2xl sm:text-3xl">
               Hello City
             </Typography>
           </div>
 
+          {uploaderOpen && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 p-2">
+              <div className="rounded-2xl bg-white px-4 pb-2 pt-8">
+                <ProfileImageUploader
+                  selectedImage={handleSelectImage}
+                  initialPreview={avatarPreview}
+                />
+                <div className="flex items-center justify-end pt-2">
+                  <Typography variant="body2" className="p-2">
+                    Return to Sign Up
+                  </Typography>
+                  <IconButton onClick={() => setUploaderOpen(false)}>
+                    <CloseIcon color="primary" fontSize="medium" />
+                  </IconButton>
+                </div>
+              </div>
+            </div>
+          )}
+          
           <button
             type="button"
             onClick={() => setUploaderOpen(true)}
-            className="mb-6 flex items-center justify-center overflow-hidden rounded-xl border-2 border-indigo-600 object-cover"
+            className="mb-6 flex items-center justify-center overflow-hidden rounded-full border-2 border-indigo-600 object-cover"
           >
             <Image
               src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
               alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
               width={100}
               height={100}
-              className="border-1 h-[100px] w-[100px] rounded-xl object-cover"
+              className="h-[100px] w-[100px] rounded-full object-cover"
             />
           </button>
 
@@ -195,11 +193,12 @@ const Page = () => {
               <Trans id="I'm all set" message="I'm all set" />
             )}
           </Button>
+          </div>
         </div>
       </form>
     </>
   );
 };
-}
+
 
 export default Page;

@@ -79,7 +79,7 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }
         alt={!preview ? 'Default Avatar' : 'Profile Image Preview'}
         width={150}
         height={150}
-        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+        className="h-[150px] w-[150px] rounded-full border-2 border-indigo-600 object-cover"
       />
 
       {status == 'error' && (
