@@ -9,6 +9,8 @@ import { fetchWithAuth } from '@/utils/fetchWithAuth';
 import type { CreateChecklistItemRequest, ChecklistItem } from '@/types/checkList.types';
 import dayjs from 'dayjs';
 
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+
 export const checklistApi = {
   /**
    * Creates a new checklist item for a specific user
@@ -29,7 +31,7 @@ export const checklistApi = {
     };
 
     const response = await fetchWithAuth(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}/checklist-item`,
+      `${BACKEND_URL}/api/user/${userId}/checklist-item`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -50,7 +52,7 @@ export const checklistApi = {
    */
   async getChecklistItems(userId: string): Promise<ChecklistItem[]> {
     const response = await fetchWithAuth(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}/checklist-item`,
+      `${BACKEND_URL}/api/user/${userId}/checklist-item`,
     );
 
     if (!response.ok) throw new Error('Failed to fetch checklist items');
@@ -72,7 +74,7 @@ export const checklistApi = {
     data: Partial<CreateChecklistItemRequest>,
   ): Promise<ChecklistItem> {
     const response = await fetchWithAuth(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
+      `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
       {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -94,7 +96,7 @@ export const checklistApi = {
    */
   async deleteChecklistItem(userId: string, itemId: string): Promise<void> {
     const response = await fetchWithAuth(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
+      `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
       { method: 'DELETE' },
     );
 

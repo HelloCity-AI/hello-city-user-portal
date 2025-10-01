@@ -11,6 +11,7 @@ import type { CreateChecklistItemRequest } from '@/types/checkList.types';
 import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
+
 interface CreateChecklistItemButtonProps {
   onItemCreated?: () => void;
   variant?: 'button' | 'fab';
@@ -21,6 +22,7 @@ interface CreateChecklistItemButtonProps {
   fullWidth?: boolean;
   sx?: ButtonProps['sx'] | FabProps['sx'];
 }
+
 export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps> = ({
   onItemCreated,
   variant = 'button',
@@ -58,14 +60,6 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
     }
   };
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
-
   return (
     <>
       {variant === 'fab' ? (
@@ -73,7 +67,7 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
           color={color as FabProps['color']}
           size={size as FabProps['size']}
           disabled={disabled}
-          onClick={handleOpenModal}
+          onClick={() => setModalOpen(true)}
           sx={sx}
           aria-label="add checklist item"
         ></Fab>
@@ -83,7 +77,7 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
           color={color}
           size={size}
           disabled={disabled}
-          onClick={handleOpenModal}
+          onClick={() => setModalOpen(true)}
           startIcon={<AddIcon />}
           fullWidth={fullWidth}
           sx={sx}
@@ -95,7 +89,7 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
       {/* only show modal when open */}
       <CreateChecklistItemModal
         open={modalOpen}
-        onClose={handleCloseModal}
+        onClose={() => setModalOpen(false)}
         onSubmit={handleSubmit}
         userId={userId ?? ''}
       />
