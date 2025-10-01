@@ -30,14 +30,11 @@ export const checklistApi = {
       dueDate: data.dueDate ? dayjs(data.dueDate).format('YYYY-MM-DD') : '',
     };
 
-    const response = await fetchWithAuth(
-      `${BACKEND_URL}/api/user/${userId}/checklist-item`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      },
-    );
+    const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
 
     if (!response.ok) throw new Error('Failed to create checklist item');
     return response.json();
@@ -51,9 +48,7 @@ export const checklistApi = {
    * @throws Error if the API request fails
    */
   async getChecklistItems(userId: string): Promise<ChecklistItem[]> {
-    const response = await fetchWithAuth(
-      `${BACKEND_URL}/api/user/${userId}/checklist-item`,
-    );
+    const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item`);
 
     if (!response.ok) throw new Error('Failed to fetch checklist items');
     return response.json();
