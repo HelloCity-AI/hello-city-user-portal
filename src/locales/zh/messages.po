@@ -13,9 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#~ msgid "NaveBar.Back"
-#~ msgstr "返回"
-
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
@@ -412,6 +409,10 @@ msgstr "个人资料"
 #~ msgid "Theme"
 #~ msgstr "主题"
 
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "图片上传中..."
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card1.Description"
@@ -452,6 +453,10 @@ msgstr "个人资料"
 #~ msgid "ValueProposition.Title"
 #~ msgstr "为什么选择HelloCity？"
 
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AI正在思考中..."
+
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
@@ -460,7 +465,7 @@ msgstr "HelloCity账户"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 msgid "ai.thinking"
-msgstr "AI正在思考中..."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -1386,7 +1391,7 @@ msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
 msgid "file.upload.progress"
-msgstr "图片上传中..."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:41

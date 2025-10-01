@@ -12,6 +12,10 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
 #~ msgstr "Ready for Takeoff"
@@ -352,6 +356,10 @@ msgstr "Profile"
 #~ msgid "Theme"
 #~ msgstr "Theme"
 
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ..."
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card1.Description"
@@ -391,6 +399,10 @@ msgstr "Profile"
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
 #~ msgstr "Why choose HelloCity?"
+
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AI正在思考..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:90
