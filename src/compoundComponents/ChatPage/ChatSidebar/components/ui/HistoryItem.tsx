@@ -12,7 +12,7 @@ import ResponsiveIconContainer from '../layout/ResponsiveIconContainer';
 import ResponsiveContainer from '../layout/ResponsiveContainer';
 import { mergeClassNames } from '@/utils/classNames';
 import { HOVER_EFFECTS, TEXT_STYLES, ICON_STYLES } from '../../constants';
-import ConversationHistoryMenu from '@/compoundComponents/Menus/ConversationHistoryMenu';
+import ConversationHistoryMenu from '@/compoundComponents/Menus/ConversationHistoryMenu/ConversationHistoryMenu';
 import useDeleteConversation from '@/hooks/modals/useDeleteConversationHistory';
 import { CircularProgress } from '@mui/material';
 

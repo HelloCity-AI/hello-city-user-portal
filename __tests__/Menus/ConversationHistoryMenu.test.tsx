@@ -2,7 +2,7 @@ import React from 'react';
 import { screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import ConversationHistoryMenu from '@/compoundComponents/Menus/ConversationHistoryMenu';
+import ConversationHistoryMenu from '@/compoundComponents/Menus/ConversationHistoryMenu/ConversationHistoryMenu';
 import { renderWithThemeAndI18n } from '../utils/renderWithProviders';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 

@@ -1,5 +1,6 @@
-'use client';
+// FAQSection.tsx
 
+'use client';
 import React, { useMemo, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -13,6 +14,7 @@ import SectionContentArea from '@/components/HomepageSections/SectionContentArea
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import { Trans, useLingui } from '@lingui/react';
+import Link from 'next/link';
 
 const DEFAULT_FAQ_KEY = 'faq1';
 
@@ -74,7 +76,6 @@ const FAQSection: React.FC = () => {
     },
   ];
 
-  // 搜索逻辑：输入时匹配，没输入只显示默认
   const filtered = useMemo(() => {
     if (isComposing) return faqs.filter((f) => f.key === DEFAULT_FAQ_KEY);
 
@@ -97,6 +98,10 @@ const FAQSection: React.FC = () => {
       ),
     ];
   }, [q, isComposing, i18n]);
+
+  // mock area. 
+
+  const mockHistoryCount = (q ?? '').trim() ? 2 : 0;
 
   return (
     <SectionBackground additionalWrapperClassName="bg-white">
@@ -179,6 +184,19 @@ const FAQSection: React.FC = () => {
               </Accordion>
             ))}
           </div>
+
+          {/* mock history link to history record page */}
+          {mockHistoryCount > 0 && (
+            <div className="mx-auto mt-4 w-full max-w-3xl text-center">
+              <Typography variant="body2" color="text.secondary" gutterBottom>
+                {mockHistoryCount} conversation history result
+                {mockHistoryCount > 1 ? 's' : ''} found
+              </Typography>
+              <Link href="/conversation-history" className="text-blue-600 underline">
+                View conversation history →
+              </Link>
+            </div>
+          )}
         </SectionContentArea>
       </SectionContent>
     </SectionBackground>
