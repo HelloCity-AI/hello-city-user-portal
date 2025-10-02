@@ -41,26 +41,56 @@ export async function middleware(request: NextRequest) {
 
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url),
+    const redirectUrl = new URL(
+      `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+      request.url,
     );
+    const res = NextResponse.redirect(redirectUrl);
+
+    // NEW: 重定向时，写入 lang cookie（与将要前往的语言一致）
+    res.cookies.set('lang', locale, {
+      path: '/',
+      httpOnly: false,
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+    });
+
+    return res;
   }
 
   const lang = resolveLang(request, pathname);
+
   const protectedPrefixes = [
     `/${lang}/assistant`,
     `/${lang}/profile`,
     `/${lang}/create-user-profile`,
   ];
   const pathnameIsProtected = protectedPrefixes.some((p) => pathname.startsWith(p));
+
   if (pathnameIsProtected) {
     const session = await auth0.getSession(request);
     if (!session?.user) {
-      return NextResponse.redirect(new URL(`/${lang}/`, request.url));
+      const res = NextResponse.redirect(new URL(`/${lang}/`, request.url));
+
+      res.cookies.set('lang', lang, {
+        path: '/',
+        httpOnly: false,
+        sameSite: 'lax',
+        maxAge: 60 * 60 * 24 * 365,
+      });
+
+      return res;
     }
   }
 
-  return NextResponse.next();
+  const res = NextResponse.next();
+  res.cookies.set('lang', lang, {
+    path: '/',
+    httpOnly: false,
+    sameSite: 'lax',
+    maxAge: 60 * 60 * 24 * 365,
+  });
+  return res;
 }
 
 export const config = {

@@ -1,12 +1,13 @@
-'use client';
+// Server RSC + Lingui，多语言 404（仅此页修改）
+// 注意：无事件处理器、无函数式 sx，避免 RSC 报错
 
-import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { headers, cookies } from 'next/headers';
+import Negotiator from 'negotiator';
 import { Box, Container, Typography, Stack, Divider } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { Trans, useLingui } from '@lingui/react';
-import Script from 'next/script';
+import { Trans } from '@lingui/react';
+import { setI18n } from '@lingui/react/server';
+import { i18n } from '@lingui/core';
 
 import {
   SUPPORTED_LANGUAGES,
@@ -14,6 +15,7 @@ import {
   type SupportedLanguage,
 } from '../../compoundComponents/NavBar/navConfig';
 
+// ---- 语言选择：优先 cookie('lang')，否则退回 Accept-Language ----
 const SUPPORTED = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
 const LOWER_TO_CANON = SUPPORTED.reduce(
   (acc, c) => {
@@ -25,47 +27,41 @@ const LOWER_TO_CANON = SUPPORTED.reduce(
 const canon = (code?: string): SupportedLanguage =>
   LOWER_TO_CANON[(code || 'en').toLowerCase()] ?? 'en';
 
-export default function NotFound() {
-  const theme = useTheme();
-  const { i18n } = useLingui();
-  const pathname = usePathname() || '/';
-  const pathLang = canon(pathname.split('/').filter(Boolean)[0]);
+function detectLocale(): SupportedLanguage {
+  const cookieLang = cookies().get('lang')?.value;
+  if (cookieLang && LOWER_TO_CANON[cookieLang.toLowerCase()]) {
+    return canon(cookieLang);
+  }
+  const accept = headers().get('accept-language') ?? '';
+  const nego = new Negotiator({ headers: { 'accept-language': accept } });
+  const match = nego.language(SUPPORTED as string[]) as string | null;
+  return canon(match ?? 'en');
+}
 
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const handler = () => setTick((t) => t + 1);
-    i18n.on('change', handler);
-    return () => i18n.removeListener('change', handler);
-  }, [i18n]);
+// 异步 Server 组件：按 locale 动态加载 messages 并 setI18n
+export default async function NotFound() {
+  const locale = detectLocale();
 
-  useEffect(() => {
-    document.documentElement.classList.add('hide-nav');
-    return () => {
-      document.documentElement.classList.remove('hide-nav');
-    };
-  }, []);
+  // 这里按你的编译输出位置调整路径（通常是 ../../locales/{locale}/messages.js）
+  // 若不存在该语言，则回退到 en
+  const catalog =
+    (await import(`../../locales/${locale}/messages.mjs`).catch(() => null)) ??
+    (await import(`../../locales/en/messages.mjs`));
 
-  useEffect(() => {
-    if (i18n.locale !== pathLang) {
-      i18n.activate(pathLang);
-    }
-  }, [i18n, pathLang]);
+  i18n.load(locale, (catalog as any).messages);
+  i18n.activate(locale);
+  setI18n(i18n);
 
-  const lang = pathLang;
-  const homeHref = `/${lang}`;
-  const logoSrc = theme.palette.mode === 'dark' ? LOGO_CONFIG.light : LOGO_CONFIG.dark;
+  // 首页链接让 middleware 处理语言前缀（/ -> /{lang}）
+  const homeHref = '/';
 
   return (
     <>
-      <style jsx global>{`
-        html.hide-nav header {
-          display: none !important;
-        }
-      `}</style>
+      {/* 仅此页隐藏全局 header；避免 styled-jsx 用法 */}
+      <style dangerouslySetInnerHTML={{ __html: `header{display:none!important}` }} />
 
       <Box
         component="main"
-        key={`${tick}-${lang}`}
         sx={{
           minHeight: '100dvh',
           display: 'grid',
@@ -90,20 +86,15 @@ export default function NotFound() {
                 aria-label="HelloCity Home"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
-                <Box
-                  component="img"
-                  src={logoSrc}
-                  alt="HelloCity"
-                  sx={{
-                    height: { xs: 84, sm: 96, md: 108 },
-                    width: 'auto',
-                    display: 'block',
-                    opacity: 0.96,
-                  }}
-                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                {/* 深/浅色自适应；Server 组件里不要传 onError 等事件 */}
+                <picture>
+                  <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" />
+                  <img
+                    src={LOGO_CONFIG.dark}
+                    alt="HelloCity"
+                    style={{ height: '96px', width: 'auto', display: 'block', opacity: 0.96 }}
+                  />
+                </picture>
               </Box>
 
               <Divider
@@ -112,19 +103,20 @@ export default function NotFound() {
                 sx={{ display: { xs: 'none', md: 'block' } }}
               />
 
+              {/* sx 用对象，避免把函数传给 Client 组件 */}
               <Typography
                 aria-label="404"
-                sx={(th) => ({
+                sx={{
                   fontWeight: 900,
                   letterSpacing: '-0.04em',
                   fontSize: { xs: '4.5rem', sm: '6rem', md: '7.5rem' },
                   lineHeight: 1,
                   textAlign: 'center',
-                  backgroundImage: `linear-gradient(90deg, ${th.palette.primary.main}, ${th.palette.info.light})`,
+                  backgroundImage: 'linear-gradient(90deg, #1976d2, #64b5f6)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  textShadow: `0 6px 28px ${th.palette.primary.main}40`,
-                })}
+                  textShadow: '0 6px 28px rgba(25,118,210,0.25)',
+                }}
               >
                 404
               </Typography>
