@@ -158,11 +158,13 @@ export function* handleFetchUser(): SagaIterator {
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
     } else {
       yield put(setError(`Failed to fetch user: ${res.status}`));
+      yield put(setUser(null));
     }
   } catch (error: unknown) {
     console.error('Error in handleFetchUser:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
     yield put(setError(errorMessage));
+    yield put(setUser(null));
   } finally {
     yield put(setLoading(false));
   }

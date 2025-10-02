@@ -100,7 +100,7 @@ export async function updateConversation(
   data: object,
 ): Promise<AxiosResponse> {
   const client = createApiClient(backendUrl, token);
-  return await client.put(`/api/conversation/${id}`, data);
+  return await client.patch(`/api/conversation/${id}`, data);
 }
 
 export async function deleteConversation(

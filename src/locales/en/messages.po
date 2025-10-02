@@ -1508,7 +1508,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "Search Chat"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:48
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:58
 msgid "sidebar.history.title"
 msgstr "HISTORY"
 

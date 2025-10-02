@@ -189,6 +189,7 @@ describe('userSaga', () => {
       expect(generator.next().value).toEqual(put(setLoading(true)));
       expect(generator.next().value).toEqual(call(fetchUserApiWrapper));
       expect(generator.throw(error).value).toEqual(put(setError('Fetch failed')));
+      expect(generator.next().value).toEqual(put(setUser(null)));
       expect(generator.next().value).toEqual(put(setLoading(false)));
       expect(generator.next().done).toBe(true);
     });
