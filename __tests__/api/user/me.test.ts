@@ -24,28 +24,31 @@ jest.mock('next/server', () => ({
   },
 }));
 
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { GET, PUT } from '@/app/api/user/me/route';
-import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
-import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
-import axios from 'axios';
+import { handleApiError } from '@/lib/error-handlers';
 
-// Mock all dependencies
-jest.mock('@/lib/auth-utils');
+// Mock dependencies except AuthError class
 jest.mock('@/lib/api-client');
 jest.mock('@/lib/error-handlers');
-jest.mock('axios');
+
+// Partially mock auth-utils to preserve real AuthError class
+jest.mock('@/lib/auth-utils', () => {
+  const actual = jest.requireActual('@/lib/auth-utils');
+  return {
+    ...actual,
+    getAuthContext: jest.fn(),
+  };
+});
+
+import { getAuthContext, AuthError } from '@/lib/auth-utils';
 
 // Type the mocked functions
-const mockGetAccessTokenWithValidation = getAccessTokenWithValidation as jest.Mock;
-const mockValidateBackendUrl = validateBackendUrl as jest.Mock;
-const mockGetBackendUrl = getBackendUrl as jest.Mock;
+const mockGetAuthContext = getAuthContext as jest.Mock;
 const mockFetchUserProfile = fetchUserProfile as jest.Mock;
 const mockUpdateUserProfile = updateUserProfile as jest.Mock;
 const mockHandleApiError = handleApiError as jest.Mock;
-const mockHandleAxiosError = handleAxiosError as jest.Mock;
-const mockAxiosIsAxiosError = axios.isAxiosError as unknown as jest.Mock;
 
 // Mock data
 const mockUserData = {
@@ -69,12 +72,11 @@ describe('/api/user/me', () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    // Default successful mocks
-    mockValidateBackendUrl.mockReturnValue(null);
-    mockGetAccessTokenWithValidation.mockResolvedValue({
+    // Default successful mock for getAuthContext
+    mockGetAuthContext.mockResolvedValue({
       token: mockToken,
+      apiUrl: mockApiUrl,
     });
-    mockGetBackendUrl.mockReturnValue(mockApiUrl);
   });
 
   describe('GET', () => {
@@ -96,9 +98,7 @@ describe('/api/user/me', () => {
       const response = await GET(request);
 
       // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).toHaveBeenCalled();
-      expect(mockGetBackendUrl).toHaveBeenCalled();
+      expect(mockGetAuthContext).toHaveBeenCalled();
       expect(mockFetchUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl);
       expect(response.status).toBe(200);
 
@@ -106,28 +106,10 @@ describe('/api/user/me', () => {
       expect(responseData).toEqual(mockUserData);
     });
 
-    it('should handle backend URL validation error', async () => {
-      // Arrange
-      const mockErrorResponse = new Response('Backend URL error', { status: 500 });
-      mockValidateBackendUrl.mockReturnValue(mockErrorResponse);
-
-      const request = new NextRequest('http://localhost:3000/api/user/me');
-
-      // Act
-      const response = await GET(request);
-
-      // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).not.toHaveBeenCalled();
-      expect(response).toBe(mockErrorResponse);
-    });
-
     it('should handle authentication error', async () => {
       // Arrange
-      const mockErrorResponse = new Response('Unauthorized', { status: 401 });
-      mockGetAccessTokenWithValidation.mockResolvedValue({
-        error: mockErrorResponse,
-      });
+      const mockErrorResponse = NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      mockGetAuthContext.mockRejectedValue(new AuthError(mockErrorResponse));
 
       const request = new NextRequest('http://localhost:3000/api/user/me');
 
@@ -135,8 +117,7 @@ describe('/api/user/me', () => {
       const response = await GET(request);
 
       // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).toHaveBeenCalled();
+      expect(mockGetAuthContext).toHaveBeenCalled();
       expect(mockFetchUserProfile).not.toHaveBeenCalled();
       expect(response).toBe(mockErrorResponse);
     });
@@ -144,7 +125,10 @@ describe('/api/user/me', () => {
     it('should handle API errors', async () => {
       // Arrange
       const mockError = new Error('API Error');
-      const mockErrorResponse = new Response('Internal Server Error', { status: 500 });
+      const mockErrorResponse = NextResponse.json(
+        { error: 'Internal Server Error' },
+        { status: 500 },
+      );
       mockFetchUserProfile.mockRejectedValue(mockError);
       mockHandleApiError.mockReturnValue(mockErrorResponse);
 
@@ -191,9 +175,7 @@ describe('/api/user/me', () => {
       const response = await PUT(request);
 
       // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).toHaveBeenCalled();
-      expect(mockGetBackendUrl).toHaveBeenCalled();
+      expect(mockGetAuthContext).toHaveBeenCalled();
       expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
       expect(response.status).toBe(200);
 
@@ -201,34 +183,10 @@ describe('/api/user/me', () => {
       expect(responseData).toEqual({ ...mockUserData, ...updateData });
     });
 
-    it('should handle backend URL validation error', async () => {
-      // Arrange
-      const mockErrorResponse = new Response('Backend URL error', { status: 500 });
-      mockValidateBackendUrl.mockReturnValue(mockErrorResponse);
-
-      const request = new NextRequest('http://localhost:3000/api/user/me', {
-        method: 'PUT',
-        body: JSON.stringify(updateData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      // Act
-      const response = await PUT(request);
-
-      // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).not.toHaveBeenCalled();
-      expect(response).toBe(mockErrorResponse);
-    });
-
     it('should handle authentication error', async () => {
       // Arrange
-      const mockErrorResponse = new Response('Unauthorized', { status: 401 });
-      mockGetAccessTokenWithValidation.mockResolvedValue({
-        error: mockErrorResponse,
-      });
+      const mockErrorResponse = NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      mockGetAuthContext.mockRejectedValue(new AuthError(mockErrorResponse));
 
       const request = new NextRequest('http://localhost:3000/api/user/me', {
         method: 'PUT',
@@ -242,48 +200,19 @@ describe('/api/user/me', () => {
       const response = await PUT(request);
 
       // Assert
-      expect(mockValidateBackendUrl).toHaveBeenCalled();
-      expect(mockGetAccessTokenWithValidation).toHaveBeenCalled();
+      expect(mockGetAuthContext).toHaveBeenCalled();
       expect(mockUpdateUserProfile).not.toHaveBeenCalled();
-      expect(response).toBe(mockErrorResponse);
-    });
-
-    it('should handle axios errors', async () => {
-      // Arrange
-      const mockAxiosError = {
-        isAxiosError: true,
-        response: { status: 404, data: { message: 'User not found' } },
-      };
-      const mockErrorResponse = new Response('User not found', { status: 404 });
-
-      mockUpdateUserProfile.mockRejectedValue(mockAxiosError);
-      mockAxiosIsAxiosError.mockReturnValue(true);
-      mockHandleAxiosError.mockReturnValue(mockErrorResponse);
-
-      const request = new NextRequest('http://localhost:3000/api/user/me', {
-        method: 'PUT',
-        body: JSON.stringify(updateData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      // Act
-      const response = await PUT(request);
-
-      // Assert
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
-      expect(mockAxiosIsAxiosError).toHaveBeenCalledWith(mockAxiosError);
-      expect(mockHandleAxiosError).toHaveBeenCalledWith(mockAxiosError, 'update user');
       expect(response).toBe(mockErrorResponse);
     });
 
     it('should handle general API errors', async () => {
       // Arrange
       const mockError = new Error('General Error');
-      const mockErrorResponse = new Response('Internal Server Error', { status: 500 });
+      const mockErrorResponse = NextResponse.json(
+        { error: 'Internal Server Error' },
+        { status: 500 },
+      );
       mockUpdateUserProfile.mockRejectedValue(mockError);
-      mockAxiosIsAxiosError.mockReturnValue(false);
       mockHandleApiError.mockReturnValue(mockErrorResponse);
 
       const request = new NextRequest('http://localhost:3000/api/user/me', {
@@ -305,7 +234,7 @@ describe('/api/user/me', () => {
 
     it('should handle JSON parsing errors', async () => {
       // Arrange
-      const mockErrorResponse = new Response('Bad Request', { status: 400 });
+      const mockErrorResponse = NextResponse.json({ error: 'Bad Request' }, { status: 400 });
       mockHandleApiError.mockReturnValue(mockErrorResponse);
 
       const request = new NextRequest('http://localhost:3000/api/user/me', {
