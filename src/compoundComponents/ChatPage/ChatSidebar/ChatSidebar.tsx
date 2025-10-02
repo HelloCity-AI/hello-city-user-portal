@@ -1,23 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams, useRouter } from 'next/navigation';
+import { CircularProgress } from '@mui/material';
 import DrawerContainer from './components/layout/DrawerContainer';
 import LogoSection from './components/sections/LogoSection';
 import ActionsSection from './components/sections/ActionsSection';
 import HistorySection from './components/sections/HistorySection';
 import UserSection from './components/sections/UserSection';
-import { mockChatHistory, defaultActiveSessionId } from './mockChatHistory';
-import { useSelector } from 'react-redux';
 import { type RootState } from '@/store';
-import { useParams, useRouter } from 'next/navigation';
-import { CircularProgress } from '@mui/material';
-
-export interface ChatHistoryItem {
-  id: string;
-  title: string;
-  createdAt: Date;
-  isActive: boolean;
-}
 
 /**
  * Chat Sidebar - Uses precise 3-layer structure
@@ -32,11 +24,11 @@ export interface ChatHistoryItem {
  */
 export default function ChatSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
-  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>(mockChatHistory);
   const params = useParams();
   const router = useRouter();
-  const { conversations, isLoading } = useSelector((state: RootState) => state.conversation);
-  const userId = useSelector((state: RootState) => state.user.data?.userId);
+  const { conversations, isLoading: isConversationsLoading } = useSelector(
+    (state: RootState) => state.conversation,
+  );
 
   const handleNewChat = () => {
     router.push(`/${params.lang}/assistant`);
@@ -66,22 +58,18 @@ export default function ChatSidebar() {
 
       {/* History Section - Chat history section */}
       <div className="mt-8 flex-1 overflow-hidden">
-        {!isCollapsed && (isLoading || userId === undefined) ? (
+        {!isCollapsed && isConversationsLoading ? (
           <div className="flex h-full w-full items-center justify-center">
             <CircularProgress size={40} className="m-auto" />
           </div>
         ) : (
           <HistorySection
             isCollapsed={isCollapsed}
-            chatHistory={chatHistory}
             onHistoryClick={handleHistoryClick}
-            activeSessionId={defaultActiveSessionId}
-            setChatHistory={setChatHistory}
             conversationsHistory={conversations}
           />
         )}
       </div>
-
       {/* Bottom Section - User section */}
       <UserSection isCollapsed={isCollapsed} />
     </DrawerContainer>

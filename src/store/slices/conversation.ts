@@ -4,8 +4,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 export interface Conversation {
   conversationId: string;
   title: string;
-  checklistGene: boolean;
-  checklistId: string;
+  checklistGene?: boolean;
+  checklistId?: string;
 }
 
 export interface ChatMessage {
@@ -18,6 +18,7 @@ export interface ChatMessage {
 interface ConversationState {
   isLoading: boolean;
   conversations: Conversation[];
+  loadingConversationIds: string[];
   messagesByConversation: Record<string, ChatMessage[]>;
   error: string | null;
 }
@@ -25,6 +26,7 @@ interface ConversationState {
 const initialState: ConversationState = {
   isLoading: false,
   conversations: [],
+  loadingConversationIds: [],
   messagesByConversation: {},
   error: null,
 };
@@ -54,9 +56,25 @@ const conversationSlice = createSlice({
       delete state.messagesByConversation[action.payload];
     },
 
-    setLoading: (state, action: PayloadAction<boolean>) => {
+    setConversationsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
       if (action.payload) state.error = null;
+    },
+
+    setConversationLoading: (
+      state,
+      action: PayloadAction<{ conversationId: string; isLoading: boolean }>,
+    ) => {
+      const { conversationId, isLoading } = action.payload;
+      if (isLoading) {
+        if (!state.loadingConversationIds.includes(conversationId)) {
+          state.loadingConversationIds.push(conversationId);
+        }
+      } else {
+        state.loadingConversationIds = state.loadingConversationIds.filter(
+          (id) => id !== conversationId,
+        );
+      }
     },
 
     setError: (state, action: PayloadAction<string | null>) => {
@@ -64,17 +82,13 @@ const conversationSlice = createSlice({
       state.isLoading = false;
     },
 
-    addOrUpdateConversation: (state, action: PayloadAction<Conversation>) => {
-      const index = state.conversations.findIndex(
-        (c) => c.conversationId === action.payload.conversationId,
-      );
-      if (index >= 0) {
-        state.conversations[index] = action.payload;
-      } else {
-        state.conversations.unshift(action.payload);
-      }
-      state.isLoading = false;
-      state.error = null;
+    setConversationTitle: (
+      state,
+      action: PayloadAction<{ conversationId: string; title: string }>,
+    ) => {
+      const { conversationId, title } = action.payload;
+      const conversation = state.conversations.find((con) => con.conversationId === conversationId);
+      if (conversation) conversation.title = title;
     },
 
     removeConversation: (state, action: PayloadAction<string>) => {
@@ -85,9 +99,9 @@ const conversationSlice = createSlice({
     },
 
     fetchAllConversations: () => {},
-    fetchConversation: () => {},
-    updateConversation: () => {},
-    deleteConversation: () => {},
+    fetchConversation: (_state, _action: PayloadAction<string>) => {},
+    updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
+    deleteConversation: (_state, _action: PayloadAction<string>) => {},
   },
 });
 
@@ -95,9 +109,10 @@ export const {
   setConversations,
   cacheConversationMessages,
   clearConversationCache,
-  setLoading,
+  setConversationsLoading,
+  setConversationLoading,
   setError,
-  addOrUpdateConversation,
+  setConversationTitle,
   removeConversation,
   fetchAllConversations,
   fetchConversation,

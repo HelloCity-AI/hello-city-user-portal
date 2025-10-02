@@ -5,15 +5,19 @@ import { Trans } from '@lingui/react';
 import HistoryItem from '../ui/HistoryItem';
 import { mergeClassNames } from '@/utils/classNames';
 import { TEXT_STYLES } from '../../constants';
-import type { ChatHistoryItem } from '../../ChatSidebar';
-import { type Conversation } from '@/store/slices/conversation';
+import {
+  type Conversation,
+  updateConversation,
+  deleteConversation,
+} from '@/store/slices/conversation';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import type { RootState } from '@/store';
 
 interface HistorySectionProps {
   isCollapsed: boolean;
-  chatHistory: ChatHistoryItem[];
   onHistoryClick: (sessionId: string) => void;
-  activeSessionId?: string;
-  setChatHistory: (chatHistory: ChatHistoryItem[]) => void;
   conversationsHistory: Conversation[] | null;
 }
 
@@ -23,24 +27,27 @@ interface HistorySectionProps {
  */
 export default function HistorySection({
   isCollapsed,
-  chatHistory,
   onHistoryClick,
-  activeSessionId,
-  setChatHistory,
   conversationsHistory,
 }: HistorySectionProps) {
-  const handleDelete = (conversationId: string) => {
-    // TODO update with saga, will not handle logic in this component later
-    const updatedChatHistory = chatHistory.filter((item) => item.id !== conversationId);
-    setChatHistory(updatedChatHistory);
+  const [activeConversationId, setActiveConversationId] = useState<string | null>('');
+  const dispatch = useDispatch();
+  const params = useParams();
+  const loadingConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingConversationIds,
+  );
+
+  useEffect(() => {
+    if (!params.conversationId?.[0]) return;
+    setActiveConversationId(params?.conversationId[0]);
+  }, [params.conversationId]);
+
+  const handleDelete = (conversationId: string): void => {
+    dispatch(deleteConversation(conversationId));
   };
 
-  const handleRename = (conversationId: string, updatedTitle: string) => {
-    // TODO update with saga, will not handle logic in this component later
-    const updatedChatHistory = chatHistory.map((item) =>
-      item.id === conversationId ? { ...item, title: updatedTitle } : item,
-    );
-    setChatHistory(updatedChatHistory);
+  const handleRename = (conversationId: string, title: string): void => {
+    dispatch(updateConversation({ id: conversationId, title }));
   };
 
   return (
@@ -66,10 +73,11 @@ export default function HistorySection({
               text={item.title}
               isCollapsed={isCollapsed}
               onClick={() => onHistoryClick(item.conversationId)}
-              isActive={item.conversationId === activeSessionId}
+              isActive={item.conversationId === activeConversationId}
               id={item.conversationId}
               onDelete={handleDelete}
               onRename={handleRename}
+              isLoading={loadingConversationIds.includes(item.conversationId)}
             />
           ))}
       </div>
