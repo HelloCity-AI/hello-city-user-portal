@@ -89,7 +89,7 @@ const UserProfileCard: React.FC<UserData> = ({
     );
   }
 
-  const subtitle = error ? `@${email}  •  load error` : `@${email}`;
+  const subtitle = error ? `${email}  •  load error` : `${email}`;
 
   return (
     <div

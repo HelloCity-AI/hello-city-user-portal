@@ -58,7 +58,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       });
 
       expect(screen.getByText('John')).toBeInTheDocument();
-      expect(screen.getByText('@john@example.com')).toBeInTheDocument();
+      expect(screen.getByText('john@example.com')).toBeInTheDocument();
 
       const lastNode = screen.getByText(/last login:/i);
       expect(lastNode).toHaveAttribute('title', `last login: ${iso}`);
@@ -77,7 +77,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       });
 
       expect(screen.getByText('Unknown User')).toBeInTheDocument();
-      expect(screen.getByText('@Unknown Email')).toBeInTheDocument();
+      expect(screen.getByText('Unknown Email')).toBeInTheDocument();
       expect(screen.getByText(/last login:\s*Unknown/i)).toBeInTheDocument();
 
       const placeholder = screen.getByText('account_circle');
@@ -105,7 +105,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       expect(avatarBox).toHaveClass('sm:h-24', 'sm:w-24', 'md:h-28', 'md:w-28');
 
       expect(screen.getByText('John')).toHaveClass('text-xl', 'font-bold');
-      expect(screen.getByText('@john@example.com')).toHaveClass('text-gray-500');
+      expect(screen.getByText('john@example.com')).toHaveClass('text-gray-500');
     });
   });
 
@@ -122,9 +122,9 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       expect(nameEl).toHaveClass('truncate');
       expect(nameEl).toHaveAttribute('title', long);
 
-      const emailEl = screen.getByText(`@${long}@example.com`);
+      const emailEl = screen.getByText(`${long}@example.com`);
       expect(emailEl).toHaveClass('truncate');
-      expect(emailEl).toHaveAttribute('title', `@${long}@example.com`);
+      expect(emailEl).toHaveAttribute('title', `${long}@example.com`);
 
       const lastEl = screen.getByText(/last login:/i);
       expect(lastEl).toHaveClass('truncate');
@@ -148,7 +148,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       expect(nameEl).not.toHaveClass('truncate');
       expect(nameEl).not.toHaveAttribute('title');
 
-      const emailEl = screen.getByText(`@${long}@example.com`);
+      const emailEl = screen.getByText(`${long}@example.com`);
       expect(emailEl).toHaveClass('break-words');
       expect(emailEl).not.toHaveClass('truncate');
       expect(emailEl).not.toHaveAttribute('title');
@@ -187,7 +187,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
       mockReduxState({ data: null, isLoading: false, error: 'boom' });
       renderUserlabel({ EmailAddress: 'xx@example.com' });
 
-      expect(screen.getByText(/@xx@example\.com\s+•\s+load error/)).toBeInTheDocument();
+      expect(screen.getByText(/xx@example\.com\s+•\s+load error/)).toBeInTheDocument();
     });
   });
 
@@ -204,7 +204,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
 
       renderUserlabel({});
       expect(screen.getByText('Alice')).toBeInTheDocument();
-      expect(screen.getByText('@alice@example.com')).toBeInTheDocument();
+      expect(screen.getByText('alice@example.com')).toBeInTheDocument();
       const img = screen.getByAltText('User Avatar') as HTMLImageElement;
       expect(img).toHaveAttribute('src', 'https://a/avatar.png');
     });
@@ -219,7 +219,7 @@ describe('UserProfileCard (UserLabel) – saga-connected spec', () => {
 
       renderUserlabel({ UserName: 'Bob', EmailAddress: 'bob@x.com' });
       expect(screen.getByText('Bob')).toBeInTheDocument();
-      expect(screen.getByText('@bob@x.com')).toBeInTheDocument();
+      expect(screen.getByText('bob@x.com')).toBeInTheDocument();
     });
   });
 });
