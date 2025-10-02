@@ -6,10 +6,12 @@ import { Button, MenuItem, TextField, Typography, CircularProgress, Alert } from
 import { defaultUser, type User } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
-import { updateUser } from '../../../../api/userApi';
+// Removed incorrect updateUser import from api layer
+// import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
 import { type RootState } from '@/store';
-import { fetchUser } from '@/store/slices/user';
+// Import updateUser action from Redux slice
+import { updateUser } from '@/store/slices/user';
 import ChatMainContentContainer from '@/components/AppPageSections/ChatMainContentContainer';
 
 const Page = () => {
@@ -33,14 +35,10 @@ const Page = () => {
     console.log(userData);
   }, [userData]);
 
-  const OnSubmit = async () => {
-    try {
-      await updateUser(userInfo.userId, userInfo);
-      dispatch(fetchUser());
-      setIsEditModalOpen(false);
-    } catch (error) {
-      console.error('Failed to update user:', error);
-    }
+  const OnSubmit = () => {
+    // Dispatch Redux action to update user; saga will handle API call
+    dispatch(updateUser(userInfo));
+    setIsEditModalOpen(false);
   };
 
   if (isLoading) {
@@ -146,10 +144,20 @@ const Page = () => {
             <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
               <div className="flex w-full flex-col gap-3 lg:w-[48%]">
                 <InputBox
+                  label={i18n._('profile.username', { default: 'Username' })}
+                  value={userInfo.userId || ''}
+                  name="userId"
+                  placeholder={i18n._('profile.username-placeholder', {
+                    default: 'Please enter your username',
+                  })}
+                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                />
+
+                <InputBox
                   label={i18n._('profile.email', { default: 'Email' })}
                   fieldType="email"
                   value={userInfo.Email || ''}
-                  name="email"
+                  name="Email"
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
                   })}
@@ -181,7 +189,7 @@ const Page = () => {
                     fullWidth
                     select
                     label={i18n._('profile.gender', { default: 'Gender' })}
-                    name="gender"
+                    name="Gender"
                     variant="outlined"
                     required
                     value={userInfo.Gender || ''}

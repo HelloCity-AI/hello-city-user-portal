@@ -154,7 +154,7 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
     // Get backend URL (already validated above)
     const apiUrl = getBackendUrl()!;
 
-    // Convert FormData to User object for the API call
+    // Convert FormData to a typed Partial<User>
     const userData: Partial<User> = {};
     formData.forEach((value, key) => {
       if (typeof value === 'string') {
@@ -162,11 +162,37 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
       }
     });
 
+    // Backend form keys aligned with EditUserDto (Title Case)
+    type BackendEditUserForm = {
+      Username?: string;
+      Email?: string;
+      Gender?: string | User['Gender'];
+      Nationality?: string | User['nationality'];
+      City?: string | User['city'];
+      University?: string | User['university'];
+      Major?: string | User['major'];
+      PreferredLanguage?: string | User['preferredLanguage'];
+      Avatar?: string;
+    };
+
+    // Type-safe mapping: frontend fields -> backend Title Case fields
+    const backendUserData: BackendEditUserForm = {};
+    if (userData.userId !== undefined) backendUserData.Username = userData.userId;
+    if (userData.Email !== undefined) backendUserData.Email = userData.Email;
+    if (userData.Gender !== undefined) backendUserData.Gender = userData.Gender;
+    if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;
+    if (userData.city !== undefined) backendUserData.City = userData.city;
+    if (userData.university !== undefined) backendUserData.University = userData.university;
+    if (userData.major !== undefined) backendUserData.Major = userData.major;
+    if (userData.preferredLanguage !== undefined)
+      backendUserData.PreferredLanguage = userData.preferredLanguage;
+    if (userData.Avatar !== undefined) backendUserData.Avatar = userData.Avatar;
+
     // Call the API to update user profile
     const response: AxiosResponse<User> = await updateUserProfile(
       tokenResult.token,
       apiUrl,
-      userData,
+      backendUserData,
     );
 
     return {

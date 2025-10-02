@@ -54,13 +54,23 @@ export async function createUserProfile(
 export async function updateUserProfile(
   token: string,
   backendUrl: string,
-  userData: any,
+  userData: Record<string, string> | FormData,
+  userId?: string,
 ): Promise<AxiosResponse> {
-  const response = await axios.put(`${backendUrl}/api/user/me`, userData, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
+  const isFormData = typeof FormData !== 'undefined' && userData instanceof FormData;
+  const headers: Record<string, string> = {
+    Authorization: `Bearer ${token}`,
+  };
+  if (isFormData) {
+    // Let axios set the correct multipart boundary
+    headers.Accept = '*/*';
+  } else {
+    headers['Content-Type'] = 'application/json';
+  }
+  // Use actual userId if provided, otherwise fallback to 'me'
+  const endpoint = userId ? `${backendUrl}/api/user/${userId}` : `${backendUrl}/api/user/me`;
+  const response = await axios.put(endpoint, userData, {
+    headers,
     timeout: 10000,
   });
   return response;
