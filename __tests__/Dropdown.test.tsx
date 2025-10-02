@@ -150,7 +150,7 @@ describe('DropDown component', () => {
       await userEvent.click(screen.getByText('Profile'));
 
       expect(fireMenuItem).toHaveBeenCalledTimes(1);
-      expect(fireMenuItem).toHaveBeenCalledWith('profile');
+      expect(fireMenuItem).toHaveBeenCalledWith();
       await waitFor(() => {
         expect(screen.queryByRole('menu')).not.toBeInTheDocument();
       });

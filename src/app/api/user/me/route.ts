@@ -1,89 +1,40 @@
-import { auth0 } from '@/lib/auth0';
-import { AccessTokenError } from '@auth0/nextjs-auth0/errors';
-import axios from 'axios';
 import { type NextRequest, NextResponse } from 'next/server';
+import { getAuthContext, AuthError } from '@/lib/auth-utils';
+import { handleApiError } from '@/lib/error-handlers';
+import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import type { User } from '@/types/User.types';
 
-export async function fetchUserProfile(token: string, backendUrl: string) {
-  const userResponse = await axios.get(`${backendUrl}/api/user/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Cache-Control': 'no-store',
-      Accept: 'application/json',
-    },
-    timeout: 10000,
-    validateStatus: (status) => status === 200 || status === 404,
-  });
-  return userResponse;
+/**
+ * Get current user profile
+ * This endpoint is used by userSaga.ts for fetching user data
+ */
+export async function GET(_request: NextRequest): Promise<NextResponse> {
+  try {
+    const { token, apiUrl } = await getAuthContext();
+    const response = await fetchUserProfile(token, apiUrl);
+    return NextResponse.json(response.data, { status: response.status });
+  } catch (error) {
+    if (error instanceof AuthError) {
+      return error.response;
+    }
+    return handleApiError(error, 'getting user profile');
+  }
 }
 
-export async function GET(_request: NextRequest) {
+/**
+ * Update current user profile
+ * This endpoint is used for programmatic updates (e.g., Redux Saga)
+ */
+export async function PUT(request: NextRequest): Promise<NextResponse> {
   try {
-    const tokenResponse = await auth0.getAccessToken();
-    const token = tokenResponse?.token;
-
-    const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
-    if (!apiUrl) {
-      return NextResponse.json(
-        { error: 'Backend URL is not configured (NEXT_PUBLIC_BACKEND_URL)' },
-        { status: 500 },
-      );
-    }
-
-    const userResponse = await fetchUserProfile(token, apiUrl);
-    return NextResponse.json(userResponse.data, { status: userResponse.status });
+    const { token, apiUrl } = await getAuthContext();
+    const userData: Partial<User> = await request.json();
+    const response = await updateUserProfile(token, apiUrl, userData);
+    return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
-    if (error instanceof AccessTokenError) {
-      return NextResponse.json(
-        {
-          error: 'Unauthorized',
-          code: error.code,
-          details: error.message,
-        },
-        {
-          status: 401,
-          headers: {
-            'WWW-Authenticate':
-              'Bearer realm="api", error="invalid_token", error_description="Missing Session"',
-          },
-        },
-      );
+    if (error instanceof AuthError) {
+      return error.response;
     }
-
-    if (axios.isAxiosError(error)) {
-      if (error.response?.status === 401) {
-        return NextResponse.json(
-          {
-            error: 'Unauthorized',
-            code: 'BACKEND_UNAUTHORIZED',
-            details: error.message,
-          },
-          {
-            status: error.response.status,
-            headers: {
-              'WWW-Authenticate':
-                'Bearer realm="api", error="invalid_token", error_description="Token expired or invalid"',
-            },
-          },
-        );
-      }
-
-      if (error.response) {
-        return NextResponse.json(
-          {
-            error: 'Error occurred while getting ME profile',
-            details: error.message,
-          },
-          { status: error.response.status },
-        );
-      }
-    }
-
-    return NextResponse.json(
-      {
-        error: 'Error occurred while getting ME profile',
-        details: error instanceof Error ? error.message : String(error),
-      },
-      { status: 500 },
-    );
+    return handleApiError(error, 'updating user');
   }
 }

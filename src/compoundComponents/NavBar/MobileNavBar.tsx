@@ -12,10 +12,10 @@ import HamburgerMenuIcon from './HamburgerMenuIcon';
 import NavDrawer from './NavDrawer';
 import UserDrawer from './UserDrawer';
 import UserAvatar from '@/compoundComponents/UserAvatar';
-import useUserMenu from '@/hooks/useUserMenu';
+import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
-import useLanguageMenu from '@/hooks/useLanguageMenu';
+import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
 
 const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);

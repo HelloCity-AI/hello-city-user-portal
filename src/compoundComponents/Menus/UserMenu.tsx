@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Dropdown from '@/components/Dropdown';
-import useUserMenu from '@/hooks/useUserMenu';
+import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { ReactNode } from 'react';
 
 interface UserMenuProps {

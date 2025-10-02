@@ -14,11 +14,11 @@ interface ResponsiveIconContainerProps {
  * Responsive Icon Container: supports both fixed and responsive modes
  *
  * Fixed mode (responsive = false, default):
- * - Always maintains 40px x 40px size
+ * - Always maintains 32px width x 40px height
  * - Used for button icons that need to always be visible
  *
  * Responsive mode (responsive = true):
- * - Expanded: 40px x 40px, fully visible
+ * - Expanded: 32px width x 40px height, fully visible
  * - Collapsed: 0px size, completely hidden
  * - Used for overflow icons that need to be hidden
  */
@@ -33,7 +33,7 @@ export default function ResponsiveIconContainer({
       className={mergeClassNames(
         'flex h-10 min-h-10 items-center justify-center',
         '[&>*]:shrink-0',
-        responsive && isCollapsed ? 'w-0 min-w-0 opacity-0' : 'w-10 min-w-10 opacity-100',
+        responsive && isCollapsed ? 'w-0 min-w-0 opacity-0' : 'w-8 min-w-8 opacity-100',
         responsive ? 'overflow-hidden' : 'overflow-visible',
         responsive && 'transition-all duration-300 ease-out',
         className,

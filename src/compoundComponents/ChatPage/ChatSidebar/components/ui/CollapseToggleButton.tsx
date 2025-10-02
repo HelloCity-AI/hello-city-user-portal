@@ -25,8 +25,8 @@ export default function CollapseToggleButton({
   return (
     <div
       className={mergeClassNames(
-        'absolute z-10 h-10 w-10 rounded-lg bg-white hover:opacity-100',
-        isCollapsed ? 'left-0 opacity-0' : 'left-[200px] opacity-100',
+        'absolute z-10 h-10 w-8 rounded-lg bg-white hover:opacity-100',
+        isCollapsed ? 'left-0 opacity-0' : 'left-[208px] opacity-100',
         className,
       )}
       style={{

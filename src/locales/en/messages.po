@@ -11,7 +11,15 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
+#: src/compoundComponents/Modals/FormModal.tsx:30
+#~ msgid "form.cancel"
+#~ msgstr "Cancel"
+
 #. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
 #~ msgstr "Ready for Takeoff"
@@ -67,9 +75,17 @@ msgstr ""
 #~ msgstr "Your adventure awaits"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:32
+#: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Are you sure you want to log out?"
 msgstr "Are you sure you want to log out?"
+
+#: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "Pick a date"
+
+#: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NavBar.Back"
+#~ msgstr "← Back"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
@@ -85,6 +101,10 @@ msgstr "Are you sure you want to log out?"
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:121
 msgid "Creating..."
 msgstr "Creating..."
+
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "Theme"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -156,16 +176,20 @@ msgstr "Creating..."
 msgid "I'm all set"
 msgstr "I'm all set"
 
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:54
-#~ msgid "chat.input.hint.press"
-#~ msgstr "Press"
+#: src/hooks/useNavigation.tsx:26
+#~ msgid "NavBar.Chat"
+#~ msgstr "Chat"
 
 #. js-lingui-explicit-id
-#: src/hooks/useLogoutConfirm.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:34
-#: src/hooks/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/modals/useLogoutConfirm.tsx:30
+#: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
 msgstr "Logout"
+
+#: src/app/[lang]/create-user-profile/page.tsx:103
+#~ msgid "I'm all set"
+#~ msgstr "I'm all set"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:99
@@ -227,9 +251,12 @@ msgid "Pick a date"
 msgstr "Pick a date"
 
 #. js-lingui-explicit-id
-#: src/hooks/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:28
 msgid "Profile"
 msgstr "Profile"
+
+#~ msgid "create-checklist.due-date"
+#~ msgstr "Due Date"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
@@ -363,7 +390,11 @@ msgstr "Profile"
 
 #: src/components/ProfileImageUploader.tsx:34
 #~ msgid "file.upload.progress"
+<<<<<<< HEAD
 #~ msgstr "The image is uploading ...>>>>>>> origin/main"
+=======
+#~ msgstr "The image is uploading ..."
+>>>>>>> origin/main
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -372,28 +403,13 @@ msgstr "Profile"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Title"
-#~ msgstr "Personalized Guidance"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card2.Description"
 #~ msgstr "Never miss important tasks with our comprehensive checklists for every type of move."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Title"
-#~ msgstr "Step-by-step Checklists"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card3.Description"
 #~ msgstr "Know exactly when to do what with realistic timelines and deadline reminders."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Title"
-#~ msgstr "Timeline Planning"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -405,6 +421,10 @@ msgstr "Profile"
 #~ msgid "ValueProposition.Title"
 #~ msgstr "Why choose HelloCity?"
 
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AI正在思考..."
+
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:90
 msgid "account.title"
@@ -415,10 +435,14 @@ msgstr "HelloCity Account"
 msgid "ai.thinking"
 msgstr "AI正在思考..."
 
+#: src/components/ProfileImageUploader.tsx:112
+#~ msgid "profile.avatar.add"
+#~ msgstr "Add Profile Picture"
+
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/hooks/useLogoutConfirm.tsx:35
+#: src/hooks/modals/useLogoutConfirm.tsx:35
 msgid "cancel.button"
 msgstr "Cancel"
 
@@ -1248,6 +1272,11 @@ msgid "cities.xian.tagline"
 msgstr "Eternal city of dynasties>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+msgid "common.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
 msgid "confirm.button"
 msgstr "Confirm"
@@ -1352,6 +1381,141 @@ msgstr "Find quick answers to the most common questions about HelloCity."
 msgid "contact.faq.title"
 msgstr "Frequently Asked Questions"
 
+#: src/components/CreateChecklistItemButton.tsx:85
+msgid "create-checklist-button.add-item"
+msgstr "Add new checklist item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:292
+msgid "create-checklist.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:303
+msgid "create-checklist.create"
+msgstr "Create item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:301
+msgid "create-checklist.creating"
+msgstr "Creating..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:186
+msgid "create-checklist.description-field"
+msgstr "Description"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:205
+msgid "create-checklist.description-helper"
+msgstr "Provide details about this task—what needs to be completed?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:187
+msgid "create-checklist.description-placeholder"
+msgstr "Describe what needs to be done, any important details, or steps involved"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:202
+msgid "create-checklist.description-required"
+msgstr "Description is required"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:212
+msgid "create-checklist.due-date"
+msgstr "Due Date"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:112
+msgid "create-checklist.error.create"
+msgstr "Failed to create item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:219
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
+msgid "create-checklist.importance-field"
+msgstr "importance"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:258
+msgid "create-checklist.importance-helper"
+msgstr "The importance of this task"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:252
+msgid "create-checklist.importance-high-desc"
+msgstr "Urgent"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:232
+msgid "create-checklist.importance-low-desc"
+msgstr "Could wait"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:242
+msgid "create-checklist.importance-medium-desc"
+msgstr "Should complete as soon as possible"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:276
+msgid "create-checklist.mark-completed"
+msgstr "Mark as done"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:279
+msgid "create-checklist.mark-completed-helper"
+msgstr "If the task is already completed, please check this option"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:157
+msgid "create-checklist.title"
+msgstr "Create new checklist item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:165
+msgid "create-checklist.title-field"
+msgstr "Topic"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:178
+msgid "create-checklist.title-helper"
+msgstr "Provide a clear, concise name for your checklist item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:166
+msgid "create-checklist.title-placeholder"
+msgstr "Enter a clear, descriptive title for your task"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:177
+msgid "create-checklist.title-required"
+msgstr "Title is required"
+
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr "Delete"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr "Delete Conversation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
+msgid "delete-conversation"
+msgstr "Delete Conversation"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
+msgid "edit-conversation-title"
+msgstr "Rename History"
+
+
 #. js-lingui-explicit-id
 #~ msgid "error.email"
 #~ msgstr "Please enter a valid email address."
@@ -1397,9 +1561,32 @@ msgid "form.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:249
+msgid "importance.high"
+msgstr "High"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:229
+msgid "importance.low"
+msgstr "Low"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:239
+msgid "importance.medium"
+msgstr "Medium"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
 msgstr "Got it"
+
+#: src/hooks/useTryHelloCity.tsx:15
+#~ msgid "NavBar.Try HelloCity"
+#~ msgstr "Try HelloCity"
+
+#: src/components/dropdownMenuOptions.example.tsx:39
+#~ msgid "Logout"
+#~ msgstr "Logout"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:151
@@ -1554,7 +1741,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "Search Chat"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:38
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:58
 msgid "sidebar.history.title"
 msgstr "HISTORY"
 
@@ -1566,3 +1753,10 @@ msgstr "{label} is required."
 #: src/app/[lang]/(site)/contact-us/page.tsx:84
 #~ msgid "contact-us.email"
 #~ msgstr "Email"
+#: src/components/ProfileImageUploader.tsx:90
+#~ msgid "account.title"
+#~ msgstr "HelloCity Account"
+
+#: src/hooks/useNavigation.tsx:21
+#~ msgid "NavBar.Home"
+#~ msgstr "Home"
