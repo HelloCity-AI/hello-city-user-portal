@@ -13,7 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
- 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
@@ -100,6 +99,10 @@ msgstr "创建中..."
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "主题"
+
+#: src/components/CreateChecklistItemButton.tsx:85
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "添加清单项目"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -477,6 +480,10 @@ msgstr ""
 #: src/components/ProfileImageUploader.tsx:112
 #~ msgid "profile.avatar.add"
 #~ msgstr "添加头像"
+
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#~ msgid "conversation.delete.confirm"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -1415,9 +1422,25 @@ msgstr "快速找到关于 HelloCity 的常见问题解答。"
 msgid "contact.faq.title"
 msgstr "常见问题"
 
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
-msgstr "添加清单项目"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:292
@@ -1525,20 +1548,6 @@ msgstr "请输入任务标题"
 msgid "create-checklist.title-required"
 msgstr "标题是必填项"
 
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
-msgid "conversation.delete.confirm"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
-msgid "conversation.delete.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
-msgid "conversation.delete.title"
-msgstr ""
-
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
 msgid "delete-conversation"
@@ -1548,7 +1557,6 @@ msgstr ""
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
 msgid "edit-conversation-title"
 msgstr ""
-
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
