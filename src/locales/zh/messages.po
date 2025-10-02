@@ -13,7 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
- 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
@@ -477,6 +476,10 @@ msgstr ""
 #: src/components/ProfileImageUploader.tsx:112
 #~ msgid "profile.avatar.add"
 #~ msgstr "添加头像"
+
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#~ msgid "conversation.delete.confirm"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -1346,7 +1349,21 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr ""
 
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "添加清单项目"
@@ -1457,20 +1474,6 @@ msgstr "请输入任务标题"
 msgid "create-checklist.title-required"
 msgstr "标题是必填项"
 
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
-msgid "conversation.delete.confirm"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
-msgid "conversation.delete.description"
-msgstr ""
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
-msgid "conversation.delete.title"
-msgstr ""
-
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
 msgid "delete-conversation"
@@ -1480,7 +1483,6 @@ msgstr ""
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
 msgid "edit-conversation-title"
 msgstr ""
-
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
@@ -1551,17 +1553,17 @@ msgstr "知道了"
 #~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
+#: src/app/[lang]/not-found.tsx:131
 msgid "notFound.headline"
 msgstr "让我们帮你更快融入新生活。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
+#: src/app/[lang]/not-found.tsx:120
 msgid "notFound.pageNotFound"
 msgstr "未找到该页面"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
+#: src/app/[lang]/not-found.tsx:137
 msgid "notFound.sub"
 msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
 
