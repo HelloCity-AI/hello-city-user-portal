@@ -14,6 +14,7 @@ import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 import UserMenu from '@/compoundComponents/Menus/UserMenu';
+import { usePathname } from 'next/navigation';
 
 const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
@@ -25,7 +26,11 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
   const scrollYRef = useRef(0);
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
-  const EXCLUDED_NAV_ITEMS = ['change language'];
+  const EXCLUDED_NAV_ITEMS = ['change language'] as const;
+
+  const pathname = usePathname();
+  const currentLang: string = (pathname?.split('/')[1] || 'en').trim();
+
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 
@@ -54,8 +59,6 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
     };
   }, [hasBgColor]);
 
-  // Language options now come from a single hook via <LanguageMenu />
-
   const renderLogo = () => (
     <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
       <Link href={logo.href} className="relative block h-full w-full">
@@ -77,14 +80,16 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       className="col-span-2 flex items-center justify-start gap-4"
     >
       {navItems.map((navItem) => {
-        if (EXCLUDED_NAV_ITEMS.includes(navItem.id)) return;
+        if (EXCLUDED_NAV_ITEMS.includes(navItem.id as (typeof EXCLUDED_NAV_ITEMS)[number])) {
+          return null;
+        }
         return (
           <Button
             component={Link}
             key={navItem.id}
             href={navItem.href || ''}
             variant="tertiary"
-            sx={{ color: `${hasBgColor && 'secondary.contrastText'}`, fontWeight: 600 }}
+            sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined, fontWeight: 600 }}
           >
             {navItem.label}
           </Button>
@@ -100,12 +105,17 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       );
     }
 
+    const loginHref: { pathname: '/auth/login'; query: { returnTo: string } } = {
+      pathname: '/auth/login',
+      query: { returnTo: `/auth/post-login?lang=${currentLang}` },
+    };
+
     return (
       <Button
         component={Link}
-        href={'/auth/login'}
+        href={loginHref}
         variant="tertiary"
-        sx={{ color: `${hasBgColor && 'secondary.contrastText'}` }}
+        sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined }}
         className="whitespace-nowrap font-semibold"
       >
         <Trans id="NavBar.Sign In" comment="Sign In button label" message="Sign In" />
@@ -134,7 +144,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
             }}
             aria-label="Change language"
           >
-            <LanguageOutlinedIcon aria-hidden="true" />
+            <LanguageOutlinedIcon aria-hidden />
             {currentLanguage.shortLabel}
           </Button>
         }

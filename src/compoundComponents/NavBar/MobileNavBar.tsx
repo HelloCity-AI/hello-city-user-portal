@@ -16,6 +16,7 @@ import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
 import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
+import { usePathname } from 'next/navigation';
 
 const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
@@ -26,8 +27,10 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
   const isNavDrawerOpen: boolean = openDrawer === 'navDrawer';
   const { logo, navItems } = navConfig;
   const { options: userMenuOptions, ModalNode } = useUserMenu();
-
   const { languageOptionsForDrawer } = useLanguageMenu();
+
+  const pathname = usePathname();
+  const currentLang: string = (pathname?.split('/')[1] || 'en').trim();
 
   // Build menu stack directly; the dataset is small and recomputation is cheap.
   const languageRoot: NavItem = {
@@ -110,10 +113,14 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
       );
     }
 
+    const loginHref: string = `/auth/login?${new URLSearchParams({
+      returnTo: `/auth/post-login?lang=${currentLang}`,
+    }).toString()}`; // CHANGED
+
     return (
       <Button
         component={Link}
-        href={'/auth/login'}
+        href={loginHref}
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
