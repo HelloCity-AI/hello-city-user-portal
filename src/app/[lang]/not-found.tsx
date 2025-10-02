@@ -1,6 +1,3 @@
-// Server RSC + Lingui，多语言 404（仅此页修改）
-// 注意：无事件处理器、无函数式 sx，避免 RSC 报错
-
 import Link from 'next/link';
 import { headers, cookies } from 'next/headers';
 import Negotiator from 'negotiator';
@@ -15,15 +12,11 @@ import {
   type SupportedLanguage,
 } from '../../compoundComponents/NavBar/navConfig';
 
-// ---- 语言选择：优先 cookie('lang')，否则退回 Accept-Language ----
 const SUPPORTED = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
-const LOWER_TO_CANON = SUPPORTED.reduce(
-  (acc, c) => {
-    acc[c.toLowerCase()] = c;
-    return acc;
-  },
-  {} as Record<string, SupportedLanguage>,
-);
+const LOWER_TO_CANON = SUPPORTED.reduce((acc, c) => {
+  acc[c.toLowerCase()] = c;
+  return acc;
+}, {} as Record<string, SupportedLanguage>);
 const canon = (code?: string): SupportedLanguage =>
   LOWER_TO_CANON[(code || 'en').toLowerCase()] ?? 'en';
 
@@ -38,12 +31,8 @@ function detectLocale(): SupportedLanguage {
   return canon(match ?? 'en');
 }
 
-// 异步 Server 组件：按 locale 动态加载 messages 并 setI18n
 export default async function NotFound() {
   const locale = detectLocale();
-
-  // 这里按你的编译输出位置调整路径（通常是 ../../locales/{locale}/messages.js）
-  // 若不存在该语言，则回退到 en
   const catalog =
     (await import(`../../locales/${locale}/messages.mjs`).catch(() => null)) ??
     (await import(`../../locales/en/messages.mjs`));
@@ -52,12 +41,10 @@ export default async function NotFound() {
   i18n.activate(locale);
   setI18n(i18n);
 
-  // 首页链接让 middleware 处理语言前缀（/ -> /{lang}）
   const homeHref = '/';
 
   return (
     <>
-      {/* 仅此页隐藏全局 header；避免 styled-jsx 用法 */}
       <style dangerouslySetInnerHTML={{ __html: `header{display:none!important}` }} />
 
       <Box
@@ -86,7 +73,6 @@ export default async function NotFound() {
                 aria-label="HelloCity Home"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
-                {/* 深/浅色自适应；Server 组件里不要传 onError 等事件 */}
                 <picture>
                   <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" />
                   <img
@@ -103,7 +89,6 @@ export default async function NotFound() {
                 sx={{ display: { xs: 'none', md: 'block' } }}
               />
 
-              {/* sx 用对象，避免把函数传给 Client 组件 */}
               <Typography
                 aria-label="404"
                 sx={{
