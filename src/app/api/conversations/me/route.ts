@@ -1,29 +1,16 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
-import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
-import { fetchAllConversations } from '@/lib/api-client';
-import axios from 'axios';
+import { getAuthContext, AuthError } from '@/lib/auth-utils';
+import { handleApiError } from '@/lib/error-handlers';
+import { getConversations } from '@/lib/api-client';
 
 export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
-    const backendUrlError = validateBackendUrl();
-    if (backendUrlError) {
-      return backendUrlError;
-    }
-
-    const tokenResult = await getAccessTokenWithValidation();
-    if (tokenResult.error) {
-      return tokenResult.error;
-    }
-
-    const apiUrl = getBackendUrl()!;
-
-    const conversationsResponse = await fetchAllConversations(tokenResult.token, apiUrl);
-
-    return NextResponse.json(conversationsResponse.data, { status: conversationsResponse.status });
+    const { token, apiUrl } = await getAuthContext();
+    const response = await getConversations(token, apiUrl);
+    return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      return handleAxiosError(error, 'fetch conversations failed');
+    if (error instanceof AuthError) {
+      return error.response;
     }
     return handleApiError(error, 'getting conversations');
   }

@@ -79,15 +79,35 @@ export async function deleteUserProfile(token: string, backendUrl: string): Prom
   return response;
 }
 
-export async function fetchAllConversations(
+export async function getConversations(token: string, backendUrl: string): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get('/api/conversation/me');
+}
+
+export async function getConversation(
   token: string,
   backendUrl: string,
+  id: string,
 ): Promise<AxiosResponse> {
-  const response = await axios.get(`${backendUrl}/api/conversation/me`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-    timeout: 10000,
-  });
-  return response;
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}`);
+}
+
+export async function updateConversation(
+  token: string,
+  backendUrl: string,
+  id: string,
+  data: object,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.put(`/api/conversation/${id}`, data);
+}
+
+export async function deleteConversation(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.delete(`/api/conversation/${id}`);
 }

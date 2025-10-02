@@ -64,7 +64,30 @@ const conversationSlice = createSlice({
       state.isLoading = false;
     },
 
+    addOrUpdateConversation: (state, action: PayloadAction<Conversation>) => {
+      const index = state.conversations.findIndex(
+        (c) => c.conversationId === action.payload.conversationId,
+      );
+      if (index >= 0) {
+        state.conversations[index] = action.payload;
+      } else {
+        state.conversations.unshift(action.payload);
+      }
+      state.isLoading = false;
+      state.error = null;
+    },
+
+    removeConversation: (state, action: PayloadAction<string>) => {
+      state.conversations = state.conversations.filter((c) => c.conversationId !== action.payload);
+      delete state.messagesByConversation[action.payload];
+      state.isLoading = false;
+      state.error = null;
+    },
+
     fetchAllConversations: () => {},
+    fetchConversation: () => {},
+    updateConversation: () => {},
+    deleteConversation: () => {},
   },
 });
 
@@ -74,7 +97,12 @@ export const {
   clearConversationCache,
   setLoading,
   setError,
+  addOrUpdateConversation,
+  removeConversation,
   fetchAllConversations,
+  fetchConversation,
+  updateConversation,
+  deleteConversation,
 } = conversationSlice.actions;
 
 export default conversationSlice.reducer;
