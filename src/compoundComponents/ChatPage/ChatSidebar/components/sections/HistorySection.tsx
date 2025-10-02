@@ -6,6 +6,7 @@ import HistoryItem from '../ui/HistoryItem';
 import { mergeClassNames } from '@/utils/classNames';
 import { TEXT_STYLES } from '../../constants';
 import type { ChatHistoryItem } from '../../ChatSidebar';
+import { type Conversation } from '@/store/slices/conversation';
 
 interface HistorySectionProps {
   isCollapsed: boolean;
@@ -13,6 +14,7 @@ interface HistorySectionProps {
   onHistoryClick: (sessionId: string) => void;
   activeSessionId?: string;
   setChatHistory: (chatHistory: ChatHistoryItem[]) => void;
+  conversationsHistory: Conversation[] | null;
 }
 
 /**
@@ -25,6 +27,7 @@ export default function HistorySection({
   onHistoryClick,
   activeSessionId,
   setChatHistory,
+  conversationsHistory,
 }: HistorySectionProps) {
   const handleDelete = (conversationId: string) => {
     // TODO update with saga, will not handle logic in this component later
@@ -52,22 +55,23 @@ export default function HistorySection({
       {/* History items list */}
       <div
         className={mergeClassNames(
-          'overflow-y-auto pb-4',
+          'mt-3 overflow-y-auto pb-4',
           isCollapsed ? 'max-h-none' : 'max-h-[calc(100vh-300px)]',
         )}
       >
-        {chatHistory.map((item) => (
-          <HistoryItem
-            key={item.id}
-            text={item.title}
-            isCollapsed={isCollapsed}
-            onClick={() => onHistoryClick(item.id)}
-            isActive={item.id === activeSessionId}
-            conversationId={item.id}
-            onDelete={handleDelete}
-            onRename={handleRename}
-          />
-        ))}
+        {conversationsHistory &&
+          conversationsHistory.map((item) => (
+            <HistoryItem
+              key={item.conversationId}
+              text={item.title}
+              isCollapsed={isCollapsed}
+              onClick={() => onHistoryClick(item.conversationId)}
+              isActive={item.conversationId === activeSessionId}
+              id={item.conversationId}
+              onDelete={handleDelete}
+              onRename={handleRename}
+            />
+          ))}
       </div>
     </>
   );

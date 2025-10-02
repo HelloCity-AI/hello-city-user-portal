@@ -20,7 +20,7 @@ interface HistoryItemProps {
   isCollapsed: boolean;
   onClick?: () => void;
   isActive?: boolean;
-  conversationId: string;
+  id: string;
   onRename: (conversationId: string, updatedTitle: string) => void;
   onDelete: (conversationId: string) => void;
 }
@@ -36,14 +36,14 @@ export default function HistoryItem({
   isCollapsed,
   onClick,
   isActive,
-  conversationId,
+  id,
   onRename,
   onDelete,
 }: HistoryItemProps) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editText, setEditText] = useState<string>(text);
   const { show: showDeleteModal, ModalNode: DeleteModal } = useDeleteConversation(() =>
-    onDelete(conversationId),
+    onDelete(id),
   );
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,7 +58,7 @@ export default function HistoryItem({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    onRename(conversationId, editText);
+    onRename(id, editText);
     setIsEditing(false);
   };
 
@@ -170,7 +170,7 @@ export default function HistoryItem({
             {!isEditing ? (
               <ConversationHistoryMenu
                 trigger={<MoreHorizIcon className={ICON_STYLES.small} />}
-                conversationId={conversationId}
+                conversationId={id}
                 onClickDelete={showDeleteModal}
                 onClickEdit={handleEdit}
                 modal={DeleteModal}

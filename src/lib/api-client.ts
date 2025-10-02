@@ -78,3 +78,16 @@ export async function deleteUserProfile(token: string, backendUrl: string): Prom
   });
   return response;
 }
+
+export async function fetchAllConversations(
+  token: string,
+  backendUrl: string,
+): Promise<AxiosResponse> {
+  const response = await axios.get(`${backendUrl}/api/conversation/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    timeout: 10000,
+  });
+  return response;
+}

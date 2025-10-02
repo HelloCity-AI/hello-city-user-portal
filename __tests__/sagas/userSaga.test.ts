@@ -7,19 +7,10 @@ jest.mock('@/actions/user', () => ({
 }));
 
 import { put, takeLatest, call } from 'redux-saga/effects';
-import { PayloadAction } from '@reduxjs/toolkit';
-import { User } from '@/types/User.types';
-import { AuthState } from '@/store/slices/user';
-import { Cities, Genders, Nationalities, Languages } from '@/enums/UserAttributes';
-import userSaga, {
-  fetchUserApiWrapper,
-  createUserApiWrapper,
-  updateUserApiWrapper,
-  handleFetchUser,
-  handleCreateUser,
-  handleUpdateUser,
-} from '@/store/sagas/userSaga';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import type { User } from '@/types/User.types';
 import {
+  AuthState,
   setUser,
   setLoading,
   setError,
@@ -32,6 +23,15 @@ import {
   updateUserSuccess,
   updateUserFailure,
 } from '@/store/slices/user';
+import { Cities, Genders, Nationalities, Languages } from '@/enums/UserAttributes';
+import userSaga, {
+  fetchUserApiWrapper,
+  createUserApiWrapper,
+  updateUserApiWrapper,
+  handleFetchUser,
+  handleCreateUser,
+  handleUpdateUser,
+} from '@/store/sagas/userSaga';
 import { createUserAction } from '@/actions/user';
 
 const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;

@@ -1,36 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-interface SimpleMessage {
+export interface Conversation {
+  conversationId: string;
+  title: string;
+  checklistGene: boolean;
+  checklistId: string;
+}
+
+export interface ChatMessage {
   id: string;
   role: 'user' | 'assistant' | 'system';
   content: string;
-  createdAt?: Date;
-  metadata?: unknown;
-}
-
-interface Conversation {
-  conversationId: string;
-  title: string;
-}
-
-interface ConversationMessage {
-  conversationId: string;
-  messages: SimpleMessage[] | null;
+  createdAt?: string;
 }
 
 interface ConversationState {
   isLoading: boolean;
-  conversations: Conversation[] | null;
-  conversationMessages: ConversationMessage[] | null;
-  error?: string | null;
+  conversations: Conversation[];
+  messagesByConversation: Record<string, ChatMessage[]>;
+  error: string | null;
 }
 
 const initialState: ConversationState = {
   isLoading: false,
   conversations: [],
-  conversationMessages: null,
-  error: undefined,
+  messagesByConversation: {},
+  error: null,
 };
 
 const conversationSlice = createSlice({
@@ -42,26 +38,43 @@ const conversationSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
-    setConversationMessages: (state, action: PayloadAction<ConversationMessage[] | null>) => {
-      state.conversationMessages = action.payload;
-      state.isLoading = false;
-      state.error = null;
+
+    cacheConversationMessages: (
+      state,
+      action: PayloadAction<{
+        conversationId: string;
+        messages: ChatMessage[];
+      }>,
+    ) => {
+      const { conversationId, messages } = action.payload;
+      state.messagesByConversation[conversationId] = messages;
     },
+
+    clearConversationCache: (state, action: PayloadAction<string>) => {
+      delete state.messagesByConversation[action.payload];
+    },
+
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
       if (action.payload) state.error = null;
     },
+
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
       state.isLoading = false;
     },
-    fetchAllConversation: () => {},
-    fetchConversation: () => {},
-    createNewConversation: () => {},
-    editConversation: () => {},
-    deleteConversation: () => {},
+
+    fetchAllConversations: () => {},
   },
 });
 
-export const {} = conversationSlice.actions;
+export const {
+  setConversations,
+  cacheConversationMessages,
+  clearConversationCache,
+  setLoading,
+  setError,
+  fetchAllConversations,
+} = conversationSlice.actions;
+
 export default conversationSlice.reducer;
