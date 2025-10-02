@@ -13,10 +13,13 @@ import {
 } from '../../compoundComponents/NavBar/navConfig';
 
 const SUPPORTED = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
-const LOWER_TO_CANON = SUPPORTED.reduce((acc, c) => {
-  acc[c.toLowerCase()] = c;
-  return acc;
-}, {} as Record<string, SupportedLanguage>);
+const LOWER_TO_CANON = SUPPORTED.reduce(
+  (acc, c) => {
+    acc[c.toLowerCase()] = c;
+    return acc;
+  },
+  {} as Record<string, SupportedLanguage>,
+);
 const canon = (code?: string): SupportedLanguage =>
   LOWER_TO_CANON[(code || 'en').toLowerCase()] ?? 'en';
 
