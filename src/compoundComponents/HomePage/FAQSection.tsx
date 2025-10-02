@@ -99,7 +99,7 @@ const FAQSection: React.FC = () => {
     ];
   }, [q, isComposing, i18n]);
 
-  // mock area. 
+  // mock area.
 
   const mockHistoryCount = (q ?? '').trim() ? 2 : 0;
 
