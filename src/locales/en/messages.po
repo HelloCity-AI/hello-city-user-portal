@@ -195,17 +195,13 @@ msgstr "Logout"
 #~ msgid "I'm all set"
 #~ msgstr "I'm all set"
 
-#: src/app/[lang]/(site)/contact-us/page.tsx:65
-#~ msgid "contact-us.title>>>>>>> origin/main"
-#~ msgstr "Contact Us>>>>>>> main<<<<<<< HEAD"
-
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:99
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:102
 msgid "NavBar.Back"
 msgstr "← Back"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:36
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:39
 msgid "NavBar.ChangeLanguage"
 msgstr "Change Language"
 
@@ -231,8 +227,8 @@ msgstr "Home"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:111
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:120
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:121
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:127
 msgid "NavBar.Sign In"
 msgstr "Sign In"
 
@@ -1313,6 +1309,11 @@ msgstr "Submit"
 #: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:65
+#~ msgid "contact-us.title>>>>>>> origin/main"
+#~ msgstr "Contact Us"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:30
