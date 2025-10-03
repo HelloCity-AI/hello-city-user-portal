@@ -14,7 +14,6 @@ import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 import UserMenu from '@/compoundComponents/Menus/UserMenu';
-import { usePathname } from 'next/navigation';
 
 const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
@@ -28,8 +27,6 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
   const EXCLUDED_NAV_ITEMS = ['change language'] as const;
 
-  const pathname = usePathname();
-  const currentLang: string = (pathname?.split('/')[1] || 'en').trim();
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
@@ -105,15 +102,10 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       );
     }
 
-    const loginHref: { pathname: '/auth/login'; query: { returnTo: string } } = {
-      pathname: '/auth/login',
-      query: { returnTo: `/auth/post-login?lang=${currentLang}` },
-    };
-
     return (
       <Button
         component={Link}
-        href={loginHref}
+        href={'/auth/login'}
         variant="tertiary"
         sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined }}
         className="whitespace-nowrap font-semibold"
