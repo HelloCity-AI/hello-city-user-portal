@@ -27,8 +27,8 @@ export const createUser = async (newUser: User) => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
-  // Add required fields
-  formData.append('Username', newUser.userId || 'defaultUsername');
+  // Add required fields: prefer username then fallback to userId
+  formData.append('Username', newUser.username || newUser.userId || 'defaultUsername');
   formData.append('Email', newUser.Email);
 
   // Add optional fields

@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
-import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import { fetchUserProfile, updateUserProfile, updateCurrentUserProfile } from '@/lib/api-client';
 import type { User } from '@/types/User.types';
 import axios from 'axios';
 
@@ -62,17 +62,59 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       return tokenResult.error;
     }
 
-    const updateData: Partial<User> = await request.json();
+    const userData: Partial<User> = await request.json();
+
+    const backendUserData: BackendEditUserForm = {};
+    // 优先使用前端提供的 username，其次回退到 userId
+    if (userData.username !== undefined && userData.username !== '') {
+      backendUserData.Username = userData.username;
+    } else if (userData.userId !== undefined) {
+      backendUserData.Username = userData.userId;
+    }
+    if (userData.Email !== undefined) backendUserData.Email = userData.Email;
+    if (userData.Gender !== undefined) backendUserData.Gender = userData.Gender;
+    if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;
+    if (userData.city !== undefined) backendUserData.City = userData.city;
+    if (userData.university !== undefined) backendUserData.University = userData.university;
+    if (userData.major !== undefined) backendUserData.Major = userData.major;
+    if (userData.preferredLanguage !== undefined)
+      backendUserData.PreferredLanguage = userData.preferredLanguage;
+    if (userData.Avatar !== undefined) backendUserData.Avatar = userData.Avatar;
+
+    // Convert to FormData for backend that expects multipart/form-data
+    const formData = new FormData();
+    Object.entries(backendUserData).forEach(([key, value]) => {
+      if (value !== undefined && value !== null) {
+        formData.append(key, String(value));
+      }
+    });
 
     try {
       const apiUrl = getBackendUrl()!;
-      const response = await updateUserProfile(tokenResult.token, apiUrl, updateData);
-      return NextResponse.json(response.data, { status: response.status });
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return handleAxiosError(error, 'update user');
+
+      // Always resolve backend GUID (UserId) for path id
+      let guid: string | undefined = undefined;
+      try {
+        const currentUserResponse = await fetchUserProfile(tokenResult.token, apiUrl);
+        // Backend returns GUID as `UserId`; do not use username
+        guid = (currentUserResponse.data as { UserId?: string })?.UserId;
+      } catch (fetchError) {
+        console.error('Failed to fetch current user for GUID:', fetchError);
       }
-      throw error;
+
+      let response;
+      if (guid) {
+        response = await updateUserProfile(tokenResult.token, apiUrl, formData, guid);
+      } else {
+        // Fallback to backend /api/user/me to avoid 500 when GUID not resolved
+        response = await updateCurrentUserProfile(tokenResult.token, apiUrl, formData);
+      }
+      return NextResponse.json(response.data, { status: response.status });
+    } catch (axiosError) {
+      if (axios.isAxiosError(axiosError)) {
+        return handleAxiosError(axiosError, 'update user');
+      }
+      throw axiosError;
     }
   } catch (error) {
     return handleApiError(error, 'updating user');

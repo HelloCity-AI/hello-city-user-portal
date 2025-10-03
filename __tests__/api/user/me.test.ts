@@ -49,7 +49,7 @@ const mockAxiosIsAxiosError = axios.isAxiosError as unknown as jest.Mock;
 
 // Mock data
 const mockUserData = {
-  userId: '123',
+  UserId: '123e4567-e89b-12d3-a456-426614174000',
   Email: 'test@example.com',
   FirstName: 'Test',
   LastName: 'User',
@@ -168,6 +168,14 @@ describe('/api/user/me', () => {
     };
 
     beforeEach(() => {
+      // Ensure current user GUID is available for PUT flow
+      mockFetchUserProfile.mockResolvedValue({
+        data: mockUserData,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: {} as any,
+      });
       mockUpdateUserProfile.mockResolvedValue({
         data: { ...mockUserData, ...updateData },
         status: 200,
@@ -194,7 +202,12 @@ describe('/api/user/me', () => {
       expect(mockValidateBackendUrl).toHaveBeenCalled();
       expect(mockGetAccessTokenWithValidation).toHaveBeenCalled();
       expect(mockGetBackendUrl).toHaveBeenCalled();
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(
+        mockToken,
+        mockApiUrl,
+        expect.any(FormData),
+        mockUserData.UserId,
+      );
       expect(response.status).toBe(200);
 
       const responseData = await response.json();
@@ -272,7 +285,12 @@ describe('/api/user/me', () => {
       const response = await PUT(request);
 
       // Assert
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(
+        mockToken,
+        mockApiUrl,
+        expect.any(FormData),
+        mockUserData.UserId,
+      );
       expect(mockAxiosIsAxiosError).toHaveBeenCalledWith(mockAxiosError);
       expect(mockHandleAxiosError).toHaveBeenCalledWith(mockAxiosError, 'update user');
       expect(response).toBe(mockErrorResponse);
@@ -298,7 +316,12 @@ describe('/api/user/me', () => {
       const response = await PUT(request);
 
       // Assert
-      expect(mockUpdateUserProfile).toHaveBeenCalledWith(mockToken, mockApiUrl, updateData);
+      expect(mockUpdateUserProfile).toHaveBeenCalledWith(
+        mockToken,
+        mockApiUrl,
+        expect.any(FormData),
+        mockUserData.UserId,
+      );
       expect(mockHandleApiError).toHaveBeenCalledWith(mockError, 'updating user');
       expect(response).toBe(mockErrorResponse);
     });

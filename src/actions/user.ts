@@ -177,7 +177,12 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
 
     // Type-safe mapping: frontend fields -> backend Title Case fields
     const backendUserData: BackendEditUserForm = {};
-    if (userData.userId !== undefined) backendUserData.Username = userData.userId;
+    // Prefer using frontend `username` for backend `Username`; fall back to `userId`
+    if (userData.username !== undefined && userData.username !== '') {
+      backendUserData.Username = userData.username;
+    } else if (userData.userId !== undefined) {
+      backendUserData.Username = userData.userId;
+    }
     if (userData.Email !== undefined) backendUserData.Email = userData.Email;
     if (userData.Gender !== undefined) backendUserData.Gender = userData.Gender;
     if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;

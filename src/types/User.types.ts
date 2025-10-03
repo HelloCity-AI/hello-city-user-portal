@@ -1,6 +1,8 @@
 import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 
 export type User = {
+  // Username（可读名称），与后端 GUID 分离
+  username?: string;
   userId: string;
   Email: string;
   Avatar: string;
@@ -14,6 +16,7 @@ export type User = {
 };
 
 export const defaultUser: User = {
+  username: '',
   userId: '',
   Email: '',
   Avatar: '',

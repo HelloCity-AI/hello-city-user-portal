@@ -67,8 +67,11 @@ export async function updateUserProfile(
   } else {
     headers['Content-Type'] = 'application/json';
   }
-  // Use actual userId if provided, otherwise fallback to 'me'
-  const endpoint = userId ? `${backendUrl}/api/user/${userId}` : `${backendUrl}/api/user/me`;
+  // Backend requires GUID path parameter; do not fallback to 'me'
+  if (!userId) {
+    throw new Error('updateUserProfile requires a valid GUID userId');
+  }
+  const endpoint = `${backendUrl}/api/user/${userId}`;
   const response = await axios.put(endpoint, userData, {
     headers,
     timeout: 10000,
@@ -83,6 +86,26 @@ export async function deleteUserProfile(token: string, backendUrl: string): Prom
   const response = await axios.delete(`${backendUrl}/api/user/me`, {
     headers: {
       Authorization: `Bearer ${token}`,
+    },
+    timeout: 10000,
+  });
+  return response;
+}
+
+/**
+ * Update current user profile without GUID
+ * Backend consumes multipart/form-data for EditUserDto via /api/user/me
+ */
+export async function updateCurrentUserProfile(
+  token: string,
+  backendUrl: string,
+  formData: FormData,
+): Promise<AxiosResponse> {
+  const response = await axios.put(`${backendUrl}/api/user/me`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      // Let axios set proper multipart boundary, keep Accept permissive
+      Accept: '*/*',
     },
     timeout: 10000,
   });
