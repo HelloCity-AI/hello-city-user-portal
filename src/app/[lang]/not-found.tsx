@@ -12,7 +12,7 @@ import {
 function detectLocaleFromCookie(): SupportedLanguage {
   const want = (cookies().get('lang')?.value || 'en').toLowerCase();
   const keys = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
-  const hit = keys.find(k => k.toLowerCase() === want);
+  const hit = keys.find((k) => k.toLowerCase() === want);
   return hit ?? 'en';
 }
 
@@ -62,7 +62,11 @@ export default async function NotFound() {
                 </picture>
               </Box>
 
-              <Divider flexItem orientation="vertical" sx={{ display: { xs: 'none', md: 'block' } }} />
+              <Divider
+                flexItem
+                orientation="vertical"
+                sx={{ display: { xs: 'none', md: 'block' } }}
+              />
 
               <Typography
                 aria-label="404"
@@ -82,7 +86,12 @@ export default async function NotFound() {
               </Typography>
             </Stack>
 
-            <Stack spacing={{ xs: 1.5, sm: 2 }} alignItems="center" textAlign="center" sx={{ maxWidth: 720 }}>
+            <Stack
+              spacing={{ xs: 1.5, sm: 2 }}
+              alignItems="center"
+              textAlign="center"
+              sx={{ maxWidth: 720 }}
+            >
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                 {t('notFound.pageNotFound', 'Page not found')}
               </Typography>
@@ -97,10 +106,13 @@ export default async function NotFound() {
               >
                 {t('notFound.headline', "Let's help you settle in.")}
               </Typography>
-              <Typography variant="body1" sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.125rem' } }}>
+              <Typography
+                variant="body1"
+                sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.125rem' } }}
+              >
                 {t(
                   'notFound.sub',
-                  'HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly.'
+                  'HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly.',
                 )}
               </Typography>
             </Stack>
