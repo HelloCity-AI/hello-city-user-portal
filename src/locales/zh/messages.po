@@ -190,12 +190,12 @@ msgstr "登出"
 #~ msgstr "我准备好了"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:102
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:98
 msgid "NavBar.Back"
 msgstr "← 返回"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:39
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:35
 msgid "NavBar.ChangeLanguage"
 msgstr "切换语言"
 
@@ -216,8 +216,8 @@ msgstr "首页"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:121
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:127
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:119
 msgid "NavBar.Sign In"
 msgstr "登录"
 
