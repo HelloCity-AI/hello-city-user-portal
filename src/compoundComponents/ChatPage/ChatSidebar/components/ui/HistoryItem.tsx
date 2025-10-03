@@ -14,15 +14,17 @@ import { mergeClassNames } from '@/utils/classNames';
 import { HOVER_EFFECTS, TEXT_STYLES, ICON_STYLES } from '../../constants';
 import ConversationHistoryMenu from '@/compoundComponents/Menus/ConversationHistoryMenu';
 import useDeleteConversation from '@/hooks/modals/useDeleteConversationHistory';
+import { CircularProgress } from '@mui/material';
 
 interface HistoryItemProps {
   text: string;
   isCollapsed: boolean;
   onClick?: () => void;
   isActive?: boolean;
-  conversationId: string;
+  id: string;
   onRename: (conversationId: string, updatedTitle: string) => void;
   onDelete: (conversationId: string) => void;
+  isLoading: boolean;
 }
 
 /**
@@ -36,14 +38,15 @@ export default function HistoryItem({
   isCollapsed,
   onClick,
   isActive,
-  conversationId,
+  id,
   onRename,
   onDelete,
+  isLoading,
 }: HistoryItemProps) {
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [editText, setEditText] = useState<string>(text);
   const { show: showDeleteModal, ModalNode: DeleteModal } = useDeleteConversation(() =>
-    onDelete(conversationId),
+    onDelete(id),
   );
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -58,7 +61,19 @@ export default function HistoryItem({
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    onRename(conversationId, editText);
+
+    // Only submit if title actually changed
+    const trimmedEditText = editText.trim();
+    const trimmedOriginalText = text.trim();
+
+    if (trimmedEditText !== trimmedOriginalText && trimmedEditText !== '') {
+      onRename(id, trimmedEditText);
+    }
+
+    if (trimmedEditText === '') {
+      setEditText(text);
+    }
+
     setIsEditing(false);
   };
 
@@ -167,14 +182,18 @@ export default function HistoryItem({
             )}
           </ResponsiveIconContainer>
           <ResponsiveIconContainer isCollapsed={isCollapsed} responsive>
-            {!isEditing ? (
+            {!isEditing && !isLoading ? (
               <ConversationHistoryMenu
                 trigger={<MoreHorizIcon className={ICON_STYLES.small} />}
-                conversationId={conversationId}
+                conversationId={id}
                 onClickDelete={showDeleteModal}
                 onClickEdit={handleEdit}
                 modal={DeleteModal}
               />
+            ) : !isEditing && isLoading ? (
+              <IconButton loading={true} loadingIndicator={<CircularProgress size="20px" />}>
+                <CloseIcon className={ICON_STYLES.small} />
+              </IconButton>
             ) : (
               <IconButton onClick={handleCancel} onMouseDown={(e) => e.preventDefault()}>
                 <CloseIcon className={ICON_STYLES.small} />

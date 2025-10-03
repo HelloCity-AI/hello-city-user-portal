@@ -1,9 +1,8 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
-import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
+import { getAuthContext, AuthError } from '@/lib/auth-utils';
+import { handleApiError } from '@/lib/error-handlers';
 import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
 import type { User } from '@/types/User.types';
-import axios from 'axios';
 
 /**
  * Get current user profile
@@ -11,22 +10,13 @@ import axios from 'axios';
  */
 export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
-    // Validate backend URL
-    const backendUrlError = validateBackendUrl();
-    if (backendUrlError) {
-      return backendUrlError;
-    }
-
-    // Get access token
-    const tokenResult = await getAccessTokenWithValidation();
-    if (tokenResult.error) {
-      return tokenResult.error;
-    }
-
-    const apiUrl = getBackendUrl()!;
-    const userResponse = await fetchUserProfile(tokenResult.token, apiUrl);
-    return NextResponse.json(userResponse.data, { status: userResponse.status });
+    const { token, apiUrl } = await getAuthContext();
+    const response = await fetchUserProfile(token, apiUrl);
+    return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
+    if (error instanceof AuthError) {
+      return error.response;
+    }
     return handleApiError(error, 'getting user profile');
   }
 }
@@ -37,32 +27,14 @@ export async function GET(_request: NextRequest): Promise<NextResponse> {
  */
 export async function PUT(request: NextRequest): Promise<NextResponse> {
   try {
-    // Validate backend URL
-    const backendUrlError = validateBackendUrl();
-    if (backendUrlError) {
-      return backendUrlError;
-    }
-
-    // Get access token
-    const tokenResult = await getAccessTokenWithValidation();
-    if (tokenResult.error) {
-      return tokenResult.error;
-    }
-
-    // Get the JSON data from the request
+    const { token, apiUrl } = await getAuthContext();
     const userData: Partial<User> = await request.json();
-
-    try {
-      const apiUrl = getBackendUrl()!;
-      const response = await updateUserProfile(tokenResult.token, apiUrl, userData);
-      return NextResponse.json(response.data, { status: response.status });
-    } catch (axiosError) {
-      if (axios.isAxiosError(axiosError)) {
-        return handleAxiosError(axiosError, 'update user');
-      }
-      throw axiosError;
-    }
+    const response = await updateUserProfile(token, apiUrl, userData);
+    return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
+    if (error instanceof AuthError) {
+      return error.response;
+    }
     return handleApiError(error, 'updating user');
   }
 }
