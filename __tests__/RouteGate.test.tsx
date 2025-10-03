@@ -94,19 +94,13 @@ describe('RouteGate', () => {
     });
 
     renderWithStore(
-      <RouteGate
-        requireProfile
-        suspendUntilReady
-        loadingFallback={<div data-testid="fallback" />}
-      >
+      <RouteGate requireProfile suspendUntilReady loadingFallback={<div data-testid="fallback" />}>
         <div data-testid="protected" />
       </RouteGate>,
       store,
     );
 
-    await waitFor(() =>
-      expect(replaceMock).toHaveBeenCalledWith('/en/create-user-profile'),
-    );
+    await waitFor(() => expect(replaceMock).toHaveBeenCalledWith('/en/create-user-profile'));
 
     // While redirecting, we still show fallback (no flash of children)
     expect(screen.getByTestId('fallback')).toBeInTheDocument();
@@ -153,11 +147,7 @@ describe('RouteGate', () => {
     });
 
     renderWithStore(
-      <RouteGate
-        requireProfile
-        suspendUntilReady
-        loadingFallback={<div data-testid="fallback" />}
-      >
+      <RouteGate requireProfile suspendUntilReady loadingFallback={<div data-testid="fallback" />}>
         <div data-testid="protected-content" />
       </RouteGate>,
       store,

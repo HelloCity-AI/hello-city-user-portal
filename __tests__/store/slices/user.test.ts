@@ -3,8 +3,8 @@ import userReducer, {
   logOut,
   setAuth,
   setLoading,
-  setError,      // now accepts string only
-  clearError,    // new helper to clear error
+  setError, // now accepts string only
+  clearError, // new helper to clear error
   fetchUser,
   createUserSuccess,
   createUserFailure,
@@ -21,7 +21,7 @@ describe('User slice', () => {
     data: null,
     error: null,
     authStatus: AuthState.Unauthenticated,
-    hasFetched: false,           // NEW in reducer
+    hasFetched: false, // NEW in reducer
     isCreating: false,
     createError: null,
     isUpdating: false,

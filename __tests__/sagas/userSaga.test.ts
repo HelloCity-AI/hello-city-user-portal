@@ -23,12 +23,7 @@ import {
   updateUserFailure,
 } from '@/store/slices/user';
 
-import {
-  Cities,
-  Genders,
-  Nationalities,
-  Languages,
-} from '@/enums/UserAttributes';
+import { Cities, Genders, Nationalities, Languages } from '@/enums/UserAttributes';
 
 import userSaga, {
   fetchUserApiWrapper,
@@ -43,8 +38,7 @@ import { createUserAction } from '@/actions/user';
 
 // Narrowed mock types
 const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;
-const mockedCreateUserAction =
-  createUserAction as jest.MockedFunction<typeof createUserAction>;
+const mockedCreateUserAction = createUserAction as jest.MockedFunction<typeof createUserAction>;
 
 // ---- Test data --------------------------------------------------------------
 
@@ -66,8 +60,11 @@ const res = (status: number, ok: boolean, body?: unknown) =>
   ({
     ok,
     status,
-    json: body !== undefined ? jest.fn().mockResolvedValue(body) : jest.fn().mockRejectedValue(new Error('no body')),
-  } as any);
+    json:
+      body !== undefined
+        ? jest.fn().mockResolvedValue(body)
+        : jest.fn().mockRejectedValue(new Error('no body')),
+  }) as any;
 
 // ---- Tests ------------------------------------------------------------------
 

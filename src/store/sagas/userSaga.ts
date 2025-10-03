@@ -55,7 +55,7 @@ export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
     try {
       parsed = await response.json();
     } catch {
-      parsed = null; 
+      parsed = null;
     }
 
     return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };
@@ -108,7 +108,7 @@ export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrappe
     try {
       parsed = await response.json();
     } catch {
-      parsed = null; 
+      parsed = null;
     }
 
     return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };

@@ -8,9 +8,9 @@ import { fetchUser, AuthState } from '@/store/slices/user';
 
 type RouteGateProps = {
   children: React.ReactNode;
-  requireProfile?: boolean;        
-  redirectIfHasProfile?: boolean;  
-  suspendUntilReady?: boolean;    
+  requireProfile?: boolean;
+  redirectIfHasProfile?: boolean;
+  suspendUntilReady?: boolean;
   loadingFallback?: React.ReactNode;
   autoFetch?: boolean;
 };
@@ -47,10 +47,19 @@ const RouteGate: React.FC<RouteGateProps> = ({
   const isReady = authStatus === AuthState.AuthenticatedWithProfile;
 
   const willRedirectToCreate =
-    hasFetched && !isLoading && requireProfile && !onCreatePage && authStatus === AuthState.AuthenticatedButNoProfile;
+    hasFetched &&
+    !isLoading &&
+    requireProfile &&
+    !onCreatePage &&
+    authStatus === AuthState.AuthenticatedButNoProfile;
 
   const willRedirectHomeFromProtected =
-    hasFetched && !isLoading && requireProfile && !onCreatePage && authStatus !== AuthState.AuthenticatedWithProfile && authStatus !== AuthState.AuthenticatedButNoProfile;
+    hasFetched &&
+    !isLoading &&
+    requireProfile &&
+    !onCreatePage &&
+    authStatus !== AuthState.AuthenticatedWithProfile &&
+    authStatus !== AuthState.AuthenticatedButNoProfile;
 
   const willRedirectHomeFromCreate =
     hasFetched && !isLoading && redirectIfHasProfile && onCreatePage && isReady;

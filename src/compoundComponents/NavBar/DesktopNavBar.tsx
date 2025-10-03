@@ -27,7 +27,6 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
   const EXCLUDED_NAV_ITEMS = ['change language'] as const;
 
-
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 

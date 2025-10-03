@@ -47,7 +47,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
     setSnackbarOpen(true);
 
     const timer = setTimeout(() => {
-      if (userError) dispatch(clearUserError());                 
+      if (userError) dispatch(clearUserError());
       if (conversationError) dispatch(setConversationError(null));
       setSnackbarOpen(false);
     }, 5000);
@@ -56,7 +56,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
 
   const handleSnackbarClose = () => {
     setSnackbarOpen(false);
-    if (userError) dispatch(clearUserError());                 
+    if (userError) dispatch(clearUserError());
     if (conversationError) dispatch(setConversationError(null));
   };
 

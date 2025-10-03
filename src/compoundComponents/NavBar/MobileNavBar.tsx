@@ -28,7 +28,6 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
   const { options: userMenuOptions, ModalNode } = useUserMenu();
   const { languageOptionsForDrawer } = useLanguageMenu();
 
-
   // Build menu stack directly; the dataset is small and recomputation is cheap.
   const languageRoot: NavItem = {
     id: 'change language',

@@ -13,7 +13,7 @@ export interface UserState {
   data: User | null;
   error: string | null;
   authStatus: AuthState;
-  hasFetched: boolean;              
+  hasFetched: boolean;
   isCreating: boolean;
   createError: string | null;
   isUpdating: boolean;
@@ -25,7 +25,7 @@ const initialState: UserState = {
   data: null,
   error: null,
   authStatus: AuthState.Unauthenticated,
-  hasFetched: false,                
+  hasFetched: false,
   isCreating: false,
   createError: null,
   isUpdating: false,
@@ -39,15 +39,15 @@ const userSlice = createSlice({
     setUser: (state, action: PayloadAction<User | null>) => {
       state.data = action.payload;
       state.error = null;
-      state.isLoading = false;      
-      state.hasFetched = true;      
+      state.isLoading = false;
+      state.hasFetched = true;
     },
     logOut: (state) => {
       state.data = null;
       state.error = null;
       state.authStatus = AuthState.Unauthenticated;
       state.isLoading = false;
-      state.hasFetched = false;     
+      state.hasFetched = false;
       state.isCreating = false;
       state.createError = null;
       state.isUpdating = false;
@@ -60,12 +60,12 @@ const userSlice = createSlice({
       state.isLoading = action.payload;
       if (action.payload) state.error = null;
     },
-    setError: (state, action: PayloadAction<string>) => { 
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.isLoading = false;
-      state.hasFetched = true;      
+      state.hasFetched = true;
     },
-    clearError: (state) => {        
+    clearError: (state) => {
       state.error = null;
     },
 
@@ -80,12 +80,12 @@ const userSlice = createSlice({
       state.isCreating = false;
       state.createError = null;
       state.authStatus = AuthState.AuthenticatedWithProfile;
-      state.hasFetched = true;      
+      state.hasFetched = true;
     },
     createUserFailure: (state, action: PayloadAction<string>) => {
       state.isCreating = false;
       state.createError = action.payload;
-      state.hasFetched = true;      
+      state.hasFetched = true;
     },
 
     updateUser: (state, _action: PayloadAction<User>) => {
@@ -109,8 +109,8 @@ export const {
   logOut,
   setLoading,
   fetchUser,
-  setError,       
-  clearError,     
+  setError,
+  clearError,
   setAuth,
   createUser,
   createUserSuccess,
