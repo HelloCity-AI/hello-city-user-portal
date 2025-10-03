@@ -1595,18 +1595,18 @@ msgstr "Got it"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
-msgid "notFound.headline"
-msgstr "Let’s help you settle in."
+#~ msgid "notFound.headline"
+#~ msgstr "Let’s help you settle in."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:120
-msgid "notFound.pageNotFound"
-msgstr "Page not found"
+#~ msgid "notFound.pageNotFound"
+#~ msgstr "Page not found"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
-msgid "notFound.sub"
-msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+#~ msgid "notFound.sub"
+#~ msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:112
