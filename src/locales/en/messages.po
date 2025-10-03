@@ -195,6 +195,10 @@ msgstr "Logout"
 #~ msgid "I'm all set"
 #~ msgstr "I'm all set"
 
+#: src/app/[lang]/(site)/contact-us/page.tsx:65
+#~ msgid "contact-us.title>>>>>>> origin/main"
+#~ msgstr "Contact Us>>>>>>> main<<<<<<< HEAD"
+
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:99
 msgid "NavBar.Back"
@@ -1311,32 +1315,6 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-<<<<<<< HEAD
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
-msgid "conversation.delete.confirm"
-msgstr "Delete"
-||||||| 403ab87
-=======
-#: src/app/[lang]/(site)/contact-us/page.tsx:65
-#~ msgid "contact-us.title>>>>>>> origin/main"
-#~ msgstr "Contact Us"
->>>>>>> main
-
-<<<<<<< HEAD
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
-msgid "conversation.delete.description"
-msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
-
-#. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
-msgid "conversation.delete.title"
-msgstr "Delete Conversation"
-
-#. js-lingui-explicit-id
-||||||| 403ab87
-=======
-#. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:30
 msgid "contact.faq.a1"
 msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
@@ -1422,7 +1400,6 @@ msgid "conversation.delete.title"
 msgstr "Delete Conversation"
 
 #. js-lingui-explicit-id
->>>>>>> main
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "Add Checklist Item"
