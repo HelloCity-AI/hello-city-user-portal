@@ -25,7 +25,8 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
   const scrollYRef = useRef(0);
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
-  const EXCLUDED_NAV_ITEMS = ['change language'];
+  const EXCLUDED_NAV_ITEMS = ['change language'] as const;
+
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout> | null = null;
 
@@ -54,8 +55,6 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
     };
   }, [hasBgColor]);
 
-  // Language options now come from a single hook via <LanguageMenu />
-
   const renderLogo = () => (
     <Box component="div" data-section="logo" className="relative h-[50px] w-[150px]">
       <Link href={logo.href} className="relative block h-full w-full">
@@ -77,14 +76,16 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       className="col-span-2 flex items-center justify-start gap-4"
     >
       {navItems.map((navItem) => {
-        if (EXCLUDED_NAV_ITEMS.includes(navItem.id)) return;
+        if (EXCLUDED_NAV_ITEMS.includes(navItem.id as (typeof EXCLUDED_NAV_ITEMS)[number])) {
+          return null;
+        }
         return (
           <Button
             component={Link}
             key={navItem.id}
             href={navItem.href || ''}
             variant="tertiary"
-            sx={{ color: `${hasBgColor && 'secondary.contrastText'}`, fontWeight: 600 }}
+            sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined, fontWeight: 600 }}
           >
             {navItem.label}
           </Button>
@@ -103,9 +104,9 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
     return (
       <Button
         component={Link}
-        href={'/auth/login?returnTo=/assistant'}
+        href={'/auth/login'}
         variant="tertiary"
-        sx={{ color: `${hasBgColor && 'secondary.contrastText'}` }}
+        sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined }}
         className="whitespace-nowrap font-semibold"
       >
         <Trans id="NavBar.Sign In" comment="Sign In button label" message="Sign In" />
@@ -134,7 +135,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
             }}
             aria-label="Change language"
           >
-            <LanguageOutlinedIcon aria-hidden="true" />
+            <LanguageOutlinedIcon aria-hidden />
             {currentLanguage.shortLabel}
           </Button>
         }
