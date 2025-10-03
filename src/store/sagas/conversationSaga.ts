@@ -79,7 +79,7 @@ export function* handleFetchConversations(): SagaIterator {
     yield put(setConversationsLoading(true));
     const res: ConversationsResponse = yield call(fetchConversationsApiWrapper);
 
-    if (res.data) {
+    if (res.ok && res.data) {
       yield put(setConversations(res.data));
     } else {
       yield put(setError(`Failed to fetch conversations: ${res.status}`));
@@ -93,7 +93,7 @@ export function* handleFetchConversations(): SagaIterator {
   }
 }
 // TODO: to be updated later
-export function* handleFetchConversation(action: PayloadAction<string>): SagaIterator {
+export function* handleFetchConversation(_action: PayloadAction<string>): SagaIterator {
   // try {
   //   const conversationId = action.payload;
   //   const res: ConversationResponse = yield call(fetchConversationApiWrapper, conversationId);
@@ -126,7 +126,7 @@ export function* handleUpdateConversation(
 
     const res: UpdateResponse = yield call(updateConversationApiWrapper, id, title);
 
-    if (!res.data) {
+    if (!res.ok) {
       yield put(setError(`Failed to update conversation: ${res.status}`));
       if (oldTitle) {
         yield put(setConversationTitle({ conversationId: id, title: oldTitle }));
