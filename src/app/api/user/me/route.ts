@@ -62,49 +62,17 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
       return tokenResult.error;
     }
 
-    const userData: Partial<User> = await request.json();
-
-    const backendUserData: BackendEditUserForm = {};
-    if (userData.userId !== undefined) backendUserData.Username = userData.userId;
-    if (userData.Email !== undefined) backendUserData.Email = userData.Email;
-    if (userData.Gender !== undefined) backendUserData.Gender = userData.Gender;
-    if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;
-    if (userData.city !== undefined) backendUserData.City = userData.city;
-    if (userData.university !== undefined) backendUserData.University = userData.university;
-    if (userData.major !== undefined) backendUserData.Major = userData.major;
-    if (userData.preferredLanguage !== undefined)
-      backendUserData.PreferredLanguage = userData.preferredLanguage;
-    if (userData.Avatar !== undefined) backendUserData.Avatar = userData.Avatar;
-
-    // Convert to FormData for backend that expects multipart/form-data
-    const formData = new FormData();
-    Object.entries(backendUserData).forEach(([key, value]) => {
-      if (value !== undefined && value !== null) {
-        formData.append(key, String(value));
-      }
-    });
+    const updateData: Partial<User> = await request.json();
 
     try {
       const apiUrl = getBackendUrl()!;
-
-      // First, get the current user to obtain their actual ID
-      let userId = userData.userId;
-      if (!userId) {
-        try {
-          const currentUserResponse = await fetchUserProfile(tokenResult.token, apiUrl);
-          userId = currentUserResponse.data?.userId;
-        } catch (fetchError) {
-          console.error('Failed to fetch current user for ID:', fetchError);
-        }
-      }
-
-      const response = await updateUserProfile(tokenResult.token, apiUrl, formData, userId);
+      const response = await updateUserProfile(tokenResult.token, apiUrl, updateData);
       return NextResponse.json(response.data, { status: response.status });
-    } catch (axiosError) {
-      if (axios.isAxiosError(axiosError)) {
-        return handleAxiosError(axiosError, 'update user');
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return handleAxiosError(error, 'update user');
       }
-      throw axiosError;
+      throw error;
     }
   } catch (error) {
     return handleApiError(error, 'updating user');
