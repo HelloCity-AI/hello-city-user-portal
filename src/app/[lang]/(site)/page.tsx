@@ -9,6 +9,8 @@ import {
   TestimonialsSection,
 } from '@/compoundComponents';
 
+import FAQSection from '@/compoundComponents/HomePage/FAQSection';
+
 export default function Home({ params }: { params: { lang: string } }) {
   const lang = params.lang;
   return (
@@ -18,6 +20,7 @@ export default function Home({ params }: { params: { lang: string } }) {
       <ValuePropositionSection locale={lang} />
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
+      <FAQSection locale={lang} />
       <CallToActionsSection locale={lang} />
       <CreateChecklistItemButton />
     </React.Fragment>

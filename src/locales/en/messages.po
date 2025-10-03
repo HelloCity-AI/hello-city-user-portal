@@ -106,6 +106,10 @@ msgstr "Creating..."
 #~ msgid "Theme"
 #~ msgstr "Theme"
 
+#: src/components/CreateChecklistItemButton.tsx:85
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "Add new checklist item"
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
@@ -212,6 +216,11 @@ msgid "NavBar.ContactUs"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
+#: src/hooks/useNavigation.tsx:33
+#~ msgid "NavBar.ContactUs======="
+#~ msgstr "undefined<<<<<<< HEAD"
+
+#. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
 msgstr "Home"
@@ -239,6 +248,10 @@ msgstr "Try HelloCity"
 #: src/components/NavBar/MobileNavBar.tsx:122
 #~ msgid "NaveBar.Sign In"
 #~ msgstr "Sign In"
+
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress<<<<<<< HEAD"
+#~ msgstr "The image is uploading ...>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
@@ -382,10 +395,6 @@ msgstr "Profile"
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "Theme"
-
-#: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress"
-#~ msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -1264,7 +1273,7 @@ msgstr "Xi'an"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:279
 msgid "cities.xian.tagline"
-msgstr "Eternal city of dynasties"
+msgstr "Eternal city of dynasties>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:37
@@ -1277,29 +1286,104 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:84
+#: src/app/[lang]/(site)/contact-us/page.tsx:112
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:93
+#: src/app/[lang]/(site)/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:76
+#: src/app/[lang]/(site)/contact-us/page.tsx:104
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:102
+#: src/app/[lang]/(site)/contact-us/page.tsx:142
 msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:65
+#: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:65
+#~ msgid "contact-us.title>>>>>>> origin/main"
+#~ msgstr "Contact Us"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:30
+msgid "contact.faq.a1"
+msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:40
+msgid "contact.faq.a2"
+msgstr "You can start for free. Premium options are available for more personalized guidance and advanced features."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:50
+msgid "contact.faq.a3"
+msgstr "We cover major global cities and expand regularly. Check inside the product for the latest supported locations."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
+msgid "contact.faq.a4"
+msgstr "No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:70
+msgid "contact.faq.a5"
+msgstr "Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:28
+msgid "contact.faq.q1"
+msgstr "What is HelloCity?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:38
+msgid "contact.faq.q2"
+msgstr "Is HelloCity free to use?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:48
+msgid "contact.faq.q3"
+msgstr "Which cities are supported?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:58
+msgid "contact.faq.q4"
+msgstr "Do I need an account to get started?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:68
+msgid "contact.faq.q5"
+msgstr "Does HelloCity work well on mobile?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:152
+msgid "contact.faq.results"
+msgstr "results"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:126
+msgid "contact.faq.searchPlaceholder"
+msgstr "Please write your own question..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:119
+msgid "contact.faq.subtitle"
+msgstr "Find quick answers to the most common questions about HelloCity."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:111
+msgid "contact.faq.title"
+msgstr "Frequently Asked Questions"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
@@ -1319,7 +1403,7 @@ msgstr "Delete Conversation"
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
-msgstr "Add new checklist item"
+msgstr "Add Checklist Item"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:292
@@ -1662,7 +1746,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "Search Chat"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:48
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:58
 msgid "sidebar.history.title"
 msgstr "HISTORY"
 
@@ -1678,3 +1762,7 @@ msgstr "{label} is required."
 #: src/hooks/useNavigation.tsx:21
 #~ msgid "NavBar.Home"
 #~ msgstr "Home"
+
+#: src/app/[lang]/(site)/contact-us/page.tsx:84
+#~ msgid "contact-us.email"
+#~ msgstr "Email"
