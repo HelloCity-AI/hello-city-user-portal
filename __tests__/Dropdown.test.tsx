@@ -5,6 +5,8 @@ import userEvent from '@testing-library/user-event';
 import Dropdown from '@/components/Dropdown';
 import renderWithTheme from './utils/renderWithTheme';
 import type { MenuOption } from '@/types/menu';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 
 const fireMenuItem = jest.fn();
 const baseTestOptions: MenuOption[] = [
@@ -29,14 +31,41 @@ const testOptionsWithoutIcon: MenuOption[] = [
   { id: 'profile', label: 'Profile', value: 'profile', onClick: fireMenuItem },
 ];
 
-const renderDropdown = (props = {}) => {
+const userInitial = {
+  data: {
+    username: 'Leon',
+    email: 'leon@example.com',
+    avatarUrl: '',
+    lastJoinDate: '2025-10-02T15:39:57.299403Z',
+  },
+  isLoading: false,
+  error: null,
+};
+
+function createStore(preloadedUser?: Partial<typeof userInitial>) {
+  const preloaded = { ...userInitial, ...preloadedUser };
+  const userReducer = (state = preloaded) => state;
+  return configureStore({
+    reducer: { user: userReducer },
+    preloadedState: { user: preloaded },
+  });
+}
+
+const renderDropdown = (props: any = {}, preloadedUser?: Partial<typeof userInitial>) => {
+  const store = createStore(preloadedUser);
   return renderWithTheme(
-    <Dropdown anchorElContent={<span>open</span>} dropdownOptions={baseTestOptions} {...props} />,
+    <Provider store={store}>
+      <Dropdown anchorElContent={<span>open</span>} dropdownOptions={baseTestOptions} {...props} />
+    </Provider>,
   );
 };
 
-const renderDropdownAndOpenMenu = async (props = {}) => {
-  renderDropdown(props);
+const renderDropdownAndOpenMenu = async (
+  props: any = {},
+  preloadedUser?: Partial<typeof userInitial>,
+) => {
+  // CHANGED
+  renderDropdown(props, preloadedUser);
   await act(() => userEvent.click(screen.getByRole('button', { name: /open menu/i })));
 };
 
@@ -88,7 +117,7 @@ describe('DropDown component', () => {
       await act(async () => {
         await new Promise((resolve) => setTimeout(resolve, 10));
       });
-      expect(await screen.findByText(/Leon/i)).toBeInTheDocument();
+      expect(await screen.findByText(/^Leon$/i)).toBeInTheDocument();
     });
 
     it('Applied centered text align when textAlignCenter = true', async () => {

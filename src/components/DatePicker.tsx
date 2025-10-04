@@ -21,8 +21,9 @@ const DatePicker: React.FC<Props> = ({ value, onChange, label, disabled }) => {
         onChange={onChange}
         disabled={disabled}
         slotProps={{
-          textField: (params) => <TextField {...params} fullWidth />,
+          textField: {},
         }}
+        renderInput={(params) => <TextField {...params} fullWidth />}
       />
     </LocalizationProvider>
   );

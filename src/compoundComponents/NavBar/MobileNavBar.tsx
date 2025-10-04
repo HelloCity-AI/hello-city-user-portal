@@ -26,7 +26,6 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
   const isNavDrawerOpen: boolean = openDrawer === 'navDrawer';
   const { logo, navItems } = navConfig;
   const { options: userMenuOptions, ModalNode } = useUserMenu();
-
   const { languageOptionsForDrawer } = useLanguageMenu();
 
   // Build menu stack directly; the dataset is small and recomputation is cheap.
@@ -113,7 +112,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
     return (
       <Button
         component={Link}
-        href={'/auth/login'}
+        href={`auth/login`}
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >

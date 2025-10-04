@@ -16,69 +16,58 @@ import {
 } from '../slices/user';
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createUserAction, updateUserAction } from '@/actions/user';
+import { createUserAction } from '@/actions/user';
 
-// API response type that matches the actual return type of API wrapper functions
+// ---- Types ----
 interface ApiWrapperResponse {
   status: number;
-  data: User | null | undefined;
+  data: User | Record<string, unknown> | null | undefined;
   ok: boolean;
 }
 
-// Union type for all possible Redux actions in user saga
-type UserAction =
-  | ReturnType<typeof setUser>
-  | ReturnType<typeof setLoading>
-  | ReturnType<typeof setError>
-  | ReturnType<typeof setAuth>
-  | ReturnType<typeof createUserSuccess>
-  | ReturnType<typeof createUserFailure>
-  | ReturnType<typeof updateUserSuccess>
-  | ReturnType<typeof updateUserFailure>;
+interface ServerActionResult<T> {
+  success: boolean;
+  status?: number;
+  data?: T | null;
+}
 
-/**
- * API wrapper for fetching current user with proper error handling
- * Now uses App Router endpoint instead of direct backend call
- */
-export async function fetchUserApiWrapper() {
+// ---- Type guards ----
+const hasProfile = (d: unknown): boolean =>
+  Boolean(d && typeof d === 'object' && Object.keys(d as Record<string, unknown>).length > 0);
+
+function isServerActionResult<T>(v: unknown): v is ServerActionResult<T> {
+  if (!v || typeof v !== 'object') return false;
+  const o = v as Record<string, unknown>;
+  return typeof o.success === 'boolean' && ('status' in o || 'data' in o || true);
+}
+
+// ---- API wrappers ----
+export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
   try {
-    // Call the App Router endpoint instead of direct backend API
     const response = await fetch('/api/user/me', {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       cache: 'no-store',
     });
 
-    const data = response.ok ? await response.json() : null;
+    let parsed: unknown = null;
+    try {
+      parsed = await response.json();
+    } catch {
+      parsed = null;
+    }
 
-    return {
-      status: response.status,
-      data: data,
-      ok: response.ok,
-    };
+    return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };
   } catch (error) {
     console.error('Failed to fetch user:', error);
-
-    return {
-      status: 500,
-      data: null,
-      ok: false,
-    };
+    return { status: 500, data: null, ok: false };
   }
 }
 
-/**
- * API wrapper for creating user with proper error handling
- * Now uses Server Action instead of route handler
- */
-export async function createUserApiWrapper(newUser: User) {
+export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperResponse> {
   try {
-    // Convert User object to FormData for Server Action
     const formData = new FormData();
-
-    // Add user fields to FormData
     if (newUser.Email) formData.append('Email', newUser.Email);
     if (newUser.Gender) formData.append('Gender', newUser.Gender);
     if (newUser.city) formData.append('City', newUser.city);
@@ -87,82 +76,83 @@ export async function createUserApiWrapper(newUser: User) {
     if (newUser.Avatar) formData.append('Avatar', newUser.Avatar);
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
-    // Ensure backend-required username field is present
     if (newUser.userId) formData.append('Username', newUser.userId);
 
-    // Call the Server Action
-    const result = await createUserAction(formData);
+    const raw = await createUserAction(formData);
+    const result: ServerActionResult<User> = isServerActionResult<User>(raw)
+      ? raw
+      : { success: false, status: 500, data: null };
 
     return {
-      status: result.status || (result.success ? 200 : 500),
-      data: result.data,
+      status: result.status ?? (result.success ? 200 : 500),
+      data: (result.data ?? null) as ApiWrapperResponse['data'],
       ok: result.success,
     };
   } catch (error) {
     console.error('Failed to create user:', error);
-
-    return {
-      status: 500,
-      data: null,
-      ok: false,
-    };
+    return { status: 500, data: null, ok: false };
   }
 }
 
-/**
- * API wrapper for updating user with proper error handling
- * Uses PUT endpoint for programmatic updates
- */
-export async function updateUserApiWrapper(updatedUser: User) {
+export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrapperResponse> {
   try {
-    // Call the PUT endpoint for programmatic updates
     const response = await fetch('/api/user/me', {
       method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
       body: JSON.stringify(updatedUser),
       cache: 'no-store',
     });
 
-    const data = response.ok ? await response.json() : null;
+    let parsed: unknown = null;
+    try {
+      parsed = await response.json();
+    } catch {
+      parsed = null;
+    }
 
-    return {
-      status: response.status,
-      data: data,
-      ok: response.ok,
-    };
+    return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };
   } catch (error) {
     console.error('Failed to update user:', error);
-
-    return {
-      status: 500,
-      data: null,
-      ok: false,
-    };
+    return { status: 500, data: null, ok: false };
   }
 }
 
+// ---- Workers ----
 export function* handleFetchUser(): SagaIterator {
   try {
     yield put(setLoading(true));
     const res: ApiWrapperResponse = yield call(fetchUserApiWrapper);
 
-    if (res.status === 401) {
-      yield put(setAuth(AuthState.Unauthenticated));
-      yield put(setUser(null));
+    if (res.status === 200) {
+      if (hasProfile(res.data)) {
+        yield put(setUser(res.data as User));
+        yield put(setAuth(AuthState.AuthenticatedWithProfile));
+      } else {
+        yield put(setUser(null));
+        yield put(setAuth(AuthState.AuthenticatedButNoProfile));
+      }
       return;
     }
-    if (res.status === 200) {
-      yield put(setUser(res.data as User));
-      yield put(setAuth(AuthState.AuthenticatedWithProfile));
-    } else {
-      yield put(setError(`Failed to fetch user: ${res.status}`));
+
+    if (res.status === 204 || res.status === 404) {
+      yield put(setUser(null));
+      yield put(setAuth(AuthState.AuthenticatedButNoProfile));
+      return;
     }
+
+    if (res.status === 401) {
+      yield put(setUser(null));
+      yield put(setAuth(AuthState.Unauthenticated));
+      return;
+    }
+
+    yield put(setError(`fetch user failed: ${res.status}`));
+    yield put(setAuth(AuthState.Unauthenticated));
   } catch (error: unknown) {
-    console.error('Error in handleFetchUser:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-    yield put(setError(errorMessage));
+    const msg: string = error instanceof Error ? error.message : 'Unknown error';
+    yield put(setError(msg));
+    yield put(setAuth(AuthState.Unauthenticated));
   } finally {
     yield put(setLoading(false));
   }
@@ -172,33 +162,33 @@ export function* handleCreateUser(action: PayloadAction<User>): SagaIterator {
   try {
     const res: ApiWrapperResponse = yield call(createUserApiWrapper, action.payload);
     if (res.status === 201 || res.status === 200) {
-      yield put(createUserSuccess(res.data as User));
+      yield put(createUserSuccess((res.data as User) ?? action.payload));
+      yield put(setAuth(AuthState.AuthenticatedWithProfile));
     } else {
-      yield put(createUserFailure(`Failed to create user: ${res.status}`));
+      yield put(createUserFailure(`create user failed: ${res.status}`));
     }
   } catch (error: unknown) {
-    console.error('Error in handleCreateUser:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-    yield put(createUserFailure(errorMessage));
+    const msg: string = error instanceof Error ? error.message : 'Unknown error';
+    yield put(createUserFailure(msg));
   }
 }
 
 export function* handleUpdateUser(action: PayloadAction<User>): SagaIterator {
   try {
     const res: ApiWrapperResponse = yield call(updateUserApiWrapper, action.payload);
-    if (res.status === 200) {
-      yield put(updateUserSuccess(res.data as User));
+    if (res.status === 200 || res.status === 204) {
+      yield put(updateUserSuccess((res.data as User) ?? action.payload));
     } else {
-      yield put(updateUserFailure(`Failed to update user: ${res.status}`));
+      yield put(updateUserFailure(`update user failed: ${res.status}`));
     }
   } catch (error: unknown) {
-    console.error('Error in handleUpdateUser:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-    yield put(updateUserFailure(errorMessage));
+    const msg: string = error instanceof Error ? error.message : 'Unknown error';
+    yield put(updateUserFailure(msg));
   }
 }
 
-export default function* userSaga() {
+// ---- Root ----
+export default function* userSaga(): SagaIterator {
   yield takeLatest(fetchUser.type, handleFetchUser);
   yield takeLatest(createUser.type, handleCreateUser);
   yield takeLatest(updateUser.type, handleUpdateUser);

@@ -24,7 +24,6 @@ const Page = () => {
     userId: '', // This will be used as username
   });
 
-  const [profileImage, setProfileImage] = useState<File | null>(null);
   const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
   const [uploaderOpen, setUploaderOpen] = useState<boolean>(false);
   const prevObjectUrl = useRef<string | null>(null);
@@ -59,7 +58,6 @@ const Page = () => {
     if (!file) return setAvatarPreview(null);
     const url = URL.createObjectURL(file);
     setAvatarPreview(url);
-    setProfileImage(file);
     prevObjectUrl.current = url;
     setFormData({ ...formData, avatarFile: file });
   };
