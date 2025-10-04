@@ -92,7 +92,7 @@ msgstr "您确定要登出账户吗？"
 #~ msgstr "准备好迈出这一步了吗？"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:187
 msgid "Creating..."
 msgstr "创建中..."
 
@@ -170,8 +170,8 @@ msgstr "创建中..."
 #~ msgstr "从筹划到圆梦，我们陪伴始终"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:176
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:174
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "I'm all set"
 msgstr "我准备好了"
 

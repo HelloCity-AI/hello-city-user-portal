@@ -98,7 +98,7 @@ msgstr "Are you sure you want to log out?"
 #~ msgstr "Ready to make your move?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:187
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -176,8 +176,8 @@ msgstr "Creating..."
 #~ msgstr "From planning to living your dream"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:176
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:174
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -1316,7 +1316,91 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:30
+msgid "contact.faq.a1"
+msgstr "contact.faq.a1"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:40
+msgid "contact.faq.a2"
+msgstr "contact.faq.a2"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:50
+msgid "contact.faq.a3"
+msgstr "contact.faq.a3"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
+msgid "contact.faq.a4"
+msgstr "contact.faq.a4"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:70
+msgid "contact.faq.a5"
+msgstr "contact.faq.a5"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:28
+msgid "contact.faq.q1"
+msgstr "contact.faq.q1"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:38
+msgid "contact.faq.q2"
+msgstr "contact.faq.q2"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:48
+msgid "contact.faq.q3"
+msgstr "contact.faq.q3"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:58
+msgid "contact.faq.q4"
+msgstr "contact.faq.q4"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:68
+msgid "contact.faq.q5"
+msgstr "contact.faq.q5"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:152
+msgid "contact.faq.results"
+msgstr "contact.faq.results"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:126
+msgid "contact.faq.searchPlaceholder"
+msgstr "contact.faq.searchPlaceholder"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:119
+msgid "contact.faq.subtitle"
+msgstr "contact.faq.subtitle"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:111
+msgid "contact.faq.title"
+msgstr "contact.faq.title"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+msgid "conversation.delete.confirm"
+msgstr "Delete"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+msgid "conversation.delete.description"
+msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+msgid "conversation.delete.title"
+msgstr "Delete Conversation"
+
+#. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:85
 msgid "create-checklist-button.add-item"
 msgstr "Add Checklist Item"
