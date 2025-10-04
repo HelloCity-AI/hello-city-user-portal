@@ -45,6 +45,14 @@ export const createUser = async (newUser: User) => {
     formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
   }
 
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile);
+  }
+
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile);
+  }
+
   // Use the new api-client function
   const response = await createUserProfile(tokenResponse.token, backendUrl, formData);
 

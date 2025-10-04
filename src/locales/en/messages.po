@@ -98,7 +98,7 @@ msgstr "Are you sure you want to log out?"
 #~ msgstr "Ready to make your move?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:121
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:187
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -176,7 +176,8 @@ msgstr "Creating..."
 #~ msgstr "From planning to living your dream"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:123
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:174
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -396,6 +397,10 @@ msgstr "Profile"
 #~ msgid "Theme"
 #~ msgstr "Theme"
 
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ..."
+
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card1.Description"
@@ -426,7 +431,7 @@ msgstr "Profile"
 #~ msgstr "AI正在思考..."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:90
+#: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
 msgstr "HelloCity Account"
 
@@ -1311,79 +1316,74 @@ msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:65
-#~ msgid "contact-us.title>>>>>>> origin/main"
-#~ msgstr "Contact Us"
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:30
 msgid "contact.faq.a1"
-msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
+msgstr "contact.faq.a1"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:40
 msgid "contact.faq.a2"
-msgstr "You can start for free. Premium options are available for more personalized guidance and advanced features."
+msgstr "contact.faq.a2"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:50
 msgid "contact.faq.a3"
-msgstr "We cover major global cities and expand regularly. Check inside the product for the latest supported locations."
+msgstr "contact.faq.a3"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.a4"
-msgstr "No account is required for basic browsing. Creating an account unlocks saved progress, reminders, and tailored timelines."
+msgstr "contact.faq.a4"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:70
 msgid "contact.faq.a5"
-msgstr "Yes. HelloCity is responsive and works smoothly on desktop, tablet, and mobile screens."
+msgstr "contact.faq.a5"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:28
 msgid "contact.faq.q1"
-msgstr "What is HelloCity?"
+msgstr "contact.faq.q1"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:38
 msgid "contact.faq.q2"
-msgstr "Is HelloCity free to use?"
+msgstr "contact.faq.q2"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:48
 msgid "contact.faq.q3"
-msgstr "Which cities are supported?"
+msgstr "contact.faq.q3"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:58
 msgid "contact.faq.q4"
-msgstr "Do I need an account to get started?"
+msgstr "contact.faq.q4"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:68
 msgid "contact.faq.q5"
-msgstr "Does HelloCity work well on mobile?"
+msgstr "contact.faq.q5"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
 msgid "contact.faq.results"
-msgstr "results"
+msgstr "contact.faq.results"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
 msgid "contact.faq.searchPlaceholder"
-msgstr "Please write your own question..."
+msgstr "contact.faq.searchPlaceholder"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:119
 msgid "contact.faq.subtitle"
-msgstr "Find quick answers to the most common questions about HelloCity."
+msgstr "contact.faq.subtitle"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:111
 msgid "contact.faq.title"
-msgstr "Frequently Asked Questions"
+msgstr "contact.faq.title"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
@@ -1546,19 +1546,19 @@ msgstr "Rename History"
 #~ msgstr "Passwords do not match."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:25
+#: src/components/ProfileImageUploader.tsx:31
 msgid "file.upload.error"
 msgstr "Invalid File size or type. Please upload an image file under 5MB"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
-msgid "file.upload.progress"
-msgstr "The image is uploading ..."
+#: src/components/ProfileImageEditor.tsx:39
+#~ msgid "file.upload.progress"
+#~ msgstr "The image is uploading ..."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:41
-msgid "file.upload.success"
-msgstr "The image is uploaded"
+#: src/components/ProfileImageEditor.tsx:47
+#~ msgid "file.upload.success"
+#~ msgstr "The image is uploaded"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1609,17 +1609,17 @@ msgid "notFound.sub"
 msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:112
+#: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
 msgstr "Add Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:118
+#: src/components/ProfileImageUploader.tsx:101
 msgid "profile.avatar.remove"
 msgstr "Remove Picture"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
 msgstr "Profile Picture"
 

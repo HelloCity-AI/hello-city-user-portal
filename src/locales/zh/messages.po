@@ -92,7 +92,7 @@ msgstr "您确定要登出账户吗？"
 #~ msgstr "准备好迈出这一步了吗？"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:121
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:187
 msgid "Creating..."
 msgstr "创建中..."
 
@@ -170,7 +170,8 @@ msgstr "创建中..."
 #~ msgstr "从筹划到圆梦，我们陪伴始终"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:123
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:174
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -468,7 +469,7 @@ msgstr "个人资料"
 #~ msgstr "AI正在思考中..."
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:90
+#: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
 msgstr "HelloCity账户"
 
@@ -1583,19 +1584,19 @@ msgstr ""
 #~ msgstr "两次输入的密码不一致。"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:25
+#: src/components/ProfileImageUploader.tsx:31
 msgid "file.upload.error"
 msgstr "文件大小或类型无效。请上传5MB以下的图片文件"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:34
-msgid "file.upload.progress"
-msgstr ""
+#: src/components/ProfileImageEditor.tsx:39
+#~ msgid "file.upload.progress"
+#~ msgstr ""
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:41
-msgid "file.upload.success"
-msgstr "图片上传成功"
+#: src/components/ProfileImageEditor.tsx:47
+#~ msgid "file.upload.success"
+#~ msgstr "图片上传成功"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1642,17 +1643,17 @@ msgid "notFound.sub"
 msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:112
+#: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
 msgstr "添加头像"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:118
+#: src/components/ProfileImageUploader.tsx:101
 msgid "profile.avatar.remove"
 msgstr "删除照片"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageUploader.tsx:94
+#: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
 msgstr "头像"
 
