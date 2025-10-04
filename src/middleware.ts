@@ -69,7 +69,7 @@ export async function middleware(request: NextRequest) {
     const session = await auth0.getSession(request);
     if (!session?.user) {
       const res = NextResponse.redirect(new URL(`/${langInPath}/`, request.url));
-      setLangCookieIfNeeded(res, request, langInPath); 
+      setLangCookieIfNeeded(res, request, langInPath);
       return res;
     }
   }
