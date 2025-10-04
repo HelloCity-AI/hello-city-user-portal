@@ -8,8 +8,9 @@ export interface Conversation {
   checklistId?: string;
 }
 
-export interface ChatMessage {
+export interface MessageDto {
   id: string;
+  messageType: string; // 'Questions' | 'Answer' | Summary'
   role: 'user' | 'assistant' | 'system';
   content: string;
   createdAt?: string;
@@ -19,8 +20,10 @@ interface ConversationState {
   isLoading: boolean;
   conversations: Conversation[];
   loadingConversationIds: string[];
-  messagesByConversation: Record<string, ChatMessage[]>;
-  error: string | null;
+  messagesByConversation: Record<string, MessageDto[]>;
+  cacheTimestamps: Record<string, number>;
+  // checklistGeneratingId: string | null;
+  error?: string | null;
 }
 
 const initialState: ConversationState = {
@@ -28,6 +31,8 @@ const initialState: ConversationState = {
   conversations: [],
   loadingConversationIds: [],
   messagesByConversation: {},
+  cacheTimestamps: {},
+  // checklistGeneratingId: null,
   error: null,
 };
 
@@ -45,7 +50,7 @@ const conversationSlice = createSlice({
       state,
       action: PayloadAction<{
         conversationId: string;
-        messages: ChatMessage[];
+        messages: MessageDto[];
       }>,
     ) => {
       const { conversationId, messages } = action.payload;
@@ -99,7 +104,7 @@ const conversationSlice = createSlice({
     },
 
     fetchAllConversations: () => {},
-    fetchConversation: (_state, _action: PayloadAction<string>) => {},
+    fetchConversationMessages: (_state, _action: PayloadAction<string>) => {},
     updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
     deleteConversation: (_state, _action: PayloadAction<string>) => {},
   },
@@ -115,7 +120,7 @@ export const {
   setConversationTitle,
   removeConversation,
   fetchAllConversations,
-  fetchConversation,
+  fetchConversationMessages,
   updateConversation,
   deleteConversation,
 } = conversationSlice.actions;

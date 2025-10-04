@@ -9,12 +9,15 @@ import {
   setConversationTitle,
   removeConversation,
   fetchAllConversations,
-  fetchConversation,
+  fetchConversationMessages,
   deleteConversation,
   updateConversation,
   type Conversation,
+  type MessageDto,
+  cacheConversationMessages,
 } from '../slices/conversation';
 import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
+import { type RootState } from '..';
 
 interface ApiResponse<T> {
   status: number;
@@ -22,16 +25,13 @@ interface ApiResponse<T> {
   ok: boolean;
 }
 
-// Backend returns conversation data directly
-type ConversationFromBackend = Conversation;
-
-type ConversationsResponse = ApiResponse<ConversationFromBackend[]>;
-// type ConversationResponse = ApiResponse<Conversation>;
-type UpdateResponse = ApiResponse<ConversationFromBackend>;
+type ConversationsResponse = ApiResponse<Conversation[]>;
+type ConversationResponse = ApiResponse<MessageDto[]>;
+type UpdateResponse = ApiResponse<Conversation>;
 type DeleteResponse = ApiResponse<null>;
 
 export async function fetchConversationsApiWrapper(): Promise<ConversationsResponse> {
-  return fetchWithErrorHandling<ConversationFromBackend[]>('/api/conversation/me', {
+  return fetchWithErrorHandling<Conversation[]>('/api/conversation/me', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -39,22 +39,22 @@ export async function fetchConversationsApiWrapper(): Promise<ConversationsRespo
   });
 }
 
-// export async function fetchConversationApiWrapper(
-//   conversationId: string,
-// ): Promise<ConversationResponse> {
-//   return fetchWithErrorHandling<Conversation>(`/api/conversation/${conversationId}`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-// }
+export async function fetchMessagesApiWrapper(
+  conversationId: string,
+): Promise<ConversationResponse> {
+  return fetchWithErrorHandling<MessageDto[]>(`/api/conversation/${conversationId}/messages`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+}
 
 export async function updateConversationApiWrapper(
   conversationId: string,
   title: string,
 ): Promise<UpdateResponse> {
-  return fetchWithErrorHandling<ConversationFromBackend>(`/api/conversation/${conversationId}`, {
+  return fetchWithErrorHandling<Conversation>(`/api/conversation/${conversationId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -92,21 +92,35 @@ export function* handleFetchConversations(): SagaIterator {
     yield put(setConversationsLoading(false));
   }
 }
-// TODO: to be updated later
-export function* handleFetchConversation(_action: PayloadAction<string>): SagaIterator {
-  // try {
-  //   const conversationId = action.payload;
-  //   const res: ConversationResponse = yield call(fetchConversationApiWrapper, conversationId);
-  //   if (res.data) {
-  //     yield put(addOrUpdateConversation(res.data));
-  //   } else {
-  //     yield put(setError(`Failed to fetch conversation: ${res.status}`));
-  //   }
-  // } catch (error: unknown) {
-  //   console.error('Error in handleFetchConversation:', error);
-  //   const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
-  //   yield put(setError(errorMessage));
-  // }
+
+export function* handleFetchConversationMessages(action: PayloadAction<string>): SagaIterator {
+  const conversationId = action.payload;
+  try {
+    const state: RootState = yield select();
+    const cached = state.conversation.messagesByConversation[conversationId];
+    const timestamp = state.conversation.cacheTimestamps[conversationId];
+    // using cache
+    if (cached && timestamp && Date.now() - timestamp < 5 * 60 * 1000) {
+      return;
+    }
+
+    const res: ConversationResponse = yield call(fetchMessagesApiWrapper, conversationId);
+
+    if (res.ok && res.data) {
+      yield put(
+        cacheConversationMessages({
+          conversationId,
+          messages: res.data,
+        }),
+      );
+    } else {
+      yield put(setError(`Failed to fetch messages: ${res.status}`));
+    }
+  } catch (error: unknown) {
+    console.error('Error in handleFetchConversationMessage:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    yield put(setError(errorMessage));
+  }
 }
 
 export function* handleUpdateConversation(
@@ -166,7 +180,7 @@ export function* handleDeleteConversation(action: PayloadAction<string>): SagaIt
 
 export default function* conversationSaga() {
   yield takeLatest(fetchAllConversations.type, handleFetchConversations);
-  yield takeLatest(fetchConversation.type, handleFetchConversation);
+  yield takeLatest(fetchConversationMessages.type, handleFetchConversationMessages);
   yield takeLatest(updateConversation.type, handleUpdateConversation);
   yield takeLatest(deleteConversation.type, handleDeleteConversation);
 }
