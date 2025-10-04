@@ -38,8 +38,7 @@ export default function HistorySection({
   );
 
   useEffect(() => {
-    if (!params.conversationId?.[0]) return;
-    setActiveConversationId(params?.conversationId[0]);
+    setActiveConversationId(params.conversationId?.[0] || null);
   }, [params.conversationId]);
 
   const handleDelete = (conversationId: string): void => {

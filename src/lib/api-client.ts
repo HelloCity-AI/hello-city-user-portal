@@ -111,3 +111,12 @@ export async function deleteConversation(
   const client = createApiClient(backendUrl, token);
   return await client.delete(`/api/conversation/${id}`);
 }
+
+export async function getConversationMessages(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}/messages`);
+}

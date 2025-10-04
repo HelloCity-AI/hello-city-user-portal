@@ -36,7 +36,7 @@ const MessageBubble = ({
       {...props}
     >
       {message.role === 'user' ? (
-        <UserAvatar size="2.25rem" />
+        <UserAvatar size="2.25rem" clickable={false} />
       ) : (
         <Avatar
           src={aiAvatarSrc}

@@ -9,10 +9,16 @@ import {
 import type { PromptInputMessage } from '@/components/ai-elements/PromptInput';
 import ChatMainContentContainer from '../../../components/AppPageSections/ChatMainContentContainer';
 import MessageBubble from './components/ui/MessageBubble';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { UIMessage } from 'ai';
 import { ConversationPromptInput } from './components/ui/ConversationPromptInput';
 import ChatEmptyState from './components/ui/ChatEmptyState';
+import { useDispatch, useSelector } from 'react-redux';
+import { type RootState } from '@/store';
+import { fetchConversationMessages } from '@/store/slices/conversation';
+import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
+import MessageSkeleton from './components/ui/MessageSkeleton';
 
 // 假的AI回复消息列表
 const fakeAIReplies = [
@@ -28,10 +34,59 @@ const fakeAIReplies = [
   "I see what you're getting at. Here's how I would approach it:",
 ];
 
-const ChatMainArea = () => {
+interface ChatMainAreaProps {
+  conversationId?: string;
+}
+
+const ChatMainArea = ({ conversationId }: ChatMainAreaProps) => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState<UIMessage[]>([]);
   const [isAIReplying, setIsAIReplying] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { language } = useLanguage();
+
+  const isNewConversation = !conversationId;
+
+  const cachedMessages = useSelector((state: RootState) =>
+    conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
+  );
+
+  const conversations = useSelector((state: RootState) => state.conversation.conversations);
+  const loadingConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingConversationIds,
+  );
+
+  const isLoadingMessages = conversationId && loadingConversationIds.includes(conversationId);
+
+  useEffect(() => {
+    if (!conversationId) return;
+
+    const conversationExists = conversations.some((con) => con.conversationId === conversationId);
+
+    if (!conversationExists && conversations.length > 0) {
+      router.push(`/${language}/assistant`);
+    }
+  }, [conversationId, conversations, router, language]);
+
+  useEffect(() => {
+    if (conversationId) {
+      dispatch(fetchConversationMessages(conversationId));
+    }
+  }, [conversationId, dispatch]);
+
+  useEffect(() => {
+    if (cachedMessages) {
+      const uiMessages: UIMessage[] = cachedMessages.map((msg) => {
+        return {
+          id: msg.id,
+          role: msg.role,
+          parts: [{ type: 'text', text: msg.content }],
+        };
+      });
+      setMessages(uiMessages);
+    }
+  }, [cachedMessages]);
 
   // 假的AI回复函数
   const simulateAIReply = useCallback(() => {
@@ -54,7 +109,7 @@ const ChatMainArea = () => {
     }, replyDelay);
   }, []);
 
-  const handleSubmit = (message: PromptInputMessage, event: FormEvent) => {
+  const handleSubmit = (_message: PromptInputMessage, event: FormEvent) => {
     event.preventDefault();
     if (input.trim() && !isAIReplying) {
       // 添加用户消息
@@ -66,7 +121,6 @@ const ChatMainArea = () => {
 
       setMessages((prev) => [...prev, userMessage]);
       setInput('');
-
       // 触发AI回复
       simulateAIReply();
     }
@@ -77,8 +131,10 @@ const ChatMainArea = () => {
       {/* Messages Area - Direct Conversation component as flex-1 */}
       <Conversation>
         <ConversationContent>
-          {messages.length === 0 ? (
+          {isNewConversation ? (
             <ChatEmptyState />
+          ) : isLoadingMessages ? (
+            <MessageSkeleton />
           ) : (
             <>
               {messages.map((message) => (

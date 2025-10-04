@@ -8,8 +8,9 @@ export interface Conversation {
   checklistId?: string;
 }
 
-export interface ChatMessage {
+export interface MessageDto {
   id: string;
+  messageType: string; // 'Questions' | 'Answer' | Summary'
   role: 'user' | 'assistant' | 'system';
   content: string;
   createdAt?: string;
@@ -19,8 +20,10 @@ interface ConversationState {
   isLoading: boolean;
   conversations: Conversation[];
   loadingConversationIds: string[];
-  messagesByConversation: Record<string, ChatMessage[]>;
-  error: string | null;
+  messagesByConversation: Record<string, MessageDto[]>;
+  cacheTimestamps: Record<string, number>;
+  // checklistGeneratingId: string | null;
+  error?: string | null;
 }
 
 const initialState: ConversationState = {
@@ -28,6 +31,8 @@ const initialState: ConversationState = {
   conversations: [],
   loadingConversationIds: [],
   messagesByConversation: {},
+  cacheTimestamps: {},
+  // checklistGeneratingId: null,
   error: null,
 };
 
@@ -45,15 +50,17 @@ const conversationSlice = createSlice({
       state,
       action: PayloadAction<{
         conversationId: string;
-        messages: ChatMessage[];
+        messages: MessageDto[];
       }>,
     ) => {
       const { conversationId, messages } = action.payload;
       state.messagesByConversation[conversationId] = messages;
+      state.cacheTimestamps[conversationId] = Date.now();
     },
 
     clearConversationCache: (state, action: PayloadAction<string>) => {
       delete state.messagesByConversation[action.payload];
+      delete state.cacheTimestamps[action.payload];
     },
 
     setConversationsLoading: (state, action: PayloadAction<boolean>) => {
@@ -94,12 +101,13 @@ const conversationSlice = createSlice({
     removeConversation: (state, action: PayloadAction<string>) => {
       state.conversations = state.conversations.filter((c) => c.conversationId !== action.payload);
       delete state.messagesByConversation[action.payload];
+      delete state.cacheTimestamps[action.payload];
       state.isLoading = false;
       state.error = null;
     },
 
     fetchAllConversations: () => {},
-    fetchConversation: (_state, _action: PayloadAction<string>) => {},
+    fetchConversationMessages: (_state, _action: PayloadAction<string>) => {},
     updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
     deleteConversation: (_state, _action: PayloadAction<string>) => {},
   },
@@ -115,7 +123,7 @@ export const {
   setConversationTitle,
   removeConversation,
   fetchAllConversations,
-  fetchConversation,
+  fetchConversationMessages,
   updateConversation,
   deleteConversation,
 } = conversationSlice.actions;
