@@ -101,8 +101,11 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
     const timestamp = state.conversation.cacheTimestamps[conversationId];
     // using cache
     if (cached && timestamp && Date.now() - timestamp < 5 * 60 * 1000) {
+      console.log('useing caching');
       return;
     }
+
+    yield put(setConversationLoading({ conversationId, isLoading: true }));
 
     const res: ConversationResponse = yield call(fetchMessagesApiWrapper, conversationId);
 
@@ -114,12 +117,27 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
         }),
       );
     } else {
-      yield put(setError(`Failed to fetch messages: ${res.status}`));
+      let errorMessage = 'Failed to load conversation messages.';
+      if (res.status === 400) {
+        errorMessage = 'Invalid conversation request.';
+      }
+      if (res.status === 404) {
+        errorMessage = 'Conversation not found.';
+      }
+      if (res.status === 403) {
+        errorMessage = 'You do not have permission to access this conversation.';
+      }
+      if (res.status >= 500) {
+        errorMessage = 'Server error. Please try again later.';
+      }
+      yield put(setError(errorMessage));
     }
   } catch (error: unknown) {
     console.error('Error in handleFetchConversationMessage:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
     yield put(setError(errorMessage));
+  } finally {
+    yield put(setConversationLoading({ conversationId, isLoading: false }));
   }
 }
 

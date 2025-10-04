@@ -16,6 +16,9 @@ import ChatEmptyState from './components/ui/ChatEmptyState';
 import { useDispatch, useSelector } from 'react-redux';
 import { type RootState } from '@/store';
 import { fetchConversationMessages } from '@/store/slices/conversation';
+import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
+import MessageSkeleton from './components/ui/MessageSkeleton';
 
 // 假的AI回复消息列表
 const fakeAIReplies = [
@@ -40,12 +43,31 @@ const ChatMainArea = ({ conversationId }: ChatMainAreaProps) => {
   const [messages, setMessages] = useState<UIMessage[]>([]);
   const [isAIReplying, setIsAIReplying] = useState(false);
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { language } = useLanguage();
 
   const isNewConversation = !conversationId;
 
   const cachedMessages = useSelector((state: RootState) =>
     conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
   );
+
+  const conversations = useSelector((state: RootState) => state.conversation.conversations);
+  const loadingConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingConversationIds,
+  );
+
+  const isLoadingMessages = conversationId && loadingConversationIds.includes(conversationId);
+
+  useEffect(() => {
+    if (!conversationId) return;
+
+    const conversationExists = conversations.some((con) => con.conversationId === conversationId);
+
+    if (!conversationExists && conversations.length > 0) {
+      router.push(`/${language}/assistant`);
+    }
+  }, [conversationId, conversations, router, language]);
 
   useEffect(() => {
     if (conversationId) {
@@ -111,6 +133,8 @@ const ChatMainArea = ({ conversationId }: ChatMainAreaProps) => {
         <ConversationContent>
           {isNewConversation ? (
             <ChatEmptyState />
+          ) : isLoadingMessages ? (
+            <MessageSkeleton />
           ) : (
             <>
               {messages.map((message) => (

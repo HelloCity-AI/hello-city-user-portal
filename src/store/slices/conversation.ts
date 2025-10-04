@@ -55,10 +55,12 @@ const conversationSlice = createSlice({
     ) => {
       const { conversationId, messages } = action.payload;
       state.messagesByConversation[conversationId] = messages;
+      state.cacheTimestamps[conversationId] = Date.now();
     },
 
     clearConversationCache: (state, action: PayloadAction<string>) => {
       delete state.messagesByConversation[action.payload];
+      delete state.cacheTimestamps[action.payload];
     },
 
     setConversationsLoading: (state, action: PayloadAction<boolean>) => {
@@ -99,6 +101,7 @@ const conversationSlice = createSlice({
     removeConversation: (state, action: PayloadAction<string>) => {
       state.conversations = state.conversations.filter((c) => c.conversationId !== action.payload);
       delete state.messagesByConversation[action.payload];
+      delete state.cacheTimestamps[action.payload];
       state.isLoading = false;
       state.error = null;
     },

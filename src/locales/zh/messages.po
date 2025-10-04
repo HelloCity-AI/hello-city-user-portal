@@ -1779,7 +1779,7 @@ msgid "sidebar.actions.searchChat"
 msgstr "搜索对话"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:58
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
 msgid "sidebar.history.title"
 msgstr "对话历史"
 
