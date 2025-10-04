@@ -7,11 +7,13 @@ export enum AuthState {
   AuthenticatedButNoProfile = 1,
   AuthenticatedWithProfile = 2,
 }
+
 export interface UserState {
   isLoading: boolean;
   data: User | null;
   error: string | null;
   authStatus: AuthState;
+  hasFetched: boolean;
   isCreating: boolean;
   createError: string | null;
   isUpdating: boolean;
@@ -23,6 +25,7 @@ const initialState: UserState = {
   data: null,
   error: null,
   authStatus: AuthState.Unauthenticated,
+  hasFetched: false,
   isCreating: false,
   createError: null,
   isUpdating: false,
@@ -36,12 +39,15 @@ const userSlice = createSlice({
     setUser: (state, action: PayloadAction<User | null>) => {
       state.data = action.payload;
       state.error = null;
+      state.isLoading = false;
+      state.hasFetched = true;
     },
     logOut: (state) => {
       state.data = null;
       state.error = null;
       state.authStatus = AuthState.Unauthenticated;
       state.isLoading = false;
+      state.hasFetched = false;
       state.isCreating = false;
       state.createError = null;
       state.isUpdating = false;
@@ -54,12 +60,18 @@ const userSlice = createSlice({
       state.isLoading = action.payload;
       if (action.payload) state.error = null;
     },
-    setError: (state, action: PayloadAction<string | null>) => {
+    setError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.isLoading = false;
+      state.hasFetched = true;
     },
+    clearError: (state) => {
+      state.error = null;
+    },
+
     fetchUser: () => {},
-    createUser: (state, action: PayloadAction<User>) => {
+
+    createUser: (state, _action: PayloadAction<User>) => {
       state.isCreating = true;
       state.createError = null;
     },
@@ -68,12 +80,15 @@ const userSlice = createSlice({
       state.isCreating = false;
       state.createError = null;
       state.authStatus = AuthState.AuthenticatedWithProfile;
+      state.hasFetched = true;
     },
     createUserFailure: (state, action: PayloadAction<string>) => {
       state.isCreating = false;
       state.createError = action.payload;
+      state.hasFetched = true;
     },
-    updateUser: (state, action: PayloadAction<User>) => {
+
+    updateUser: (state, _action: PayloadAction<User>) => {
       state.isUpdating = true;
       state.updateError = null;
     },
@@ -95,6 +110,7 @@ export const {
   setLoading,
   fetchUser,
   setError,
+  clearError,
   setAuth,
   createUser,
   createUserSuccess,
@@ -103,4 +119,5 @@ export const {
   updateUserSuccess,
   updateUserFailure,
 } = userSlice.actions;
+
 export default userSlice.reducer;
