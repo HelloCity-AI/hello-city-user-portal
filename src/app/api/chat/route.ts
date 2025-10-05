@@ -24,7 +24,8 @@ export async function POST(req: Request) {
     // UIMessage: { role, parts: [{ text }] } → Backend: { role, content, parts }
     const convertedMessages = (messages as UIMessage[]).map((msg) => ({
       role: msg.role,
-      content: msg.parts?.[0]?.text || '',
+      // 合并所有 parts 的 text（AI SDK 流式回复可能有多个 parts）
+      content: msg.parts?.map((part) => part.text).join('') || '',
       parts: msg.parts, // 保留原始 parts 供未来使用
     }));
 
@@ -90,10 +91,9 @@ export async function POST(req: Request) {
             for (const line of lines) {
               if (line.startsWith('data: ')) {
                 const data = line.slice(6);
-                console.log('[API Chat] Received SSE line:', data);
+
                 try {
                   const parsed = JSON.parse(data);
-                  console.log('[API Chat] Parsed data:', parsed);
 
                   if (parsed.type === 'text-delta' && parsed.delta) {
                     // Send start lifecycle events on first token
@@ -105,11 +105,16 @@ export async function POST(req: Request) {
                     }
 
                     // Send text-delta in SSE format
-                    send(`data: ${JSON.stringify({
-                      type: 'text-delta',
-                      id: messageId,
-                      delta: parsed.delta,
-                    })}\n\n`);
+                    send(
+                      `data: ${JSON.stringify({
+                        type: 'text-delta',
+                        id: messageId,
+                        delta: parsed.delta,
+                      })}\n\n`,
+                    );
+
+                    // Add async delay to prevent browser batching
+                    await new Promise((resolve) => setTimeout(resolve, 10));
                   }
                 } catch (e) {
                   console.error('[API Chat] Failed to parse SSE data:', e);
@@ -129,6 +134,7 @@ export async function POST(req: Request) {
         'Content-Type': 'text/plain; charset=utf-8',
         'Cache-Control': 'no-cache',
         Connection: 'keep-alive',
+        'x-vercel-ai-ui-message-stream': 'v1',
       },
     });
   } catch (error) {

@@ -40,7 +40,7 @@ const ChatMainArea = ({
     id: conversationId,
     messages: initialMessages,
     transport: new DefaultChatTransport({
-      api: '/api/chat-direct',
+      api: '/api/chat',
       prepareSendMessagesRequest: ({ id, messages }) => {
         return {
           body: {
