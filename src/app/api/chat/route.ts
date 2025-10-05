@@ -1,35 +1,33 @@
+/**
+ * AI Chat Streaming Endpoint
+ *
+ * Architecture: Frontend (AI SDK) → Next.js Edge → .NET Backend → Python AI Service
+ *
+ * Data Flow:
+ * 1. AI SDK UIMessage (parts[]) → Backend Message (content string)
+ * 2. .NET ChatProxy streams SSE from Python service
+ * 3. Transform backend SSE → AI SDK streaming protocol
+ *
+ * Edge Runtime: Required for streaming response and Web Streams API
+ */
 import { getAuthContext } from '@/lib/auth-utils';
+import {
+  convertUIMessagesToBackendFormat,
+  createAISDKStream,
+  type UIMessage,
+} from '@/utils/chatStreamUtils';
 
 export const runtime = 'edge';
 
-interface UIMessagePart {
-  type: string;
-  text: string;
-}
-
-interface UIMessage {
-  role: string;
-  parts?: UIMessagePart[];
-}
-
 export async function POST(req: Request) {
   try {
-    // 1. 验证Auth0身份
     const { token, apiUrl } = await getAuthContext();
-
-    // 2. 解析请求体
     const { messages, conversationId } = await req.json();
 
-    // 3. 转换 UIMessage 格式为 Backend 兼容格式
-    // UIMessage: { role, parts: [{ text }] } → Backend: { role, content, parts }
-    const convertedMessages = (messages as UIMessage[]).map((msg) => ({
-      role: msg.role,
-      // 合并所有 parts 的 text（AI SDK 流式回复可能有多个 parts）
-      content: msg.parts?.map((part) => part.text).join('') || '',
-      parts: msg.parts, // 保留原始 parts 供未来使用
-    }));
+    // Transform AI SDK format (parts[]) to Backend format (content string)
+    const convertedMessages = convertUIMessagesToBackendFormat(messages as UIMessage[]);
 
-    // 4. 构建发送给.NET backend的请求
+    // Forward to .NET backend with full conversation history
     const response = await fetch(`${apiUrl}/api/ChatProxy`, {
       method: 'POST',
       headers: {
@@ -52,82 +50,13 @@ export async function POST(req: Request) {
       throw new Error(`Backend returned ${response.status}: ${errorText}`);
     }
 
-    // 4. 转换 backend SSE 流为 AI SDK 格式
+    // Transform backend SSE stream to AI SDK streaming protocol
     const reader = response.body?.getReader();
-    const decoder = new TextDecoder();
-
     if (!reader) {
       throw new Error('No response body');
     }
 
-    const stream = new ReadableStream({
-      async start(controller) {
-        let buffer = '';
-        let hasStarted = false;
-        const messageId = crypto.randomUUID();
-
-        const send = (data: string) => {
-          controller.enqueue(new TextEncoder().encode(data));
-        };
-
-        try {
-          while (true) {
-            const { done, value } = await reader.read();
-
-            if (done) {
-              // Send finish lifecycle events
-              send(`data: ${JSON.stringify({ type: 'text-end', id: messageId })}\n\n`);
-              send(`data: ${JSON.stringify({ type: 'finish-step' })}\n\n`);
-              send(`data: ${JSON.stringify({ type: 'finish' })}\n\n`);
-              send(`data: [DONE]\n\n`);
-              controller.close();
-              break;
-            }
-
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split('\n');
-            buffer = lines.pop() || '';
-
-            for (const line of lines) {
-              if (line.startsWith('data: ')) {
-                const data = line.slice(6);
-
-                try {
-                  const parsed = JSON.parse(data);
-
-                  if (parsed.type === 'text-delta' && parsed.delta) {
-                    // Send start lifecycle events on first token
-                    if (!hasStarted) {
-                      send(`data: ${JSON.stringify({ type: 'start' })}\n\n`);
-                      send(`data: ${JSON.stringify({ type: 'start-step' })}\n\n`);
-                      send(`data: ${JSON.stringify({ type: 'text-start', id: messageId })}\n\n`);
-                      hasStarted = true;
-                    }
-
-                    // Send text-delta in SSE format
-                    send(
-                      `data: ${JSON.stringify({
-                        type: 'text-delta',
-                        id: messageId,
-                        delta: parsed.delta,
-                      })}\n\n`,
-                    );
-
-                    // Add async delay to prevent browser batching
-                    await new Promise((resolve) => setTimeout(resolve, 10));
-                  }
-                } catch (e) {
-                  console.error('[API Chat] Failed to parse SSE data:', e);
-                }
-              }
-            }
-          }
-        } catch (error) {
-          console.error('[API Chat] Stream error:', error);
-          controller.error(error);
-        }
-      },
-    });
+    const stream = createAISDKStream(reader);
 
     return new Response(stream, {
       headers: {
