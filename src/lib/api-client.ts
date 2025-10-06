@@ -125,9 +125,11 @@ export async function createConversation(
   token: string,
   backendUrl: string,
   title: string = 'New Conversation',
+  firstMessage?: string,
 ): Promise<AxiosResponse> {
   const client = createApiClient(backendUrl, token);
   return await client.post('/api/Conversation', {
     title,
+    firstMessage,
   });
 }

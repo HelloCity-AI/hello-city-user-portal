@@ -60,18 +60,20 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
   const conversations = useSelector((state: RootState) => state.conversation.conversations);
   const pendingMessages = useSelector((state: RootState) => state.conversation.pendingMessages);
   const isLoadingList = useSelector((state: RootState) => state.conversation.isLoading);
+  const hasFetched = useSelector((state: RootState) => state.conversation.hasFetched);
   const isNewConversation = !conversationId;
 
   // Redirect if conversation doesn't exist (deleted or 404)
   useEffect(() => {
     if (!conversationId) return;
     if (isLoadingList) return;
+    if (!hasFetched) return;
 
     const conversationExists = conversations.some((con) => con.conversationId === conversationId);
     if (!conversationExists) {
       router.push(`/${language}/assistant`);
     }
-  }, [conversationId, conversations, isLoadingList, router, language]);
+  }, [conversationId, conversations, isLoadingList, hasFetched, router, language]);
 
   // Send pending message after conversation creation (ref prevents duplicate sends)
   useEffect(() => {
@@ -105,15 +107,24 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ title: 'New Conversation' }),
+            body: JSON.stringify({
+              title: 'New Conversation',
+              firstMessage: input,
+            }),
           },
         );
 
         if (response.ok && response.data) {
           const newId = response.data.conversationId;
+          const generatedTitle = response.data.title;
 
           dispatch(setPendingMessage({ conversationId: newId, message: input }));
-          dispatch(addConversationOptimistic({ conversationId: newId, title: 'New Conversation' }));
+          dispatch(
+            addConversationOptimistic({
+              conversationId: newId,
+              title: generatedTitle,
+            }),
+          );
           dispatch(cacheConversationMessages({ conversationId: newId, messages: [] }));
 
           router.push(`/${language}/assistant/${newId}`);
