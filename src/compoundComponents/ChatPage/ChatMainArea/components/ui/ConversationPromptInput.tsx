@@ -14,6 +14,7 @@ export interface ConversationPromptInputProps {
   onValueChange: (value: string) => void;
   onSubmit: (message: PromptInputMessage, event: FormEvent) => void;
   isAIReplying: boolean;
+  isCreating?: boolean;
 }
 
 export function ConversationPromptInput({
@@ -21,6 +22,7 @@ export function ConversationPromptInput({
   onValueChange,
   onSubmit,
   isAIReplying,
+  isCreating = false,
 }: ConversationPromptInputProps) {
   return (
     <div className="flex justify-center px-4">
@@ -63,8 +65,8 @@ export function ConversationPromptInput({
           )}
 
           <PromptInputSubmit
-            status={isAIReplying ? 'streaming' : 'ready'}
-            disabled={!value.trim() || isAIReplying}
+            status={'ready'}
+            disabled={!value.trim() || isAIReplying || isCreating}
           />
         </PromptInput>
 

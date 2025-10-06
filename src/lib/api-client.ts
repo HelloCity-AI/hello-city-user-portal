@@ -120,3 +120,14 @@ export async function getConversationMessages(
   const client = createApiClient(backendUrl, token);
   return await client.get(`/api/conversation/${id}/messages`);
 }
+
+export async function createConversation(
+  token: string,
+  backendUrl: string,
+  title: string = 'New Conversation',
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.post('/api/Conversation', {
+    title,
+  });
+}
