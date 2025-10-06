@@ -14,9 +14,9 @@ const testTheme = createTheme();
 // Mock user data
 const mockUserWithAvatar: User = {
   userId: '123',
-  Email: 'test@example.com',
-  Avatar: '/images/default-avatar.jpg',
-  Gender: '',
+  email: 'test@example.com',
+  avatar: '/images/default-avatar.jpg',
+  gender: '',
   nationality: '',
   city: '',
   university: '',
@@ -27,9 +27,9 @@ const mockUserWithAvatar: User = {
 
 const mockUserWithoutAvatar: User = {
   userId: '456',
-  Email: 'noavatar@example.com',
-  Avatar: '',
-  Gender: '',
+  email: 'noavatar@example.com',
+  avatar: '',
+  gender: '',
   nationality: '',
   city: '',
   university: '',
@@ -71,7 +71,7 @@ describe('UserAvatar', () => {
 
     const avatar = screen.getByRole('img', { name: 'User Avatar' });
     expect(avatar).toBeInTheDocument();
-    expect(avatar).toHaveAttribute('src', mockUserWithAvatar.Avatar);
+    expect(avatar).toHaveAttribute('src', mockUserWithAvatar.avatar);
   });
 
   it('renders avatar with email initial when user has no avatar', () => {

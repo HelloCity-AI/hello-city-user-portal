@@ -79,12 +79,12 @@ export async function createUserApiWrapper(newUser: User) {
     const formData = new FormData();
 
     // Add user fields to FormData
-    if (newUser.Email) formData.append('Email', newUser.Email);
-    if (newUser.Gender) formData.append('Gender', newUser.Gender);
+    if (newUser.email) formData.append('Email', newUser.email);
+    if (newUser.gender) formData.append('Gender', newUser.gender);
     if (newUser.city) formData.append('City', newUser.city);
     if (newUser.nationality) formData.append('Nationality', newUser.nationality);
-    if (newUser.preferredLanguage) formData.append('Languages', newUser.preferredLanguage);
-    if (newUser.Avatar) formData.append('Avatar', newUser.Avatar);
+    if (newUser.preferredLanguage) formData.append('PreferredLanguage', newUser.preferredLanguage);
+    if (newUser.avatar) formData.append('Avatar', newUser.avatar);
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
     // Ensure backend-required Username: prefer newUser.username then fallback to userId

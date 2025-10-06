@@ -29,11 +29,11 @@ export const createUser = async (newUser: User) => {
 
   // Add required fields: prefer username then fallback to userId
   formData.append('Username', newUser.username || newUser.userId || 'defaultUsername');
-  formData.append('Email', newUser.Email);
+  formData.append('Email', newUser.email);
 
   // Add optional fields
-  if (newUser.Gender) {
-    formData.append('Gender', newUser.Gender.toString());
+  if (newUser.gender) {
+    formData.append('Gender', newUser.gender.toString());
   }
   if (newUser.nationality) {
     formData.append('Nationality', newUser.nationality);

@@ -44,9 +44,9 @@ describe('userSaga', () => {
 
   const mockUser: User = {
     userId: 'test-user-id',
-    Email: 'test@example.com',
-    Avatar: 'avatar-url',
-    Gender: Genders.Male,
+    email: 'test@example.com',
+    avatar: 'avatar-url',
+    gender: Genders.Male,
     nationality: Nationalities.China,
     city: Cities.Sydney,
     university: 'Test University',
@@ -85,9 +85,9 @@ describe('userSaga', () => {
     it('should create user successfully', async () => {
       const newUser: User = {
         userId: 'new-user-id',
-        Email: 'newuser@example.com',
-        Avatar: 'new-avatar-url',
-        Gender: Genders.Female,
+        email: 'newuser@example.com',
+        avatar: 'new-avatar-url',
+        gender: Genders.Female,
         nationality: Nationalities.Korea,
         city: Cities.Melbourne,
         university: 'New University',
@@ -114,7 +114,7 @@ describe('userSaga', () => {
       expect(formDataCall.get('Gender')).toBe(Genders.Female);
       expect(formDataCall.get('City')).toBe(Cities.Melbourne);
       expect(formDataCall.get('Nationality')).toBe(Nationalities.Korea);
-      expect(formDataCall.get('Languages')).toBe(Languages.English);
+      expect(formDataCall.get('PreferredLanguage')).toBe(Languages.English);
       expect(formDataCall.get('Avatar')).toBe('new-avatar-url');
       expect(formDataCall.get('University')).toBe('New University');
       expect(formDataCall.get('Major')).toBe('Engineering');
@@ -128,9 +128,9 @@ describe('userSaga', () => {
     it('should handle errors during user creation', async () => {
       const newUser: User = {
         userId: 'error-user-id',
-        Email: 'error@example.com',
-        Avatar: 'error-avatar-url',
-        Gender: Genders.Other,
+        email: 'error@example.com',
+        avatar: 'error-avatar-url',
+        gender: Genders.Other,
         nationality: Nationalities.Japan,
         city: Cities.Adelaide,
         university: 'Error University',
@@ -198,9 +198,9 @@ describe('userSaga', () => {
     it('should handle successful user creation', () => {
       const newUser: User = {
         userId: 'new-user-id',
-        Email: 'newuser@example.com',
-        Avatar: 'new-avatar-url',
-        Gender: Genders.Female,
+        email: 'newuser@example.com',
+        avatar: 'new-avatar-url',
+        gender: Genders.Female,
         nationality: Nationalities.Korea,
         city: Cities.Perth,
         university: 'New University',
@@ -226,9 +226,9 @@ describe('userSaga', () => {
     it('should handle creation error', () => {
       const newUser: User = {
         userId: 'error-user-id',
-        Email: 'error@example.com',
-        Avatar: 'error-avatar-url',
-        Gender: Genders.Other,
+        email: 'error@example.com',
+        avatar: 'error-avatar-url',
+        gender: Genders.Other,
         nationality: Nationalities.Japan,
         city: Cities.Adelaide,
         university: 'Error University',

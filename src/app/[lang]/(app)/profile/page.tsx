@@ -74,7 +74,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
               </Typography>
-              <Typography variant="body1">{userInfo.Email || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -95,7 +95,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.gender', { default: 'Gender' })}
               </Typography>
-              <Typography variant="body1">{userInfo.Gender || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -145,8 +145,8 @@ const Page = () => {
               <div className="flex w-full flex-col gap-3 lg:w-[48%]">
                 <InputBox
                   label={i18n._('profile.username', { default: 'Username' })}
-                  value={userInfo.userId || ''}
-                  name="userId"
+                  value={userInfo.username || ''}
+                  name="username"
                   placeholder={i18n._('profile.username-placeholder', {
                     default: 'Please enter your username',
                   })}
@@ -156,8 +156,8 @@ const Page = () => {
                 <InputBox
                   label={i18n._('profile.email', { default: 'Email' })}
                   fieldType="email"
-                  value={userInfo.Email || ''}
-                  name="Email"
+                  value={userInfo.email || ''}
+                  name="email"
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
                   })}
@@ -189,10 +189,10 @@ const Page = () => {
                     fullWidth
                     select
                     label={i18n._('profile.gender', { default: 'Gender' })}
-                    name="Gender"
+                    name="gender"
                     variant="outlined"
                     required
-                    value={userInfo.Gender || ''}
+                    value={userInfo.gender || ''}
                     onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
                     InputLabelProps={{ shrink: true }}
                     helperText=" "

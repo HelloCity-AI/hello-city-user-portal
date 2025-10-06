@@ -11,8 +11,8 @@ export interface UserNameProps extends Omit<TypographyProps, 'children'> {
 const UserName: React.FC<UserNameProps> = ({ fallback = 'Guest User', ...typographyProps }) => {
   const { data } = useSelector((state: RootState) => state.user);
 
-  // Priority: Email > Fallback (User type only has Email property)
-  const displayName = data?.Email || fallback;
+  // Priority: email > Fallback
+  const displayName = data?.email || fallback;
 
   return <Typography {...typographyProps}>{displayName}</Typography>;
 };

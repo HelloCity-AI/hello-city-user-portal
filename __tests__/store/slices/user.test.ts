@@ -28,9 +28,9 @@ describe('user slice', () => {
 
   const mockUser: User = {
     userId: '1',
-    Email: 'test@example.com',
-    Avatar: 'avatar.jpg',
-    Gender: Genders.Male,
+    email: 'test@example.com',
+    avatar: 'avatar.jpg',
+    gender: Genders.Male,
     nationality: Nationalities.China,
     city: Cities.Sydney,
     university: 'Test University',

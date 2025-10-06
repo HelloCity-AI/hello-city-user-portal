@@ -166,7 +166,7 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
     type BackendEditUserForm = {
       Username?: string;
       Email?: string;
-      Gender?: string | User['Gender'];
+      Gender?: string | User['gender'];
       Nationality?: string | User['nationality'];
       City?: string | User['city'];
       University?: string | User['university'];
@@ -183,15 +183,15 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
     } else if (userData.userId !== undefined) {
       backendUserData.Username = userData.userId;
     }
-    if (userData.Email !== undefined) backendUserData.Email = userData.Email;
-    if (userData.Gender !== undefined) backendUserData.Gender = userData.Gender;
+    if (userData.email !== undefined) backendUserData.Email = userData.email;
+    if (userData.gender !== undefined) backendUserData.Gender = userData.gender;
     if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;
     if (userData.city !== undefined) backendUserData.City = userData.city;
     if (userData.university !== undefined) backendUserData.University = userData.university;
     if (userData.major !== undefined) backendUserData.Major = userData.major;
     if (userData.preferredLanguage !== undefined)
       backendUserData.PreferredLanguage = userData.preferredLanguage;
-    if (userData.Avatar !== undefined) backendUserData.Avatar = userData.Avatar;
+    if (userData.avatar !== undefined) backendUserData.Avatar = userData.avatar;
 
     // Call the API to update user profile
     const response: AxiosResponse<User> = await updateUserProfile(
