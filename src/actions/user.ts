@@ -1,6 +1,6 @@
 'use server';
 
-import { createUserProfile, fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import { createUserProfile, fetchUserProfile, updateUserProfile, updateCurrentUserProfile } from '@/lib/api-client';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { handleApiError } from '@/lib/error-handlers';
 import type { AxiosResponse } from 'axios';
@@ -193,11 +193,26 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
       backendUserData.PreferredLanguage = userData.preferredLanguage;
     if (userData.avatar !== undefined) backendUserData.Avatar = userData.avatar;
 
-    // Call the API to update user profile
-    const response: AxiosResponse<User> = await updateUserProfile(
+    // Build FormData for /api/user/me endpoint (multipart/form-data)
+    const form = new FormData();
+    if (backendUserData.Username !== undefined) form.append('Username', backendUserData.Username);
+    if (backendUserData.Email !== undefined) form.append('Email', backendUserData.Email);
+    if (backendUserData.Gender !== undefined) form.append('Gender', String(backendUserData.Gender));
+    if (backendUserData.Nationality !== undefined)
+      form.append('Nationality', String(backendUserData.Nationality));
+    if (backendUserData.City !== undefined) form.append('City', String(backendUserData.City));
+    if (backendUserData.University !== undefined)
+      form.append('University', String(backendUserData.University));
+    if (backendUserData.Major !== undefined) form.append('Major', String(backendUserData.Major));
+    if (backendUserData.PreferredLanguage !== undefined)
+      form.append('PreferredLanguage', String(backendUserData.PreferredLanguage));
+    if (backendUserData.Avatar !== undefined) form.append('Avatar', String(backendUserData.Avatar));
+
+    // Call the API to update current user profile without GUID
+    const response: AxiosResponse<User> = await updateCurrentUserProfile(
       tokenResult.token,
       apiUrl,
-      backendUserData,
+      form,
     );
 
     return {

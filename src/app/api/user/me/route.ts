@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
-import { fetchUserProfile, updateUserProfile, updateCurrentUserProfile } from '@/lib/api-client';
+import { fetchUserProfile, updateCurrentUserProfile } from '@/lib/api-client';
 import type { User } from '@/types/User.types';
 import axios from 'axios';
 
@@ -65,7 +65,6 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
     const userData: Partial<User> = await request.json();
 
     const backendUserData: BackendEditUserForm = {};
-    // 优先使用前端提供的 username，其次回退到 userId
     if (userData.username !== undefined && userData.username !== '') {
       backendUserData.Username = userData.username;
     } else if (userData.userId !== undefined) {
@@ -92,23 +91,8 @@ export async function PUT(request: NextRequest): Promise<NextResponse> {
     try {
       const apiUrl = getBackendUrl()!;
 
-      // Always resolve backend GUID (UserId) for path id
-      let guid: string | undefined = undefined;
-      try {
-        const currentUserResponse = await fetchUserProfile(tokenResult.token, apiUrl);
-        // Backend returns GUID as `UserId`; do not use username
-        guid = (currentUserResponse.data as { UserId?: string })?.UserId;
-      } catch (fetchError) {
-        console.error('Failed to fetch current user for GUID:', fetchError);
-      }
-
-      let response;
-      if (guid) {
-        response = await updateUserProfile(tokenResult.token, apiUrl, formData, guid);
-      } else {
-        // Fallback to backend /api/user/me to avoid 500 when GUID not resolved
-        response = await updateCurrentUserProfile(tokenResult.token, apiUrl, formData);
-      }
+      // Use backend /api/user/me endpoint for current user updates
+      const response = await updateCurrentUserProfile(tokenResult.token, apiUrl, formData);
       return NextResponse.json(response.data, { status: response.status });
     } catch (axiosError) {
       if (axios.isAxiosError(axiosError)) {

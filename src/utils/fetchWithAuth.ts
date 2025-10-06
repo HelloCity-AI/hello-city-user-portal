@@ -26,11 +26,15 @@ export async function fetchWithAuth(url: string, init: RequestInit = {}): Promis
     headers.set('Content-Type', 'application/json');
   }
 
-  // Send the request
-  return fetch(url, {
-    ...init,
-    headers,
-  });
+  try {
+    const response = await fetch(url, {
+      ...init,
+      headers,
+    });
+    return response;
+  } catch (err) {
+    throw err;
+  }
 }
 
 /**
@@ -54,5 +58,6 @@ export async function createAuthenticatedClient(token?: string) {
     throw new Error('Backend URL is not configured');
   }
 
-  return createApiClient(authToken, backendUrl);
+  // Ensure correct argument order: baseURL, token
+  return createApiClient(backendUrl, authToken);
 }
