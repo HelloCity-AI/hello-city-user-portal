@@ -18,6 +18,7 @@ export interface MessageDto {
 
 interface ConversationState {
   isLoading: boolean;
+  hasFetched: boolean;
   conversations: Conversation[];
   loadingConversationIds: string[];
   messagesByConversation: Record<string, MessageDto[]>;
@@ -28,6 +29,7 @@ interface ConversationState {
 
 const initialState: ConversationState = {
   isLoading: false,
+  hasFetched: false,
   conversations: [],
   loadingConversationIds: [],
   messagesByConversation: {},
@@ -43,6 +45,7 @@ const conversationSlice = createSlice({
     setConversations: (state, action: PayloadAction<Conversation[]>) => {
       state.conversations = action.payload;
       state.isLoading = false;
+      state.hasFetched = true;
       state.error = null;
     },
 

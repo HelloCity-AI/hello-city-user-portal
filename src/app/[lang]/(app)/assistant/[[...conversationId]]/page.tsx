@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ChatMainArea from '@/compoundComponents/ChatPage/ChatMainArea';
+import ChatMainContentContainer from '@/components/AppPageSections/ChatMainContentContainer';
 import ChecklistPanel from '@/compoundComponents/ChatPage/ChecklistPanel';
 import { useParams } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,11 +55,11 @@ export default function ChatPage() {
       {shouldRenderChat ? (
         <ChatMainArea conversationId={conversationId} initialMessages={initialMessages} />
       ) : (
-        <div className="flex flex-1 flex-col">
-          <div className="flex-1 overflow-y-auto p-4">
+        <ChatMainContentContainer>
+          <div className="flex-1 overflow-y-auto">
             <MessageSkeleton />
           </div>
-        </div>
+        </ChatMainContentContainer>
       )}
       <ChecklistPanel
         isCollapsed={isChecklistPanelCollapsed}
