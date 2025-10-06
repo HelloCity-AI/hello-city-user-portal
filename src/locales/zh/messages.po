@@ -1628,19 +1628,19 @@ msgstr "知道了"
 #~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "让我们帮你更快融入新生活。"
+#: src/app/[lang]/not-found.tsx:131
+#~ msgid "notFound.headline"
+#~ msgstr "让我们帮你更快融入新生活。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "未找到该页面"
+#: src/app/[lang]/not-found.tsx:120
+#~ msgid "notFound.pageNotFound"
+#~ msgstr "未找到该页面"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
+#: src/app/[lang]/not-found.tsx:137
+#~ msgid "notFound.sub"
+#~ msgstr "HelloCity 为每一个人提供住宿、开户、出行与社区支持，让你的海外生活更顺利开启。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95

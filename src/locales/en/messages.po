@@ -1594,19 +1594,19 @@ msgstr "Got it"
 #~ msgstr "Logout"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:151
-msgid "notFound.headline"
-msgstr "Let’s help you settle in."
+#: src/app/[lang]/not-found.tsx:131
+#~ msgid "notFound.headline"
+#~ msgstr "Let’s help you settle in."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:140
-msgid "notFound.pageNotFound"
-msgstr "Page not found"
+#: src/app/[lang]/not-found.tsx:120
+#~ msgid "notFound.pageNotFound"
+#~ msgstr "Page not found"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/not-found.tsx:157
-msgid "notFound.sub"
-msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+#: src/app/[lang]/not-found.tsx:137
+#~ msgid "notFound.sub"
+#~ msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95

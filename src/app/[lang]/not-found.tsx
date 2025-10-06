@@ -1,12 +1,7 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { cookies } from 'next/headers';
 import { Box, Container, Typography, Stack, Divider } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { Trans, useLingui } from '@lingui/react';
-import Script from 'next/script';
+import { getServerTranslation } from '@/utils/serverI18n';
 
 import {
   SUPPORTED_LANGUAGES,
@@ -14,58 +9,25 @@ import {
   type SupportedLanguage,
 } from '../../compoundComponents/NavBar/navConfig';
 
-const SUPPORTED = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
-const LOWER_TO_CANON = SUPPORTED.reduce(
-  (acc, c) => {
-    acc[c.toLowerCase()] = c;
-    return acc;
-  },
-  {} as Record<string, SupportedLanguage>,
-);
-const canon = (code?: string): SupportedLanguage =>
-  LOWER_TO_CANON[(code || 'en').toLowerCase()] ?? 'en';
+function detectLocaleFromCookie(): SupportedLanguage {
+  const want = (cookies().get('lang')?.value || 'en').toLowerCase();
+  const keys = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
+  const hit = keys.find((k) => k.toLowerCase() === want);
+  return hit ?? 'en';
+}
 
-export default function NotFound() {
-  const theme = useTheme();
-  const { i18n } = useLingui();
-  const pathname = usePathname() || '/';
-  const pathLang = canon(pathname.split('/').filter(Boolean)[0]);
+export default async function NotFound() {
+  const locale = detectLocaleFromCookie();
+  const { t } = await getServerTranslation(locale);
 
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const handler = () => setTick((t) => t + 1);
-    i18n.on('change', handler);
-    return () => i18n.removeListener('change', handler);
-  }, [i18n]);
-
-  useEffect(() => {
-    document.documentElement.classList.add('hide-nav');
-    return () => {
-      document.documentElement.classList.remove('hide-nav');
-    };
-  }, []);
-
-  useEffect(() => {
-    if (i18n.locale !== pathLang) {
-      i18n.activate(pathLang);
-    }
-  }, [i18n, pathLang]);
-
-  const lang = pathLang;
-  const homeHref = `/${lang}`;
-  const logoSrc = theme.palette.mode === 'dark' ? LOGO_CONFIG.light : LOGO_CONFIG.dark;
+  const homeHref = `/${locale}`;
 
   return (
     <>
-      <style jsx global>{`
-        html.hide-nav header {
-          display: none !important;
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{ __html: `header{display:none!important}` }} />
 
       <Box
         component="main"
-        key={`${tick}-${lang}`}
         sx={{
           minHeight: '100dvh',
           display: 'grid',
@@ -90,20 +52,14 @@ export default function NotFound() {
                 aria-label="HelloCity Home"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
-                <Box
-                  component="img"
-                  src={logoSrc}
-                  alt="HelloCity"
-                  sx={{
-                    height: { xs: 84, sm: 96, md: 108 },
-                    width: 'auto',
-                    display: 'block',
-                    opacity: 0.96,
-                  }}
-                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                <picture>
+                  <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" />
+                  <img
+                    src={LOGO_CONFIG.dark}
+                    alt="HelloCity"
+                    style={{ height: '96px', width: 'auto', display: 'block', opacity: 0.96 }}
+                  />
+                </picture>
               </Box>
 
               <Divider
@@ -114,17 +70,17 @@ export default function NotFound() {
 
               <Typography
                 aria-label="404"
-                sx={(th) => ({
+                sx={{
                   fontWeight: 900,
                   letterSpacing: '-0.04em',
                   fontSize: { xs: '4.5rem', sm: '6rem', md: '7.5rem' },
                   lineHeight: 1,
                   textAlign: 'center',
-                  backgroundImage: `linear-gradient(90deg, ${th.palette.primary.main}, ${th.palette.info.light})`,
+                  backgroundImage: 'linear-gradient(90deg, #1976d2, #64b5f6)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  textShadow: `0 6px 28px ${th.palette.primary.main}40`,
-                })}
+                  textShadow: '0 6px 28px rgba(25,118,210,0.25)',
+                }}
               >
                 404
               </Typography>
@@ -137,7 +93,7 @@ export default function NotFound() {
               sx={{ maxWidth: 720 }}
             >
               <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                <Trans id="notFound.pageNotFound" message="Page not found" />
+                {t('notFound.pageNotFound', 'Page not found')}
               </Typography>
               <Typography
                 variant="h3"
@@ -148,16 +104,16 @@ export default function NotFound() {
                   lineHeight: 1.15,
                 }}
               >
-                <Trans id="notFound.headline" message="Let's help you settle in." />
+                {t('notFound.headline', "Let's help you settle in.")}
               </Typography>
               <Typography
                 variant="body1"
                 sx={{ color: 'text.secondary', fontSize: { xs: '1rem', sm: '1.125rem' } }}
               >
-                <Trans
-                  id="notFound.sub"
-                  message="HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly."
-                />
+                {t(
+                  'notFound.sub',
+                  'HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly.',
+                )}
               </Typography>
             </Stack>
           </Stack>
