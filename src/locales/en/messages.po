@@ -456,17 +456,17 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:74
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
 msgid "chat.disclaimer"
 msgstr "AI may make mistakes. Please verify important information."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:54
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:56
 msgid "chat.input.hint.press"
 msgstr "Press"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:60
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:62
 msgid "chat.input.hint.send"
 msgstr "to send"
 

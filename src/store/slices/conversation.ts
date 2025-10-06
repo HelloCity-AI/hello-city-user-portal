@@ -22,7 +22,7 @@ interface ConversationState {
   loadingConversationIds: string[];
   messagesByConversation: Record<string, MessageDto[]>;
   cacheTimestamps: Record<string, number>;
-  // checklistGeneratingId: string | null;
+  pendingMessages: Record<string, string>;
   error?: string | null;
 }
 
@@ -32,7 +32,7 @@ const initialState: ConversationState = {
   loadingConversationIds: [],
   messagesByConversation: {},
   cacheTimestamps: {},
-  // checklistGeneratingId: null,
+  pendingMessages: {},
   error: null,
 };
 
@@ -56,11 +56,6 @@ const conversationSlice = createSlice({
       const { conversationId, messages } = action.payload;
       state.messagesByConversation[conversationId] = messages;
       state.cacheTimestamps[conversationId] = Date.now();
-    },
-
-    clearConversationCache: (state, action: PayloadAction<string>) => {
-      delete state.messagesByConversation[action.payload];
-      delete state.cacheTimestamps[action.payload];
     },
 
     setConversationsLoading: (state, action: PayloadAction<boolean>) => {
@@ -106,6 +101,23 @@ const conversationSlice = createSlice({
       state.error = null;
     },
 
+    addConversationOptimistic: (state, action: PayloadAction<Conversation>) => {
+      // 乐观更新：立即添加到列表顶部
+      state.conversations.unshift(action.payload);
+    },
+
+    setPendingMessage: (
+      state,
+      action: PayloadAction<{ conversationId: string; message: string }>,
+    ) => {
+      const { conversationId, message } = action.payload;
+      state.pendingMessages[conversationId] = message;
+    },
+
+    clearPendingMessage: (state, action: PayloadAction<string>) => {
+      delete state.pendingMessages[action.payload];
+    },
+
     fetchAllConversations: () => {},
     fetchConversationMessages: (_state, _action: PayloadAction<string>) => {},
     updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
@@ -116,12 +128,14 @@ const conversationSlice = createSlice({
 export const {
   setConversations,
   cacheConversationMessages,
-  clearConversationCache,
   setConversationsLoading,
   setConversationLoading,
   setError,
   setConversationTitle,
   removeConversation,
+  addConversationOptimistic,
+  setPendingMessage,
+  clearPendingMessage,
   fetchAllConversations,
   fetchConversationMessages,
   updateConversation,

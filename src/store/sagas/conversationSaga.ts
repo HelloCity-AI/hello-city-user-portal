@@ -101,7 +101,6 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
     const timestamp = state.conversation.cacheTimestamps[conversationId];
     // using cache
     if (cached && timestamp && Date.now() - timestamp < 5 * 60 * 1000) {
-      console.log('useing caching');
       return;
     }
 

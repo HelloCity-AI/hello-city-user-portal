@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ChatMainArea from '@/compoundComponents/ChatPage/ChatMainArea';
 import ChecklistPanel from '@/compoundComponents/ChatPage/ChecklistPanel';
 import { useParams } from 'next/navigation';
@@ -15,24 +15,22 @@ export default function ChatPage() {
   const params = useParams();
   const conversationId = params.conversationId?.[0];
   const dispatch = useDispatch();
+  const hasFetchedRef = useRef<Set<string>>(new Set());
 
   const cachedMessages = useSelector((state: RootState) =>
     conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
   );
+  const conversations = useSelector((state: RootState) => state.conversation.conversations);
+  const isLoadingList = useSelector((state: RootState) => state.conversation.isLoading);
 
-  const loadingConversationIds = useSelector(
-    (state: RootState) => state.conversation.loadingConversationIds,
-  );
-
-  const isLoadingMessages = Boolean(
-    conversationId && loadingConversationIds.includes(conversationId),
-  );
-
+  // Fetch messages (saga checks cache first, ref prevents duplicate dispatches)
   useEffect(() => {
-    if (conversationId) {
+    if (conversationId && !hasFetchedRef.current.has(conversationId)) {
+      hasFetchedRef.current.add(conversationId);
       dispatch(fetchConversationMessages(conversationId));
     }
-  }, [conversationId, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [conversationId]);
 
   const initialMessages: UIMessage[] | undefined = cachedMessages?.map((msg) => ({
     id: msg.id,
@@ -40,19 +38,21 @@ export default function ChatPage() {
     parts: [{ type: 'text', text: msg.content }],
   }));
 
-  // 等待历史消息加载完成后再渲染 ChatMainArea
-  // 确保 useChat 初始化时就有正确的 initialMessages
-  const shouldRenderChat = !conversationId || initialMessages !== undefined;
+  const shouldRenderChat = (() => {
+    if (!conversationId) return true;
+    if (initialMessages !== undefined) return true;
+    if (isLoadingList) return false;
+
+    const conversationExists = conversations.some((c) => c.conversationId === conversationId);
+    if (!conversationExists) return true;
+
+    return false;
+  })();
 
   return (
     <div className="flex h-screen">
       {shouldRenderChat ? (
-        <ChatMainArea
-          key={conversationId || 'new'}
-          conversationId={conversationId}
-          initialMessages={initialMessages}
-          isLoadingMessages={isLoadingMessages}
-        />
+        <ChatMainArea conversationId={conversationId} initialMessages={initialMessages} />
       ) : (
         <div className="flex flex-1 flex-col">
           <div className="flex-1 overflow-y-auto p-4">
