@@ -1,6 +1,11 @@
 'use server';
 
-import { createUserProfile, fetchUserProfile, updateUserProfile, updateCurrentUserProfile } from '@/lib/api-client';
+import {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  updateCurrentUserProfile,
+} from '@/lib/api-client';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { handleApiError } from '@/lib/error-handlers';
 import type { AxiosResponse } from 'axios';
