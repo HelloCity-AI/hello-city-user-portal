@@ -6,13 +6,16 @@ import { Message, MessageContent } from '@/components/ai-elements/Message';
 import { Response } from '@/components/ai-elements/Response';
 import { Avatar } from '@mui/material';
 import AiThinkingIndicator from './AiThinkingIndicator';
+import ChecklistBannerMessage from './ChecklistBannerMessage';
 import { mergeClassNames } from '@/utils/classNames';
 import UserAvatar from '@/compoundComponents/UserAvatar';
+import { isChecklistBannerPart, type ExtendedUIMessage } from '@/types/ai-message';
 
 export interface MessageBubbleProps extends HTMLAttributes<HTMLDivElement> {
   message: UIMessage;
   aiAvatarSrc?: string;
   isAiThinking?: boolean;
+  onBannerClick?: () => void;
 }
 
 const MessageBubble = ({
@@ -20,9 +23,11 @@ const MessageBubble = ({
   className,
   aiAvatarSrc,
   isAiThinking = false,
+  onBannerClick,
   ...props
 }: MessageBubbleProps) => {
   const isUser = message.role === 'user';
+  const extendedMessage = message as ExtendedUIMessage;
 
   return (
     <Message
@@ -74,7 +79,17 @@ const MessageBubble = ({
         {isAiThinking && !isUser ? (
           <AiThinkingIndicator variant="compact" size="small" />
         ) : (
-          message.parts.map((part, index) => {
+          extendedMessage.parts.map((part, index) => {
+            if (isChecklistBannerPart(part)) {
+              return (
+                <ChecklistBannerMessage
+                  key={`${message.id}-${index}`}
+                  banner={part.banner}
+                  onBannerClick={onBannerClick}
+                />
+              );
+            }
+
             switch (part.type) {
               case 'text':
                 return <Response key={`${message.id}-${index}`}>{part.text}</Response>;

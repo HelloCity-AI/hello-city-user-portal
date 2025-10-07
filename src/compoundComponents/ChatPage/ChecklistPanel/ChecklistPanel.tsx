@@ -1,6 +1,6 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -11,56 +11,49 @@ import ImageOverlay from './components/ui/ImageOverlay';
 import PanelLayout from './components/layout/PanelLayout';
 import ChecklistHeaderSection from './components/sections/ChecklistHeaderSection';
 import ChecklistSection from './components/sections/ChecklistSection';
-import {
-  defaultChecklistItems as checklistItemsData,
-  defaultPanelConfig,
-} from './data/checklistItems';
-import { useChecklistHandlers } from './hooks/useChecklistHandlers';
-import { useChecklistState } from './hooks/useChecklistState';
+import { defaultPanelConfig } from './data/checklistItems';
+import { useChecklist } from './hooks/useChecklist';
+import { useChecklistHandlersRedux } from './hooks/useChecklistHandlersRedux';
 import { useCityDisplay } from './hooks/useCityDisplay';
 
-import type { ChecklistPanelProps } from './types';
+import type { ChecklistPanelProps, FilterType } from './types';
 
 const ChecklistPanel = memo(
   ({
     isCollapsed,
     onToggle,
-    checklistItems = checklistItemsData,
     cityInfo,
     heroImage,
     title = defaultPanelConfig.title,
     subtitle = defaultPanelConfig.subtitle,
-    onChecklistUpdate,
     onChecklistToggle,
     onChecklistEdit,
     onChecklistDelete,
     onChecklistAdd,
   }: ChecklistPanelProps) => {
+    // Filter is UI-only state, managed locally
+    const [filter, setFilter] = useState<FilterType>('all');
+
+    // Get checklist data from Redux (includes cityInfo looked up from cityData.tsx)
+    const {
+      activeChecklistId,
+      cityInfo: cityInfoFromRedux,
+      stats,
+      itemsToRender,
+    } = useChecklist(filter);
+
     // Custom hooks for separation of concerns
+    // Priority: Use cityInfo from Redux if available, otherwise use props
     const { displayData, imageError, setImageError } = useCityDisplay({
-      cityInfo,
+      cityInfo: cityInfoFromRedux || cityInfo,
       heroImage,
       title,
       subtitle,
     });
 
-    const {
-      checklistItems: items,
-      setChecklistItems,
-      filter,
-      setFilter,
-      stats,
-      visibleIds,
-      setVisibleIds,
-      itemsToRender,
-    } = useChecklistState({ initialItems: checklistItems });
-
-    const handlers = useChecklistHandlers({
-      checklistItems: items,
-      setChecklistItems,
-      visibleIds,
-      setVisibleIds,
-      onChecklistUpdate,
+    // Get Redux action handlers
+    const handlers = useChecklistHandlersRedux({
+      activeChecklistId,
       onChecklistToggle,
       onChecklistEdit,
       onChecklistDelete,

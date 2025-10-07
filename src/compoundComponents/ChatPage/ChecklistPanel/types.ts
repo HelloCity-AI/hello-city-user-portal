@@ -54,6 +54,10 @@ export type CityCode =
   | 'bali'
   | 'default';
 
+/**
+ * City info with React elements for UI rendering
+ * Stored in cityData.tsx, NOT in Redux state
+ */
 export interface CityInfo {
   code: CityCode;
   name: ReactNode;
@@ -102,12 +106,11 @@ export interface ChecklistStats {
 export interface ChecklistPanelProps {
   isCollapsed: boolean;
   onToggle: () => void;
-  checklistItems?: ChecklistItem[];
+  conversationId?: string;
   cityInfo?: CityInfo;
   heroImage?: string;
   title?: string;
   subtitle?: string;
-  onChecklistUpdate?: (items: ChecklistItem[]) => void;
   onChecklistToggle?: (itemId: string) => void;
   onChecklistEdit?: (item: ChecklistItem) => void;
   onChecklistDelete?: (itemId: string) => void;
@@ -160,6 +163,10 @@ export interface ChecklistCardProps {
 export type StayType = 'short-term' | 'medium-term' | 'long-term';
 export type ChecklistStatus = 'pending' | 'generating' | 'completed' | 'failed';
 
+/**
+ * Checklist metadata stored in Redux state
+ * Must be fully serializable (no React elements)
+ */
 export interface ChecklistMetadata {
   checklistId: string;
   conversationId: string;
@@ -173,8 +180,8 @@ export interface ChecklistMetadata {
   duration: string;
   stayType: StayType;
 
-  // City info (AI identified)
-  cityInfo: CityInfo;
+  // City code only (lookup full CityInfo from cityData.tsx)
+  cityCode: CityCode;
 
   // Generation status
   status: ChecklistStatus;

@@ -53,7 +53,7 @@ const checklistSlice = createSlice({
         version: checklist.version,
         title: checklist.title,
         destination: checklist.destination,
-        cityCode: checklist.cityInfo.code,
+        cityCode: checklist.cityCode,
         itemCount: checklist.items.length,
         completedCount: checklist.items.filter((i) => i.isComplete).length,
         createdAt: checklist.createdAt,
@@ -64,6 +64,34 @@ const checklistSlice = createSlice({
 
       // Auto-activate latest version
       state.activeChecklistId = checklist.checklistId;
+    },
+
+    toggleChecklistItem(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        itemId: string;
+      }>,
+    ) {
+      const { checklistId, itemId } = action.payload;
+      const checklist = state.checklists[checklistId];
+
+      if (checklist) {
+        const item = checklist.items.find((i) => i.id === itemId);
+        if (item) {
+          // Toggle isComplete
+          item.isComplete = !item.isComplete;
+
+          // Update banner completed count
+          const conversationId = checklist.conversationId;
+          const banner = state.bannersByConversation[conversationId]?.find(
+            (b) => b.checklistId === checklistId,
+          );
+          if (banner) {
+            banner.completedCount = checklist.items.filter((i) => i.isComplete).length;
+          }
+        }
+      }
     },
 
     updateChecklistItem(
@@ -82,15 +110,46 @@ const checklistSlice = createSlice({
         if (item) {
           Object.assign(item, updates);
 
-          // Update banner completed count
-          const conversationId = checklist.conversationId;
-          const banner = state.bannersByConversation[conversationId]?.find(
-            (b) => b.checklistId === checklistId,
-          );
-          if (banner) {
-            banner.completedCount = checklist.items.filter((i) => i.isComplete).length;
+          // Update banner completed count if isComplete was updated
+          if ('isComplete' in updates) {
+            const conversationId = checklist.conversationId;
+            const banner = state.bannersByConversation[conversationId]?.find(
+              (b) => b.checklistId === checklistId,
+            );
+            if (banner) {
+              banner.completedCount = checklist.items.filter((i) => i.isComplete).length;
+            }
           }
         }
+      }
+    },
+
+    reorderChecklistItems(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        reorderedIds: string[];
+      }>,
+    ) {
+      const { checklistId, reorderedIds } = action.payload;
+      const checklist = state.checklists[checklistId];
+
+      if (checklist) {
+        // Create a map of id -> item for quick lookup
+        const itemMap = new Map(checklist.items.map((item) => [item.id, item]));
+
+        // Reorder items based on reorderedIds array
+        const reorderedItems = reorderedIds
+          .map((id) => itemMap.get(id))
+          .filter((item): item is ChecklistItem => item !== undefined);
+
+        // Update order field for each item
+        reorderedItems.forEach((item, index) => {
+          item.order = index;
+        });
+
+        // Update checklist items array
+        checklist.items = reorderedItems;
       }
     },
 
@@ -118,7 +177,9 @@ const checklistSlice = createSlice({
 export const {
   setActiveChecklist,
   addChecklist,
+  toggleChecklistItem,
   updateChecklistItem,
+  reorderChecklistItems,
   clearChecklist,
   setLoading,
   setError,

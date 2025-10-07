@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 
 import Checkbox from '@/components/Checkbox';
 import { mergeClassNames } from '@/utils/classNames';
+import { formatDueDate, getDueDateUrgencyColor } from '../../utils/dateFormatter';
 
 import type { ChecklistCardProps } from '../../types';
 
@@ -145,14 +146,12 @@ export default function ChecklistCard({
               <Chip
                 icon={<CalendarTodayOutlinedIcon className="text-xs" />}
                 label={
-                  <Trans
-                    id="checklist.due.label"
-                    message="Due: {date}"
-                    values={{ date: item.dueDate }}
-                  />
+                  <>
+                    <Trans id="checklist.due.prefix" message="Due:" /> {formatDueDate(item.dueDate)}
+                  </>
                 }
                 size="small"
-                className={mergeClassNames(CHIP_BASE_CLASSES, 'bg-gray-100')}
+                className={mergeClassNames(CHIP_BASE_CLASSES, getDueDateUrgencyColor(item.dueDate))}
                 sx={{
                   '& .MuiChip-icon': {
                     fontSize: 12,

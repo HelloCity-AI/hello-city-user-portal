@@ -32,9 +32,10 @@ import { type Conversation as ConversationInterface } from '@/store/slices/conve
 interface ChatMainAreaProps {
   conversationId?: string;
   initialMessages?: UIMessage[];
+  onBannerClick?: () => void;
 }
 
-const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) => {
+const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMainAreaProps) => {
   const [input, setInput] = useState('');
   const [isCreatingConversation, setIsCreatingConversation] = useState(false);
   const dispatch = useDispatch();
@@ -155,6 +156,7 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
                   key={message.id}
                   message={message}
                   aiAvatarSrc={'/images/logo-avatar.png'}
+                  onBannerClick={onBannerClick}
                 />
               ))}
               {status === 'submitted' && (
