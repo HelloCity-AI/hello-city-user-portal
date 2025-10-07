@@ -96,33 +96,34 @@ export function* handleFetchConversations(): SagaIterator {
 export function* handleFetchConversationMessages(action: PayloadAction<string>): SagaIterator {
   const conversationId = action.payload;
   try {
+    // Step 1: Check cache validity (5-minute TTL)
     const state: RootState = yield select();
     const cached = state.conversation.messagesByConversation[conversationId];
     const timestamp = state.conversation.cacheTimestamps[conversationId];
-    // using cache
+
     if (cached && timestamp && Date.now() - timestamp < 5 * 60 * 1000) {
       return;
     }
 
+    // Step 2: Set loading state for skeleton display
     yield put(setConversationLoading({ conversationId, isLoading: true }));
 
+    // Step 3: Fetch messages from backend API
     const res: ConversationResponse = yield call(fetchMessagesApiWrapper, conversationId);
 
-    if (res.ok && res.data) {
-      yield put(
-        cacheConversationMessages({
-          conversationId,
-          messages: res.data,
-        }),
-      );
-    } else {
+    // Step 4: Handle 404/400 - redirect with friendly error message
+    if (res.status === 404 || res.status === 400) {
+      yield put(setError('Conversation not found or has been deleted.'));
+      if (typeof window !== 'undefined') {
+        const language = window.location.pathname.split('/')[1] || 'en';
+        window.location.assign(`/${language}/assistant`);
+      }
+      return;
+    }
+
+    // Step 5: Handle other error responses
+    if (!res.ok) {
       let errorMessage = 'Failed to load conversation messages.';
-      if (res.status === 400) {
-        errorMessage = 'Invalid conversation request.';
-      }
-      if (res.status === 404) {
-        errorMessage = 'Conversation not found.';
-      }
       if (res.status === 403) {
         errorMessage = 'You do not have permission to access this conversation.';
       }
@@ -130,6 +131,25 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
         errorMessage = 'Server error. Please try again later.';
       }
       yield put(setError(errorMessage));
+      return;
+    }
+
+    // Step 6: Cache messages with current timestamp
+    if (res.data) {
+      yield put(
+        cacheConversationMessages({
+          conversationId,
+          messages: res.data,
+        }),
+      );
+
+      // Step 7: Refresh conversation list if this is a newly created conversation
+      const conversations = state.conversation.conversations;
+      const exists = conversations.some((c) => c.conversationId === conversationId);
+
+      if (!exists) {
+        yield call(handleFetchConversations);
+      }
     }
   } catch (error: unknown) {
     console.error('Error in handleFetchConversationMessage:', error);
@@ -177,21 +197,36 @@ export function* handleUpdateConversation(
 
 export function* handleDeleteConversation(action: PayloadAction<string>): SagaIterator {
   const conversationId = action.payload;
+
+  // Get current conversation ID from URL (accounting for language prefix)
+  const currentConversationId =
+    typeof window !== 'undefined'
+      ? (() => {
+          const parts = window.location.pathname.split('/').filter(Boolean);
+          // URL format: /[lang]/assistant/[conversationId]
+          // parts = ['en', 'assistant', '123'] or ['zh', 'assistant', '123']
+          return parts.length >= 3 && parts[1] === 'assistant' ? parts[2] : null;
+        })()
+      : null;
+
   try {
-    yield put(setConversationLoading({ conversationId, isLoading: true }));
     const res: DeleteResponse = yield call(deleteConversationApiWrapper, conversationId);
 
     if (res.ok) {
       yield put(removeConversation(conversationId));
+
+      // If deleted conversation is currently open, redirect to new conversation page
+      if (currentConversationId === conversationId && typeof window !== 'undefined') {
+        const language = window.location.pathname.split('/')[1] || 'en';
+        window.location.assign(`/${language}/assistant`);
+      }
     } else {
       yield put(setError(`Failed to delete conversation: ${res.status}`));
-      yield put(setConversationLoading({ conversationId, isLoading: false }));
     }
   } catch (error: unknown) {
     console.error('Error in handleDeleteConversation:', error);
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
     yield put(setError(errorMessage));
-    yield put(setConversationLoading({ conversationId, isLoading: false }));
   }
 }
 

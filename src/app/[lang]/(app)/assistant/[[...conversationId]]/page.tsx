@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import ChatMainArea from '@/compoundComponents/ChatPage/ChatMainArea';
 import ChatMainContentContainer from '@/components/AppPageSections/ChatMainContentContainer';
 import ChecklistPanel from '@/compoundComponents/ChatPage/ChecklistPanel';
@@ -16,22 +16,20 @@ export default function ChatPage() {
   const params = useParams();
   const conversationId = params.conversationId?.[0];
   const dispatch = useDispatch();
-  const hasFetchedRef = useRef<Set<string>>(new Set());
 
   const cachedMessages = useSelector((state: RootState) =>
     conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
   );
-  const conversations = useSelector((state: RootState) => state.conversation.conversations);
-  const isLoadingList = useSelector((state: RootState) => state.conversation.isLoading);
+  const loadingConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingConversationIds,
+  );
 
-  // Fetch messages (saga checks cache first, ref prevents duplicate dispatches)
+  // Fetch messages (saga handles caching with 5-minute TTL)
   useEffect(() => {
-    if (conversationId && !hasFetchedRef.current.has(conversationId)) {
-      hasFetchedRef.current.add(conversationId);
+    if (conversationId) {
       dispatch(fetchConversationMessages(conversationId));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [conversationId]);
+  }, [conversationId, dispatch]);
 
   const initialMessages: UIMessage[] | undefined = cachedMessages?.map((msg) => ({
     id: msg.id,
@@ -39,16 +37,11 @@ export default function ChatPage() {
     parts: [{ type: 'text', text: msg.content }],
   }));
 
-  const shouldRenderChat = (() => {
-    if (!conversationId) return true;
-    if (initialMessages !== undefined) return true;
-    if (isLoadingList) return false;
-
-    const conversationExists = conversations.some((c) => c.conversationId === conversationId);
-    if (!conversationExists) return true;
-
-    return false;
-  })();
+  // Only show skeleton when actively loading this conversation's messages
+  const isLoadingMessages = conversationId
+    ? loadingConversationIds.includes(conversationId)
+    : false;
+  const shouldRenderChat = !isLoadingMessages;
 
   return (
     <div className="flex h-screen">
