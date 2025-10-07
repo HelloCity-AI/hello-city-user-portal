@@ -1,26 +1,28 @@
 import type { UIMessage } from 'ai';
-import type { ChecklistBanner } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+import type { ChecklistMetadata } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
 
 /**
  * Extended message part types for custom content
+ * Following Vercel AI SDK data part convention: type="data-<name>"
  */
-export type ChecklistBannerPart = {
-  type: 'checklist-banner';
-  banner: ChecklistBanner;
+export type ChecklistDataPart = {
+  type: 'data-checklist';
+  id?: string;
+  data: ChecklistMetadata;
 };
 
 /**
  * Extended UIMessage that supports custom part types
  */
 export type ExtendedUIMessage = Omit<UIMessage, 'parts'> & {
-  parts: Array<UIMessage['parts'][number] | ChecklistBannerPart>;
+  parts: Array<UIMessage['parts'][number] | ChecklistDataPart>;
 };
 
 /**
- * Type guard to check if a part is a checklist banner
+ * Type guard to check if a part is a checklist data part
  */
-export function isChecklistBannerPart(
+export function isChecklistDataPart(
   part: ExtendedUIMessage['parts'][number],
-): part is ChecklistBannerPart {
-  return (part as ChecklistBannerPart).type === 'checklist-banner';
+): part is ChecklistDataPart {
+  return (part as ChecklistDataPart).type === 'data-checklist';
 }

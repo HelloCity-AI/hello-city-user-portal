@@ -9,10 +9,10 @@ import { useDispatch } from 'react-redux';
 import { setActiveChecklist } from '@/store/slices/checklist';
 import { mergeClassNames } from '@/utils/classNames';
 
-import type { ChecklistBanner } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+import type { ChecklistMetadata } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
 
 interface ChecklistBannerMessageProps {
-  banner: ChecklistBanner;
+  banner: ChecklistMetadata;
   onBannerClick?: () => void;
 }
 
@@ -20,7 +20,7 @@ const ChecklistBannerMessage = memo(({ banner, onBannerClick }: ChecklistBannerM
   const dispatch = useDispatch();
 
   const handleClick = useCallback(() => {
-    // Activate this checklist in Redux
+    // Activate this checklist in Redux (already stored by MessageBubble)
     dispatch(setActiveChecklist(banner.checklistId));
     // Trigger optional callback (e.g., open ChecklistPanel)
     onBannerClick?.();

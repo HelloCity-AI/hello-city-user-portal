@@ -13,24 +13,19 @@ import { formatDueDate, getDueDateUrgencyColor } from '../../utils/dateFormatter
 import type { ChecklistCardProps } from '../../types';
 
 const importanceStyles = {
-  urgent: {
+  high: {
     bg: '#FEE2E2',
     text: '#DC2626',
-    label: <Trans id="checklist.importance.urgent" message="URGENT" />,
-  },
-  high: {
-    bg: '#FEF3C7',
-    text: '#D97706',
     label: <Trans id="checklist.importance.high" message="HIGH" />,
   },
   medium: {
-    bg: '#DBEAFE',
-    text: '#2563EB',
+    bg: '#FEF3C7',
+    text: '#D97706',
     label: <Trans id="checklist.importance.medium" message="MED" />,
   },
   low: {
-    bg: '#D1FAE5',
-    text: '#059669',
+    bg: '#DBEAFE',
+    text: '#2563EB',
     label: <Trans id="checklist.importance.low" message="LOW" />,
   },
 } as const;

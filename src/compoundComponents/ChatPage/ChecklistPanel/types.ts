@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-export type ChecklistImportance = 'urgent' | 'high' | 'medium' | 'low';
+export type ChecklistImportance = 'high' | 'medium' | 'low';
 export type FilterType = 'all' | 'completed' | 'incomplete';
 
 export type CityCode =

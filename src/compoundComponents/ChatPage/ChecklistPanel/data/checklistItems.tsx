@@ -7,7 +7,7 @@ export const defaultChecklistItems: ChecklistItem[] = [
     title: 'Student visa document preparation',
     description:
       'Prepare passport, acceptance letter, financial proof and other visa application materials',
-    importance: 'urgent' as const,
+    importance: 'high' as const,
     isComplete: true,
     dueDate: 'Jan 30',
     category: 'Visa',
@@ -19,7 +19,7 @@ export const defaultChecklistItems: ChecklistItem[] = [
     title: 'University enrollment procedures',
     description:
       'Complete student ID processing, course registration, campus orientation and other enrollment processes',
-    importance: 'urgent' as const,
+    importance: 'high' as const,
     isComplete: false,
     dueDate: 'Jan 30',
     category: 'International Student',

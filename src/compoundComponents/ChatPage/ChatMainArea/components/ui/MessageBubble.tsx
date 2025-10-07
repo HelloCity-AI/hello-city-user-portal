@@ -1,6 +1,8 @@
 'use client';
 
 import type { HTMLAttributes } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import type { UIMessage } from 'ai';
 import { Message, MessageContent } from '@/components/ai-elements/Message';
 import { Response } from '@/components/ai-elements/Response';
@@ -9,7 +11,8 @@ import AiThinkingIndicator from './AiThinkingIndicator';
 import ChecklistBannerMessage from './ChecklistBannerMessage';
 import { mergeClassNames } from '@/utils/classNames';
 import UserAvatar from '@/compoundComponents/UserAvatar';
-import { isChecklistBannerPart, type ExtendedUIMessage } from '@/types/ai-message';
+import { isChecklistDataPart, type ExtendedUIMessage } from '@/types/ai-message';
+import { addChecklist } from '@/store/slices/checklist';
 
 export interface MessageBubbleProps extends HTMLAttributes<HTMLDivElement> {
   message: UIMessage;
@@ -28,6 +31,18 @@ const MessageBubble = ({
 }: MessageBubbleProps) => {
   const isUser = message.role === 'user';
   const extendedMessage = message as ExtendedUIMessage;
+  const dispatch = useDispatch();
+
+  // Auto-store checklist data to Redux when message contains checklist part
+  useEffect(() => {
+    const checklistParts = extendedMessage.parts.filter(isChecklistDataPart);
+
+    checklistParts.forEach((part) => {
+      // Dispatch addChecklist to store full metadata + items
+      dispatch(addChecklist(part.data));
+      console.log('[MessageBubble] Stored checklist to Redux:', part.data.checklistId);
+    });
+  }, [extendedMessage.parts, dispatch]);
 
   return (
     <Message
@@ -80,11 +95,11 @@ const MessageBubble = ({
           <AiThinkingIndicator variant="compact" size="small" />
         ) : (
           extendedMessage.parts.map((part, index) => {
-            if (isChecklistBannerPart(part)) {
+            if (isChecklistDataPart(part)) {
               return (
                 <ChecklistBannerMessage
-                  key={`${message.id}-${index}`}
-                  banner={part.banner}
+                  key={part.id || `${message.id}-${index}`}
+                  banner={part.data}
                   onBannerClick={onBannerClick}
                 />
               );

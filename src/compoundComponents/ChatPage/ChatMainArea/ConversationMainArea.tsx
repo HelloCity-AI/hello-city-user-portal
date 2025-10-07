@@ -48,7 +48,7 @@ const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMa
     id: conversationId,
     messages: initialMessages,
     transport: new DefaultChatTransport({
-      api: '/api/chat',
+      api: '/api/chat-v2',
       prepareSendMessagesRequest: ({ id, messages }) => {
         return {
           body: {
