@@ -84,11 +84,7 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
 
   // Invalidate cache after message is sent (ensures fresh data on next load)
   useEffect(() => {
-    if (
-      prevStatusRef.current === 'streaming' &&
-      status === 'ready' &&
-      conversationId
-    ) {
+    if (prevStatusRef.current === 'streaming' && status === 'ready' && conversationId) {
       dispatch(invalidateConversationCache(conversationId));
     }
     prevStatusRef.current = status;
