@@ -121,6 +121,12 @@ const conversationSlice = createSlice({
       delete state.pendingMessages[action.payload];
     },
 
+    invalidateConversationCache: (state, action: PayloadAction<string>) => {
+      const conversationId = action.payload;
+      delete state.messagesByConversation[conversationId];
+      delete state.cacheTimestamps[conversationId];
+    },
+
     fetchAllConversations: () => {},
     fetchConversationMessages: (_state, _action: PayloadAction<string>) => {},
     updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
@@ -139,6 +145,7 @@ export const {
   addConversationOptimistic,
   setPendingMessage,
   clearPendingMessage,
+  invalidateConversationCache,
   fetchAllConversations,
   fetchConversationMessages,
   updateConversation,

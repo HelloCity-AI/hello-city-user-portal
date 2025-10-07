@@ -10,7 +10,7 @@ import type { PromptInputMessage } from '@/components/ai-elements/PromptInput';
 import ChatMainContentContainer from '../../../components/AppPageSections/ChatMainContentContainer';
 import MessageBubble from './components/ui/MessageBubble';
 import { useState, useEffect, useRef } from 'react';
-import type { UIMessage } from 'ai';
+import type { UIMessage, ChatStatus } from 'ai';
 import { DefaultChatTransport } from 'ai';
 import { ConversationPromptInput } from './components/ui/ConversationPromptInput';
 import ChatEmptyState from './components/ui/ChatEmptyState';
@@ -21,6 +21,7 @@ import {
   cacheConversationMessages,
   setPendingMessage,
   clearPendingMessage,
+  invalidateConversationCache,
 } from '@/store/slices/conversation';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -39,6 +40,7 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
   const dispatch = useDispatch();
   const router = useRouter();
   const { language } = useLanguage();
+  const prevStatusRef = useRef<ChatStatus>('ready');
   const hasSentPendingRef = useRef<Set<string>>(new Set());
 
   const { sendMessage, messages, status } = useChat({
@@ -57,23 +59,8 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
     }),
   });
 
-  const conversations = useSelector((state: RootState) => state.conversation.conversations);
   const pendingMessages = useSelector((state: RootState) => state.conversation.pendingMessages);
-  const isLoadingList = useSelector((state: RootState) => state.conversation.isLoading);
-  const hasFetched = useSelector((state: RootState) => state.conversation.hasFetched);
   const isNewConversation = !conversationId;
-
-  // Redirect if conversation doesn't exist (deleted or 404)
-  useEffect(() => {
-    if (!conversationId) return;
-    if (isLoadingList) return;
-    if (!hasFetched) return;
-
-    const conversationExists = conversations.some((con) => con.conversationId === conversationId);
-    if (!conversationExists) {
-      router.push(`/${language}/assistant`);
-    }
-  }, [conversationId, conversations, isLoadingList, hasFetched, router, language]);
 
   // Send pending message after conversation creation (ref prevents duplicate sends)
   useEffect(() => {
@@ -94,6 +81,18 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conversationId]);
+
+  // Invalidate cache after message is sent (ensures fresh data on next load)
+  useEffect(() => {
+    if (
+      prevStatusRef.current === 'streaming' &&
+      status === 'ready' &&
+      conversationId
+    ) {
+      dispatch(invalidateConversationCache(conversationId));
+    }
+    prevStatusRef.current = status;
+  }, [status, conversationId, dispatch]);
 
   const handleSubmit = async (_message: PromptInputMessage, event: FormEvent) => {
     event.preventDefault();
