@@ -96,46 +96,33 @@ export function* handleFetchConversations(): SagaIterator {
 export function* handleFetchConversationMessages(action: PayloadAction<string>): SagaIterator {
   const conversationId = action.payload;
   try {
-    // Step 1: Ensure conversation list is loaded first
-    const hasFetched: boolean = yield select(
-      (state: RootState) => state.conversation.hasFetched,
-    );
-
-    if (!hasFetched) {
-      // Load conversation list first, then continue
-      yield call(handleFetchConversations);
-    }
-
-    // Step 2: Check cache
+    // Step 1: Check cache validity (5-minute TTL)
     const state: RootState = yield select();
     const cached = state.conversation.messagesByConversation[conversationId];
     const timestamp = state.conversation.cacheTimestamps[conversationId];
 
     if (cached && timestamp && Date.now() - timestamp < 5 * 60 * 1000) {
-      // Cache is valid, skip API call
       return;
     }
 
-    // Step 3: Call API
+    // Step 2: Set loading state for skeleton display
     yield put(setConversationLoading({ conversationId, isLoading: true }));
 
+    // Step 3: Fetch messages from backend API
     const res: ConversationResponse = yield call(fetchMessagesApiWrapper, conversationId);
 
-    // Step 4: Handle 404 - silent redirect without error
-    if (res.status === 404) {
-      // Conversation not found, redirect to new conversation page
+    // Step 4: Handle 404/400 - redirect with friendly error message
+    if (res.status === 404 || res.status === 400) {
+      yield put(setError('Conversation not found or has been deleted.'));
       if (typeof window !== 'undefined') {
         window.location.assign('/assistant');
       }
       return;
     }
 
-    // Step 5: Handle other errors
+    // Step 5: Handle other error responses
     if (!res.ok) {
       let errorMessage = 'Failed to load conversation messages.';
-      if (res.status === 400) {
-        errorMessage = 'Invalid conversation request.';
-      }
       if (res.status === 403) {
         errorMessage = 'You do not have permission to access this conversation.';
       }
@@ -146,7 +133,7 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
       return;
     }
 
-    // Step 6: Cache messages
+    // Step 6: Cache messages with current timestamp
     if (res.data) {
       yield put(
         cacheConversationMessages({
@@ -155,12 +142,11 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
         }),
       );
 
-      // Step 7: If conversation is not in the list, refresh the list
+      // Step 7: Refresh conversation list if this is a newly created conversation
       const conversations = state.conversation.conversations;
       const exists = conversations.some((c) => c.conversationId === conversationId);
 
       if (!exists) {
-        // Newly created conversation, refresh list to include it
         yield call(handleFetchConversations);
       }
     }

@@ -17,13 +17,21 @@ export interface MessageDto {
 }
 
 interface ConversationState {
+  /** Whether the conversation list is currently being fetched */
   isLoading: boolean;
+  /** Whether the conversation list has been fetched at least once */
   hasFetched: boolean;
+  /** Array of all user conversations */
   conversations: Conversation[];
+  /** Array of conversation IDs currently loading messages (used for skeleton display) */
   loadingConversationIds: string[];
+  /** Cached messages by conversation ID (5-minute TTL) */
   messagesByConversation: Record<string, MessageDto[]>;
+  /** Cache timestamps for TTL validation (5-minute expiry) */
   cacheTimestamps: Record<string, number>;
+  /** Pending messages to be sent after conversation creation (conversationId -> message) */
   pendingMessages: Record<string, string>;
+  /** Error message from failed operations */
   error?: string | null;
 }
 
