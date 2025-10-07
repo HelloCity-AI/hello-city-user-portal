@@ -57,6 +57,7 @@ export type CityCode =
 export interface CityInfo {
   code: CityCode;
   name: ReactNode;
+  country: string;
   heroImage: string;
   fallbackImage?: string;
   description: ReactNode;
@@ -66,12 +67,13 @@ export interface CityInfo {
 export interface ChecklistItem {
   id: string;
   title: string;
-  description?: string;
-  importance?: ChecklistImportance;
+  description: string;
+  importance: ChecklistImportance;
   dueDate?: string;
   category?: string;
+  order: number;
   isComplete: boolean;
-  createdAt?: string;
+  createdAt: string;
   updatedAt?: string;
 }
 
@@ -151,4 +153,48 @@ export interface ChecklistCardProps {
   onToggle: (itemId: string) => void;
   onEdit: (item: ChecklistItem) => void;
   onDelete: (itemId: string) => void;
+}
+
+// ========== AI-Generated Checklist Types ==========
+
+export type StayType = 'short-term' | 'medium-term' | 'long-term';
+export type ChecklistStatus = 'pending' | 'generating' | 'completed' | 'failed';
+
+export interface ChecklistMetadata {
+  checklistId: string;
+  conversationId: string;
+  version: number;
+  previousVersionId?: string;
+
+  // AI-generated metadata
+  title: string;
+  summary: string;
+  destination: string;
+  duration: string;
+  stayType: StayType;
+
+  // City info (AI identified)
+  cityInfo: CityInfo;
+
+  // Generation status
+  status: ChecklistStatus;
+
+  // Items
+  items: ChecklistItem[];
+
+  // Timestamps
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ChecklistBanner {
+  checklistId: string;
+  version: number;
+  title: string;
+  destination: string;
+  cityCode: CityCode;
+  itemCount: number;
+  completedCount: number;
+  createdAt: string;
+  isActive: boolean;
 }

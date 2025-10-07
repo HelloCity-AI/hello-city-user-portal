@@ -11,6 +11,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: true,
     dueDate: 'Jan 30',
     category: 'Visa',
+    order: 0,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '2',
@@ -21,6 +23,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Jan 30',
     category: 'International Student',
+    order: 1,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '3',
@@ -31,6 +35,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Feb 5',
     category: 'International Student',
+    order: 2,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '4',
@@ -40,6 +46,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Feb 10',
     category: 'Banking',
+    order: 3,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '5',
@@ -49,6 +57,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Feb 15',
     category: 'Communications',
+    order: 4,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '6',
@@ -58,6 +68,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Feb 20',
     category: 'New Immigrant',
+    order: 5,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '7',
@@ -67,6 +79,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Feb 25',
     category: 'Traveler',
+    order: 6,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
   {
     id: '8',
@@ -77,6 +91,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
     isComplete: false,
     dueDate: 'Mar 1',
     category: 'New Immigrant',
+    order: 7,
+    createdAt: new Date('2025-01-15').toISOString(),
   },
 ];
 
