@@ -115,7 +115,8 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
     if (res.status === 404 || res.status === 400) {
       yield put(setError('Conversation not found or has been deleted.'));
       if (typeof window !== 'undefined') {
-        window.location.assign('/assistant');
+        const language = window.location.pathname.split('/')[1] || 'en';
+        window.location.assign(`/${language}/assistant`);
       }
       return;
     }
