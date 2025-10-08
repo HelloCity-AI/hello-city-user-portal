@@ -180,7 +180,12 @@ export function createAISDKStreamV2(
 
                 // Handle data-checklist custom event (Vercel AI SDK data part)
                 if (parsed.type === 'data-checklist' && parsed.data) {
-                  console.log('[Chat Stream V2] Checklist data received:', parsed.data.title);
+                  console.log('[Chat Stream V2] Checklist data received:', {
+                    destination: parsed.data.destination,
+                    duration: parsed.data.duration,
+                    stayType: parsed.data.stay_type,
+                    phaseCount: parsed.data.phase_names?.length || 0,
+                  });
                   // Forward as-is to AI SDK (will be added to message.parts)
                   send(`data: ${JSON.stringify(parsed)}\n\n`);
                 }

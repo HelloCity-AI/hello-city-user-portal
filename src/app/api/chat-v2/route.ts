@@ -1,12 +1,12 @@
 /**
- * AI Chat Streaming Endpoint V2 - Phase 2 Testing
+ * AI Chat Streaming Endpoint V2 - Phase 3 Real AI Integration
  *
- * Architecture: Frontend (AI SDK) → Next.js Edge → .NET ChatProxyV2 (Mock)
+ * Architecture: Frontend (AI SDK) → Next.js Edge → .NET ChatProxy → Python AI Service
  *
- * Differences from /api/chat:
- * - Calls /api/ChatProxyV2 (mock endpoint, no Python service)
- * - Handles tool-call and tool-result events for checklist generation
- * - Once validated, will replace /api/chat
+ * Changes from Phase 2:
+ * - Now calls /api/ChatProxy (connects to real Python AI service)
+ * - Supports data-checklist custom data parts
+ * - Python returns real AI-generated checklist metadata
  */
 import { getAuthContext } from '@/lib/auth-utils';
 import {
@@ -24,6 +24,18 @@ export async function POST(req: Request) {
 
     // Transform AI SDK format (parts[]) to Backend format (content string)
     const convertedMessages = convertUIMessagesToBackendFormat(messages as UIMessage[]);
+
+    // DEBUG: Log outgoing messages to Backend
+    console.log('[API Chat V2] Sending to backend:', {
+      conversationId,
+      messageCount: convertedMessages.length,
+      messages: convertedMessages.map((m) => ({
+        role: m.role,
+        contentLength: m.content?.length || 0,
+        partsCount: m.parts?.length || 0,
+        contentPreview: m.content?.substring(0, 50) || '[EMPTY]',
+      })),
+    });
 
     // Forward to .NET ChatProxyV2 (mock endpoint)
     const response = await fetch(`${apiUrl}/api/ChatProxyV2`, {
