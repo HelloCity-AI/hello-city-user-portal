@@ -471,6 +471,11 @@ msgid "chat.input.hint.send"
 msgstr "to send"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Menus/SearchChatMenu.tsx:75
+msgid "chat.search.noResult"
+msgstr "No results found"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
 msgid "chat.welcome.subtitle"
 msgstr "Type a question below and I'll guide you through your new city."
@@ -1736,12 +1741,12 @@ msgid "profile.university-placeholder"
 msgstr "Please enter your university"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:34
 msgid "sidebar.actions.newChat"
 msgstr "New Chat"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:43
 msgid "sidebar.actions.searchChat"
 msgstr "Search Chat"
 

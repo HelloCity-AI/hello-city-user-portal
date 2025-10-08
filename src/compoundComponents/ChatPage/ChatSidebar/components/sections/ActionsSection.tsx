@@ -1,15 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
 import { Trans } from '@lingui/react';
 import ActionButton from '../ui/ActionButton';
 import { ICON_STYLES } from '../../constants';
+import SearchChatMenu from '@/compoundComponents/Menus/SearchChatMenu';
+import { useRouter, useParams } from 'next/navigation';
 
 interface ActionsSectionProps {
   isCollapsed: boolean;
   onNewChat: () => void;
-  onSearch: () => void;
 }
 
 /**
@@ -21,7 +23,10 @@ interface ActionsSectionProps {
  *
  * Usage: Primary actions area for chat functionality
  */
-export default function ActionsSection({ isCollapsed, onNewChat, onSearch }: ActionsSectionProps) {
+export default function ActionsSection({ isCollapsed, onNewChat }: ActionsSectionProps) {
+  const router = useRouter();
+  const params = useParams();
+
   return (
     <>
       <ActionButton
@@ -30,11 +35,17 @@ export default function ActionsSection({ isCollapsed, onNewChat, onSearch }: Act
         isCollapsed={isCollapsed}
         onClick={onNewChat}
       />
-      <ActionButton
-        icon={<SearchIcon className={ICON_STYLES.action} />}
-        text={<Trans id="sidebar.actions.searchChat" message="Search Chat" />}
-        isCollapsed={isCollapsed}
-        onClick={onSearch}
+
+      <SearchChatMenu
+        trigger={
+          <ActionButton
+            icon={<SearchIcon className={ICON_STYLES.action} />}
+            text={<Trans id="sidebar.actions.searchChat" message="Search Chat" />}
+            isCollapsed={isCollapsed}
+            onClick={() => {}}
+          />
+        }
+        onSelect={(id) => router.push(`/${params.lang}/assistant/${id}`)}
       />
     </>
   );

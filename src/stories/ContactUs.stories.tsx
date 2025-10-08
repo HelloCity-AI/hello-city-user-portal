@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import ContactUs from '@/app/[lang]/contact-us/page';
+import ContactUs from '@/app/[lang]/(site)/contact-us/page';
 
 const meta: Meta<typeof ContactUs> = {
   title: 'Pages/ContactUs',

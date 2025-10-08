@@ -509,6 +509,11 @@ msgid "chat.input.hint.send"
 msgstr "发送，按 Shift + Enter 换行"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Menus/SearchChatMenu.tsx:75
+msgid "chat.search.noResult"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
 msgid "chat.welcome.subtitle"
 msgstr "开始与AI助手的对话，获得个性化的城市生活指导"
@@ -1770,12 +1775,12 @@ msgid "profile.university-placeholder"
 msgstr "请输入您的大学名称"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:34
 msgid "sidebar.actions.newChat"
 msgstr "新对话"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:43
 msgid "sidebar.actions.searchChat"
 msgstr "搜索对话"
 
