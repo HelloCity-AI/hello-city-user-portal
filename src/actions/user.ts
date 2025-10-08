@@ -1,6 +1,11 @@
 'use server';
 
-import { createUserProfile, fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import {
+  createUserProfile,
+  fetchUserProfile,
+  updateUserProfile,
+  updateCurrentUserProfile,
+} from '@/lib/api-client';
 import { getAccessTokenWithValidation, validateBackendUrl, getBackendUrl } from '@/lib/auth-utils';
 import { handleApiError } from '@/lib/error-handlers';
 import type { AxiosResponse } from 'axios';
@@ -154,7 +159,7 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
     // Get backend URL (already validated above)
     const apiUrl = getBackendUrl()!;
 
-    // Convert FormData to User object for the API call
+    // Convert FormData to a typed Partial<User>
     const userData: Partial<User> = {};
     formData.forEach((value, key) => {
       if (typeof value === 'string') {
@@ -162,11 +167,91 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
       }
     });
 
-    // Call the API to update user profile
-    const response: AxiosResponse<User> = await updateUserProfile(
+    // Backend form keys aligned with EditUserDto (Title Case)
+    type BackendEditUserForm = {
+      Username?: string;
+      Email?: string;
+      Gender?: string | User['gender'];
+      Nationality?: string | User['nationality'];
+      City?: string | User['city'];
+      University?: string | User['university'];
+      Major?: string | User['major'];
+      PreferredLanguage?: string | User['preferredLanguage'];
+      Avatar?: string;
+    };
+
+    // Type-safe mapping: accept both lowercase and Title Case form keys
+    const backendUserData: BackendEditUserForm = {};
+    // Prefer using `username` for backend `Username`; fall back to `userId` or `Username`
+    const username =
+      (userData as Record<string, unknown>)['username'] ??
+      (userData as Record<string, unknown>)['userId'] ??
+      (userData as Record<string, unknown>)['Username'];
+    if (username !== undefined && String(username) !== '') {
+      backendUserData.Username = String(username);
+    }
+
+    const email =
+      (userData as Record<string, unknown>)['email'] ??
+      (userData as Record<string, unknown>)['Email'];
+    if (email !== undefined) backendUserData.Email = String(email);
+
+    const gender =
+      (userData as Record<string, unknown>)['gender'] ??
+      (userData as Record<string, unknown>)['Gender'];
+    if (gender !== undefined) backendUserData.Gender = gender as string;
+
+    const nationality =
+      (userData as Record<string, unknown>)['nationality'] ??
+      (userData as Record<string, unknown>)['Nationality'];
+    if (nationality !== undefined) backendUserData.Nationality = String(nationality);
+
+    const city =
+      (userData as Record<string, unknown>)['city'] ??
+      (userData as Record<string, unknown>)['City'];
+    if (city !== undefined) backendUserData.City = String(city);
+
+    const university =
+      (userData as Record<string, unknown>)['university'] ??
+      (userData as Record<string, unknown>)['University'];
+    if (university !== undefined) backendUserData.University = String(university);
+
+    const major =
+      (userData as Record<string, unknown>)['major'] ??
+      (userData as Record<string, unknown>)['Major'];
+    if (major !== undefined) backendUserData.Major = String(major);
+
+    const preferredLanguage =
+      (userData as Record<string, unknown>)['preferredLanguage'] ??
+      (userData as Record<string, unknown>)['PreferredLanguage'];
+    if (preferredLanguage !== undefined)
+      backendUserData.PreferredLanguage = String(preferredLanguage);
+
+    const avatar =
+      (userData as Record<string, unknown>)['avatar'] ??
+      (userData as Record<string, unknown>)['Avatar'];
+    if (avatar !== undefined) backendUserData.Avatar = String(avatar);
+
+    // Build FormData for /api/user/me endpoint (multipart/form-data)
+    const form = new FormData();
+    if (backendUserData.Username !== undefined) form.append('Username', backendUserData.Username);
+    if (backendUserData.Email !== undefined) form.append('Email', backendUserData.Email);
+    if (backendUserData.Gender !== undefined) form.append('Gender', String(backendUserData.Gender));
+    if (backendUserData.Nationality !== undefined)
+      form.append('Nationality', String(backendUserData.Nationality));
+    if (backendUserData.City !== undefined) form.append('City', String(backendUserData.City));
+    if (backendUserData.University !== undefined)
+      form.append('University', String(backendUserData.University));
+    if (backendUserData.Major !== undefined) form.append('Major', String(backendUserData.Major));
+    if (backendUserData.PreferredLanguage !== undefined)
+      form.append('PreferredLanguage', String(backendUserData.PreferredLanguage));
+    if (backendUserData.Avatar !== undefined) form.append('Avatar', String(backendUserData.Avatar));
+
+    // Call the API to update current user profile without GUID
+    const response: AxiosResponse<User> = await updateCurrentUserProfile(
       tokenResult.token,
       apiUrl,
-      userData,
+      form,
     );
 
     return {

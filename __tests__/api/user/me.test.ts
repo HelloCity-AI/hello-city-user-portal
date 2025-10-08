@@ -152,6 +152,14 @@ describe('/api/user/me', () => {
     };
 
     beforeEach(() => {
+      // Ensure current user GUID is available for PUT flow
+      mockFetchUserProfile.mockResolvedValue({
+        data: mockUserData,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: {} as any,
+      });
       mockUpdateUserProfile.mockResolvedValue({
         data: { ...mockUserData, ...updateData },
         status: 200,
@@ -234,7 +242,7 @@ describe('/api/user/me', () => {
 
     it('should handle JSON parsing errors', async () => {
       // Arrange
-      const mockErrorResponse = NextResponse.json({ error: 'Bad Request' }, { status: 400 });
+      const mockErrorResponse = new Response('Bad Request', { status: 400 });
       mockHandleApiError.mockReturnValue(mockErrorResponse);
 
       const request = new NextRequest('http://localhost:3000/api/user/me', {

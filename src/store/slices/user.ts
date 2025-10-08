@@ -101,6 +101,19 @@ const userSlice = createSlice({
       state.isUpdating = false;
       state.updateError = action.payload;
     },
+    updateUser: (state, action: PayloadAction<User>) => {
+      state.isUpdating = true;
+      state.updateError = null;
+    },
+    updateUserSuccess: (state, action: PayloadAction<User>) => {
+      state.data = action.payload;
+      state.isUpdating = false;
+      state.updateError = null;
+    },
+    updateUserFailure: (state, action: PayloadAction<string>) => {
+      state.isUpdating = false;
+      state.updateError = action.payload;
+    },
   },
 });
 

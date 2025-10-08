@@ -6,10 +6,12 @@ import { Button, MenuItem, TextField, Typography, CircularProgress, Alert } from
 import { defaultUser, type User } from '@/types/User.types';
 import { genderOptions } from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
-import { updateUser } from '../../../../api/userApi';
+// Removed incorrect updateUser import from api layer
+// import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
 import { type RootState } from '@/store';
-import { fetchUser } from '@/store/slices/user';
+// Import updateUser action from Redux slice
+import { updateUser } from '@/store/slices/user';
 import ChatMainContentContainer from '@/components/AppPageSections/ChatMainContentContainer';
 
 const Page = () => {
@@ -33,14 +35,10 @@ const Page = () => {
     console.log(userData);
   }, [userData]);
 
-  const OnSubmit = async () => {
-    try {
-      await updateUser(userInfo.userId, userInfo);
-      dispatch(fetchUser());
-      setIsEditModalOpen(false);
-    } catch (error) {
-      console.error('Failed to update user:', error);
-    }
+  const OnSubmit = () => {
+    // Dispatch Redux action to update user; saga will handle API call
+    dispatch(updateUser(userInfo));
+    setIsEditModalOpen(false);
   };
 
   if (isLoading) {
@@ -76,7 +74,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
               </Typography>
-              <Typography variant="body1">{userInfo.Email || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -97,7 +95,7 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.gender', { default: 'Gender' })}
               </Typography>
-              <Typography variant="body1">{userInfo.Gender || 'Not provided'}</Typography>
+              <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -138,7 +136,13 @@ const Page = () => {
           onClose={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}
           maxWidth="md"
         >
-          <form className="flex flex-col gap-6 p-4">
+          <form
+            className="flex flex-col gap-6 p-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              OnSubmit();
+            }}
+          >
             <Typography variant="h6">
               <Trans id="profile.edit-title" />
             </Typography>
@@ -146,9 +150,19 @@ const Page = () => {
             <div className="flex flex-col gap-6 lg:flex-row lg:justify-between">
               <div className="flex w-full flex-col gap-3 lg:w-[48%]">
                 <InputBox
+                  label={i18n._('profile.username', { default: 'Username' })}
+                  value={userInfo.username || ''}
+                  name="username"
+                  placeholder={i18n._('profile.username-placeholder', {
+                    default: 'Please enter your username',
+                  })}
+                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                />
+
+                <InputBox
                   label={i18n._('profile.email', { default: 'Email' })}
                   fieldType="email"
-                  value={userInfo.Email || ''}
+                  value={userInfo.email || ''}
                   name="email"
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
@@ -184,7 +198,7 @@ const Page = () => {
                     name="gender"
                     variant="outlined"
                     required
-                    value={userInfo.Gender || ''}
+                    value={userInfo.gender || ''}
                     onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
                     InputLabelProps={{ shrink: true }}
                     helperText=" "
@@ -232,16 +246,21 @@ const Page = () => {
             </div>
 
             <div className="flex justify-end gap-3">
-              <Button variant="outlined" onClick={() => setUserInfo(userData || defaultUser)}>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() => setUserInfo(userData || defaultUser)}
+              >
                 <Trans id="profile.refresh" />
               </Button>
               <Button
+                type="button"
                 variant="outlined"
                 onClick={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}
               >
                 <Trans id="profile.cancel" />
               </Button>
-              <Button variant="contained" onClick={OnSubmit}>
+              <Button type="submit" variant="contained">
                 <Trans id="profile.submit" />
               </Button>
             </div>

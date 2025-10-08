@@ -7,6 +7,7 @@ import {
   createApiClient,
 } from '@/lib/api-client';
 import { getAccessTokenWithValidation, getBackendUrl } from '@/lib/auth-utils';
+import { e } from 'node_modules/@lingui/react/dist/shared/react.34bf68ab.mjs';
 
 /**
  * @deprecated Use createUserProfile from @/lib/api-client instead
@@ -29,11 +30,11 @@ export const createUser = async (newUser: User) => {
 
   // Add required fields
   formData.append('Username', newUser.userId || 'defaultUsername');
-  formData.append('Email', newUser.Email);
+  formData.append('Email', newUser.email);
 
   // Add optional fields
-  if (newUser.Gender) {
-    formData.append('Gender', newUser.Gender.toString());
+  if (newUser.gender) {
+    formData.append('Gender', newUser.gender.toString());
   }
   if (newUser.nationality) {
     formData.append('Nationality', newUser.nationality);

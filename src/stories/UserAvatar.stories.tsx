@@ -12,9 +12,9 @@ import { AuthState } from '@/store/slices/user';
 // Mock user data
 const mockUserWithAvatar: User = {
   userId: '123',
-  Email: 'john.doe@example.com',
-  Avatar: '/images/default-avatar.jpg',
-  Gender: '',
+  email: 'john.doe@example.com',
+  avatar: '/images/default-avatar.jpg',
+  gender: '',
   nationality: '',
   city: '',
   university: '',
@@ -25,9 +25,9 @@ const mockUserWithAvatar: User = {
 
 const mockUserWithoutAvatar: User = {
   userId: '456',
-  Email: 'jane.smith@example.com',
-  Avatar: '',
-  Gender: '',
+  email: 'jane.smith@example.com',
+  avatar: '',
+  gender: '',
   nationality: '',
   city: '',
   university: '',

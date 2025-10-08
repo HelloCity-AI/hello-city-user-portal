@@ -1,8 +1,28 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import { getAuthContext, AuthError } from '@/lib/auth-utils';
-import { handleApiError } from '@/lib/error-handlers';
-import { fetchUserProfile, updateUserProfile } from '@/lib/api-client';
+import {
+  getAccessTokenWithValidation,
+  validateBackendUrl,
+  getBackendUrl,
+  getAuthContext,
+  AuthError,
+} from '@/lib/auth-utils';
+import { handleApiError, handleAxiosError } from '@/lib/error-handlers';
+import { fetchUserProfile, updateCurrentUserProfile, updateUserProfile } from '@/lib/api-client';
 import type { User } from '@/types/User.types';
+import axios from 'axios';
+
+// Backend form keys aligned with EditUserDto (Title Case)
+type BackendEditUserForm = {
+  Username?: string;
+  Email?: string;
+  Gender?: string | User['gender'];
+  Nationality?: string | User['nationality'];
+  City?: string | User['city'];
+  University?: string | User['university'];
+  Major?: string | User['major'];
+  PreferredLanguage?: string | User['preferredLanguage'];
+  Avatar?: string;
+};
 
 /**
  * Get current user profile

@@ -1,7 +1,10 @@
-global.fetch = jest.fn() as any;
+// Mock global fetch
+global.fetch = jest.fn();
 
+// Mock the Server Action
 jest.mock('@/actions/user', () => ({
   createUserAction: jest.fn(),
+  updateUserAction: jest.fn(),
 }));
 
 import { call, put, takeLatest } from 'redux-saga/effects';
@@ -34,19 +37,20 @@ import userSaga, {
   handleUpdateUser,
 } from '@/store/sagas/userSaga';
 
-import { createUserAction } from '@/actions/user';
+import { createUserAction, updateUserAction } from '@/actions/user';
 
 // Narrowed mock types
 const mockedFetch = global.fetch as jest.MockedFunction<typeof fetch>;
 const mockedCreateUserAction = createUserAction as jest.MockedFunction<typeof createUserAction>;
+const mockedUpdateUserAction = updateUserAction as jest.MockedFunction<typeof updateUserAction>;
 
 // ---- Test data --------------------------------------------------------------
 
 const mockUser: User = {
   userId: 'test-user-id',
-  Email: 'test@example.com',
-  Avatar: 'avatar-url',
-  Gender: Genders.Male,
+  email: 'test@example.com',
+  avatar: 'avatar-url',
+  gender: Genders.Male,
   nationality: Nationalities.China,
   city: Cities.Sydney,
   university: 'Test University',
@@ -110,9 +114,9 @@ describe('UserSaga – API wrappers & handlers', () => {
     it('Passes FormData to server action and maps success result', async () => {
       const newUser: User = {
         userId: 'new-user-id',
-        Email: 'newuser@example.com',
-        Avatar: 'new-avatar-url',
-        Gender: Genders.Female,
+        email: 'newuser@example.com',
+        avatar: 'new-avatar-url',
+        gender: Genders.Female,
         nationality: Nationalities.Korea,
         city: Cities.Melbourne,
         university: 'New University',
@@ -138,7 +142,7 @@ describe('UserSaga – API wrappers & handlers', () => {
       expect(sent.get('Gender')).toBe(Genders.Female);
       expect(sent.get('City')).toBe(Cities.Melbourne);
       expect(sent.get('Nationality')).toBe(Nationalities.Korea);
-      expect(sent.get('Languages')).toBe(Languages.English);
+      expect(sent.get('PreferredLanguage')).toBe(Languages.English);
       expect(sent.get('Avatar')).toBe('new-avatar-url');
       expect(sent.get('University')).toBe('New University');
       expect(sent.get('Major')).toBe('Engineering');
@@ -160,33 +164,30 @@ describe('UserSaga – API wrappers & handlers', () => {
 
   // ------------------- updateUserApiWrapper -------------------
   describe('UpdateUserApiWrapper', () => {
-    it('PUTs /api/user/me with credentials and body; maps 200 JSON', async () => {
-      mockedFetch.mockResolvedValue(res(200, true, { ...mockUser, major: 'Math' }));
-
-      const result = await updateUserApiWrapper({ ...mockUser, major: 'Math' });
-
-      expect(mockedFetch).toHaveBeenCalledWith('/api/user/me', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({ ...mockUser, major: 'Math' }),
-        cache: 'no-store',
-      });
-      expect(result).toEqual({
+    it('Calls server action with FormData and maps 200 JSON', async () => {
+      mockedUpdateUserAction.mockResolvedValue({
+        success: true,
         status: 200,
         data: { ...mockUser, major: 'Math' },
-        ok: true,
       });
+
+      const updated = { ...mockUser, major: 'Math' };
+      const result = await updateUserApiWrapper(updated);
+
+      expect(mockedUpdateUserAction).toHaveBeenCalledTimes(1);
+      const arg = mockedUpdateUserAction.mock.calls[0][0];
+      expect(arg).toBeInstanceOf(FormData);
+      expect(result).toEqual({ status: 200, data: { ...mockUser, major: 'Math' }, ok: true });
     });
 
     it('Maps 204 to ok=true and data=null', async () => {
-      mockedFetch.mockResolvedValue(res(204, true));
+      mockedUpdateUserAction.mockResolvedValue({ success: true, status: 204, data: null });
       const result = await updateUserApiWrapper(mockUser);
       expect(result).toEqual({ status: 204, data: null, ok: true });
     });
 
-    it('On fetch error: returns {500, ok:false}', async () => {
-      mockedFetch.mockRejectedValue(new Error('put failed'));
+    it('On server action error: returns {500, ok:false}', async () => {
+      mockedUpdateUserAction.mockRejectedValue(new Error('put failed'));
       const result = await updateUserApiWrapper(mockUser);
       expect(result).toEqual({ status: 500, data: null, ok: false });
     });
@@ -246,7 +247,7 @@ describe('UserSaga – API wrappers & handlers', () => {
       expect(g.next().done).toBe(true);
     });
 
-    it('Throws -> setError + setAuth(Unauthenticated)', () => {
+    it('Throws -> setError only; no auth change', () => {
       const g = handleFetchUser();
 
       expect(g.next().value).toEqual(put(setLoading(true)));
@@ -254,7 +255,6 @@ describe('UserSaga – API wrappers & handlers', () => {
 
       const err = new Error('boom');
       expect(g.throw(err).value).toEqual(put(setError('boom')));
-      expect(g.next().value).toEqual(put(setAuth(AuthState.Unauthenticated)));
       expect(g.next().value).toEqual(put(setLoading(false)));
       expect(g.next().done).toBe(true);
     });

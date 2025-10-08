@@ -79,6 +79,26 @@ export async function deleteUserProfile(token: string, backendUrl: string): Prom
   return response;
 }
 
+/**
+ * Update current user profile without GUID
+ * Backend consumes multipart/form-data for EditUserDto via /api/user/me
+ */
+export async function updateCurrentUserProfile(
+  token: string,
+  backendUrl: string,
+  formData: FormData,
+): Promise<AxiosResponse> {
+  const response = await axios.put(`${backendUrl}/api/user/me`, formData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      // Let axios set proper multipart boundary, keep Accept permissive
+      Accept: '*/*',
+    },
+    timeout: 10000,
+  });
+  return response;
+}
+
 export async function getConversations(token: string, backendUrl: string): Promise<AxiosResponse> {
   const client = createApiClient(backendUrl, token);
   return await client.get('/api/conversation/me');

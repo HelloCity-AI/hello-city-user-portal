@@ -19,11 +19,11 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   return (
     <Avatar
       sx={{ width: size, height: size, cursor: clickable ? 'pointer' : 'default' }}
-      src={data?.Avatar}
+      src={data?.avatarFile}
       alt="User Avatar"
       {...AvatarProps}
     >
-      {data?.Email && data.Email.length > 0 ? data.Email.slice(0, 1).toUpperCase() : undefined}
+      {data?.email && data.email.length > 0 ? data.email.slice(0, 1).toUpperCase() : undefined}
     </Avatar>
   );
 };

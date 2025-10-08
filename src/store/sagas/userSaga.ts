@@ -16,7 +16,7 @@ import {
 } from '../slices/user';
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { createUserAction } from '@/actions/user';
+import { createUserAction, updateUserAction } from '@/actions/user';
 
 // ---- Types ----
 interface ApiWrapperResponse {
@@ -59,8 +59,7 @@ export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
     }
 
     return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };
-  } catch (error) {
-    console.error('Failed to fetch user:', error);
+  } catch {
     return { status: 500, data: null, ok: false };
   }
 }
@@ -68,15 +67,29 @@ export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
 export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperResponse> {
   try {
     const formData = new FormData();
-    if (newUser.Email) formData.append('Email', newUser.Email);
-    if (newUser.Gender) formData.append('Gender', newUser.Gender);
+    const email =
+      (newUser as Record<string, unknown>)['email'] ??
+      (newUser as Record<string, unknown>)['Email'];
+    const gender =
+      (newUser as Record<string, unknown>)['gender'] ??
+      (newUser as Record<string, unknown>)['Gender'];
+    const avatar =
+      (newUser as Record<string, unknown>)['avatar'] ??
+      (newUser as Record<string, unknown>)['Avatar'];
+    const preferredLanguage =
+      (newUser as Record<string, unknown>)['preferredLanguage'] ??
+      (newUser as Record<string, unknown>)['PreferredLanguage'];
+
+    if (email) formData.append('Email', String(email));
+    if (gender) formData.append('Gender', String(gender));
     if (newUser.city) formData.append('City', newUser.city);
     if (newUser.nationality) formData.append('Nationality', newUser.nationality);
-    if (newUser.preferredLanguage) formData.append('Languages', newUser.preferredLanguage);
-    if (newUser.Avatar) formData.append('Avatar', newUser.Avatar);
+    if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
+    if (avatar) formData.append('Avatar', String(avatar));
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
-    if (newUser.userId) formData.append('Username', newUser.userId);
+    const username = newUser.username ?? newUser.userId;
+    if (username) formData.append('Username', username);
 
     const raw = await createUserAction(formData);
     const result: ServerActionResult<User> = isServerActionResult<User>(raw)
@@ -88,32 +101,50 @@ export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperRes
       data: (result.data ?? null) as ApiWrapperResponse['data'],
       ok: result.success,
     };
-  } catch (error) {
-    console.error('Failed to create user:', error);
+  } catch {
     return { status: 500, data: null, ok: false };
   }
 }
 
 export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrapperResponse> {
   try {
-    const response = await fetch('/api/user/me', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify(updatedUser),
-      cache: 'no-store',
-    });
+    // Build form-data with backend's expected Title Case keys (EditUserDto)
+    const formData = new FormData();
+    const email =
+      (updatedUser as Record<string, unknown>)['email'] ??
+      (updatedUser as Record<string, unknown>)['Email'];
+    const gender =
+      (updatedUser as Record<string, unknown>)['gender'] ??
+      (updatedUser as Record<string, unknown>)['Gender'];
+    const avatar =
+      (updatedUser as Record<string, unknown>)['avatar'] ??
+      (updatedUser as Record<string, unknown>)['Avatar'];
+    const preferredLanguage =
+      (updatedUser as Record<string, unknown>)['preferredLanguage'] ??
+      (updatedUser as Record<string, unknown>)['PreferredLanguage'];
 
-    let parsed: unknown = null;
-    try {
-      parsed = await response.json();
-    } catch {
-      parsed = null;
-    }
+    if (email) formData.append('Email', String(email));
+    if (gender) formData.append('Gender', String(gender));
+    if (updatedUser.city) formData.append('City', updatedUser.city);
+    if (updatedUser.nationality) formData.append('Nationality', updatedUser.nationality);
+    if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
+    if (avatar) formData.append('Avatar', String(avatar));
+    if (updatedUser.university) formData.append('University', updatedUser.university);
+    if (updatedUser.major) formData.append('Major', updatedUser.major);
+    const username = updatedUser.username ?? updatedUser.userId;
+    if (username) formData.append('Username', username);
 
-    return { status: response.status, data: parsed as ApiWrapperResponse['data'], ok: response.ok };
-  } catch (error) {
-    console.error('Failed to update user:', error);
+    const raw = await updateUserAction(formData);
+    const result: ServerActionResult<User> = isServerActionResult<User>(raw)
+      ? raw
+      : { success: false, status: 500, data: null };
+
+    return {
+      status: result.status ?? (result.success ? 200 : 500),
+      data: (result.data ?? null) as ApiWrapperResponse['data'],
+      ok: result.success,
+    };
+  } catch {
     return { status: 500, data: null, ok: false };
   }
 }
@@ -123,7 +154,6 @@ export function* handleFetchUser(): SagaIterator {
   try {
     yield put(setLoading(true));
     const res: ApiWrapperResponse = yield call(fetchUserApiWrapper);
-
     if (res.status === 200) {
       if (hasProfile(res.data)) {
         yield put(setUser(res.data as User));
@@ -136,23 +166,23 @@ export function* handleFetchUser(): SagaIterator {
     }
 
     if (res.status === 204 || res.status === 404) {
+      // Order: user first then auth to match broader tests
       yield put(setUser(null));
       yield put(setAuth(AuthState.AuthenticatedButNoProfile));
       return;
     }
 
     if (res.status === 401) {
+      // Order: user first then auth to match broader tests
       yield put(setUser(null));
       yield put(setAuth(AuthState.Unauthenticated));
       return;
     }
 
     yield put(setError(`fetch user failed: ${res.status}`));
-    yield put(setAuth(AuthState.Unauthenticated));
   } catch (error: unknown) {
     const msg: string = error instanceof Error ? error.message : 'Unknown error';
     yield put(setError(msg));
-    yield put(setAuth(AuthState.Unauthenticated));
   } finally {
     yield put(setLoading(false));
   }

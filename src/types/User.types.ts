@@ -1,10 +1,12 @@
 import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 
 export type User = {
+  username?: string;
   userId: string;
-  Email: string;
+  email: string;
+  gender: Genders | '';
+  avatar?: string;
   avatarFile?: File | null;
-  Gender: Genders | '';
   nationality: Nationalities | '';
   city: Cities | '';
   university: string;
@@ -14,10 +16,12 @@ export type User = {
 };
 
 export const defaultUser: User = {
+  username: '',
   userId: '',
-  Email: '',
+  email: '',
+  gender: '',
+  avatar: '',
   avatarFile: null,
-  Gender: '',
   nationality: '',
   city: '',
   university: '',

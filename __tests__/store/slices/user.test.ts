@@ -30,9 +30,9 @@ describe('User slice', () => {
 
   const mockUser: User = {
     userId: '1',
-    Email: 'test@example.com',
-    Avatar: 'avatar.jpg',
-    Gender: Genders.Male,
+    email: 'test@example.com',
+    avatar: 'avatar.jpg',
+    gender: Genders.Male,
     nationality: Nationalities.China,
     city: Cities.Sydney,
     university: 'Test University',
@@ -86,15 +86,32 @@ describe('User slice', () => {
       const prev: UserState = {
         isLoading: true,
         data: mockUser,
-        error: 'err',
+        error: 'Previous error',
+        authStatus: AuthState.AuthenticatedWithProfile,
+        isCreating: false,
+        createError: null,
+        isUpdating: false,
+        updateError: null,
+      };
+
+      const actual = userReducer(prev, logOut());
+
+      expect(actual).toEqual(initialState);
+    });
+
+    it('Should reset creation flags to avoid stale UI state', () => {
+      const previousState: UserState = {
+        isLoading: true,
+        data: mockUser,
+        error: 'Previous error',
         authStatus: AuthState.AuthenticatedWithProfile,
         hasFetched: true,
         isCreating: true,
-        createError: 'create err',
-        isUpdating: true,
-        updateError: 'update err',
+        createError: 'Creation failed',
+        isUpdating: false,
+        updateError: null,
       };
-      const next = userReducer(prev, logOut());
+      const next = userReducer(previousState, logOut());
       expect(next).toEqual(initialState);
     });
   });

@@ -40,7 +40,7 @@ const Page = () => {
     if (user?.email) {
       setFormData((prev) => ({
         ...prev,
-        Email: user.email || prev.Email,
+        email: user.email || prev.email,
       }));
     }
   }, [user]);
@@ -86,7 +86,7 @@ const Page = () => {
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.Email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       alert('Invalid email format');
       return;
     }
