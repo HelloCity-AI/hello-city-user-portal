@@ -52,10 +52,8 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({ trigger, onSelect }) =>
       textAlignCenter={false}
       disableIconButton
       disableHover
-
       customContent={
         <Box className="w-64 p-3">
-
           <TextField
             placeholder="Search chat history..."
             fullWidth
@@ -73,7 +71,7 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({ trigger, onSelect }) =>
           {!loading && (
             <List className="max-h-64 overflow-y-auto">
               {results.length === 0 && query ? (
-                <Typography variant="body2" className="text-gray-500 text-center py-2">
+                <Typography variant="body2" className="py-2 text-center text-gray-500">
                   <Trans id="chat.search.noResult" message="No results found" />
                 </Typography>
               ) : (
@@ -81,7 +79,7 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({ trigger, onSelect }) =>
                   <ListItemButton
                     key={r.id}
                     onClick={() => onSelect(r.id)}
-                    className="rounded-md hover:bg-gray-100 transition-colors"
+                    className="rounded-md transition-colors hover:bg-gray-100"
                   >
                     <Typography variant="body2" className="truncate text-sm text-gray-800">
                       {r.title}

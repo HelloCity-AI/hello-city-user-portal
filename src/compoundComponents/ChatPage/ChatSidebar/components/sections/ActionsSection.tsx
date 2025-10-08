@@ -29,7 +29,6 @@ export default function ActionsSection({ isCollapsed, onNewChat }: ActionsSectio
 
   return (
     <>
-      
       <ActionButton
         icon={<AddIcon className={ICON_STYLES.action} />}
         text={<Trans id="sidebar.actions.newChat" message="New Chat" />}
@@ -37,14 +36,13 @@ export default function ActionsSection({ isCollapsed, onNewChat }: ActionsSectio
         onClick={onNewChat}
       />
 
-      
       <SearchChatMenu
         trigger={
           <ActionButton
             icon={<SearchIcon className={ICON_STYLES.action} />}
             text={<Trans id="sidebar.actions.searchChat" message="Search Chat" />}
             isCollapsed={isCollapsed}
-            onClick={() => {}} 
+            onClick={() => {}}
           />
         }
         onSelect={(id) => router.push(`/${params.lang}/assistant/${id}`)}
