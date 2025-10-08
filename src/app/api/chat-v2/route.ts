@@ -15,8 +15,6 @@ import {
   type UIMessage,
 } from '@/utils/chatStreamUtils';
 
-export const runtime = 'edge';
-
 export async function POST(req: Request) {
   try {
     const { token, apiUrl } = await getAuthContext();

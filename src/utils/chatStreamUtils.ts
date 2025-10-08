@@ -178,8 +178,25 @@ export function createAISDKStreamV2(
                   continue;
                 }
 
+                // Handle task-id custom event (convert to data-task-id for AI SDK)
+                if (parsed.type === 'task-id' && parsed.taskId) {
+                  console.log('[Chat Stream V2] Task ID received:', {
+                    taskId: parsed.taskId,
+                    status: parsed.status,
+                  });
+                  // Convert to AI SDK data part format (data-* with data wrapper)
+                  send(
+                    `data: ${JSON.stringify({
+                      type: 'data-task-id',
+                      data: {
+                        taskId: parsed.taskId,
+                        status: parsed.status,
+                      },
+                    })}\n\n`,
+                  );
+                }
                 // Handle data-checklist custom event (Vercel AI SDK data part)
-                if (parsed.type === 'data-checklist' && parsed.data) {
+                else if (parsed.type === 'data-checklist' && parsed.data) {
                   console.log('[Chat Stream V2] Checklist data received:', {
                     destination: parsed.data.destination,
                     duration: parsed.data.duration,

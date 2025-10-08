@@ -22,6 +22,7 @@ import {
   setPendingMessage,
   clearPendingMessage,
   invalidateConversationCache,
+  addActiveTask,
 } from '@/store/slices/conversation';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -90,6 +91,38 @@ const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMa
     }
     prevStatusRef.current = status;
   }, [status, conversationId, dispatch]);
+
+  // Extract task-id from latest message and dispatch to Redux
+  useEffect(() => {
+    if (messages.length === 0 || !conversationId) return;
+
+    const lastMessage = messages[messages.length - 1];
+    console.log('[Chat] Checking message for task-id:', {
+      role: lastMessage.role,
+      hasParts: !!lastMessage.parts,
+      partsCount: lastMessage.parts?.length || 0,
+      parts: lastMessage.parts,
+    });
+
+    if (lastMessage.role !== 'assistant' || !lastMessage.parts) return;
+
+    const taskIdPart = lastMessage.parts.find((part: unknown) => {
+      const p = part as { type?: string; data?: { taskId?: string } };
+      return p.type === 'data-task-id' && p.data?.taskId;
+    });
+
+    if (taskIdPart) {
+      const p = taskIdPart as { data: { taskId: string; status: string } };
+      console.log('[Chat] Task ID detected:', p.data.taskId);
+      dispatch(
+        addActiveTask({
+          taskId: p.data.taskId,
+          conversationId,
+          status: p.data.status,
+        }),
+      );
+    }
+  }, [messages, conversationId, dispatch]);
 
   const handleSubmit = async (_message: PromptInputMessage, event: FormEvent) => {
     event.preventDefault();
