@@ -145,6 +145,11 @@ const ContactUs = () => {
           </Box>
         </form>
       </Paper>
+
+
+{/* mock area for designing layout of chat area */}
+
+
     </Box>
   );
 };
