@@ -15,7 +15,7 @@ type BackendEditUserForm = {
   University?: string | User['university'];
   Major?: string | User['major'];
   PreferredLanguage?: string | User['preferredLanguage'];
-  Avatar?: string; // 当前 JSON 更新不包含文件，保留以兼容现有字段
+  Avatar?: string;
 };
 
 /**
