@@ -508,6 +508,11 @@ msgid "chat.input.hint.send"
 msgstr "发送，按 Shift + Enter 换行"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Menus/SearchChatMenu.tsx:75
+msgid "chat.search.noResult"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
 msgid "chat.welcome.subtitle"
 msgstr "开始与AI助手的对话，获得个性化的城市生活指导"
@@ -1353,72 +1358,72 @@ msgid "contact-us.title"
 msgstr "联系我们"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:32
+#: src/compoundComponents/HomePage/FAQSection.tsx:30
 msgid "contact.faq.a1"
 msgstr "HelloCity 是您的 AI 搬迁助手，提供逐步清单和时间表，帮助您轻松搬到新城市。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:42
+#: src/compoundComponents/HomePage/FAQSection.tsx:40
 msgid "contact.faq.a2"
 msgstr "您可以免费开始使用，高级选项可提供更个性化的指导和功能。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:52
+#: src/compoundComponents/HomePage/FAQSection.tsx:50
 msgid "contact.faq.a3"
 msgstr "我们覆盖全球主要城市，并会定期扩展。请在产品中查看最新支持的地区。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:62
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.a4"
 msgstr "基本浏览不需要账号。创建账号可以保存进度、提醒和定制的时间表。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:72
+#: src/compoundComponents/HomePage/FAQSection.tsx:70
 msgid "contact.faq.a5"
 msgstr "是的。HelloCity 可自适应，并在桌面、平板和手机上流畅运行。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:30
+#: src/compoundComponents/HomePage/FAQSection.tsx:28
 msgid "contact.faq.q1"
 msgstr "什么是 HelloCity？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:40
+#: src/compoundComponents/HomePage/FAQSection.tsx:38
 msgid "contact.faq.q2"
 msgstr "HelloCity 是免费的吗？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:50
+#: src/compoundComponents/HomePage/FAQSection.tsx:48
 msgid "contact.faq.q3"
 msgstr "支持哪些城市？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:58
 msgid "contact.faq.q4"
 msgstr "开始使用需要注册账号吗？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:70
+#: src/compoundComponents/HomePage/FAQSection.tsx:68
 msgid "contact.faq.q5"
 msgstr "HelloCity 在手机上好用吗？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:157
+#: src/compoundComponents/HomePage/FAQSection.tsx:152
 msgid "contact.faq.results"
 msgstr "结果"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:131
+#: src/compoundComponents/HomePage/FAQSection.tsx:126
 msgid "contact.faq.searchPlaceholder"
 msgstr "请输入您的问题..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:124
+#: src/compoundComponents/HomePage/FAQSection.tsx:119
 msgid "contact.faq.subtitle"
 msgstr "快速找到关于 HelloCity 的常见问题解答。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:116
+#: src/compoundComponents/HomePage/FAQSection.tsx:111
 msgid "contact.faq.title"
 msgstr "常见问题"
 
@@ -1769,12 +1774,12 @@ msgid "profile.university-placeholder"
 msgstr "请输入您的大学名称"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:34
 msgid "sidebar.actions.newChat"
 msgstr "新对话"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:43
 msgid "sidebar.actions.searchChat"
 msgstr "搜索对话"
 
