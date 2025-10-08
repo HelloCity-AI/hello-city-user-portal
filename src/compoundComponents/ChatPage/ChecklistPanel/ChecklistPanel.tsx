@@ -1,6 +1,8 @@
 'use client';
 
 import { memo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store';
 
 import Image from 'next/image';
 
@@ -22,6 +24,7 @@ const ChecklistPanel = memo(
   ({
     isCollapsed,
     onToggle,
+    conversationId,
     cityInfo,
     heroImage,
     title = defaultPanelConfig.title,
@@ -34,13 +37,21 @@ const ChecklistPanel = memo(
     // Filter is UI-only state, managed locally
     const [filter, setFilter] = useState<FilterType>('all');
 
+    // Check if current conversation has any checklists
+    const bannersByConversation = useSelector(
+      (state: RootState) => state.checklist.bannersByConversation,
+    );
+    const hasChecklists = conversationId
+      ? (bannersByConversation[conversationId]?.length || 0) > 0
+      : false;
+
     // Get checklist data from Redux (includes cityInfo looked up from cityData.tsx)
     const {
       activeChecklistId,
       cityInfo: cityInfoFromRedux,
       stats,
       itemsToRender,
-    } = useChecklist(filter);
+    } = useChecklist(filter, conversationId);
 
     // Custom hooks for separation of concerns
     // Priority: Use cityInfo from Redux if available, otherwise use props
@@ -107,8 +118,8 @@ const ChecklistPanel = memo(
           </div>
         </PanelLayout>
 
-        {/* Collapsed Toggle Button */}
-        {isCollapsed && <CollapsedToggle onToggle={onToggle} />}
+        {/* Collapsed Toggle Button - Only show when there are checklists */}
+        {isCollapsed && hasChecklists && <CollapsedToggle onToggle={onToggle} />}
       </>
     );
   },

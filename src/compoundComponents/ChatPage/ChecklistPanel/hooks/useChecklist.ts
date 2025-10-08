@@ -26,20 +26,32 @@ interface UseChecklistReturn {
  * Custom hook for accessing active checklist from Redux store
  *
  * @param filter - Filter type for checklist items (all, completed, incomplete)
+ * @param conversationId - Current conversation ID to validate checklist belongs to it
  * @returns Active checklist data with computed states
  */
-export const useChecklist = (filter: FilterType = 'all'): UseChecklistReturn => {
+export const useChecklist = (
+  filter: FilterType = 'all',
+  conversationId?: string,
+): UseChecklistReturn => {
   const { checklists, activeChecklistId, isLoading, error } = useSelector(
     (state: RootState) => state.checklist,
   );
 
-  // Get active checklist
+  // Get active checklist with conversation validation
   const activeChecklist = useMemo(() => {
     if (!activeChecklistId || !checklists[activeChecklistId]) {
       return null;
     }
-    return checklists[activeChecklistId];
-  }, [checklists, activeChecklistId]);
+
+    const checklist = checklists[activeChecklistId];
+
+    // Validate checklist belongs to current conversation
+    if (conversationId && checklist.conversationId !== conversationId) {
+      return null;
+    }
+
+    return checklist;
+  }, [checklists, activeChecklistId, conversationId]);
 
   // Get city info by looking up cityCode
   const cityInfo = useMemo(() => {

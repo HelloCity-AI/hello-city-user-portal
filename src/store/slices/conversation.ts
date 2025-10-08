@@ -13,6 +13,12 @@ export interface MessageDto {
   messageType: string; // 'Questions' | 'Answer' | Summary'
   role: 'user' | 'assistant' | 'system';
   content: string;
+  parts?: Array<{
+    type: string;
+    text?: string;
+    id?: string;
+    data?: unknown; // For data-checklist parts
+  }>;
   createdAt?: string;
 }
 
