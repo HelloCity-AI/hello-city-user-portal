@@ -4,8 +4,9 @@ export type User = {
   username?: string;
   userId: string;
   email: string;
-  avatar: string;
   gender: Genders | '';
+  avatar?: string;
+  avatarFile?: File | null;
   nationality: Nationalities | '';
   city: Cities | '';
   university: string;
@@ -18,8 +19,9 @@ export const defaultUser: User = {
   username: '',
   userId: '',
   email: '',
-  avatar: '',
   gender: '',
+  avatar: '',
+  avatarFile: null,
   nationality: '',
   city: '',
   university: '',

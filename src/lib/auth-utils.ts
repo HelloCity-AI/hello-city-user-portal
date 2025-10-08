@@ -14,6 +14,17 @@ export interface AuthTokenError {
 export type AuthTokenResponse = AuthTokenResult | AuthTokenError;
 
 /**
+ * Custom error class for authentication failures
+ * Wraps NextResponse errors for unified error handling
+ */
+export class AuthError extends Error {
+  constructor(public response: NextResponse) {
+    super('Authentication error');
+    this.name = 'AuthError';
+  }
+}
+
+/**
  * Get access token with proper error handling
  * Returns either the token or an error response
  */
@@ -62,4 +73,42 @@ export function validateBackendUrl(): NextResponse | null {
     );
   }
   return null;
+}
+
+/**
+ * Get authentication context (token and backend URL) with validation
+ * Throws AuthError if validation fails
+ *
+ * @returns Object containing token and apiUrl
+ * @throws {AuthError} When backend URL is not configured or token retrieval fails
+ *
+ * @example
+ * try {
+ *   const { token, apiUrl } = await getAuthContext();
+ *   const response = await getConversations(token, apiUrl);
+ *   return NextResponse.json(response.data, { status: response.status });
+ * } catch (error) {
+ *   if (error instanceof AuthError) {
+ *     return error.response;
+ *   }
+ *   return handleApiError(error, 'getting conversations');
+ * }
+ */
+export async function getAuthContext(): Promise<{ token: string; apiUrl: string }> {
+  // Validate backend URL
+  const backendUrlError = validateBackendUrl();
+  if (backendUrlError) {
+    throw new AuthError(backendUrlError);
+  }
+
+  // Get access token
+  const tokenResult = await getAccessTokenWithValidation();
+  if (tokenResult.error) {
+    throw new AuthError(tokenResult.error);
+  }
+
+  return {
+    token: tokenResult.token,
+    apiUrl: getBackendUrl()!,
+  };
 }

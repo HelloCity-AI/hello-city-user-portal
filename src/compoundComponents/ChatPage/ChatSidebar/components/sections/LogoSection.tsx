@@ -53,6 +53,7 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
               alt="HelloCity"
               width={24}
               height={24}
+              priority
               style={{ objectFit: 'contain' }}
             />
           </div>

@@ -9,86 +9,155 @@ import {
 import type { PromptInputMessage } from '@/components/ai-elements/PromptInput';
 import ChatMainContentContainer from '../../../components/AppPageSections/ChatMainContentContainer';
 import MessageBubble from './components/ui/MessageBubble';
-import { useState, useCallback } from 'react';
-import type { UIMessage } from 'ai';
+import { useState, useEffect, useRef } from 'react';
+import type { UIMessage, ChatStatus } from 'ai';
+import { DefaultChatTransport } from 'ai';
 import { ConversationPromptInput } from './components/ui/ConversationPromptInput';
 import ChatEmptyState from './components/ui/ChatEmptyState';
+import { useSelector, useDispatch } from 'react-redux';
+import { type RootState } from '@/store';
+import {
+  addConversationOptimistic,
+  cacheConversationMessages,
+  setPendingMessage,
+  clearPendingMessage,
+  invalidateConversationCache,
+} from '@/store/slices/conversation';
+import { useRouter } from 'next/navigation';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useChat } from '@ai-sdk/react';
+import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
+import { type Conversation as ConversationInterface } from '@/store/slices/conversation';
 
-// 假的AI回复消息列表
-const fakeAIReplies = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-  "That's an interesting question. Let me think about that...",
-  "I understand what you're asking. Here's my perspective:",
-  "Thanks for sharing that! I'd be happy to help you with this.",
-  "That's a great point. Have you considered this approach?",
-  "I appreciate you asking. From my experience, I'd suggest:",
-  "That's something I can definitely help with. Here's what I recommend:",
-  'Interesting! That reminds me of a similar situation where:',
-  'Good question! Let me break this down for you:',
-  "I see what you're getting at. Here's how I would approach it:",
-];
+interface ChatMainAreaProps {
+  conversationId?: string;
+  initialMessages?: UIMessage[];
+}
 
-const ChatMainArea = () => {
+const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) => {
   const [input, setInput] = useState('');
-  const [messages, setMessages] = useState<UIMessage[]>([]);
-  const [isAIReplying, setIsAIReplying] = useState(false);
+  const [isCreatingConversation, setIsCreatingConversation] = useState(false);
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const { language } = useLanguage();
+  const prevStatusRef = useRef<ChatStatus>('ready');
+  const hasSentPendingRef = useRef<Set<string>>(new Set());
 
-  // 假的AI回复函数
-  const simulateAIReply = useCallback(() => {
-    setIsAIReplying(true);
+  const { sendMessage, messages, status } = useChat({
+    id: conversationId,
+    messages: initialMessages,
+    transport: new DefaultChatTransport({
+      api: '/api/chat',
+      prepareSendMessagesRequest: ({ id, messages }) => {
+        return {
+          body: {
+            conversationId: id,
+            messages: messages,
+          },
+        };
+      },
+    }),
+  });
 
-    // 模拟AI思考时间 (3-6秒随机)
-    const replyDelay = Math.random() * 3000 + 3000;
+  const pendingMessages = useSelector((state: RootState) => state.conversation.pendingMessages);
+  const isNewConversation = !conversationId;
 
-    setTimeout(() => {
-      const randomReply = fakeAIReplies[Math.floor(Math.random() * fakeAIReplies.length)];
+  // Send pending message after conversation creation (ref prevents duplicate sends)
+  useEffect(() => {
+    if (conversationId) {
+      const pendingMessage = pendingMessages[conversationId];
 
-      const aiMessage: UIMessage = {
-        id: Date.now().toString() + '_ai',
-        role: 'assistant',
-        parts: [{ type: 'text', text: randomReply }],
-      };
+      if (pendingMessage && !hasSentPendingRef.current.has(conversationId)) {
+        const userMessage: UIMessage = {
+          id: `${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
+          role: 'user',
+          parts: [{ type: 'text', text: pendingMessage }],
+        };
 
-      setMessages((prev) => [...prev, aiMessage]);
-      setIsAIReplying(false);
-    }, replyDelay);
-  }, []);
+        hasSentPendingRef.current.add(conversationId);
+        sendMessage(userMessage);
+        dispatch(clearPendingMessage(conversationId));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [conversationId]);
 
-  const handleSubmit = (message: PromptInputMessage, event: FormEvent) => {
+  // Invalidate cache after message is sent (ensures fresh data on next load)
+  useEffect(() => {
+    if (prevStatusRef.current === 'streaming' && status === 'ready' && conversationId) {
+      dispatch(invalidateConversationCache(conversationId));
+    }
+    prevStatusRef.current = status;
+  }, [status, conversationId, dispatch]);
+
+  const handleSubmit = async (_message: PromptInputMessage, event: FormEvent) => {
     event.preventDefault();
-    if (input.trim() && !isAIReplying) {
-      // 添加用户消息
+    if (!input.trim()) return;
+
+    if (!conversationId) {
+      setIsCreatingConversation(true);
+      try {
+        const response = await fetchWithErrorHandling<ConversationInterface>(
+          '/api/conversation/create',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              title: 'New Conversation',
+              firstMessage: input,
+            }),
+          },
+        );
+
+        if (response.ok && response.data) {
+          const newId = response.data.conversationId;
+          const generatedTitle = response.data.title;
+
+          dispatch(setPendingMessage({ conversationId: newId, message: input }));
+          dispatch(
+            addConversationOptimistic({
+              conversationId: newId,
+              title: generatedTitle,
+            }),
+          );
+          dispatch(cacheConversationMessages({ conversationId: newId, messages: [] }));
+
+          router.push(`/${language}/assistant/${newId}`);
+        } else {
+          console.error('[Conversation] Failed to create conversation:', response.status);
+        }
+      } catch (error) {
+        console.error('[Conversation] Error creating conversation:', error);
+      } finally {
+        setIsCreatingConversation(false);
+      }
+    } else {
       const userMessage: UIMessage = {
-        id: Date.now().toString() + '_user',
+        id: `${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
         role: 'user',
         parts: [{ type: 'text', text: input }],
       };
-
-      setMessages((prev) => [...prev, userMessage]);
+      sendMessage(userMessage);
       setInput('');
-
-      // 触发AI回复
-      simulateAIReply();
     }
   };
 
   return (
     <ChatMainContentContainer>
-      {/* Messages Area - Direct Conversation component as flex-1 */}
       <Conversation>
         <ConversationContent>
-          {messages.length === 0 ? (
+          {isNewConversation ? (
             <ChatEmptyState />
           ) : (
             <>
-              {messages.map((message) => (
+              {messages.map((message: UIMessage) => (
                 <MessageBubble
                   key={message.id}
                   message={message}
                   aiAvatarSrc={'/images/logo-avatar.png'}
                 />
               ))}
-              {isAIReplying && (
+              {status === 'submitted' && (
                 <MessageBubble
                   key="ai-thinking"
                   message={{
@@ -110,7 +179,8 @@ const ChatMainArea = () => {
         value={input}
         onValueChange={setInput}
         onSubmit={handleSubmit}
-        isAIReplying={isAIReplying}
+        isAIReplying={status === 'streaming'}
+        isCreating={isCreatingConversation}
       />
     </ChatMainContentContainer>
   );

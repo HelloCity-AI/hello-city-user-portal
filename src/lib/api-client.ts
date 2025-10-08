@@ -54,26 +54,13 @@ export async function createUserProfile(
 export async function updateUserProfile(
   token: string,
   backendUrl: string,
-  userData: Record<string, string> | FormData,
-  userId?: string,
+  userData: any,
 ): Promise<AxiosResponse> {
-  const isFormData = typeof FormData !== 'undefined' && userData instanceof FormData;
-  const headers: Record<string, string> = {
-    Authorization: `Bearer ${token}`,
-  };
-  if (isFormData) {
-    // Let axios set the correct multipart boundary
-    headers.Accept = '*/*';
-  } else {
-    headers['Content-Type'] = 'application/json';
-  }
-  // Backend requires GUID path parameter; do not fallback to 'me'
-  if (!userId) {
-    throw new Error('updateUserProfile requires a valid GUID userId');
-  }
-  const endpoint = `${backendUrl}/api/user/${userId}`;
-  const response = await axios.put(endpoint, userData, {
-    headers,
+  const response = await axios.put(`${backendUrl}/api/user/me`, userData, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
     timeout: 10000,
   });
   return response;
@@ -110,4 +97,59 @@ export async function updateCurrentUserProfile(
     timeout: 10000,
   });
   return response;
+}
+
+export async function getConversations(token: string, backendUrl: string): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get('/api/conversation/me');
+}
+
+export async function getConversation(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}`);
+}
+
+export async function updateConversation(
+  token: string,
+  backendUrl: string,
+  id: string,
+  data: object,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.patch(`/api/conversation/${id}`, data);
+}
+
+export async function deleteConversation(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.delete(`/api/conversation/${id}`);
+}
+
+export async function getConversationMessages(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}/messages`);
+}
+
+export async function createConversation(
+  token: string,
+  backendUrl: string,
+  title: string = 'New Conversation',
+  firstMessage?: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.post('/api/Conversation', {
+    title,
+    firstMessage,
+  });
 }

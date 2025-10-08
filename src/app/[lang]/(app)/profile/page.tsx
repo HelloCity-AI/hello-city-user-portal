@@ -136,7 +136,13 @@ const Page = () => {
           onClose={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}
           maxWidth="md"
         >
-          <form className="flex flex-col gap-6 p-4">
+          <form
+            className="flex flex-col gap-6 p-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              OnSubmit();
+            }}
+          >
             <Typography variant="h6">
               <Trans id="profile.edit-title" />
             </Typography>
@@ -240,16 +246,21 @@ const Page = () => {
             </div>
 
             <div className="flex justify-end gap-3">
-              <Button variant="outlined" onClick={() => setUserInfo(userData || defaultUser)}>
+              <Button
+                type="button"
+                variant="outlined"
+                onClick={() => setUserInfo(userData || defaultUser)}
+              >
                 <Trans id="profile.refresh" />
               </Button>
               <Button
+                type="button"
                 variant="outlined"
                 onClick={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}
               >
                 <Trans id="profile.cancel" />
               </Button>
-              <Button variant="contained" onClick={OnSubmit}>
+              <Button type="submit" variant="contained">
                 <Trans id="profile.submit" />
               </Button>
             </div>

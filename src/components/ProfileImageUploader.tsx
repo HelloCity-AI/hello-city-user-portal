@@ -7,9 +7,15 @@ import Image from 'next/image';
 import { Trans } from '@lingui/react';
 import type { ReactElement } from 'react';
 
-const ProfileImageUploader = () => {
-  const [preview, setPreview] = useState<string | null>(null);
-  const [status, setStatus] = useState<'none' | 'uploading' | 'uploaded' | 'error'>('none');
+type Props = {
+  selectedImage: (file: File | null) => void;
+  initialPreview?: string | null;
+};
+
+// initialPreview prop is only valid when this component is used in editUser flow rather than createUser flow
+const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }) => {
+  const [preview, setPreview] = useState<string | null>(initialPreview ?? null);
+  const [status, setStatus] = useState<'none' | 'selected' | 'error'>('none');
   const [message, setMessage] = useState<ReactElement<typeof Trans> | null>(null);
   const theme = useTheme();
 
@@ -30,47 +36,19 @@ const ProfileImageUploader = () => {
       return;
     }
 
-    setStatus('uploading');
-    setMessage(<Trans id="file.upload.progress" message="The image is uploading ..." />);
-
+    setStatus('selected');
     const imageUrl = URL.createObjectURL(file);
     setPreview(imageUrl);
-
-    setTimeout(() => {
-      setStatus('uploaded');
-      setMessage(<Trans id="file.upload.success" message="The image is uploaded" />);
-    }, 3000);
+    selectedImage(file);
   };
 
   const handleRemove = () => {
+    selectedImage(null);
     setPreview(null);
     setStatus('none');
     setMessage(null);
 
     imageInputRef.current!.value = '';
-  };
-
-  const renderStatus = () => {
-    switch (status) {
-      case 'uploading':
-        return (
-          <>
-            <CircularProgress sx={{ mt: 2 }} />
-            <Typography variant="body2" sx={{ mt: 2 }}>
-              &nbsp;{message}&nbsp;
-            </Typography>
-          </>
-        );
-      case 'uploaded':
-      case 'error':
-        return (
-          <Typography variant="body2" sx={{ mt: 2 }}>
-            &nbsp;{message}&nbsp;
-          </Typography>
-        );
-      default:
-        return null;
-    }
   };
 
   return (
@@ -97,24 +75,29 @@ const ProfileImageUploader = () => {
       {/* Image Preview Section below ↓ */}
 
       <Image
-        src={!preview || status === 'uploading' ? '/images/default-avatar.jpg' : preview}
-        alt={!preview || status === 'uploading' ? 'Default Avatar' : 'Profile Image Preview'}
+        src={!preview ? '/images/default-avatar.jpg' : preview}
+        alt={!preview ? 'Default Avatar' : 'Profile Image Preview'}
         width={150}
         height={150}
-        className="h-[150px] w-[150px] rounded-xl border-2 border-indigo-600 object-cover"
+        className="h-[150px] w-[150px] rounded-full border-2 border-indigo-600 object-cover"
       />
 
-      {renderStatus()}
+      {status == 'error' && (
+        <Typography variant="body2" sx={{ mt: 2 }}>
+          {' '}
+          &nbsp;{message}&nbsp;
+        </Typography>
+      )}
 
       {/* Buttons to upload or remove photos */}
       <div className="flex w-4/5 flex-wrap justify-center">
-        <Button variant="secondary" component="label" disabled={status === 'uploading'}>
+        <Button variant="secondary" component="label" sx={{ width: 200, mx: 1 }}>
           <Trans id="profile.avatar.add" message="Add Profile Picture" />
           <input type="file" hidden ref={imageInputRef} onChange={handleFileChange} />
         </Button>
 
-        {preview && status !== 'uploading' && (
-          <Button variant="secondary" onClick={handleRemove}>
+        {preview && (
+          <Button variant="secondary" onClick={handleRemove} sx={{ width: 200, mx: 1 }}>
             <Trans id="profile.avatar.remove" message="Remove Picture" />
           </Button>
         )}

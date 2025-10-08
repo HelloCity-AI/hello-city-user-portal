@@ -180,23 +180,57 @@ export async function updateUserAction(formData: FormData): Promise<UpdateUserRe
       Avatar?: string;
     };
 
-    // Type-safe mapping: frontend fields -> backend Title Case fields
+    // Type-safe mapping: accept both lowercase and Title Case form keys
     const backendUserData: BackendEditUserForm = {};
-    // Prefer using frontend `username` for backend `Username`; fall back to `userId`
-    if (userData.username !== undefined && userData.username !== '') {
-      backendUserData.Username = userData.username;
-    } else if (userData.userId !== undefined) {
-      backendUserData.Username = userData.userId;
+    // Prefer using `username` for backend `Username`; fall back to `userId` or `Username`
+    const username =
+      (userData as Record<string, unknown>)['username'] ??
+      (userData as Record<string, unknown>)['userId'] ??
+      (userData as Record<string, unknown>)['Username'];
+    if (username !== undefined && String(username) !== '') {
+      backendUserData.Username = String(username);
     }
-    if (userData.email !== undefined) backendUserData.Email = userData.email;
-    if (userData.gender !== undefined) backendUserData.Gender = userData.gender;
-    if (userData.nationality !== undefined) backendUserData.Nationality = userData.nationality;
-    if (userData.city !== undefined) backendUserData.City = userData.city;
-    if (userData.university !== undefined) backendUserData.University = userData.university;
-    if (userData.major !== undefined) backendUserData.Major = userData.major;
-    if (userData.preferredLanguage !== undefined)
-      backendUserData.PreferredLanguage = userData.preferredLanguage;
-    if (userData.avatar !== undefined) backendUserData.Avatar = userData.avatar;
+
+    const email =
+      (userData as Record<string, unknown>)['email'] ??
+      (userData as Record<string, unknown>)['Email'];
+    if (email !== undefined) backendUserData.Email = String(email);
+
+    const gender =
+      (userData as Record<string, unknown>)['gender'] ??
+      (userData as Record<string, unknown>)['Gender'];
+    if (gender !== undefined) backendUserData.Gender = gender as string;
+
+    const nationality =
+      (userData as Record<string, unknown>)['nationality'] ??
+      (userData as Record<string, unknown>)['Nationality'];
+    if (nationality !== undefined) backendUserData.Nationality = String(nationality);
+
+    const city =
+      (userData as Record<string, unknown>)['city'] ??
+      (userData as Record<string, unknown>)['City'];
+    if (city !== undefined) backendUserData.City = String(city);
+
+    const university =
+      (userData as Record<string, unknown>)['university'] ??
+      (userData as Record<string, unknown>)['University'];
+    if (university !== undefined) backendUserData.University = String(university);
+
+    const major =
+      (userData as Record<string, unknown>)['major'] ??
+      (userData as Record<string, unknown>)['Major'];
+    if (major !== undefined) backendUserData.Major = String(major);
+
+    const preferredLanguage =
+      (userData as Record<string, unknown>)['preferredLanguage'] ??
+      (userData as Record<string, unknown>)['PreferredLanguage'];
+    if (preferredLanguage !== undefined)
+      backendUserData.PreferredLanguage = String(preferredLanguage);
+
+    const avatar =
+      (userData as Record<string, unknown>)['avatar'] ??
+      (userData as Record<string, unknown>)['Avatar'];
+    if (avatar !== undefined) backendUserData.Avatar = String(avatar);
 
     // Build FormData for /api/user/me endpoint (multipart/form-data)
     const form = new FormData();

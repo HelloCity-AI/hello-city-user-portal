@@ -6,15 +6,20 @@ import { type AvatarProps } from '@mui/material/Avatar';
 
 export interface UserAvatarProps extends Omit<AvatarProps, 'sx' | 'children' | 'src' | 'alt'> {
   size?: number | string;
+  clickable?: boolean;
 }
 
-const UserAvatar: React.FC<UserAvatarProps> = ({ size = '2rem', ...AvatarProps }) => {
+const UserAvatar: React.FC<UserAvatarProps> = ({
+  size = '2rem',
+  clickable = true,
+  ...AvatarProps
+}) => {
   const { data } = useSelector((state: RootState) => state.user);
 
   return (
     <Avatar
-      sx={{ width: size, height: size, cursor: 'pointer' }}
-      src={data?.avatar}
+      sx={{ width: size, height: size, cursor: clickable ? 'pointer' : 'default' }}
+      src={data?.avatarFile}
       alt="User Avatar"
       {...AvatarProps}
     >

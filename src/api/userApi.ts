@@ -7,6 +7,7 @@ import {
   createApiClient,
 } from '@/lib/api-client';
 import { getAccessTokenWithValidation, getBackendUrl } from '@/lib/auth-utils';
+import { e } from 'node_modules/@lingui/react/dist/shared/react.34bf68ab.mjs';
 
 /**
  * @deprecated Use createUserProfile from @/lib/api-client instead
@@ -27,8 +28,8 @@ export const createUser = async (newUser: User) => {
   // Create FormData object to match backend's multipart/form-data requirements
   const formData = new FormData();
 
-  // Add required fields: prefer username then fallback to userId
-  formData.append('Username', newUser.username || newUser.userId || 'defaultUsername');
+  // Add required fields
+  formData.append('Username', newUser.userId || 'defaultUsername');
   formData.append('Email', newUser.email);
 
   // Add optional fields
@@ -43,6 +44,14 @@ export const createUser = async (newUser: User) => {
   }
   if (newUser.preferredLanguage) {
     formData.append('PreferredLanguage', newUser.preferredLanguage.toString());
+  }
+
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile);
+  }
+
+  if (newUser.avatarFile) {
+    formData.append('File', newUser.avatarFile);
   }
 
   // Use the new api-client function

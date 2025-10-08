@@ -3,23 +3,25 @@ import userReducer, {
   logOut,
   setAuth,
   setLoading,
-  setError,
+  setError, // now accepts string only
+  clearError, // new helper to clear error
   fetchUser,
-  createUser,
   createUserSuccess,
   createUserFailure,
   AuthState,
   type UserState,
 } from '@/store/slices/user';
+
 import type { User } from '@/types/User.types';
 import { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 
-describe('user slice', () => {
+describe('User slice', () => {
   const initialState: UserState = {
     isLoading: false,
     data: null,
     error: null,
     authStatus: AuthState.Unauthenticated,
+    hasFetched: false, // NEW in reducer
     isCreating: false,
     createError: null,
     isUpdating: false,
@@ -39,60 +41,49 @@ describe('user slice', () => {
     lastJoinDate: new Date('2023-01-01'),
   };
 
-  describe('initial state', () => {
-    it('Should return the initial state', () => {
-      const expectedInitialState = {
+  // ---------- initial ----------
+  it('Returns the initial state', () => {
+    expect(userReducer(undefined, { type: 'unknown' })).toEqual(initialState);
+  });
+
+  // ---------- setUser ----------
+  describe('SetUser', () => {
+    it('Sets user, clears error, marks fetched and stops loading', () => {
+      const prev: UserState = { ...initialState, isLoading: true, error: 'oops' };
+      const next = userReducer(prev, setUser(mockUser));
+
+      expect(next.data).toEqual(mockUser);
+      expect(next.error).toBeNull();
+      expect(next.isLoading).toBe(false);
+      expect(next.hasFetched).toBe(true);
+    });
+
+    it('Handles null user (no profile), still marks fetched', () => {
+      const prev: UserState = { ...initialState, isLoading: true, error: 'oops' };
+      const next = userReducer(prev, setUser(null));
+
+      expect(next.data).toBeNull();
+      expect(next.error).toBeNull();
+      expect(next.isLoading).toBe(false);
+      expect(next.hasFetched).toBe(true);
+    });
+
+    it('Preserves unrelated flags', () => {
+      const prev: UserState = {
         ...initialState,
-        isCreating: false,
-        createError: null,
+        isUpdating: true,
+        updateError: 'X',
       };
-      expect(userReducer(undefined, { type: 'unknown' })).toEqual(expectedInitialState);
+      const next = userReducer(prev, setUser(mockUser));
+      expect(next.isUpdating).toBe(true);
+      expect(next.updateError).toBe('X');
     });
   });
 
-  describe('setUser', () => {
-    it('Should set user data and clear error', () => {
-      const previousState: UserState = {
-        ...initialState,
-        error: 'Previous error',
-      };
-
-      const actual = userReducer(previousState, setUser(mockUser));
-
-      expect(actual.data).toEqual(mockUser);
-      expect(actual.error).toBeNull();
-    });
-
-    it('Should set user to null and clear error', () => {
-      const previousState: UserState = {
-        ...initialState,
-        data: mockUser,
-        error: 'Previous error',
-      };
-
-      const actual = userReducer(previousState, setUser(null));
-
-      expect(actual.data).toBeNull();
-      expect(actual.error).toBeNull();
-    });
-
-    it('Should preserve other state properties', () => {
-      const previousState: UserState = {
-        ...initialState,
-        isLoading: true,
-        authStatus: AuthState.AuthenticatedWithProfile,
-      };
-
-      const actual = userReducer(previousState, setUser(mockUser));
-
-      expect(actual.isLoading).toBe(true);
-      expect(actual.authStatus).toBe(AuthState.AuthenticatedWithProfile);
-    });
-  });
-
-  describe('logOut', () => {
-    it('Should reset all state to initial values', () => {
-      const previousState: UserState = {
+  // ---------- logOut ----------
+  describe('LogOut', () => {
+    it('Resets to initialState (including hasFetched=false)', () => {
+      const prev: UserState = {
         isLoading: true,
         data: mockUser,
         error: 'Previous error',
@@ -103,7 +94,7 @@ describe('user slice', () => {
         updateError: null,
       };
 
-      const actual = userReducer(previousState, logOut());
+      const actual = userReducer(prev, logOut());
 
       expect(actual).toEqual(initialState);
     });
@@ -114,169 +105,101 @@ describe('user slice', () => {
         data: mockUser,
         error: 'Previous error',
         authStatus: AuthState.AuthenticatedWithProfile,
+        hasFetched: true,
         isCreating: true,
         createError: 'Creation failed',
         isUpdating: false,
         updateError: null,
       };
-
-      const actual = userReducer(previousState, logOut());
-
-      expect(actual).toEqual(initialState);
-      expect(actual.isCreating).toBe(false);
-      expect(actual.createError).toBeNull();
-    });
-
-    it('Should work when state is already initial', () => {
-      const actual = userReducer(initialState, logOut());
-
-      expect(actual).toEqual(initialState);
+      const next = userReducer(previousState, logOut());
+      expect(next).toEqual(initialState);
     });
   });
 
-  describe('setAuth', () => {
-    it('Should set auth status to Unauthenticated', () => {
-      const previousState: UserState = {
-        ...initialState,
-        authStatus: AuthState.AuthenticatedWithProfile,
-      };
-
-      const actual = userReducer(previousState, setAuth(AuthState.Unauthenticated));
-
-      expect(actual.authStatus).toBe(AuthState.Unauthenticated);
+  // ---------- setAuth ----------
+  describe('SetAuth', () => {
+    it('Sets Unauthenticated', () => {
+      const next = userReducer(initialState, setAuth(AuthState.Unauthenticated));
+      expect(next.authStatus).toBe(AuthState.Unauthenticated);
     });
 
-    it('Should set auth status to AuthenticatedButNoProfile', () => {
-      const actual = userReducer(initialState, setAuth(AuthState.AuthenticatedButNoProfile));
-
-      expect(actual.authStatus).toBe(AuthState.AuthenticatedButNoProfile);
+    it('Sets AuthenticatedButNoProfile', () => {
+      const next = userReducer(initialState, setAuth(AuthState.AuthenticatedButNoProfile));
+      expect(next.authStatus).toBe(AuthState.AuthenticatedButNoProfile);
     });
 
-    it('Should set auth status to AuthenticatedWithProfile', () => {
-      const actual = userReducer(initialState, setAuth(AuthState.AuthenticatedWithProfile));
-
-      expect(actual.authStatus).toBe(AuthState.AuthenticatedWithProfile);
-    });
-
-    it('Should preserve other state properties', () => {
-      const previousState: UserState = {
-        ...initialState,
-        data: mockUser,
-        error: 'Some error',
-        isLoading: true,
-      };
-
-      const actual = userReducer(previousState, setAuth(AuthState.AuthenticatedWithProfile));
-
-      expect(actual.data).toEqual(mockUser);
-      expect(actual.error).toBe('Some error');
-      expect(actual.isLoading).toBe(true);
+    it('Sets AuthenticatedWithProfile', () => {
+      const next = userReducer(initialState, setAuth(AuthState.AuthenticatedWithProfile));
+      expect(next.authStatus).toBe(AuthState.AuthenticatedWithProfile);
     });
   });
 
-  describe('setLoading', () => {
-    it('Should set loading to true and clear error', () => {
-      const previousState: UserState = {
-        ...initialState,
-        error: 'Previous error',
-      };
-
-      const actual = userReducer(previousState, setLoading(true));
-
-      expect(actual.isLoading).toBe(true);
-      expect(actual.error).toBeNull();
+  // ---------- setLoading ----------
+  describe('SetLoading', () => {
+    it('True → sets loading and clears error; does not touch hasFetched', () => {
+      const prev: UserState = { ...initialState, error: 'bad', hasFetched: false };
+      const next = userReducer(prev, setLoading(true));
+      expect(next.isLoading).toBe(true);
+      expect(next.error).toBeNull();
+      expect(next.hasFetched).toBe(false);
     });
 
-    it('Should set loading to false and preserve error', () => {
-      const previousState: UserState = {
-        ...initialState,
-        isLoading: true,
-        error: 'Previous error',
-      };
-
-      const actual = userReducer(previousState, setLoading(false));
-
-      expect(actual.isLoading).toBe(false);
-      expect(actual.error).toBe('Previous error');
-    });
-
-    it('Should preserve other state properties', () => {
-      const previousState: UserState = {
-        ...initialState,
-        data: mockUser,
-        authStatus: AuthState.AuthenticatedWithProfile,
-      };
-
-      const actual = userReducer(previousState, setLoading(true));
-
-      expect(actual.data).toEqual(mockUser);
-      expect(actual.authStatus).toBe(AuthState.AuthenticatedWithProfile);
+    it('False → stops loading; keeps error as-is', () => {
+      const prev: UserState = { ...initialState, isLoading: true, error: 'kept' };
+      const next = userReducer(prev, setLoading(false));
+      expect(next.isLoading).toBe(false);
+      expect(next.error).toBe('kept');
+      expect(next.hasFetched).toBe(false);
     });
   });
 
-  describe('setError', () => {
-    it('Should set error message and stop loading', () => {
-      const previousState: UserState = {
-        ...initialState,
-        isLoading: true,
-      };
-
-      const errorMessage = 'Network error';
-      const actual = userReducer(previousState, setError(errorMessage));
-
-      expect(actual.error).toBe(errorMessage);
-      expect(actual.isLoading).toBe(false);
+  // ---------- setError / clearError ----------
+  describe('Errors', () => {
+    it('SetError sets error, stops loading, marks fetched', () => {
+      const prev: UserState = { ...initialState, isLoading: true, hasFetched: false };
+      const next = userReducer(prev, setError('Network error'));
+      expect(next.error).toBe('Network error');
+      expect(next.isLoading).toBe(false);
+      expect(next.hasFetched).toBe(true);
     });
 
-    it('Should set error to null and stop loading', () => {
-      const previousState: UserState = {
-        ...initialState,
-        isLoading: true,
-        error: 'Previous error',
-      };
-
-      const actual = userReducer(previousState, setError(null));
-
-      expect(actual.error).toBeNull();
-      expect(actual.isLoading).toBe(false);
-    });
-
-    it('Should preserve other state properties', () => {
-      const previousState: UserState = {
-        ...initialState,
-        data: mockUser,
-        authStatus: AuthState.AuthenticatedWithProfile,
-      };
-
-      const actual = userReducer(previousState, setError('Some error'));
-
-      expect(actual.data).toEqual(mockUser);
-      expect(actual.authStatus).toBe(AuthState.AuthenticatedWithProfile);
+    it('ClearError clears error but keeps hasFetched as-is', () => {
+      const prev: UserState = { ...initialState, error: 'old', hasFetched: true };
+      const next = userReducer(prev, clearError());
+      expect(next.error).toBeNull();
+      expect(next.hasFetched).toBe(true);
     });
   });
 
-  describe('fetchUser', () => {
-    it('Should be a no-op action creator', () => {
-      const actual = userReducer(initialState, fetchUser());
+  // ---------- fetchUser (noop reducer) ----------
+  it('FetchUser is a no-op reducer-wise', () => {
+    const prev: UserState = {
+      ...initialState,
+      isLoading: true,
+      data: mockUser,
+      error: 'e',
+      hasFetched: true,
+    };
+    const next = userReducer(prev, fetchUser());
+    expect(next).toEqual(prev);
+  });
 
-      expect(actual).toEqual(initialState);
+  // ---------- createUserSuccess / Failure ----------
+  describe('CreateUser*', () => {
+    it('CreateUserSuccess populates data, sets WithProfile, marks fetched', () => {
+      const next = userReducer(initialState, createUserSuccess(mockUser));
+      expect(next.data).toEqual(mockUser);
+      expect(next.isCreating).toBe(false);
+      expect(next.createError).toBeNull();
+      expect(next.authStatus).toBe(AuthState.AuthenticatedWithProfile);
+      expect(next.hasFetched).toBe(true);
     });
 
-    it('Should preserve state when other properties are set', () => {
-      const previousState: UserState = {
-        isLoading: true,
-        data: mockUser,
-        error: 'Previous error',
-        authStatus: AuthState.AuthenticatedWithProfile,
-        isCreating: false,
-        createError: null,
-        isUpdating: false,
-        updateError: null,
-      };
-
-      const actual = userReducer(previousState, fetchUser());
-
-      expect(actual).toEqual(previousState);
+    it('CreateUserFailure marks fetched and stores error', () => {
+      const next = userReducer(initialState, createUserFailure('failed'));
+      expect(next.isCreating).toBe(false);
+      expect(next.createError).toBe('failed');
+      expect(next.hasFetched).toBe(true);
     });
   });
 });

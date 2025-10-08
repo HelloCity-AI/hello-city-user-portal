@@ -34,7 +34,7 @@ const fillOutForm = async (
 
 // Helper function to submit the form
 const submitForm = async (user: any) => {
-  const submitButton = screen.getByRole('button', { name: /submit|sending/i });
+  const submitButton = screen.getByRole('button', { name: /submit/i });
   await user.click(submitButton);
 };
 
@@ -97,7 +97,6 @@ describe('ContactUs', () => {
     renderContactUs();
     await fillOutForm(user);
 
-    // Get form elements before submit (when button still shows "Submit")
     const nameInput = screen.getByLabelText(/name/i);
     const emailInput = screen.getByLabelText(/email/i);
     const messageInput = screen.getByLabelText(/message/i);
@@ -105,10 +104,11 @@ describe('ContactUs', () => {
     await submitForm(user);
 
     // Check loading state
-    expect(screen.getByText(/sending.../i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /sending.../i })).toBeDisabled();
+    expect(screen.getByRole('button', { name: /submit/i })).toBeDisabled();
 
-    // Check that inputs are disabled
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
+
+    // Inputs should be disabled
     expect(nameInput).toBeDisabled();
     expect(emailInput).toBeDisabled();
     expect(messageInput).toBeDisabled();
@@ -144,7 +144,7 @@ describe('ContactUs', () => {
       expect(screen.getByText(/message sent successfully/i)).toBeInTheDocument();
     });
 
-    // Check that form is cleared
+    // Form is cleared
     const { nameInput, emailInput, messageInput } = getFormElements();
     expect(nameInput).toHaveValue('');
     expect(emailInput).toHaveValue('');
@@ -166,7 +166,7 @@ describe('ContactUs', () => {
       expect(screen.getByText(/failed to send message/i)).toBeInTheDocument();
     });
 
-    // Form should not be cleared on error
+    // Form is not cleared
     expect(screen.getByDisplayValue('John Doe')).toBeInTheDocument();
     expect(screen.getByDisplayValue('john@example.com')).toBeInTheDocument();
     expect(screen.getByDisplayValue('Test message')).toBeInTheDocument();
@@ -189,10 +189,9 @@ describe('ContactUs', () => {
     const user = userEvent.setup();
     renderContactUs();
 
-    // Try to submit without filling fields
     await submitForm(user);
 
-    // Form should not submit (no API call should be made)
+    // API call should not be made
     expect(mockFetch).not.toHaveBeenCalled();
   });
 });

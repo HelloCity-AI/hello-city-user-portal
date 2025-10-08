@@ -61,3 +61,5 @@ export async function createAuthenticatedClient(token?: string) {
   // Ensure correct argument order: baseURL, token
   return createApiClient(backendUrl, authToken);
 }
+
+// Note: Removed duplicated createAuthenticatedClient with wrong argument order
