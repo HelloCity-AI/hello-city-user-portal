@@ -160,7 +160,7 @@ export interface ChecklistCardProps {
 
 // ========== AI-Generated Checklist Types ==========
 
-export type StayType = 'short-term' | 'medium-term' | 'long-term';
+export type StayType = 'shortTerm' | 'mediumTerm' | 'longTerm';
 export type ChecklistStatus = 'pending' | 'generating' | 'completed' | 'failed';
 
 /**
