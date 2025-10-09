@@ -81,7 +81,7 @@ const Page = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.userId) {
+    if (!formData.username) {
       alert('Please input username');
       return;
     }
@@ -159,9 +159,9 @@ const Page = () => {
           <div className="w-full">
             <input
               type="text"
-              name="userId"
+              name="username"
               placeholder="Username"
-              value={formData.userId}
+              value={formData.username}
               onChange={handleChange}
               required
               className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"

@@ -12,7 +12,7 @@ export type User = {
   university: string;
   major: string;
   preferredLanguage: Languages | '';
-  lastJoinDate: Date;
+  lastJoinDate: string | Date;
 };
 
 export const defaultUser: User = {
@@ -27,5 +27,5 @@ export const defaultUser: User = {
   university: '',
   major: '',
   preferredLanguage: '',
-  lastJoinDate: new Date(),
+  lastJoinDate: '',
 };

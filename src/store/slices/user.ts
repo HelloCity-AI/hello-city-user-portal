@@ -71,9 +71,26 @@ const userSlice = createSlice({
 
     fetchUser: () => {},
 
-    createUser: (state, _action: PayloadAction<User>) => {
-      state.isCreating = true;
-      state.createError = null;
+    // Use prepare to serialize the payload and avoid Redux warnings for Date/File
+    createUser: {
+      reducer: (state, _action: PayloadAction<User>) => {
+        state.isCreating = true;
+        state.createError = null;
+      },
+      prepare: (payload: User) => {
+        const v = payload.lastJoinDate;
+        const lastJoinDateStr =
+          typeof v === 'string' ? v : v instanceof Date ? v.toISOString() : '';
+        // File is non-serializable; normalize to null in action. Saga will fetch upload data from other sources.
+        const avatarFile = payload.avatarFile ? null : (payload.avatarFile ?? null);
+        return {
+          payload: {
+            ...payload,
+            lastJoinDate: lastJoinDateStr,
+            avatarFile,
+          },
+        };
+      },
     },
     createUserSuccess: (state, action: PayloadAction<User>) => {
       state.data = action.payload;
@@ -88,9 +105,24 @@ const userSlice = createSlice({
       state.hasFetched = true;
     },
 
-    updateUser: (state, _action: PayloadAction<User>) => {
-      state.isUpdating = true;
-      state.updateError = null;
+    updateUser: {
+      reducer: (state, _action: PayloadAction<User>) => {
+        state.isUpdating = true;
+        state.updateError = null;
+      },
+      prepare: (payload: User) => {
+        const v = payload.lastJoinDate;
+        const lastJoinDateStr =
+          typeof v === 'string' ? v : v instanceof Date ? v.toISOString() : '';
+        const avatarFile = payload.avatarFile ? null : (payload.avatarFile ?? null);
+        return {
+          payload: {
+            ...payload,
+            lastJoinDate: lastJoinDateStr,
+            avatarFile,
+          },
+        };
+      },
     },
     updateUserSuccess: (state, action: PayloadAction<User>) => {
       state.data = action.payload;
@@ -101,19 +133,7 @@ const userSlice = createSlice({
       state.isUpdating = false;
       state.updateError = action.payload;
     },
-    updateUser: (state, action: PayloadAction<User>) => {
-      state.isUpdating = true;
-      state.updateError = null;
-    },
-    updateUserSuccess: (state, action: PayloadAction<User>) => {
-      state.data = action.payload;
-      state.isUpdating = false;
-      state.updateError = null;
-    },
-    updateUserFailure: (state, action: PayloadAction<string>) => {
-      state.isUpdating = false;
-      state.updateError = action.payload;
-    },
+    // Duplicate updateUser* definitions have been replaced by the prepare version above
   },
 });
 
