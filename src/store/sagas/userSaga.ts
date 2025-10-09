@@ -73,9 +73,9 @@ export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperRes
     const gender =
       (newUser as Record<string, unknown>)['gender'] ??
       (newUser as Record<string, unknown>)['Gender'];
-    const avatar =
-      (newUser as Record<string, unknown>)['avatar'] ??
-      (newUser as Record<string, unknown>)['Avatar'];
+    // const avatar =
+    //   (newUser as Record<string, unknown>)['avatar'] ??
+    //   (newUser as Record<string, unknown>)['Avatar'];
     const preferredLanguage =
       (newUser as Record<string, unknown>)['preferredLanguage'] ??
       (newUser as Record<string, unknown>)['PreferredLanguage'];
@@ -85,7 +85,7 @@ export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperRes
     if (newUser.city) formData.append('City', newUser.city);
     if (newUser.nationality) formData.append('Nationality', newUser.nationality);
     if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
-    if (avatar) formData.append('Avatar', String(avatar));
+    if (newUser.avatarFile) formData.append('File', newUser.avatarFile);
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
     const username = newUser.username ?? newUser.userId;

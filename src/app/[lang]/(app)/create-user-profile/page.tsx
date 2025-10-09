@@ -19,7 +19,7 @@ const Page = () => {
   const dispatch = useDispatch();
   const { isCreating, createError, data: userData } = useSelector((state: RootState) => state.user);
 
-  const [formData, setFormData] = useState<User>({
+  const [userInfo, setUserInfo] = useState<User>({
     ...defaultUser,
     userId: '', // This will be used as username
   });
@@ -38,7 +38,7 @@ const Page = () => {
   // Set Email after Auth0 user information is loaded
   useEffect(() => {
     if (user?.email) {
-      setFormData((prev) => ({
+      setUserInfo((prev) => ({
         ...prev,
         email: user.email || prev.email,
       }));
@@ -50,7 +50,7 @@ const Page = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
   const handleSelectImage = (file: File | null) => {
@@ -59,7 +59,7 @@ const Page = () => {
     const url = URL.createObjectURL(file);
     setAvatarPreview(url);
     prevObjectUrl.current = url;
-    setFormData({ ...formData, avatarFile: file });
+    setUserInfo({ ...userInfo, avatarFile: file });
   };
 
   // Handle successful user creation
@@ -81,17 +81,17 @@ const Page = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.username) {
+    if (!userInfo.username) {
       alert('Please input username');
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInfo.email)) {
       alert('Invalid email format');
       return;
     }
 
-    dispatch(createUser(formData));
+    dispatch(createUser(userInfo));
   };
 
   // If user information is loading, show loading state
@@ -161,13 +161,13 @@ const Page = () => {
               type="text"
               name="username"
               placeholder="Username"
-              value={formData.username}
+              value={userInfo.username}
               onChange={handleChange}
               required
               className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <PersonalInfo formData={formData} handleChange={handleChange} />
+          <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
 
           <div className="w-full">
             <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">

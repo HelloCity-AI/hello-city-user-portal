@@ -9,11 +9,11 @@ import {
 } from '@/enums/UserAttributes';
 
 type PersonalInfoProps = {
-  formData: User;
+  userInfo: User;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) => {
+const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) => {
   return (
     <div className="flex w-full flex-col gap-3 px-2 sm:gap-4">
       <TextField
@@ -23,7 +23,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         name="gender"
         variant="outlined"
         required
-        value={formData.gender}
+        value={userInfo.gender}
         onChange={handleChange}
         size="small"
       >
@@ -40,7 +40,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         label="Nationality"
         name="nationality"
         variant="outlined"
-        value={formData.nationality}
+        value={userInfo.nationality}
         onChange={handleChange}
         size="small"
       >
@@ -57,7 +57,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         label="City"
         name="city"
         variant="outlined"
-        value={formData.city}
+        value={userInfo.city}
         onChange={handleChange}
         size="small"
       >
@@ -74,7 +74,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ formData, handleChange }) =
         label="Language"
         name="preferredLanguage"
         variant="outlined"
-        value={formData.preferredLanguage}
+        value={userInfo.preferredLanguage}
         onChange={handleChange}
         size="small"
       >
