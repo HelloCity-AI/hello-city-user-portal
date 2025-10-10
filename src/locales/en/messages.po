@@ -1291,99 +1291,104 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:112
+#: src/app/[lang]/(site)/contact-us/page.tsx:119
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:104
+#: src/app/[lang]/(site)/contact-us/page.tsx:111
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:142
+#: src/app/[lang]/(site)/contact-us/page.tsx:98
+msgid "contact-us.reminderInfo"
+msgstr "We’d love to hear from you. Fill out the form and we’ll get back to you soon. "
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:149
 msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:95
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:30
 msgid "contact.faq.a1"
-msgstr "contact.faq.a1"
+msgstr "HelloCity is your AI relocation assistant, providing step-by-step checklists and timelines to help you move to a new city with ease."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:40
 msgid "contact.faq.a2"
-msgstr "contact.faq.a2"
+msgstr "You can start using it for free, with premium options offering more personalized guidance and features."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:50
 msgid "contact.faq.a3"
-msgstr "contact.faq.a3"
+msgstr "We cover major cities around the world and continuously expand. Please check within the product for the latest supported regions."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.a4"
-msgstr "contact.faq.a4"
+msgstr "Basic browsing doesn’t require an account. Creating one lets you save your progress, set reminders, and access customized timelines."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:70
 msgid "contact.faq.a5"
-msgstr "contact.faq.a5"
+msgstr "Yes. HelloCity is fully responsive and runs smoothly on desktop, tablet, and mobile devices."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:28
 msgid "contact.faq.q1"
-msgstr "contact.faq.q1"
+msgstr "What is HelloCity?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:38
 msgid "contact.faq.q2"
-msgstr "contact.faq.q2"
+msgstr "Is HelloCity free to use?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:48
 msgid "contact.faq.q3"
-msgstr "contact.faq.q3"
+msgstr "Which cities are supported?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:58
 msgid "contact.faq.q4"
-msgstr "contact.faq.q4"
+msgstr "Do I need to register an account to get started?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:68
 msgid "contact.faq.q5"
-msgstr "contact.faq.q5"
+msgstr "Is HelloCity mobile-friendly?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
 msgid "contact.faq.results"
-msgstr "contact.faq.results"
+msgstr "Results"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
 msgid "contact.faq.searchPlaceholder"
-msgstr "contact.faq.searchPlaceholder"
+msgstr "Please enter your question... "
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:119
 msgid "contact.faq.subtitle"
-msgstr "contact.faq.subtitle"
+msgstr "Quickly find answers to common questions about HelloCity."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:111
 msgid "contact.faq.title"
-msgstr "contact.faq.title"
+msgstr "Frequently Asked Questions"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
