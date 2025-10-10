@@ -68,35 +68,35 @@ const ContactUs = () => {
         minHeight: '100vh',
         background: (theme) =>
           `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.primary.light} 100%)`,
-        backgroundSize:'cover',
-        backgroundPosition:'center',      
-            backgroundAttachment: 'fixed', // ⭐ 让渐变固定视角比例
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed', // ⭐ 让渐变固定视角比例
 
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        p:3
+        p: 3,
       }}
       key={tick}
     >
       <Paper
         elevation={8}
         sx={{
-          
           width: '100%',
-          maxWidth:{xs:'92%',sm:500},
-          p: {xs:2.5,sm:4},
+          maxWidth: { xs: '92%', sm: 500 },
+          p: { xs: 2.5, sm: 4 },
           borderRadius: 3,
           bgcolor: 'background.paper',
-          boxSizing:'border-box'
+          boxSizing: 'border-box',
         }}
       >
         <Typography variant="h5" align="center" fontWeight="bold" gutterBottom>
           <Trans id="contact-us.title">Contact Us</Trans>
         </Typography>
         <Typography variant="body2" align="center" color="text.secondary" sx={{ mb: 3 }}>
-          <Trans id="contact-us.reminderInfo">We’d love to hear from you. Fill out the form and we’ll get back to you soon. </Trans>
-          
+          <Trans id="contact-us.reminderInfo">
+            We’d love to hear from you. Fill out the form and we’ll get back to you soon.{' '}
+          </Trans>
         </Typography>
 
         {alertMessage && (
