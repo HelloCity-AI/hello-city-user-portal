@@ -13,11 +13,13 @@ import { AxiosError } from 'axios';
 import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
 import type { RootState } from '@/store';
+import { registerFile } from '@/upload/fileRegistry';
 
 const Page = () => {
   const { user, isLoading } = useUser();
   const dispatch = useDispatch();
   const { isCreating, createError, data: userData } = useSelector((state: RootState) => state.user);
+  const [imageId, setImageId] = useState<string | null>(null);
 
   const [userInfo, setUserInfo] = useState<User>({
     ...defaultUser,
@@ -55,11 +57,18 @@ const Page = () => {
 
   const handleSelectImage = (file: File | null) => {
     revokeUrl();
-    if (!file) return setAvatarPreview(null);
+    if (!file) {
+      setAvatarPreview(null);
+      setImageId(null);
+      return;
+    }
     const url = URL.createObjectURL(file);
     setAvatarPreview(url);
     prevObjectUrl.current = url;
-    setUserInfo({ ...userInfo, avatarFile: file });
+    const id = crypto.randomUUID();
+    setImageId(id);
+    registerFile(id, file);
+    console.log('imageFile is selected: ', file);
   };
 
   // Handle successful user creation
@@ -91,7 +100,7 @@ const Page = () => {
       return;
     }
 
-    dispatch(createUser(userInfo));
+    dispatch(createUser({ ...userInfo, imageId: imageId ?? undefined }));
   };
 
   // If user information is loading, show loading state

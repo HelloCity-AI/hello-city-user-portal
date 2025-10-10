@@ -17,6 +17,8 @@ import {
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createUserAction, updateUserAction } from '@/actions/user';
+import { takeFile } from '@/upload/fileRegistry';
+import type { CreateUserPayload } from '../slices/user';
 
 // ---- Types ----
 interface ApiWrapperResponse {
@@ -64,28 +66,25 @@ export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
   }
 }
 
-export async function createUserApiWrapper(newUser: User): Promise<ApiWrapperResponse> {
+export async function createUserApiWrapper(
+  newUser: CreateUserPayload,
+): Promise<ApiWrapperResponse> {
   try {
     const formData = new FormData();
-    const email =
-      (newUser as Record<string, unknown>)['email'] ??
-      (newUser as Record<string, unknown>)['Email'];
-    const gender =
-      (newUser as Record<string, unknown>)['gender'] ??
-      (newUser as Record<string, unknown>)['Gender'];
-    // const avatar =
-    //   (newUser as Record<string, unknown>)['avatar'] ??
-    //   (newUser as Record<string, unknown>)['Avatar'];
-    const preferredLanguage =
-      (newUser as Record<string, unknown>)['preferredLanguage'] ??
-      (newUser as Record<string, unknown>)['PreferredLanguage'];
 
-    if (email) formData.append('Email', String(email));
-    if (gender) formData.append('Gender', String(gender));
+    if (newUser.imageId) {
+      const avatarFile = takeFile(newUser.imageId);
+      if (avatarFile instanceof File || avatarFile instanceof Blob) {
+        formData.append('File', avatarFile);
+      }
+    }
+
+    if (newUser.email) formData.append('Email', String(newUser.email));
+    if (newUser.gender) formData.append('Gender', String(newUser.gender));
     if (newUser.city) formData.append('City', newUser.city);
     if (newUser.nationality) formData.append('Nationality', newUser.nationality);
-    if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
-    if (newUser.avatarFile) formData.append('File', newUser.avatarFile);
+    if (newUser.preferredLanguage)
+      formData.append('PreferredLanguage', String(newUser.preferredLanguage));
     if (newUser.university) formData.append('University', newUser.university);
     if (newUser.major) formData.append('Major', newUser.major);
     const username = newUser.username ?? newUser.userId;
@@ -188,7 +187,7 @@ export function* handleFetchUser(): SagaIterator {
   }
 }
 
-export function* handleCreateUser(action: PayloadAction<User>): SagaIterator {
+export function* handleCreateUser(action: PayloadAction<CreateUserPayload>): SagaIterator {
   try {
     const res: ApiWrapperResponse = yield call(createUserApiWrapper, action.payload);
     if (res.status === 201 || res.status === 200) {

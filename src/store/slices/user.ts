@@ -20,6 +20,10 @@ export interface UserState {
   updateError: string | null;
 }
 
+export interface CreateUserPayload extends User {
+  imageId?: string;
+}
+
 const initialState: UserState = {
   isLoading: false,
   data: null,
@@ -73,21 +77,18 @@ const userSlice = createSlice({
 
     // Use prepare to serialize the payload and avoid Redux warnings for Date/File
     createUser: {
-      reducer: (state, _action: PayloadAction<User>) => {
+      reducer: (state, _action: PayloadAction<CreateUserPayload>) => {
         state.isCreating = true;
         state.createError = null;
       },
-      prepare: (payload: User) => {
+      prepare: (payload: CreateUserPayload) => {
         const v = payload.lastJoinDate;
         const lastJoinDateStr =
           typeof v === 'string' ? v : v instanceof Date ? v.toISOString() : '';
-        // File is non-serializable; normalize to null in action. Saga will fetch upload data from other sources.
-        const avatarFile = payload.avatarFile ? null : (payload.avatarFile ?? null);
         return {
           payload: {
             ...payload,
             lastJoinDate: lastJoinDateStr,
-            avatarFile,
           },
         };
       },
