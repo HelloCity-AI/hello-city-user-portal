@@ -1,6 +1,26 @@
 import type { ReactNode } from 'react';
 
-export type ChecklistImportance = 'high' | 'medium' | 'low';
+// Import unified types from central location
+import type {
+  ChecklistItem,
+  ChecklistImportance,
+  ChecklistStatus,
+  ChecklistMetadata,
+  ChecklistBanner,
+  StayType,
+} from '@/types/checklist.types';
+
+// Re-export for consumers
+export type {
+  ChecklistItem,
+  ChecklistImportance,
+  ChecklistStatus,
+  ChecklistMetadata,
+  ChecklistBanner,
+  StayType,
+};
+
+// UI-specific types (not in central types)
 export type FilterType = 'all' | 'completed' | 'incomplete';
 
 export type CityCode =
@@ -68,18 +88,7 @@ export interface CityInfo {
   tagline: ReactNode;
 }
 
-export interface ChecklistItem {
-  id: string;
-  title: string;
-  description: string;
-  importance: ChecklistImportance;
-  dueDate?: string;
-  category?: string;
-  order: number;
-  isComplete: boolean;
-  createdAt: string;
-  updatedAt?: string;
-}
+// ChecklistItem now imported from @/types/checklist.types
 
 export interface ChecklistHandlers {
   onToggle: (itemId: string) => void;
@@ -159,50 +168,5 @@ export interface ChecklistCardProps {
 }
 
 // ========== AI-Generated Checklist Types ==========
-
-export type StayType = 'shortTerm' | 'mediumTerm' | 'longTerm';
-export type ChecklistStatus = 'pending' | 'generating' | 'completed' | 'failed';
-
-/**
- * Checklist metadata stored in Redux state
- * Must be fully serializable (no React elements)
- */
-export interface ChecklistMetadata {
-  checklistId: string;
-  conversationId: string;
-  version: number;
-  previousVersionId?: string;
-
-  // AI-generated metadata
-  title: string;
-  summary: string;
-  destination: string;
-  duration: string;
-  stayType: StayType;
-
-  // City code only (lookup full CityInfo from cityData.tsx)
-  cityCode: CityCode;
-
-  // Generation status
-  status: ChecklistStatus;
-
-  // Items
-  items: ChecklistItem[];
-
-  // Timestamps
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface ChecklistBanner {
-  checklistId: string;
-  version: number;
-  title: string;
-  destination: string;
-  cityCode: CityCode;
-  itemCount: number;
-  completedCount: number;
-  status: ChecklistStatus;
-  createdAt: string;
-  isActive: boolean;
-}
+// Note: ChecklistMetadata, ChecklistBanner, StayType, ChecklistStatus
+// are now imported from @/types/checklist.types

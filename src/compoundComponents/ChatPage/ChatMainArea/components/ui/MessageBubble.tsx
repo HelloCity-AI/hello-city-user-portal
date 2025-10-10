@@ -14,6 +14,7 @@ import UserAvatar from '@/compoundComponents/UserAvatar';
 import { isChecklistDataPart, isChecklistBannerPart, type ExtendedUIMessage } from '@/types/ai-message';
 import { addChecklist, upsertChecklistMetadata } from '@/store/slices/checklist';
 import { updateTaskStatus, removeTask } from '@/store/slices/conversation';
+import type { ChecklistItem } from '@/types/checklist.types';
 
 export interface MessageBubbleProps extends HTMLAttributes<HTMLDivElement> {
   message: UIMessage;
@@ -84,7 +85,7 @@ const MessageBubble = ({
       } else {
         dispatch(upsertChecklistMetadata({
           ...part.data,
-          items: Array.isArray(items) ? items : [],
+          items: (Array.isArray(items) ? items : []) as ChecklistItem[],
         }));
       }
     });

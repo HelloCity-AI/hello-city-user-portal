@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import type { RootState } from '@/store';
-import type { ChecklistStats, FilterType, CityInfo } from '../types';
+import type { ChecklistStats, FilterType, CityInfo, CityCode } from '../types';
 import {
   filterChecklistItems,
   calculateChecklistStats,
@@ -58,7 +58,7 @@ export const useChecklist = (
     if (!activeChecklist) {
       return null;
     }
-    const result = getCityInfo(activeChecklist.cityCode);
+    const result = getCityInfo(activeChecklist.cityCode as CityCode);
     return result;
   }, [activeChecklist]);
 

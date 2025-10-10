@@ -4,16 +4,30 @@ jest.mock('@/utils/fetchWithAuth', () => ({
 
 import { checklistApi } from '@/api/checklistApi';
 import { fetchWithAuth } from '@/utils/fetchWithAuth';
-import dayjs from 'dayjs';
 
-const mockChecklistItem = {
+// Mock API response (backend format with PascalCase)
+const mockAPIChecklistItem = {
   checklistItemId: 'item-id',
   ownerId: 'user-id',
   title: 'Test',
   description: 'Desc',
   isComplete: false,
-  importance: 'Low',
+  importance: 'Low', // Backend uses PascalCase
   dueDate: '2025-09-26',
+};
+
+// Expected frontend format (after transformation)
+const mockChecklistItem = {
+  id: 'item-id',
+  title: 'Test',
+  description: 'Desc',
+  isComplete: false,
+  importance: 'low', // Frontend uses lowercase
+  dueDate: '2025-09-26',
+  category: undefined,
+  order: 0,
+  createdAt: expect.any(String),
+  updatedAt: undefined,
 };
 
 describe('checklistApi', () => {
@@ -26,16 +40,15 @@ describe('checklistApi', () => {
   it('createChecklistItem should POST and format dueDate', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({
       ok: true,
-      json: async () => mockChecklistItem,
+      json: async () => mockAPIChecklistItem,
     });
 
     const data = {
-      ownerId: userId,
       title: 'Test',
       description: 'Desc',
       isComplete: false,
-      importance: 'Low',
-      dueDate: dayjs('2025-09-26'),
+      importance: 'low' as const,
+      dueDate: '2025-09-26',
     };
 
     const result = await checklistApi.createChecklistItem(userId, data);
@@ -49,27 +62,26 @@ describe('checklistApi', () => {
     expect(result).toEqual(mockChecklistItem);
   });
 
-  it('createChecklistItem should handle null dueDate', async () => {
+  it('createChecklistItem should handle undefined dueDate', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({
       ok: true,
-      json: async () => mockChecklistItem,
+      json: async () => mockAPIChecklistItem,
     });
 
     const data = {
-      ownerId: userId,
       title: 'Test',
       description: 'Desc',
       isComplete: false,
-      importance: 'Low',
-      dueDate: null,
+      importance: 'low' as const,
+      dueDate: undefined,
     };
 
     await checklistApi.createChecklistItem(userId, data);
-    // check that dueDate is sent as empty string
+    // check that dueDate is NOT included when undefined (omitted from payload)
     expect(fetchWithAuth).toHaveBeenCalledWith(
       expect.any(String),
       expect.objectContaining({
-        body: expect.stringContaining('"dueDate":""'),
+        body: expect.not.stringContaining('"dueDate"'),
       }),
     );
   });
@@ -77,7 +89,7 @@ describe('checklistApi', () => {
   it('getChecklistItems should GET', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({
       ok: true,
-      json: async () => [mockChecklistItem],
+      json: async () => [mockAPIChecklistItem],
     });
 
     const result = await checklistApi.getChecklistItems(userId);
@@ -98,7 +110,7 @@ describe('checklistApi', () => {
   it('updateChecklistItem should PUT', async () => {
     (fetchWithAuth as jest.Mock).mockResolvedValue({
       ok: true,
-      json: async () => mockChecklistItem,
+      json: async () => mockAPIChecklistItem,
     });
 
     const itemId = 'item-id';
@@ -144,12 +156,11 @@ describe('checklistApi', () => {
 
     await expect(
       checklistApi.createChecklistItem(userId, {
-        ownerId: userId,
         title: 'Test',
         description: 'Desc',
         isComplete: false,
-        importance: 'Low',
-        dueDate: dayjs('2025-09-26'),
+        importance: 'low' as const,
+        dueDate: '2025-09-26',
       }),
     ).rejects.toThrow('Failed to create checklist item');
   });

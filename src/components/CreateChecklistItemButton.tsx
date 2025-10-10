@@ -7,7 +7,7 @@ import { Add as AddIcon } from '@mui/icons-material';
 import { Trans } from '@lingui/react';
 import { CreateChecklistItemModal } from '@/compoundComponents/Modals/CreateChecklistItemModal';
 import { checklistApi } from '@/api/checklistApi';
-import type { CreateChecklistItemRequest } from '@/types/checkList.types';
+import type { ChecklistItem } from '@/types/checklist.types';
 import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
 import type { RootState } from '@/store';
@@ -35,16 +35,18 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
 }) => {
   const userId = useSelector((state: RootState) => state.user.data?.userId);
   const [modalOpen, setModalOpen] = useState(false);
-  const [form, setForm] = useState<CreateChecklistItemRequest>({
-    ownerId: userId || '',
+  const [form, setForm] = useState<Partial<ChecklistItem>>({
+    id: '',
     title: '',
     description: '',
     isComplete: false,
-    importance: 'Low',
-    dueDate: null,
+    importance: 'low',
+    dueDate: undefined,
+    order: 0,
+    createdAt: '',
   });
 
-  const handleSubmit = async (data: CreateChecklistItemRequest) => {
+  const handleSubmit = async (data: Partial<ChecklistItem>) => {
     if (!userId) {
       console.error('User ID is missing');
       return;
@@ -52,7 +54,7 @@ export const CreateChecklistItemButton: React.FC<CreateChecklistItemButtonProps>
     try {
       await checklistApi.createChecklistItem(userId, data);
       setModalOpen(false);
-      setForm({ ...form, title: '', description: '', dueDate: dayjs() });
+      setForm({ ...form, title: '', description: '', dueDate: undefined });
       onItemCreated?.();
     } catch (error) {
       console.error('Failed to create checklist item:', error);

@@ -12,7 +12,10 @@ import { formatDueDate, getDueDateUrgencyColor } from '../../utils/dateFormatter
 
 import type { ChecklistCardProps } from '../../types';
 
-const importanceStyles = {
+const importanceStyles: Record<
+  'high' | 'medium' | 'low',
+  { bg: string; text: string; label: JSX.Element }
+> = {
   high: {
     bg: '#FEE2E2',
     text: '#DC2626',
@@ -28,7 +31,7 @@ const importanceStyles = {
     text: '#2563EB',
     label: <Trans id="checklist.importance.low" message="LOW" />,
   },
-} as const;
+};
 
 const CHIP_BASE_CLASSES = 'h-5 text-[10px]';
 
