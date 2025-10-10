@@ -1306,7 +1306,7 @@ msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:98
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
 msgid "contact-us.reminderInfo"
 msgstr "We’d love to hear from you. Fill out the form and we’ll get back to you soon. "
 
@@ -1316,7 +1316,7 @@ msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:95
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "Contact Us"
 

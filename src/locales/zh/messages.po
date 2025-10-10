@@ -1344,7 +1344,7 @@ msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:98
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
 msgid "contact-us.reminderInfo"
 msgstr "我们很期待收到您的来信，请填写表格以便我们尽快回复您"
 
@@ -1354,7 +1354,7 @@ msgid "contact-us.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:95
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "联系我们"
 
