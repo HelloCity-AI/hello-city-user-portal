@@ -179,11 +179,6 @@ const Page = () => {
           <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
 
           <div className="w-full">
-            <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
-              <Trans id="I'm all set" message="I'm all set" />
-            </Button>
-          </div>
-          <div className="w-full">
             <Button
               variant="contained"
               color="primary"
