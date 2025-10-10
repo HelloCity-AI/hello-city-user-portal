@@ -5,6 +5,12 @@ import type {
   ChecklistBanner,
   ChecklistItem,
 } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+import {
+  createBannerFromChecklist,
+  mergeChecklists,
+  upsertBanner,
+  calculateCompletedCount,
+} from '../helpers/checklistHelpers';
 
 interface ChecklistState {
   // Key: checklistId
@@ -28,59 +34,55 @@ const initialState: ChecklistState = {
   error: null,
 };
 
-const createBannerFromChecklist = (checklist: ChecklistMetadata): ChecklistBanner => ({
-  checklistId: checklist.checklistId,
-  version: checklist.version,
-  title: checklist.title,
-  destination: checklist.destination,
-  cityCode: checklist.cityCode,
-  itemCount: (checklist.items ?? []).length,
-  completedCount: (checklist.items ?? []).filter((i) => i.isComplete).length,
-  status: checklist.status,
-  createdAt: checklist.createdAt,
-  isActive: false,
-});
+// ========== Helper Functions (Local) ==========
 
-const upsertChecklistEntry = (
+/**
+ * Update banner completed count for a checklist
+ */
+const updateBannerCompletedCount = (
   state: ChecklistState,
   checklist: ChecklistMetadata,
-  options: { activate: boolean },
-) => {
-  const conversationId = checklist.conversationId;
-  const checklistId = checklist.checklistId;
+): void => {
+  const { conversationId, checklistId } = checklist;
+  const banner = state.bannersByConversation[conversationId]?.find(
+    (b) => b.checklistId === checklistId,
+  );
+  if (banner) {
+    banner.completedCount = calculateCompletedCount(checklist);
+  }
+};
 
-  const existingChecklist = state.checklists[checklistId];
-  const mergedChecklist: ChecklistMetadata = existingChecklist
-    ? {
-        ...existingChecklist,
-        ...checklist,
-        items:
-          checklist.items && checklist.items.length > 0
-            ? checklist.items
-            : existingChecklist.items,
-      }
-    : checklist;
+/**
+ * Add or update a checklist in state
+ * Handles merging, banner updates, and optional activation
+ */
+const addOrUpdateChecklist = (
+  state: ChecklistState,
+  checklist: ChecklistMetadata,
+  shouldActivate: boolean,
+): void => {
+  const { conversationId, checklistId } = checklist;
 
+  // 1. Merge with existing checklist
+  const mergedChecklist = mergeChecklists(
+    state.checklists[checklistId],
+    checklist,
+  );
+
+  // 2. Update checklists dictionary
   state.checklists[checklistId] = mergedChecklist;
 
+  // 3. Ensure banners array exists for this conversation
   if (!state.bannersByConversation[conversationId]) {
     state.bannersByConversation[conversationId] = [];
   }
 
-  const bannerPayload = createBannerFromChecklist(mergedChecklist);
-  const banners = state.bannersByConversation[conversationId];
-  const existingIndex = banners.findIndex((b) => b.checklistId === checklistId);
+  // 4. Update banner
+  const banner = createBannerFromChecklist(mergedChecklist);
+  upsertBanner(state.bannersByConversation[conversationId], banner);
 
-  if (existingIndex >= 0) {
-    banners[existingIndex] = {
-      ...banners[existingIndex],
-      ...bannerPayload,
-    };
-  } else {
-    banners.push(bannerPayload);
-  }
-
-  if (options.activate) {
+  // 5. Optionally activate this checklist
+  if (shouldActivate) {
     state.activeChecklistId = checklistId;
   }
 };
@@ -94,9 +96,7 @@ const checklistSlice = createSlice({
     },
 
     addChecklist(state, action: PayloadAction<ChecklistMetadata>) {
-      const checklist = action.payload;
-
-      upsertChecklistEntry(state, checklist, { activate: true });
+      addOrUpdateChecklist(state, action.payload, true);
     },
 
     toggleChecklistItem(
@@ -112,17 +112,8 @@ const checklistSlice = createSlice({
       if (checklist) {
         const item = checklist.items.find((i) => i.id === itemId);
         if (item) {
-          // Toggle isComplete
           item.isComplete = !item.isComplete;
-
-          // Update banner completed count
-          const conversationId = checklist.conversationId;
-          const banner = state.bannersByConversation[conversationId]?.find(
-            (b) => b.checklistId === checklistId,
-          );
-          if (banner) {
-            banner.completedCount = checklist.items.filter((i) => i.isComplete).length;
-          }
+          updateBannerCompletedCount(state, checklist);
         }
       }
     },
@@ -145,13 +136,7 @@ const checklistSlice = createSlice({
 
           // Update banner completed count if isComplete was updated
           if ('isComplete' in updates) {
-            const conversationId = checklist.conversationId;
-            const banner = state.bannersByConversation[conversationId]?.find(
-              (b) => b.checklistId === checklistId,
-            );
-            if (banner) {
-              banner.completedCount = checklist.items.filter((i) => i.isComplete).length;
-            }
+            updateBannerCompletedCount(state, checklist);
           }
         }
       }
@@ -206,16 +191,7 @@ const checklistSlice = createSlice({
     },
 
     upsertChecklistMetadata(state, action: PayloadAction<ChecklistMetadata>) {
-      const checklist = action.payload;
-      // console.log('🗄️ [Redux] upsertChecklistMetadata called:', {
-      //   checklistId: checklist.checklistId,
-      //   conversationId: checklist.conversationId,
-      //   status: checklist.status,
-      //   title: checklist.title,
-      //   itemsCount: checklist.items?.length || 0,
-      // });
-      upsertChecklistEntry(state, checklist, { activate: false });
-      // console.log('✅ [Redux] Checklist stored in state');
+      addOrUpdateChecklist(state, action.payload, false);
     },
   },
 });
