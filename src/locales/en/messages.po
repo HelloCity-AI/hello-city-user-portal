@@ -98,7 +98,7 @@ msgstr "Are you sure you want to log out?"
 #~ msgstr "Ready to make your move?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:187
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -176,8 +176,7 @@ msgstr "Creating..."
 #~ msgstr "From planning to living your dream"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:174
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:189
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "I'm all set"
 

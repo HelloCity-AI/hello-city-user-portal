@@ -10,6 +10,8 @@ jest.mock('@/actions/user', () => ({
 import { call, put, takeLatest } from 'redux-saga/effects';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { User } from '@/types/User.types';
+import { registerFile } from '@/upload/fileRegistry';
+import type { CreateUserPayload } from '@/store/slices/user';
 
 import {
   AuthState,
@@ -112,10 +114,13 @@ describe('UserSaga – API wrappers & handlers', () => {
   // ------------------- createUserApiWrapper -------------------
   describe('CreateUserApiWrapper', () => {
     it('Passes FormData to server action and maps success result', async () => {
-      const newUser: User = {
+      const imageId = 'image111';
+      const avatarBlob = new Blob(['avatar-bytes'], { type: 'image/png' });
+      registerFile(imageId, avatarBlob);
+
+      const newUser: CreateUserPayload = {
         userId: 'new-user-id',
         email: 'newuser@example.com',
-        avatar: 'new-avatar-url',
         gender: Genders.Female,
         nationality: Nationalities.Korea,
         city: Cities.Melbourne,
@@ -123,6 +128,7 @@ describe('UserSaga – API wrappers & handlers', () => {
         major: 'Engineering',
         preferredLanguage: Languages.English,
         lastJoinDate: new Date('2023-02-01'),
+        imageId,
       };
 
       mockedCreateUserAction.mockResolvedValue({
@@ -143,10 +149,12 @@ describe('UserSaga – API wrappers & handlers', () => {
       expect(sent.get('City')).toBe(Cities.Melbourne);
       expect(sent.get('Nationality')).toBe(Nationalities.Korea);
       expect(sent.get('PreferredLanguage')).toBe(Languages.English);
-      expect(sent.get('Avatar')).toBe('new-avatar-url');
       expect(sent.get('University')).toBe('New University');
       expect(sent.get('Major')).toBe('Engineering');
       expect(sent.get('Username')).toBe('new-user-id');
+
+      const sentFile = sent.get('File');
+      expect(sentFile).toBeInstanceOf(Blob);
 
       expect(result).toEqual({
         status: 201,

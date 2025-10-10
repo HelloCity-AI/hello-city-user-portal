@@ -13,13 +13,15 @@ import { AxiosError } from 'axios';
 import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
 import type { RootState } from '@/store';
+import { registerFile } from '@/upload/fileRegistry';
 
 const Page = () => {
   const { user, isLoading } = useUser();
   const dispatch = useDispatch();
   const { isCreating, createError, data: userData } = useSelector((state: RootState) => state.user);
+  const [imageId, setImageId] = useState<string | null>(null);
 
-  const [formData, setFormData] = useState<User>({
+  const [userInfo, setUserInfo] = useState<User>({
     ...defaultUser,
     userId: '', // This will be used as username
   });
@@ -38,7 +40,7 @@ const Page = () => {
   // Set Email after Auth0 user information is loaded
   useEffect(() => {
     if (user?.email) {
-      setFormData((prev) => ({
+      setUserInfo((prev) => ({
         ...prev,
         email: user.email || prev.email,
       }));
@@ -50,16 +52,23 @@ const Page = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
   };
 
   const handleSelectImage = (file: File | null) => {
     revokeUrl();
-    if (!file) return setAvatarPreview(null);
+    if (!file) {
+      setAvatarPreview(null);
+      setImageId(null);
+      return;
+    }
     const url = URL.createObjectURL(file);
     setAvatarPreview(url);
     prevObjectUrl.current = url;
-    setFormData({ ...formData, avatarFile: file });
+    const id = crypto.randomUUID();
+    setImageId(id);
+    registerFile(id, file);
+    console.log('imageFile is selected: ', file);
   };
 
   // Handle successful user creation
@@ -81,17 +90,17 @@ const Page = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!formData.userId) {
+    if (!userInfo.username) {
       alert('Please input username');
       return;
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userInfo.email)) {
       alert('Invalid email format');
       return;
     }
 
-    dispatch(createUser(formData));
+    dispatch(createUser({ ...userInfo, imageId: imageId ?? undefined }));
   };
 
   // If user information is loading, show loading state
@@ -159,21 +168,16 @@ const Page = () => {
           <div className="w-full">
             <input
               type="text"
-              name="userId"
+              name="username"
               placeholder="Username"
-              value={formData.userId}
+              value={userInfo.username}
               onChange={handleChange}
               required
               className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <PersonalInfo formData={formData} handleChange={handleChange} />
+          <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
 
-          <div className="w-full">
-            <Button variant="contained" color="primary" fullWidth type="submit" className="mt-4">
-              <Trans id="I'm all set" message="I'm all set" />
-            </Button>
-          </div>
           <div className="w-full">
             <Button
               variant="contained"
