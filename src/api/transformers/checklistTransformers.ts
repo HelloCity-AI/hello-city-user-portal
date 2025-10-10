@@ -73,8 +73,7 @@ function normalizeImportance(importance: 'Low' | 'Medium' | 'High'): ChecklistIm
  * @returns Backend importance value ('Low' | 'Medium' | 'High')
  */
 function denormalizeImportance(importance: ChecklistImportance): 'Low' | 'Medium' | 'High' {
-  return (importance.charAt(0).toUpperCase() +
-    importance.slice(1)) as 'Low' | 'Medium' | 'High';
+  return (importance.charAt(0).toUpperCase() + importance.slice(1)) as 'Low' | 'Medium' | 'High';
 }
 
 // ========== Main Transformers ==========

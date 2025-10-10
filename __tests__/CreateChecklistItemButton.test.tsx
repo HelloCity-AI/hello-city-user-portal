@@ -120,9 +120,7 @@ describe('CreateChecklistItemButton', () => {
     const onItemCreatedMock = jest.fn();
     render(<CreateChecklistItemButton onItemCreated={onItemCreatedMock} />);
     const modalProps = mockModal.mock.calls[0]?.[0];
-    const localOnSubmit = modalProps?.onSubmit as (
-      data: Partial<ChecklistItem>,
-    ) => Promise<void>;
+    const localOnSubmit = modalProps?.onSubmit as (data: Partial<ChecklistItem>) => Promise<void>;
     await localOnSubmit(defaultFormData);
     expect(onItemCreatedMock).toHaveBeenCalled();
   });

@@ -109,9 +109,12 @@ export const useChecklistPanel = ({
 
   // ========== Redux State ==========
 
-  const { checklists, activeChecklistId: activeChecklistIdFromRedux, isLoading, error } = useSelector(
-    (state: RootState) => state.checklist,
-  );
+  const {
+    checklists,
+    activeChecklistId: activeChecklistIdFromRedux,
+    isLoading,
+    error,
+  } = useSelector((state: RootState) => state.checklist);
 
   const activeChecklistId = activeChecklistIdOverride ?? activeChecklistIdFromRedux;
 
@@ -176,7 +179,14 @@ export const useChecklistPanel = ({
 
   // Calculate display data with default fallback
   const displayData = useMemo(
-    () => getCityDisplayData(cityInfoFromRedux || cityInfoOverride, heroImage, title, subtitle, imageError),
+    () =>
+      getCityDisplayData(
+        cityInfoFromRedux || cityInfoOverride,
+        heroImage,
+        title,
+        subtitle,
+        imageError,
+      ),
     [cityInfoFromRedux, cityInfoOverride, heroImage, title, subtitle, imageError],
   );
 

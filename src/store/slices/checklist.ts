@@ -39,10 +39,7 @@ const initialState: ChecklistState = {
 /**
  * Update banner completed count for a checklist
  */
-const updateBannerCompletedCount = (
-  state: ChecklistState,
-  checklist: ChecklistMetadata,
-): void => {
+const updateBannerCompletedCount = (state: ChecklistState, checklist: ChecklistMetadata): void => {
   const { conversationId, checklistId } = checklist;
   const banner = state.bannersByConversation[conversationId]?.find(
     (b) => b.checklistId === checklistId,
@@ -64,10 +61,7 @@ const addOrUpdateChecklist = (
   const { conversationId, checklistId } = checklist;
 
   // 1. Merge with existing checklist
-  const mergedChecklist = mergeChecklists(
-    state.checklists[checklistId],
-    checklist,
-  );
+  const mergedChecklist = mergeChecklists(state.checklists[checklistId], checklist);
 
   // 2. Update checklists dictionary
   state.checklists[checklistId] = mergedChecklist;

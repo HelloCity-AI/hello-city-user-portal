@@ -40,30 +40,24 @@ const ChecklistPanel = memo(
       (state: RootState) => state.checklist.bannersByConversation,
     );
     const hasChecklists = conversationId
-      ? bannersByConversation[conversationId]?.some((banner) => banner.status === 'completed') ??
-        false
+      ? (bannersByConversation[conversationId]?.some((banner) => banner.status === 'completed') ??
+        false)
       : false;
 
     // Unified hook - provides all data and handlers
-    const {
-      stats,
-      itemsToRender,
-      displayData,
-      imageError,
-      setImageError,
-      handlers,
-    } = useChecklistPanel({
-      filter,
-      conversationId,
-      cityInfo,
-      heroImage,
-      title,
-      subtitle,
-      onChecklistToggle,
-      onChecklistEdit,
-      onChecklistDelete,
-      onChecklistAdd,
-    });
+    const { stats, itemsToRender, displayData, imageError, setImageError, handlers } =
+      useChecklistPanel({
+        filter,
+        conversationId,
+        cityInfo,
+        heroImage,
+        title,
+        subtitle,
+        onChecklistToggle,
+        onChecklistEdit,
+        onChecklistDelete,
+        onChecklistAdd,
+      });
 
     return (
       <>

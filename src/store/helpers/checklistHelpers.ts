@@ -52,10 +52,7 @@ export const mergeChecklists = (
   return {
     ...existing,
     ...incoming,
-    items:
-      incoming.items && incoming.items.length > 0
-        ? incoming.items
-        : existing.items,
+    items: incoming.items && incoming.items.length > 0 ? incoming.items : existing.items,
   };
 };
 
@@ -66,13 +63,8 @@ export const mergeChecklists = (
  * @param newBanner - New banner to upsert
  * @returns Updated banners array (mutates in place for Redux)
  */
-export const upsertBanner = (
-  banners: ChecklistBanner[],
-  newBanner: ChecklistBanner,
-): void => {
-  const existingIndex = banners.findIndex(
-    (b) => b.checklistId === newBanner.checklistId,
-  );
+export const upsertBanner = (banners: ChecklistBanner[], newBanner: ChecklistBanner): void => {
+  const existingIndex = banners.findIndex((b) => b.checklistId === newBanner.checklistId);
 
   if (existingIndex >= 0) {
     // Update existing banner

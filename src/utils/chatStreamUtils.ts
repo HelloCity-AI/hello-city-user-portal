@@ -36,9 +36,7 @@ export function convertUIMessagesToBackendFormat(messages: UIMessage[]): Backend
  * Create AI SDK compatible SSE stream with tool support
  * Handles tool-call and tool-result events for checklist generation
  */
-export function createAISDKStream(
-  reader: ReadableStreamDefaultReader<Uint8Array>,
-): ReadableStream {
+export function createAISDKStream(reader: ReadableStreamDefaultReader<Uint8Array>): ReadableStream {
   return new ReadableStream({
     async start(controller) {
       let buffer = '';

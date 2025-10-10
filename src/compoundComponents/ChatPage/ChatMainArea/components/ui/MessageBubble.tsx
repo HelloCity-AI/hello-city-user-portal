@@ -11,7 +11,11 @@ import AiThinkingIndicator from './AiThinkingIndicator';
 import ChecklistBannerMessage from './ChecklistBannerMessage';
 import { mergeClassNames } from '@/utils/classNames';
 import UserAvatar from '@/compoundComponents/UserAvatar';
-import { isChecklistDataPart, isChecklistBannerPart, type ExtendedUIMessage } from '@/types/ai-message';
+import {
+  isChecklistDataPart,
+  isChecklistBannerPart,
+  type ExtendedUIMessage,
+} from '@/types/ai-message';
 import { addChecklist, upsertChecklistMetadata } from '@/store/slices/checklist';
 import { updateTaskStatus, removeTask } from '@/store/slices/conversation';
 import type { ChecklistItem } from '@/types/checklist.types';
@@ -83,10 +87,12 @@ const MessageBubble = ({
           dispatch(removeTask(maybeTaskId));
         }
       } else {
-        dispatch(upsertChecklistMetadata({
-          ...part.data,
-          items: (Array.isArray(items) ? items : []) as ChecklistItem[],
-        }));
+        dispatch(
+          upsertChecklistMetadata({
+            ...part.data,
+            items: (Array.isArray(items) ? items : []) as ChecklistItem[],
+          }),
+        );
       }
     });
 
@@ -106,7 +112,6 @@ const MessageBubble = ({
       }
     });
   }, [extendedMessage.parts, dispatch]);
-
 
   return (
     <Message
@@ -186,21 +191,19 @@ const MessageBubble = ({
             }
 
             switch (part.type) {
-              case 'text':
-                {
-                  const normalizedText =
-                    part.text?.replace(/\s|\u200b/gi, '') ?? '';
-                  if (!normalizedText.length) {
-                    // console.log('⚪ [MessageBubble] Skipping empty text part at index:', index);
-                    return null;
-                  }
-                  // console.log('💬 [MessageBubble] Rendering text part:', {
-                  //   index: index,
-                  //   length: part.text?.length,
-                  //   preview: part.text?.substring(0, 50),
-                  // });
-                  return <Response key={`${message.id}-${index}`}>{part.text}</Response>;
+              case 'text': {
+                const normalizedText = part.text?.replace(/\s|\u200b/gi, '') ?? '';
+                if (!normalizedText.length) {
+                  // console.log('⚪ [MessageBubble] Skipping empty text part at index:', index);
+                  return null;
                 }
+                // console.log('💬 [MessageBubble] Rendering text part:', {
+                //   index: index,
+                //   length: part.text?.length,
+                //   preview: part.text?.substring(0, 50),
+                // });
+                return <Response key={`${message.id}-${index}`}>{part.text}</Response>;
+              }
               default:
                 // console.log('❓ [MessageBubble] Unknown part type:', part.type, 'at index:', index);
                 return null;

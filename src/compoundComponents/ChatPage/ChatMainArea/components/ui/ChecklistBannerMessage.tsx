@@ -36,7 +36,10 @@ const ChecklistBannerMessage = memo(
     }, [dispatch, checklistId, onBannerClick, isGenerating]);
 
     const titleContent = isGenerating ? (
-      <Trans id="checklist.banner.generatingTitle" message="Creating your personalized checklist…" />
+      <Trans
+        id="checklist.banner.generatingTitle"
+        message="Creating your personalized checklist…"
+      />
     ) : (
       banner.title
     );
@@ -50,7 +53,7 @@ const ChecklistBannerMessage = memo(
           'group relative flex w-full max-w-sm flex-col gap-3 rounded-xl border p-4 transition-all',
           'border-primary/30 from-primary/5 to-primary/10 bg-gradient-to-br',
           'hover:shadow-primary/20 hover:border-primary hover:shadow-lg',
-          isGenerating && 'cursor-not-allowed opacity-80 hover:border-primary/30 hover:shadow-none',
+          isGenerating && 'hover:border-primary/30 cursor-not-allowed opacity-80 hover:shadow-none',
         )}
         aria-disabled={isGenerating}
       >

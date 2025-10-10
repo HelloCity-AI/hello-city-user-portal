@@ -116,10 +116,11 @@ const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMa
     if (messages.length === 0 || !conversationId) return;
 
     const lastMessage = messages[messages.length - 1];
-    const _partTypes = lastMessage.parts?.map((part) => {
-      if (typeof part !== 'object' || part === null) return typeof part;
-      return (part as { type?: string }).type ?? 'unknown';
-    }) || [];
+    const _partTypes =
+      lastMessage.parts?.map((part) => {
+        if (typeof part !== 'object' || part === null) return typeof part;
+        return (part as { type?: string }).type ?? 'unknown';
+      }) || [];
 
     // console.log('[Chat] Checking message for data parts:', {
     //   role: lastMessage.role,
@@ -208,7 +209,6 @@ const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMa
 
   return (
     <ChatMainContentContainer>
-
       <Conversation>
         <ConversationContent>
           {isNewConversation ? (

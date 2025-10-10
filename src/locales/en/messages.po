@@ -486,7 +486,7 @@ msgid "checklist.add.button"
 msgstr "Add New Item"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:75
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:78
 msgid "checklist.banner.generating"
 msgstr "Generating…"
 
@@ -496,17 +496,17 @@ msgid "checklist.banner.generatingTitle"
 msgstr "Creating your personalized checklist…"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:91
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:94
 msgid "checklist.banner.inProgress"
 msgstr "Preparing checklist…"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:77
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
 msgid "checklist.banner.new"
 msgstr "New Checklist"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:93
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:96
 msgid "checklist.banner.viewDetails"
 msgstr "View Details →"
 

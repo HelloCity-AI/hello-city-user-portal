@@ -25,10 +25,7 @@ export const checklistApi = {
    * @returns Promise resolving to the created checklist item
    * @throws Error if the API request fails
    */
-  async createChecklistItem(
-    userId: string,
-    data: Partial<ChecklistItem>,
-  ): Promise<ChecklistItem> {
+  async createChecklistItem(userId: string, data: Partial<ChecklistItem>): Promise<ChecklistItem> {
     // Transform frontend format to backend format
     const apiPayload = checklistItemToAPI(data);
 

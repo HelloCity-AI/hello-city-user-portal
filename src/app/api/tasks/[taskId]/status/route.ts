@@ -21,19 +21,16 @@ export async function GET(_req: Request, { params }: { params: Promise<{ taskId:
     console.log(`[Task Status API] Fetching status for task: ${taskId}`);
 
     // Forward to Python service
-    const response = await fetch(
-      `${PYTHON_SERVICE_URL}/tasks/${taskId}/status`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-store',
-          Pragma: 'no-cache',
-        },
-        cache: 'no-store',
-        next: { revalidate: 0 },
+    const response = await fetch(`${PYTHON_SERVICE_URL}/tasks/${taskId}/status`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-store',
+        Pragma: 'no-cache',
       },
-    );
+      cache: 'no-store',
+      next: { revalidate: 0 },
+    });
 
     if (!response.ok) {
       const errorText = await response.text();

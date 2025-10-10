@@ -18,10 +18,7 @@ import {
 } from '../slices/conversation';
 import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
 import { type RootState } from '..';
-import {
-  upsertChecklistMetadata,
-  setActiveChecklist,
-} from '../slices/checklist';
+import { upsertChecklistMetadata, setActiveChecklist } from '../slices/checklist';
 import type {
   ChecklistMetadata,
   ChecklistItem as ChecklistItemModel,
@@ -120,12 +117,15 @@ export async function deleteConversationApiWrapper(
 export async function fetchChecklistsApiWrapper(
   conversationId: string,
 ): Promise<ChecklistResponse> {
-  return fetchWithErrorHandling<ChecklistApiDto[]>(`/api/conversation/${conversationId}/checklists`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
+  return fetchWithErrorHandling<ChecklistApiDto[]>(
+    `/api/conversation/${conversationId}/checklists`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     },
-  });
+  );
 }
 
 const stayTypeMap: Record<string, StayType> = {
@@ -201,7 +201,9 @@ function transformChecklistItemPayload(item: ChecklistItemApiDto): ChecklistItem
     order: item.order ?? 0,
     isComplete: item.isComplete,
     createdAt: toIsoStringOrNull(item.createdAt),
-    updatedAt: item.updatedAt ? toIsoStringOrNull(item.updatedAt) : toIsoStringOrNull(item.createdAt),
+    updatedAt: item.updatedAt
+      ? toIsoStringOrNull(item.updatedAt)
+      : toIsoStringOrNull(item.createdAt),
   };
 }
 
