@@ -14,9 +14,7 @@ import PanelLayout from './components/layout/PanelLayout';
 import ChecklistHeaderSection from './components/sections/ChecklistHeaderSection';
 import ChecklistSection from './components/sections/ChecklistSection';
 import { defaultPanelConfig } from './data/checklistItems';
-import { useChecklist } from './hooks/useChecklist';
-import { useChecklistHandlersRedux } from './hooks/useChecklistHandlersRedux';
-import { useCityDisplay } from './hooks/useCityDisplay';
+import { useChecklistPanel } from './hooks/useChecklistPanel';
 
 import type { ChecklistPanelProps, FilterType } from './types';
 
@@ -46,25 +44,21 @@ const ChecklistPanel = memo(
         false
       : false;
 
-    // Get checklist data from Redux (includes cityInfo looked up from cityData.tsx)
+    // Unified hook - provides all data and handlers
     const {
-      activeChecklistId,
-      cityInfo: cityInfoFromRedux,
       stats,
       itemsToRender,
-    } = useChecklist(filter, conversationId);
-
-    // Custom hooks for separation of concerns
-    const { displayData, imageError, setImageError } = useCityDisplay({
-      cityInfo: cityInfoFromRedux || cityInfo,
+      displayData,
+      imageError,
+      setImageError,
+      handlers,
+    } = useChecklistPanel({
+      filter,
+      conversationId,
+      cityInfo,
       heroImage,
       title,
       subtitle,
-    });
-
-    // Get Redux action handlers
-    const handlers = useChecklistHandlersRedux({
-      activeChecklistId,
       onChecklistToggle,
       onChecklistEdit,
       onChecklistDelete,
