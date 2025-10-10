@@ -9,7 +9,7 @@ import {
   getVisibleItemIds,
   getItemsToRender,
 } from '../utils/checklistHelpers';
-import { getCityInfo } from '../utils/getCityInfo';
+import { getCityInfo } from '../data/cityData';
 
 interface UseChecklistReturn {
   activeChecklistId: string | null;
@@ -55,8 +55,11 @@ export const useChecklist = (
 
   // Get city info by looking up cityCode
   const cityInfo = useMemo(() => {
-    if (!activeChecklist) return null;
-    return getCityInfo(activeChecklist.cityCode);
+    if (!activeChecklist) {
+      return null;
+    }
+    const result = getCityInfo(activeChecklist.cityCode);
+    return result;
   }, [activeChecklist]);
 
   // Get all items from active checklist

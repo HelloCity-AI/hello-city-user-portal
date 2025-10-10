@@ -202,6 +202,7 @@ export interface ChecklistBanner {
   cityCode: CityCode;
   itemCount: number;
   completedCount: number;
+  status: ChecklistStatus;
   createdAt: string;
   isActive: boolean;
 }

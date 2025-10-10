@@ -9,11 +9,15 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { type RootState } from '@/store';
 import { updateTaskStatus, removeTask } from '@/store/slices/conversation';
+import { addChecklist } from '@/store/slices/checklist';
 import { useTaskPolling, type TaskStatus } from '@/hooks/useTaskPolling';
 import { useCallback } from 'react';
+import type { ChecklistMetadata } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
 
 function TaskPoller({ taskId }: { taskId: string }) {
   const dispatch = useDispatch();
+  const activeTasks = useSelector((state: RootState) => state.conversation.activeTasks);
+  const task = activeTasks[taskId];
 
   const handleStatusChange = useCallback(
     (status: TaskStatus) => {
@@ -26,11 +30,29 @@ function TaskPoller({ taskId }: { taskId: string }) {
   const handleComplete = useCallback(
     (result: unknown) => {
       console.log(`[Global Poller] Task ${taskId} completed:`, result);
-      // TODO: Show notification to user
-      // TODO: Refresh conversation if needed
+
+      if (task?.conversationId && result) {
+        // Validate result is ChecklistMetadata format
+        const checklist = result as ChecklistMetadata;
+
+        // Save checklist data to checklist Redux slice
+        // This will:
+        // 1. Store full checklist in state.checklists[checklistId]
+        // 2. Create banner in state.bannersByConversation[conversationId]
+        // 3. Auto-activate the checklist (set activeChecklistId)
+        dispatch(addChecklist(checklist));
+
+        console.log(`[Global Poller] Checklist added to Redux:`, {
+          checklistId: checklist.checklistId,
+          conversationId: task.conversationId,
+          itemCount: checklist.items?.length || 0,
+        });
+      }
+
+      // Remove task from active tasks
       dispatch(removeTask(taskId));
     },
-    [taskId, dispatch],
+    [taskId, task, dispatch],
   );
 
   const handleError = useCallback(

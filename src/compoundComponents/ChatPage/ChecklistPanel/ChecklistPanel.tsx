@@ -37,12 +37,13 @@ const ChecklistPanel = memo(
     // Filter is UI-only state, managed locally
     const [filter, setFilter] = useState<FilterType>('all');
 
-    // Check if current conversation has any checklists
+    // Check if current conversation has any completed checklists
     const bannersByConversation = useSelector(
       (state: RootState) => state.checklist.bannersByConversation,
     );
     const hasChecklists = conversationId
-      ? (bannersByConversation[conversationId]?.length || 0) > 0
+      ? bannersByConversation[conversationId]?.some((banner) => banner.status === 'completed') ??
+        false
       : false;
 
     // Get checklist data from Redux (includes cityInfo looked up from cityData.tsx)
@@ -54,7 +55,6 @@ const ChecklistPanel = memo(
     } = useChecklist(filter, conversationId);
 
     // Custom hooks for separation of concerns
-    // Priority: Use cityInfo from Redux if available, otherwise use props
     const { displayData, imageError, setImageError } = useCityDisplay({
       cityInfo: cityInfoFromRedux || cityInfo,
       heroImage,

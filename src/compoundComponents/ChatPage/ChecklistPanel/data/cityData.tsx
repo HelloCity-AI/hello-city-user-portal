@@ -786,10 +786,3 @@ export const getCityInfo = (cityCode?: CityCode): CityInfo => {
 export const getAllCities = (): CityInfo[] => {
   return Object.values(cityData);
 };
-
-// 获取随机城市信息
-export const getRandomCity = (): CityInfo => {
-  const cities = getAllCities();
-  const randomIndex = Math.floor(Math.random() * cities.length);
-  return cities[randomIndex];
-};

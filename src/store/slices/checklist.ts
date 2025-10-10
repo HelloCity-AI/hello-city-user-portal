@@ -28,6 +28,63 @@ const initialState: ChecklistState = {
   error: null,
 };
 
+const createBannerFromChecklist = (checklist: ChecklistMetadata): ChecklistBanner => ({
+  checklistId: checklist.checklistId,
+  version: checklist.version,
+  title: checklist.title,
+  destination: checklist.destination,
+  cityCode: checklist.cityCode,
+  itemCount: (checklist.items ?? []).length,
+  completedCount: (checklist.items ?? []).filter((i) => i.isComplete).length,
+  status: checklist.status,
+  createdAt: checklist.createdAt,
+  isActive: false,
+});
+
+const upsertChecklistEntry = (
+  state: ChecklistState,
+  checklist: ChecklistMetadata,
+  options: { activate: boolean },
+) => {
+  const conversationId = checklist.conversationId;
+  const checklistId = checklist.checklistId;
+
+  const existingChecklist = state.checklists[checklistId];
+  const mergedChecklist: ChecklistMetadata = existingChecklist
+    ? {
+        ...existingChecklist,
+        ...checklist,
+        items:
+          checklist.items && checklist.items.length > 0
+            ? checklist.items
+            : existingChecklist.items,
+      }
+    : checklist;
+
+  state.checklists[checklistId] = mergedChecklist;
+
+  if (!state.bannersByConversation[conversationId]) {
+    state.bannersByConversation[conversationId] = [];
+  }
+
+  const bannerPayload = createBannerFromChecklist(mergedChecklist);
+  const banners = state.bannersByConversation[conversationId];
+  const existingIndex = banners.findIndex((b) => b.checklistId === checklistId);
+
+  if (existingIndex >= 0) {
+    banners[existingIndex] = {
+      ...banners[existingIndex],
+      ...bannerPayload,
+    };
+  } else {
+    banners.push(bannerPayload);
+  }
+
+  if (options.activate) {
+    state.activeChecklistId = checklistId;
+  }
+};
+
 const checklistSlice = createSlice({
   name: 'checklist',
   initialState,
@@ -39,31 +96,7 @@ const checklistSlice = createSlice({
     addChecklist(state, action: PayloadAction<ChecklistMetadata>) {
       const checklist = action.payload;
 
-      // Store full checklist
-      state.checklists[checklist.checklistId] = checklist;
-
-      // Create banner
-      const conversationId = checklist.conversationId;
-      if (!state.bannersByConversation[conversationId]) {
-        state.bannersByConversation[conversationId] = [];
-      }
-
-      const banner: ChecklistBanner = {
-        checklistId: checklist.checklistId,
-        version: checklist.version,
-        title: checklist.title,
-        destination: checklist.destination,
-        cityCode: checklist.cityCode,
-        itemCount: checklist.items.length,
-        completedCount: checklist.items.filter((i) => i.isComplete).length,
-        createdAt: checklist.createdAt,
-        isActive: false,
-      };
-
-      state.bannersByConversation[conversationId].push(banner);
-
-      // Auto-activate latest version
-      state.activeChecklistId = checklist.checklistId;
+      upsertChecklistEntry(state, checklist, { activate: true });
     },
 
     toggleChecklistItem(
@@ -171,6 +204,19 @@ const checklistSlice = createSlice({
       state.error = action.payload;
       state.isLoading = false;
     },
+
+    upsertChecklistMetadata(state, action: PayloadAction<ChecklistMetadata>) {
+      const checklist = action.payload;
+      // console.log('🗄️ [Redux] upsertChecklistMetadata called:', {
+      //   checklistId: checklist.checklistId,
+      //   conversationId: checklist.conversationId,
+      //   status: checklist.status,
+      //   title: checklist.title,
+      //   itemsCount: checklist.items?.length || 0,
+      // });
+      upsertChecklistEntry(state, checklist, { activate: false });
+      // console.log('✅ [Redux] Checklist stored in state');
+    },
   },
 });
 
@@ -183,6 +229,7 @@ export const {
   clearChecklist,
   setLoading,
   setError,
+  upsertChecklistMetadata,
 } = checklistSlice.actions;
 
 export default checklistSlice.reducer;

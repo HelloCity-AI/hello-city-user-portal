@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { CityInfo, CityDisplayData } from '../types';
-import { getCityDisplayData, shouldUseRandomCity } from '../utils/cityDataHelpers';
-import { getRandomCity } from '../data/cityData';
+import { getCityDisplayData } from '../utils/cityDataHelpers';
 
 interface UseCityDisplayProps {
   cityInfo?: CityInfo;
@@ -17,7 +16,7 @@ interface UseCityDisplayReturn {
 }
 
 /**
- * Manages city display data with image error handling and random city selection
+ * Manages city display data with image error handling
  *
  * TODO: Add image caching mechanism
  * TODO: Implement city-based theme adaptation
@@ -31,22 +30,16 @@ export const useCityDisplay = ({
 }: UseCityDisplayProps): UseCityDisplayReturn => {
   const [imageError, setImageError] = useState(false);
 
-  // Generate random city info only once when needed
-  const randomCityInfo = useMemo(() => {
-    // PLACEHOLDER: Add user preference for city selection
-    return shouldUseRandomCity(cityInfo) ? getRandomCity() : null;
-  }, [cityInfo]);
-
   // Reset image error when city changes
   useEffect(() => {
     setImageError(false);
     // TODO: Add image preloading for next city
-  }, [cityInfo, randomCityInfo]);
+  }, [cityInfo]);
 
-  // Calculate display data
+  // Calculate display data with default fallback
   const displayData = useMemo(
-    () => getCityDisplayData(cityInfo, randomCityInfo, heroImage, title, subtitle, imageError),
-    [cityInfo, randomCityInfo, heroImage, title, subtitle, imageError],
+    () => getCityDisplayData(cityInfo, heroImage, title, subtitle, imageError),
+    [cityInfo, heroImage, title, subtitle, imageError],
   );
 
   return {

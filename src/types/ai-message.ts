@@ -11,11 +11,17 @@ export type ChecklistDataPart = {
   data: ChecklistMetadata;
 };
 
+export type ChecklistBannerPart = {
+  type: 'data-checklist-banner';
+  id?: string;
+  data: ChecklistMetadata;
+};
+
 /**
  * Extended UIMessage that supports custom part types
  */
 export type ExtendedUIMessage = Omit<UIMessage, 'parts'> & {
-  parts: Array<UIMessage['parts'][number] | ChecklistDataPart>;
+  parts: Array<UIMessage['parts'][number] | ChecklistDataPart | ChecklistBannerPart>;
 };
 
 /**
@@ -25,4 +31,10 @@ export function isChecklistDataPart(
   part: ExtendedUIMessage['parts'][number],
 ): part is ChecklistDataPart {
   return (part as ChecklistDataPart).type === 'data-checklist';
+}
+
+export function isChecklistBannerPart(
+  part: ExtendedUIMessage['parts'][number],
+): part is ChecklistBannerPart {
+  return (part as ChecklistBannerPart).type === 'data-checklist-banner';
 }

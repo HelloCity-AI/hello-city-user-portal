@@ -21,7 +21,7 @@ export interface UseTaskPollingOptions {
   onComplete?: (result: unknown) => void;
   /** Callback when task fails or times out */
   onError?: (error: string) => void;
-  /** Maximum polling duration in milliseconds (default: 60000 = 60s) */
+  /** Maximum polling duration in milliseconds (default: 5 minutes) */
   maxDuration?: number;
   /** Initial polling interval in milliseconds (default: 1000 = 1s) */
   initialInterval?: number;
@@ -37,7 +37,7 @@ export function useTaskPolling({
   onStatusChange,
   onComplete,
   onError,
-  maxDuration = 60000,
+  maxDuration = 5 * 60 * 1000,
   initialInterval = 1000,
 }: UseTaskPollingOptions) {
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
