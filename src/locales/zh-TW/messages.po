@@ -548,11 +548,11 @@ msgid "checklist.banner.viewDetails"
 msgstr "查看詳情"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
-msgid "checklist.due.label"
-msgstr "到期：{date}"
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#~ msgid "checklist.due.label"
+#~ msgstr "到期：{date}"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
