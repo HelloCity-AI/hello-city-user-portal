@@ -43,7 +43,7 @@ export default function ChatSidebar() {
   };
 
   return (
-    <DrawerContainer>
+    <DrawerContainer isCollapsed={isCollapsed}>
       {/*Top Section - Logo section */}
       <LogoSection isCollapsed={isCollapsed} onToggle={() => setIsCollapsed((prev) => !prev)} />
 

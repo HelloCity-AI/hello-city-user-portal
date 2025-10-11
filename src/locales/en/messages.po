@@ -99,6 +99,7 @@ msgstr "Are you sure you want to log out?"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -177,6 +178,7 @@ msgstr "Creating..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -455,17 +457,17 @@ msgid "cancel.button"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:91
 msgid "chat.disclaimer"
 msgstr "AI may make mistakes. Please verify important information."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:56
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
 msgid "chat.input.hint.press"
 msgstr "Press"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:62
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:82
 msgid "chat.input.hint.send"
 msgstr "to send"
 
@@ -515,7 +517,7 @@ msgstr "View Details →"
 #~ msgstr "Due: {date}"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
 msgid "checklist.due.prefix"
 msgstr "Due:"
 
@@ -550,17 +552,17 @@ msgid "checklist.filter.incomplete"
 msgstr "Incomplete"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:22
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
 msgid "checklist.importance.high"
 msgstr "HIGH"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:32
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
 msgid "checklist.importance.low"
 msgstr "LOW"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:27
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
 msgid "checklist.importance.medium"
 msgstr "MED"
 
@@ -1325,6 +1327,16 @@ msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:52
+#~ msgid "contact-us.error.failed"
+#~ msgstr "Failed to send message. Please try again."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:60
+#~ msgid "contact-us.error.network"
+#~ msgstr "An error occurred. Please try again."
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "Message"
@@ -1340,79 +1352,89 @@ msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:96
+#~ msgid "contact-us.subtitle"
+#~ msgstr "We'd love to hear from you. Fill out the form and we'll get back to you soon."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:44
+#~ msgid "contact-us.success"
+#~ msgstr "Message sent successfully!"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "Contact Us"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:30
+#: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "contact.faq.a1"
+msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:40
+#: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "contact.faq.a2"
+msgstr "We support 48+ cities worldwide including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major cities across Australia, North America, Europe, and Asia. View the complete list in the app."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:50
+#: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "contact.faq.a3"
+msgstr "Yes, an account is required to save your progress and access personalized checklists. Registration is free and takes less than a minute."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
+msgid "contact.faq.a4"
+msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback. All visa and legal information is reviewed for accuracy."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
+msgid "contact.faq.a5"
+msgstr "Absolutely. You can add, edit, or remove any checklist item to match your specific situation. The AI provides a starting point, but you're always in control."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:29
+msgid "contact.faq.q1"
+msgstr "What is HelloCity?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:39
+msgid "contact.faq.q2"
+msgstr "Which cities are currently supported?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:49
+msgid "contact.faq.q3"
+msgstr "Do I need an account to get started?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
-msgid "contact.faq.a4"
-msgstr "contact.faq.a4"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:70
-msgid "contact.faq.a5"
-msgstr "contact.faq.a5"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:28
-msgid "contact.faq.q1"
-msgstr "contact.faq.q1"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:38
-msgid "contact.faq.q2"
-msgstr "contact.faq.q2"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:48
-msgid "contact.faq.q3"
-msgstr "contact.faq.q3"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:58
 msgid "contact.faq.q4"
-msgstr "contact.faq.q4"
+msgstr "How accurate are the AI-generated checklists?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:68
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "contact.faq.q5"
+msgstr "Can I customize the checklist items?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-msgid "contact.faq.results"
-msgstr "contact.faq.results"
+#~ msgid "contact.faq.results"
+#~ msgstr "contact.faq.results"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-msgid "contact.faq.searchPlaceholder"
-msgstr "contact.faq.searchPlaceholder"
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "contact.faq.searchPlaceholder"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:119
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
-msgstr "contact.faq.subtitle"
+msgstr "Find quick answers to the most common questions about HelloCity."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:111
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
-msgstr "contact.faq.title"
+msgstr "Frequently Asked Questions"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
@@ -1654,123 +1676,153 @@ msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:89
 #: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/testassistant/profile/page.tsx:89
+#: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "City"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:187
+#: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
 msgstr "Please enter your city"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:130
+#: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "Edit Profile"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "Edit Profile Information"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
 #: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/testassistant/profile/page.tsx:75
+#: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "Please enter your email"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:96
 #: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/testassistant/profile/page.tsx:96
+#: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "Gender"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:110
 #: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/testassistant/profile/page.tsx:110
+#: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "Major"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "Please enter your major"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:82
 #: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/testassistant/profile/page.tsx:82
+#: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "Nationality"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:177
+#: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
 msgstr "Please enter your nationality"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:69
+#: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "Personal Information"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:117
 #: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/testassistant/profile/page.tsx:117
+#: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
 msgstr "Preferred Language"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:240
+#: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
 msgstr "Please enter your preferred language"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "Refresh"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "Manage your personal information and preferences"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:62
+#: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "Profile Settings"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:103
 #: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/testassistant/profile/page.tsx:103
+#: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "University"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "Please enter your university"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "profile.username"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "profile.username-placeholder"
 
@@ -1781,8 +1833,8 @@ msgstr "New Chat"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-msgid "sidebar.actions.searchChat"
-msgstr "Search Chat"
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "Search Chat"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57

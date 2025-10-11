@@ -30,12 +30,12 @@ export default function ActionsSection({ isCollapsed, onNewChat, onSearch }: Act
         isCollapsed={isCollapsed}
         onClick={onNewChat}
       />
-      <ActionButton
+      {/* <ActionButton
         icon={<SearchIcon className={ICON_STYLES.action} />}
         text={<Trans id="sidebar.actions.searchChat" message="Search Chat" />}
         isCollapsed={isCollapsed}
         onClick={onSearch}
-      />
+      /> */}
     </>
   );
 }
