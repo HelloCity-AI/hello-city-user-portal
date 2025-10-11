@@ -61,9 +61,9 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
           </AnimatePresence>
         ) : (
           <Box>
-            <Box className="mb-2 text-center text-4xl opacity-50">
+            {/* <Box className="mb-2 text-center text-4xl opacity-50">
               {filter === 'completed' ? '✅' : filter === 'incomplete' ? '⏳' : '📋'}
-            </Box>
+            </Box> */}
             <ChecklistEmptyState filter={filter} />
           </Box>
         )}

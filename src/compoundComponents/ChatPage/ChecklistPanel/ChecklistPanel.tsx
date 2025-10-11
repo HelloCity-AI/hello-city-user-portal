@@ -1,6 +1,8 @@
 'use client';
 
-import { memo } from 'react';
+import { memo, useState } from 'react';
+import { useSelector } from 'react-redux';
+import type { RootState } from '@/store';
 
 import Image from 'next/image';
 
@@ -11,61 +13,51 @@ import ImageOverlay from './components/ui/ImageOverlay';
 import PanelLayout from './components/layout/PanelLayout';
 import ChecklistHeaderSection from './components/sections/ChecklistHeaderSection';
 import ChecklistSection from './components/sections/ChecklistSection';
-import {
-  defaultChecklistItems as checklistItemsData,
-  defaultPanelConfig,
-} from './data/checklistItems';
-import { useChecklistHandlers } from './hooks/useChecklistHandlers';
-import { useChecklistState } from './hooks/useChecklistState';
-import { useCityDisplay } from './hooks/useCityDisplay';
+import { defaultPanelConfig } from './data/checklistItems';
+import { useChecklistPanel } from './hooks/useChecklistPanel';
 
-import type { ChecklistPanelProps } from './types';
+import type { ChecklistPanelProps, FilterType } from './types';
 
 const ChecklistPanel = memo(
   ({
     isCollapsed,
     onToggle,
-    checklistItems = checklistItemsData,
+    conversationId,
     cityInfo,
     heroImage,
     title = defaultPanelConfig.title,
     subtitle = defaultPanelConfig.subtitle,
-    onChecklistUpdate,
     onChecklistToggle,
     onChecklistEdit,
     onChecklistDelete,
     onChecklistAdd,
   }: ChecklistPanelProps) => {
-    // Custom hooks for separation of concerns
-    const { displayData, imageError, setImageError } = useCityDisplay({
-      cityInfo,
-      heroImage,
-      title,
-      subtitle,
-    });
+    // Filter is UI-only state, managed locally
+    const [filter, setFilter] = useState<FilterType>('all');
 
-    const {
-      checklistItems: items,
-      setChecklistItems,
-      filter,
-      setFilter,
-      stats,
-      visibleIds,
-      setVisibleIds,
-      itemsToRender,
-    } = useChecklistState({ initialItems: checklistItems });
+    // Check if current conversation has any completed checklists
+    const bannersByConversation = useSelector(
+      (state: RootState) => state.checklist.bannersByConversation,
+    );
+    const hasChecklists = conversationId
+      ? (bannersByConversation[conversationId]?.some((banner) => banner.status === 'completed') ??
+        false)
+      : false;
 
-    const handlers = useChecklistHandlers({
-      checklistItems: items,
-      setChecklistItems,
-      visibleIds,
-      setVisibleIds,
-      onChecklistUpdate,
-      onChecklistToggle,
-      onChecklistEdit,
-      onChecklistDelete,
-      onChecklistAdd,
-    });
+    // Unified hook - provides all data and handlers
+    const { stats, itemsToRender, displayData, imageError, setImageError, handlers } =
+      useChecklistPanel({
+        filter,
+        conversationId,
+        cityInfo,
+        heroImage,
+        title,
+        subtitle,
+        onChecklistToggle,
+        onChecklistEdit,
+        onChecklistDelete,
+        onChecklistAdd,
+      });
 
     return (
       <>
@@ -114,8 +106,8 @@ const ChecklistPanel = memo(
           </div>
         </PanelLayout>
 
-        {/* Collapsed Toggle Button */}
-        {isCollapsed && <CollapsedToggle onToggle={onToggle} />}
+        {/* Collapsed Toggle Button - Only show when there are checklists */}
+        {isCollapsed && hasChecklists && <CollapsedToggle onToggle={onToggle} />}
       </>
     );
   },

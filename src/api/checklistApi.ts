@@ -6,7 +6,12 @@
  * updating, and deletion of items.
  */
 import { fetchWithAuth } from '@/utils/fetchWithAuth';
-import type { CreateChecklistItemRequest, ChecklistItem } from '@/types/checkList.types';
+import type { ChecklistItem } from '@/types/checklist.types';
+import {
+  apiToChecklistItem,
+  checklistItemToAPI,
+  type APIChecklistItem,
+} from './transformers/checklistTransformers';
 import dayjs from 'dayjs';
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
@@ -20,24 +25,26 @@ export const checklistApi = {
    * @returns Promise resolving to the created checklist item
    * @throws Error if the API request fails
    */
-  async createChecklistItem(
-    userId: string,
-    data: CreateChecklistItemRequest,
-  ): Promise<ChecklistItem> {
+  async createChecklistItem(userId: string, data: Partial<ChecklistItem>): Promise<ChecklistItem> {
+    // Transform frontend format to backend format
+    const apiPayload = checklistItemToAPI(data);
+
     // Format the due date to YYYY-MM-DD format if it exists
-    const payload = {
-      ...data,
-      dueDate: data.dueDate ? dayjs(data.dueDate).format('YYYY-MM-DD') : '',
-    };
+    if (data.dueDate) {
+      apiPayload.dueDate = dayjs(data.dueDate).format('YYYY-MM-DD');
+    }
 
     const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(apiPayload),
     });
 
     if (!response.ok) throw new Error('Failed to create checklist item');
-    return response.json();
+
+    // Transform backend response to frontend format
+    const apiResponse: APIChecklistItem = await response.json();
+    return apiToChecklistItem(apiResponse);
   },
 
   /**
@@ -51,7 +58,10 @@ export const checklistApi = {
     const response = await fetchWithAuth(`${BACKEND_URL}/api/user/${userId}/checklist-item`);
 
     if (!response.ok) throw new Error('Failed to fetch checklist items');
-    return response.json();
+
+    // Transform backend response array to frontend format
+    const apiItems: APIChecklistItem[] = await response.json();
+    return apiItems.map(apiToChecklistItem);
   },
 
   /**
@@ -66,19 +76,25 @@ export const checklistApi = {
   async updateChecklistItem(
     userId: string,
     itemId: string,
-    data: Partial<CreateChecklistItemRequest>,
+    data: Partial<ChecklistItem>,
   ): Promise<ChecklistItem> {
+    // Transform frontend format to backend format
+    const apiPayload = checklistItemToAPI(data);
+
     const response = await fetchWithAuth(
       `${BACKEND_URL}/api/user/${userId}/checklist-item?itemId=${itemId}`,
       {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(apiPayload),
       },
     );
 
     if (!response.ok) throw new Error('Failed to update checklist item');
-    return response.json();
+
+    // Transform backend response to frontend format
+    const apiResponse: APIChecklistItem = await response.json();
+    return apiToChecklistItem(apiResponse);
   },
 
   /**

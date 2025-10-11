@@ -141,6 +141,15 @@ export async function getConversationMessages(
   return await client.get(`/api/conversation/${id}/messages`);
 }
 
+export async function getConversationChecklists(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}/checklists`);
+}
+
 export async function createConversation(
   token: string,
   backendUrl: string,

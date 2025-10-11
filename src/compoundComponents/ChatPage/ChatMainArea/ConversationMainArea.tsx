@@ -22,6 +22,7 @@ import {
   setPendingMessage,
   clearPendingMessage,
   invalidateConversationCache,
+  addActiveTask,
 } from '@/store/slices/conversation';
 import { useRouter } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -32,9 +33,10 @@ import { type Conversation as ConversationInterface } from '@/store/slices/conve
 interface ChatMainAreaProps {
   conversationId?: string;
   initialMessages?: UIMessage[];
+  onBannerClick?: () => void;
 }
 
-const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) => {
+const ChatMainArea = ({ conversationId, initialMessages, onBannerClick }: ChatMainAreaProps) => {
   const [input, setInput] = useState('');
   const [isCreatingConversation, setIsCreatingConversation] = useState(false);
   const dispatch = useDispatch();
@@ -61,6 +63,25 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
 
   const pendingMessages = useSelector((state: RootState) => state.conversation.pendingMessages);
   const isNewConversation = !conversationId;
+
+  // // 🎯 调试：直接从 Redux 获取 checklist 状态
+  // const checklists = useSelector((state: RootState) => state.checklist.checklists);
+  // const generatingChecklists = Object.values(checklists).filter(
+  //   (cl) => cl.status === 'generating'
+  // );
+
+  // useEffect(() => {
+  //   if (generatingChecklists.length > 0) {
+  //     console.log('🚨 [ConversationMainArea] Found generating checklists in Redux:', {
+  //       count: generatingChecklists.length,
+  //       checklists: generatingChecklists.map(cl => ({
+  //         id: cl.checklistId,
+  //         title: cl.title,
+  //         status: cl.status,
+  //       })),
+  //     });
+  //   }
+  // }, [generatingChecklists]);
 
   // Send pending message after conversation creation (ref prevents duplicate sends)
   useEffect(() => {
@@ -89,6 +110,50 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
     }
     prevStatusRef.current = status;
   }, [status, conversationId, dispatch]);
+
+  // Extract task-id and checklist-pending from latest message
+  useEffect(() => {
+    if (messages.length === 0 || !conversationId) return;
+
+    const lastMessage = messages[messages.length - 1];
+    const _partTypes =
+      lastMessage.parts?.map((part) => {
+        if (typeof part !== 'object' || part === null) return typeof part;
+        return (part as { type?: string }).type ?? 'unknown';
+      }) || [];
+
+    // console.log('[Chat] Checking message for data parts:', {
+    //   role: lastMessage.role,
+    //   hasParts: !!lastMessage.parts,
+    //   partsCount: lastMessage.parts?.length || 0,
+    //   parts: lastMessage.parts,
+    //   partTypes,
+    // });
+
+    // if (lastMessage.parts) {
+    //   console.log('[Chat] Parts JSON:', JSON.stringify(lastMessage.parts, null, 2));
+    // }
+
+    if (lastMessage.role !== 'assistant' || !lastMessage.parts) return;
+
+    // Check for task-id
+    const taskIdPart = lastMessage.parts.find((part: unknown) => {
+      const p = part as { type?: string; data?: { taskId?: string } };
+      return p.type === 'data-task-id' && p.data?.taskId;
+    });
+
+    if (taskIdPart) {
+      const p = taskIdPart as { data: { taskId: string; status: string } };
+      // console.log('[Chat] Task ID detected:', p.data.taskId);
+      dispatch(
+        addActiveTask({
+          taskId: p.data.taskId,
+          conversationId,
+          status: p.data.status,
+        }),
+      );
+    }
+  }, [messages, conversationId, dispatch]);
 
   const handleSubmit = async (_message: PromptInputMessage, event: FormEvent) => {
     event.preventDefault();
@@ -155,6 +220,7 @@ const ChatMainArea = ({ conversationId, initialMessages }: ChatMainAreaProps) =>
                   key={message.id}
                   message={message}
                   aiAvatarSrc={'/images/logo-avatar.png'}
+                  onBannerClick={onBannerClick}
                 />
               ))}
               {status === 'submitted' && (

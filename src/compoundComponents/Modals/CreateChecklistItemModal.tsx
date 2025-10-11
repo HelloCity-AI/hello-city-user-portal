@@ -20,13 +20,13 @@ import {
   Typography,
 } from '@mui/material';
 import { Trans, useLingui } from '@lingui/react';
-import type { CreateChecklistItemRequest } from '../../types/checkList.types';
+import type { ChecklistItem } from '@/types/checklist.types';
 import DatePicker from '@/components/DatePicker';
 import dayjs from 'dayjs';
 interface CreateChecklistItemModalProps {
   open: boolean;
   onClose: () => void;
-  onSubmit: (data: CreateChecklistItemRequest) => Promise<void>;
+  onSubmit: (data: Partial<ChecklistItem>) => Promise<void>;
   userId: string;
 }
 
@@ -38,13 +38,15 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
 }) => {
   const { i18n } = useLingui();
 
-  const [formData, setFormData] = useState<CreateChecklistItemRequest>({
-    ownerId: userId,
+  const [formData, setFormData] = useState<Partial<ChecklistItem>>({
+    id: '',
     title: '',
     description: '',
     isComplete: false,
-    importance: 'Low',
-    dueDate: dayjs().add(7, 'day'),
+    importance: 'low',
+    dueDate: dayjs().add(7, 'day').format('YYYY-MM-DD'),
+    order: 0,
+    createdAt: new Date().toISOString(),
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string>('');
@@ -54,7 +56,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
     description: false,
   });
 
-  const handleInputChange = (field: keyof CreateChecklistItemRequest, value: unknown) => {
+  const handleInputChange = (field: keyof ChecklistItem, value: unknown) => {
     setFormData((prev) => {
       const newData = {
         ...prev,
@@ -78,7 +80,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
   const handleDateChange = (newDate: dayjs.Dayjs | null) => {
     setFormData((prev) => ({
       ...prev,
-      dueDate: newDate,
+      dueDate: newDate ? newDate.format('YYYY-MM-DD') : undefined,
     }));
   };
 
@@ -118,12 +120,14 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
 
   const resetForm = () => {
     setFormData({
-      ownerId: userId,
+      id: '',
       title: '',
       description: '',
       isComplete: false,
-      importance: 'Low',
-      dueDate: dayjs(null),
+      importance: 'low',
+      dueDate: undefined,
+      order: 0,
+      createdAt: new Date().toISOString(),
     });
     setTouched({
       title: false,
@@ -133,7 +137,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
   };
 
   const isFormValid = () => {
-    return formData.title.trim() !== '' && formData.description.trim() !== '';
+    return (formData.title?.trim() ?? '') !== '' && (formData.description?.trim() ?? '') !== '';
   };
 
   const handleClose = () => {
@@ -171,9 +175,9 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
             onBlur={() => handleBlur('title')}
             fullWidth
             required
-            error={touched.title && (formData.title === '' || !formData.title.trim())}
+            error={touched.title && (formData.title === '' || !formData.title?.trim())}
             helperText={
-              touched.title && (!formData.title.trim() || formData.title === '')
+              touched.title && (!formData.title?.trim() || formData.title === '')
                 ? i18n._('create-checklist.title-required', { default: 'Title is required' })
                 : i18n._('create-checklist.title-helper', {
                     default: 'Give your checklist item a clear, concise name',
@@ -195,10 +199,10 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
             rows={3}
             required
             error={
-              touched.description && (formData.description === '' || !formData.description.trim())
+              touched.description && (formData.description === '' || !formData.description?.trim())
             }
             helperText={
-              touched.description && (!formData.description.trim() || formData.description === '')
+              touched.description && (!formData.description?.trim() || formData.description === '')
                 ? i18n._('create-checklist.description-required', {
                     default: 'Description is required',
                   })
@@ -210,7 +214,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
           />
           <DatePicker
             label={<Trans id="create-checklist.due-date" message="Due Date" />}
-            value={formData.dueDate}
+            value={formData.dueDate ? dayjs(formData.dueDate) : null}
             onChange={handleDateChange}
             disabled={isSubmitting}
           />
@@ -223,7 +227,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
               label={i18n._('create-checklist.importance-field', { default: 'Importance' })}
               onChange={(e) => handleInputChange('importance', e.target.value)}
             >
-              <MenuItem value="Low">
+              <MenuItem value="low">
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <Typography>
                     <Trans id="importance.low" message="Low" />
@@ -233,7 +237,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
                   </Typography>
                 </Box>
               </MenuItem>
-              <MenuItem value="Medium">
+              <MenuItem value="medium">
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <Typography>
                     <Trans id="importance.medium" message="Medium" />
@@ -243,7 +247,7 @@ export const CreateChecklistItemModal: React.FC<CreateChecklistItemModalProps> =
                   </Typography>
                 </Box>
               </MenuItem>
-              <MenuItem value="High">
+              <MenuItem value="high">
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                   <Typography>
                     <Trans id="importance.high" message="High" />

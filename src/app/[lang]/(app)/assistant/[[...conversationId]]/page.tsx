@@ -34,7 +34,8 @@ export default function ChatPage() {
   const initialMessages: UIMessage[] | undefined = cachedMessages?.map((msg) => ({
     id: msg.id,
     role: msg.role,
-    parts: [{ type: 'text', text: msg.content }],
+    // Use msg.parts if available, fallback to content-only for backward compatibility
+    parts: msg.parts && msg.parts.length > 0 ? msg.parts : [{ type: 'text', text: msg.content }],
   }));
 
   // Only show skeleton when actively loading this conversation's messages
@@ -43,10 +44,18 @@ export default function ChatPage() {
     : false;
   const shouldRenderChat = !isLoadingMessages;
 
+  const handleOpenChecklist = () => {
+    setChecklistPanelCollapsed(false);
+  };
+
   return (
     <div className="flex h-screen">
       {shouldRenderChat ? (
-        <ChatMainArea conversationId={conversationId} initialMessages={initialMessages} />
+        <ChatMainArea
+          conversationId={conversationId}
+          initialMessages={initialMessages}
+          onBannerClick={handleOpenChecklist}
+        />
       ) : (
         <ChatMainContentContainer>
           <div className="flex-1 overflow-y-auto">
@@ -57,6 +66,7 @@ export default function ChatPage() {
       <ChecklistPanel
         isCollapsed={isChecklistPanelCollapsed}
         onToggle={() => setChecklistPanelCollapsed((prev) => !prev)}
+        conversationId={conversationId}
       />
     </div>
   );

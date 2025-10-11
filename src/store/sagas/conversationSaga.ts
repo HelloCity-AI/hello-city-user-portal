@@ -18,6 +18,15 @@ import {
 } from '../slices/conversation';
 import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
 import { type RootState } from '..';
+import { upsertChecklistMetadata, setActiveChecklist } from '../slices/checklist';
+import type {
+  ChecklistMetadata,
+  ChecklistItem as ChecklistItemModel,
+  ChecklistImportance,
+  StayType,
+  ChecklistStatus,
+  CityCode,
+} from '@/compoundComponents/ChatPage/ChecklistPanel/types';
 
 interface ApiResponse<T> {
   status: number;
@@ -29,6 +38,37 @@ type ConversationsResponse = ApiResponse<Conversation[]>;
 type ConversationResponse = ApiResponse<MessageDto[]>;
 type UpdateResponse = ApiResponse<Conversation>;
 type DeleteResponse = ApiResponse<null>;
+type ChecklistResponse = ApiResponse<ChecklistApiDto[]>;
+
+interface ChecklistItemApiDto {
+  checklistItemId: string;
+  title?: string | null;
+  description?: string | null;
+  isComplete: boolean;
+  importance?: string | null;
+  category?: string | null;
+  dueDate?: string | null;
+  order?: number | null;
+  createdAt?: string | null;
+  updatedAt?: string | null;
+}
+
+interface ChecklistApiDto {
+  checklistId: string;
+  conversationId: string;
+  parentChecklistId?: string | null;
+  versionNumber: number;
+  title?: string | null;
+  summary?: string | null;
+  destination?: string | null;
+  duration?: string | null;
+  stayType?: string | null;
+  cityCode?: string | null;
+  status?: string | null;
+  createdAt: string;
+  updatedAt: string;
+  items: ChecklistItemApiDto[];
+}
 
 export async function fetchConversationsApiWrapper(): Promise<ConversationsResponse> {
   return fetchWithErrorHandling<Conversation[]>('/api/conversation/me', {
@@ -72,6 +112,125 @@ export async function deleteConversationApiWrapper(
       'Content-Type': 'application/json',
     },
   });
+}
+
+export async function fetchChecklistsApiWrapper(
+  conversationId: string,
+): Promise<ChecklistResponse> {
+  return fetchWithErrorHandling<ChecklistApiDto[]>(
+    `/api/conversation/${conversationId}/checklists`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+}
+
+const stayTypeMap: Record<string, StayType> = {
+  shortterm: 'shortTerm',
+  'short-term': 'shortTerm',
+  short: 'shortTerm',
+  mediumterm: 'mediumTerm',
+  'medium-term': 'mediumTerm',
+  medium: 'mediumTerm',
+  longterm: 'longTerm',
+  'long-term': 'longTerm',
+  long: 'longTerm',
+};
+
+const statusMap: Record<string, ChecklistStatus> = {
+  pending: 'pending',
+  generating: 'generating',
+  started: 'generating',
+  completed: 'completed',
+  success: 'completed',
+  failed: 'failed',
+  failure: 'failed',
+};
+
+const importanceMap: Record<string, ChecklistImportance> = {
+  urgent: 'high',
+  high: 'high',
+  medium: 'medium',
+  low: 'low',
+};
+
+function normalizeStayType(value?: string | null): StayType {
+  if (!value) return 'mediumTerm';
+  const key = value.trim().toLowerCase();
+  return stayTypeMap[key] ?? 'mediumTerm';
+}
+
+function normalizeStatus(value?: string | null): ChecklistStatus {
+  if (!value) return 'generating';
+  const key = value.trim().toLowerCase();
+  return statusMap[key] ?? 'generating';
+}
+
+function normalizeImportance(value?: string | null): ChecklistImportance {
+  if (!value) return 'medium';
+  const key = value.trim().toLowerCase();
+  return importanceMap[key] ?? 'medium';
+}
+
+function normalizeCityCode(value?: string | null): CityCode {
+  if (!value) return 'default';
+  const normalized = value.trim().toLowerCase();
+  return (normalized || 'default') as CityCode;
+}
+
+function toIsoStringOrNull(value?: string | null): string {
+  if (!value) return new Date().toISOString();
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) {
+    return value;
+  }
+  return date.toISOString();
+}
+
+function transformChecklistItemPayload(item: ChecklistItemApiDto): ChecklistItemModel {
+  return {
+    id: item.checklistItemId,
+    title: item.title?.trim() ?? '',
+    description: item.description?.trim() ?? '',
+    importance: normalizeImportance(item.importance),
+    dueDate: item.dueDate ?? undefined,
+    category: item.category?.trim() || 'General',
+    order: item.order ?? 0,
+    isComplete: item.isComplete,
+    createdAt: toIsoStringOrNull(item.createdAt),
+    updatedAt: item.updatedAt
+      ? toIsoStringOrNull(item.updatedAt)
+      : toIsoStringOrNull(item.createdAt),
+  };
+}
+
+function transformChecklistPayload(payload: ChecklistApiDto): ChecklistMetadata {
+  const items = (payload.items ?? [])
+    .slice()
+    .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+    .map(transformChecklistItemPayload);
+
+  const transformed = {
+    checklistId: payload.checklistId,
+    conversationId: payload.conversationId,
+    version: payload.versionNumber,
+    previousVersionId: payload.parentChecklistId ?? undefined,
+    title: payload.title?.trim() ?? 'Checklist',
+    summary: payload.summary?.trim() ?? '',
+    destination: payload.destination?.trim() ?? 'TBD',
+    duration: payload.duration?.trim() ?? 'TBD',
+    stayType: normalizeStayType(payload.stayType),
+    cityCode: normalizeCityCode(payload.cityCode) as any,
+    status: normalizeStatus(payload.status),
+    items,
+    createdAt: toIsoStringOrNull(payload.createdAt),
+    updatedAt: toIsoStringOrNull(payload.updatedAt),
+  };
+
+  return transformed;
 }
 
 export function* handleFetchConversations(): SagaIterator {
@@ -149,6 +308,32 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
 
       if (!exists) {
         yield call(handleFetchConversations);
+      }
+    }
+
+    // Step 8: Fetch persisted checklists for this conversation
+    const checklistRes: ChecklistResponse = yield call(fetchChecklistsApiWrapper, conversationId);
+
+    if (checklistRes.ok && checklistRes.data) {
+      const transformed = checklistRes.data.map(transformChecklistPayload);
+      for (const checklist of transformed) {
+        yield put(upsertChecklistMetadata(checklist));
+      }
+
+      const checklistState: RootState = yield select();
+      const activeId = checklistState.checklist.activeChecklistId;
+      const hasActiveInConversation = activeId
+        ? transformed.some((cl) => cl.checklistId === activeId)
+        : false;
+
+      if (!hasActiveInConversation) {
+        const sortedByVersion = [...transformed].sort((a, b) => b.version - a.version);
+        const latestCompleted = sortedByVersion.find((cl) => cl.status === 'completed');
+        const nextActive = latestCompleted ?? sortedByVersion[0];
+
+        if (nextActive) {
+          yield put(setActiveChecklist(nextActive.checklistId));
+        }
       }
     }
   } catch (error: unknown) {

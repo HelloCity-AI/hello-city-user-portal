@@ -8,31 +8,30 @@ import Typography from '@mui/material/Typography';
 
 import Checkbox from '@/components/Checkbox';
 import { mergeClassNames } from '@/utils/classNames';
+import { formatDueDate, getDueDateUrgencyColor } from '../../utils/dateFormatter';
 
 import type { ChecklistCardProps } from '../../types';
 
-const importanceStyles = {
-  urgent: {
+const importanceStyles: Record<
+  'high' | 'medium' | 'low',
+  { bg: string; text: string; label: JSX.Element }
+> = {
+  high: {
     bg: '#FEE2E2',
     text: '#DC2626',
-    label: <Trans id="checklist.importance.urgent" message="URGENT" />,
-  },
-  high: {
-    bg: '#FEF3C7',
-    text: '#D97706',
     label: <Trans id="checklist.importance.high" message="HIGH" />,
   },
   medium: {
-    bg: '#DBEAFE',
-    text: '#2563EB',
+    bg: '#FEF3C7',
+    text: '#D97706',
     label: <Trans id="checklist.importance.medium" message="MED" />,
   },
   low: {
-    bg: '#D1FAE5',
-    text: '#059669',
+    bg: '#DBEAFE',
+    text: '#2563EB',
     label: <Trans id="checklist.importance.low" message="LOW" />,
   },
-} as const;
+};
 
 const CHIP_BASE_CLASSES = 'h-5 text-[10px]';
 
@@ -145,14 +144,12 @@ export default function ChecklistCard({
               <Chip
                 icon={<CalendarTodayOutlinedIcon className="text-xs" />}
                 label={
-                  <Trans
-                    id="checklist.due.label"
-                    message="Due: {date}"
-                    values={{ date: item.dueDate }}
-                  />
+                  <>
+                    <Trans id="checklist.due.prefix" message="Due:" /> {formatDueDate(item.dueDate)}
+                  </>
                 }
                 size="small"
-                className={mergeClassNames(CHIP_BASE_CLASSES, 'bg-gray-100')}
+                className={mergeClassNames(CHIP_BASE_CLASSES, getDueDateUrgencyColor(item.dueDate))}
                 sx={{
                   '& .MuiChip-icon': {
                     fontSize: 12,

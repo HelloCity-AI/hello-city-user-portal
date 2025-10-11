@@ -5,7 +5,7 @@ import { CreateChecklistItemButton } from '@/components/CreateChecklistItemButto
 import { CreateChecklistItemModal } from '@/compoundComponents/Modals/CreateChecklistItemModal';
 import { checklistApi } from '@/api/checklistApi';
 import dayjs from 'dayjs';
-import type { CreateChecklistItemRequest } from '@/types/checkList.types';
+import type { ChecklistItem } from '@/types/checklist.types';
 
 jest.mock('@/api/checklistApi', () => ({
   checklistApi: { createChecklistItem: jest.fn() },
@@ -26,31 +26,34 @@ const mockCreateChecklistItem = checklistApi.createChecklistItem as jest.MockedF
 >;
 
 describe('CreateChecklistItemButton', () => {
-  let onSubmit: (data: CreateChecklistItemRequest) => Promise<void>;
-  const defaultFormData: CreateChecklistItemRequest = {
-    ownerId: 'user-123',
+  let onSubmit: (data: Partial<ChecklistItem>) => Promise<void>;
+  const defaultFormData: Partial<ChecklistItem> = {
+    id: '',
     title: 'Test Item',
     description: 'Test Description',
     isComplete: false,
-    importance: 'Low',
-    dueDate: null,
+    importance: 'low',
+    dueDate: undefined,
+    order: 0,
+    createdAt: '',
   };
 
   beforeEach(() => {
     jest.clearAllMocks();
     mockUseSelector.mockReturnValue('user-123');
     mockCreateChecklistItem.mockResolvedValue({
-      checklistItemId: 'item-123',
-      ownerId: 'user-123',
+      id: 'item-123',
       title: 'Test Item',
       description: 'Test Description',
       isComplete: false,
-      importance: 'Low',
-      dueDate: dayjs('2025-09-26'),
+      importance: 'low',
+      dueDate: '2025-09-26',
+      order: 0,
+      createdAt: new Date().toISOString(),
     });
     render(<CreateChecklistItemButton />);
     const modalProps = mockModal.mock.calls[0]?.[0];
-    onSubmit = modalProps?.onSubmit as (data: CreateChecklistItemRequest) => Promise<void>;
+    onSubmit = modalProps?.onSubmit as (data: Partial<ChecklistItem>) => Promise<void>;
   });
 
   it('renders button when user exists', () => {
@@ -105,20 +108,19 @@ describe('CreateChecklistItemButton', () => {
     jest.clearAllMocks();
     mockUseSelector.mockReturnValue('user-123');
     mockCreateChecklistItem.mockResolvedValue({
-      checklistItemId: 'item-123',
-      ownerId: 'user-123',
+      id: 'item-123',
       title: 'Test Item',
       description: 'Test Description',
       isComplete: false,
-      importance: 'Low',
-      dueDate: dayjs('2025-09-26'),
+      importance: 'low',
+      dueDate: '2025-09-26',
+      order: 0,
+      createdAt: new Date().toISOString(),
     });
     const onItemCreatedMock = jest.fn();
     render(<CreateChecklistItemButton onItemCreated={onItemCreatedMock} />);
     const modalProps = mockModal.mock.calls[0]?.[0];
-    const localOnSubmit = modalProps?.onSubmit as (
-      data: CreateChecklistItemRequest,
-    ) => Promise<void>;
+    const localOnSubmit = modalProps?.onSubmit as (data: Partial<ChecklistItem>) => Promise<void>;
     await localOnSubmit(defaultFormData);
     expect(onItemCreatedMock).toHaveBeenCalled();
   });

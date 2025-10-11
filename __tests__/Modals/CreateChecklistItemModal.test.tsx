@@ -218,19 +218,18 @@ describe('CreateChecklistItemModal', () => {
     // 提交表单
     fireEvent.click(screen.getByRole('button', { name: /create item/i }));
 
-    // 验证提交数据
+    // 验证提交数据(不包含ownerId,由调用者添加)
     await waitFor(() => {
       expect(mockOnSubmit).toHaveBeenCalledWith(
         expect.objectContaining({
-          ownerId: userId,
           title: 'Test Task',
           description: 'This is a test description',
-          importance: 'Medium',
+          importance: 'medium', // 小写格式
           isComplete: false,
         }),
       );
 
-      // 关键：等待onClose被调用
+      // 关键:等待onClose被调用
       expect(mockOnClose).toHaveBeenCalled();
     });
   });
@@ -322,11 +321,11 @@ describe('CreateChecklistItemModal', () => {
     // 提交表单
     fireEvent.click(screen.getByRole('button', { name: /create item/i }));
 
-    // 验证提交数据包含日期
+    // 验证提交数据包含日期(字符串格式 ISO 8601)
     await waitFor(() => {
       expect(mockOnSubmit).toHaveBeenCalledWith(
         expect.objectContaining({
-          dueDate: expect.any(Object), // dayjs 对象
+          dueDate: '2025-12-31', // 字符串格式 'YYYY-MM-DD'
         }),
       );
     });

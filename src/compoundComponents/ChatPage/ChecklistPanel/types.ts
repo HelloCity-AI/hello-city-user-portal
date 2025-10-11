@@ -1,6 +1,26 @@
 import type { ReactNode } from 'react';
 
-export type ChecklistImportance = 'urgent' | 'high' | 'medium' | 'low';
+// Import unified types from central location
+import type {
+  ChecklistItem,
+  ChecklistImportance,
+  ChecklistStatus,
+  ChecklistMetadata,
+  ChecklistBanner,
+  StayType,
+} from '@/types/checklist.types';
+
+// Re-export for consumers
+export type {
+  ChecklistItem,
+  ChecklistImportance,
+  ChecklistStatus,
+  ChecklistMetadata,
+  ChecklistBanner,
+  StayType,
+};
+
+// UI-specific types (not in central types)
 export type FilterType = 'all' | 'completed' | 'incomplete';
 
 export type CityCode =
@@ -54,26 +74,21 @@ export type CityCode =
   | 'bali'
   | 'default';
 
+/**
+ * City info with React elements for UI rendering
+ * Stored in cityData.tsx, NOT in Redux state
+ */
 export interface CityInfo {
   code: CityCode;
   name: ReactNode;
+  country: string;
   heroImage: string;
   fallbackImage?: string;
   description: ReactNode;
   tagline: ReactNode;
 }
 
-export interface ChecklistItem {
-  id: string;
-  title: string;
-  description?: string;
-  importance?: ChecklistImportance;
-  dueDate?: string;
-  category?: string;
-  isComplete: boolean;
-  createdAt?: string;
-  updatedAt?: string;
-}
+// ChecklistItem now imported from @/types/checklist.types
 
 export interface ChecklistHandlers {
   onToggle: (itemId: string) => void;
@@ -100,12 +115,11 @@ export interface ChecklistStats {
 export interface ChecklistPanelProps {
   isCollapsed: boolean;
   onToggle: () => void;
-  checklistItems?: ChecklistItem[];
+  conversationId?: string;
   cityInfo?: CityInfo;
   heroImage?: string;
   title?: string;
   subtitle?: string;
-  onChecklistUpdate?: (items: ChecklistItem[]) => void;
   onChecklistToggle?: (itemId: string) => void;
   onChecklistEdit?: (item: ChecklistItem) => void;
   onChecklistDelete?: (itemId: string) => void;
@@ -152,3 +166,7 @@ export interface ChecklistCardProps {
   onEdit: (item: ChecklistItem) => void;
   onDelete: (itemId: string) => void;
 }
+
+// ========== AI-Generated Checklist Types ==========
+// Note: ChecklistMetadata, ChecklistBanner, StayType, ChecklistStatus
+// are now imported from @/types/checklist.types

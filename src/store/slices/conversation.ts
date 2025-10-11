@@ -13,7 +13,20 @@ export interface MessageDto {
   messageType: string; // 'Questions' | 'Answer' | Summary'
   role: 'user' | 'assistant' | 'system';
   content: string;
+  parts?: Array<{
+    type: string;
+    text?: string;
+    id?: string;
+    data?: unknown; // For data-checklist parts
+  }>;
   createdAt?: string;
+}
+
+export interface TaskInfo {
+  taskId: string;
+  conversationId: string;
+  status: 'pending' | 'generating' | 'completed' | 'failed';
+  startedAt: number;
 }
 
 interface ConversationState {
@@ -31,6 +44,8 @@ interface ConversationState {
   cacheTimestamps: Record<string, number>;
   /** Pending messages to be sent after conversation creation (conversationId -> message) */
   pendingMessages: Record<string, string>;
+  /** Active tasks being polled (taskId -> TaskInfo) */
+  activeTasks: Record<string, TaskInfo>;
   /** Error message from failed operations */
   error?: string | null;
 }
@@ -43,6 +58,7 @@ const initialState: ConversationState = {
   messagesByConversation: {},
   cacheTimestamps: {},
   pendingMessages: {},
+  activeTasks: {},
   error: null,
 };
 
@@ -135,6 +151,33 @@ const conversationSlice = createSlice({
       delete state.cacheTimestamps[conversationId];
     },
 
+    addActiveTask: (
+      state,
+      action: PayloadAction<{ taskId: string; conversationId: string; status: string }>,
+    ) => {
+      const { taskId, conversationId, status } = action.payload;
+      state.activeTasks[taskId] = {
+        taskId,
+        conversationId,
+        status: status as TaskInfo['status'],
+        startedAt: Date.now(),
+      };
+    },
+
+    updateTaskStatus: (
+      state,
+      action: PayloadAction<{ taskId: string; status: TaskInfo['status'] }>,
+    ) => {
+      const { taskId, status } = action.payload;
+      if (state.activeTasks[taskId]) {
+        state.activeTasks[taskId].status = status;
+      }
+    },
+
+    removeTask: (state, action: PayloadAction<string>) => {
+      delete state.activeTasks[action.payload];
+    },
+
     fetchAllConversations: () => {},
     fetchConversationMessages: (_state, _action: PayloadAction<string>) => {},
     updateConversation: (_state, _action: PayloadAction<{ id: string; title: string }>) => {},
@@ -154,6 +197,9 @@ export const {
   setPendingMessage,
   clearPendingMessage,
   invalidateConversationCache,
+  addActiveTask,
+  updateTaskStatus,
+  removeTask,
   fetchAllConversations,
   fetchConversationMessages,
   updateConversation,
