@@ -128,14 +128,14 @@ const UserProfileCard: React.FC<UserData> = ({
           {subtitle}
         </span>
 
-        <div className="mt-1 flex items-center gap-1 text-sm text-gray-500">
+        {/* <div className="mt-1 flex items-center gap-1 text-sm text-gray-500">
           <span
             className={`block min-w-0 ${textMode}`}
             title={showTooltip ? `last login: ${last}` : undefined}
           >
             last login: {formattedLast}
           </span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

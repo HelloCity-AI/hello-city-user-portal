@@ -1,7 +1,8 @@
-import { Reorder } from 'framer-motion';
+import { Reorder, useDragControls } from 'framer-motion';
 import { Trans } from '@lingui/react';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 import Chip from '@mui/material/Chip';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
@@ -42,6 +43,7 @@ export default function ChecklistCard({
   onDelete: _onDelete,
 }: ChecklistCardProps) {
   const importanceStyle = item.importance ? importanceStyles[item.importance] : null;
+  const dragControls = useDragControls();
 
   // TODO: Implement edit functionality with modal (_onEdit)
   // TODO: Implement delete functionality with confirmation (_onDelete)
@@ -51,6 +53,8 @@ export default function ChecklistCard({
     <Reorder.Item
       value={item.id}
       id={item.id}
+      dragListener={false}
+      dragControls={dragControls}
       initial={{ opacity: 0, y: -10, height: 0 }}
       animate={{ opacity: 1, y: 0, height: 'auto' }}
       exit={{ opacity: 0, y: -10, height: 0 }}
@@ -66,13 +70,24 @@ export default function ChecklistCard({
           'group relative mb-3 flex min-h-[120px] flex-col',
           'rounded-xl bg-white p-4',
           'border border-gray-200 shadow-sm',
-          'cursor-grab transition-all hover:border-blue-300 hover:shadow-md active:cursor-grabbing',
+          'transition-all hover:border-blue-300 hover:shadow-md',
           item.isComplete ? 'opacity-70' : 'opacity-100',
         )}
       >
         {/* Title Row with Actions */}
         <div className="mb-2 flex items-center justify-between">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0 md:gap-1">
+            {/* Drag Handle - Aligned with checkbox */}
+            <div
+              className={mergeClassNames(
+                'flex h-8 w-8 flex-shrink-0 cursor-grab items-center justify-center',
+              )}
+              onPointerDown={(e) => dragControls.start(e)}
+              style={{ touchAction: 'none' }}
+            >
+              <DragIndicatorIcon className="text-gray-400" sx={{ fontSize: 20 }} />
+            </div>
+
             {/* Checkbox inline with title */}
             <Checkbox
               label=""
@@ -109,13 +124,13 @@ export default function ChecklistCard({
           <IconButton
             size="small"
             className={mergeClassNames(
-              'h-6 w-6 min-w-0 p-1',
+              'h-8 w-8 min-w-0 p-1',
               'border border-gray-300',
-              'opacity-0 transition-opacity group-hover:opacity-100',
+              'opacity-100 transition-opacity lg:opacity-0 lg:group-hover:opacity-100',
               'hover:border-gray-400 hover:bg-gray-50',
             )}
           >
-            <MoreHorizIcon className="text-sm" />
+            <MoreHorizIcon sx={{ fontSize: 20 }} />
           </IconButton>
         </div>
 
