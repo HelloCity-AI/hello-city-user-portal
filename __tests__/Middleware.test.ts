@@ -75,11 +75,11 @@ describe('middleware', () => {
     it('Redirects to add locale with Accept-Language header preference', async () => {
       const res = await middleware(
         createRequest('/create-user-profile', {
-          'Accept-Language': 'zh,en;q=0.9',
+          'Accept-Language': 'zh-CN,en;q=0.9',
         }),
       );
       expect(res?.status).toBe(307);
-      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/create-user-profile');
+      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh-CN/create-user-profile');
     });
 
     it('Does not redirect when locale is already present (home page)', async () => {
@@ -155,9 +155,9 @@ describe('middleware', () => {
       (auth0.getAccessToken as jest.Mock).mockResolvedValue({ token: 'fake-token' });
       global.fetch = jest.fn().mockResolvedValue({ status: 404, ok: false });
 
-      const res = await middleware(createRequest('/zh/dashboard'));
+      const res = await middleware(createRequest('/zh-CN/dashboard'));
       expect(res?.status).toBe(307);
-      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/create-user-profile');
+      expect(res?.headers.get('location')).toBe('http://localhost:3000/zh-CN/create-user-profile');
     });
 
     it('Allows access to create-user-profile page when authenticated', async () => {
@@ -191,13 +191,13 @@ describe('middleware', () => {
         expect(res?.headers.get('location')).toBe('http://localhost:3000/en/');
       });
 
-      it('Blocks unauthenticated users from /zh/assistant', async () => {
+      it('Blocks unauthenticated users from /zh-CN/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue(null);
 
-        const res = await middleware(createRequest('/zh/assistant'));
+        const res = await middleware(createRequest('/zh-CN/assistant'));
 
         expect(res?.status).toBe(307);
-        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh-CN/');
       });
 
       it('Allows authenticated users to access /en/assistant', async () => {
@@ -209,10 +209,10 @@ describe('middleware', () => {
         expect(res?.headers.get('location')).toBeNull();
       });
 
-      it('Allows authenticated users to access /zh/assistant', async () => {
+      it('Allows authenticated users to access /zh-CN/assistant', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
 
-        const res = await middleware(createRequest('/zh/assistant'));
+        const res = await middleware(createRequest('/zh-CN/assistant'));
 
         expect(res?.status).toBe(200);
         expect(res?.headers.get('location')).toBeNull();
@@ -229,13 +229,13 @@ describe('middleware', () => {
         expect(res?.headers.get('location')).toBe('http://localhost:3000/en/');
       });
 
-      it('Blocks unauthenticated users from /zh/create-user-profile', async () => {
+      it('Blocks unauthenticated users from /zh-CN/create-user-profile', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue(null);
 
-        const res = await middleware(createRequest('/zh/create-user-profile'));
+        const res = await middleware(createRequest('/zh-CN/create-user-profile'));
 
         expect(res?.status).toBe(307);
-        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh/');
+        expect(res?.headers.get('location')).toBe('http://localhost:3000/zh-CN/');
       });
 
       it('Allows authenticated users to access /en/create-user-profile', async () => {
@@ -247,10 +247,10 @@ describe('middleware', () => {
         expect(res?.headers.get('location')).toBeNull();
       });
 
-      it('Allows authenticated users to access /zh/create-user-profile', async () => {
+      it('Allows authenticated users to access /zh-CN/create-user-profile', async () => {
         (auth0.getSession as jest.Mock).mockResolvedValue({ user: { sub: 'abc' } });
 
-        const res = await middleware(createRequest('/zh/create-user-profile'));
+        const res = await middleware(createRequest('/zh-CN/create-user-profile'));
 
         expect(res?.status).toBe(200);
         expect(res?.headers.get('location')).toBeNull();
