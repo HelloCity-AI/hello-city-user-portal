@@ -93,6 +93,7 @@ msgstr "정말 로그아웃하시겠습니까?"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "생성 중..."
 
@@ -171,6 +172,7 @@ msgstr "생성 중..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "준비 완료"
 
@@ -493,17 +495,17 @@ msgid "cancel.button"
 msgstr "취소"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:91
 msgid "chat.disclaimer"
 msgstr "AI 답변에 오류가 있을 수 있습니다. 내용을 신중히 확인하세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:56
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
 msgid "chat.input.hint.press"
 msgstr "누르기"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:62
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:82
 msgid "chat.input.hint.send"
 msgstr "전송, Shift + Enter로 줄바꿈"
 
@@ -553,7 +555,7 @@ msgstr "자세히 보기"
 #~ msgstr "마감일"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
 msgid "checklist.due.prefix"
 msgstr "마감:"
 
@@ -588,17 +590,17 @@ msgid "checklist.filter.incomplete"
 msgstr "미완료"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:22
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
 msgid "checklist.importance.high"
 msgstr "중요"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:32
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
 msgid "checklist.importance.low"
 msgstr "보통"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:27
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
 msgid "checklist.importance.medium"
 msgstr "중간"
 
@@ -1383,72 +1385,72 @@ msgid "contact-us.title"
 msgstr "문의하기"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:30
+#: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
 msgstr "HelloCity는 AI 이주 도우미로, 단계별 체크리스트와 일정으로 새 도시에 쉽게 정착하도록 돕습니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:40
+#: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
 msgstr "무료로 시작할 수 있으며, 고급 옵션은 더 개인화된 안내와 기능을 제공합니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:50
+#: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
 msgstr "전 세계 주요 도시를 지원하며 지속적으로 확대합니다. 제품에서 최신 지원 지역을 확인하세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "기본 탐색은 계정이 필요 없습니다. 계정을 만들면 진행 상황 저장, 알림, 맞춤 일정이 가능합니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:70
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "네. HelloCity는 반응형으로 데스크톱, 태블릿, 모바일에서 매끄럽게 작동합니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:28
+#: src/compoundComponents/HomePage/FAQSection.tsx:29
 msgid "contact.faq.q1"
 msgstr "HelloCity란 무엇인가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:38
+#: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
 msgstr "HelloCity는 무료인가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:48
+#: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
 msgstr "어떤 도시를 지원하나요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:58
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "시작하려면 계정이 필요한가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:68
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "모바일에서도 잘 작동하나요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-msgid "contact.faq.results"
-msgstr "결과"
+#~ msgid "contact.faq.results"
+#~ msgstr "결과"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-msgid "contact.faq.searchPlaceholder"
-msgstr "질문을 입력하세요..."
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "질문을 입력하세요..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:119
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "HelloCity 관련 자주 묻는 질문을 빠르게 찾아보세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:111
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "자주 묻는 질문"
 
@@ -1688,123 +1690,153 @@ msgstr "아바타"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "취소"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:89
 #: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/testassistant/profile/page.tsx:89
+#: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "도시"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:187
+#: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
 msgstr "거주 도시를 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:130
+#: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "프로필 수정"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "개인 정보 수정"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
 #: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/testassistant/profile/page.tsx:75
+#: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "이메일"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "이메일을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:96
 #: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/testassistant/profile/page.tsx:96
+#: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "성별"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:110
 #: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/testassistant/profile/page.tsx:110
+#: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "전공"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "전공을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:82
 #: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/testassistant/profile/page.tsx:82
+#: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "국적"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:177
+#: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
 msgstr "국적을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:69
+#: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "개인 정보"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:117
 #: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/testassistant/profile/page.tsx:117
+#: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
 msgstr "선호 언어"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:240
+#: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
 msgstr "선호 언어를 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "초기화"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "제출"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "개인 정보와 선호 설정 관리"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:62
+#: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "프로필 설정"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:103
 #: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/testassistant/profile/page.tsx:103
+#: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "대학"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "대학명을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "사용자 이름"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "사용자 이름을 입력하세요"
 
@@ -1815,8 +1847,8 @@ msgstr "새 대화"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-msgid "sidebar.actions.searchChat"
-msgstr "대화 검색"
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "대화 검색"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57

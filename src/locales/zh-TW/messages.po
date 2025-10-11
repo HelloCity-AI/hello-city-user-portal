@@ -93,6 +93,7 @@ msgstr "您確定要登出帳戶嗎？"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "建立中..."
 
@@ -171,6 +172,7 @@ msgstr "建立中..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "我准备好了"
 
@@ -493,17 +495,17 @@ msgid "cancel.button"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:91
 msgid "chat.disclaimer"
 msgstr "AI 可能會出錯，請謹慎參考回覆內容。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:56
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
 msgid "chat.input.hint.press"
 msgstr "按"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:62
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:82
 msgid "chat.input.hint.send"
 msgstr "送出，按 Shift + Enter 換行"
 
@@ -555,7 +557,7 @@ msgstr "查看詳情"
 #~ msgstr "到期：{date}"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
 msgid "checklist.due.prefix"
 msgstr "到期："
 
@@ -590,17 +592,17 @@ msgid "checklist.filter.incomplete"
 msgstr "待辦"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:22
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
 msgid "checklist.importance.high"
 msgstr "重要"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:32
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
 msgid "checklist.importance.low"
 msgstr "一般"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:27
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
 msgid "checklist.importance.medium"
 msgstr "中等"
 
@@ -1385,72 +1387,72 @@ msgid "contact-us.title"
 msgstr "聯絡我們"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:30
+#: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
 msgstr "HelloCity 是您的 AI 搬遷助手，提供逐步清單和時間表，幫助您輕鬆搬到新城市。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:40
+#: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
 msgstr "您可以免費開始使用，高級選項可提供更個人化的指導和功能。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:50
+#: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
 msgstr "我們覆蓋全球主要城市，並會定期擴展。請在產品中查看最新支援的地區。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "基本瀏覽不需要帳號。建立帳號可以保存進度、提醒和自訂的時間表。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:70
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "是的。HelloCity 可自適應，並在桌面、平板與手機上流暢運行。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:28
+#: src/compoundComponents/HomePage/FAQSection.tsx:29
 msgid "contact.faq.q1"
 msgstr "什麼是 HelloCity？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:38
+#: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
 msgstr "HelloCity 是免費的嗎？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:48
+#: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
 msgstr "支援哪些城市？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:58
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "開始使用需要註冊帳號嗎？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:68
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "HelloCity 在手機上好用嗎？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-msgid "contact.faq.results"
-msgstr "結果"
+#~ msgid "contact.faq.results"
+#~ msgstr "結果"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-msgid "contact.faq.searchPlaceholder"
-msgstr "請輸入您的問題..."
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "請輸入您的問題..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:119
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "快速找到關於 HelloCity 的常見問題解答。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:111
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "常見問題"
 
@@ -1690,123 +1692,153 @@ msgstr "頭像"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:89
 #: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/testassistant/profile/page.tsx:89
+#: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "城市"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:187
+#: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
 msgstr "請輸入您所在的城市"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:130
+#: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "編輯個人資料"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "編輯個人資訊"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
 #: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/testassistant/profile/page.tsx:75
+#: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "電子郵件"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "請輸入您的電子郵件"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:96
 #: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/testassistant/profile/page.tsx:96
+#: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "性別"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:110
 #: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/testassistant/profile/page.tsx:110
+#: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "科系"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "請輸入您的科系"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:82
 #: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/testassistant/profile/page.tsx:82
+#: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "國籍"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:177
+#: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
 msgstr "請輸入您的國籍"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:69
+#: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "個人資訊"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:117
 #: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/testassistant/profile/page.tsx:117
+#: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
 msgstr "首選語言"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:240
+#: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
 msgstr "請輸入您的首選語言"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "重設"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "送出"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "管理您的個人資訊和偏好設定"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:62
+#: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "個人資料設定"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:103
 #: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/testassistant/profile/page.tsx:103
+#: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "大學"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "請輸入您的大學名稱"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "用戶名"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "請輸入用戶名"
 
@@ -1817,8 +1849,8 @@ msgstr "新對話"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-msgid "sidebar.actions.searchChat"
-msgstr "搜尋對話"
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "搜尋對話"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
