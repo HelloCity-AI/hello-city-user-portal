@@ -53,7 +53,7 @@ export default async function NotFound() {
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <picture>
-                  <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" />
+                  {/* <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" /> */}
                   <img
                     src={LOGO_CONFIG.dark}
                     alt="HelloCity"

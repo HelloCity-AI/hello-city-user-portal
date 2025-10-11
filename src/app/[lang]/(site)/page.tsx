@@ -20,9 +20,9 @@ export default function Home({ params }: { params: { lang: string } }) {
       <ValuePropositionSection locale={lang} />
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
-      <FAQSection locale={lang} />
+      <FAQSection />
       <CallToActionsSection locale={lang} />
-      <CreateChecklistItemButton />
+      <a href="/testassistant/assistant">test</a>
     </React.Fragment>
   );
 }

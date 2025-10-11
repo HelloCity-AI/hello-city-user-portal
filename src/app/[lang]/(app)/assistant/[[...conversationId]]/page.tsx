@@ -35,7 +35,9 @@ export default function ChatPage() {
     id: msg.id,
     role: msg.role,
     // Use msg.parts if available, fallback to content-only for backward compatibility
-    parts: msg.parts && msg.parts.length > 0 ? msg.parts : [{ type: 'text', text: msg.content }],
+    parts: (msg.parts && msg.parts.length > 0
+      ? msg.parts
+      : [{ type: 'text' as const, text: msg.content }]) as UIMessage['parts'],
   }));
 
   // Only show skeleton when actively loading this conversation's messages
