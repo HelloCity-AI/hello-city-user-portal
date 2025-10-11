@@ -555,7 +555,7 @@ msgstr "查看详情"
 #~ msgstr "截止日期"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
 msgid "checklist.due.prefix"
 msgstr "截止："
 
@@ -590,17 +590,17 @@ msgid "checklist.filter.incomplete"
 msgstr "待办"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:22
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
 msgid "checklist.importance.high"
 msgstr "重要"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:32
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
 msgid "checklist.importance.low"
 msgstr "一般"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:27
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
 msgid "checklist.importance.medium"
 msgstr "中等"
 
@@ -1360,47 +1360,47 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:117
+#: src/app/[lang]/(site)/contact-us/page.tsx:112
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:52
-msgid "contact-us.error.failed"
-msgstr "发送失败，请重试。"
+#~ msgid "contact-us.error.failed"
+#~ msgstr "发送失败，请重试。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:60
-msgid "contact-us.error.network"
-msgstr "发生错误，请重试。"
+#~ msgid "contact-us.error.network"
+#~ msgstr "发生错误，请重试。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:126
+#: src/app/[lang]/(site)/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:108
+#: src/app/[lang]/(site)/contact-us/page.tsx:104
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:147
+#: src/app/[lang]/(site)/contact-us/page.tsx:142
 msgid "contact-us.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:96
-msgid "contact-us.subtitle"
-msgstr "我们期待您的来信。请填写表单，我们会尽快回复您。"
+#~ msgid "contact-us.subtitle"
+#~ msgstr "我们期待您的来信。请填写表单，我们会尽快回复您。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:44
-msgid "contact-us.success"
-msgstr "发送成功！"
+#~ msgid "contact-us.success"
+#~ msgstr "发送成功！"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:93
+#: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "联系我们"
 
@@ -1867,8 +1867,8 @@ msgstr "新对话"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-msgid "sidebar.actions.searchChat"
-msgstr "搜索对话"
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "搜索对话"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57

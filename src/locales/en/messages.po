@@ -517,7 +517,7 @@ msgstr "View Details →"
 #~ msgstr "Due: {date}"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
 msgid "checklist.due.prefix"
 msgstr "Due:"
 
@@ -552,17 +552,17 @@ msgid "checklist.filter.incomplete"
 msgstr "Incomplete"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:22
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
 msgid "checklist.importance.high"
 msgstr "HIGH"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:32
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
 msgid "checklist.importance.low"
 msgstr "LOW"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:27
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
 msgid "checklist.importance.medium"
 msgstr "MED"
 
@@ -1322,47 +1322,47 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:117
+#: src/app/[lang]/(site)/contact-us/page.tsx:112
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:52
-msgid "contact-us.error.failed"
-msgstr "Failed to send message. Please try again."
+#~ msgid "contact-us.error.failed"
+#~ msgstr "Failed to send message. Please try again."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:60
-msgid "contact-us.error.network"
-msgstr "An error occurred. Please try again."
+#~ msgid "contact-us.error.network"
+#~ msgstr "An error occurred. Please try again."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:126
+#: src/app/[lang]/(site)/contact-us/page.tsx:121
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:108
+#: src/app/[lang]/(site)/contact-us/page.tsx:104
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:147
+#: src/app/[lang]/(site)/contact-us/page.tsx:142
 msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:96
-msgid "contact-us.subtitle"
-msgstr "We'd love to hear from you. Fill out the form and we'll get back to you soon."
+#~ msgid "contact-us.subtitle"
+#~ msgstr "We'd love to hear from you. Fill out the form and we'll get back to you soon."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:44
-msgid "contact-us.success"
-msgstr "Message sent successfully!"
+#~ msgid "contact-us.success"
+#~ msgstr "Message sent successfully!"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:93
+#: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
 msgstr "Contact Us"
 
@@ -1833,8 +1833,8 @@ msgstr "New Chat"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-msgid "sidebar.actions.searchChat"
-msgstr "Search Chat"
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "Search Chat"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
