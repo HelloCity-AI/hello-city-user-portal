@@ -9,7 +9,7 @@ const nextConfig = {
   env: {
     APP_BASE_URL: process.env.AWS_APP_ID
       ? `https://${process.env.AWS_BRANCH}.${process.env.AWS_APP_ID}.amplifyapp.com`
-      : process.env.APP_BASE_URL,
+      : process.env.APP_BASE_URL || 'http://localhost:3000',
   },
   images: {
     remotePatterns: [
