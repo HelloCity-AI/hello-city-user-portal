@@ -27,12 +27,7 @@ import type {
   ChecklistStatus,
   CityCode,
 } from '@/compoundComponents/ChatPage/ChecklistPanel/types';
-
-interface ApiResponse<T> {
-  status: number;
-  data: T | null;
-  ok: boolean;
-}
+import type { ApiResponse } from '@/types/api.types';
 
 type ConversationsResponse = ApiResponse<Conversation[]>;
 type ConversationResponse = ApiResponse<MessageDto[]>;

@@ -35,7 +35,7 @@ import {
   calculateChecklistStats,
   getVisibleItemIds,
   getItemsToRender,
-} from '../utils/checklistHelpers';
+} from '../utils/checklistFilterUtils';
 import { getCityInfo } from '../data/cityData';
 import { getCityDisplayData } from '../utils/cityDataHelpers';
 

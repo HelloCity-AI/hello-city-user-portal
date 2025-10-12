@@ -14,14 +14,9 @@ import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
 import type { CreateItemRequest } from '@/api/checklistItemApi';
 import type { ChecklistItem } from '@/types/checklist.types';
 import type { RootState } from '..';
+import type { ApiResponse } from '@/types/api.types';
 
 // ========== API Response Types ==========
-
-interface ApiResponse<T> {
-  status: number;
-  data: T | null;
-  ok: boolean;
-}
 
 type CreateItemResponse = ApiResponse<ChecklistItem>;
 type UpdateItemResponse = ApiResponse<ChecklistItem>;
@@ -171,14 +166,7 @@ export const reorderChecklistItemsRequest = createAction<ReorderPayload>(
 function* handleCreateChecklistItem(action: PayloadAction<CreateItemPayload>): SagaIterator {
   const { conversationId, checklistId, data } = action.payload;
 
-  console.log('🚀 [checklistSaga] handleCreateChecklistItem triggered', {
-    conversationId,
-    checklistId,
-    data,
-  });
-
   try {
-    console.log('📡 [checklistSaga] Calling API: createChecklistItemApiWrapper');
     const res: CreateItemResponse = yield call(
       createChecklistItemApiWrapper,
       conversationId,
@@ -187,16 +175,13 @@ function* handleCreateChecklistItem(action: PayloadAction<CreateItemPayload>): S
     );
 
     if (res.ok && res.data) {
-      console.log('✅ [checklistSaga] API call successful, dispatching addChecklistItem', res.data);
       yield put(addChecklistItem({ checklistId, item: res.data }));
     } else {
       const errorMessage = `Failed to create item: ${res.status}`;
-      console.error('❌ [checklistSaga] Error creating item:', errorMessage);
       yield put(setError(errorMessage));
     }
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : 'Failed to create item';
-    console.error('❌ [checklistSaga] Error creating item:', errorMessage, error);
     yield put(setError(errorMessage));
     throw error;
   }

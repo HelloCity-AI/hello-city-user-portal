@@ -4,13 +4,13 @@
  * Pure helper functions for checklist slice reducers.
  * Each function has a single responsibility.
  *
- * @module checklistHelpers
+ * @module reduxChecklistHelpers
  */
 
 import type {
   ChecklistMetadata,
   ChecklistBanner,
-} from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+} from '@/types/checklist.types';
 
 // ========== Helper Functions ==========
 

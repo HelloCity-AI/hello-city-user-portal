@@ -49,22 +49,10 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
   const canDrag = filter === 'all';
 
   const handleAdd = async (data: CreateItemRequest) => {
-    console.log('🔍 [ChecklistSection] handleAdd called', {
-      conversationId,
-      activeChecklistId,
-      checklist,
-      data,
-    });
-
     if (!conversationId || !activeChecklistId) {
-      console.warn('❌ [ChecklistSection] Missing conversationId or activeChecklistId', {
-        conversationId,
-        activeChecklistId,
-      });
       return;
     }
 
-    console.log('✅ [ChecklistSection] Dispatching createChecklistItemRequest');
     dispatch(
       createChecklistItemRequest({
         conversationId,

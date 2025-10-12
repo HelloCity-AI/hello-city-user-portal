@@ -4,13 +4,13 @@ import type {
   ChecklistMetadata,
   ChecklistBanner,
   ChecklistItem,
-} from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+} from '@/types/checklist.types';
 import {
   createBannerFromChecklist,
   mergeChecklists,
   upsertBanner,
   calculateCompletedCount,
-} from '../helpers/checklistHelpers';
+} from '../helpers/reduxChecklistHelpers';
 
 interface ChecklistState {
   // Key: checklistId
@@ -146,49 +146,19 @@ const checklistSlice = createSlice({
       const { checklistId, reorderedIds } = action.payload;
       const checklist = state.checklists[checklistId];
 
-      if (checklist) {
-        // 1. Find original indices of items being reordered
-        const originalIndices: number[] = [];
-        checklist.items.forEach((item, index) => {
-          if (reorderedIds.includes(item.id)) {
-            originalIndices.push(index);
-          }
-        });
+      if (!checklist) return;
 
-        // 2. Calculate insertion point (first original position)
-        const insertIndex = Math.min(...originalIndices);
+      // Build ID → item map for O(1) lookup
+      const idToItem = new Map(checklist.items.map((item) => [item.id, item]));
 
-        // 3. Remove items that will be reordered from original array
-        const remainingItems = checklist.items.filter(
-          (item) => !reorderedIds.includes(item.id),
-        );
+      // Reordered items in new order
+      const reordered = reorderedIds.map((id) => idToItem.get(id)).filter(Boolean) as ChecklistItem[];
 
-        // 4. Get reordered items in new order
-        const itemMap = new Map(checklist.items.map((item) => [item.id, item]));
-        const reorderedItems = reorderedIds
-          .map((id) => itemMap.get(id))
-          .filter((item): item is ChecklistItem => item !== undefined);
+      // Items not in reorderedIds (keep at end)
+      const remaining = checklist.items.filter((item) => !reorderedIds.includes(item.id));
 
-        // 5. Calculate how many remaining items come before insertIndex
-        // This converts the full-array insertIndex to remainingItems-array index
-        const itemsBeforeInsert = checklist.items
-          .slice(0, insertIndex)
-          .filter((item) => !reorderedIds.includes(item.id)).length;
-
-        // 6. Insert reordered items at the correct position in remainingItems
-        const newItems = [
-          ...remainingItems.slice(0, itemsBeforeInsert),
-          ...reorderedItems,
-          ...remainingItems.slice(itemsBeforeInsert),
-        ];
-
-        // 7. Update order field for all items
-        newItems.forEach((item, index) => {
-          item.order = index;
-        });
-
-        checklist.items = newItems;
-      }
+      // Merge and update order field in one pass
+      checklist.items = [...reordered, ...remaining].map((item, i) => ({ ...item, order: i }));
     },
 
     addChecklistItem(
