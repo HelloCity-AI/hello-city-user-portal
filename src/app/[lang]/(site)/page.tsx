@@ -1,5 +1,4 @@
 import React from 'react';
-import { CreateChecklistItemButton } from '@/components/CreateChecklistItemButton';
 import {
   HeroSection,
   AdventureShowcaseSection,
@@ -21,8 +20,8 @@ export default function Home({ params }: { params: { lang: string } }) {
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
       <FAQSection />
+      <FAQSection />
       <CallToActionsSection locale={lang} />
-      <a href="/testassistant/assistant">test</a>
     </React.Fragment>
   );
 }

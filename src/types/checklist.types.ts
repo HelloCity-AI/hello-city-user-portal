@@ -26,6 +26,15 @@ export interface ChecklistItem {
   /** Unique identifier (unified field name) */
   id: string;
 
+  /** Parent checklist ID (required for API calls) */
+  checklistId: string;
+
+  /** Parent conversation ID (required for API calls) */
+  conversationId: string;
+
+  /** Item source: AI-generated or manually created */
+  source?: 'ai-generated' | 'manual';
+
   /** Item title */
   title: string;
 

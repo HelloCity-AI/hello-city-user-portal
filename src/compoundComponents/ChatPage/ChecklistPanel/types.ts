@@ -165,6 +165,7 @@ export interface ChecklistCardProps {
   onToggle: (itemId: string) => void;
   onEdit: (item: ChecklistItem) => void;
   onDelete: (itemId: string) => void;
+  canDrag?: boolean;
 }
 
 // ========== AI-Generated Checklist Types ==========

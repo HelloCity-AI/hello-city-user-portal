@@ -312,9 +312,12 @@ src/
 │   └── Modals/             # Modal dialogs
 ├── store/                  # Redux state management
 │   ├── slices/             # Redux slices (user, conversation, checklist)
-│   └── sagas/              # Redux Saga files
-├── api/                    # API layer with Auth0 authentication
-│   └── transformers/       # Backend ↔ Frontend data transformation
+│   ├── sagas/              # Redux Saga files (userSaga, conversationSaga, checklistSaga)
+│   └── helpers/            # Pure helper functions (reduxChecklistHelpers.ts)
+├── lib/                    # Third-party configs & API client
+│   └── api-client.ts       # Axios backend HTTP client (unified API layer)
+├── api/                    # Type definitions & data transformers
+│   └── transformers/       # Backend ↔ Frontend format conversion
 ├── contexts/               # React contexts (Language, I18n)
 ├── hooks/                  # Custom React hooks
 ├── locales/                # i18n message catalogs (en/zh po format)

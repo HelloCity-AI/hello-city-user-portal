@@ -1,16 +1,12 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type {
-  ChecklistMetadata,
-  ChecklistBanner,
-  ChecklistItem,
-} from '@/compoundComponents/ChatPage/ChecklistPanel/types';
+import type { ChecklistMetadata, ChecklistBanner, ChecklistItem } from '@/types/checklist.types';
 import {
   createBannerFromChecklist,
   mergeChecklists,
   upsertBanner,
   calculateCompletedCount,
-} from '../helpers/checklistHelpers';
+} from '../helpers/reduxChecklistHelpers';
 
 interface ChecklistState {
   // Key: checklistId
@@ -146,22 +142,64 @@ const checklistSlice = createSlice({
       const { checklistId, reorderedIds } = action.payload;
       const checklist = state.checklists[checklistId];
 
+      if (!checklist) return;
+
+      // Build ID → item map for O(1) lookup
+      const idToItem = new Map(checklist.items.map((item) => [item.id, item]));
+
+      // Reordered items in new order
+      const reordered = reorderedIds
+        .map((id) => idToItem.get(id))
+        .filter(Boolean) as ChecklistItem[];
+
+      // Items not in reorderedIds (keep at end)
+      const remaining = checklist.items.filter((item) => !reorderedIds.includes(item.id));
+
+      // Merge and update order field in one pass
+      checklist.items = [...reordered, ...remaining].map((item, i) => ({ ...item, order: i }));
+    },
+
+    addChecklistItem(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        item: ChecklistItem;
+      }>,
+    ) {
+      const { checklistId, item } = action.payload;
+      const checklist = state.checklists[checklistId];
       if (checklist) {
-        // Create a map of id -> item for quick lookup
-        const itemMap = new Map(checklist.items.map((item) => [item.id, item]));
+        checklist.items.push(item);
+        updateBannerCompletedCount(state, checklist);
+      }
+    },
 
-        // Reorder items based on reorderedIds array
-        const reorderedItems = reorderedIds
-          .map((id) => itemMap.get(id))
-          .filter((item): item is ChecklistItem => item !== undefined);
+    deleteChecklistItem(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        itemId: string;
+      }>,
+    ) {
+      const { checklistId, itemId } = action.payload;
+      const checklist = state.checklists[checklistId];
+      if (checklist) {
+        checklist.items = checklist.items.filter((i) => i.id !== itemId);
+        updateBannerCompletedCount(state, checklist);
+      }
+    },
 
-        // Update order field for each item
-        reorderedItems.forEach((item, index) => {
-          item.order = index;
-        });
-
-        // Update checklist items array
-        checklist.items = reorderedItems;
+    restoreChecklistItems(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        items: ChecklistItem[];
+      }>,
+    ) {
+      const { checklistId, items } = action.payload;
+      const checklist = state.checklists[checklistId];
+      if (checklist) {
+        checklist.items = items;
       }
     },
 
@@ -196,6 +234,9 @@ export const {
   toggleChecklistItem,
   updateChecklistItem,
   reorderChecklistItems,
+  addChecklistItem,
+  deleteChecklistItem,
+  restoreChecklistItems,
   clearChecklist,
   setLoading,
   setError,

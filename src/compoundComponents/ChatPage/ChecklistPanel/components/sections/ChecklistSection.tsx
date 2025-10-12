@@ -1,4 +1,5 @@
-import { memo } from 'react';
+import { memo, useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { AnimatePresence, Reorder } from 'framer-motion';
 import Box from '@mui/material/Box';
@@ -8,11 +9,58 @@ import { mergeClassNames } from '@/utils/classNames';
 import AddButton from '../ui/AddButton';
 import ChecklistCard from '../ui/ChecklistCard';
 import ChecklistEmptyState from '../ui/ChecklistEmptyState';
+import ChecklistItemModal from '@/compoundComponents/Modals/ChecklistItemModal';
+import { createChecklistItemRequest } from '@/store/sagas/checklistSaga';
+import type { RootState } from '@/store';
+import type { CreateItemRequest } from '@/api/checklistItemApi';
 
 import type { ChecklistSectionProps } from '../../types';
 
 const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProps) => {
+  const dispatch = useDispatch();
   const hasItems = items.length > 0;
+  const [addModalOpen, setAddModalOpen] = useState(false);
+
+  // Use stable state for values to prevent Framer Motion reorder issues
+  const [stableValues, setStableValues] = useState<string[]>([]);
+  const prevItemsRef = useRef(items);
+
+  // Update stable values only when items actually change
+  useEffect(() => {
+    const itemIds = items.map((item) => item.id);
+    const prevIds = prevItemsRef.current.map((item) => item.id);
+
+    // Only update if the IDs have actually changed
+    if (itemIds.length !== prevIds.length || !itemIds.every((id, i) => id === prevIds[i])) {
+      setStableValues(itemIds);
+      prevItemsRef.current = items;
+    }
+  }, [items]);
+
+  // Get active checklist and conversation from Redux
+  const activeChecklistId = useSelector((state: RootState) => state.checklist.activeChecklistId);
+  const checklists = useSelector((state: RootState) => state.checklist.checklists);
+
+  // Conditional logic AFTER hooks
+  const checklist = activeChecklistId ? checklists[activeChecklistId] : null;
+  const conversationId = checklist?.conversationId;
+
+  // Only allow drag in 'all' filter to prevent grouping filtered items at the top
+  const canDrag = filter === 'all';
+
+  const handleAdd = async (data: CreateItemRequest) => {
+    if (!conversationId || !activeChecklistId) {
+      return;
+    }
+
+    dispatch(
+      createChecklistItemRequest({
+        conversationId,
+        checklistId: activeChecklistId,
+        data,
+      }),
+    );
+  };
 
   return (
     <Box
@@ -43,7 +91,7 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
           <AnimatePresence>
             <Reorder.Group
               axis="y"
-              values={items.map((item) => item.id)}
+              values={stableValues}
               onReorder={handlers.onReorder}
               layoutScroll
               style={{ listStyle: 'none', padding: 0, margin: 0 }}
@@ -55,6 +103,7 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
                   onToggle={handlers.onToggle}
                   onEdit={handlers.onEdit}
                   onDelete={handlers.onDelete}
+                  canDrag={canDrag}
                 />
               ))}
             </Reorder.Group>
@@ -68,8 +117,16 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
           </Box>
         )}
 
-        <AddButton onClick={handlers.onAdd} />
+        <AddButton onClick={() => setAddModalOpen(true)} />
       </Box>
+
+      {/* Add Modal */}
+      <ChecklistItemModal
+        open={addModalOpen}
+        mode="add"
+        onClose={() => setAddModalOpen(false)}
+        onSubmit={handleAdd}
+      />
     </Box>
   );
 });

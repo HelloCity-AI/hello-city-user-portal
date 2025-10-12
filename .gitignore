@@ -9,6 +9,9 @@
 # testing
 /coverage
 
+# test routes
+src/app/**/test-sub-id/
+
 # next.js
 /.next/
 /out/

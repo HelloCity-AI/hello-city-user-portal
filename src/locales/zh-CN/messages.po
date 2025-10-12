@@ -520,6 +520,77 @@ msgid "chat.welcome.title"
 msgstr "欢迎使用HelloCity"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
+msgid "checklist-item-modal.add-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
+msgid "checklist-item-modal.add-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
+msgid "checklist-item-modal.cancel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
+msgid "checklist-item-modal.category"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
+msgid "checklist-item-modal.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
+msgid "checklist-item-modal.due-date"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
+msgid "checklist-item-modal.edit-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
+msgid "checklist-item-modal.importance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:164
+msgid "checklist-item-modal.save-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
+msgid "checklist-item-modal.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:127
+msgid "checklist-item.delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:82
+msgid "checklist-item.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:80
+msgid "checklist-item.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:119
+msgid "checklist-item.edit"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
 msgstr "添加任务"
@@ -555,7 +626,7 @@ msgstr "查看详情"
 #~ msgstr "截止日期"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:262
 msgid "checklist.due.prefix"
 msgstr "截止："
 
@@ -590,17 +661,20 @@ msgid "checklist.filter.incomplete"
 msgstr "待办"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
 msgstr "重要"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
 msgstr "一般"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
 msgstr "中等"
 
@@ -1350,9 +1424,15 @@ msgid "cities.xian.tagline"
 msgstr "千年王朝的永恒之城"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:88
+#: src/hooks/modals/useDeleteConversationHistory.tsx:75
 msgid "common.cancel"
 msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
+msgid "common.delete"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -1475,130 +1555,130 @@ msgid "contact.faq.title"
 msgstr "常见问题"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#: src/hooks/modals/useDeleteConversationHistory.tsx:74
 msgid "conversation.delete.confirm"
 msgstr "删除"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+#: src/hooks/modals/useDeleteConversationHistory.tsx:69
 msgid "conversation.delete.description"
 msgstr "此操作无法撤销。确定要删除这段对话吗?"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+#: src/hooks/modals/useDeleteConversationHistory.tsx:67
 msgid "conversation.delete.title"
 msgstr "删除对话"
 
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:87
-msgid "create-checklist-button.add-item"
-msgstr "添加清单项目"
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "添加清单项目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
-msgid "create-checklist.cancel"
-msgstr "取消"
+#~ msgid "create-checklist.cancel"
+#~ msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
-msgid "create-checklist.create"
-msgstr "创建项目"
+#~ msgid "create-checklist.create"
+#~ msgstr "创建项目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
-msgid "create-checklist.creating"
-msgstr "正在创建..."
+#~ msgid "create-checklist.creating"
+#~ msgstr "正在创建..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
-msgid "create-checklist.description-field"
-msgstr "描述"
+#~ msgid "create-checklist.description-field"
+#~ msgstr "描述"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
-msgid "create-checklist.description-helper"
-msgstr "提供关于此任务的详细信息"
+#~ msgid "create-checklist.description-helper"
+#~ msgstr "提供关于此任务的详细信息"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
-msgid "create-checklist.description-placeholder"
-msgstr "请描述需要完成的任务及相关细节"
+#~ msgid "create-checklist.description-placeholder"
+#~ msgstr "请描述需要完成的任务及相关细节"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
-msgid "create-checklist.description-required"
-msgstr "描述是必填项"
+#~ msgid "create-checklist.description-required"
+#~ msgstr "描述是必填项"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
-msgid "create-checklist.due-date"
-msgstr "截止日期"
+#~ msgid "create-checklist.due-date"
+#~ msgstr "截止日期"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
-msgid "create-checklist.error.create"
-msgstr "创建清单项目失败"
+#~ msgid "create-checklist.error.create"
+#~ msgstr "创建清单项目失败"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
-msgid "create-checklist.importance-field"
-msgstr "重要性"
+#~ msgid "create-checklist.importance-field"
+#~ msgstr "重要性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
-msgid "create-checklist.importance-helper"
-msgstr "该任务的重要性"
+#~ msgid "create-checklist.importance-helper"
+#~ msgstr "该任务的重要性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
-msgid "create-checklist.importance-high-desc"
-msgstr "紧急"
+#~ msgid "create-checklist.importance-high-desc"
+#~ msgstr "紧急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
-msgid "create-checklist.importance-low-desc"
-msgstr "可以等待"
+#~ msgid "create-checklist.importance-low-desc"
+#~ msgstr "可以等待"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
-msgid "create-checklist.importance-medium-desc"
-msgstr "应该尽快完成"
+#~ msgid "create-checklist.importance-medium-desc"
+#~ msgstr "应该尽快完成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
-msgid "create-checklist.mark-completed"
-msgstr "标记为已完成"
+#~ msgid "create-checklist.mark-completed"
+#~ msgstr "标记为已完成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
-msgid "create-checklist.mark-completed-helper"
-msgstr "如果任务已完成，请勾选此项"
+#~ msgid "create-checklist.mark-completed-helper"
+#~ msgstr "如果任务已完成，请勾选此项"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
-msgid "create-checklist.title"
-msgstr "创建新的清单项目"
+#~ msgid "create-checklist.title"
+#~ msgstr "创建新的清单项目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
-msgid "create-checklist.title-field"
-msgstr "标题"
+#~ msgid "create-checklist.title-field"
+#~ msgstr "标题"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
-msgid "create-checklist.title-helper"
-msgstr "为您的清单项目起一个简洁明了的名称"
+#~ msgid "create-checklist.title-helper"
+#~ msgstr "为您的清单项目起一个简洁明了的名称"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
-msgid "create-checklist.title-placeholder"
-msgstr "请输入任务标题"
+#~ msgid "create-checklist.title-placeholder"
+#~ msgstr "请输入任务标题"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
-msgid "create-checklist.title-required"
-msgstr "标题是必填项"
+#~ msgid "create-checklist.title-required"
+#~ msgstr "标题是必填项"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
@@ -1656,18 +1736,18 @@ msgstr "提交"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
-msgid "importance.high"
-msgstr "高"
+#~ msgid "importance.high"
+#~ msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
-msgid "importance.low"
-msgstr "低"
+#~ msgid "importance.low"
+#~ msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
-msgid "importance.medium"
-msgstr "中"
+#~ msgid "importance.medium"
+#~ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
