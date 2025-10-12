@@ -215,6 +215,7 @@ export default function ChecklistCard({
             <Dropdown
               anchorElContent={
                 <IconButton
+                  component="div"
                   size="small"
                   className={mergeClassNames(
                     'h-8 w-8 min-w-0 p-1',

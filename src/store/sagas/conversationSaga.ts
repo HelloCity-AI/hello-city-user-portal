@@ -1,4 +1,4 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
 import type { SagaIterator } from 'redux-saga';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAction } from '@reduxjs/toolkit';
@@ -459,5 +459,5 @@ export default function* conversationSaga() {
   yield takeLatest(fetchConversationMessages.type, handleFetchConversationMessages);
   yield takeLatest(updateConversation.type, handleUpdateConversation);
   yield takeLatest(deleteConversation.type, handleDeleteConversation);
-  yield takeLatest(fetchConversationChecklists.type, handleFetchConversationChecklists);
+  yield takeEvery(fetchConversationChecklists.type, handleFetchConversationChecklists);
 }
