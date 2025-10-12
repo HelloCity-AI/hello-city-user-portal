@@ -5,6 +5,12 @@ const nextConfig = {
   experimental: {
     // swcPlugins: [['@lingui/swc-plugin', {}]],
   },
+  // AWS Amplify动态APP_BASE_URL配置
+  env: {
+    APP_BASE_URL: process.env.AWS_APP_ID
+      ? `https://${process.env.AWS_BRANCH}.${process.env.AWS_APP_ID}.amplifyapp.com`
+      : process.env.APP_BASE_URL || 'http://localhost:3000',
+  },
   images: {
     remotePatterns: [
       {
