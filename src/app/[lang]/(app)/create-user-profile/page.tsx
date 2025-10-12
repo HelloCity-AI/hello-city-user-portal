@@ -113,10 +113,10 @@ const Page = () => {
     );
   }
 
-// If no user information, redirect to login page
-if (!user) {
-  window.location.href = `${API_BASE}/auth/login`;
-}
+  // If no user information, redirect to login page
+  if (!user) {
+    window.location.href = `${API_BASE}/auth/login`;
+  }
 
   return (
     <>

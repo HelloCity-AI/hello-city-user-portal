@@ -113,7 +113,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
     return (
       <Button
         component={Link}
-        href={`${API_BASE}/auth/login`} 
+        href={`${API_BASE}/auth/login`}
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
