@@ -12,6 +12,7 @@ import {
 } from '../slices/checklist';
 import { fetchWithErrorHandling } from '@/utils/fetchHelpers';
 import type { CreateItemRequest } from '@/api/checklistItemApi';
+import { apiToChecklistItem, checklistItemToAPI } from '@/api/checklistItemApi';
 import type { ChecklistItem } from '@/types/checklist.types';
 import type { RootState } from '..';
 import type { ApiResponse } from '@/types/api.types';
@@ -47,12 +48,15 @@ export async function updateChecklistItemApiWrapper(
   itemId: string,
   data: Partial<ChecklistItem>,
 ): Promise<UpdateItemResponse> {
+  // Transform frontend format to backend format (lowercase importance → PascalCase)
+  const backendPayload = checklistItemToAPI(data);
+
   return fetchWithErrorHandling<ChecklistItem>(
     `/api/conversation/${conversationId}/checklist/${checklistId}/item/${itemId}`,
     {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
+      body: JSON.stringify(backendPayload),
     },
   );
 }
@@ -161,7 +165,7 @@ export const reorderChecklistItemsRequest = createAction<ReorderPayload>(
 
 /**
  * Handle create checklist item (no optimistic update)
- * Follows conversationSaga pattern: call API → dispatch action
+ * Follows conversationSaga pattern: call API → transform → dispatch action
  */
 function* handleCreateChecklistItem(action: PayloadAction<CreateItemPayload>): SagaIterator {
   const { conversationId, checklistId, data } = action.payload;
@@ -175,7 +179,9 @@ function* handleCreateChecklistItem(action: PayloadAction<CreateItemPayload>): S
     );
 
     if (res.ok && res.data) {
-      yield put(addChecklistItem({ checklistId, item: res.data }));
+      // Transform backend response to frontend format
+      const normalizedItem = apiToChecklistItem(res.data, checklistId, conversationId);
+      yield put(addChecklistItem({ checklistId, item: normalizedItem }));
     } else {
       const errorMessage = `Failed to create item: ${res.status}`;
       yield put(setError(errorMessage));
@@ -213,7 +219,9 @@ function* handleUpdateChecklistItem(action: PayloadAction<UpdateItemPayload>): S
 
     // Sync with server response if successful
     if (res.ok && res.data) {
-      yield put(updateItemAction({ checklistId, itemId, updates: res.data }));
+      // Transform backend response to frontend format
+      const normalizedItem = apiToChecklistItem(res.data, checklistId, conversationId);
+      yield put(updateItemAction({ checklistId, itemId, updates: normalizedItem }));
     } else {
       // Rollback on API error
       if (originalItem) {
