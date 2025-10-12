@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+
+// 标准化分支名：将非法DNS字符替换为连字符
+// Amplify对分支名的处理规则: feature/new-flow -> feature-new-flow
+const sanitizeBranchName = (branch) => {
+  if (!branch) return 'main';
+  return branch.replace(/[^a-zA-Z0-9-]/g, '-');
+};
+
 const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
@@ -6,10 +14,13 @@ const nextConfig = {
     // swcPlugins: [['@lingui/swc-plugin', {}]],
   },
   // AWS Amplify动态APP_BASE_URL配置
+  // 优先级: 手动配置(自定义域名) > Amplify自动生成 > 本地默认值
   env: {
-    APP_BASE_URL: process.env.AWS_APP_ID
-      ? `https://${process.env.AWS_BRANCH}.${process.env.AWS_APP_ID}.amplifyapp.com`
-      : process.env.APP_BASE_URL || 'http://localhost:3000',
+    APP_BASE_URL:
+      process.env.APP_BASE_URL ||
+      (process.env.AWS_APP_ID
+        ? `https://${sanitizeBranchName(process.env.AWS_BRANCH)}.${process.env.AWS_APP_ID}.amplifyapp.com`
+        : 'http://localhost:3000'),
   },
   images: {
     remotePatterns: [
