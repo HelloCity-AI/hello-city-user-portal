@@ -520,6 +520,77 @@ msgid "chat.welcome.title"
 msgstr "欢迎使用HelloCity"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:166
+msgid "checklist-item-modal.add-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
+msgid "checklist-item-modal.add-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
+msgid "checklist-item-modal.cancel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
+msgid "checklist-item-modal.category"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
+msgid "checklist-item-modal.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
+msgid "checklist-item-modal.due-date"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
+msgid "checklist-item-modal.edit-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
+msgid "checklist-item-modal.importance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:168
+msgid "checklist-item-modal.save-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
+msgid "checklist-item-modal.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:126
+msgid "checklist-item.delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:81
+msgid "checklist-item.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:79
+msgid "checklist-item.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:118
+msgid "checklist-item.edit"
+msgstr ""
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
 msgstr "添加任务"
@@ -555,7 +626,7 @@ msgstr "查看详情"
 #~ msgstr "截止日期"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:256
 msgid "checklist.due.prefix"
 msgstr "截止："
 
@@ -590,17 +661,20 @@ msgid "checklist.filter.incomplete"
 msgstr "待办"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
 msgstr "重要"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
 msgstr "一般"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
 msgstr "中等"
 
@@ -1350,9 +1424,15 @@ msgid "cities.xian.tagline"
 msgstr "千年王朝的永恒之城"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
+#: src/hooks/modals/useDeleteConversationHistory.tsx:76
 msgid "common.cancel"
 msgstr "取消"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:86
+msgid "common.delete"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -1475,17 +1555,17 @@ msgid "contact.faq.title"
 msgstr "常见问题"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#: src/hooks/modals/useDeleteConversationHistory.tsx:75
 msgid "conversation.delete.confirm"
 msgstr "删除"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+#: src/hooks/modals/useDeleteConversationHistory.tsx:70
 msgid "conversation.delete.description"
 msgstr "此操作无法撤销。确定要删除这段对话吗?"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+#: src/hooks/modals/useDeleteConversationHistory.tsx:68
 msgid "conversation.delete.title"
 msgstr "删除对话"
 

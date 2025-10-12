@@ -84,11 +84,20 @@ function denormalizeImportance(importance: ChecklistImportance): 'Low' | 'Medium
  * This is the ONLY place where API-to-domain conversion happens
  *
  * @param apiItem - Backend API checklist item
+ * @param checklistId - Checklist ID from API call context
+ * @param conversationId - Conversation ID from API call context
  * @returns Frontend checklist item
  */
-export function apiToChecklistItem(apiItem: APIChecklistItem): ChecklistItem {
+export function apiToChecklistItem(
+  apiItem: APIChecklistItem,
+  checklistId: string,
+  conversationId: string,
+): ChecklistItem {
   return {
     id: apiItem.checklistItemId, // Unified ID field
+    checklistId,
+    conversationId,
+    source: 'manual' as const, // Items from manual CRUD are user-created
     title: apiItem.title,
     description: apiItem.description,
     importance: normalizeImportance(apiItem.importance), // Lowercase enum

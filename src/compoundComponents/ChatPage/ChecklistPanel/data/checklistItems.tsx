@@ -4,6 +4,9 @@ import type { ChecklistItem } from '../types';
 export const defaultChecklistItems: ChecklistItem[] = [
   {
     id: '1',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Student visa document preparation',
     description:
       'Prepare passport, acceptance letter, financial proof and other visa application materials',
@@ -16,6 +19,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '2',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'University enrollment procedures',
     description:
       'Complete student ID processing, course registration, campus orientation and other enrollment processes',
@@ -28,6 +34,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '3',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Find student accommodation',
     description:
       'Find suitable accommodation through university dormitories or off-campus rental platforms',
@@ -40,6 +49,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '4',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Open bank account',
     description: 'Choose appropriate bank and prepare identity documents for account opening',
     importance: 'high' as const,
@@ -51,6 +63,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '5',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Get mobile plan and internet',
     description: 'Choose carrier plans, get mobile service, and set up home internet',
     importance: 'medium' as const,
@@ -62,6 +77,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '6',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Apply for health insurance',
     description: 'Understand local healthcare system and choose appropriate medical insurance plan',
     importance: 'medium' as const,
@@ -73,6 +91,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '7',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Transit card and travel planning',
     description: 'Get transit card, understand transport routes, and download travel apps',
     importance: 'medium' as const,
@@ -84,6 +105,9 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
   {
     id: '8',
+    checklistId: 'default-checklist',
+    conversationId: 'default-conversation',
+    source: 'ai-generated' as const,
     title: 'Government registration procedures',
     description:
       'Complete residence registration and other necessary procedures at local government offices',

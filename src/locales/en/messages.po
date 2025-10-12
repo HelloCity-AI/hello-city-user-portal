@@ -482,6 +482,77 @@ msgid "chat.welcome.title"
 msgstr "Welcome to HelloCity"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:166
+msgid "checklist-item-modal.add-button"
+msgstr "Add"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
+msgid "checklist-item-modal.add-title"
+msgstr "Add Checklist Item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
+msgid "checklist-item-modal.cancel"
+msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
+msgid "checklist-item-modal.category"
+msgstr "Category"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
+msgid "checklist-item-modal.description"
+msgstr "Description"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
+msgid "checklist-item-modal.due-date"
+msgstr "Due Date"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
+msgid "checklist-item-modal.edit-title"
+msgstr "Edit Checklist Item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
+msgid "checklist-item-modal.importance"
+msgstr "Importance"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:168
+msgid "checklist-item-modal.save-button"
+msgstr "Save"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
+msgid "checklist-item-modal.title"
+msgstr "Title"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:126
+msgid "checklist-item.delete"
+msgstr "Delete Item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:81
+msgid "checklist-item.delete.description"
+msgstr "Are you sure you want to delete this checklist item? This action cannot be undone."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:79
+msgid "checklist-item.delete.title"
+msgstr "Delete Item"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:118
+msgid "checklist-item.edit"
+msgstr "Edit Item"
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
 msgstr "Add New Item"
@@ -517,7 +588,7 @@ msgstr "View Details →"
 #~ msgstr "Due: {date}"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:163
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:256
 msgid "checklist.due.prefix"
 msgstr "Due:"
 
@@ -552,17 +623,20 @@ msgid "checklist.filter.incomplete"
 msgstr "Incomplete"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:23
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
 msgstr "HIGH"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:33
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
 msgstr "LOW"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:28
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
 msgstr "MED"
 
@@ -1312,9 +1386,15 @@ msgid "cities.xian.tagline"
 msgstr "Eternal city of dynasties>>>>>>> origin/main"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:37
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
+#: src/hooks/modals/useDeleteConversationHistory.tsx:76
 msgid "common.cancel"
 msgstr "Cancel"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:86
+msgid "common.delete"
+msgstr "Delete"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -1437,17 +1517,17 @@ msgid "contact.faq.title"
 msgstr "Frequently Asked Questions"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#: src/hooks/modals/useDeleteConversationHistory.tsx:75
 msgid "conversation.delete.confirm"
 msgstr "Delete"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:31
+#: src/hooks/modals/useDeleteConversationHistory.tsx:70
 msgid "conversation.delete.description"
 msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useDeleteConversationHistory.tsx:29
+#: src/hooks/modals/useDeleteConversationHistory.tsx:68
 msgid "conversation.delete.title"
 msgstr "Delete Conversation"
 

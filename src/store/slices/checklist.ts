@@ -147,21 +147,91 @@ const checklistSlice = createSlice({
       const checklist = state.checklists[checklistId];
 
       if (checklist) {
-        // Create a map of id -> item for quick lookup
-        const itemMap = new Map(checklist.items.map((item) => [item.id, item]));
+        // 1. Find original indices of items being reordered
+        const originalIndices: number[] = [];
+        checklist.items.forEach((item, index) => {
+          if (reorderedIds.includes(item.id)) {
+            originalIndices.push(index);
+          }
+        });
 
-        // Reorder items based on reorderedIds array
+        // 2. Calculate insertion point (first original position)
+        const insertIndex = Math.min(...originalIndices);
+
+        // 3. Remove items that will be reordered from original array
+        const remainingItems = checklist.items.filter(
+          (item) => !reorderedIds.includes(item.id),
+        );
+
+        // 4. Get reordered items in new order
+        const itemMap = new Map(checklist.items.map((item) => [item.id, item]));
         const reorderedItems = reorderedIds
           .map((id) => itemMap.get(id))
           .filter((item): item is ChecklistItem => item !== undefined);
 
-        // Update order field for each item
-        reorderedItems.forEach((item, index) => {
+        // 5. Calculate how many remaining items come before insertIndex
+        // This converts the full-array insertIndex to remainingItems-array index
+        const itemsBeforeInsert = checklist.items
+          .slice(0, insertIndex)
+          .filter((item) => !reorderedIds.includes(item.id)).length;
+
+        // 6. Insert reordered items at the correct position in remainingItems
+        const newItems = [
+          ...remainingItems.slice(0, itemsBeforeInsert),
+          ...reorderedItems,
+          ...remainingItems.slice(itemsBeforeInsert),
+        ];
+
+        // 7. Update order field for all items
+        newItems.forEach((item, index) => {
           item.order = index;
         });
 
-        // Update checklist items array
-        checklist.items = reorderedItems;
+        checklist.items = newItems;
+      }
+    },
+
+    addChecklistItem(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        item: ChecklistItem;
+      }>,
+    ) {
+      const { checklistId, item } = action.payload;
+      const checklist = state.checklists[checklistId];
+      if (checklist) {
+        checklist.items.push(item);
+        updateBannerCompletedCount(state, checklist);
+      }
+    },
+
+    deleteChecklistItem(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        itemId: string;
+      }>,
+    ) {
+      const { checklistId, itemId } = action.payload;
+      const checklist = state.checklists[checklistId];
+      if (checklist) {
+        checklist.items = checklist.items.filter((i) => i.id !== itemId);
+        updateBannerCompletedCount(state, checklist);
+      }
+    },
+
+    restoreChecklistItems(
+      state,
+      action: PayloadAction<{
+        checklistId: string;
+        items: ChecklistItem[];
+      }>,
+    ) {
+      const { checklistId, items } = action.payload;
+      const checklist = state.checklists[checklistId];
+      if (checklist) {
+        checklist.items = items;
       }
     },
 
@@ -196,6 +266,9 @@ export const {
   toggleChecklistItem,
   updateChecklistItem,
   reorderChecklistItems,
+  addChecklistItem,
+  deleteChecklistItem,
+  restoreChecklistItems,
   clearChecklist,
   setLoading,
   setError,

@@ -190,15 +190,23 @@ function toIsoStringOrNull(value?: string | null): string {
   return date.toISOString();
 }
 
-function transformChecklistItemPayload(item: ChecklistItemApiDto): ChecklistItemModel {
+function transformChecklistItemPayload(
+  item: ChecklistItemApiDto,
+  checklistId: string,
+  conversationId: string,
+  normalizedOrder: number,
+): ChecklistItemModel {
   return {
     id: item.checklistItemId,
+    checklistId,
+    conversationId,
+    source: 'ai-generated', // Items from API are AI-generated
     title: item.title?.trim() ?? '',
     description: item.description?.trim() ?? '',
     importance: normalizeImportance(item.importance),
     dueDate: item.dueDate ?? undefined,
     category: item.category?.trim() || 'General',
-    order: item.order ?? 0,
+    order: normalizedOrder,
     isComplete: item.isComplete,
     createdAt: toIsoStringOrNull(item.createdAt),
     updatedAt: item.updatedAt
@@ -211,7 +219,9 @@ function transformChecklistPayload(payload: ChecklistApiDto): ChecklistMetadata 
   const items = (payload.items ?? [])
     .slice()
     .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
-    .map(transformChecklistItemPayload);
+    .map((item, index) =>
+      transformChecklistItemPayload(item, payload.checklistId, payload.conversationId, index),
+    );
 
   const transformed = {
     checklistId: payload.checklistId,

@@ -11,7 +11,7 @@
  * @module useChecklistPanel
  */
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import type { RootState } from '@/store';
@@ -20,6 +20,7 @@ import {
   updateChecklistItem,
   reorderChecklistItems,
 } from '@/store/slices/checklist';
+import { reorderChecklistItemsRequest } from '@/store/sagas/checklistSaga';
 import type {
   ChecklistItem,
   ChecklistStats,
@@ -144,9 +145,11 @@ export const useChecklistPanel = ({
     return getCityInfo(activeChecklist.cityCode as CityCode);
   }, [activeChecklist]);
 
-  // Get all items from active checklist
+  // Get all items from active checklist, sorted by order field
   const allItems = useMemo(() => {
-    return activeChecklist?.items || [];
+    const items = activeChecklist?.items || [];
+    // Sort by order field to ensure correct initial ordering after page refresh
+    return [...items].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
   }, [activeChecklist]);
 
   // Calculate filtered items
@@ -222,18 +225,43 @@ export const useChecklistPanel = ({
     [onChecklistDelete],
   );
 
+  // Custom debounce implementation (500ms delay)
+  const timeoutRef = useRef<NodeJS.Timeout>();
+
+  const debouncedReorderSaga = useCallback(
+    (conversationId: string, checklistId: string, reorderedIds: string[]) => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+      timeoutRef.current = setTimeout(() => {
+        dispatch(
+          reorderChecklistItemsRequest({
+            conversationId,
+            checklistId,
+            reorderedIds,
+          }),
+        );
+      }, 500);
+    },
+    [dispatch],
+  );
+
   const handleReorder = useCallback(
     (reorderedIds: string[]) => {
-      if (!activeChecklistId) return;
+      if (!activeChecklistId || !conversationId) return;
 
+      // Immediate UI update
       dispatch(
         reorderChecklistItems({
           checklistId: activeChecklistId,
           reorderedIds,
         }),
       );
+
+      // Debounced API call (500ms)
+      debouncedReorderSaga(conversationId, activeChecklistId, reorderedIds);
     },
-    [activeChecklistId, dispatch],
+    [activeChecklistId, conversationId, dispatch, debouncedReorderSaga],
   );
 
   const handleAdd = useCallback(() => {
