@@ -1,1764 +1,1778 @@
 msgid ""
 msgstr ""
+"POT-Creation-Date: 2025-07-20 22:44+1000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ja\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language: \n"
 "Language-Team: \n"
-"Content-Type: \n"
-"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
-#: src/compoundComponents/Modals/FormModal.tsx:30
-#~ msgid "form.cancel"
-#~ msgstr "Cancel"
-
 #. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
-#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
 #~ msgid "AdventureShowcase.Case1.Alt"
-#~ msgstr "Ready for Takeoff"
+#~ msgstr "準備万端"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
 #~ msgid "AdventureShowcase.Case1.Description"
-#~ msgstr "Start your journey to a new adventure"
+#~ msgstr "あなたの新しい人生の旅路に踏み出す"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
 #~ msgid "AdventureShowcase.Case1.Title"
-#~ msgstr "Ready for Takeoff"
+#~ msgstr "準備万端"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
 #~ msgid "AdventureShowcase.Case2.Alt"
-#~ msgstr "New Connections"
+#~ msgstr "新しい友人との出会い"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
 #~ msgid "AdventureShowcase.Case2.Description"
-#~ msgstr "Meet amazing people and build lasting relationships"
+#~ msgstr "面白い人たちと出会い、深い友情を育む"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
 #~ msgid "AdventureShowcase.Case2.Title"
-#~ msgstr "New Connections"
+#~ msgstr "新しい友人と出会う"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
 #~ msgid "AdventureShowcase.Case3.Alt"
-#~ msgstr "Dreams Realized"
+#~ msgstr "夢を追う街"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
 #~ msgid "AdventureShowcase.Case3.Description"
-#~ msgstr "Turn your dreams into reality in a new city"
+#~ msgstr "理想の都市で願いを叶える"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
 #~ msgid "AdventureShowcase.Case3.Title"
-#~ msgstr "Dreams Realized"
+#~ msgstr "夢を追う街"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
 #~ msgid "AdventureShowcase.Description"
-#~ msgstr "Feel the excitement of discovering new places, meeting new people, and starting fresh in an amazing city."
+#~ msgstr "未知の街を探検する高揚感、志を同じくする仲間との出会い、新しい環境で人生の新章を切り開こう。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
 #~ msgid "AdventureShowcase.Title"
-#~ msgstr "Your adventure awaits"
+#~ msgstr "これから始まる、輝く人生の旅"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Are you sure you want to log out?"
-msgstr "Are you sure you want to log out?"
+msgstr "ログアウトしてもよろしいですか？"
 
 #: src/stories/DatePicker.stories.tsx:17
 #~ msgid "Pick a date"
-#~ msgstr "Pick a date"
+#~ msgstr "日付を選択"
 
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NavBar.Back"
-#~ msgstr "← Back"
+#~ msgstr "← 戻る"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
 #~ msgid "CallToAction.Description"
-#~ msgstr "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance."
+#~ msgstr "HelloCity のガイドで新しい都市に適応した数千人の仲間に加わろう。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
 #~ msgid "CallToAction.Title"
-#~ msgstr "Ready to make your move?"
+#~ msgstr "一歩踏み出す準備はできていますか？"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
 #: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
-msgstr "Creating..."
+msgstr "作成中…"
 
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
-#~ msgstr "Theme"
+#~ msgstr "テーマ"
 
 #: src/components/CreateChecklistItemButton.tsx:85
 #~ msgid "create-checklist-button.add-item"
-#~ msgstr "Add new checklist item"
+#~ msgstr "チェックリスト項目を追加"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
-#~ msgstr "Melbourne skyline at golden hour, welcoming newcomers with HelloCity"
+#~ msgstr "メルボルンの夕景。HelloCity が新生活をサポート"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.Description"
-#~ msgstr "Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
+#~ msgstr "旅行・留学・移住のいずれでも、あなたに寄り添う個別計画で、あらゆる出発を軽やかでスムーズに。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.Title.Part1"
-#~ msgstr "Your AI Companion"
+#~ msgstr "あなたのスマートガイド"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.Title.Part2"
-#~ msgstr "for Every City"
+#~ msgstr "世界中を共に歩む"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Description"
-#~ msgstr "Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure."
+#~ msgstr "充実した旅は綿密な計画から。HelloCity は複雑な都市移住を、整理された冒険へと変えてくれます。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.ImageAlt"
-#~ msgstr "Collage of travel scenes: airport departure, boat on turquoise water, tropical beach bungalows, and couple at sunset."
+#~ msgstr "旅のシーンのコラージュ：空港の出発、青い海の小舟、南国のビーチヴィラ、夕暮れのカップル。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step1.Description"
-#~ msgstr "Visualize your new life and set your goals"
+#~ msgstr "新生活の青写真を描き、目標を定める"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step1.Title"
-#~ msgstr "Dream & Plan"
+#~ msgstr "憧れと計画"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step2.Description"
-#~ msgstr "Get all your documents and requirements ready"
+#~ msgstr "必要な書類や準備を整える"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step2.Title"
-#~ msgstr "Prepare & Organize"
+#~ msgstr "準備と整理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step3.Description"
-#~ msgstr "Hit the ground running in your new city"
+#~ msgstr "新しい街に素早く馴染み、充実した日々へ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Step3.Title"
-#~ msgstr "Arrive & Thrive"
+#~ msgstr "到着と開花"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Title"
-#~ msgstr "From planning to living your dream"
+#~ msgstr "計画から実現まで、ずっとあなたとともに"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
 #: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
-msgstr "I'm all set"
+msgstr "準備完了"
 
 #: src/hooks/useNavigation.tsx:26
 #~ msgid "NavBar.Chat"
-#~ msgstr "Chat"
+#~ msgstr "チャット"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:36
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
-msgstr "Logout"
+msgstr "ログアウト"
 
 #: src/app/[lang]/create-user-profile/page.tsx:103
 #~ msgid "I'm all set"
-#~ msgstr "I'm all set"
+#~ msgstr "準備完了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:98
 msgid "NavBar.Back"
-msgstr "← Back"
+msgstr "← 戻る"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:35
 msgid "NavBar.ChangeLanguage"
-msgstr "Change Language"
+msgstr "言語を切り替える"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
 msgid "NavBar.Chat"
-msgstr "Chat"
+msgstr "チャット"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33
 msgid "NavBar.ContactUs"
-msgstr "Contact Us"
-
-#. js-lingui-explicit-id
-#: src/hooks/useNavigation.tsx:33
-#~ msgid "NavBar.ContactUs======="
-#~ msgstr "undefined<<<<<<< HEAD"
+msgstr "お問い合わせ"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:19
 msgid "NavBar.Home"
-msgstr "Home"
+msgstr "ホーム"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:119
 msgid "NavBar.Sign In"
-msgstr "Sign In"
+msgstr "ログイン"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:9
 msgid "NavBar.Try HelloCity"
-msgstr "Try HelloCity"
+msgstr "HelloCity を試す"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NaveBar.Back"
-#~ msgstr "← Back"
+#~ msgstr "← 戻る"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:122
 #~ msgid "NaveBar.Sign In"
-#~ msgstr "Sign In"
-
-#: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress<<<<<<< HEAD"
-#~ msgstr "The image is uploading ...>>>>>>> origin/main"
+#~ msgstr "ログイン"
 
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
 msgid "Pick a date"
-msgstr "Pick a date"
+msgstr "日付を選択"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:28
 msgid "Profile"
-msgstr "Profile"
-
-#~ msgid "create-checklist.due-date"
-#~ msgstr "Due Date"
+msgstr "プロフィール"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
 #~ msgid "Settings"
-#~ msgstr "Settings"
+#~ msgstr "設定"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
 #~ msgid "Subscription"
-#~ msgstr "Subscription"
+#~ msgstr "サブスクリプション管理"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:27
+#~ msgid "Testimonials.Country1"
+#~ msgstr "中国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:39
+#~ msgid "Testimonials.Country2"
+#~ msgstr "日本"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:51
+#~ msgid "Testimonials.Country3"
+#~ msgstr "インド"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:63
+#~ msgid "Testimonials.Country4"
+#~ msgstr "ブラジル"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:75
+#~ msgid "Testimonials.Country5"
+#~ msgstr "中国"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:87
+#~ msgid "Testimonials.Country6"
+#~ msgstr "イギリス"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:99
+#~ msgid "Testimonials.Country7"
+#~ msgstr "シンガポール"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:111
+#~ msgid "Testimonials.Country8"
+#~ msgstr "アメリカ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Description"
-#~ msgstr "See what people are saying about HelloCity — hear from students, professionals, and families who turned uncertainty into confidence with our step-by-step relocation tools."
+#~ msgstr "学生、社会人、家族のリアルな声——段階的な移住ツールで、不安から自信へ。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name1"
-#~ msgstr "Zhang Wei"
+#~ msgstr "張偉"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name2"
-#~ msgstr "Ayaka Tanaka"
+#~ msgstr "田中彩香"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name3"
-#~ msgstr "Rajesh Kumar"
+#~ msgstr "ラジェシュ・クマール"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name4"
-#~ msgstr "Maria Santos"
+#~ msgstr "マリア・サントス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name5"
-#~ msgstr "Solon Mok"
+#~ msgstr "モー・シャオロン"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name6"
-#~ msgstr "Emma Wilson"
+#~ msgstr "エマ・ウィルソン"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Name7"
-#~ msgstr "Priya Sharma"
+#~ msgstr "プリヤ・シャルマ"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:109
+#~ msgid "Testimonials.Name8"
+#~ msgstr "ルーカス・ミラー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review1"
-#~ msgstr "I moved to Sydney for work and honestly had no idea where to start. HelloCity broke everything down into simple steps—documents, banking, housing. Without it, I'd probably still be stuck Googling things at midnight. Lifesaver."
+#~ msgstr "仕事でシドニーに引っ越しましたが、正直どこから始めればいいか分かりませんでした。HelloCity は書類、銀行、住まいなどを分かりやすいステップに分解してくれます。これがなければ今も夜中に情報を探していたでしょう。本当に救いでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review2"
-#~ msgstr "When I relocated, I was worried I'd waste weeks just figuring out how to open a bank account or set up utilities. HelloCity made it super straightforward. I got settled in a few days and could actually focus on creating content instead of stressing."
+#~ msgstr "引っ越しの際、銀行口座の開設や光熱の手続きに何週間もかかるのではと不安でした。HelloCity で全てがとても簡単になり、数日で落ち着けました。制作に集中できるようになりました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review3"
-#~ msgstr "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a checklist in my pocket. It really reduced my stress, and I could spend more time enjoying campus life."
+#~ msgstr "海外で修士課程に進みましたが、各種手続きにとても緊張していました。HelloCity は次にすべきことを常に教えてくれて、まるでポケットのチェックリストのよう。ストレスが減り、キャンパスライフをより楽しめました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review4"
-#~ msgstr "As a freelancer, I move around a lot for projects. HelloCity has been my go-to whenever I need to set up in a new city quickly. The timeline feature is clutch - helps me plan everything around my project deadlines. Only wish they had more info on coworking spaces."
+#~ msgstr "フリーランサーとして各都市を移動しますが、HelloCity は必需のツールです。新しい街でもすぐに落ち着けます。タイムライン機能が特に便利で、締切に合わせてすべてを計画できます。コワーキング情報がもっとあればなお良いですね。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review5"
-#~ msgstr "Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific checklists covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable."
+#~ msgstr "子ども二人を連れての引っ越しは悪夢のようでしたが、HelloCity に出会って変わりました。家族向けチェックリストは学校から小児科まで網羅。8歳の子どもも進んでチェックを手伝ってくれました。混乱になりかけた状況が整然としました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review6"
-#~ msgstr "Fresh out of university and completely overwhelmed by adult life, HelloCity was like having a mentor guide me through every step. From setting up my first apartment to understanding local banking, it made the transition from student to working professional so much smoother."
+#~ msgstr "大学を卒業したばかりで社会に戸惑っていた頃、HelloCity は人生のメンターのように一歩一歩導いてくれました。初めての部屋づくりから現地の銀行事情まで、学生から新社会人への移行がとてもスムーズでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review7"
-#~ msgstr "As expats moving from Singapore to Melbourne, we were worried about everything - schools, healthcare, even simple things like grocery shopping. HelloCity's location-specific guides were incredibly detailed and saved us months of research and mistakes."
+#~ msgstr "シンガポールからメルボルンに移住し、学校や医療、買い物のような些細なことまで不安でした。HelloCity のローカルガイドはとても丁寧で、数か月の手探りと試行錯誤を省けました。"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:104
+#~ msgid "Testimonials.Review8"
+#~ msgstr "コンサルタントとして新しい職場環境に常に適応する必要があります。HelloCity は新しい都市に素早く溶け込むための秘密兵器です。ローカルな洞察と実用的なチェックリストにより、後方支援に悩まず顧客対応に集中できます。ビジネス旅行者にとってまさにゲームチェンジャーです。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title"
-#~ msgstr "Loved by thousands of users"
+#~ msgstr "数千人に愛用されています"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title1"
-#~ msgstr "Product Manager"
+#~ msgstr "プロダクトマネージャー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title2"
-#~ msgstr "Content Creator"
+#~ msgstr "ブロガー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title3"
-#~ msgstr "Student"
+#~ msgstr "学生"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title4"
-#~ msgstr "Freelance Designer"
+#~ msgstr "フリーランスデザイナー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title5"
-#~ msgstr "Marketing Director"
+#~ msgstr "マーケティングディレクター"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title6"
-#~ msgstr "Junior Software Developer"
+#~ msgstr "ジュニアソフトウェアエンジニア"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Title7"
-#~ msgstr "Operations Manager"
+#~ msgstr "オペレーションマネージャー"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:110
+#~ msgid "Testimonials.Title8"
+#~ msgstr "ビジネスコンサルタント"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
-#~ msgstr "Theme"
+#~ msgstr "テーマ"
 
 #: src/components/ProfileImageUploader.tsx:34
 #~ msgid "file.upload.progress"
-#~ msgstr "The image is uploading ..."
+#~ msgstr "画像をアップロード中..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card1.Description"
-#~ msgstr "Get tailored advice based on your situation, destination, and timeline. No generic answers."
+#~ msgstr "あなたの状況・目的地・スケジュールに合わせたオーダーメイドの提案。画一的な答えはしません。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card2.Description"
-#~ msgstr "Never miss important tasks with our comprehensive checklists for every type of move."
+#~ msgstr "あらゆる移住タイプを網羅する包括的チェックリストで、重要事項の漏れを防ぎます。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card3.Description"
-#~ msgstr "Know exactly when to do what with realistic timelines and deadline reminders."
+#~ msgstr "現実的なタイムラインと締切リマインダーで、各ステップの最適なタイミングを逃しません。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Description"
-#~ msgstr "We understand that moving to a new city can be overwhelming. That's why we've built the most comprehensive city landing assistant."
+#~ msgstr "新しい街への移住は圧倒されがち——だからこそ、最も充実した都市定着アシスタントを作りました。"
 
+#. Sign In button label
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
-#~ msgstr "Why choose HelloCity?"
+#~ msgstr "なぜ HelloCity なのか？"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 #~ msgid "ai.thinking"
-#~ msgstr "AI正在思考..."
+#~ msgstr "AIが思考中…"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
-msgstr "HelloCity Account"
+msgstr "HelloCityアカウント"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 msgid "ai.thinking"
-msgstr "AI正在思考..."
+msgstr "AIが思考中…"
 
 #: src/components/ProfileImageUploader.tsx:112
 #~ msgid "profile.avatar.add"
-#~ msgstr "Add Profile Picture"
+#~ msgstr "アバターを追加"
 
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
 #~ msgid "conversation.delete.confirm"
-#~ msgstr "Delete"
+#~ msgstr "削除"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:35
 msgid "cancel.button"
-msgstr "Cancel"
+msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:91
 msgid "chat.disclaimer"
-msgstr "AI may make mistakes. Please verify important information."
+msgstr "AIの回答に誤りが含まれる場合があります。内容の取り扱いにはご注意ください。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
 msgid "chat.input.hint.press"
-msgstr "Press"
+msgstr "押す"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:82
 msgid "chat.input.hint.send"
-msgstr "to send"
+msgstr "送信、Shift + Enter で改行"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
 msgid "chat.welcome.subtitle"
-msgstr "Type a question below and I'll guide you through your new city."
+msgstr "AIアシスタントとの会話を始めて、都市生活の個別ガイドを受け取りましょう。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
 msgid "chat.welcome.title"
-msgstr "Welcome to HelloCity"
+msgstr "HelloCityへようこそ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
 msgid "checklist-item-modal.add-button"
-msgstr "Add"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
 msgid "checklist-item-modal.add-title"
-msgstr "Add Checklist Item"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
 msgid "checklist-item-modal.cancel"
-msgstr "Cancel"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
 msgid "checklist-item-modal.category"
-msgstr "Category"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
 msgid "checklist-item-modal.description"
-msgstr "Description"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
 msgid "checklist-item-modal.due-date"
-msgstr "Due Date"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
 msgid "checklist-item-modal.edit-title"
-msgstr "Edit Checklist Item"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
 msgid "checklist-item-modal.importance"
-msgstr "Importance"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:164
 msgid "checklist-item-modal.save-button"
-msgstr "Save"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
 msgid "checklist-item-modal.title"
-msgstr "Title"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:127
 msgid "checklist-item.delete"
-msgstr "Delete Item"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:82
 msgid "checklist-item.delete.description"
-msgstr "Are you sure you want to delete this checklist item? This action cannot be undone."
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:80
 msgid "checklist-item.delete.title"
-msgstr "Delete Item"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:119
 msgid "checklist-item.edit"
-msgstr "Edit Item"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
-msgstr "Add New Item"
+msgstr "タスクを追加"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:78
 msgid "checklist.banner.generating"
-msgstr "Generating…"
+msgstr "チェックリストを生成中…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:39
 msgid "checklist.banner.generatingTitle"
-msgstr "Creating your personalized checklist…"
+msgstr "チェックリストを生成中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:94
 msgid "checklist.banner.inProgress"
-msgstr "Preparing checklist…"
+msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
 msgid "checklist.banner.new"
-msgstr "New Checklist"
+msgstr "新しいチェックリスト"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:96
 msgid "checklist.banner.viewDetails"
-msgstr "View Details →"
+msgstr "詳細を見る"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
 #~ msgid "checklist.due.label"
-#~ msgstr "Due: {date}"
+#~ msgstr "期限"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:262
 msgid "checklist.due.prefix"
-msgstr "Due:"
+msgstr "期限:"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
 msgid "checklist.empty.all"
-msgstr "No checklist items"
+msgstr "タスクはありません"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
 msgid "checklist.empty.completed"
-msgstr "No completed items"
+msgstr "完了したタスクはありません"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
 msgid "checklist.empty.incomplete"
-msgstr "No incomplete items"
+msgstr "未完了のタスクはありません"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
 msgid "checklist.filter.all"
-msgstr "All"
+msgstr "すべて"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:19
 msgid "checklist.filter.completed"
-msgstr "Completed"
+msgstr "完了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:23
 msgid "checklist.filter.incomplete"
-msgstr "Incomplete"
+msgstr "未完了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
-msgstr "HIGH"
+msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
-msgstr "LOW"
+msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
-msgstr "MED"
+msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
 #~ msgid "checklist.importance.urgent"
-#~ msgstr "URGENT"
+#~ msgstr "緊急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
 msgid "checklist.progress"
-msgstr "Progress"
+msgstr "進捗"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:76
 msgid "cities.adelaide.description"
-msgstr "Festival city surrounded by world-renowned wine regions"
+msgstr "南オーストラリア州都。ワインと祭り文化で有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:70
 msgid "cities.adelaide.name"
-msgstr "Adelaide"
+msgstr "アデレード"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:81
 msgid "cities.adelaide.tagline"
-msgstr "Festivals, wine, and good living"
+msgstr "ワインの街、祭りの都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:574
 msgid "cities.amsterdam.description"
-msgstr "Venice of the North with canals, culture, and liberal spirit"
+msgstr "北のベネチア。運河、文化、自由の精神"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
 msgid "cities.amsterdam.name"
-msgstr "Amsterdam"
+msgstr "アムステルダム"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:579
 msgid "cities.amsterdam.tagline"
-msgstr "Canals, culture, and innovation"
+msgstr "運河、文化、そして革新"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
 msgid "cities.auckland.description"
-msgstr "City of Sails with stunning harbors and outdoor lifestyle"
+msgstr "帆の都。魅力的な港とアウトドアライフ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:665
 msgid "cities.auckland.name"
-msgstr "Auckland"
+msgstr "オークランド"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
 msgid "cities.auckland.tagline"
-msgstr "Where urban meets nature"
+msgstr "都市と自然が交わる場所"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:755
 msgid "cities.bali.description"
-msgstr "Indonesia's island province famed for temples, rice terraces, and beaches"
+msgstr "インドネシアの島の州。寺院、棚田、ビーチで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:749
 msgid "cities.bali.name"
-msgstr "Bali Island"
+msgstr "バリ島"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:760
 msgid "cities.bali.tagline"
-msgstr "Island of the Gods, your tropical escape"
+msgstr "神々の島、トロピカルな楽園"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:735
 msgid "cities.bangkok.description"
-msgstr "Vibrant capital with temples, street food, and modern energy"
+msgstr "活気ある首都。寺院、屋台、現代のエネルギーが融合"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:729
 msgid "cities.bangkok.name"
-msgstr "Bangkok"
+msgstr "バンコク"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:741
 msgid "cities.bangkok.tagline"
-msgstr "City of Angels with dazzling temples and night markets"
+msgstr "天使の都。寺院とナイトマーケットが輝く"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:184
 msgid "cities.beijing.description"
-msgstr "China's capital with ancient history and modern innovation"
+msgstr "中国の首都。悠久の歴史と近代的発展で有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:178
 msgid "cities.beijing.name"
-msgstr "Beijing"
+msgstr "北京"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:189
 msgid "cities.beijing.tagline"
-msgstr "Where tradition meets the future"
+msgstr "古都の魅力、現代の活力"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:559
 msgid "cities.berlin.description"
-msgstr "Dynamic capital with rich history and vibrant cultural scene"
+msgstr "活気ある首都。深い歴史と豊かな文化シーン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:553
 msgid "cities.berlin.name"
-msgstr "Berlin"
+msgstr "ベルリン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:564
 msgid "cities.berlin.tagline"
-msgstr "Unity, creativity, and freedom"
+msgstr "統一、創造性、そして自由"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:498
 msgid "cities.boston.description"
-msgstr "Historic cradle of liberty with world-class universities"
+msgstr "自由の街の歴史の揺りかご。世界的大学が集う"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:492
 msgid "cities.boston.name"
-msgstr "Boston"
+msgstr "ボストン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:503
 msgid "cities.boston.tagline"
-msgstr "Where American history comes alive"
+msgstr "ここで生きたアメリカ史を感じよう"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:46
 msgid "cities.brisbane.description"
-msgstr "Sunny Queensland capital with river city charm"
+msgstr "オーストラリアのサンシャイン州の州都。穏やかな気候とゆったりした暮らし"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:40
 msgid "cities.brisbane.name"
-msgstr "Brisbane"
+msgstr "ブリスベン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:51
 msgid "cities.brisbane.tagline"
-msgstr "Sunshine and river city lifestyle"
+msgstr "太陽の街、のんびりライフ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:153
 msgid "cities.calgary.description"
-msgstr "Gateway to the Canadian Rockies with western hospitality"
+msgstr "カナディアン・ロッキーへの玄関口。西部の情熱が息づく"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:147
 msgid "cities.calgary.name"
-msgstr "Calgary"
+msgstr "カルガリー"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:158
 msgid "cities.calgary.tagline"
-msgstr "Where prairies meet the mountains"
+msgstr "大草原と山々が出会う場所"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:263
 msgid "cities.chengdu.description"
-msgstr "Sichuan's cultural heart with spicy cuisine and pandas"
+msgstr "中国西南の文化の心臓。麻辣料理とパンダで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:257
 msgid "cities.chengdu.name"
-msgstr "Chengdu"
+msgstr "成都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:268
 msgid "cities.chengdu.tagline"
-msgstr "Land of abundance and leisure"
+msgstr "天府の国、ゆったりした暮らし"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:483
 msgid "cities.chicago.description"
-msgstr "Windy City with stunning architecture and deep-dish pizza"
+msgstr "風の街。壮麗なスカイラインとディープディッシュピザで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:477
 msgid "cities.chicago.name"
-msgstr "Chicago"
+msgstr "シカゴ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:488
 msgid "cities.chicago.tagline"
-msgstr "America's architectural capital"
+msgstr "アメリカの建築の都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:278
 msgid "cities.chongqing.description"
-msgstr "Mountain city with hot pot culture and Yangtze River views"
+msgstr "山の街、川の街。火鍋文化と長江の景観が交差"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:272
 msgid "cities.chongqing.name"
-msgstr "Chongqing"
+msgstr "重慶"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
 msgid "cities.chongqing.tagline"
-msgstr "The mountain metropolis"
+msgstr "立体的山城、スパイシーの都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:703
 msgid "cities.christchurch.description"
-msgstr "Garden City rebuilding with innovation and resilience"
+msgstr "ニュージーランドのガーデンシティ。革新とレジリエンスで再生"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
 msgid "cities.christchurch.name"
-msgstr "Christchurch"
+msgstr "クライストチャーチ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:708
 msgid "cities.christchurch.tagline"
-msgstr "Rising stronger from the garden"
+msgstr "庭園の再生、レジリエントな街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:769
 msgid "cities.default.description"
-msgstr "Discover your next destination"
+msgstr "次の理想の街を見つけよう"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:764
 msgid "cities.default.name"
-msgstr "Explore Cities"
+msgstr "都市を探す"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:770
 msgid "cities.default.tagline"
-msgstr "Begin your city exploration journey"
+msgstr "都市探索の旅を始めよう"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:719
 msgid "cities.dubai.description"
-msgstr "Futuristic metropolis with luxury shopping and architectural marvels"
+msgstr "未来感あふれる都市。ラグジュアリーな買い物と建築の驚異が集う"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:713
 msgid "cities.dubai.name"
-msgstr "Dubai"
+msgstr "ドバイ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:724
 msgid "cities.dubai.tagline"
-msgstr "Where the future begins today"
+msgstr "未来がここに先取りされる"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:589
 msgid "cities.dublin.description"
-msgstr "Literary capital with Georgian architecture and warm hospitality"
+msgstr "文学の都。ジョージアン建築と温かなもてなし"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
 msgid "cities.dublin.name"
-msgstr "Dublin"
+msgstr "ダブリン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:595
 msgid "cities.dublin.tagline"
-msgstr "Céad míle fáilte - A hundred thousand welcomes"
+msgstr "アイルランドの十万回の歓迎"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
 msgid "cities.edinburgh.description"
-msgstr "Scotland's historic capital with castle and festival culture"
+msgstr "スコットランドの歴史の街。城と芸術祭で有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:600
 msgid "cities.edinburgh.name"
-msgstr "Edinburgh"
+msgstr "エディンバラ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:612
 msgid "cities.edinburgh.tagline"
-msgstr "Where Scotland's heart beats strongest"
+msgstr "スコットランドの鼓動が最も強い場所"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:91
 msgid "cities.goldcoast.description"
-msgstr "Coastal paradise with world-class beaches and entertainment"
+msgstr "オーストラリアの人気観光地。黄金の砂浜とテーマパークで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:85
 msgid "cities.goldcoast.name"
-msgstr "Gold Coast"
+msgstr "ゴールドコースト"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:96
 msgid "cities.goldcoast.tagline"
-msgstr "Where surf meets sky"
+msgstr "黄金のビーチ、バカンスの楽園"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
 msgid "cities.guangzhou.description"
-msgstr "Southern China's commercial center with Cantonese heritage"
+msgstr "華南の商業中心地。広東語と嶺南料理の伝統が息づく"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:212
 msgid "cities.guangzhou.name"
-msgstr "Guangzhou"
+msgstr "広州"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
 msgid "cities.guangzhou.tagline"
-msgstr "Gateway to South China"
+msgstr "花の都、開かれた玄関口"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:655
 msgid "cities.hamburg.description"
-msgstr "Maritime gateway with rich port heritage and modern urban culture"
+msgstr "港湾の玄関口。深い港の遺産と現代都市文化"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:649
 msgid "cities.hamburg.name"
-msgstr "Hamburg"
+msgstr "ハンブルク"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:660
 msgid "cities.hamburg.tagline"
-msgstr "Gateway to the world"
+msgstr "世界への玄関口"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
 msgid "cities.hangzhou.description"
-msgstr "Paradise on earth with West Lake's serene beauty and tech innovation"
+msgstr "人間の楽園。静かな西湖とデジタル経済が調和"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
 msgid "cities.hangzhou.name"
-msgstr "Hangzhou"
+msgstr "杭州"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
 msgid "cities.hangzhou.tagline"
-msgstr "West Lake poetry meets a thriving digital economy"
+msgstr "西湖の詩情とデジタル経済の交差点"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:248
 msgid "cities.hongkong.description"
-msgstr "International finance center where East meets West"
+msgstr "アジアの国際金融センター。東西文化の融合と活気ある都市"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:242
 msgid "cities.hongkong.name"
-msgstr "Hong Kong"
+msgstr "香港"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:253
 msgid "cities.hongkong.tagline"
-msgstr "Asia's World City"
+msgstr "アジアの世界都市"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:376
 msgid "cities.kyoto.description"
-msgstr "Ancient imperial capital with temples and traditional arts"
+msgstr "日本の古都。神社仏閣と伝統芸能が息づく"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:370
 msgid "cities.kyoto.name"
-msgstr "Kyoto"
+msgstr "京都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:381
 msgid "cities.kyoto.tagline"
-msgstr "Timeless beauty and tradition"
+msgstr "永遠の美、伝統の都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:529
 msgid "cities.london.description"
-msgstr "Historic capital with iconic landmarks and global finance"
+msgstr "歴史ある首都。象徴的なランドマークと世界的金融の中心"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
 msgid "cities.london.name"
-msgstr "London"
+msgstr "ロンドン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:534
 msgid "cities.london.tagline"
-msgstr "Where history meets modernity"
+msgstr "歴史と現代が交差する街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:423
 msgid "cities.losangeles.description"
-msgstr "City of dreams, entertainment capital of the world"
+msgstr "夢の街。世界のエンターテインメント産業の中心"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:417
 msgid "cities.losangeles.name"
-msgstr "Los Angeles"
+msgstr "ロサンゼルス"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
 msgid "cities.losangeles.tagline"
-msgstr "City of Angels"
+msgstr "天使の街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
 msgid "cities.macau.description"
-msgstr "East meets West in this vibrant gaming and cultural hub"
+msgstr "東西文化が交わる活気ある都市。エンターテインメントと歴史が同居"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:322
 msgid "cities.macau.name"
-msgstr "Macau"
+msgstr "マカオ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:334
 msgid "cities.macau.tagline"
-msgstr "Where Portuguese charm meets Chinese heritage"
+msgstr "ポルトガル風情と中華の伝統が出会う地"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
 msgid "cities.manchester.description"
-msgstr "Industrial heritage meets modern innovation and football passion"
+msgstr "産業遺産、現代の革新、サッカーの情熱が共存"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:617
 msgid "cities.manchester.name"
-msgstr "Manchester"
+msgstr "マンチェスター"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
 msgid "cities.manchester.tagline"
-msgstr "The original modern city"
+msgstr "革新とモダンの街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:29
 msgid "cities.melbourne.description"
-msgstr "Australia's cultural capital with world-class coffee and arts"
+msgstr "オーストラリアの文化首都。カフェ文化と芸術の街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:23
 msgid "cities.melbourne.name"
-msgstr "Melbourne"
+msgstr "メルボルン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:35
 msgid "cities.melbourne.tagline"
-msgstr "Culture, coffee, and endless possibilities"
+msgstr "文化、カフェ、無限の可能性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:453
 msgid "cities.miami.description"
-msgstr "Tropical paradise with Art Deco charm and Latin culture"
+msgstr "トロピカルな楽園。アールデコとラテン文化が交差"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
 msgid "cities.miami.name"
-msgstr "Miami"
+msgstr "マイアミ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:458
 msgid "cities.miami.tagline"
-msgstr "The Magic City"
+msgstr "マジック・シティ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:136
 msgid "cities.montreal.description"
-msgstr "European charm in North America with rich French culture"
+msgstr "カナダ最大のフランス語圏都市。ヨーロッパの気風と芸術の街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:130
 msgid "cities.montreal.name"
-msgstr "Montreal"
+msgstr "モントリオール"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:142
 msgid "cities.montreal.tagline"
-msgstr "European elegance, North American spirit"
+msgstr "ヨーロピアンな気品、北米の精神"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:638
 msgid "cities.munich.description"
-msgstr "Bavarian capital blending traditional charm with modern innovation"
+msgstr "バイエルンの州都。伝統の魅力と現代の革新が融合"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:632
 msgid "cities.munich.name"
-msgstr "Munich"
+msgstr "ミュンヘン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:644
 msgid "cities.munich.tagline"
-msgstr "Beer halls, Baroque beauty, and Bavarian warmth"
+msgstr "ビアホール、バロックの美、バイエルンの温かさ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:408
 msgid "cities.newyork.description"
-msgstr "The city that never sleeps, melting pot of cultures"
+msgstr "眠らない街。世界文化のるつぼ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:402
 msgid "cities.newyork.name"
-msgstr "New York"
+msgstr "ニューヨーク"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:413
 msgid "cities.newyork.tagline"
-msgstr "The Big Apple"
+msgstr "ビッグアップルの無限の機会"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:361
 msgid "cities.osaka.description"
-msgstr "Japan's kitchen with incredible street food and friendly culture"
+msgstr "日本の台所。ストリートグルメと熱い文化が満載"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:355
 msgid "cities.osaka.name"
-msgstr "Osaka"
+msgstr "大阪"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:366
 msgid "cities.osaka.tagline"
-msgstr "The nation's kitchen"
+msgstr "天下の台所"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:168
 msgid "cities.ottawa.description"
-msgstr "Canada's capital with historic charm and governmental elegance"
+msgstr "カナダの首都。政治の中心と壮麗な建築で知られる"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:162
 msgid "cities.ottawa.name"
-msgstr "Ottawa"
+msgstr "オタワ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:173
 msgid "cities.ottawa.tagline"
-msgstr "Capital beauty, timeless tradition"
+msgstr "首都の美、永遠の伝統"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:544
 msgid "cities.paris.description"
-msgstr "City of Light with art, culture, and culinary excellence"
+msgstr "光の都。芸術、文化、美食が交差する"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:538
 msgid "cities.paris.name"
-msgstr "Paris"
+msgstr "パリ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:549
 msgid "cities.paris.tagline"
-msgstr "L'art de vivre at its finest"
+msgstr "生きる芸術の極み"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:61
 msgid "cities.perth.description"
-msgstr "Western Australia's coastal gem with pristine beaches"
+msgstr "オーストラリア西部の州都。美しいビーチと近代的な都市計画で有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:55
 msgid "cities.perth.name"
-msgstr "Perth"
+msgstr "パース"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:66
 msgid "cities.perth.tagline"
-msgstr "Where the west coast comes alive"
+msgstr "西海岸の真珠"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
 msgid "cities.sanfrancisco.description"
-msgstr "Tech hub with Golden Gate Bridge and diverse neighborhoods"
+msgstr "テクノロジーの中枢。ゴールデンゲートブリッジと多様なコミュニティで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:432
 msgid "cities.sanfrancisco.name"
-msgstr "San Francisco"
+msgstr "サンフランシスコ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
 msgid "cities.sanfrancisco.tagline"
-msgstr "The Golden Gate City"
+msgstr "ゴールデンゲートの街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:468
 msgid "cities.seattle.description"
-msgstr "Emerald City with Space Needle and innovative tech culture"
+msgstr "翡翠の街。スペースニードルと革新的な技術が輝く"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:462
 msgid "cities.seattle.name"
-msgstr "Seattle"
+msgstr "シアトル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:473
 msgid "cities.seattle.tagline"
-msgstr "Where innovation meets nature"
+msgstr "革新と自然が交わる場所"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:203
 msgid "cities.shanghai.description"
-msgstr "Global financial hub with stunning skyline and rich culture"
+msgstr "世界的金融ハブ。壮麗なスカイラインと豊かな文化"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:197
 msgid "cities.shanghai.name"
-msgstr "Shanghai"
+msgstr "上海"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:208
 msgid "cities.shanghai.tagline"
-msgstr "The Pearl of the Orient"
+msgstr "東方の真珠、国際都市"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:233
 msgid "cities.shenzhen.description"
-msgstr "China's Silicon Valley with cutting-edge technology"
+msgstr "中国のテック・イノベーションの中心。ハイテク産業と若い活力で有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
 msgid "cities.shenzhen.name"
-msgstr "Shenzhen"
+msgstr "深セン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:238
 msgid "cities.shenzhen.tagline"
-msgstr "Innovation at the speed of light"
+msgstr "光速で革新するテック都市"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:392
 msgid "cities.singapore.description"
-msgstr "Garden city and global hub of Southeast Asia"
+msgstr "ガーデン・シティ。東南アジアのグローバルハブ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
 msgid "cities.singapore.name"
-msgstr "Singapore"
+msgstr "シンガポール"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:397
 msgid "cities.singapore.tagline"
-msgstr "The Lion City"
+msgstr "ライオン・シティの魅力"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:14
 msgid "cities.sydney.description"
-msgstr "Australia's vibrant harbor city with iconic landmarks"
+msgstr "オーストラリアの港湾都市。オペラハウスとハーバーブリッジで有名"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:8
 msgid "cities.sydney.name"
-msgstr "Sydney"
+msgstr "シドニー"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:19
 msgid "cities.sydney.tagline"
-msgstr "Where dreams meet the harbor"
+msgstr "魅力的な港、無限の可能性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:346
 msgid "cities.tokyo.description"
-msgstr "Japan's vibrant capital blending tradition and modernity"
+msgstr "日本の活気ある首都。伝統と現代が見事に融合"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:340
 msgid "cities.tokyo.name"
-msgstr "Tokyo"
+msgstr "東京"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:351
 msgid "cities.tokyo.tagline"
-msgstr "Where ancient meets ultra-modern"
+msgstr "古と超モダンが交わる街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:106
 msgid "cities.toronto.description"
-msgstr "Canada's largest city, a vibrant multicultural metropolis"
+msgstr "カナダ最大の都市。多文化と金融の中心"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:100
 msgid "cities.toronto.name"
-msgstr "Toronto"
+msgstr "トロント"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:111
 msgid "cities.toronto.tagline"
-msgstr "Where diversity meets opportunity"
+msgstr "多様性が機会と出会う街"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:121
 msgid "cities.vancouver.description"
-msgstr "Pacific coastal city where mountains meet the sea"
+msgstr "カナダ西海岸の都市。山海の絶景と温暖な気候"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:115
 msgid "cities.vancouver.name"
-msgstr "Vancouver"
+msgstr "バンクーバー"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:126
 msgid "cities.vancouver.tagline"
-msgstr "Where mountains embrace the ocean"
+msgstr "山と海、暮らしの美"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
 msgid "cities.washingtondc.description"
-msgstr "Nation's capital with monuments and political power"
+msgstr "米国の首都。記念碑と政治の中枢が集まる"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:507
 msgid "cities.washingtondc.name"
-msgstr "Washington DC"
+msgstr "ワシントンD.C."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
 msgid "cities.washingtondc.tagline"
-msgstr "The heart of American democracy"
+msgstr "アメリカ民主主義の心臓"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:686
 msgid "cities.wellington.description"
-msgstr "New Zealand's creative capital with harbor views and cultural vibrancy"
+msgstr "ニュージーランドのクリエイティブな首都。港の景観と文化の活力"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:680
 msgid "cities.wellington.name"
-msgstr "Wellington"
+msgstr "ウェリントン"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
 msgid "cities.wellington.tagline"
-msgstr "The coolest little capital in the world"
+msgstr "世界で最もクールな小さな首都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
 msgid "cities.xian.description"
-msgstr "Ancient capital home to the Terracotta Warriors"
+msgstr "千年の古都。兵馬俑の故郷"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:287
 msgid "cities.xian.name"
-msgstr "Xi'an"
+msgstr "西安"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:298
 msgid "cities.xian.tagline"
-msgstr "Eternal city of dynasties>>>>>>> origin/main"
+msgstr "幾千年の王朝が紡ぐ永遠の都"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:88
 #: src/hooks/modals/useDeleteConversationHistory.tsx:75
 msgid "common.cancel"
-msgstr "Cancel"
+msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
 msgid "common.delete"
-msgstr "Delete"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
 msgid "confirm.button"
-msgstr "Confirm"
+msgstr "確認"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:112
 msgid "contact-us.email"
-msgstr "Email"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:52
-#~ msgid "contact-us.error.failed"
-#~ msgstr "Failed to send message. Please try again."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:60
-#~ msgid "contact-us.error.network"
-#~ msgstr "An error occurred. Please try again."
+msgstr "メールアドレス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:121
 msgid "contact-us.message"
-msgstr "Message"
+msgstr "メッセージ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:104
 msgid "contact-us.name"
-msgstr "Name"
+msgstr "氏名"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:142
 msgid "contact-us.submit"
-msgstr "Submit"
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:96
-#~ msgid "contact-us.subtitle"
-#~ msgstr "We'd love to hear from you. Fill out the form and we'll get back to you soon."
-
-#. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:44
-#~ msgid "contact-us.success"
-#~ msgstr "Message sent successfully!"
+msgstr "送信"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:89
 msgid "contact-us.title"
-msgstr "Contact Us"
+msgstr "お問い合わせ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
+msgstr "HelloCity は AI 移住アシスタントです。ステップごとのチェックリストとタイムラインで新しい都市への移住をスムーズにします。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "We support 48+ cities worldwide including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major cities across Australia, North America, Europe, and Asia. View the complete list in the app."
+msgstr "無料で始められます。高度なオプションでは、より個別化されたガイドや機能をご利用いただけます。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "Yes, an account is required to save your progress and access personalized checklists. Registration is free and takes less than a minute."
+msgstr "世界の主要都市をカバーしており、定期的に拡大しています。最新の対応地域は製品内でご確認ください。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback. All visa and legal information is reviewed for accuracy."
+msgstr "基本的な閲覧にはアカウントは不要です。アカウントを作成すると、進捗やリマインダー、カスタムのタイムラインを保存できます。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "Absolutely. You can add, edit, or remove any checklist item to match your specific situation. The AI provides a starting point, but you're always in control."
+msgstr "はい。HelloCity はレスポンシブ対応で、デスクトップ、タブレット、スマートフォンで快適に動作します。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
 msgid "contact.faq.q1"
-msgstr "What is HelloCity?"
+msgstr "HelloCity とは？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
-msgstr "Which cities are currently supported?"
+msgstr "HelloCity は無料ですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
-msgstr "Do I need an account to get started?"
+msgstr "どの都市に対応していますか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "How accurate are the AI-generated checklists?"
+msgstr "利用開始にはアカウント登録が必要ですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "Can I customize the checklist items?"
+msgstr "HelloCity はスマートフォンでも使いやすいですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
 #~ msgid "contact.faq.results"
-#~ msgstr "contact.faq.results"
+#~ msgstr "結果"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
 #~ msgid "contact.faq.searchPlaceholder"
-#~ msgstr "contact.faq.searchPlaceholder"
+#~ msgstr "質問を入力してください…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
-msgstr "Find quick answers to the most common questions about HelloCity."
+msgstr "HelloCity に関するよくある質問を素早く見つけられます。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
-msgstr "Frequently Asked Questions"
+msgstr "よくある質問"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:74
 msgid "conversation.delete.confirm"
-msgstr "Delete"
+msgstr "削除"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:69
 msgid "conversation.delete.description"
-msgstr "Are you sure you want to delete this conversation? This action cannot be undone."
+msgstr "この操作は元に戻せません。会話を削除してもよろしいですか？"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useDeleteConversationHistory.tsx:67
 msgid "conversation.delete.title"
-msgstr "Delete Conversation"
+msgstr "会話を削除"
 
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:87
 #~ msgid "create-checklist-button.add-item"
-#~ msgstr "Add Checklist Item"
+#~ msgstr "チェックリスト項目を追加"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
 #~ msgid "create-checklist.cancel"
-#~ msgstr "Cancel"
+#~ msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
 #~ msgid "create-checklist.create"
-#~ msgstr "Create item"
+#~ msgstr "項目を作成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
 #~ msgid "create-checklist.creating"
-#~ msgstr "Creating..."
+#~ msgstr "作成中…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
 #~ msgid "create-checklist.description-field"
-#~ msgstr "Description"
+#~ msgstr "説明"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
 #~ msgid "create-checklist.description-helper"
-#~ msgstr "Provide details about this task—what needs to be completed?"
+#~ msgstr "このタスクに関する詳細を入力してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
 #~ msgid "create-checklist.description-placeholder"
-#~ msgstr "Describe what needs to be done, any important details, or steps involved"
+#~ msgstr "完了すべきタスクと関連する詳細を記述してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
 #~ msgid "create-checklist.description-required"
-#~ msgstr "Description is required"
+#~ msgstr "説明は必須項目です"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
 #~ msgid "create-checklist.due-date"
-#~ msgstr "Due Date"
+#~ msgstr "期限"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
 #~ msgid "create-checklist.error.create"
-#~ msgstr "Failed to create item"
+#~ msgstr "チェックリスト項目の作成に失敗しました"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
 #~ msgid "create-checklist.importance-field"
-#~ msgstr "importance"
+#~ msgstr "重要度"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
 #~ msgid "create-checklist.importance-helper"
-#~ msgstr "The importance of this task"
+#~ msgstr "このタスクの重要度"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
 #~ msgid "create-checklist.importance-high-desc"
-#~ msgstr "Urgent"
+#~ msgstr "緊急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
 #~ msgid "create-checklist.importance-low-desc"
-#~ msgstr "Could wait"
+#~ msgstr "後回し可"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
 #~ msgid "create-checklist.importance-medium-desc"
-#~ msgstr "Should complete as soon as possible"
+#~ msgstr "できるだけ早く完了すべき"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
 #~ msgid "create-checklist.mark-completed"
-#~ msgstr "Mark as done"
+#~ msgstr "完了としてマーク"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
 #~ msgid "create-checklist.mark-completed-helper"
-#~ msgstr "If the task is already completed, please check this option"
+#~ msgstr "タスクが完了している場合はチェックしてください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
 #~ msgid "create-checklist.title"
-#~ msgstr "Create new checklist item"
+#~ msgstr "新しいチェックリスト項目を作成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
 #~ msgid "create-checklist.title-field"
-#~ msgstr "Topic"
+#~ msgstr "タイトル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
 #~ msgid "create-checklist.title-helper"
-#~ msgstr "Provide a clear, concise name for your checklist item"
+#~ msgstr "チェックリスト項目に分かりやすい名前を付けてください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
 #~ msgid "create-checklist.title-placeholder"
-#~ msgstr "Enter a clear, descriptive title for your task"
+#~ msgstr "タスクのタイトルを入力してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
 #~ msgid "create-checklist.title-required"
-#~ msgstr "Title is required"
+#~ msgstr "タイトルは必須項目です"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
 msgid "delete-conversation"
-msgstr "Delete Conversation"
+msgstr "会話を削除"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
 msgid "edit-conversation-title"
-msgstr "Rename History"
+msgstr "タイトルを編集"
 
 #. js-lingui-explicit-id
 #~ msgid "error.email"
-#~ msgstr "Please enter a valid email address."
+#~ msgstr "有効なメールアドレスを入力してください。"
 
 #. js-lingui-explicit-id
 #~ msgid "error.message"
-#~ msgstr "Message is required."
+#~ msgstr "メッセージを入力してください。"
 
 #. js-lingui-explicit-id
 #~ msgid "error.name"
-#~ msgstr "Only letters are allowed and name is required."
+#~ msgstr "氏名は英字のみ、空欄にはできません。"
 
 #. js-lingui-explicit-id
 #~ msgid "error.password"
-#~ msgstr "Password must be 6-20 characters with uppercase, lowercase, number, and special character."
+#~ msgstr "パスワードは6〜20文字で、英大文字・小文字・数字・記号を含めてください。"
 
 #. js-lingui-explicit-id
 #~ msgid "error.phone"
-#~ msgstr "Only numbers are allowed."
+#~ msgstr "電話番号は数字のみで入力してください。"
 
 #. js-lingui-explicit-id
 #~ msgid "error.repeatPassword"
-#~ msgstr "Passwords do not match."
+#~ msgstr "入力したパスワードが一致しません。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:31
 msgid "file.upload.error"
-msgstr "Invalid File size or type. Please upload an image file under 5MB"
+msgstr "ファイルのサイズまたは形式が無効です。5MB以下の画像ファイルをアップロードしてください"
 
 #. js-lingui-explicit-id
-#: src/components/ProfileImageEditor.tsx:39
+#: src/components/ProfileImageUploader.tsx:34
 #~ msgid "file.upload.progress"
-#~ msgstr "The image is uploading ..."
+#~ msgstr "画像をアップロード中..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:47
 #~ msgid "file.upload.success"
-#~ msgstr "The image is uploaded"
+#~ msgstr "画像のアップロードに成功しました"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
 msgid "form.submit"
-msgstr "Submit"
+msgstr "送信"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
 #~ msgid "importance.high"
-#~ msgstr "High"
+#~ msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
 #~ msgid "importance.low"
-#~ msgstr "Low"
+#~ msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
 #~ msgid "importance.medium"
-#~ msgstr "Medium"
+#~ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
 msgid "info.button"
-msgstr "Got it"
+msgstr "了解しました"
 
 #: src/hooks/useTryHelloCity.tsx:15
 #~ msgid "NavBar.Try HelloCity"
-#~ msgstr "Try HelloCity"
-
-#: src/components/dropdownMenuOptions.example.tsx:39
-#~ msgid "Logout"
-#~ msgstr "Logout"
+#~ msgstr "HelloCity を試す"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
 #~ msgid "notFound.headline"
-#~ msgstr "Let’s help you settle in."
+#~ msgstr "新生活により早く溶け込めるようお手伝いします。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:120
 #~ msgid "notFound.pageNotFound"
-#~ msgstr "Page not found"
+#~ msgstr "ページが見つかりません"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
 #~ msgid "notFound.sub"
-#~ msgstr "HelloCity supports international students with housing, banking, transport and community—so your new life"
+#~ msgstr "HelloCity は住まい、口座開設、交通、コミュニティ支援を提供し、海外生活のスタートをスムーズにします。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
 msgid "profile.avatar.add"
-msgstr "Add Profile Picture"
+msgstr "アバターを追加"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:101
 msgid "profile.avatar.remove"
-msgstr "Remove Picture"
+msgstr "写真を削除"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:72
 msgid "profile.avatar.title"
-msgstr "Profile Picture"
+msgstr "アバター"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:261
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
-msgstr "Cancel"
+msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:89
@@ -1766,25 +1780,25 @@ msgstr "Cancel"
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
-msgstr "City"
+msgstr "都市"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:187
 #: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
-msgstr "Please enter your city"
+msgstr "お住まいの都市を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:130
 #: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
-msgstr "Edit Profile"
+msgstr "プロフィールを編集"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
-msgstr "Edit Profile Information"
+msgstr "個人情報を編集"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
@@ -1792,13 +1806,13 @@ msgstr "Edit Profile Information"
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
-msgstr "Email"
+msgstr "メールアドレス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
-msgstr "Please enter your email"
+msgstr "メールアドレスを入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:96
@@ -1806,7 +1820,7 @@ msgstr "Please enter your email"
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
-msgstr "Gender"
+msgstr "性別"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:110
@@ -1814,13 +1828,13 @@ msgstr "Gender"
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
-msgstr "Major"
+msgstr "専攻"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:230
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
-msgstr "Please enter your major"
+msgstr "専攻を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:82
@@ -1828,19 +1842,19 @@ msgstr "Please enter your major"
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
-msgstr "Nationality"
+msgstr "国籍"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:177
 #: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
-msgstr "Please enter your nationality"
+msgstr "国籍を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:69
 #: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
-msgstr "Personal Information"
+msgstr "個人情報"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:117
@@ -1848,37 +1862,37 @@ msgstr "Personal Information"
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
-msgstr "Preferred Language"
+msgstr "希望言語"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:240
 #: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
-msgstr "Please enter your preferred language"
+msgstr "希望する言語を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:254
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
-msgstr "Refresh"
+msgstr "リセット"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:264
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
-msgstr "Submit"
+msgstr "送信"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:65
 #: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
-msgstr "Manage your personal information and preferences"
+msgstr "個人情報と設定を管理します"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:62
 #: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
-msgstr "Profile Settings"
+msgstr "プロフィール設定"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:103
@@ -1886,54 +1900,50 @@ msgstr "Profile Settings"
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
-msgstr "University"
+msgstr "大学"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:220
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
-msgstr "Please enter your university"
+msgstr "大学名を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
-msgstr "Username"
+msgstr "ユーザー名"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:156
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
-msgstr "Please enter your username"
+msgstr "ユーザー名を入力してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
 msgid "sidebar.actions.newChat"
-msgstr "New Chat"
+msgstr "新規チャット"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
 #~ msgid "sidebar.actions.searchChat"
-#~ msgstr "Search Chat"
+#~ msgstr "チャットを検索"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
 msgid "sidebar.history.title"
-msgstr "HISTORY"
+msgstr "チャット履歴"
 
 #. js-lingui-explicit-id
 #: src/components/InputBox/InputBox.tsx:60
 msgid "validation.required"
-msgstr "{label} is required."
+msgstr "{label}は必須項目です。"
 
 #: src/components/ProfileImageUploader.tsx:90
 #~ msgid "account.title"
-#~ msgstr "HelloCity Account"
+#~ msgstr "HelloCity アカウント"
 
 #: src/hooks/useNavigation.tsx:21
 #~ msgid "NavBar.Home"
-#~ msgstr "Home"
-
-#: src/app/[lang]/(site)/contact-us/page.tsx:84
-#~ msgid "contact-us.email"
-#~ msgstr "Email"
+#~ msgstr "ホーム"

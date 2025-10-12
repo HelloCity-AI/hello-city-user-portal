@@ -20,6 +20,7 @@ export default function Home({ params }: { params: { lang: string } }) {
       <HowItWorksSection locale={lang} />
       <TestimonialsSection locale={lang} />
       <FAQSection />
+      <FAQSection />
       <CallToActionsSection locale={lang} />
     </React.Fragment>
   );
