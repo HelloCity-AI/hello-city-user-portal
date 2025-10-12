@@ -626,7 +626,7 @@ msgstr "查看详情"
 #~ msgstr "截止日期"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:262
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
 msgid "checklist.due.prefix"
 msgstr "截止："
 

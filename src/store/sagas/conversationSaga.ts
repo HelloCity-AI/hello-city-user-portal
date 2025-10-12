@@ -1,6 +1,7 @@
-import { call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest, takeEvery } from 'redux-saga/effects';
 import type { SagaIterator } from 'redux-saga';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createAction } from '@reduxjs/toolkit';
 import {
   setConversations,
   setConversationsLoading,
@@ -420,9 +421,43 @@ export function* handleDeleteConversation(action: PayloadAction<string>): SagaIt
   }
 }
 
+// ========== Standalone Checklist Fetch Action ==========
+
+export const fetchConversationChecklists = createAction<string>('conversationSaga/fetchChecklists');
+
+/**
+ * Fetch checklists for a conversation without refetching messages
+ * Used by GlobalTaskPoller to get updated checklist data (with versionNumber) after task completion
+ */
+export function* handleFetchConversationChecklists(action: PayloadAction<string>): SagaIterator {
+  const conversationId = action.payload;
+
+  try {
+    const checklistRes: ChecklistResponse = yield call(fetchChecklistsApiWrapper, conversationId);
+
+    if (checklistRes.ok && checklistRes.data) {
+      const transformed = checklistRes.data.map(transformChecklistPayload);
+
+      // Upsert all checklists without changing activeChecklistId
+      for (const checklist of transformed) {
+        yield put(upsertChecklistMetadata(checklist));
+      }
+
+      console.log(
+        `[Conversation Saga] Fetched ${transformed.length} checklists for conversation ${conversationId}`,
+      );
+    }
+  } catch (error: unknown) {
+    console.error('Error in handleFetchConversationChecklists:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Failed to fetch checklists';
+    yield put(setError(errorMessage));
+  }
+}
+
 export default function* conversationSaga() {
   yield takeLatest(fetchAllConversations.type, handleFetchConversations);
   yield takeLatest(fetchConversationMessages.type, handleFetchConversationMessages);
   yield takeLatest(updateConversation.type, handleUpdateConversation);
   yield takeLatest(deleteConversation.type, handleDeleteConversation);
+  yield takeEvery(fetchConversationChecklists.type, handleFetchConversationChecklists);
 }
