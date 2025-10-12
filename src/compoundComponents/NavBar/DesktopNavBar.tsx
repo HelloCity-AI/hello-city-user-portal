@@ -14,6 +14,7 @@ import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import type { NavBarProps } from './NavBar';
 import UserMenu from '@/compoundComponents/Menus/UserMenu';
+import { API_BASE } from '@/lib/api-auth';
 
 const SCROLL_THRESHOLD = 20;
 const BASE_CLASSES = 'fixed left-0 top-0 z-50 w-[100vw] flex items-center py-2';
@@ -104,7 +105,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
     return (
       <Button
         component={Link}
-        href={'/auth/login'}
+        href={`${API_BASE}/auth/login`} 
         variant="tertiary"
         sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined }}
         className="whitespace-nowrap font-semibold"

@@ -16,6 +16,7 @@ import useUserMenu from '@/hooks/menus/useUserMenu';
 import type { NavBarProps } from './NavBar';
 import type { NavItem } from './navConfig';
 import useLanguageMenu from '@/hooks/menus/useLanguageMenu';
+import { API_BASE } from '@/lib/api-auth';
 
 const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) => {
   const [openDrawer, setOpenDrawer] = useState<'userDrawer' | 'navDrawer' | null>(null);
@@ -112,7 +113,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
     return (
       <Button
         component={Link}
-        href={`auth/login`}
+        href={`${API_BASE}/auth/login`} 
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >

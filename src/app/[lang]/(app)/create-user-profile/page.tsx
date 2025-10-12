@@ -14,6 +14,7 @@ import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
 import type { RootState } from '@/store';
 import { registerFile } from '@/upload/fileRegistry';
+import { API_BASE } from '@/lib/api-auth';
 
 const Page = () => {
   const { user, isLoading } = useUser();
@@ -112,11 +113,10 @@ const Page = () => {
     );
   }
 
-  // If no user information, redirect to login page
-  if (!user) {
-    window.location.href = '/auth/login';
-    return null;
-  }
+// If no user information, redirect to login page
+if (!user) {
+  window.location.href = `${API_BASE}/auth/login`;
+}
 
   return (
     <>
