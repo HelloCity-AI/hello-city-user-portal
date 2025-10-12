@@ -1,10 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import type {
-  ChecklistMetadata,
-  ChecklistBanner,
-  ChecklistItem,
-} from '@/types/checklist.types';
+import type { ChecklistMetadata, ChecklistBanner, ChecklistItem } from '@/types/checklist.types';
 import {
   createBannerFromChecklist,
   mergeChecklists,
@@ -152,7 +148,9 @@ const checklistSlice = createSlice({
       const idToItem = new Map(checklist.items.map((item) => [item.id, item]));
 
       // Reordered items in new order
-      const reordered = reorderedIds.map((id) => idToItem.get(id)).filter(Boolean) as ChecklistItem[];
+      const reordered = reorderedIds
+        .map((id) => idToItem.get(id))
+        .filter(Boolean) as ChecklistItem[];
 
       // Items not in reorderedIds (keep at end)
       const remaining = checklist.items.filter((item) => !reorderedIds.includes(item.id));

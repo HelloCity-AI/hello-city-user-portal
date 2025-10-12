@@ -157,11 +157,7 @@ const ChecklistItemModal: React.FC<ChecklistItemModalProps> = ({
         <Button onClick={onClose} disabled={isSubmitting}>
           <Trans id="checklist-item-modal.cancel" message="Cancel" />
         </Button>
-        <Button
-          onClick={handleSubmit}
-          variant="contained"
-          disabled={isSubmitting || !title.trim()}
-        >
+        <Button onClick={handleSubmit} variant="contained" disabled={isSubmitting || !title.trim()}>
           {mode === 'add' ? (
             <Trans id="checklist-item-modal.add-button" message="Add" />
           ) : (

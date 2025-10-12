@@ -17,6 +17,12 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Material-
 9. [Development Workflow](#9-development-workflow)
 10. [Notes](#10-notes)
 
+---
+
+**📚 Complete Documentation:** See [CLAUDE.md](./CLAUDE.md) for comprehensive technical architecture, API layers, state management patterns, and development guidelines.
+
+---
+
 ## 1. Requirements
 
 - Node.js: **>=20.19.0 or >=22.12.0** (Node 22 LTS recommended)
@@ -312,9 +318,12 @@ src/
 │   └── Modals/             # Modal dialogs
 ├── store/                  # Redux state management
 │   ├── slices/             # Redux slices (user, conversation, checklist)
-│   └── sagas/              # Redux Saga files
-├── api/                    # API layer with Auth0 authentication
-│   └── transformers/       # Backend ↔ Frontend data transformation
+│   ├── sagas/              # Redux Saga files (userSaga, conversationSaga, checklistSaga)
+│   └── helpers/            # Pure helper functions (reduxChecklistHelpers.ts)
+├── lib/                    # Third-party configs & API client
+│   └── api-client.ts       # Axios backend HTTP client (unified API layer)
+├── api/                    # Type definitions & data transformers
+│   └── transformers/       # Backend ↔ Frontend format conversion
 ├── contexts/               # React contexts (Language, I18n)
 ├── hooks/                  # Custom React hooks
 ├── locales/                # i18n message catalogs (en/zh po format)

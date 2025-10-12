@@ -7,10 +7,7 @@
  * @module reduxChecklistHelpers
  */
 
-import type {
-  ChecklistMetadata,
-  ChecklistBanner,
-} from '@/types/checklist.types';
+import type { ChecklistMetadata, ChecklistBanner } from '@/types/checklist.types';
 
 // ========== Helper Functions ==========
 

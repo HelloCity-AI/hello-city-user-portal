@@ -27,8 +27,8 @@ const ChecklistSection = memo(({ items, filter, handlers }: ChecklistSectionProp
 
   // Update stable values only when items actually change
   useEffect(() => {
-    const itemIds = items.map(item => item.id);
-    const prevIds = prevItemsRef.current.map(item => item.id);
+    const itemIds = items.map((item) => item.id);
+    const prevIds = prevItemsRef.current.map((item) => item.id);
 
     // Only update if the IDs have actually changed
     if (itemIds.length !== prevIds.length || !itemIds.every((id, i) => id === prevIds[i])) {

@@ -33,7 +33,13 @@ export async function DELETE(
 ): Promise<NextResponse> {
   try {
     const { token, apiUrl } = await getAuthContext();
-    await deleteChecklistItem(token, apiUrl, params.conversationId, params.checklistId, params.itemId);
+    await deleteChecklistItem(
+      token,
+      apiUrl,
+      params.conversationId,
+      params.checklistId,
+      params.itemId,
+    );
     return new NextResponse(null, { status: 204 });
   } catch (error) {
     if (error instanceof AuthError) {
