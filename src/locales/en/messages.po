@@ -1418,7 +1418,7 @@ msgstr "Email"
 #~ msgstr "An error occurred. Please try again."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "Message"
 
@@ -1449,7 +1449,7 @@ msgstr "Submit"
 #~ msgstr "Message sent successfully!"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "Contact Us"
 
@@ -1505,13 +1505,13 @@ msgstr "Is HelloCity mobile-friendly?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-msgid "contact.faq.results"
-msgstr "Results"
+#~ msgid "contact.faq.results"
+#~ msgstr "Results"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-msgid "contact.faq.searchPlaceholder"
-msgstr "Please enter your question... "
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "Please enter your question... "
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123

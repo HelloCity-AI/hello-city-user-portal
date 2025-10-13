@@ -1456,7 +1456,7 @@ msgstr "电子邮件"
 #~ msgstr "发生错误，请重试。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "信息"
 
@@ -1487,7 +1487,7 @@ msgstr "提交"
 #~ msgstr "发送成功！"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "联系我们"
 
