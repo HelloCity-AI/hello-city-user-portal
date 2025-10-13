@@ -522,78 +522,78 @@ msgstr "HelloCity에 오신 것을 환영합니다"
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
 msgid "checklist-item-modal.add-button"
-msgstr ""
+msgstr "추가"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
 msgid "checklist-item-modal.add-title"
-msgstr ""
+msgstr "계획 항목 추가"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
 msgid "checklist-item-modal.cancel"
-msgstr ""
+msgstr "취소"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
 msgid "checklist-item-modal.category"
-msgstr ""
+msgstr "카테고리"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
 msgid "checklist-item-modal.description"
-msgstr ""
+msgstr "설명"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
 msgid "checklist-item-modal.due-date"
-msgstr ""
+msgstr "마감일"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
 msgid "checklist-item-modal.edit-title"
-msgstr ""
+msgstr "계획 항목 편집"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
 msgid "checklist-item-modal.importance"
-msgstr ""
+msgstr "중요도"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:164
 msgid "checklist-item-modal.save-button"
-msgstr ""
+msgstr "저장"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
 msgid "checklist-item-modal.title"
-msgstr ""
+msgstr "제목"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:127
 msgid "checklist-item.delete"
-msgstr ""
+msgstr "항목 삭제"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:82
 msgid "checklist-item.delete.description"
-msgstr ""
+msgstr "이 계획 항목을 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:80
 msgid "checklist-item.delete.title"
-msgstr ""
+msgstr "항목 삭제"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:119
 msgid "checklist-item.edit"
-msgstr ""
+msgstr "항목 편집"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
-msgstr "새 항목 추가"
+msgstr "새 계획 항목 추가"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
@@ -601,9 +601,14 @@ msgstr "새 항목 추가"
 #~ msgstr "체크리스트 생성 중..."
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:69
+msgid "checklist.banner.generatingNotice"
+msgstr "계획 생성에는 3–5분이 걸릴 수 있습니다. 잠시만 기다려 주세요."
+
+#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:40
 msgid "checklist.banner.generatingTitle"
-msgstr "맞춤 체크리스트 생성 중"
+msgstr "계획 생성 중…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
@@ -616,7 +621,7 @@ msgstr "맞춤 체크리스트 생성 중"
 #~ msgstr "새 체크리스트"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:85
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:95
 msgid "checklist.banner.viewDetails"
 msgstr "자세히 보기"
 
@@ -633,17 +638,17 @@ msgstr "자세히 보기"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
 msgid "checklist.empty.all"
-msgstr "작업이 없습니다"
+msgstr "계획 항목이 없습니다"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
 msgid "checklist.empty.completed"
-msgstr "완료된 작업이 없습니다"
+msgstr "완료된 계획 항목이 없습니다"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
 msgid "checklist.empty.incomplete"
-msgstr "미완료 작업이 없습니다"
+msgstr "미완료 계획 항목이 없습니다"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
@@ -664,19 +669,19 @@ msgstr "미완료"
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
-msgstr "중요"
+msgstr "높음"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
-msgstr "보통"
+msgstr "낮음"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
-msgstr "중간"
+msgstr "보통"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
@@ -1432,7 +1437,7 @@ msgstr "취소"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
 msgid "common.delete"
-msgstr ""
+msgstr "삭제"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -1457,7 +1462,7 @@ msgstr "이름"
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:97
 msgid "contact-us.reminderInfo"
-msgstr ""
+msgstr "문의해 주시면 감사하겠습니다. 양식을 작성해 주시면 곧 연락드리겠습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:149
@@ -1472,7 +1477,7 @@ msgstr "문의하기"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity는 AI 이주 도우미로, 단계별 체크리스트와 일정으로 새 도시에 쉽게 정착하도록 돕습니다."
+msgstr "HelloCity는 AI 이주 도우미로, 단계별 계획과 일정으로 새 도시에 쉽게 정착하도록 돕습니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
