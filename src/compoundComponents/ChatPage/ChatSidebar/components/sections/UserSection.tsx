@@ -11,6 +11,7 @@ import IconButton from '@mui/material/IconButton';
 
 interface UserSectionProps {
   isCollapsed: boolean;
+  onMenuClick?: () => void;
 }
 
 /**
@@ -19,10 +20,11 @@ interface UserSectionProps {
  * Collapsed: Avatar container(32px) + Username container(0px) + Arrow container(0px) = 32px
  * Integrates UserMenu dropdown functionality internally
  */
-export default function UserSection({ isCollapsed }: UserSectionProps) {
+export default function UserSection({ isCollapsed, onMenuClick }: UserSectionProps) {
   return (
     <ItemWrapper variant="none">
       <UserMenu
+        onMenuClick={onMenuClick}
         trigger={
           <div className="flex h-12 items-center rounded-lg">
             {/* Avatar container - Fixed 32px width, uses ResponsiveIconContainer */}
