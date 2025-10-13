@@ -63,8 +63,8 @@ const UserProfileCard: React.FC<UserData> = ({
   const name = UserName ?? storeUser?.username ?? 'Unknown User';
 
   const email = EmailAddress ?? storeUser?.email ?? 'Unknown Email';
-
-  const avatar = AvatarImg ?? storeUser?.avatarUrl ?? storeUser?.avatar ?? '';
+  // The avatarUrl override from parent prop is canceled as the S3 url would always come from Redux.
+  const avatar = storeUser?.avatarUrl ?? '';
 
   const last = LastJoinDate ?? storeUser?.lastJoinDate ?? 'Unknown';
 
