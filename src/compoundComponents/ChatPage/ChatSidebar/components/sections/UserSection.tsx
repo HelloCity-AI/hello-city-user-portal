@@ -34,7 +34,7 @@ export default function UserSection({ isCollapsed }: UserSectionProps) {
             <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[168px]">
               <UserName
                 variant="body2"
-                className="select-none overflow-hidden truncate whitespace-nowrap pl-3 text-sm font-medium text-primaryBlack"
+                className="select-none overflow-hidden truncate whitespace-nowrap pl-3 text-left text-sm font-medium text-primaryBlack"
               />
             </ResponsiveContainer>
 

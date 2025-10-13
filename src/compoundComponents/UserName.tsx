@@ -12,9 +12,20 @@ const UserName: React.FC<UserNameProps> = ({ fallback = 'Guest User', ...typogra
   const { data } = useSelector((state: RootState) => state.user);
 
   // Priority: email > Fallback
-  const displayName = data?.email || fallback;
+  const displayName = data?.username || fallback;
+  const emailAddress = data?.email || fallback;
 
-  return <Typography {...typographyProps}>{displayName}</Typography>;
+  return (
+    <>
+      <Typography {...typographyProps}>
+        {displayName}
+        <br />
+        <Typography variant="body2" color="text.secondary">
+          {emailAddress}
+        </Typography>
+      </Typography>
+    </>
+  );
 };
 
 export default UserName;
