@@ -126,7 +126,10 @@ const userSlice = createSlice({
       },
     },
     updateUserSuccess: (state, action: PayloadAction<User>) => {
-      state.data = action.payload;
+      state.data = {
+        ...(state.data ?? ({} as User)),
+        ...action.payload,
+      };
       state.isUpdating = false;
       state.updateError = null;
     },

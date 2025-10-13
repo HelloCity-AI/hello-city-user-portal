@@ -131,11 +131,7 @@ const Page = () => {
           </Button>
         </div>
 
-        <Modal
-          open={isEditModalOpen}
-          onClose={() => (setUserInfo(userData || defaultUser), setIsEditModalOpen(false))}
-          maxWidth="md"
-        >
+        <Modal open={isEditModalOpen} onClose={() => setIsEditModalOpen(false)} maxWidth="md">
           <form
             className="flex flex-col gap-6 p-4"
             onSubmit={(e) => {

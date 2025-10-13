@@ -206,7 +206,8 @@ export function* handleUpdateUser(action: PayloadAction<User>): SagaIterator {
   try {
     const res: ApiWrapperResponse = yield call(updateUserApiWrapper, action.payload);
     if (res.status === 200 || res.status === 204) {
-      yield put(updateUserSuccess((res.data as User) ?? action.payload));
+      // Use submitted payload to update UI immediately, avoiding stale server echoes
+      yield put(updateUserSuccess(action.payload));
     } else {
       yield put(updateUserFailure(`update user failed: ${res.status}`));
     }
