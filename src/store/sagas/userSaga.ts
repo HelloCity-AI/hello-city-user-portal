@@ -109,6 +109,14 @@ export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrappe
   try {
     // Build form-data with backend's expected Title Case keys (EditUserDto)
     const formData = new FormData();
+    // If imageId provided, append actual File under 'File' key (EditUserDto expects IFormFile File)
+    const maybeImageId = (updatedUser as any).imageId as string | undefined;
+    if (maybeImageId) {
+      const avatarFile = takeFile(maybeImageId);
+      if (avatarFile instanceof File || avatarFile instanceof Blob) {
+        formData.append('File', avatarFile);
+      }
+    }
     const email =
       (updatedUser as Record<string, unknown>)['email'] ??
       (updatedUser as Record<string, unknown>)['Email'];
