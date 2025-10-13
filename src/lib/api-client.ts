@@ -141,6 +141,15 @@ export async function getConversationMessages(
   return await client.get(`/api/conversation/${id}/messages`);
 }
 
+export async function getConversationChecklists(
+  token: string,
+  backendUrl: string,
+  id: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.get(`/api/conversation/${id}/checklists`);
+}
+
 export async function createConversation(
   token: string,
   backendUrl: string,
@@ -152,4 +161,90 @@ export async function createConversation(
     title,
     firstMessage,
   });
+}
+
+/**
+ * Create a new checklist item
+ */
+export async function createChecklistItem(
+  token: string,
+  backendUrl: string,
+  conversationId: string,
+  checklistId: string,
+  data: object,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.post(
+    `/api/conversation/${conversationId}/checklist/${checklistId}/item`,
+    data,
+  );
+}
+
+/**
+ * Update a checklist item
+ */
+export async function updateChecklistItem(
+  token: string,
+  backendUrl: string,
+  conversationId: string,
+  checklistId: string,
+  itemId: string,
+  data: object,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.put(
+    `/api/conversation/${conversationId}/checklist/${checklistId}/item/${itemId}`,
+    data,
+  );
+}
+
+/**
+ * Toggle checklist item completion status
+ */
+export async function toggleChecklistItemComplete(
+  token: string,
+  backendUrl: string,
+  conversationId: string,
+  checklistId: string,
+  itemId: string,
+  isComplete: boolean,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.patch(
+    `/api/conversation/${conversationId}/checklist/${checklistId}/item/${itemId}/complete`,
+    { isComplete },
+  );
+}
+
+/**
+ * Delete a checklist item
+ */
+export async function deleteChecklistItem(
+  token: string,
+  backendUrl: string,
+  conversationId: string,
+  checklistId: string,
+  itemId: string,
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.delete(
+    `/api/conversation/${conversationId}/checklist/${checklistId}/item/${itemId}`,
+  );
+}
+
+/**
+ * Reorder checklist items
+ */
+export async function reorderChecklistItems(
+  token: string,
+  backendUrl: string,
+  conversationId: string,
+  checklistId: string,
+  itemIds: string[],
+): Promise<AxiosResponse> {
+  const client = createApiClient(backendUrl, token);
+  return await client.put(
+    `/api/conversation/${conversationId}/checklist/${checklistId}/item/reorder`,
+    { itemIds },
+  );
 }

@@ -1,0 +1,1954 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-07-20 22:44+1000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: ko\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
+#~ msgid "AdventureShowcase.Case1.Alt"
+#~ msgstr "출발 준비 완료"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
+#~ msgid "AdventureShowcase.Case1.Description"
+#~ msgstr "당신만의 새로운 여정을 시작하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
+#~ msgid "AdventureShowcase.Case1.Title"
+#~ msgstr "출발 준비 완료"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
+#~ msgid "AdventureShowcase.Case2.Alt"
+#~ msgstr "새 친구 사귀기"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
+#~ msgid "AdventureShowcase.Case2.Description"
+#~ msgstr "흥미로운 사람들과 만나 깊은 우정을 쌓아보세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
+#~ msgid "AdventureShowcase.Case2.Title"
+#~ msgstr "새 친구 사귀기"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
+#~ msgid "AdventureShowcase.Case3.Alt"
+#~ msgstr "꿈을 이루는 도시"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
+#~ msgid "AdventureShowcase.Case3.Description"
+#~ msgstr "이상적인 도시에서 당신의 꿈을 실현하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
+#~ msgid "AdventureShowcase.Case3.Title"
+#~ msgstr "꿈을 이루는 도시"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
+#~ msgid "AdventureShowcase.Description"
+#~ msgstr "낯선 도시를 탐험하는 설렘, 뜻이 맞는 친구들과의 만남, 새로운 환경에서 펼쳐질 인생의 새 장을 시작하세요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+#~ msgid "AdventureShowcase.Title"
+#~ msgstr "멋진 인생, 이제 출발합니다"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useLogoutConfirm.tsx:32
+msgid "Are you sure you want to log out?"
+msgstr "정말 로그아웃하시겠습니까?"
+
+#: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "날짜 선택"
+
+#: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NavBar.Back"
+#~ msgstr "← 뒤로"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Description"
+#~ msgstr "HelloCity의 도움으로 새 도시에 성공적으로 적응한 수천 명과 함께하세요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Title"
+#~ msgstr "이제 시작할 준비가 되셨나요?"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
+msgid "Creating..."
+msgstr "생성 중..."
+
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "테마"
+
+#: src/components/CreateChecklistItemButton.tsx:85
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "체크리스트 항목 추가"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.BannerAlt"
+#~ msgstr "멜버른의 석양 풍경, HelloCity가 새 삶의 시작을 돕습니다"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Description"
+#~ msgstr "여행, 유학, 이주 어디에서든 맞춤형 플랜으로 부담 없이 체계적으로 준비하세요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Title.Part1"
+#~ msgstr "당신의 스마트 가이드"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Title.Part2"
+#~ msgstr "세계를 함께하는 동반자"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Description"
+#~ msgstr "모든 멋진 여정은 치밀한 계획에서 시작됩니다. HelloCity는 복잡한 도시 이주 과정을 질서 있는 탐험으로 바꿉니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.ImageAlt"
+#~ msgstr "여행 콜라주: 공항 출발, 푸른 바다의 배, 열대 해변 별장, 석양 속 커플"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step1.Description"
+#~ msgstr "새 삶의 청사진을 그리고 목표를 세워요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step1.Title"
+#~ msgstr "동경과 계획"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step2.Description"
+#~ msgstr "필수 서류와 자료를 모두 준비"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step2.Title"
+#~ msgstr "준비와 정리"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step3.Description"
+#~ msgstr "새 도시에 빠르게 적응하고 멋진 삶을 펼치기"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step3.Title"
+#~ msgstr "도착과 성장"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Title"
+#~ msgstr "계획부터 꿈의 실현까지, 언제나 함께"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:193
+#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
+msgid "I'm all set"
+msgstr "준비 완료"
+
+#: src/hooks/useNavigation.tsx:26
+#~ msgid "NavBar.Chat"
+#~ msgstr "채팅"
+
+#. js-lingui-explicit-id
+#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/modals/useLogoutConfirm.tsx:30
+#: src/hooks/modals/useLogoutConfirm.tsx:34
+msgid "Logout"
+msgstr "로그아웃"
+
+#: src/app/[lang]/create-user-profile/page.tsx:103
+#~ msgid "I'm all set"
+#~ msgstr "준비 완료"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:98
+msgid "NavBar.Back"
+msgstr "← 뒤로"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:35
+msgid "NavBar.ChangeLanguage"
+msgstr "언어 변경"
+
+#. js-lingui-explicit-id
+#: src/hooks/useNavigation.tsx:26
+msgid "NavBar.Chat"
+msgstr "채팅"
+
+#. js-lingui-explicit-id
+#: src/hooks/useNavigation.tsx:33
+msgid "NavBar.ContactUs"
+msgstr "문의하기"
+
+#. js-lingui-explicit-id
+#: src/hooks/useNavigation.tsx:19
+msgid "NavBar.Home"
+msgstr "홈"
+
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:119
+msgid "NavBar.Sign In"
+msgstr "로그인"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:9
+msgid "NavBar.Try HelloCity"
+msgstr "HelloCity 체험하기"
+
+#. js-lingui-explicit-id
+#: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NaveBar.Back"
+#~ msgstr "← 뒤로"
+
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/components/NavBar/DesktopNavBar.tsx:138
+#: src/components/NavBar/MobileNavBar.tsx:122
+#~ msgid "NaveBar.Sign In"
+#~ msgstr "로그인"
+
+#. js-lingui-explicit-id
+#: src/stories/DatePicker.stories.tsx:17
+msgid "Pick a date"
+msgstr "날짜 선택"
+
+#. js-lingui-explicit-id
+#: src/hooks/menus/useUserMenu.tsx:28
+msgid "Profile"
+msgstr "프로필"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:18
+#~ msgid "Settings"
+#~ msgstr "설정"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:32
+#~ msgid "Subscription"
+#~ msgstr "구독 관리"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:27
+#~ msgid "Testimonials.Country1"
+#~ msgstr "중국"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:39
+#~ msgid "Testimonials.Country2"
+#~ msgstr "일본"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:51
+#~ msgid "Testimonials.Country3"
+#~ msgstr "인도"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:63
+#~ msgid "Testimonials.Country4"
+#~ msgstr "브라질"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:75
+#~ msgid "Testimonials.Country5"
+#~ msgstr "중국"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:87
+#~ msgid "Testimonials.Country6"
+#~ msgstr "영국"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:99
+#~ msgid "Testimonials.Country7"
+#~ msgstr "싱가포르"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:111
+#~ msgid "Testimonials.Country8"
+#~ msgstr "미국"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Description"
+#~ msgstr "학생·직장인·가족의 실제 후기를 확인하세요 — 단계별 이주 도구로 막막함에서 자신감으로 바뀌었습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name1"
+#~ msgstr "장웨이"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name2"
+#~ msgstr "다나카 아야카"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name3"
+#~ msgstr "라제시 쿠마르"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name4"
+#~ msgstr "마리아 산토스"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name5"
+#~ msgstr "모 샤오롱"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name6"
+#~ msgstr "엠마 윌슨"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name7"
+#~ msgstr "프리야 샤르마"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:109
+#~ msgid "Testimonials.Name8"
+#~ msgstr "루카스 밀러"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review1"
+#~ msgstr "업무 때문에 시드니로 이사했는데, 어디서부터 시작해야 할지 정말 몰랐어요. HelloCity가 서류·은행·주거를 간단한 단계로 나눠 주었습니다. 이게 없었으면 아직도 밤마다 정보를 뒤지고 있었을 거예요. 정말 구세주였어요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review2"
+#~ msgstr "이사하면서 은행 계좌 개설이나 수도·전기 가입을 알아보느라 몇 주를 허비할까 걱정했어요. HelloCity 덕분에 모든 것이 놀랍도록 쉬워졌습니다. 며칠 만에 정착하고 콘텐츠 제작에 집중할 수 있었어요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review3"
+#~ msgstr "해외에서 석사를 시작하며 각종 서류 절차가 너무 불안했어요. HelloCity가 다음에 무엇을 해야 하는지 계속 알려줘서, 마치 주머니 속 체크리스트 같았어요. 스트레스가 줄고 캠퍼스 생활을 더 즐길 수 있었습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review4"
+#~ msgstr "프리랜서로서 프로젝트 때문에 여러 도시를 자주 오갑니다. HelloCity는 매번 새 도시에서 빠르게 정착하게 해주는 필수 도구가 되었어요. 타임라인 기능이 특히 유용해서 마감에 맞춰 모든 일을 체계적으로 잡을 수 있었습니다. 공유 오피스 정보가 더 있으면 완벽할 것 같아요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review5"
+#~ msgstr "두 아이를 데리고 이사하는 건 우리에게 가장 큰 악몽이었어요, HelloCity를 만나기 전까지요. 가족용 체크리스트는 학교부터 소아과까지 빠짐없이 다루고 있어요. 8살 아이도 스스로 체크박스를 누르며 도와줬답니다! 혼란스러웠을 상황이 놀랍도록 정돈됐어요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review6"
+#~ msgstr "막 대학교를 졸업하고 사회로 나가는 게 막막했을 때 HelloCity는 인생 멘토처럼 제 길을 안내해 줬어요. 첫 집을 꾸미는 일부터 현지 은행 업무까지, 학생에서 직장인으로의 전환이 아주 매끄러웠습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review7"
+#~ msgstr "싱가포르에서 멜버른으로 이주한 외국인으로서 학교·의료·장보기 같은 사소한 것까지 모두 불안했어요. HelloCity의 로컬 가이드는 매우 세밀해서 몇 달의 시행착오를 덜어줬습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:104
+#~ msgid "Testimonials.Review8"
+#~ msgstr "컨설턴트로서 새로운 업무 환경에 계속 적응해야 합니다. HelloCity는 새 도시에 빠르게 녹아드는 비밀 무기가 되었어요. 현지 인사이트와 실용적인 체크리스트 덕분에 고객 서비스에 집중할 수 있었고, 뒤처리 걱정이 사라졌습니다. 출장자에게는 진정한 게임 체인저예요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title"
+#~ msgstr "수천 명의 사용자가 사랑합니다"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title1"
+#~ msgstr "프로덕트 매니저"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title2"
+#~ msgstr "블로거"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title3"
+#~ msgstr "학생"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title4"
+#~ msgstr "프리랜서 디자이너"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title5"
+#~ msgstr "마케팅 디렉터"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title6"
+#~ msgstr "주니어 소프트웨어 엔지니어"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title7"
+#~ msgstr "운영 매니저"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/TestimonialsSection.tsx:110
+#~ msgid "Testimonials.Title8"
+#~ msgstr "비즈니스 컨설턴트"
+
+#. js-lingui-explicit-id
+#: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "테마"
+
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "이미지 업로드 중..."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card1.Description"
+#~ msgstr "당신의 상황, 목적지, 일정에 맞춘 맞춤형 제안을 제공합니다. 획일적인 답은 드리지 않습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card2.Description"
+#~ msgstr "모든 이주 유형을 아우르는 종합 체크리스트로 중요한 항목을 빠뜨리지 않습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card3.Description"
+#~ msgstr "현실적인 타임라인과 마감 알림으로 각 단계의 최적 타이밍을 놓치지 않습니다."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Description"
+#~ msgstr "새 도시로의 이주가 막막할 수 있다는 걸 잘 압니다. 그래서 가장 포괄적인 정착 도우미를 만들었습니다."
+
+#. Sign In button label
+#. js-lingui-explicit-id
+#: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Title"
+#~ msgstr "왜 HelloCity인가요?"
+
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AI가 생각 중..."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:68
+msgid "account.title"
+msgstr "HelloCity 계정"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+msgid "ai.thinking"
+msgstr "AI가 생각 중..."
+
+#: src/components/ProfileImageUploader.tsx:112
+#~ msgid "profile.avatar.add"
+#~ msgstr "아바타 추가"
+
+#: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#~ msgid "conversation.delete.confirm"
+#~ msgstr "삭제"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:28
+#: src/compoundComponents/Modals/FormModal.tsx:30
+#: src/hooks/modals/useLogoutConfirm.tsx:35
+msgid "cancel.button"
+msgstr "취소"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:91
+msgid "chat.disclaimer"
+msgstr "AI 답변에 오류가 있을 수 있습니다. 내용을 신중히 확인하세요."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:76
+msgid "chat.input.hint.press"
+msgstr "누르기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ConversationPromptInput.tsx:82
+msgid "chat.input.hint.send"
+msgstr "전송, Shift + Enter로 줄바꿈"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:19
+msgid "chat.welcome.subtitle"
+msgstr "AI 도우미와 대화를 시작해 도시 생활 맞춤 안내를 받아보세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
+msgid "chat.welcome.title"
+msgstr "HelloCity에 오신 것을 환영합니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
+msgid "checklist-item-modal.add-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
+msgid "checklist-item-modal.add-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
+msgid "checklist-item-modal.cancel"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
+msgid "checklist-item-modal.category"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
+msgid "checklist-item-modal.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
+msgid "checklist-item-modal.due-date"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
+msgid "checklist-item-modal.edit-title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
+msgid "checklist-item-modal.importance"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:164
+msgid "checklist-item-modal.save-button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
+msgid "checklist-item-modal.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:127
+msgid "checklist-item.delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:82
+msgid "checklist-item.delete.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:80
+msgid "checklist-item.delete.title"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:119
+msgid "checklist-item.edit"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
+msgid "checklist.add.button"
+msgstr "새 항목 추가"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:78
+msgid "checklist.banner.generating"
+msgstr "체크리스트 생성 중..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:39
+msgid "checklist.banner.generatingTitle"
+msgstr "맞춤 체크리스트 생성 중"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:94
+msgid "checklist.banner.inProgress"
+msgstr "준비 중"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
+msgid "checklist.banner.new"
+msgstr "새 체크리스트"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:96
+msgid "checklist.banner.viewDetails"
+msgstr "자세히 보기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#~ msgid "checklist.due.label"
+#~ msgstr "마감일"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
+msgid "checklist.due.prefix"
+msgstr "마감:"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
+msgid "checklist.empty.all"
+msgstr "작업이 없습니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
+msgid "checklist.empty.completed"
+msgstr "완료된 작업이 없습니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
+msgid "checklist.empty.incomplete"
+msgstr "미완료 작업이 없습니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
+msgid "checklist.filter.all"
+msgstr "전체"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:19
+msgid "checklist.filter.completed"
+msgstr "완료"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:23
+msgid "checklist.filter.incomplete"
+msgstr "미완료"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
+msgid "checklist.importance.high"
+msgstr "중요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
+msgid "checklist.importance.low"
+msgstr "보통"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
+#: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
+msgid "checklist.importance.medium"
+msgstr "중간"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
+#~ msgid "checklist.importance.urgent"
+#~ msgstr "긴급"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
+msgid "checklist.progress"
+msgstr "진행도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:76
+msgid "cities.adelaide.description"
+msgstr "남호주 주도, 와인과 축제 문화로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:70
+msgid "cities.adelaide.name"
+msgstr "애들레이드"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:81
+msgid "cities.adelaide.tagline"
+msgstr "와인의 도시, 축제의 수도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:574
+msgid "cities.amsterdam.description"
+msgstr "북쪽의 베네치아, 운하와 문화, 자유 정신"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
+msgid "cities.amsterdam.name"
+msgstr "암스테르담"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:579
+msgid "cities.amsterdam.tagline"
+msgstr "운하, 문화, 혁신"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
+msgid "cities.auckland.description"
+msgstr "돛의 도시, 매력적인 항만과 야외 라이프스타일"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:665
+msgid "cities.auckland.name"
+msgstr "오클랜드"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
+msgid "cities.auckland.tagline"
+msgstr "도시와 자연이 만나는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:755
+msgid "cities.bali.description"
+msgstr "인도네시아의 섬, 사원과 논테라스, 해변으로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:749
+msgid "cities.bali.name"
+msgstr "발리"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:760
+msgid "cities.bali.tagline"
+msgstr "신들의 섬, 열대 휴양지 천국"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:735
+msgid "cities.bangkok.description"
+msgstr "활기찬 수도, 사원·길거리음식·현대 에너지가 어우러짐"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:729
+msgid "cities.bangkok.name"
+msgstr "방콕"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:741
+msgid "cities.bangkok.tagline"
+msgstr "천사의 도시, 사원과 야시장으로 반짝임"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:184
+msgid "cities.beijing.description"
+msgstr "중국 수도, 유구한 역사와 현대 발전으로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:178
+msgid "cities.beijing.name"
+msgstr "베이징"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:189
+msgid "cities.beijing.tagline"
+msgstr "고도의 매력, 현대의 활력"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:559
+msgid "cities.berlin.description"
+msgstr "활기찬 수도, 깊은 역사와 번성한 문화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:553
+msgid "cities.berlin.name"
+msgstr "베를린"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:564
+msgid "cities.berlin.tagline"
+msgstr "통일, 창의, 자유"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:498
+msgid "cities.boston.description"
+msgstr "자유의 도시의 역사적 요람, 세계적 대학 집결"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:492
+msgid "cities.boston.name"
+msgstr "보스턴"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:503
+msgid "cities.boston.tagline"
+msgstr "미국 역사를 생생히 느끼는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:46
+msgid "cities.brisbane.description"
+msgstr "호주의 햇살의 주 수도, 온화한 기후와 여유로운 삶"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:40
+msgid "cities.brisbane.name"
+msgstr "브리즈번"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:51
+msgid "cities.brisbane.tagline"
+msgstr "햇살의 도시, 여유로운 삶"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:153
+msgid "cities.calgary.description"
+msgstr "캐나다 로키로 가는 관문, 서부의 열정"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:147
+msgid "cities.calgary.name"
+msgstr "캘거리"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:158
+msgid "cities.calgary.tagline"
+msgstr "대초원과 산이 만나는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:263
+msgid "cities.chengdu.description"
+msgstr "중국 서남 문화의 심장, 매운 음식과 판다로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:257
+msgid "cities.chengdu.name"
+msgstr "청두"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:268
+msgid "cities.chengdu.tagline"
+msgstr "천부지국, 한가로운 삶"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:483
+msgid "cities.chicago.description"
+msgstr "바람의 도시, 장대한 스카이라인과 딥디시로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:477
+msgid "cities.chicago.name"
+msgstr "시카고"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:488
+msgid "cities.chicago.tagline"
+msgstr "미국의 건축 수도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:278
+msgid "cities.chongqing.description"
+msgstr "산성과 강의 도시, 훠궈 문화와 장강 풍광"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:272
+msgid "cities.chongqing.name"
+msgstr "충칭"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
+msgid "cities.chongqing.tagline"
+msgstr "입체 산성, 매운 맛의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:703
+msgid "cities.christchurch.description"
+msgstr "뉴질랜드의 가든시티, 혁신과 회복력으로 재건"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
+msgid "cities.christchurch.name"
+msgstr "크라이스트처치"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:708
+msgid "cities.christchurch.tagline"
+msgstr "정원이 되살아난 회복의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:769
+msgid "cities.default.description"
+msgstr "다음 이상적인 도시를 찾아보세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:764
+msgid "cities.default.name"
+msgstr "도시 탐험"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:770
+msgid "cities.default.tagline"
+msgstr "도시 탐험 여정 시작"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:719
+msgid "cities.dubai.description"
+msgstr "미래지향 도시, 럭셔리 쇼핑과 건축 경이"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:713
+msgid "cities.dubai.name"
+msgstr "두바이"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:724
+msgid "cities.dubai.tagline"
+msgstr "미래가 먼저 도착하는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:589
+msgid "cities.dublin.description"
+msgstr "문학의 도시, 조지안 건축과 환대"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+msgid "cities.dublin.name"
+msgstr "더블린"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:595
+msgid "cities.dublin.tagline"
+msgstr "아일랜드의 십만 번의 환영"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
+msgid "cities.edinburgh.description"
+msgstr "스코틀랜드의 역사 도시, 성과 예술제로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:600
+msgid "cities.edinburgh.name"
+msgstr "에딘버러"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:612
+msgid "cities.edinburgh.tagline"
+msgstr "스코틀랜드의 가장 강한 심장박동"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:91
+msgid "cities.goldcoast.description"
+msgstr "호주 유명 관광지, 금빛 해변과 테마파크로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:85
+msgid "cities.goldcoast.name"
+msgstr "골드 코스트"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:96
+msgid "cities.goldcoast.tagline"
+msgstr "금빛 해변, 휴양지 천국"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
+msgid "cities.guangzhou.description"
+msgstr "화남 상업 중심, 광둥어와 영남 음식 전통"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:212
+msgid "cities.guangzhou.name"
+msgstr "광저우"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
+msgid "cities.guangzhou.tagline"
+msgstr "꽃의 도시의 매력, 열린 관문"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:655
+msgid "cities.hamburg.description"
+msgstr "해항 관문, 깊은 항만 유산과 현대 도시 문화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:649
+msgid "cities.hamburg.name"
+msgstr "함부르크"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:660
+msgid "cities.hamburg.tagline"
+msgstr "세계로 향하는 관문"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
+msgid "cities.hangzhou.description"
+msgstr "인간의 천국, 서호의 고요함과 디지털 경제"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
+msgid "cities.hangzhou.name"
+msgstr "항저우"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
+msgid "cities.hangzhou.tagline"
+msgstr "서호의 시정과 디지털 경제의 교차"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:248
+msgid "cities.hongkong.description"
+msgstr "아시아 국제 금융 중심, 동서 문화 융합과 번화한 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:242
+msgid "cities.hongkong.name"
+msgstr "홍콩"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:253
+msgid "cities.hongkong.tagline"
+msgstr "아시아의 국제 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:376
+msgid "cities.kyoto.description"
+msgstr "일본 고도, 신사와 사찰, 전통 예술"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:370
+msgid "cities.kyoto.name"
+msgstr "교토"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:381
+msgid "cities.kyoto.tagline"
+msgstr "영원의 아름다움, 전통의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:529
+msgid "cities.london.description"
+msgstr "역사 깊은 수도, 상징적 랜드마크와 글로벌 금융 중심"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+msgid "cities.london.name"
+msgstr "런던"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:534
+msgid "cities.london.tagline"
+msgstr "역사와 현대의 교차"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:423
+msgid "cities.losangeles.description"
+msgstr "꿈의 도시, 글로벌 엔터테인먼트 중심"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:417
+msgid "cities.losangeles.name"
+msgstr "로스앤젤레스"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
+msgid "cities.losangeles.tagline"
+msgstr "천사의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
+msgid "cities.macau.description"
+msgstr "동서 문화 융합의 활기찬 도시, 엔터와 역사"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:322
+msgid "cities.macau.name"
+msgstr "마카오"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:334
+msgid "cities.macau.tagline"
+msgstr "포르투갈 풍과 중화 전통이 만나는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
+msgid "cities.manchester.description"
+msgstr "산업 유산과 현대 혁신, 축구 열정이 공존"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:617
+msgid "cities.manchester.name"
+msgstr "맨체스터"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
+msgid "cities.manchester.tagline"
+msgstr "창의적 현대 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:29
+msgid "cities.melbourne.description"
+msgstr "호주의 문화 수도, 커피 문화와 예술 분위기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:23
+msgid "cities.melbourne.name"
+msgstr "멜버른"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:35
+msgid "cities.melbourne.tagline"
+msgstr "문화, 커피, 무한한 가능성"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:453
+msgid "cities.miami.description"
+msgstr "열대 천국, 아르데코와 라틴 문화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+msgid "cities.miami.name"
+msgstr "마이애미"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:458
+msgid "cities.miami.tagline"
+msgstr "매직 시티"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:136
+msgid "cities.montreal.description"
+msgstr "캐나다 프랑스어권 최대 도시, 유럽 풍과 예술"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:130
+msgid "cities.montreal.name"
+msgstr "몬트리올"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:142
+msgid "cities.montreal.tagline"
+msgstr "유럽적 품격, 북미 정신"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:638
+msgid "cities.munich.description"
+msgstr "바이에른 주도, 전통과 현대 혁신의 조화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:632
+msgid "cities.munich.name"
+msgstr "뮌헨"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:644
+msgid "cities.munich.tagline"
+msgstr "비어홀, 바로크의 아름다움과 바이에른의 온기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:408
+msgid "cities.newyork.description"
+msgstr "잠들지 않는 도시, 세계 문화의 용광로"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:402
+msgid "cities.newyork.name"
+msgstr "뉴욕"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:413
+msgid "cities.newyork.tagline"
+msgstr "빅 애플의 무한한 기회"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:361
+msgid "cities.osaka.description"
+msgstr "일본의 부엌, 길거리 음식과 열정 문화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:355
+msgid "cities.osaka.name"
+msgstr "오사카"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:366
+msgid "cities.osaka.tagline"
+msgstr "천하의 부엌"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:168
+msgid "cities.ottawa.description"
+msgstr "캐나다 수도, 정치 중심과 화려한 건축으로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:162
+msgid "cities.ottawa.name"
+msgstr "오타와"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:173
+msgid "cities.ottawa.tagline"
+msgstr "수도의 아름다움, 영원한 전통"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:544
+msgid "cities.paris.description"
+msgstr "빛의 도시, 예술·문화·미식의 교차"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:538
+msgid "cities.paris.name"
+msgstr "파리"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:549
+msgid "cities.paris.tagline"
+msgstr "삶의 예술의 극치"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:61
+msgid "cities.perth.description"
+msgstr "호주 서부 주도, 아름다운 해변과 현대 도시 계획"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:55
+msgid "cities.perth.name"
+msgstr "퍼스"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:66
+msgid "cities.perth.tagline"
+msgstr "서해안의 진주"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+msgid "cities.sanfrancisco.description"
+msgstr "테크 허브, 금문교와 다양한 커뮤니티로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:432
+msgid "cities.sanfrancisco.name"
+msgstr "샌프란시스코"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
+msgid "cities.sanfrancisco.tagline"
+msgstr "금문교의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:468
+msgid "cities.seattle.description"
+msgstr "에메랄드 시티, 스페이스 니들와 혁신 기술"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:462
+msgid "cities.seattle.name"
+msgstr "시애틀"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:473
+msgid "cities.seattle.tagline"
+msgstr "혁신과 자연이 만나는 곳"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:203
+msgid "cities.shanghai.description"
+msgstr "글로벌 금융 허브, 장대한 스카이라인과 깊은 문화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:197
+msgid "cities.shanghai.name"
+msgstr "상하이"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:208
+msgid "cities.shanghai.tagline"
+msgstr "동방의 진주, 국제 대도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:233
+msgid "cities.shenzhen.description"
+msgstr "중국의 기술 혁신 중심, 첨단 산업과 젊은 활력"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
+msgid "cities.shenzhen.name"
+msgstr "선전"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:238
+msgid "cities.shenzhen.tagline"
+msgstr "빛의 속도로 혁신하는 기술 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:392
+msgid "cities.singapore.description"
+msgstr "가든 시티, 동남아의 글로벌 허브"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
+msgid "cities.singapore.name"
+msgstr "싱가포르"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:397
+msgid "cities.singapore.tagline"
+msgstr "라이온 시티의 매력"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:14
+msgid "cities.sydney.description"
+msgstr "호주의 항구 도시, 오페라 하우스와 하버 브리지로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:8
+msgid "cities.sydney.name"
+msgstr "시드니"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:19
+msgid "cities.sydney.tagline"
+msgstr "매력적인 항만, 무한한 가능성"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:346
+msgid "cities.tokyo.description"
+msgstr "일본의 활기찬 수도, 전통과 현대의 완벽한 결합"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:340
+msgid "cities.tokyo.name"
+msgstr "도쿄"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:351
+msgid "cities.tokyo.tagline"
+msgstr "고대와 초현대의 융합"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:106
+msgid "cities.toronto.description"
+msgstr "캐나다 최대 도시, 다문화와 금융 중심으로 유명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:100
+msgid "cities.toronto.name"
+msgstr "토론토"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:111
+msgid "cities.toronto.tagline"
+msgstr "다양성의 도시, 기회의 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:121
+msgid "cities.vancouver.description"
+msgstr "캐나다 서해안 도시, 산과 바다의 경치, 온화한 기후"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:115
+msgid "cities.vancouver.name"
+msgstr "밴쿠버"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:126
+msgid "cities.vancouver.tagline"
+msgstr "산과 바다의 도시, 삶의 아름다움"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
+msgid "cities.washingtondc.description"
+msgstr "미국 수도, 기념물과 정치 권력의 중심"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:507
+msgid "cities.washingtondc.name"
+msgstr "워싱턴 D.C."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+msgid "cities.washingtondc.tagline"
+msgstr "미국 민주주의의 심장"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:686
+msgid "cities.wellington.description"
+msgstr "뉴질랜드의 창의 수도, 항만 경치와 문화 활력"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:680
+msgid "cities.wellington.name"
+msgstr "웰링턴"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
+msgid "cities.wellington.tagline"
+msgstr "세상에서 가장 멋진 작은 수도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
+msgid "cities.xian.description"
+msgstr "천년 고도, 병마용의 고향"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:287
+msgid "cities.xian.name"
+msgstr "시안"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:298
+msgid "cities.xian.tagline"
+msgstr "천년 왕조의 영원한 도시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:88
+#: src/hooks/modals/useDeleteConversationHistory.tsx:75
+msgid "common.cancel"
+msgstr "취소"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
+msgid "common.delete"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/ConfirmModal.tsx:27
+msgid "confirm.button"
+msgstr "확인"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:119
+msgid "contact-us.email"
+msgstr "이메일"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
+msgid "contact-us.message"
+msgstr "메시지"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:111
+msgid "contact-us.name"
+msgstr "이름"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
+msgid "contact-us.reminderInfo"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:149
+msgid "contact-us.submit"
+msgstr "제출"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
+msgid "contact-us.title"
+msgstr "문의하기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:31
+msgid "contact.faq.a1"
+msgstr "HelloCity는 AI 이주 도우미로, 단계별 체크리스트와 일정으로 새 도시에 쉽게 정착하도록 돕습니다."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:41
+msgid "contact.faq.a2"
+msgstr "무료로 시작할 수 있으며, 고급 옵션은 더 개인화된 안내와 기능을 제공합니다."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:51
+msgid "contact.faq.a3"
+msgstr "전 세계 주요 도시를 지원하며 지속적으로 확대합니다. 제품에서 최신 지원 지역을 확인하세요."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
+msgid "contact.faq.a4"
+msgstr "기본 탐색은 계정이 필요 없습니다. 계정을 만들면 진행 상황 저장, 알림, 맞춤 일정이 가능합니다."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
+msgid "contact.faq.a5"
+msgstr "네. HelloCity는 반응형으로 데스크톱, 태블릿, 모바일에서 매끄럽게 작동합니다."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:29
+msgid "contact.faq.q1"
+msgstr "HelloCity란 무엇인가요?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:39
+msgid "contact.faq.q2"
+msgstr "HelloCity는 무료인가요?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:49
+msgid "contact.faq.q3"
+msgstr "어떤 도시를 지원하나요?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
+msgid "contact.faq.q4"
+msgstr "시작하려면 계정이 필요한가요?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
+msgid "contact.faq.q5"
+msgstr "모바일에서도 잘 작동하나요?"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:152
+#~ msgid "contact.faq.results"
+#~ msgstr "결과"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:126
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "질문을 입력하세요..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
+msgid "contact.faq.subtitle"
+msgstr "HelloCity 관련 자주 묻는 질문을 빠르게 찾아보세요."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
+msgid "contact.faq.title"
+msgstr "자주 묻는 질문"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:74
+msgid "conversation.delete.confirm"
+msgstr "삭제"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:69
+msgid "conversation.delete.description"
+msgstr "이 작업은 되돌릴 수 없습니다. 이 대화를 삭제할까요?"
+
+#. js-lingui-explicit-id
+#: src/hooks/modals/useDeleteConversationHistory.tsx:67
+msgid "conversation.delete.title"
+msgstr "대화 삭제"
+
+#. js-lingui-explicit-id
+#: src/components/CreateChecklistItemButton.tsx:87
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "체크리스트 항목 추가"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
+#~ msgid "create-checklist.cancel"
+#~ msgstr "취소"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
+#~ msgid "create-checklist.create"
+#~ msgstr "항목 생성"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
+#~ msgid "create-checklist.creating"
+#~ msgstr "생성 중..."
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
+#~ msgid "create-checklist.description-field"
+#~ msgstr "설명"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
+#~ msgid "create-checklist.description-helper"
+#~ msgstr "이 작업에 대한 자세한 정보를 제공하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
+#~ msgid "create-checklist.description-placeholder"
+#~ msgstr "완료할 작업과 관련 세부 사항을 설명하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
+#~ msgid "create-checklist.description-required"
+#~ msgstr "설명은 필수 항목입니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
+#~ msgid "create-checklist.due-date"
+#~ msgstr "마감일"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
+#~ msgid "create-checklist.error.create"
+#~ msgstr "체크리스트 항목 생성 실패"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
+#~ msgid "create-checklist.importance-field"
+#~ msgstr "중요도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
+#~ msgid "create-checklist.importance-helper"
+#~ msgstr "이 작업의 중요도"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
+#~ msgid "create-checklist.importance-high-desc"
+#~ msgstr "긴급"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
+#~ msgid "create-checklist.importance-low-desc"
+#~ msgstr "대기 가능"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
+#~ msgid "create-checklist.importance-medium-desc"
+#~ msgstr "가급적 빨리"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
+#~ msgid "create-checklist.mark-completed"
+#~ msgstr "완료로 표시"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
+#~ msgid "create-checklist.mark-completed-helper"
+#~ msgstr "작업을 완료한 경우 체크하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
+#~ msgid "create-checklist.title"
+#~ msgstr "새 체크리스트 항목 만들기"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
+#~ msgid "create-checklist.title-field"
+#~ msgstr "제목"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
+#~ msgid "create-checklist.title-helper"
+#~ msgstr "체크리스트 항목의 간결하고 명확한 이름을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
+#~ msgid "create-checklist.title-placeholder"
+#~ msgstr "작업 제목을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
+#~ msgid "create-checklist.title-required"
+#~ msgstr "제목은 필수 항목입니다"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
+msgid "delete-conversation"
+msgstr "대화 삭제"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:50
+msgid "edit-conversation-title"
+msgstr "제목 수정"
+
+#. js-lingui-explicit-id
+#~ msgid "error.email"
+#~ msgstr "유효한 이메일 주소를 입력해 주세요."
+
+#. js-lingui-explicit-id
+#~ msgid "error.message"
+#~ msgstr "메시지를 입력해 주세요."
+
+#. js-lingui-explicit-id
+#~ msgid "error.name"
+#~ msgstr "이름은 영문자만 입력 가능하며, 비워둘 수 없습니다."
+
+#. js-lingui-explicit-id
+#~ msgid "error.password"
+#~ msgstr "비밀번호는 6~20자이며 대문자·소문자·숫자·특수문자를 포함해야 합니다."
+
+#. js-lingui-explicit-id
+#~ msgid "error.phone"
+#~ msgstr "전화번호는 숫자만 입력 가능합니다."
+
+#. js-lingui-explicit-id
+#~ msgid "error.repeatPassword"
+#~ msgstr "입력한 비밀번호가 일치하지 않습니다."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:31
+msgid "file.upload.error"
+msgstr "파일 크기 또는 형식이 유효하지 않습니다. 5MB 이하의 이미지 파일을 업로드하세요."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "이미지 업로드 중..."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageEditor.tsx:47
+#~ msgid "file.upload.success"
+#~ msgstr "이미지 업로드 완료"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/FormModal.tsx:29
+msgid "form.submit"
+msgstr "제출"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
+#~ msgid "importance.high"
+#~ msgstr "높음"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
+#~ msgid "importance.low"
+#~ msgstr "낮음"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
+#~ msgid "importance.medium"
+#~ msgstr "중간"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/Modals/InfoModal.tsx:22
+msgid "info.button"
+msgstr "확인"
+
+#: src/hooks/useTryHelloCity.tsx:15
+#~ msgid "NavBar.Try HelloCity"
+#~ msgstr "HelloCity 체험하기"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:131
+#~ msgid "notFound.headline"
+#~ msgstr "더 빨리 새 삶에 적응할 수 있도록 도와드릴게요."
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:120
+#~ msgid "notFound.pageNotFound"
+#~ msgstr "페이지를 찾을 수 없습니다"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/not-found.tsx:137
+#~ msgid "notFound.sub"
+#~ msgstr "HelloCity는 주거, 은행 계좌, 교통, 커뮤니티 지원을 제공하여 해외 생활의 시작을 수월하게 합니다."
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:95
+msgid "profile.avatar.add"
+msgstr "아바타 추가"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:101
+msgid "profile.avatar.remove"
+msgstr "사진 삭제"
+
+#. js-lingui-explicit-id
+#: src/components/ProfileImageUploader.tsx:72
+msgid "profile.avatar.title"
+msgstr "아바타"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/testassistant/profile/page.tsx:261
+msgid "profile.cancel"
+msgstr "취소"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:89
+#: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/testassistant/profile/page.tsx:89
+#: src/app/[lang]/testassistant/profile/page.tsx:184
+msgid "profile.city"
+msgstr "도시"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:187
+#: src/app/[lang]/testassistant/profile/page.tsx:187
+msgid "profile.city-placeholder"
+msgstr "거주 도시를 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:130
+#: src/app/[lang]/testassistant/profile/page.tsx:130
+msgid "profile.edit-button"
+msgstr "프로필 수정"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/testassistant/profile/page.tsx:147
+msgid "profile.edit-title"
+msgstr "개인 정보 수정"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:75
+#: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/testassistant/profile/page.tsx:75
+#: src/app/[lang]/testassistant/profile/page.tsx:163
+msgid "profile.email"
+msgstr "이메일"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/testassistant/profile/page.tsx:167
+msgid "profile.email-placeholder"
+msgstr "이메일을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:96
+#: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/testassistant/profile/page.tsx:96
+#: src/app/[lang]/testassistant/profile/page.tsx:197
+msgid "profile.gender"
+msgstr "성별"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:110
+#: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/testassistant/profile/page.tsx:110
+#: src/app/[lang]/testassistant/profile/page.tsx:227
+msgid "profile.major"
+msgstr "전공"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/testassistant/profile/page.tsx:230
+msgid "profile.major-placeholder"
+msgstr "전공을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:82
+#: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/testassistant/profile/page.tsx:82
+#: src/app/[lang]/testassistant/profile/page.tsx:174
+msgid "profile.nationality"
+msgstr "국적"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:177
+#: src/app/[lang]/testassistant/profile/page.tsx:177
+msgid "profile.nationality-placeholder"
+msgstr "국적을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:69
+#: src/app/[lang]/testassistant/profile/page.tsx:69
+msgid "profile.personal-info"
+msgstr "개인 정보"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:117
+#: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/testassistant/profile/page.tsx:117
+#: src/app/[lang]/testassistant/profile/page.tsx:237
+msgid "profile.preferred-language"
+msgstr "선호 언어"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:240
+#: src/app/[lang]/testassistant/profile/page.tsx:240
+msgid "profile.preferred-language-placeholder"
+msgstr "선호 언어를 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/testassistant/profile/page.tsx:254
+msgid "profile.refresh"
+msgstr "초기화"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/testassistant/profile/page.tsx:264
+msgid "profile.submit"
+msgstr "제출"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/testassistant/profile/page.tsx:65
+msgid "profile.subtitle"
+msgstr "개인 정보와 선호 설정 관리"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:62
+#: src/app/[lang]/testassistant/profile/page.tsx:62
+msgid "profile.title"
+msgstr "프로필 설정"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:103
+#: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/testassistant/profile/page.tsx:103
+#: src/app/[lang]/testassistant/profile/page.tsx:217
+msgid "profile.university"
+msgstr "대학"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/testassistant/profile/page.tsx:220
+msgid "profile.university-placeholder"
+msgstr "대학명을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/testassistant/profile/page.tsx:153
+msgid "profile.username"
+msgstr "사용자 이름"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/testassistant/profile/page.tsx:156
+msgid "profile.username-placeholder"
+msgstr "사용자 이름을 입력하세요"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
+msgid "sidebar.actions.newChat"
+msgstr "새 대화"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "대화 검색"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
+msgid "sidebar.history.title"
+msgstr "대화 기록"
+
+#. js-lingui-explicit-id
+#: src/components/InputBox/InputBox.tsx:60
+msgid "validation.required"
+msgstr "{label}은(는) 필수 항목입니다."
+
+#: src/components/ProfileImageUploader.tsx:90
+#~ msgid "account.title"
+#~ msgstr "HelloCity 계정"
+
+#: src/hooks/useNavigation.tsx:21
+#~ msgid "NavBar.Home"
+#~ msgstr "홈"

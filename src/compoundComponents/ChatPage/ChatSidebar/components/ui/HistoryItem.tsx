@@ -114,7 +114,7 @@ export default function HistoryItem({
       <form onSubmit={handleSubmit}>
         <div
           className={mergeClassNames(
-            'flex h-10 items-center overflow-hidden rounded-lg transition-[width] duration-300 ease-out',
+            'group flex h-10 items-center overflow-hidden rounded-lg transition-[width] duration-300 ease-out',
             {
               'w-0': isCollapsed,
               'w-auto': displayState.isExpanded,
@@ -181,7 +181,11 @@ export default function HistoryItem({
               </IconButton>
             )}
           </ResponsiveIconContainer>
-          <ResponsiveIconContainer isCollapsed={isCollapsed} responsive>
+          <ResponsiveIconContainer
+            isCollapsed={isCollapsed}
+            responsive
+            className="lg:opacity-0 lg:group-hover:opacity-100"
+          >
             {!isEditing && !isLoading ? (
               <ConversationHistoryMenu
                 trigger={<MoreHorizIcon className={ICON_STYLES.small} />}
