@@ -1709,21 +1709,21 @@ msgid "profile.avatar.title"
 msgstr "头像"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/(app)/profile/page.tsx:257
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:89
-#: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/(app)/profile/page.tsx:180
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:187
+#: src/app/[lang]/(app)/profile/page.tsx:183
 #: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
 msgstr "请输入您所在的城市"
@@ -1735,28 +1735,28 @@ msgid "profile.edit-button"
 msgstr "编辑个人资料"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/(app)/profile/page.tsx:143
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "编辑个人信息"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
-#: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/(app)/profile/page.tsx:159
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "电子邮箱"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/(app)/profile/page.tsx:163
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "请输入您的电子邮箱"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:96
-#: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/(app)/profile/page.tsx:193
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
@@ -1764,28 +1764,28 @@ msgstr "性别"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:110
-#: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/(app)/profile/page.tsx:223
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "专业"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/(app)/profile/page.tsx:226
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "请输入您的专业"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:82
-#: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/(app)/profile/page.tsx:170
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "国籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:177
+#: src/app/[lang]/(app)/profile/page.tsx:173
 #: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
 msgstr "请输入您的国籍"
@@ -1798,26 +1798,26 @@ msgstr "个人信息"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:117
-#: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/(app)/profile/page.tsx:233
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
 msgstr "首选语言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:240
+#: src/app/[lang]/(app)/profile/page.tsx:236
 #: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
 msgstr "请输入您的首选语言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/(app)/profile/page.tsx:250
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "重置"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/(app)/profile/page.tsx:260
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "提交"
@@ -1836,26 +1836,26 @@ msgstr "个人资料设置"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:103
-#: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/(app)/profile/page.tsx:213
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "大学"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/(app)/profile/page.tsx:216
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "请输入您的大学名称"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/(app)/profile/page.tsx:149
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "用户名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/(app)/profile/page.tsx:152
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "请输入用户名"
