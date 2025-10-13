@@ -87,7 +87,7 @@ const ChecklistPanel = memo(
           </div>
 
           {/* Main Content */}
-          <div className="relative z-10 flex h-full flex-col p-6 pt-[calc(33.33%+24px)]">
+          <div className="relative z-10 flex h-full flex-col px-6 pb-3 pt-[calc(25%+24px)]">
             {/* Back Button */}
             <BackButton onClick={onToggle} />
 
