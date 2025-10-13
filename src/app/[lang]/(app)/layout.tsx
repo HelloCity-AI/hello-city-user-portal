@@ -16,10 +16,12 @@ import {
 import { clearError as clearUserError } from '@/store/slices/user';
 import RouteGate from '../../../components/RouteGate';
 import { useSelectedLayoutSegments } from 'next/navigation';
+import { AuthState, fetchUser } from '@/store/slices/user';
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state: RootState) => state.user.data?.userId);
+  const authStatus = useSelector((s: RootState) => s.user.authStatus);
 
   const userError = useSelector((state: RootState) => state.user.error);
   const conversationError = useSelector((state: RootState) => state.conversation.error);
@@ -35,6 +37,12 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       dispatch(fetchAllConversations());
     }
   }, [dispatch, userId]);
+
+  useEffect(() => {
+    if (authStatus === AuthState.AuthenticatedWithProfile && !userId) {
+      dispatch(fetchUser());
+    }
+  }, [authStatus, userId, dispatch]);
 
   useEffect(() => {
     const error = userError || conversationError;

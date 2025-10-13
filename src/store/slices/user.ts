@@ -106,6 +106,14 @@ const userSlice = createSlice({
       state.hasFetched = true;
     },
 
+    markFetched: (state) => {
+      state.hasFetched = true;
+      state.isLoading = false;
+    },
+    resetFetched: (state) => {
+      state.hasFetched = false;
+    },
+
     updateUser: {
       reducer: (state, _action: PayloadAction<User>) => {
         state.isUpdating = true;
@@ -152,6 +160,8 @@ export const {
   updateUser,
   updateUserSuccess,
   updateUserFailure,
+  markFetched,
+  resetFetched,
 } = userSlice.actions;
 
 export default userSlice.reducer;

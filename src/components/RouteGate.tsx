@@ -5,6 +5,7 @@ import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '@/store';
 import { fetchUser, AuthState } from '@/store/slices/user';
+import { on } from 'events';
 
 type RouteGateProps = {
   children: React.ReactNode;
@@ -34,6 +35,7 @@ const RouteGate: React.FC<RouteGateProps> = ({
   const createPath = `/${lang}/create-user-profile`;
   const homePath = `/${lang}/assistant`;
   const onCreatePage = pathname.startsWith(createPath);
+  const onAssistantPage = pathname.startsWith(homePath);
 
   const requestedRef = useRef(false);
   useEffect(() => {
@@ -59,7 +61,8 @@ const RouteGate: React.FC<RouteGateProps> = ({
     requireProfile &&
     !onCreatePage &&
     authStatus !== AuthState.AuthenticatedWithProfile &&
-    authStatus !== AuthState.AuthenticatedButNoProfile;
+    authStatus !== AuthState.AuthenticatedButNoProfile &&
+    !onAssistantPage;
 
   const willRedirectHomeFromCreate =
     hasFetched && !isLoading && redirectIfHasProfile && onCreatePage && isReady;
@@ -87,7 +90,7 @@ const RouteGate: React.FC<RouteGateProps> = ({
 
   // ---------- stage of rendering ----------
   // 1) first state: still loading first fetch
-  if (suspendUntilReady && !hasFetched) {
+  if (suspendUntilReady && isLoading) {
     return <>{loadingFallback}</>;
   }
   // 2) first fetch completed, but about to redirect: hide (avoid rendering a frame of children before jumping)
