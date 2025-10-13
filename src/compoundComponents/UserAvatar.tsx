@@ -19,7 +19,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   return (
     <Avatar
       sx={{ width: size, height: size, cursor: clickable ? 'pointer' : 'default' }}
-      src={data?.avatarFile}
+      src={data?.avatarUrl}
       alt="User Avatar"
       {...AvatarProps}
     >

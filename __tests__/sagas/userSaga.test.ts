@@ -280,6 +280,7 @@ describe('UserSaga – API wrappers & handlers', () => {
       expect(g.next(response as any).value).toEqual(put(createUserSuccess(mockUser)));
       // In your latest saga, you also set AuthState.AuthenticatedWithProfile on success:
       expect(g.next().value).toEqual(put(setAuth(AuthState.AuthenticatedWithProfile)));
+      expect(g.next().value).toEqual(put(fetchUser()));
       expect(g.next().done).toBe(true);
     });
 
