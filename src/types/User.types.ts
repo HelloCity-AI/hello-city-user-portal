@@ -5,7 +5,7 @@ export type User = {
   userId: string;
   email: string;
   gender: Genders | '';
-  avatar?: string;
+  avatarUrl?: string;
   nationality: Nationalities | '';
   city: Cities | '';
   university: string;
@@ -19,7 +19,7 @@ export const defaultUser: User = {
   userId: '',
   email: '',
   gender: '',
-  avatar: '',
+  avatarUrl: '',
   nationality: '',
   city: '',
   university: '',
