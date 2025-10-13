@@ -224,9 +224,6 @@ Populate `.env.local` with actual values for:
 - **Backend API:**
   - `NEXT_PUBLIC_API_BASE_URL` - Backend API base URL
 
-- **OpenAI API (Required for AI Chat):**
-  - `OPENAI_API_KEY` - Your OpenAI API key for chat streaming
-
 **Note:** Contact team lead for actual environment values.
 
 ## 6. Git Hooks (Husky)
