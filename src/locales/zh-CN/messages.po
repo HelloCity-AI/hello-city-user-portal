@@ -1440,11 +1440,12 @@ msgid "confirm.button"
 msgstr "确认"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:112
+#: src/app/[lang]/(site)/contact-us/page.tsx:119
 msgid "contact-us.email"
 msgstr "电子邮件"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 #: src/app/[lang]/(site)/contact-us/page.tsx:52
 #~ msgid "contact-us.error.failed"
 #~ msgstr "发送失败，请重试。"
@@ -1455,21 +1456,27 @@ msgstr "电子邮件"
 #~ msgstr "发生错误，请重试。"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "信息"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:104
+#: src/app/[lang]/(site)/contact-us/page.tsx:111
 msgid "contact-us.name"
 msgstr "姓名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:142
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
+msgid "contact-us.reminderInfo"
+msgstr "我们很期待收到您的来信，请填写表格以便我们尽快回复您"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:149
 msgid "contact-us.submit"
 msgstr "提交"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 #: src/app/[lang]/(site)/contact-us/page.tsx:96
 #~ msgid "contact-us.subtitle"
 #~ msgstr "我们期待您的来信。请填写表单，我们会尽快回复您。"
@@ -1480,7 +1487,7 @@ msgstr "提交"
 #~ msgstr "发送成功！"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "联系我们"
 

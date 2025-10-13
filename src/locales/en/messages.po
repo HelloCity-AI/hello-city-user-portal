@@ -1402,11 +1402,12 @@ msgid "confirm.button"
 msgstr "Confirm"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:112
+#: src/app/[lang]/(site)/contact-us/page.tsx:119
 msgid "contact-us.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 #: src/app/[lang]/(site)/contact-us/page.tsx:52
 #~ msgid "contact-us.error.failed"
 #~ msgstr "Failed to send message. Please try again."
@@ -1417,21 +1418,27 @@ msgstr "Email"
 #~ msgstr "An error occurred. Please try again."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "Message"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:104
+#: src/app/[lang]/(site)/contact-us/page.tsx:111
 msgid "contact-us.name"
 msgstr "Name"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:142
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
+msgid "contact-us.reminderInfo"
+msgstr "We’d love to hear from you. Fill out the form and we’ll get back to you soon. "
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:149
 msgid "contact-us.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 #: src/app/[lang]/(site)/contact-us/page.tsx:96
 #~ msgid "contact-us.subtitle"
 #~ msgstr "We'd love to hear from you. Fill out the form and we'll get back to you soon."
@@ -1442,7 +1449,7 @@ msgstr "Submit"
 #~ msgstr "Message sent successfully!"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "Contact Us"
 
@@ -1494,17 +1501,17 @@ msgstr "How accurate are the AI-generated checklists?"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "Can I customize the checklist items?"
+msgstr "Is HelloCity mobile-friendly?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
 #~ msgid "contact.faq.results"
-#~ msgstr "contact.faq.results"
+#~ msgstr "Results"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
 #~ msgid "contact.faq.searchPlaceholder"
-#~ msgstr "contact.faq.searchPlaceholder"
+#~ msgstr "Please enter your question... "
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123
