@@ -2,6 +2,7 @@ import { memo, useCallback } from 'react';
 
 import { Trans } from '@lingui/react';
 import Chip from '@mui/material/Chip';
+import CircularProgress from '@mui/material/CircularProgress';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -38,7 +39,7 @@ const ChecklistBannerMessage = memo(
     const titleContent = isGenerating ? (
       <Trans
         id="checklist.banner.generatingTitle"
-        message="Creating your personalized checklist…"
+        message="Creating your checklist…"
       />
     ) : (
       banner.title
@@ -52,44 +53,43 @@ const ChecklistBannerMessage = memo(
         className={mergeClassNames(
           'group relative flex w-full max-w-sm flex-col gap-3 rounded-xl border p-4 transition-all',
           'border-primary/30 from-primary/5 to-primary/10 bg-gradient-to-br',
-          'hover:shadow-primary/20 hover:border-primary hover:shadow-lg',
-          isGenerating && 'hover:border-primary/30 cursor-not-allowed opacity-80 hover:shadow-none',
+          'hover:shadow-md hover:shadow-primary/10',
+          isGenerating && 'cursor-not-allowed opacity-80 hover:shadow-none',
         )}
         aria-disabled={isGenerating}
       >
-        {/* Title */}
-        <Typography variant="h6" className="line-clamp-1 text-left font-bold text-gray-900">
-          {titleContent}
-        </Typography>
+        {/* Title and Notice Row */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex flex-1 flex-col gap-2">
+            {/* Title */}
+            <Typography variant="h6" className="line-clamp-1 text-left font-bold text-gray-900">
+              {titleContent}
+            </Typography>
 
-        {/* Footer: Version Chip + View Details */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Chip
-              label={
-                isGenerating ? (
-                  <Trans id="checklist.banner.generating" message="Generating…" />
-                ) : (
-                  `v${banner.version}`
-                )
-              }
-              size="small"
-              className={
-                isGenerating
-                  ? 'h-6 bg-amber-100 text-xs font-medium text-amber-700'
-                  : 'h-6 bg-primary text-xs font-semibold text-white'
-              }
-            />
           </div>
 
-          <Typography variant="caption" className="text-primary group-hover:underline">
-            {isGenerating ? (
-              <Trans id="checklist.banner.inProgress" message="Preparing checklist…" />
-            ) : (
-              <Trans id="checklist.banner.viewDetails" message="View Details →" />
-            )}
-          </Typography>
+          {/* Loading Indicator - Right Side (only when generating) */}
+          {isGenerating && (
+            <div className="flex-shrink-0 pt-1">
+              <CircularProgress size={24} className="text-amber-600" />
+            </div>
+          )}
         </div>
+
+        {/* Footer: Version Chip + View Details (hidden when generating) */}
+        {!isGenerating && (
+          <div className="flex items-center justify-between">
+            <Chip
+              label={`v${banner.version}`}
+              size="small"
+              className="h-6 bg-primary text-xs font-semibold text-white"
+            />
+
+            <Typography variant="caption" className="text-primary group-hover:underline">
+              <Trans id="checklist.banner.viewDetails" message="View Details →" />
+            </Typography>
+          </div>
+        )}
       </button>
     );
   },
