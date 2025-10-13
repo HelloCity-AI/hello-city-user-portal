@@ -218,13 +218,13 @@ msgstr "首頁"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:117
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:119
 msgid "NavBar.Sign In"
 msgstr "登入"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:9
+#: src/hooks/useTryHelloCity.tsx:69
 msgid "NavBar.Try HelloCity"
 msgstr "試用 HelloCity"
 
@@ -597,18 +597,18 @@ msgstr "新增任務"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
-msgid "checklist.banner.generating"
-msgstr "正在產生清單..."
+#~ msgid "checklist.banner.generating"
+#~ msgstr "正在產生清單..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:39
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:40
 msgid "checklist.banner.generatingTitle"
 msgstr "清單產生中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
-msgid "checklist.banner.inProgress"
-msgstr "進行中"
+#~ msgid "checklist.banner.inProgress"
+#~ msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
@@ -616,7 +616,7 @@ msgstr "進行中"
 #~ msgstr "新清單"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:89
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:85
 msgid "checklist.banner.viewDetails"
 msgstr "查看詳情"
 
@@ -1744,6 +1744,21 @@ msgstr "知道了"
 #: src/hooks/useTryHelloCity.tsx:15
 #~ msgid "NavBar.Try HelloCity"
 #~ msgstr "试用 HelloCity"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:59
+msgid "login.button"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:45
+msgid "login.required.description"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:43
+msgid "login.required.title"
+msgstr ""
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131

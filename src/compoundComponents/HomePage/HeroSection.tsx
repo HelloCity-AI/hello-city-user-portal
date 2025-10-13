@@ -44,7 +44,7 @@ const HeroSection = async ({ locale }: { locale: string }) => {
           >
             {t(
               'Hero.Description',
-              'Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
+              'Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
             )}
           </Typography>
           <TryHelloCityButtonClient variant="hero" />

@@ -229,13 +229,13 @@ msgstr "Home"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:117
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:119
 msgid "NavBar.Sign In"
 msgstr "Sign In"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:9
+#: src/hooks/useTryHelloCity.tsx:69
 msgid "NavBar.Try HelloCity"
 msgstr "Try HelloCity"
 
@@ -559,18 +559,18 @@ msgstr "Add New Item"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
-msgid "checklist.banner.generating"
-msgstr "Generating…"
+#~ msgid "checklist.banner.generating"
+#~ msgstr "Generating…"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:39
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:40
 msgid "checklist.banner.generatingTitle"
 msgstr "Creating your personalized checklist…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
-msgid "checklist.banner.inProgress"
-msgstr "Preparing checklist…"
+#~ msgid "checklist.banner.inProgress"
+#~ msgstr "Preparing checklist…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
@@ -578,7 +578,7 @@ msgstr "Preparing checklist…"
 #~ msgstr "New Checklist"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:89
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:85
 msgid "checklist.banner.viewDetails"
 msgstr "View Details →"
 
@@ -1726,6 +1726,21 @@ msgstr "Got it"
 #: src/hooks/useTryHelloCity.tsx:15
 #~ msgid "NavBar.Try HelloCity"
 #~ msgstr "Try HelloCity"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:59
+msgid "login.button"
+msgstr "Log In"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:45
+msgid "login.required.description"
+msgstr "Please log in to access HelloCity AI assistant and start your relocation journey."
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:43
+msgid "login.required.title"
+msgstr "Login Required"
 
 #: src/components/dropdownMenuOptions.example.tsx:39
 #~ msgid "Logout"
