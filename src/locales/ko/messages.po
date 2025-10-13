@@ -596,7 +596,7 @@ msgid "checklist.add.button"
 msgstr "새 항목 추가"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:78
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
 msgid "checklist.banner.generating"
 msgstr "체크리스트 생성 중..."
 
@@ -606,17 +606,17 @@ msgid "checklist.banner.generatingTitle"
 msgstr "맞춤 체크리스트 생성 중"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:94
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
 msgid "checklist.banner.inProgress"
 msgstr "준비 중"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
-msgid "checklist.banner.new"
-msgstr "새 체크리스트"
+#~ msgid "checklist.banner.new"
+#~ msgstr "새 체크리스트"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:96
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:89
 msgid "checklist.banner.viewDetails"
 msgstr "자세히 보기"
 
@@ -627,8 +627,8 @@ msgstr "자세히 보기"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
-msgid "checklist.due.prefix"
-msgstr "마감:"
+#~ msgid "checklist.due.prefix"
+#~ msgstr "마감:"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19

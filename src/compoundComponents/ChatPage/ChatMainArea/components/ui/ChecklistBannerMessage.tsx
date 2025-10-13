@@ -62,29 +62,22 @@ const ChecklistBannerMessage = memo(
           {titleContent}
         </Typography>
 
-        {/* Footer: Chips + View Details */}
+        {/* Footer: Version Chip + View Details */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {!isGenerating && (
-              <Chip
-                label={`v${banner.version}`}
-                size="small"
-                className="h-6 bg-primary text-xs font-semibold text-white"
-              />
-            )}
             <Chip
               label={
                 isGenerating ? (
                   <Trans id="checklist.banner.generating" message="Generating…" />
                 ) : (
-                  <Trans id="checklist.banner.new" message="New Checklist" />
+                  `v${banner.version}`
                 )
               }
               size="small"
               className={
                 isGenerating
                   ? 'h-6 bg-amber-100 text-xs font-medium text-amber-700'
-                  : 'h-6 bg-green-100 text-xs font-medium text-green-700'
+                  : 'h-6 bg-primary text-xs font-semibold text-white'
               }
             />
           </div>

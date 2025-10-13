@@ -596,7 +596,7 @@ msgid "checklist.add.button"
 msgstr "タスクを追加"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:78
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
 msgid "checklist.banner.generating"
 msgstr "チェックリストを生成中…"
 
@@ -606,17 +606,17 @@ msgid "checklist.banner.generatingTitle"
 msgstr "チェックリストを生成中"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:94
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
 msgid "checklist.banner.inProgress"
 msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
-msgid "checklist.banner.new"
-msgstr "新しいチェックリスト"
+#~ msgid "checklist.banner.new"
+#~ msgstr "新しいチェックリスト"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:96
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:89
 msgid "checklist.banner.viewDetails"
 msgstr "詳細を見る"
 
@@ -627,8 +627,8 @@ msgstr "詳細を見る"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
-msgid "checklist.due.prefix"
-msgstr "期限:"
+#~ msgid "checklist.due.prefix"
+#~ msgstr "期限:"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
