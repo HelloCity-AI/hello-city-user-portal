@@ -29,7 +29,7 @@ const SectionBackground: React.FC<SectionBackgroundProps> = ({
   overlayClassName = 'absolute inset-0 bg-black/50 z-10',
   additionalWrapperClassName,
 }) => {
-  const baseClassName = `relative overflow-hidden py-10 lg:py-20`;
+  const baseClassName = `relative overflow-hidden py-10 lg:py-20 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12 px-4 sm:px-6 md:px-8 lg:px-12`;
 
   return (
     <Box

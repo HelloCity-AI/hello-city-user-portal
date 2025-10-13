@@ -10,11 +10,12 @@ A modern frontend project powered by Next.js 14, React 18, TypeScript, Material-
 2. [Getting Started](#2-getting-started)
 3. [Environment Configuration](#3-environment-configuration)
 4. [Development Commands](#4-development-commands)
-5. [Git Hooks (Husky)](#5-git-hooks-husky)
-6. [Tech Stack](#6-tech-stack)
-7. [Project Structure](#7-project-structure)
-8. [Development Workflow](#8-development-workflow)
-9. [Notes](#9-notes)
+5. [Key Features](#5-key-features)
+6. [Git Hooks (Husky)](#6-git-hooks-husky)
+7. [Tech Stack](#7-tech-stack)
+8. [Project Structure](#8-project-structure)
+9. [Development Workflow](#9-development-workflow)
+10. [Notes](#10-notes)
 
 ## 1. Requirements
 
@@ -158,6 +159,47 @@ Storybook looks for `.stories.tsx` files in the `stories/` directory.
 
 **Access Storybook:** [http://localhost:6006](http://localhost:6006)
 
+## 5. Key Features
+
+### AI-Powered Chat Assistant
+
+Real-time AI chat with OpenAI GPT integration and intelligent checklist generation.
+
+**Features:**
+
+- **Streaming Responses:** Real-time SSE streaming via Vercel AI SDK
+- **Conversation Management:** Create, view, and manage chat conversations
+- **Intelligent Checklists:** AI-generated task checklists with async processing
+- **Multi-Language Support:** Full i18n support for English and Chinese
+
+**Architecture:**
+
+- **Route Groups:** Organized with `(app)` protected pages and `(site)` public pages
+  - `/assistant` - AI chat interface (authenticated)
+  - `/profile` - User profile management (authenticated)
+  - `/` - Landing page (public)
+  - `/contact-us` - Contact form (public)
+
+**Tech Stack:**
+
+- Vercel AI SDK (`@ai-sdk/react`, `ai`)
+- OpenAI GPT integration
+- Redux Saga for state management
+- SSE streaming for real-time responses
+
+### Route Groups Architecture
+
+The application uses Next.js 14 Route Groups to organize pages:
+
+- **`(app)` group** - Protected application pages requiring authentication
+- **`(site)` group** - Public marketing and informational pages
+
+This structure provides:
+
+- Shared layouts per group
+- Clean URL structure (group names don't appear in URLs)
+- Logical separation of authenticated vs. public routes
+
 ## 3. Environment Configuration
 
 **Required:** Create `.env.local` file in the project root:
@@ -182,9 +224,12 @@ Populate `.env.local` with actual values for:
 - **Backend API:**
   - `NEXT_PUBLIC_API_BASE_URL` - Backend API base URL
 
+- **OpenAI API (Required for AI Chat):**
+  - `OPENAI_API_KEY` - Your OpenAI API key for chat streaming
+
 **Note:** Contact team lead for actual environment values.
 
-## 5. Git Hooks (Husky)
+## 6. Git Hooks (Husky)
 
 Automatically enforces code quality standards:
 
@@ -196,7 +241,7 @@ Automatically enforces code quality standards:
 
 **Setup:** Automatically configured during `npm install` on all platforms.
 
-## 6. Tech Stack
+## 7. Tech Stack
 
 ### Core Framework
 
@@ -208,6 +253,8 @@ Automatically enforces code quality standards:
 
 - [Material-UI v7.2+](https://mui.com/) - React component library
 - [MUI X Date Pickers](https://mui.com/x/react-date-pickers/) - Advanced date/time components
+- [Radix UI](https://www.radix-ui.com/) - Unstyled, accessible UI primitives
+  - Avatar, Dropdown Menu, Select, Slot components
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - Custom theme with brand colors and gradients
 
@@ -215,6 +262,11 @@ Automatically enforces code quality standards:
 
 - [Redux Toolkit](https://redux-toolkit.js.org/) - State management
 - [Redux Saga](https://redux-saga.js.org/) - Side effect management
+
+### AI & Streaming
+
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) - AI chat streaming interface
+- [OpenAI](https://openai.com/) - GPT-powered chat responses
 
 ### Authentication & API
 
@@ -233,24 +285,45 @@ Automatically enforces code quality standards:
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) - Code quality
 - [Husky](https://typicode.github.io/husky/) - Git hooks
 
-## 7. Project Structure
+## 8. Project Structure
 
 ```
 src/
 ├── app/[lang]/             # Next.js App Router with i18n routing
+│   ├── (app)/              # Protected application pages
+│   │   ├── assistant/      # AI chat assistant
+│   │   ├── profile/        # User profile
+│   │   └── create-user-profile/  # Profile creation
+│   ├── (site)/             # Public marketing pages
+│   │   ├── page.tsx        # Landing page
+│   │   └── contact-us/     # Contact form
+│   └── api/                # Next.js API routes
+│       └── chat/           # OpenAI chat streaming endpoint
 ├── components/             # Atomic reusable components
-├── compoundComponents/     # Complex multi-part components (NavBar, Modals)
-├── store/                  # Redux Toolkit + Saga state management
-├── api/                    # API layer with Auth0 authentication
+│   ├── ai-elements/        # AI-specific UI components
+│   └── AppPageSections/    # App layout sections
+├── compoundComponents/     # Complex multi-part components
+│   ├── ChatPage/           # AI chat feature components
+│   │   ├── ChatMainArea/   # Main conversation interface
+│   │   ├── ChatSidebar/    # Conversation history
+│   │   └── ChecklistPanel/ # City checklist panel
+│   ├── NavBar/             # Navigation bar
+│   ├── Menus/              # Dropdown menus
+│   └── Modals/             # Modal dialogs
+├── store/                  # Redux state management
+│   ├── slices/             # Redux slices (user, conversation, checklist)
+│   ├── sagas/              # Redux Saga files (userSaga, conversationSaga, checklistSaga)
+│   └── helpers/            # Pure helper functions (reduxChecklistHelpers.ts)
+├── lib/                    # Third-party configs & API client
+│   └── api-client.ts       # Axios backend HTTP client (unified API layer)
+├── api/                    # Type definitions & data transformers
+│   └── transformers/       # Backend ↔ Frontend format conversion
 ├── contexts/               # React contexts (Language, I18n)
 ├── hooks/                  # Custom React hooks
 ├── locales/                # i18n message catalogs (en/zh po format)
-├── stories/                # Storybook component documentation
 ├── types/                  # TypeScript type definitions
-├── utils/                  # Utility functions (fetchWithAuth, serverI18n)
-├── lib/                    # Third-party library configurations
-├── theme/                  # Material-UI theme configuration
-└── enums/                  # TypeScript enums
+├── utils/                  # Utility functions
+└── theme/                  # Material-UI theme configuration
 ```
 
 ### Key Configuration Files
@@ -261,7 +334,7 @@ src/
 - `lingui.config.js` - Internationalization setup
 - `.storybook/` - Storybook configuration
 
-## 8. Development Workflow
+## 9. Development Workflow
 
 ### Adding New Features
 
@@ -292,7 +365,7 @@ src/
 - Use `fetchWithAuth` utility for authenticated API calls
 - User state managed through Redux
 
-## 9. Notes
+## 10. Notes
 
 - All dependencies use exact versions (no `^` prefixes), MUI versions above 7.2 may have compatibility issues
 - TypeScript strict mode and comprehensive type checking enabled

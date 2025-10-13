@@ -1,5 +1,5 @@
 export { ConfirmModal } from './ConfirmModal';
-export { CreateChecklistItemModal } from './CreateChecklistItemModal';
+export { default as ChecklistItemModal } from './ChecklistItemModal';
 export { CustomModal } from './CustomModal';
 export { FormModal } from './FormModal';
 export { InfoModal } from './InfoModal';

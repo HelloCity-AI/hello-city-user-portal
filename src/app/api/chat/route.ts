@@ -1,14 +1,11 @@
 /**
- * AI Chat Streaming Endpoint
+ * AI Chat Streaming Endpoint - Phase 3 Real AI Integration
  *
- * Architecture: Frontend (AI SDK) → Next.js Edge → .NET Backend → Python AI Service
+ * Architecture: Frontend (AI SDK) → Next.js Edge → .NET ChatProxy → Python AI Service
  *
- * Data Flow:
- * 1. AI SDK UIMessage (parts[]) → Backend Message (content string)
- * 2. .NET ChatProxy streams SSE from Python service
- * 3. Transform backend SSE → AI SDK streaming protocol
- *
- * Edge Runtime: Required for streaming response and Web Streams API
+ * Supports:
+ * - data-task-id / data-checklist-* custom data parts for checklist workflow
+ * - Streaming Assistant responses via Vercel AI SDK protocol
  */
 import { getAuthContext } from '@/lib/auth-utils';
 import {
@@ -27,7 +24,19 @@ export async function POST(req: Request) {
     // Transform AI SDK format (parts[]) to Backend format (content string)
     const convertedMessages = convertUIMessagesToBackendFormat(messages as UIMessage[]);
 
-    // Forward to .NET backend with full conversation history
+    // DEBUG: Log outgoing messages to Backend
+    console.log('[API Chat] Sending to backend:', {
+      conversationId,
+      messageCount: convertedMessages.length,
+      messages: convertedMessages.map((m) => ({
+        role: m.role,
+        contentLength: m.content?.length || 0,
+        partsCount: m.parts?.length || 0,
+        contentPreview: m.content?.substring(0, 50) || '[EMPTY]',
+      })),
+    });
+
+    // Forward to .NET ChatProxy (real AI service)
     const response = await fetch(`${apiUrl}/api/ChatProxy`, {
       method: 'POST',
       headers: {

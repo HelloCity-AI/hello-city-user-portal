@@ -8,18 +8,31 @@ const PanelLayout = memo(
       // Layer 1: Width Animation Container - Controls layout space occupation
       <div
         className={mergeClassNames(
-          'relative z-10 h-screen flex-none overflow-visible p-4',
+          // Mobile: absolute positioning, Desktop: relative
+          'absolute lg:relative',
+          'inset-y-0 right-0 lg:inset-auto',
+          'z-10 h-screen overflow-visible lg:flex-none',
           'transition-[width,max-width,min-width] duration-300 ease-out',
           isCollapsed
-            ? 'w-0 min-w-0 max-w-0'
-            : 'w-[min(40vw,560px)] min-w-[min(40vw,560px)] max-w-[min(40vw,560px)]',
+            ? 'w-0 min-w-0 max-w-0 p-0'
+            : mergeClassNames(
+                // Mobile: full width for maximum content area
+                'w-full min-w-full max-w-full',
+                // Tablet: 60% width
+                'md:w-[60vw] md:min-w-[60vw] md:max-w-[60vw]',
+                // Desktop: original 40vw
+                'lg:w-[min(40vw,560px)] lg:min-w-[min(40vw,560px)] lg:max-w-[min(40vw,560px)]',
+                'p-0 lg:p-4',
+              ),
         )}
       >
         {/* Layer 2: Transform Animation Container - Controls visual sliding effect */}
         <div
           className={mergeClassNames(
             'absolute inset-y-0 right-0 flex',
-            'w-[min(40vw,560px)] max-w-[min(40vw,560px)]',
+            // Mobile: 100vw fullscreen, Tablet: 60vw, Desktop: 40vw
+            'w-screen md:w-[60vw] lg:w-[min(40vw,560px)]',
+            'max-w-screen md:max-w-[60vw] lg:max-w-[min(40vw,560px)]',
             'transition-transform duration-300',
             isCollapsed ? 'translate-x-full' : 'translate-x-0',
           )}
@@ -27,7 +40,10 @@ const PanelLayout = memo(
           {/* Layer 3: Visual Panel Container - Handles styling and content layout */}
           <div
             className={mergeClassNames(
-              'relative m-2 flex flex-1 flex-col overflow-hidden rounded-xl',
+              'relative flex flex-1 flex-col overflow-hidden',
+              // Mobile: fullscreen (no margin, no rounded), Tablet & Desktop: floating panel
+              'm-0 md:m-2',
+              'rounded-none md:rounded-xl',
               'shadow-[0_0_40px_rgba(0,0,0,0.15),0_0_80px_rgba(0,0,0,0.1)]',
               'border border-white/50',
               isCollapsed ? 'pointer-events-none' : 'pointer-events-auto',

@@ -6,13 +6,12 @@ export type User = {
   email: string;
   gender: Genders | '';
   avatar?: string;
-  avatarFile?: File | null;
   nationality: Nationalities | '';
   city: Cities | '';
   university: string;
   major: string;
   preferredLanguage: Languages | '';
-  lastJoinDate: Date;
+  lastJoinDate: string | Date;
 };
 
 export const defaultUser: User = {
@@ -21,11 +20,10 @@ export const defaultUser: User = {
   email: '',
   gender: '',
   avatar: '',
-  avatarFile: null,
   nationality: '',
   city: '',
   university: '',
   major: '',
   preferredLanguage: '',
-  lastJoinDate: new Date(),
+  lastJoinDate: '',
 };
