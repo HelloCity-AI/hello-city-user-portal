@@ -37,10 +37,7 @@ const ChecklistBannerMessage = memo(
     }, [dispatch, checklistId, onBannerClick, isGenerating]);
 
     const titleContent = isGenerating ? (
-      <Trans
-        id="checklist.banner.generatingTitle"
-        message="Creating your checklist…"
-      />
+      <Trans id="checklist.banner.generatingTitle" message="Creating your checklist…" />
     ) : (
       banner.title
     );
@@ -53,7 +50,7 @@ const ChecklistBannerMessage = memo(
         className={mergeClassNames(
           'group relative flex w-full max-w-sm flex-col gap-3 rounded-xl border p-4 transition-all',
           'border-primary/30 from-primary/5 to-primary/10 bg-gradient-to-br',
-          'hover:shadow-md hover:shadow-primary/10',
+          'hover:shadow-primary/10 hover:shadow-md',
           isGenerating && 'cursor-not-allowed opacity-80 hover:shadow-none',
         )}
         aria-disabled={isGenerating}
@@ -66,6 +63,15 @@ const ChecklistBannerMessage = memo(
               {titleContent}
             </Typography>
 
+            {/* Generating Notice */}
+            {isGenerating && (
+              <Typography variant="caption" className="text-left text-amber-700">
+                <Trans
+                  id="checklist.banner.generatingNotice"
+                  message="Checklist generation may take 3-5 minutes. Please be patient."
+                />
+              </Typography>
+            )}
           </div>
 
           {/* Loading Indicator - Right Side (only when generating) */}
