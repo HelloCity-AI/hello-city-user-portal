@@ -28,7 +28,12 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
   className = 'z-40',
   ...DrawerProps
 }) => {
-  const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
+  const {
+    onClick: tryHelloCityClick,
+    isLoading,
+    LoginModal,
+    label: tryHelloCityLabel,
+  } = useTryHelloCity();
   const translateX = activeSubMenuIndex !== null ? '-100%' : '0%';
 
   const handleClick = (index: number) => {
@@ -47,8 +52,8 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
     <Drawer {...DrawerProps} anchor={anchor} className={className}>
       <Button
         variant="tertiary"
-        component={Link}
-        href={tryHelloCityHref}
+        onClick={tryHelloCityClick}
+        disabled={isLoading}
         disableFocusRipple
         className="mx-7 mb-5 mt-20 w-auto text-nowrap rounded-full bg-primary font-semibold text-white"
       >
@@ -96,6 +101,7 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
           </Box>
         </Box>
       </Box>
+      {LoginModal}
     </Drawer>
   );
 };
