@@ -1,12 +1,6 @@
 'use client';
 import React, { useState, useRef } from 'react';
-import {
-  TextField,
-  List,
-  ListItemButton,
-  Typography,
-  InputAdornment,
-} from '@mui/material';
+import { TextField, List, ListItemButton, Typography, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import Dropdown from '@/components/Dropdown';
 
@@ -26,7 +20,6 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({
   const [query, setQuery] = useState('');
   const typingTimeout = useRef<NodeJS.Timeout | null>(null);
 
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
@@ -39,8 +32,7 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({
 
   return (
     <Dropdown trigger={trigger}>
-      <div className="p-3 w-[300px]">
-
+      <div className="w-[300px] p-3">
         <TextField
           fullWidth
           size="small"
@@ -58,28 +50,19 @@ const SearchChatMenu: React.FC<SearchChatMenuProps> = ({
           }}
         />
 
-  
         <List className="mt-2 max-h-[250px] overflow-y-auto">
           {query.trim() === '' ? (
-            <Typography
-              variant="body2"
-              className="text-gray-500 mt-2 text-center"
-            >
+            <Typography variant="body2" className="mt-2 text-center text-gray-500">
               Type to search your chats
             </Typography>
           ) : conversations.length > 0 ? (
             conversations.map((c) => (
               <ListItemButton key={c.id} onClick={() => onSelect(c.id)}>
-                <Typography noWrap>
-                  {c.title || 'Untitled conversation'}
-                </Typography>
+                <Typography noWrap>{c.title || 'Untitled conversation'}</Typography>
               </ListItemButton>
             ))
           ) : (
-            <Typography
-              variant="body2"
-              className="text-gray-500 mt-2 text-center"
-            >
+            <Typography variant="body2" className="mt-2 text-center text-gray-500">
               No results found
             </Typography>
           )}

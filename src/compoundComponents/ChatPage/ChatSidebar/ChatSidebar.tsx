@@ -41,39 +41,33 @@ export default function ChatSidebar() {
     router.push(`/${params.lang}/assistant/${conversationId}`);
   };
 
-
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredConversations = useMemo(() => {
     if (!searchQuery.trim()) return [];
     return conversations.filter((conv) =>
-      conv.title?.toLowerCase().includes(searchQuery.toLowerCase())
+      conv.title?.toLowerCase().includes(searchQuery.toLowerCase()),
     );
   }, [conversations, searchQuery]);
 
   return (
     <DrawerContainer isCollapsed={isCollapsed}>
-     
       <LogoSection isCollapsed={isCollapsed} onToggle={() => setIsCollapsed((prev) => !prev)} />
 
-      
       <div className="mt-2">
         <ActionsSection isCollapsed={isCollapsed} onNewChat={handleNewChat} />
 
-       
         <SearchChatMenu
           trigger={
             <button
-              className={`flex items-center justify-center rounded-lg transition-all duration-300 mt-1 ${
+              className={`mt-1 flex items-center justify-center rounded-lg transition-all duration-300 ${
                 isCollapsed
-                  ? 'w-[40px] h-[40px]'
-                  : 'w-[240px] h-[40px] bg-[#1976d2] text-white hover:bg-[#1565c0]'
+                  ? 'h-[40px] w-[40px]'
+                  : 'h-[40px] w-[240px] bg-[#1976d2] text-white hover:bg-[#1565c0]'
               }`}
             >
               <SearchIcon />
-              {!isCollapsed && (
-                <span className="ml-2 text-sm font-medium">Search Chat</span>
-              )}
+              {!isCollapsed && <span className="ml-2 text-sm font-medium">Search Chat</span>}
             </button>
           }
           conversations={filteredConversations}
@@ -81,7 +75,6 @@ export default function ChatSidebar() {
           onSelect={(id) => handleHistoryClick(id)}
         />
       </div>
-
 
       <div className="mt-8 flex-1 overflow-hidden">
         {!isCollapsed && isConversationsLoading ? (
@@ -96,7 +89,6 @@ export default function ChatSidebar() {
           />
         )}
       </div>
-
 
       <UserSection isCollapsed={isCollapsed} />
     </DrawerContainer>
