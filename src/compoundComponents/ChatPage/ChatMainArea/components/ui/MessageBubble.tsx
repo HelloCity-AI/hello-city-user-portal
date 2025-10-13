@@ -1,9 +1,10 @@
 'use client';
 
 import type { HTMLAttributes } from 'react';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import type { UIMessage } from 'ai';
+import type { RootState } from '@/store';
 import { Message, MessageContent } from '@/components/ai-elements/Message';
 import { Response } from '@/components/ai-elements/Response';
 import { Avatar } from '@mui/material';
@@ -38,9 +39,21 @@ const MessageBubble = ({
   const isUser = message.role === 'user';
   const extendedMessage = message as ExtendedUIMessage;
   const dispatch = useDispatch();
+  // Subscribe to checklists for status checking (useRef prevents infinite loop)
+  const checklists = useSelector((state: RootState) => state.checklist.checklists);
+
+  // Track processed banners to prevent infinite loop during SSE streaming
+  // Key: message ID, Value: Set of processed checklist IDs
+  const processedBannersRef = useRef<Record<string, Set<string>>>({});
 
   // Auto-store checklist data to Redux when message contains checklist part
   useEffect(() => {
+    const messageId = message.id;
+
+    // Initialize tracking set for this message
+    if (!processedBannersRef.current[messageId]) {
+      processedBannersRef.current[messageId] = new Set();
+    }
     // // 深度调试: 完整分析 message 结构
     // // 从 parts 中提取文本内容
     // const textContent = extendedMessage.parts
@@ -74,11 +87,24 @@ const MessageBubble = ({
     // }
 
     checklistParts.forEach((part) => {
+      const checklistId = part.data.checklistId;
+
+      // ✅ CRITICAL FIX: Check if already processed to prevent infinite loop
+      // When checklist completes (generating → completed), SSE sends data-checklist event
+      // Without this check, repeated dispatch causes Redux update → re-render → infinite loop
+      if (processedBannersRef.current[messageId].has(checklistId)) {
+        return; // Already processed, skip to prevent duplicate dispatch
+      }
+
       const items = (part.data as { items?: unknown[] }).items;
       const hasItems = Array.isArray(items) && items.length > 0;
 
       if (hasItems) {
         dispatch(addChecklist(part.data));
+
+        // Mark as processed to prevent re-processing
+        processedBannersRef.current[messageId].add(checklistId);
+
         const maybeTaskId =
           (part.data as { taskId?: string; _taskId?: string }).taskId ??
           (part.data as { taskId?: string; _taskId?: string })._taskId;
@@ -93,6 +119,9 @@ const MessageBubble = ({
             items: (Array.isArray(items) ? items : []) as ChecklistItem[],
           }),
         );
+
+        // Mark as processed to prevent re-processing
+        processedBannersRef.current[messageId].add(checklistId);
       }
     });
 
@@ -102,7 +131,37 @@ const MessageBubble = ({
       // Only store generating banners from message history
       // Completed banners should be loaded from API to get correct cityCode
       if (part.data.status === 'generating') {
+        const checklistId = part.data.checklistId;
+
+        // ✅ CRITICAL FIX: Check if already processed to prevent infinite loop
+        // During SSE streaming, useEffect may trigger multiple times for same banner
+        // Without this check, repeated dispatch causes Redux update → re-render → infinite loop
+        if (processedBannersRef.current[messageId].has(checklistId)) {
+          return; // Already processed, skip to prevent duplicate dispatch
+        }
+
+        // Defensive check: Don't overwrite completed status with stale generating banner
+        // This prevents race condition when user switches pages during generation:
+        // 1. SSE closes, banner stays "generating" in DB
+        // 2. Task completes, GlobalTaskPoller updates Redux to "completed"
+        // 3. User switches back, loads stale "generating" banner from DB
+        // 4. Without this check, stale banner would overwrite correct "completed" status
+        const existingStatus = checklists[checklistId]?.status;
+        if (existingStatus === 'completed') {
+          console.log(
+            `[MessageBubble] Skipping stale generating banner for completed checklist:`,
+            checklistId,
+          );
+          return; // Skip this banner, keep the completed status in Redux
+        }
+
+        // Dispatch banner data to Redux
         dispatch(upsertChecklistMetadata(part.data));
+
+        // Mark as processed to prevent re-processing
+        processedBannersRef.current[messageId].add(checklistId);
+
+        // Update task status if taskId exists
         const maybeTaskId =
           (part.data as { taskId?: string; _taskId?: string }).taskId ??
           (part.data as { taskId?: string; _taskId?: string })._taskId;
@@ -111,7 +170,7 @@ const MessageBubble = ({
         }
       }
     });
-  }, [extendedMessage.parts, dispatch]);
+  }, [message.id, extendedMessage.parts, dispatch, checklists]);
 
   return (
     <Message
