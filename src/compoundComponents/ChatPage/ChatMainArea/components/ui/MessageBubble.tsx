@@ -18,7 +18,7 @@ import {
   type ExtendedUIMessage,
 } from '@/types/ai-message';
 import { addChecklist, upsertChecklistMetadata } from '@/store/slices/checklist';
-import { updateTaskStatus, removeTask } from '@/store/slices/conversation';
+import { updateTaskStatus, removeTask, addActiveTask } from '@/store/slices/conversation';
 import type { ChecklistItem } from '@/types/checklist.types';
 
 export interface MessageBubbleProps extends HTMLAttributes<HTMLDivElement> {
@@ -161,12 +161,19 @@ const MessageBubble = ({
         // Mark as processed to prevent re-processing
         processedBannersRef.current[messageId].add(checklistId);
 
-        // Update task status if taskId exists
+        // Add task to activeTasks for GlobalTaskPoller to monitor
+        // This is critical when page is refreshed - without this, the poller won't track the task
         const maybeTaskId =
           (part.data as { taskId?: string; _taskId?: string }).taskId ??
           (part.data as { taskId?: string; _taskId?: string })._taskId;
         if (maybeTaskId) {
-          dispatch(updateTaskStatus({ taskId: maybeTaskId, status: 'generating' }));
+          dispatch(
+            addActiveTask({
+              taskId: maybeTaskId,
+              conversationId: part.data.conversationId,
+              status: 'generating',
+            }),
+          );
         }
       }
     });
