@@ -197,7 +197,7 @@ export function createAISDKStream(reader: ReadableStreamDefaultReader<Uint8Array
                   );
 
                   // Add async delay to prevent browser batching
-                  await new Promise((resolve) => setTimeout(resolve, 10));
+                  await new Promise((resolve) => setTimeout(resolve, 25));
                 }
               } catch (e) {
                 console.error('[Chat Stream] Failed to parse SSE data:', e);
