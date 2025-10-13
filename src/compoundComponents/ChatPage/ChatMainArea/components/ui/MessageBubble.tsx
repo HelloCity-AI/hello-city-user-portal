@@ -54,37 +54,8 @@ const MessageBubble = ({
     if (!processedBannersRef.current[messageId]) {
       processedBannersRef.current[messageId] = new Set();
     }
-    // // 深度调试: 完整分析 message 结构
-    // // 从 parts 中提取文本内容
-    // const textContent = extendedMessage.parts
-    //   ?.filter((p: any) => p.type === 'text')
-    //   .map((p: any) => p.text)
-    //   .join('') || '';
-
-    // console.log('🔍 [MessageBubble] Full message debug:', {
-    //   messageId: message.id,
-    //   role: message.role,
-    //   hasTextContent: textContent.length > 0,
-    //   textContentLength: textContent.length,
-    //   textContentPreview: textContent.substring(0, 100),
-    //   hasParts: !!extendedMessage.parts,
-    //   partsCount: extendedMessage.parts?.length,
-    //   partsTypes: extendedMessage.parts?.map((p: any) => p.type),
-    //   partsDetails: extendedMessage.parts?.map((p: any, i: number) => ({
-    //     index: i,
-    //     type: p.type,
-    //     hasText: 'text' in p ? !!p.text : false,
-    //     textLength: 'text' in p ? p.text?.length : 0,
-    //     hasData: 'data' in p,
-    //     dataKeys: 'data' in p ? Object.keys(p.data || {}) : [],
-    //   })),
-    //   rawParts: JSON.stringify(extendedMessage.parts, null, 2),
-    // });
 
     const checklistParts = extendedMessage.parts.filter(isChecklistDataPart);
-    // if (checklistParts.length > 0) {
-    //   console.log('✅ [MessageBubble] Found checklist data parts:', checklistParts.length);
-    // }
 
     checklistParts.forEach((part) => {
       const checklistId = part.data.checklistId;
@@ -148,10 +119,6 @@ const MessageBubble = ({
         // 4. Without this check, stale banner would overwrite correct "completed" status
         const existingStatus = checklists[checklistId]?.status;
         if (existingStatus === 'completed') {
-          console.log(
-            `[MessageBubble] Skipping stale generating banner for completed checklist:`,
-            checklistId,
-          );
           return; // Skip this banner, keep the completed status in Redux
         }
 
@@ -231,13 +198,6 @@ const MessageBubble = ({
         ) : (
           extendedMessage.parts.map((part, index) => {
             if (isChecklistBannerPart(part)) {
-              // console.log('🎨 [MessageBubble] Rendering ChecklistBannerMessage:', {
-              //   partId: part.id,
-              //   checklistId: part.data?.checklistId,
-              //   status: part.data?.status,
-              //   title: part.data?.title,
-              //   index: index,
-              // });
               return (
                 <ChecklistBannerMessage
                   key={part.id || `${message.id}-${index}`}
@@ -249,10 +209,6 @@ const MessageBubble = ({
             }
 
             if (isChecklistDataPart(part)) {
-              // console.log('📋 [MessageBubble] Skipping checklist data part (not rendered):', {
-              //   checklistId: part.data?.checklistId,
-              //   itemsCount: part.data?.items?.length,
-              // });
               return null;
             }
 
@@ -260,18 +216,11 @@ const MessageBubble = ({
               case 'text': {
                 const normalizedText = part.text?.replace(/\s|\u200b/gi, '') ?? '';
                 if (!normalizedText.length) {
-                  // console.log('⚪ [MessageBubble] Skipping empty text part at index:', index);
                   return null;
                 }
-                // console.log('💬 [MessageBubble] Rendering text part:', {
-                //   index: index,
-                //   length: part.text?.length,
-                //   preview: part.text?.substring(0, 50),
-                // });
                 return <Response key={`${message.id}-${index}`}>{part.text}</Response>;
               }
               default:
-                // console.log('❓ [MessageBubble] Unknown part type:', part.type, 'at index:', index);
                 return null;
             }
           })
