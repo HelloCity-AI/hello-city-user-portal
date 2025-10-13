@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, takeLatest, delay, select } from 'redux-saga/effects';
 import type { SagaIterator } from 'redux-saga';
 import {
   setUser,
@@ -13,14 +13,15 @@ import {
   updateUser,
   updateUserSuccess,
   updateUserFailure,
+  markFetched,
 } from '../slices/user';
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createUserAction, updateUserAction } from '@/actions/user';
 import { takeFile } from '@/upload/fileRegistry';
 import type { CreateUserPayload } from '../slices/user';
+import type { RootState } from '@/store';
 
-// ---- Types ----
 interface ApiWrapperResponse {
   status: number;
   data: User | Record<string, unknown> | null | undefined;
@@ -33,7 +34,6 @@ interface ServerActionResult<T> {
   data?: T | null;
 }
 
-// ---- Type guards ----
 const hasProfile = (d: unknown): boolean =>
   Boolean(d && typeof d === 'object' && Object.keys(d as Record<string, unknown>).length > 0);
 
@@ -43,7 +43,6 @@ function isServerActionResult<T>(v: unknown): v is ServerActionResult<T> {
   return typeof o.success === 'boolean' && ('status' in o || 'data' in o || true);
 }
 
-// ---- API wrappers ----
 export async function fetchUserApiWrapper(): Promise<ApiWrapperResponse> {
   try {
     const response = await fetch('/api/user/me', {
@@ -173,6 +172,17 @@ export function* handleFetchUser(): SagaIterator {
 
     if (res.status === 401) {
       // Order: user first then auth to match broader tests
+      const currentAuth: AuthState = yield select((s: RootState) => s.user.authStatus);
+
+      if (currentAuth === AuthState.AuthenticatedWithProfile) {
+        yield call(delay, 350);
+        const retry: ApiWrapperResponse = yield call(fetchUserApiWrapper);
+        if (retry.status === 200 && hasProfile(retry.data)) {
+          yield put(setUser(retry.data as User));
+          yield put(setAuth(AuthState.AuthenticatedWithProfile));
+        }
+        return;
+      }
       yield put(setUser(null));
       yield put(setAuth(AuthState.Unauthenticated));
       return;
@@ -183,6 +193,7 @@ export function* handleFetchUser(): SagaIterator {
     const msg: string = error instanceof Error ? error.message : 'Unknown error';
     yield put(setError(msg));
   } finally {
+    yield put(markFetched());
     yield put(setLoading(false));
   }
 }
@@ -191,8 +202,13 @@ export function* handleCreateUser(action: PayloadAction<CreateUserPayload>): Sag
   try {
     const res: ApiWrapperResponse = yield call(createUserApiWrapper, action.payload);
     if (res.status === 201 || res.status === 200) {
-      yield put(createUserSuccess((res.data as User) ?? action.payload));
+      const optimisticUser = (res.data as User) ?? (action.payload as unknown as User);
+
+      yield put(setUser(optimisticUser));
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
+      yield put(createUserSuccess((res.data as User) ?? action.payload));
+
+      yield put(fetchUser());
     } else {
       yield put(createUserFailure(`create user failed: ${res.status}`));
     }
