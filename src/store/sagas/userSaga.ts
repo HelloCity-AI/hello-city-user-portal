@@ -193,6 +193,7 @@ export function* handleCreateUser(action: PayloadAction<CreateUserPayload>): Sag
     if (res.status === 201 || res.status === 200) {
       yield put(createUserSuccess((res.data as User) ?? action.payload));
       yield put(setAuth(AuthState.AuthenticatedWithProfile));
+      yield put(fetchUser());
     } else {
       yield put(createUserFailure(`create user failed: ${res.status}`));
     }
