@@ -34,6 +34,9 @@ export const createBannerFromChecklist = (checklist: ChecklistMetadata): Checkli
  * Merge new checklist data with existing checklist
  * Priority: new items > existing items
  *
+ * IMPORTANT: Prevents status downgrade where cached generating banner
+ * overwrites completed status from Checklist table after task completion
+ *
  * @param existing - Existing checklist in state (may be undefined)
  * @param incoming - New checklist data
  * @returns Merged checklist
@@ -49,6 +52,11 @@ export const mergeChecklists = (
   return {
     ...existing,
     ...incoming,
+    // Prevent status downgrade: completed status should not be overwritten by generating
+    status:
+      existing.status === 'completed' && incoming.status === 'generating'
+        ? existing.status
+        : incoming.status,
     items: incoming.items && incoming.items.length > 0 ? incoming.items : existing.items,
   };
 };

@@ -184,7 +184,9 @@ export default function HistoryItem({
           <ResponsiveIconContainer
             isCollapsed={isCollapsed}
             responsive
-            className="lg:opacity-0 lg:group-hover:opacity-100"
+            className={mergeClassNames({
+              'lg:opacity-0 lg:group-hover:opacity-100': !isEditing,
+            })}
           >
             {!isEditing && !isLoading ? (
               <ConversationHistoryMenu

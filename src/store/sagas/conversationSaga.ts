@@ -219,18 +219,23 @@ function transformChecklistPayload(payload: ChecklistApiDto): ChecklistMetadata 
       transformChecklistItemPayload(item, payload.checklistId, payload.conversationId, index),
     );
 
+  // Trust backend's null values - don't apply fallbacks for pending/generating checklists
+  // Only use fallback for title if status is 'completed' (to handle legacy data)
+  const status = normalizeStatus(payload.status);
+  const isCompleted = status === 'completed';
+
   const transformed = {
     checklistId: payload.checklistId,
     conversationId: payload.conversationId,
     version: payload.versionNumber,
     previousVersionId: payload.parentChecklistId ?? undefined,
-    title: payload.title?.trim() ?? 'Checklist',
-    summary: payload.summary?.trim() ?? '',
-    destination: payload.destination?.trim() ?? 'TBD',
-    duration: payload.duration?.trim() ?? 'TBD',
+    title: payload.title?.trim() || (isCompleted ? 'Checklist' : ''),
+    summary: payload.summary?.trim() || '',
+    destination: payload.destination?.trim() || '',
+    duration: payload.duration?.trim() || '',
     stayType: normalizeStayType(payload.stayType),
     cityCode: normalizeCityCode(payload.cityCode) as any,
-    status: normalizeStatus(payload.status),
+    status,
     items,
     createdAt: toIsoStringOrNull(payload.createdAt),
     updatedAt: toIsoStringOrNull(payload.updatedAt),

@@ -218,10 +218,7 @@ export default function ChecklistCard({
                   component="div"
                   size="small"
                   className={mergeClassNames(
-                    'h-8 w-8 min-w-0 p-1',
-                    'border border-gray-300',
                     'opacity-100 transition-opacity lg:opacity-0 lg:group-hover:opacity-100',
-                    'hover:border-gray-400 hover:bg-gray-50',
                   )}
                 >
                   <MoreHorizIcon sx={{ fontSize: 20 }} />
@@ -230,6 +227,7 @@ export default function ChecklistCard({
               dropdownOptions={menuOptions}
               layout="vertical"
               disableIconButton
+              disableHover={true}
             />
           )}
         </div>
@@ -255,7 +253,8 @@ export default function ChecklistCard({
 
           {/* Chips Fixed at Bottom */}
           <div className="mt-auto flex flex-wrap items-center gap-1">
-            {item.dueDate && (
+            {/* TODO: Re-enable dueDate display after backend fixes date format */}
+            {/* {item.dueDate && (
               <Chip
                 icon={<CalendarTodayOutlinedIcon className="text-xs" />}
                 label={
@@ -272,7 +271,7 @@ export default function ChecklistCard({
                   },
                 }}
               />
-            )}
+            )} */}
 
             {item.category && (
               <Chip
