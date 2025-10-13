@@ -1,6 +1,7 @@
 .input-box-wrapper {
   margin-bottom: 24px;
-  width: 400px;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* 输入框整体 */

@@ -1440,27 +1440,32 @@ msgid "confirm.button"
 msgstr "확인"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:112
+#: src/app/[lang]/(site)/contact-us/page.tsx:119
 msgid "contact-us.email"
 msgstr "이메일"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:121
+#: src/app/[lang]/(site)/contact-us/page.tsx:128
 msgid "contact-us.message"
 msgstr "메시지"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:104
+#: src/app/[lang]/(site)/contact-us/page.tsx:111
 msgid "contact-us.name"
 msgstr "이름"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:142
+#: src/app/[lang]/(site)/contact-us/page.tsx:97
+msgid "contact-us.reminderInfo"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(site)/contact-us/page.tsx:149
 msgid "contact-us.submit"
 msgstr "제출"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(site)/contact-us/page.tsx:89
+#: src/app/[lang]/(site)/contact-us/page.tsx:94
 msgid "contact-us.title"
 msgstr "문의하기"
 
