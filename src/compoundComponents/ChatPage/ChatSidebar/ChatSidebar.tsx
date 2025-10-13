@@ -1,15 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useRouter } from 'next/navigation';
 import { CircularProgress } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 import DrawerContainer from './components/layout/DrawerContainer';
 import LogoSection from './components/sections/LogoSection';
 import ActionsSection from './components/sections/ActionsSection';
 import HistorySection from './components/sections/HistorySection';
 import UserSection from './components/sections/UserSection';
 import { type RootState } from '@/store';
+import SearchChatMenu from '@/compoundComponents/Menus/SearchChatMenu';
 
 /**
  * Chat Sidebar - Uses precise 3-layer structure
@@ -26,6 +28,7 @@ export default function ChatSidebar() {
   const [isCollapsed, setIsCollapsed] = useState(true);
   const params = useParams();
   const router = useRouter();
+
   const { conversations, isLoading: isConversationsLoading } = useSelector(
     (state: RootState) => state.conversation,
   );
@@ -34,29 +37,52 @@ export default function ChatSidebar() {
     router.push(`/${params.lang}/assistant`);
   };
 
-  const handleSearch = () => {
-    console.log('Search clicked');
-  };
-
   const handleHistoryClick = (conversationId: string) => {
     router.push(`/${params.lang}/assistant/${conversationId}`);
   };
 
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredConversations = useMemo(() => {
+    if (!searchQuery.trim()) return [];
+    return conversations.filter((conv) =>
+      conv.title?.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [conversations, searchQuery]);
+
   return (
     <DrawerContainer isCollapsed={isCollapsed}>
-      {/*Top Section - Logo section */}
+     
       <LogoSection isCollapsed={isCollapsed} onToggle={() => setIsCollapsed((prev) => !prev)} />
 
-      {/* Main Actions - Action buttons section */}
+      
       <div className="mt-2">
-        <ActionsSection
-          isCollapsed={isCollapsed}
-          onNewChat={handleNewChat}
-          onSearch={handleSearch}
+        <ActionsSection isCollapsed={isCollapsed} onNewChat={handleNewChat} />
+
+       
+        <SearchChatMenu
+          trigger={
+            <button
+              className={`flex items-center justify-center rounded-lg transition-all duration-300 mt-1 ${
+                isCollapsed
+                  ? 'w-[40px] h-[40px]'
+                  : 'w-[240px] h-[40px] bg-[#1976d2] text-white hover:bg-[#1565c0]'
+              }`}
+            >
+              <SearchIcon />
+              {!isCollapsed && (
+                <span className="ml-2 text-sm font-medium">Search Chat</span>
+              )}
+            </button>
+          }
+          conversations={filteredConversations}
+          onSearch={(value) => setSearchQuery(value)}
+          onSelect={(id) => handleHistoryClick(id)}
         />
       </div>
 
-      {/* History Section - Chat history section */}
+
       <div className="mt-8 flex-1 overflow-hidden">
         {!isCollapsed && isConversationsLoading ? (
           <div className="flex h-full w-full items-center justify-center">
@@ -70,7 +96,8 @@ export default function ChatSidebar() {
           />
         )}
       </div>
-      {/* Bottom Section - User section */}
+
+
       <UserSection isCollapsed={isCollapsed} />
     </DrawerContainer>
   );
