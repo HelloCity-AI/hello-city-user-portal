@@ -37,7 +37,9 @@ interface ConversationState {
   /** Array of all user conversations */
   conversations: Conversation[];
   /** Array of conversation IDs currently loading messages (used for skeleton display) */
-  loadingConversationIds: string[];
+  loadingMessageConversationIds: string[];
+  /** Array of conversation IDs currently updating titles (used for spinner display) */
+  updatingTitleConversationIds: string[];
   /** Cached messages by conversation ID (5-minute TTL) */
   messagesByConversation: Record<string, MessageDto[]>;
   /** Cache timestamps for TTL validation (5-minute expiry) */
@@ -54,7 +56,8 @@ const initialState: ConversationState = {
   isLoading: false,
   hasFetched: false,
   conversations: [],
-  loadingConversationIds: [],
+  loadingMessageConversationIds: [],
+  updatingTitleConversationIds: [],
   messagesByConversation: {},
   cacheTimestamps: {},
   pendingMessages: {},
@@ -90,17 +93,33 @@ const conversationSlice = createSlice({
       if (action.payload) state.error = null;
     },
 
-    setConversationLoading: (
+    setMessageLoading: (
       state,
       action: PayloadAction<{ conversationId: string; isLoading: boolean }>,
     ) => {
       const { conversationId, isLoading } = action.payload;
       if (isLoading) {
-        if (!state.loadingConversationIds.includes(conversationId)) {
-          state.loadingConversationIds.push(conversationId);
+        if (!state.loadingMessageConversationIds.includes(conversationId)) {
+          state.loadingMessageConversationIds.push(conversationId);
         }
       } else {
-        state.loadingConversationIds = state.loadingConversationIds.filter(
+        state.loadingMessageConversationIds = state.loadingMessageConversationIds.filter(
+          (id) => id !== conversationId,
+        );
+      }
+    },
+
+    setTitleUpdating: (
+      state,
+      action: PayloadAction<{ conversationId: string; isUpdating: boolean }>,
+    ) => {
+      const { conversationId, isUpdating } = action.payload;
+      if (isUpdating) {
+        if (!state.updatingTitleConversationIds.includes(conversationId)) {
+          state.updatingTitleConversationIds.push(conversationId);
+        }
+      } else {
+        state.updatingTitleConversationIds = state.updatingTitleConversationIds.filter(
           (id) => id !== conversationId,
         );
       }
@@ -189,7 +208,8 @@ export const {
   setConversations,
   cacheConversationMessages,
   setConversationsLoading,
-  setConversationLoading,
+  setMessageLoading,
+  setTitleUpdating,
   setError,
   setConversationTitle,
   removeConversation,

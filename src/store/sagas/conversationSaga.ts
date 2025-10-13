@@ -5,7 +5,8 @@ import { createAction } from '@reduxjs/toolkit';
 import {
   setConversations,
   setConversationsLoading,
-  setConversationLoading,
+  setMessageLoading,
+  setTitleUpdating,
   setError,
   setConversationTitle,
   removeConversation,
@@ -276,7 +277,7 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
     }
 
     // Step 2: Set loading state for skeleton display
-    yield put(setConversationLoading({ conversationId, isLoading: true }));
+    yield put(setMessageLoading({ conversationId, isLoading: true }));
 
     // Step 3: Fetch messages from backend API
     const res: ConversationResponse = yield call(fetchMessagesApiWrapper, conversationId);
@@ -352,7 +353,7 @@ export function* handleFetchConversationMessages(action: PayloadAction<string>):
     const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
     yield put(setError(errorMessage));
   } finally {
-    yield put(setConversationLoading({ conversationId, isLoading: false }));
+    yield put(setMessageLoading({ conversationId, isLoading: false }));
   }
 }
 
@@ -369,7 +370,7 @@ export function* handleUpdateConversation(
   try {
     // Optimistic update: immediately update UI
     yield put(setConversationTitle({ conversationId: id, title }));
-    yield put(setConversationLoading({ conversationId: id, isLoading: true }));
+    yield put(setTitleUpdating({ conversationId: id, isUpdating: true }));
 
     const res: UpdateResponse = yield call(updateConversationApiWrapper, id, title);
 
@@ -387,7 +388,7 @@ export function* handleUpdateConversation(
       yield put(setConversationTitle({ conversationId: id, title: oldTitle }));
     }
   } finally {
-    yield put(setConversationLoading({ conversationId: id, isLoading: false }));
+    yield put(setTitleUpdating({ conversationId: id, isUpdating: false }));
   }
 }
 
