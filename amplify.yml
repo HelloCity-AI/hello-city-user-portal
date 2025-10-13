@@ -1,0 +1,28 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+        # Compile i18n messages before build
+        - npm run lingui:compile
+        # Make environment variables available to Lambda runtime
+        - echo "APP_BASE_URL=$APP_BASE_URL" >> .env.production
+        - echo "AUTH0_AUDIENCE=$AUTH0_AUDIENCE" >> .env.production
+        - echo "AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID" >> .env.production
+        - echo "AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET" >> .env.production
+        - echo "AUTH0_DOMAIN=$AUTH0_DOMAIN" >> .env.production
+        - echo "AUTH0_SECRET=$AUTH0_SECRET" >> .env.production
+        - echo "NEXT_PUBLIC_BACKEND_URL=$NEXT_PUBLIC_BACKEND_URL" >> .env.production
+        - echo "NEXT_PUBLIC_EMAIL_API=$NEXT_PUBLIC_EMAIL_API" >> .env.production
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
