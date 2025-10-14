@@ -15,58 +15,36 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
-#~ msgid "AdventureShowcase.Case1.Alt"
-#~ msgstr "整裝待發"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
-#~ msgid "AdventureShowcase.Case1.Description"
-#~ msgstr "踏上属于你的全新人生征程"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
-#~ msgid "AdventureShowcase.Case1.Title"
-#~ msgstr "整裝待發"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
-#~ msgid "AdventureShowcase.Case2.Alt"
-#~ msgstr "结识新友"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
-#~ msgid "AdventureShowcase.Case2.Description"
-#~ msgstr "邂逅有趣的灵魂，建立深厚的友谊"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
-#~ msgid "AdventureShowcase.Case2.Title"
-#~ msgstr "结识新友"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
-#~ msgid "AdventureShowcase.Case3.Alt"
-#~ msgstr "逐梦之城"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
-#~ msgid "AdventureShowcase.Case3.Description"
-#~ msgstr "在理想的城市里实现心中所愿"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
-#~ msgid "AdventureShowcase.Case3.Title"
-#~ msgstr "逐梦之城"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
-#~ msgid "AdventureShowcase.Description"
-#~ msgstr "體驗探索未知城市的興奮，邂逅志同道合的朋友，在全新的環境中開啟人生新篇章。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
-#~ msgid "AdventureShowcase.Title"
-#~ msgstr "精彩人生，即將啟程"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useLogoutConfirm.tsx:32
@@ -74,22 +52,14 @@ msgid "Are you sure you want to log out?"
 msgstr "您確定要登出帳戶嗎？"
 
 #: src/stories/DatePicker.stories.tsx:17
-#~ msgid "Pick a date"
-#~ msgstr "选择日期"
 
 #: src/components/NavBar/MobileNavBar.tsx:93
-#~ msgid "NavBar.Back"
-#~ msgstr "← 返回"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Description"
-#~ msgstr "加入數千位已在 HelloCity 指導下成功適應新城市生活的使用者行列。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Title"
-#~ msgstr "准备好迈出这一步了吗？"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
@@ -103,73 +73,45 @@ msgid "Hero.Description"
 msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無壓力——適用於遊客、學生和新移民。"
 
 #: src/components/dropdownMenuOptions.example.tsx:25
-#~ msgid "Theme"
-#~ msgstr "主題"
 
 #: src/components/CreateChecklistItemButton.tsx:85
-#~ msgid "create-checklist-button.add-item"
-#~ msgstr "添加清单项目"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.BannerAlt"
-#~ msgstr "墨爾本黃昏美景，HelloCity 助您開啟新生活"
 
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Title.Part1"
-#~ msgstr "您的智能向导"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Title.Part2"
-#~ msgstr "伴您走遍世界"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Description"
-#~ msgstr "每一段精彩的人生旅程都始於周密的規劃。HelloCity 將複雜繁瑣的城市遷移過程，轉化為井然有序的精彩探險。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.ImageAlt"
-#~ msgstr "旅行場景拼貼：機場出發、碧藍海上的小船、熱帶海灘別墅，以及夕陽下的情侶。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step1.Description"
-#~ msgstr "構建新生活的美好藍圖，確立人生目標"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step1.Title"
-#~ msgstr "憧憬与规划"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step2.Description"
-#~ msgstr "备齐所有必需文件和材料"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step2.Title"
-#~ msgstr "准备与整理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step3.Description"
-#~ msgstr "在新城市中迅速融入，展现精彩人生"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step3.Title"
-#~ msgstr "抵达与绽放"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Title"
-#~ msgstr "从筹划到圆梦，我们陪伴始终"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
@@ -178,8 +120,6 @@ msgid "I'm all set"
 msgstr "我准备好了"
 
 #: src/hooks/useNavigation.tsx:26
-#~ msgid "NavBar.Chat"
-#~ msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:38
@@ -189,8 +129,6 @@ msgid "Logout"
 msgstr "登出"
 
 #: src/app/[lang]/create-user-profile/page.tsx:103
-#~ msgid "I'm all set"
-#~ msgstr "我准备好了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:98
@@ -231,15 +169,11 @@ msgstr "試用 HelloCity"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
-#~ msgid "NaveBar.Back"
-#~ msgstr "← 返回"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:122
-#~ msgid "NaveBar.Sign In"
-#~ msgstr "登录"
 
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
@@ -253,222 +187,134 @@ msgstr "個人資料"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
-#~ msgid "Settings"
-#~ msgstr "設定"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
-#~ msgid "Subscription"
-#~ msgstr "订阅管理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:27
-#~ msgid "Testimonials.Country1"
-#~ msgstr "中國"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:39
-#~ msgid "Testimonials.Country2"
-#~ msgstr "日本"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:51
-#~ msgid "Testimonials.Country3"
-#~ msgstr "印度"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:63
-#~ msgid "Testimonials.Country4"
-#~ msgstr "巴西"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:75
-#~ msgid "Testimonials.Country5"
-#~ msgstr "中國"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:87
-#~ msgid "Testimonials.Country6"
-#~ msgstr "英國"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:99
-#~ msgid "Testimonials.Country7"
-#~ msgstr "新加坡"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:111
-#~ msgid "Testimonials.Country8"
-#~ msgstr "美國"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Description"
-#~ msgstr "聽聽使用者們的真實評價——學生、職場人士和家庭使用者都透過我們的分步遷移工具，從迷茫不安轉變為信心滿滿。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name1"
-#~ msgstr "张伟"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name2"
-#~ msgstr "田中彩香"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name3"
-#~ msgstr "拉傑什·庫馬爾"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name4"
-#~ msgstr "玛利亚·桑托斯"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name5"
-#~ msgstr "莫少龙"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name6"
-#~ msgstr "艾玛·威尔逊"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name7"
-#~ msgstr "普里雅·夏尔马"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:109
-#~ msgid "Testimonials.Name8"
-#~ msgstr "卢卡斯·米勒"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review1"
-#~ msgstr "我因為工作搬到雪梨，說實話完全不知道從哪裡開始。HelloCity 把所有事情都分解成簡單的步驟——文件、銀行、住房。沒有它，我估計現在還在半夜搜尋各種資訊。真的是救命稻草。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review2"
-#~ msgstr "搬家的時候，我擔心會浪費好幾週時間才能搞清楚如何開銀行帳戶或辦理水電。HelloCity 讓這一切變得超級簡單。我幾天就安頓好了，可以專心創作內容而不用焦慮。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review3"
-#~ msgstr "我來海外讀碩士，對各種文件手續特別緊張。HelloCity 不斷提醒我下一步該做什麼——就像口袋裡的清單一樣。真的減輕了我的壓力，讓我有更多時間享受校園生活。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review4"
-#~ msgstr "作為自由職業者，我經常為了專案在各個城市之間奔波。HelloCity 成了我的必備工具，每次到新城市都能快速安頓下來。時間規劃功能特別實用，幫我圍繞專案截止日期合理安排一切。要是能多提供些共享辦公空間的資訊就更完美了。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review5"
-#~ msgstr "带着两个孩子搬家原本是我们最大的噩梦，直到遇到了HelloCity。针对家庭的清单涵盖了从学校到儿科医生的方方面面。我8岁的孩子甚至主动帮忙打勾完成任务！本来可能是一片混乱，现在却井井有条。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review6"
-#~ msgstr "剛從大學畢業，面對成人世界完全不知所措的時候，HelloCity 就像是我的人生導師，指引我走過每一步。從布置第一套公寓到了解當地銀行業務，讓我從學生到職場新人的轉變如此順暢。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review7"
-#~ msgstr "作為從新加坡移居墨爾本的海外人士，我們對一切都忐忑不安——學校、醫療、甚至連買菜這樣的小事都擔心。HelloCity 的本地化指南細緻入微，為我們省去了數月的摸索和試錯。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:104
-#~ msgid "Testimonials.Review8"
-#~ msgstr "作為顧問，我需要不斷適應新的工作環境。HelloCity 已經成為我快速融入新城市的祕密武器。本地化洞察和實用清單讓我能專注於客戶服務而不用操心後勤問題。對商務旅行者來說絕對是遊戲規則改變者。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title"
-#~ msgstr "深受數千使用者喜愛"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title1"
-#~ msgstr "產品經理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title2"
-#~ msgstr "博主"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title3"
-#~ msgstr "学生"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title4"
-#~ msgstr "自由設計師"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title5"
-#~ msgstr "市场总监"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title6"
-#~ msgstr "初級軟體工程師"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title7"
-#~ msgstr "运营经理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:110
-#~ msgid "Testimonials.Title8"
-#~ msgstr "商业顾问"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25
-#~ msgid "Theme"
-#~ msgstr "主題"
 
 #: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress"
-#~ msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Description"
-#~ msgstr "根據你的具體情況、目的地和時間安排，提供量身訂製的建議。拒絕千篇一律的答案。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Description"
-#~ msgstr "全面的清單涵蓋各種遷移類型，確保重要事項不遺漏。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Description"
-#~ msgstr "透過實際的時間表和截止日期提醒，精準掌握每一步的時機。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Description"
-#~ msgstr "我们深知迁移到新城市可能让人不知所措。正因如此，我们打造了最全面的城市安居助手。"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Title"
-#~ msgstr "为什么选择HelloCity？"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
-#~ msgid "ai.thinking"
-#~ msgstr "AI正在思考中..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
@@ -481,12 +327,8 @@ msgid "ai.thinking"
 msgstr "AI正在思考中..."
 
 #: src/components/ProfileImageUploader.tsx:112
-#~ msgid "profile.avatar.add"
-#~ msgstr "添加头像"
 
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
-#~ msgid "conversation.delete.confirm"
-#~ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -598,8 +440,6 @@ msgstr "新增計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
-#~ msgid "checklist.banner.generating"
-#~ msgstr "正在產生清單..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:69
@@ -613,13 +453,9 @@ msgstr "正在產生計畫…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
-#~ msgid "checklist.banner.inProgress"
-#~ msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
-#~ msgid "checklist.banner.new"
-#~ msgstr "新清單"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:95
@@ -630,13 +466,9 @@ msgstr "查看詳情"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
-#~ msgid "checklist.due.label"
-#~ msgstr "到期：{date}"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
-#~ msgid "checklist.due.prefix"
-#~ msgstr "到期："
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
@@ -688,8 +520,6 @@ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
-#~ msgid "checklist.importance.urgent"
-#~ msgstr "紧急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
@@ -1529,13 +1359,9 @@ msgstr "HelloCity 在手機上好用嗎？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-#~ msgid "contact.faq.results"
-#~ msgstr "結果"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-#~ msgid "contact.faq.searchPlaceholder"
-#~ msgstr "請輸入您的問題..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123
@@ -1564,114 +1390,70 @@ msgstr "刪除對話"
 
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:87
-#~ msgid "create-checklist-button.add-item"
-#~ msgstr "新增清單項目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
-#~ msgid "create-checklist.cancel"
-#~ msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
-#~ msgid "create-checklist.create"
-#~ msgstr "建立項目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
-#~ msgid "create-checklist.creating"
-#~ msgstr "正在建立..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
-#~ msgid "create-checklist.description-field"
-#~ msgstr "描述"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
-#~ msgid "create-checklist.description-helper"
-#~ msgstr "提供關於此任務的詳細資訊"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
-#~ msgid "create-checklist.description-placeholder"
-#~ msgstr "請描述需要完成的任務及相關細節"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
-#~ msgid "create-checklist.description-required"
-#~ msgstr "描述為必填項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
-#~ msgid "create-checklist.due-date"
-#~ msgstr "到期日"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
-#~ msgid "create-checklist.error.create"
-#~ msgstr "建立清單項目失敗"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
-#~ msgid "create-checklist.importance-field"
-#~ msgstr "重要性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
-#~ msgid "create-checklist.importance-helper"
-#~ msgstr "此任務的重要性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
-#~ msgid "create-checklist.importance-high-desc"
-#~ msgstr "緊急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
-#~ msgid "create-checklist.importance-low-desc"
-#~ msgstr "可以等待"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
-#~ msgid "create-checklist.importance-medium-desc"
-#~ msgstr "應盡快完成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
-#~ msgid "create-checklist.mark-completed"
-#~ msgstr "標記為已完成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
-#~ msgid "create-checklist.mark-completed-helper"
-#~ msgstr "若任務已完成，請勾選此項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
-#~ msgid "create-checklist.title"
-#~ msgstr "建立新的清單項目"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
-#~ msgid "create-checklist.title-field"
-#~ msgstr "標題"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
-#~ msgid "create-checklist.title-helper"
-#~ msgstr "為您的清單項目起一個簡潔明瞭的名稱"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
-#~ msgid "create-checklist.title-placeholder"
-#~ msgstr "請輸入任務標題"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
-#~ msgid "create-checklist.title-required"
-#~ msgstr "標題是必填項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
@@ -1684,28 +1466,16 @@ msgid "edit-conversation-title"
 msgstr "編輯標題"
 
 #. js-lingui-explicit-id
-#~ msgid "error.email"
-#~ msgstr "请输入有效的邮箱地址。"
 
 #. js-lingui-explicit-id
-#~ msgid "error.message"
-#~ msgstr "请输入信息。"
 
 #. js-lingui-explicit-id
-#~ msgid "error.name"
-#~ msgstr "姓名只能包含字母，且不能为空。"
 
 #. js-lingui-explicit-id
-#~ msgid "error.password"
-#~ msgstr "密码必须为 6-20 位，包含大写字母、小写字母、数字和特殊字符。"
 
 #. js-lingui-explicit-id
-#~ msgid "error.phone"
-#~ msgstr "電話號碼只能包含數字。"
 
 #. js-lingui-explicit-id
-#~ msgid "error.repeatPassword"
-#~ msgstr "两次输入的密码不一致。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:31
@@ -1714,13 +1484,9 @@ msgstr "檔案大小或類型無效。請上傳 5MB 以下的圖片檔"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress"
-#~ msgstr "图片上传中..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:47
-#~ msgid "file.upload.success"
-#~ msgstr "图片上传成功"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1729,18 +1495,12 @@ msgstr "送出"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
-#~ msgid "importance.high"
-#~ msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
-#~ msgid "importance.low"
-#~ msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
-#~ msgid "importance.medium"
-#~ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
@@ -1748,8 +1508,6 @@ msgid "info.button"
 msgstr "知道了"
 
 #: src/hooks/useTryHelloCity.tsx:15
-#~ msgid "NavBar.Try HelloCity"
-#~ msgstr "试用 HelloCity"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
@@ -1768,18 +1526,12 @@ msgstr "需要登入"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
-#~ msgid "notFound.headline"
-#~ msgstr "让我们帮你更快融入新生活。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:120
-#~ msgid "notFound.pageNotFound"
-#~ msgstr "未找到該頁面"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
-#~ msgid "notFound.sub"
-#~ msgstr "HelloCity 為每一個人提供住宿、開戶、出行與社區支持，讓你的海外生活更順利開啟。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
@@ -1954,8 +1706,6 @@ msgstr "新對話"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-#~ msgid "sidebar.actions.searchChat"
-#~ msgstr "搜尋對話"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
@@ -1968,9 +1718,5 @@ msgid "validation.required"
 msgstr "{label} 為必填項。"
 
 #: src/components/ProfileImageUploader.tsx:90
-#~ msgid "account.title"
-#~ msgstr "HelloCity 帳戶"
 
 #: src/hooks/useNavigation.tsx:21
-#~ msgid "NavBar.Home"
-#~ msgstr "首頁"

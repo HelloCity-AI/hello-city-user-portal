@@ -15,58 +15,36 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
-#~ msgid "AdventureShowcase.Case1.Alt"
-#~ msgstr "출발 준비 완료"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
-#~ msgid "AdventureShowcase.Case1.Description"
-#~ msgstr "당신만의 새로운 여정을 시작하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
-#~ msgid "AdventureShowcase.Case1.Title"
-#~ msgstr "출발 준비 완료"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
-#~ msgid "AdventureShowcase.Case2.Alt"
-#~ msgstr "새 친구 사귀기"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
-#~ msgid "AdventureShowcase.Case2.Description"
-#~ msgstr "흥미로운 사람들과 만나 깊은 우정을 쌓아보세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
-#~ msgid "AdventureShowcase.Case2.Title"
-#~ msgstr "새 친구 사귀기"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
-#~ msgid "AdventureShowcase.Case3.Alt"
-#~ msgstr "꿈을 이루는 도시"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
-#~ msgid "AdventureShowcase.Case3.Description"
-#~ msgstr "이상적인 도시에서 당신의 꿈을 실현하세요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
-#~ msgid "AdventureShowcase.Case3.Title"
-#~ msgstr "꿈을 이루는 도시"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
-#~ msgid "AdventureShowcase.Description"
-#~ msgstr "낯선 도시를 탐험하는 설렘, 뜻이 맞는 친구들과의 만남, 새로운 환경에서 펼쳐질 인생의 새 장을 시작하세요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
-#~ msgid "AdventureShowcase.Title"
-#~ msgstr "멋진 인생, 이제 출발합니다"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useLogoutConfirm.tsx:32
@@ -74,22 +52,14 @@ msgid "Are you sure you want to log out?"
 msgstr "정말 로그아웃하시겠습니까?"
 
 #: src/stories/DatePicker.stories.tsx:17
-#~ msgid "Pick a date"
-#~ msgstr "날짜 선택"
 
 #: src/components/NavBar/MobileNavBar.tsx:93
-#~ msgid "NavBar.Back"
-#~ msgstr "← 뒤로"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Description"
-#~ msgstr "HelloCity의 도움으로 새 도시에 성공적으로 적응한 수천 명과 함께하세요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
-#~ msgid "CallToAction.Title"
-#~ msgstr "이제 시작할 준비가 되셨나요?"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
@@ -103,73 +73,45 @@ msgid "Hero.Description"
 msgstr "단계별 계획으로 새로운 도시 이사를 간단하고 명확하며 스트레스 없이 만듭니다—관광객, 학생, 이민자를 위해."
 
 #: src/components/dropdownMenuOptions.example.tsx:25
-#~ msgid "Theme"
-#~ msgstr "테마"
 
 #: src/components/CreateChecklistItemButton.tsx:85
-#~ msgid "create-checklist-button.add-item"
-#~ msgstr "체크리스트 항목 추가"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.BannerAlt"
-#~ msgstr "멜버른의 석양 풍경, HelloCity가 새 삶의 시작을 돕습니다"
 
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Title.Part1"
-#~ msgstr "당신의 스마트 가이드"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Title.Part2"
-#~ msgstr "세계를 함께하는 동반자"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Description"
-#~ msgstr "모든 멋진 여정은 치밀한 계획에서 시작됩니다. HelloCity는 복잡한 도시 이주 과정을 질서 있는 탐험으로 바꿉니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.ImageAlt"
-#~ msgstr "여행 콜라주: 공항 출발, 푸른 바다의 배, 열대 해변 별장, 석양 속 커플"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step1.Description"
-#~ msgstr "새 삶의 청사진을 그리고 목표를 세워요"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step1.Title"
-#~ msgstr "동경과 계획"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step2.Description"
-#~ msgstr "필수 서류와 자료를 모두 준비"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step2.Title"
-#~ msgstr "준비와 정리"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step3.Description"
-#~ msgstr "새 도시에 빠르게 적응하고 멋진 삶을 펼치기"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Step3.Title"
-#~ msgstr "도착과 성장"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
-#~ msgid "HowItWorks.Title"
-#~ msgstr "계획부터 꿈의 실현까지, 언제나 함께"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
@@ -178,8 +120,6 @@ msgid "I'm all set"
 msgstr "준비 완료"
 
 #: src/hooks/useNavigation.tsx:26
-#~ msgid "NavBar.Chat"
-#~ msgstr "채팅"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:38
@@ -189,8 +129,6 @@ msgid "Logout"
 msgstr "로그아웃"
 
 #: src/app/[lang]/create-user-profile/page.tsx:103
-#~ msgid "I'm all set"
-#~ msgstr "준비 완료"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:98
@@ -231,15 +169,11 @@ msgstr "HelloCity 체험하기"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
-#~ msgid "NaveBar.Back"
-#~ msgstr "← 뒤로"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:122
-#~ msgid "NaveBar.Sign In"
-#~ msgstr "로그인"
 
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
@@ -253,222 +187,134 @@ msgstr "프로필"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
-#~ msgid "Settings"
-#~ msgstr "설정"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
-#~ msgid "Subscription"
-#~ msgstr "구독 관리"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:27
-#~ msgid "Testimonials.Country1"
-#~ msgstr "중국"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:39
-#~ msgid "Testimonials.Country2"
-#~ msgstr "일본"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:51
-#~ msgid "Testimonials.Country3"
-#~ msgstr "인도"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:63
-#~ msgid "Testimonials.Country4"
-#~ msgstr "브라질"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:75
-#~ msgid "Testimonials.Country5"
-#~ msgstr "중국"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:87
-#~ msgid "Testimonials.Country6"
-#~ msgstr "영국"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:99
-#~ msgid "Testimonials.Country7"
-#~ msgstr "싱가포르"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:111
-#~ msgid "Testimonials.Country8"
-#~ msgstr "미국"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Description"
-#~ msgstr "학생·직장인·가족의 실제 후기를 확인하세요 — 단계별 이주 도구로 막막함에서 자신감으로 바뀌었습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name1"
-#~ msgstr "장웨이"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name2"
-#~ msgstr "다나카 아야카"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name3"
-#~ msgstr "라제시 쿠마르"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name4"
-#~ msgstr "마리아 산토스"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name5"
-#~ msgstr "모 샤오롱"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name6"
-#~ msgstr "엠마 윌슨"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Name7"
-#~ msgstr "프리야 샤르마"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:109
-#~ msgid "Testimonials.Name8"
-#~ msgstr "루카스 밀러"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review1"
-#~ msgstr "업무 때문에 시드니로 이사했는데, 어디서부터 시작해야 할지 정말 몰랐어요. HelloCity가 서류·은행·주거를 간단한 단계로 나눠 주었습니다. 이게 없었으면 아직도 밤마다 정보를 뒤지고 있었을 거예요. 정말 구세주였어요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review2"
-#~ msgstr "이사하면서 은행 계좌 개설이나 수도·전기 가입을 알아보느라 몇 주를 허비할까 걱정했어요. HelloCity 덕분에 모든 것이 놀랍도록 쉬워졌습니다. 며칠 만에 정착하고 콘텐츠 제작에 집중할 수 있었어요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review3"
-#~ msgstr "해외에서 석사를 시작하며 각종 서류 절차가 너무 불안했어요. HelloCity가 다음에 무엇을 해야 하는지 계속 알려줘서, 마치 주머니 속 체크리스트 같았어요. 스트레스가 줄고 캠퍼스 생활을 더 즐길 수 있었습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review4"
-#~ msgstr "프리랜서로서 프로젝트 때문에 여러 도시를 자주 오갑니다. HelloCity는 매번 새 도시에서 빠르게 정착하게 해주는 필수 도구가 되었어요. 타임라인 기능이 특히 유용해서 마감에 맞춰 모든 일을 체계적으로 잡을 수 있었습니다. 공유 오피스 정보가 더 있으면 완벽할 것 같아요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review5"
-#~ msgstr "두 아이를 데리고 이사하는 건 우리에게 가장 큰 악몽이었어요, HelloCity를 만나기 전까지요. 가족용 체크리스트는 학교부터 소아과까지 빠짐없이 다루고 있어요. 8살 아이도 스스로 체크박스를 누르며 도와줬답니다! 혼란스러웠을 상황이 놀랍도록 정돈됐어요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review6"
-#~ msgstr "막 대학교를 졸업하고 사회로 나가는 게 막막했을 때 HelloCity는 인생 멘토처럼 제 길을 안내해 줬어요. 첫 집을 꾸미는 일부터 현지 은행 업무까지, 학생에서 직장인으로의 전환이 아주 매끄러웠습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Review7"
-#~ msgstr "싱가포르에서 멜버른으로 이주한 외국인으로서 학교·의료·장보기 같은 사소한 것까지 모두 불안했어요. HelloCity의 로컬 가이드는 매우 세밀해서 몇 달의 시행착오를 덜어줬습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:104
-#~ msgid "Testimonials.Review8"
-#~ msgstr "컨설턴트로서 새로운 업무 환경에 계속 적응해야 합니다. HelloCity는 새 도시에 빠르게 녹아드는 비밀 무기가 되었어요. 현지 인사이트와 실용적인 체크리스트 덕분에 고객 서비스에 집중할 수 있었고, 뒤처리 걱정이 사라졌습니다. 출장자에게는 진정한 게임 체인저예요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title"
-#~ msgstr "수천 명의 사용자가 사랑합니다"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title1"
-#~ msgstr "프로덕트 매니저"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title2"
-#~ msgstr "블로거"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title3"
-#~ msgstr "학생"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title4"
-#~ msgstr "프리랜서 디자이너"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title5"
-#~ msgstr "마케팅 디렉터"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title6"
-#~ msgstr "주니어 소프트웨어 엔지니어"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
-#~ msgid "Testimonials.Title7"
-#~ msgstr "운영 매니저"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:110
-#~ msgid "Testimonials.Title8"
-#~ msgstr "비즈니스 컨설턴트"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25
-#~ msgid "Theme"
-#~ msgstr "테마"
 
 #: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress"
-#~ msgstr "이미지 업로드 중..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card1.Description"
-#~ msgstr "당신의 상황, 목적지, 일정에 맞춘 맞춤형 제안을 제공합니다. 획일적인 답은 드리지 않습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card2.Description"
-#~ msgstr "모든 이주 유형을 아우르는 종합 체크리스트로 중요한 항목을 빠뜨리지 않습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Card3.Description"
-#~ msgstr "현실적인 타임라인과 마감 알림으로 각 단계의 최적 타이밍을 놓치지 않습니다."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Description"
-#~ msgstr "새 도시로의 이주가 막막할 수 있다는 걸 잘 압니다. 그래서 가장 포괄적인 정착 도우미를 만들었습니다."
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
-#~ msgid "ValueProposition.Title"
-#~ msgstr "왜 HelloCity인가요?"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
-#~ msgid "ai.thinking"
-#~ msgstr "AI가 생각 중..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
@@ -481,12 +327,8 @@ msgid "ai.thinking"
 msgstr "AI가 생각 중..."
 
 #: src/components/ProfileImageUploader.tsx:112
-#~ msgid "profile.avatar.add"
-#~ msgstr "아바타 추가"
 
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
-#~ msgid "conversation.delete.confirm"
-#~ msgstr "삭제"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -598,8 +440,6 @@ msgstr "새 계획 항목 추가"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
-#~ msgid "checklist.banner.generating"
-#~ msgstr "체크리스트 생성 중..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:69
@@ -613,13 +453,9 @@ msgstr "계획 생성 중…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
-#~ msgid "checklist.banner.inProgress"
-#~ msgstr "준비 중"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
-#~ msgid "checklist.banner.new"
-#~ msgstr "새 체크리스트"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:95
@@ -628,13 +464,9 @@ msgstr "자세히 보기"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
-#~ msgid "checklist.due.label"
-#~ msgstr "마감일"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
-#~ msgid "checklist.due.prefix"
-#~ msgstr "마감:"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
@@ -686,8 +518,6 @@ msgstr "보통"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
-#~ msgid "checklist.importance.urgent"
-#~ msgstr "긴급"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
@@ -1527,13 +1357,9 @@ msgstr "모바일에서도 잘 작동하나요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
-#~ msgid "contact.faq.results"
-#~ msgstr "결과"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
-#~ msgid "contact.faq.searchPlaceholder"
-#~ msgstr "질문을 입력하세요..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123
@@ -1562,114 +1388,70 @@ msgstr "대화 삭제"
 
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:87
-#~ msgid "create-checklist-button.add-item"
-#~ msgstr "체크리스트 항목 추가"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
-#~ msgid "create-checklist.cancel"
-#~ msgstr "취소"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
-#~ msgid "create-checklist.create"
-#~ msgstr "항목 생성"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
-#~ msgid "create-checklist.creating"
-#~ msgstr "생성 중..."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
-#~ msgid "create-checklist.description-field"
-#~ msgstr "설명"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
-#~ msgid "create-checklist.description-helper"
-#~ msgstr "이 작업에 대한 자세한 정보를 제공하세요"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
-#~ msgid "create-checklist.description-placeholder"
-#~ msgstr "완료할 작업과 관련 세부 사항을 설명하세요"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
-#~ msgid "create-checklist.description-required"
-#~ msgstr "설명은 필수 항목입니다"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
-#~ msgid "create-checklist.due-date"
-#~ msgstr "마감일"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
-#~ msgid "create-checklist.error.create"
-#~ msgstr "체크리스트 항목 생성 실패"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
-#~ msgid "create-checklist.importance-field"
-#~ msgstr "중요도"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
-#~ msgid "create-checklist.importance-helper"
-#~ msgstr "이 작업의 중요도"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
-#~ msgid "create-checklist.importance-high-desc"
-#~ msgstr "긴급"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
-#~ msgid "create-checklist.importance-low-desc"
-#~ msgstr "대기 가능"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
-#~ msgid "create-checklist.importance-medium-desc"
-#~ msgstr "가급적 빨리"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
-#~ msgid "create-checklist.mark-completed"
-#~ msgstr "완료로 표시"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
-#~ msgid "create-checklist.mark-completed-helper"
-#~ msgstr "작업을 완료한 경우 체크하세요"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
-#~ msgid "create-checklist.title"
-#~ msgstr "새 체크리스트 항목 만들기"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
-#~ msgid "create-checklist.title-field"
-#~ msgstr "제목"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
-#~ msgid "create-checklist.title-helper"
-#~ msgstr "체크리스트 항목의 간결하고 명확한 이름을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
-#~ msgid "create-checklist.title-placeholder"
-#~ msgstr "작업 제목을 입력하세요"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
-#~ msgid "create-checklist.title-required"
-#~ msgstr "제목은 필수 항목입니다"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
@@ -1682,28 +1464,16 @@ msgid "edit-conversation-title"
 msgstr "제목 수정"
 
 #. js-lingui-explicit-id
-#~ msgid "error.email"
-#~ msgstr "유효한 이메일 주소를 입력해 주세요."
 
 #. js-lingui-explicit-id
-#~ msgid "error.message"
-#~ msgstr "메시지를 입력해 주세요."
 
 #. js-lingui-explicit-id
-#~ msgid "error.name"
-#~ msgstr "이름은 영문자만 입력 가능하며, 비워둘 수 없습니다."
 
 #. js-lingui-explicit-id
-#~ msgid "error.password"
-#~ msgstr "비밀번호는 6~20자이며 대문자·소문자·숫자·특수문자를 포함해야 합니다."
 
 #. js-lingui-explicit-id
-#~ msgid "error.phone"
-#~ msgstr "전화번호는 숫자만 입력 가능합니다."
 
 #. js-lingui-explicit-id
-#~ msgid "error.repeatPassword"
-#~ msgstr "입력한 비밀번호가 일치하지 않습니다."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:31
@@ -1712,13 +1482,9 @@ msgstr "파일 크기 또는 형식이 유효하지 않습니다. 5MB 이하의 
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
-#~ msgid "file.upload.progress"
-#~ msgstr "이미지 업로드 중..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:47
-#~ msgid "file.upload.success"
-#~ msgstr "이미지 업로드 완료"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1727,18 +1493,12 @@ msgstr "제출"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
-#~ msgid "importance.high"
-#~ msgstr "높음"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
-#~ msgid "importance.low"
-#~ msgstr "낮음"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
-#~ msgid "importance.medium"
-#~ msgstr "중간"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
@@ -1746,8 +1506,6 @@ msgid "info.button"
 msgstr "확인"
 
 #: src/hooks/useTryHelloCity.tsx:15
-#~ msgid "NavBar.Try HelloCity"
-#~ msgstr "HelloCity 체험하기"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
@@ -1766,18 +1524,12 @@ msgstr "로그인이 필요합니다"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
-#~ msgid "notFound.headline"
-#~ msgstr "더 빨리 새 삶에 적응할 수 있도록 도와드릴게요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:120
-#~ msgid "notFound.pageNotFound"
-#~ msgstr "페이지를 찾을 수 없습니다"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
-#~ msgid "notFound.sub"
-#~ msgstr "HelloCity는 주거, 은행 계좌, 교통, 커뮤니티 지원을 제공하여 해외 생활의 시작을 수월하게 합니다."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
@@ -1952,8 +1704,6 @@ msgstr "새 대화"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
-#~ msgid "sidebar.actions.searchChat"
-#~ msgstr "대화 검색"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
@@ -1966,9 +1716,5 @@ msgid "validation.required"
 msgstr "{label}은(는) 필수 항목입니다."
 
 #: src/components/ProfileImageUploader.tsx:90
-#~ msgid "account.title"
-#~ msgstr "HelloCity 계정"
 
 #: src/hooks/useNavigation.tsx:21
-#~ msgid "NavBar.Home"
-#~ msgstr "홈"
