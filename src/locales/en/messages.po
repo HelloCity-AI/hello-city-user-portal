@@ -1782,14 +1782,14 @@ msgid "profile.avatar.title"
 msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:382
+#: src/app/[lang]/(app)/profile/page.tsx:413
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:145
-#: src/app/[lang]/(app)/profile/page.tsx:329
+#: src/app/[lang]/(app)/profile/page.tsx:172
+#: src/app/[lang]/(app)/profile/page.tsx:360
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
@@ -1801,57 +1801,57 @@ msgid "profile.city-placeholder"
 msgstr "Please enter your city"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:186
+#: src/app/[lang]/(app)/profile/page.tsx:213
 #: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "Edit Profile"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:199
-#: src/app/[lang]/(app)/profile/page.tsx:228
+#: src/app/[lang]/(app)/profile/page.tsx:226
+#: src/app/[lang]/(app)/profile/page.tsx:255
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "Edit Profile Information"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:131
-#: src/app/[lang]/(app)/profile/page.tsx:251
+#: src/app/[lang]/(app)/profile/page.tsx:158
+#: src/app/[lang]/(app)/profile/page.tsx:278
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:255
+#: src/app/[lang]/(app)/profile/page.tsx:283
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "Please enter your email"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:152
-#: src/app/[lang]/(app)/profile/page.tsx:286
+#: src/app/[lang]/(app)/profile/page.tsx:179
+#: src/app/[lang]/(app)/profile/page.tsx:317
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "Gender"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:166
-#: src/app/[lang]/(app)/profile/page.tsx:316
+#: src/app/[lang]/(app)/profile/page.tsx:193
+#: src/app/[lang]/(app)/profile/page.tsx:347
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "Major"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:319
+#: src/app/[lang]/(app)/profile/page.tsx:350
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "Please enter your major"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:138
-#: src/app/[lang]/(app)/profile/page.tsx:265
+#: src/app/[lang]/(app)/profile/page.tsx:165
+#: src/app/[lang]/(app)/profile/page.tsx:293
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
@@ -1863,14 +1863,19 @@ msgid "profile.nationality-placeholder"
 msgstr "Please enter your nationality"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:118
+#: src/app/[lang]/(app)/profile/page.tsx:77
+#: src/app/[lang]/(app)/profile/page.tsx:83
+#: src/app/[lang]/(app)/profile/page.tsx:90
+msgid "profile.not-provided"
+msgstr "profile.not-provided"
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:145
 #: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "Personal Information"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:173
-#: src/app/[lang]/(app)/profile/page.tsx:350
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
@@ -1882,52 +1887,52 @@ msgid "profile.preferred-language-placeholder"
 msgstr "Please enter your preferred language"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:375
+#: src/app/[lang]/(app)/profile/page.tsx:406
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "Refresh"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:385
+#: src/app/[lang]/(app)/profile/page.tsx:416
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:114
+#: src/app/[lang]/(app)/profile/page.tsx:141
 #: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "Manage your personal information and preferences"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:111
+#: src/app/[lang]/(app)/profile/page.tsx:138
 #: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "Profile Settings"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:159
-#: src/app/[lang]/(app)/profile/page.tsx:306
+#: src/app/[lang]/(app)/profile/page.tsx:186
+#: src/app/[lang]/(app)/profile/page.tsx:337
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "University"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:309
+#: src/app/[lang]/(app)/profile/page.tsx:340
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "Please enter your university"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:124
-#: src/app/[lang]/(app)/profile/page.tsx:241
+#: src/app/[lang]/(app)/profile/page.tsx:151
+#: src/app/[lang]/(app)/profile/page.tsx:268
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "Username"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:244
+#: src/app/[lang]/(app)/profile/page.tsx:271
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "Please enter your username"
@@ -1946,6 +1951,96 @@ msgstr "New Chat"
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
 msgid "sidebar.history.title"
 msgstr "HISTORY"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:19
+#~ msgid "userAttr.city"
+#~ msgstr "City"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:63
+#~ msgid "userAttr.cityOption.Adelaide"
+#~ msgstr "Adelaide"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:62
+#~ msgid "userAttr.cityOption.Melbourne"
+#~ msgstr "Melbourne"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:64
+#~ msgid "userAttr.cityOption.Perth"
+#~ msgstr "Perth"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:61
+#~ msgid "userAttr.cityOption.Sydney"
+#~ msgstr "Sydney"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:17
+#~ msgid "userAttr.email"
+#~ msgstr "Email"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:20
+#~ msgid "userAttr.gender"
+#~ msgstr "Gender"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:51
+#~ msgid "userAttr.genderOption.Female"
+#~ msgstr "Female"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:50
+#~ msgid "userAttr.genderOption.Male"
+#~ msgstr "Male"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:52
+#~ msgid "userAttr.genderOption.Other"
+#~ msgstr "Other"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:53
+#~ msgid "userAttr.genderOption.PreferNotToSay"
+#~ msgstr "Prefer not to say"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:22
+#~ msgid "userAttr.major"
+#~ msgstr "Major"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:18
+#~ msgid "userAttr.nationality"
+#~ msgstr "Nationality"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:56
+#~ msgid "userAttr.nationalityOption.China"
+#~ msgstr "China"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:58
+#~ msgid "userAttr.nationalityOption.Japan"
+#~ msgstr "Japan"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:57
+#~ msgid "userAttr.nationalityOption.Korea"
+#~ msgstr "Korea"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:23
+#~ msgid "userAttr.preferredLanguage"
+#~ msgstr "Preferred Language"
+
+#. js-lingui-explicit-id
+#: src/i18n/userAttributes.ts:21
+#~ msgid "userAttr.university"
+#~ msgstr "University"
 
 #. js-lingui-explicit-id
 #: src/components/InputBox/InputBox.tsx:60

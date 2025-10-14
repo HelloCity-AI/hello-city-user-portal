@@ -73,6 +73,17 @@ const userSlice = createSlice({
       state.error = null;
     },
 
+    // Mark that a fetch attempt has occurred (used by saga finally blocks)
+    markFetched: (state) => {
+      state.hasFetched = true;
+      state.isLoading = false;
+    },
+
+    // Reset hasFetched flag without touching other fields
+    resetFetched: (state) => {
+      state.hasFetched = false;
+    },
+
     fetchUser: () => {},
 
     // Use prepare to serialize the payload and avoid Redux warnings for Date/File
@@ -106,14 +117,6 @@ const userSlice = createSlice({
       state.hasFetched = true;
     },
 
-    markFetched: (state) => {
-      state.hasFetched = true;
-      state.isLoading = false;
-    },
-    resetFetched: (state) => {
-      state.hasFetched = false;
-    },
-
     updateUser: {
       reducer: (state, _action: PayloadAction<User>) => {
         state.isUpdating = true;
@@ -127,7 +130,6 @@ const userSlice = createSlice({
           ...payload,
           lastJoinDate: lastJoinDateStr,
         };
-        // 移除过时的 avatarFile 字段，避免不必要的序列化与警告
         delete prepared.avatarFile;
         return { payload: prepared };
       },

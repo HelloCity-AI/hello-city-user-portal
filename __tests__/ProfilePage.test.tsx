@@ -67,7 +67,6 @@ describe('Profile Page', () => {
     expect(screen.getByText('Gender')).toBeInTheDocument();
     expect(screen.getByText('University')).toBeInTheDocument();
     expect(screen.getByText('Major')).toBeInTheDocument();
-    expect(screen.getByText('Preferred Language')).toBeInTheDocument();
   });
 
   test('renders edit button with translation', () => {

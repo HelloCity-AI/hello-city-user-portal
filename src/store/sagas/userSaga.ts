@@ -164,6 +164,29 @@ export function* handleFetchUser(): SagaIterator {
       if (hasProfile(res.data)) {
         yield put(setUser(res.data as User));
         yield put(setAuth(AuthState.AuthenticatedWithProfile));
+        // After login/fetch, enforce preferredLanguage on first load
+        try {
+          const preferred: string | undefined = (res.data as User)?.preferredLanguage as
+            | string
+            | undefined;
+          if (preferred && typeof window !== 'undefined') {
+            const currentPath = window.location.pathname || '/';
+            const currentLang = currentPath.split('/')[1] || '';
+            if (preferred !== currentLang) {
+              // Persist cookie for middleware to pick up
+              document.cookie = `lang=${preferred};path=/;SameSite=Lax;max-age=${60 * 60 * 24 * 365}`;
+              // Redirect to preferred language root, preserving path after the lang segment if present
+              const rest = currentPath.split('/').slice(2).join('/');
+              const nextPath = rest ? `/${preferred}/${rest}` : `/${preferred}`;
+              window.location.href = nextPath;
+            } else {
+              // Align cookie even if already on preferred language
+              document.cookie = `lang=${preferred};path=/;SameSite=Lax;max-age=${60 * 60 * 24 * 365}`;
+            }
+          }
+        } catch {
+          // no-op
+        }
       } else {
         yield put(setUser(null));
         yield put(setAuth(AuthState.AuthenticatedButNoProfile));
