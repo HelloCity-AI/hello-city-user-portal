@@ -20,9 +20,23 @@ export default function ChatPage() {
   const cachedMessages = useSelector((state: RootState) =>
     conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
   );
-  const loadingConversationIds = useSelector(
-    (state: RootState) => state.conversation.loadingConversationIds,
+  const loadingMessageConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingMessageConversationIds,
   );
+  const conversationTitle = useSelector((state: RootState) =>
+    conversationId
+      ? state.conversation.conversations.find((c) => c.conversationId === conversationId)?.title
+      : undefined,
+  );
+
+  // Update browser tab title when conversation title changes
+  useEffect(() => {
+    if (conversationTitle) {
+      document.title = conversationTitle;
+    } else {
+      document.title = 'HelloCity - AI Assistant';
+    }
+  }, [conversationTitle]);
 
   // Fetch messages (saga handles caching with 5-minute TTL)
   useEffect(() => {
@@ -42,7 +56,7 @@ export default function ChatPage() {
 
   // Only show skeleton when actively loading this conversation's messages
   const isLoadingMessages = conversationId
-    ? loadingConversationIds.includes(conversationId)
+    ? loadingMessageConversationIds.includes(conversationId)
     : false;
   const shouldRenderChat = !isLoadingMessages;
 

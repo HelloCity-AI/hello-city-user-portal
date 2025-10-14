@@ -21,7 +21,12 @@ const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 
 const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) => {
   const [hasBgColor, setHasBgColor] = useState<boolean>(false);
-  const { href: tryHelloCityHref, label: tryHelloCityLabel } = useTryHelloCity();
+  const {
+    onClick: tryHelloCityClick,
+    isLoading,
+    LoginModal,
+    label: tryHelloCityLabel,
+  } = useTryHelloCity();
   const scrollYRef = useRef(0);
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
@@ -145,8 +150,8 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       />
       {renderAuthSection()}
       <Button
-        component={Link}
-        href={tryHelloCityHref}
+        onClick={tryHelloCityClick}
+        disabled={isLoading}
         variant="primary"
         className="min-w-fit flex-shrink-0 whitespace-nowrap font-semibold"
       >
@@ -167,6 +172,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
         {renderNavigationLinks()}
         {renderUserActions()}
       </SectionContent>
+      {LoginModal}
     </Box>
   );
 };

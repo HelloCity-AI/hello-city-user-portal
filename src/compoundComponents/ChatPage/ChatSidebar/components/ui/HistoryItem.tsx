@@ -113,6 +113,7 @@ export default function HistoryItem({
     <ItemWrapper variant="compact">
       <form onSubmit={handleSubmit}>
         <div
+          onClick={isEditing ? undefined : onClick}
           className={mergeClassNames(
             'group flex h-10 items-center overflow-hidden rounded-lg transition-[width] duration-300 ease-out',
             {
@@ -136,7 +137,7 @@ export default function HistoryItem({
         >
           {/* History text container - 176px -> 0px (responsive width) */}
           <ResponsiveContainer isCollapsed={isCollapsed} expandedWidthClass="w-[176px]">
-            <div onClick={isEditing ? undefined : onClick} className="w-full">
+            <div className="w-full">
               {isEditing ? (
                 <TextField
                   inputRef={inputRef}
@@ -176,7 +177,11 @@ export default function HistoryItem({
           </ResponsiveContainer>
           <ResponsiveIconContainer isCollapsed={isCollapsed} responsive>
             {isEditing && (
-              <IconButton type="submit" onMouseDown={(e) => e.preventDefault()}>
+              <IconButton
+                type="submit"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={(e) => e.stopPropagation()}
+              >
                 <CheckIcon className={ICON_STYLES.small} />
               </IconButton>
             )}
@@ -187,6 +192,7 @@ export default function HistoryItem({
             className={mergeClassNames({
               'lg:opacity-0 lg:group-hover:opacity-100': !isEditing,
             })}
+            onClick={(e) => e.stopPropagation()}
           >
             {!isEditing && !isLoading ? (
               <ConversationHistoryMenu
@@ -201,7 +207,13 @@ export default function HistoryItem({
                 <CloseIcon className={ICON_STYLES.small} />
               </IconButton>
             ) : (
-              <IconButton onClick={handleCancel} onMouseDown={(e) => e.preventDefault()}>
+              <IconButton
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCancel();
+                }}
+                onMouseDown={(e) => e.preventDefault()}
+              >
                 <CloseIcon className={ICON_STYLES.small} />
               </IconButton>
             )}

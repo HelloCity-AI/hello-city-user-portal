@@ -23,8 +23,8 @@ export default function ChatPage() {
   const cachedMessages = useSelector((state: RootState) =>
     conversationId ? state.conversation.messagesByConversation[conversationId] : undefined,
   );
-  const loadingConversationIds = useSelector(
-    (state: RootState) => state.conversation.loadingConversationIds,
+  const loadingMessageConversationIds = useSelector(
+    (state: RootState) => state.conversation.loadingMessageConversationIds,
   );
 
   // Load mock checklist data for testing
@@ -232,7 +232,7 @@ export default function ChatPage() {
 
   // Only show skeleton when actively loading this conversation's messages
   const isLoadingMessages = conversationId
-    ? loadingConversationIds.includes(conversationId)
+    ? loadingMessageConversationIds.includes(conversationId)
     : false;
   const shouldRenderChat = !isLoadingMessages;
 

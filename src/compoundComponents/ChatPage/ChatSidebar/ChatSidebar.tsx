@@ -30,16 +30,26 @@ export default function ChatSidebar() {
     (state: RootState) => state.conversation,
   );
 
+  const autoCollapseSidebarOnMobile = () => {
+    // Auto-collapse sidebar on mobile after clicking any item
+    if (window.innerWidth < 768) {
+      setIsCollapsed(true);
+    }
+  };
+
   const handleNewChat = () => {
     router.push(`/${params.lang}/assistant`);
+    autoCollapseSidebarOnMobile();
   };
 
   const handleSearch = () => {
     console.log('Search clicked');
+    autoCollapseSidebarOnMobile();
   };
 
   const handleHistoryClick = (conversationId: string) => {
     router.push(`/${params.lang}/assistant/${conversationId}`);
+    autoCollapseSidebarOnMobile();
   };
 
   return (
@@ -71,7 +81,7 @@ export default function ChatSidebar() {
         )}
       </div>
       {/* Bottom Section - User section */}
-      <UserSection isCollapsed={isCollapsed} />
+      <UserSection isCollapsed={isCollapsed} onMenuClick={autoCollapseSidebarOnMobile} />
     </DrawerContainer>
   );
 }

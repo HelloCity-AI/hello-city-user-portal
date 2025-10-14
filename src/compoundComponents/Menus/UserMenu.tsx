@@ -17,6 +17,7 @@ interface UserMenuProps {
   anchorOrigin?: { horizontal: 'left' | 'center' | 'right'; vertical: 'top' | 'center' | 'bottom' };
   disableIconButton?: boolean;
   disableHover?: boolean;
+  onMenuClick?: () => void; // Optional callback for sidebar auto-collapse on mobile
 }
 
 /**
@@ -34,8 +35,9 @@ const UserMenu: React.FC<UserMenuProps> = ({
   anchorOrigin,
   disableIconButton,
   disableHover,
+  onMenuClick,
 }) => {
-  const { options, ModalNode } = useUserMenu();
+  const { options, ModalNode } = useUserMenu(onMenuClick);
 
   return (
     <React.Fragment>

@@ -32,7 +32,7 @@ export default function DrawerContainer({
         className,
       )}
       style={{
-        transition: 'transform 0.3s ease-out, width 0.3s ease-out',
+        transition: 'transform 0.3s ease-out, width 0.3s ease-out, padding 0.3s ease-out',
       }}
     >
       {children}

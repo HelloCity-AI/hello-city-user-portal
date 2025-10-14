@@ -1,6 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // eslint-disable-next-line import/no-named-as-default
 import clsx from 'clsx';
@@ -8,6 +6,7 @@ import { getServerTranslation } from '@/utils/serverI18n';
 import SectionBackground from '@/components/HomepageSections/SectionBackground';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import SectionContentArea from '@/components/HomepageSections/SectionContentArea';
+import TryHelloCityButtonClient from '@/components/HomePage/TryHelloCityButtonClient';
 
 const overlayLinearGradient =
   'bg-[linear-gradient(to_top,rgba(11,18,32,0)_0%,rgba(11,18,32,0.0)_15%,rgba(11,18,32,0.14)_30%,rgba(11,18,32,0.22)_45%,rgba(11,18,32,0.12)_65%,rgba(11,18,32,0)_100%)]';
@@ -45,21 +44,10 @@ const HeroSection = async ({ locale }: { locale: string }) => {
           >
             {t(
               'Hero.Description',
-              'Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
+              'Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
             )}
           </Typography>
-          <Button
-            component={Link}
-            href={`/${locale}/assistant`}
-            variant="primary"
-            sx={{ marginTop: '6px' }}
-            className="group w-[200px] font-semibold"
-          >
-            {t('NavBar.Try HelloCity', 'Try HelloCity')}&nbsp;&nbsp;
-            <Typography component="span" className="transition-transform group-hover:translate-x-2">
-              →
-            </Typography>
-          </Button>
+          <TryHelloCityButtonClient variant="hero" />
         </SectionContentArea>
       </SectionContent>
     </SectionBackground>
