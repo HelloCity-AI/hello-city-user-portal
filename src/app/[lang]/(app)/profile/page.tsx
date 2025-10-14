@@ -17,11 +17,15 @@ import {
   cityOptions,
   nationalityOptions,
   languageOptions,
+  Genders,
+  Nationalities,
+  Cities,
 } from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
 // Removed incorrect updateUser import from api layer
 // import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
+import { userAttrOptionIds } from '../../../../i18n/userAttributes';
 import { type RootState } from '@/store';
 // Import updateUser action from Redux slice
 import { updateUser } from '@/store/slices/user';
@@ -53,7 +57,10 @@ const Page = () => {
 
   useEffect(() => {
     setUserInfo(userData || defaultUser);
-    setAvatarPreview(userData?.avatar ? String(userData.avatar) : null);
+    const rawAvatar =
+      (userData as Record<string, unknown> | null)?.['avatar'] ??
+      (userData as Record<string, unknown> | null)?.['Avatar'];
+    setAvatarPreview(rawAvatar ? String(rawAvatar) : null);
   }, [userData]);
 
   useEffect(() => {
@@ -64,6 +71,26 @@ const Page = () => {
       }
     };
   }, []);
+
+  // Translate userInfo displayed options using stable IDs in messages.po
+  const tGender = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id = userAttrOptionIds.genders[value as keyof typeof userAttrOptionIds.genders];
+    return id ? i18n._(id, { default: value }) : value;
+  };
+
+  const tNationality = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id =
+      userAttrOptionIds.nationalities[value as keyof typeof userAttrOptionIds.nationalities];
+    return id ? i18n._(id, { default: value }) : value;
+  };
+
+  const tCity = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id = userAttrOptionIds.cities[value as keyof typeof userAttrOptionIds.cities];
+    return id ? i18n._(id, { default: value }) : value;
+  };
 
   const handleSelectImage = (file: File | null) => {
     if (prevObjectUrl.current) {
@@ -137,21 +164,21 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.nationality', { default: 'Nationality' })}
               </Typography>
-              <Typography variant="body1">{userInfo.nationality || 'Not provided'}</Typography>
+              <Typography variant="body1">{tNationality(userInfo.nationality)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.city', { default: 'City' })}
               </Typography>
-              <Typography variant="body1">{userInfo.city || 'Not provided'}</Typography>
+              <Typography variant="body1">{tCity(userInfo.city)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.gender', { default: 'Gender' })}
               </Typography>
-              <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
+              <Typography variant="body1">{tGender(userInfo.gender)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -168,14 +195,14 @@ const Page = () => {
               <Typography variant="body1">{userInfo.major || 'Not provided'}</Typography>
             </div>
 
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.preferred-language', { default: 'Preferred Language' })}
               </Typography>
               <Typography variant="body1">
                 {userInfo.preferredLanguage || 'Not provided'}
               </Typography>
-            </div>
+            </div> */}
           </div>
 
           <Button
@@ -274,7 +301,10 @@ const Page = () => {
                   >
                     {nationalityOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans
+                          id={userAttrOptionIds.nationalities[option as Nationalities]}
+                          message={option}
+                        />
                       </MenuItem>
                     ))}
                   </TextField>
@@ -295,7 +325,7 @@ const Page = () => {
                   >
                     {genderOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans id={userAttrOptionIds.genders[option as Genders]} message={option} />
                       </MenuItem>
                     ))}
                   </TextField>
@@ -338,7 +368,7 @@ const Page = () => {
                   >
                     {cityOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans id={userAttrOptionIds.cities[option as Cities]} message={option} />
                       </MenuItem>
                     ))}
                   </TextField>
