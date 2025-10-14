@@ -12,7 +12,12 @@ import {
   IconButton,
 } from '@mui/material';
 import { defaultUser, type User } from '@/types/User.types';
-import { genderOptions } from '@/enums/UserAttributes';
+import {
+  genderOptions,
+  cityOptions,
+  nationalityOptions,
+  languageOptions,
+} from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
 // Removed incorrect updateUser import from api layer
 // import { updateUser } from '../../../../api/userApi';
@@ -114,6 +119,13 @@ const Page = () => {
           </Typography>
 
           <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <Typography variant="body2" color="text.secondary">
+                {i18n._('profile.username', { default: 'Username' })}
+              </Typography>
+              <Typography variant="body1">{userInfo.username || 'Not provided'}</Typography>
+            </div>
+
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
@@ -246,25 +258,26 @@ const Page = () => {
                   onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
                 />
 
-                <InputBox
-                  label={i18n._('profile.nationality', { default: 'Nationality' })}
-                  value={userInfo.nationality || ''}
-                  name="nationality"
-                  placeholder={i18n._('profile.nationality-placeholder', {
-                    default: 'Please enter your nationality',
-                  })}
-                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-                />
-
-                <InputBox
-                  label={i18n._('profile.city', { default: 'City' })}
-                  value={userInfo.city || ''}
-                  name="city"
-                  placeholder={i18n._('profile.city-placeholder', {
-                    default: 'Please enter your city',
-                  })}
-                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-                />
+                <div style={{ width: '400px', marginBottom: '24px' }}>
+                  <TextField
+                    fullWidth
+                    select
+                    label={i18n._('profile.nationality', { default: 'Nationality' })}
+                    name="nationality"
+                    variant="outlined"
+                    required
+                    value={userInfo.nationality || ''}
+                    onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                    InputLabelProps={{ shrink: true }}
+                    helperText=" "
+                  >
+                    {nationalityOptions.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
 
                 <div style={{ width: '400px', marginBottom: '24px' }}>
                   <TextField
@@ -309,15 +322,47 @@ const Page = () => {
                   onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
                 />
 
-                <InputBox
-                  label={i18n._('profile.preferred-language', { default: 'Preferred Language' })}
-                  value={userInfo.preferredLanguage || ''}
-                  name="preferredLanguage"
-                  placeholder={i18n._('profile.preferred-language-placeholder', {
-                    default: 'Please enter your preferred language',
-                  })}
-                  onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
-                />
+                <div style={{ width: '400px', marginBottom: '24px' }}>
+                  <TextField
+                    fullWidth
+                    select
+                    label={i18n._('profile.city', { default: 'City' })}
+                    name="city"
+                    variant="outlined"
+                    required
+                    value={userInfo.city || ''}
+                    onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                    InputLabelProps={{ shrink: true }}
+                    helperText=" "
+                  >
+                    {cityOptions.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
+
+                <div style={{ width: '400px', marginBottom: '24px' }}>
+                  <TextField
+                    fullWidth
+                    select
+                    label={i18n._('profile.preferred-language', { default: 'Preferred Language' })}
+                    name="preferredLanguage"
+                    variant="outlined"
+                    required
+                    value={userInfo.preferredLanguage || ''}
+                    onChange={(e) => setUserInfo({ ...userInfo, [e.target.name]: e.target.value })}
+                    InputLabelProps={{ shrink: true }}
+                    helperText=" "
+                  >
+                    {languageOptions.map((option) => (
+                      <MenuItem key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </div>
               </div>
             </div>
 
