@@ -15,36 +15,58 @@ msgstr ""
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:17
+#~ msgid "AdventureShowcase.Case1.Alt"
+#~ msgstr "準備万端"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:19
+#~ msgid "AdventureShowcase.Case1.Description"
+#~ msgstr "あなたの新しい人生の旅路に踏み出す"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:18
+#~ msgid "AdventureShowcase.Case1.Title"
+#~ msgstr "準備万端"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:23
+#~ msgid "AdventureShowcase.Case2.Alt"
+#~ msgstr "新しい友人との出会い"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:25
+#~ msgid "AdventureShowcase.Case2.Description"
+#~ msgstr "面白い人たちと出会い、深い友情を育む"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:24
+#~ msgid "AdventureShowcase.Case2.Title"
+#~ msgstr "新しい友人と出会う"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:32
+#~ msgid "AdventureShowcase.Case3.Alt"
+#~ msgstr "夢を追う街"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:34
+#~ msgid "AdventureShowcase.Case3.Description"
+#~ msgstr "理想の都市で願いを叶える"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:33
+#~ msgid "AdventureShowcase.Case3.Title"
+#~ msgstr "夢を追う街"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:45
+#~ msgid "AdventureShowcase.Description"
+#~ msgstr "未知の街を探検する高揚感、志を同じくする仲間との出会い、新しい環境で人生の新章を切り開こう。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/AdventureShowcaseSection.tsx:42
+#~ msgid "AdventureShowcase.Title"
+#~ msgstr "これから始まる、輝く人生の旅"
 
 #. js-lingui-explicit-id
 #: src/hooks/modals/useLogoutConfirm.tsx:32
@@ -52,14 +74,22 @@ msgid "Are you sure you want to log out?"
 msgstr "ログアウトしてもよろしいですか？"
 
 #: src/stories/DatePicker.stories.tsx:17
+#~ msgid "Pick a date"
+#~ msgstr "日付を選択"
 
 #: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NavBar.Back"
+#~ msgstr "← 戻る"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Description"
+#~ msgstr "HelloCity のガイドで新しい都市に適応した数千人の仲間に加わろう。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
+#~ msgid "CallToAction.Title"
+#~ msgstr "一歩踏み出す準備はできていますか？"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:191
@@ -73,45 +103,73 @@ msgid "Hero.Description"
 msgstr "段階的な計画で、都市への移住をシンプルかつストレスフリーに——観光客、学生、新移民の皆様に。"
 
 #: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "テーマ"
 
 #: src/components/CreateChecklistItemButton.tsx:85
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "チェックリスト項目を追加"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.BannerAlt"
+#~ msgstr "メルボルンの夕景。HelloCity が新生活をサポート"
 
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Title.Part1"
+#~ msgstr "あなたのスマートガイド"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
+#~ msgid "Hero.Title.Part2"
+#~ msgstr "世界中を共に歩む"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Description"
+#~ msgstr "充実した旅は綿密な計画から。HelloCity は複雑な都市移住を、整理された冒険へと変えてくれます。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.ImageAlt"
+#~ msgstr "旅のシーンのコラージュ：空港の出発、青い海の小舟、南国のビーチヴィラ、夕暮れのカップル。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step1.Description"
+#~ msgstr "新生活の青写真を描き、目標を定める"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step1.Title"
+#~ msgstr "憧れと計画"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step2.Description"
+#~ msgstr "必要な書類や準備を整える"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step2.Title"
+#~ msgstr "準備と整理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step3.Description"
+#~ msgstr "新しい街に素早く馴染み、充実した日々へ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Step3.Title"
+#~ msgstr "到着と開花"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
+#~ msgid "HowItWorks.Title"
+#~ msgstr "計画から実現まで、ずっとあなたとともに"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:193
@@ -120,6 +178,8 @@ msgid "I'm all set"
 msgstr "準備完了"
 
 #: src/hooks/useNavigation.tsx:26
+#~ msgid "NavBar.Chat"
+#~ msgstr "チャット"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:38
@@ -129,6 +189,8 @@ msgid "Logout"
 msgstr "ログアウト"
 
 #: src/app/[lang]/create-user-profile/page.tsx:103
+#~ msgid "I'm all set"
+#~ msgstr "準備完了"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:98
@@ -169,11 +231,15 @@ msgstr "HelloCity を試す"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
+#~ msgid "NaveBar.Back"
+#~ msgstr "← 戻る"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/components/NavBar/DesktopNavBar.tsx:138
 #: src/components/NavBar/MobileNavBar.tsx:122
+#~ msgid "NaveBar.Sign In"
+#~ msgstr "ログイン"
 
 #. js-lingui-explicit-id
 #: src/stories/DatePicker.stories.tsx:17
@@ -187,134 +253,222 @@ msgstr "プロフィール"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:18
+#~ msgid "Settings"
+#~ msgstr "設定"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:32
+#~ msgid "Subscription"
+#~ msgstr "サブスクリプション管理"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:27
+#~ msgid "Testimonials.Country1"
+#~ msgstr "中国"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:39
+#~ msgid "Testimonials.Country2"
+#~ msgstr "日本"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:51
+#~ msgid "Testimonials.Country3"
+#~ msgstr "インド"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:63
+#~ msgid "Testimonials.Country4"
+#~ msgstr "ブラジル"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:75
+#~ msgid "Testimonials.Country5"
+#~ msgstr "中国"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:87
+#~ msgid "Testimonials.Country6"
+#~ msgstr "イギリス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:99
+#~ msgid "Testimonials.Country7"
+#~ msgstr "シンガポール"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:111
+#~ msgid "Testimonials.Country8"
+#~ msgstr "アメリカ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Description"
+#~ msgstr "学生、社会人、家族のリアルな声——段階的な移住ツールで、不安から自信へ。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name1"
+#~ msgstr "張偉"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name2"
+#~ msgstr "田中彩香"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name3"
+#~ msgstr "ラジェシュ・クマール"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name4"
+#~ msgstr "マリア・サントス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name5"
+#~ msgstr "モー・シャオロン"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name6"
+#~ msgstr "エマ・ウィルソン"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Name7"
+#~ msgstr "プリヤ・シャルマ"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:109
+#~ msgid "Testimonials.Name8"
+#~ msgstr "ルーカス・ミラー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review1"
+#~ msgstr "仕事でシドニーに引っ越しましたが、正直どこから始めればいいか分かりませんでした。HelloCity は書類、銀行、住まいなどを分かりやすいステップに分解してくれます。これがなければ今も夜中に情報を探していたでしょう。本当に救いでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review2"
+#~ msgstr "引っ越しの際、銀行口座の開設や光熱の手続きに何週間もかかるのではと不安でした。HelloCity で全てがとても簡単になり、数日で落ち着けました。制作に集中できるようになりました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review3"
+#~ msgstr "海外で修士課程に進みましたが、各種手続きにとても緊張していました。HelloCity は次にすべきことを常に教えてくれて、まるでポケットのチェックリストのよう。ストレスが減り、キャンパスライフをより楽しめました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review4"
+#~ msgstr "フリーランサーとして各都市を移動しますが、HelloCity は必需のツールです。新しい街でもすぐに落ち着けます。タイムライン機能が特に便利で、締切に合わせてすべてを計画できます。コワーキング情報がもっとあればなお良いですね。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review5"
+#~ msgstr "子ども二人を連れての引っ越しは悪夢のようでしたが、HelloCity に出会って変わりました。家族向けチェックリストは学校から小児科まで網羅。8歳の子どもも進んでチェックを手伝ってくれました。混乱になりかけた状況が整然としました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review6"
+#~ msgstr "大学を卒業したばかりで社会に戸惑っていた頃、HelloCity は人生のメンターのように一歩一歩導いてくれました。初めての部屋づくりから現地の銀行事情まで、学生から新社会人への移行がとてもスムーズでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Review7"
+#~ msgstr "シンガポールからメルボルンに移住し、学校や医療、買い物のような些細なことまで不安でした。HelloCity のローカルガイドはとても丁寧で、数か月の手探りと試行錯誤を省けました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:104
+#~ msgid "Testimonials.Review8"
+#~ msgstr "コンサルタントとして新しい職場環境に常に適応する必要があります。HelloCity は新しい都市に素早く溶け込むための秘密兵器です。ローカルな洞察と実用的なチェックリストにより、後方支援に悩まず顧客対応に集中できます。ビジネス旅行者にとってまさにゲームチェンジャーです。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title"
+#~ msgstr "数千人に愛用されています"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title1"
+#~ msgstr "プロダクトマネージャー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title2"
+#~ msgstr "ブロガー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title3"
+#~ msgstr "学生"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title4"
+#~ msgstr "フリーランスデザイナー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title5"
+#~ msgstr "マーケティングディレクター"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title6"
+#~ msgstr "ジュニアソフトウェアエンジニア"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
+#~ msgid "Testimonials.Title7"
+#~ msgstr "オペレーションマネージャー"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:110
+#~ msgid "Testimonials.Title8"
+#~ msgstr "ビジネスコンサルタント"
 
 #. js-lingui-explicit-id
 #: src/components/dropdownMenuOptions.example.tsx:25
+#~ msgid "Theme"
+#~ msgstr "テーマ"
 
 #: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "画像をアップロード中..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card1.Description"
+#~ msgstr "あなたの状況・目的地・スケジュールに合わせたオーダーメイドの提案。画一的な答えはしません。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card2.Description"
+#~ msgstr "あらゆる移住タイプを網羅する包括的チェックリストで、重要事項の漏れを防ぎます。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Card3.Description"
+#~ msgstr "現実的なタイムラインと締切リマインダーで、各ステップの最適なタイミングを逃しません。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Description"
+#~ msgstr "新しい街への移住は圧倒されがち——だからこそ、最も充実した都市定着アシスタントを作りました。"
 
 #. Sign In button label
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
+#~ msgid "ValueProposition.Title"
+#~ msgstr "なぜ HelloCity なのか？"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#~ msgid "ai.thinking"
+#~ msgstr "AIが思考中…"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
@@ -327,8 +481,12 @@ msgid "ai.thinking"
 msgstr "AIが思考中…"
 
 #: src/components/ProfileImageUploader.tsx:112
+#~ msgid "profile.avatar.add"
+#~ msgstr "アバターを追加"
 
 #: src/hooks/modals/useDeleteConversationHistory.tsx:36
+#~ msgid "conversation.delete.confirm"
+#~ msgstr "削除"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
@@ -440,6 +598,8 @@ msgstr "プラン項目を追加"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
+#~ msgid "checklist.banner.generating"
+#~ msgstr "チェックリストを生成中…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:69
@@ -453,9 +613,13 @@ msgstr "プランを作成中…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
+#~ msgid "checklist.banner.inProgress"
+#~ msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
+#~ msgid "checklist.banner.new"
+#~ msgstr "新しいチェックリスト"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:95
@@ -464,9 +628,13 @@ msgstr "詳細を見る"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:148
+#~ msgid "checklist.due.label"
+#~ msgstr "期限"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:263
+#~ msgid "checklist.due.prefix"
+#~ msgstr "期限:"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
@@ -518,6 +686,8 @@ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
+#~ msgid "checklist.importance.urgent"
+#~ msgstr "緊急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:36
@@ -1357,9 +1527,13 @@ msgstr "HelloCity はスマートフォンでも使いやすいですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
+#~ msgid "contact.faq.results"
+#~ msgstr "結果"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:126
+#~ msgid "contact.faq.searchPlaceholder"
+#~ msgstr "質問を入力してください…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:123
@@ -1388,70 +1562,114 @@ msgstr "会話を削除"
 
 #. js-lingui-explicit-id
 #: src/components/CreateChecklistItemButton.tsx:87
+#~ msgid "create-checklist-button.add-item"
+#~ msgstr "チェックリスト項目を追加"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:296
+#~ msgid "create-checklist.cancel"
+#~ msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:307
+#~ msgid "create-checklist.create"
+#~ msgstr "項目を作成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:305
+#~ msgid "create-checklist.creating"
+#~ msgstr "作成中…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:190
+#~ msgid "create-checklist.description-field"
+#~ msgstr "説明"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:209
+#~ msgid "create-checklist.description-helper"
+#~ msgstr "このタスクに関する詳細を入力してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:191
+#~ msgid "create-checklist.description-placeholder"
+#~ msgstr "完了すべきタスクと関連する詳細を記述してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:206
+#~ msgid "create-checklist.description-required"
+#~ msgstr "説明は必須項目です"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:216
+#~ msgid "create-checklist.due-date"
+#~ msgstr "期限"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:114
+#~ msgid "create-checklist.error.create"
+#~ msgstr "チェックリスト項目の作成に失敗しました"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:223
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:227
+#~ msgid "create-checklist.importance-field"
+#~ msgstr "重要度"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:262
+#~ msgid "create-checklist.importance-helper"
+#~ msgstr "このタスクの重要度"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:256
+#~ msgid "create-checklist.importance-high-desc"
+#~ msgstr "緊急"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:236
+#~ msgid "create-checklist.importance-low-desc"
+#~ msgstr "後回し可"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:246
+#~ msgid "create-checklist.importance-medium-desc"
+#~ msgstr "できるだけ早く完了すべき"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:280
+#~ msgid "create-checklist.mark-completed"
+#~ msgstr "完了としてマーク"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:283
+#~ msgid "create-checklist.mark-completed-helper"
+#~ msgstr "タスクが完了している場合はチェックしてください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:161
+#~ msgid "create-checklist.title"
+#~ msgstr "新しいチェックリスト項目を作成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:169
+#~ msgid "create-checklist.title-field"
+#~ msgstr "タイトル"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:182
+#~ msgid "create-checklist.title-helper"
+#~ msgstr "チェックリスト項目に分かりやすい名前を付けてください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:170
+#~ msgid "create-checklist.title-placeholder"
+#~ msgstr "タスクのタイトルを入力してください"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:181
+#~ msgid "create-checklist.title-required"
+#~ msgstr "タイトルは必須項目です"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Menus/ConversationHistoryMenu.tsx:58
@@ -1464,16 +1682,28 @@ msgid "edit-conversation-title"
 msgstr "タイトルを編集"
 
 #. js-lingui-explicit-id
+#~ msgid "error.email"
+#~ msgstr "有効なメールアドレスを入力してください。"
 
 #. js-lingui-explicit-id
+#~ msgid "error.message"
+#~ msgstr "メッセージを入力してください。"
 
 #. js-lingui-explicit-id
+#~ msgid "error.name"
+#~ msgstr "氏名は英字のみ、空欄にはできません。"
 
 #. js-lingui-explicit-id
+#~ msgid "error.password"
+#~ msgstr "パスワードは6〜20文字で、英大文字・小文字・数字・記号を含めてください。"
 
 #. js-lingui-explicit-id
+#~ msgid "error.phone"
+#~ msgstr "電話番号は数字のみで入力してください。"
 
 #. js-lingui-explicit-id
+#~ msgid "error.repeatPassword"
+#~ msgstr "入力したパスワードが一致しません。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:31
@@ -1482,9 +1712,13 @@ msgstr "ファイルのサイズまたは形式が無効です。5MB以下の画
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:34
+#~ msgid "file.upload.progress"
+#~ msgstr "画像をアップロード中..."
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageEditor.tsx:47
+#~ msgid "file.upload.success"
+#~ msgstr "画像のアップロードに成功しました"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/FormModal.tsx:29
@@ -1493,12 +1727,18 @@ msgstr "送信"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:253
+#~ msgid "importance.high"
+#~ msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:233
+#~ msgid "importance.low"
+#~ msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/CreateChecklistItemModal.tsx:243
+#~ msgid "importance.medium"
+#~ msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/InfoModal.tsx:22
@@ -1506,6 +1746,8 @@ msgid "info.button"
 msgstr "了解しました"
 
 #: src/hooks/useTryHelloCity.tsx:15
+#~ msgid "NavBar.Try HelloCity"
+#~ msgstr "HelloCity を試す"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
@@ -1524,12 +1766,18 @@ msgstr "ログインが必要です"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
+#~ msgid "notFound.headline"
+#~ msgstr "新生活により早く溶け込めるようお手伝いします。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:120
+#~ msgid "notFound.pageNotFound"
+#~ msgstr "ページが見つかりません"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
+#~ msgid "notFound.sub"
+#~ msgstr "HelloCity は住まい、口座開設、交通、コミュニティ支援を提供し、海外生活のスタートをスムーズにします。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
@@ -1704,6 +1952,8 @@ msgstr "新規チャット"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:35
+#~ msgid "sidebar.actions.searchChat"
+#~ msgstr "チャットを検索"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
@@ -1716,5 +1966,9 @@ msgid "validation.required"
 msgstr "{label}は必須項目です。"
 
 #: src/components/ProfileImageUploader.tsx:90
+#~ msgid "account.title"
+#~ msgstr "HelloCity アカウント"
 
 #: src/hooks/useNavigation.tsx:21
+#~ msgid "NavBar.Home"
+#~ msgstr "ホーム"
