@@ -2,7 +2,7 @@ import type { NavItem, NavConfig } from '@/compoundComponents/NavBar/navConfig';
 
 export const mockNavItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/en', onClick: jest.fn() },
-  { id: 'chat', label: 'Chat', href: '', onClick: jest.fn() },
+  // { id: 'chat', label: 'Chat', href: '', onClick: jest.fn() },
   { id: 'contact', label: 'Contact Us', href: '', onClick: jest.fn() },
   {
     id: 'services',

@@ -86,7 +86,7 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
 
       clickMenuItem('Services');
       expect(setActiveSubMenuIndex).toHaveBeenCalledTimes(1);
-      expect(setActiveSubMenuIndex).toHaveBeenCalledWith(3); // Services is at index 3 in mockNavItems
+      expect(setActiveSubMenuIndex).toHaveBeenCalledWith(2); // Services is at index 2 in mockNavItems (chat commented out)
       expect(closeDrawer).toHaveBeenCalledTimes(0);
     });
 

@@ -111,9 +111,9 @@ msgstr "作成中…"
 #~ msgstr "メルボルンの夕景。HelloCity が新生活をサポート"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
 #~ msgid "Hero.Description"
-#~ msgstr "旅行・留学・移住のいずれでも、あなたに寄り添う個別計画で、あらゆる出発を軽やかでスムーズに。"
+#~ msgstr "段階的な計画で、都市への移住をシンプルかつストレスフリーに——観光客、学生、新移民の皆様に。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -203,8 +203,8 @@ msgstr "言語を切り替える"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "チャット"
+#~ msgid "NavBar.Chat"
+#~ msgstr "チャット"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33

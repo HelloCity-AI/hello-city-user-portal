@@ -117,9 +117,9 @@ msgstr "Creating..."
 #~ msgstr "Melbourne skyline at golden hour, welcoming newcomers with HelloCity"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
 #~ msgid "Hero.Description"
-#~ msgstr "Step-by-step checklists and tailored timelines to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
+#~ msgstr "Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -209,8 +209,8 @@ msgstr "Change Language"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "Chat"
+#~ msgid "NavBar.Chat"
+#~ msgstr "Chat"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33

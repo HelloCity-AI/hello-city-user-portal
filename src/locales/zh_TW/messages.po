@@ -111,9 +111,9 @@ msgstr "建立中..."
 #~ msgstr "墨爾本黃昏美景，HelloCity 助您開啟新生活"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
 #~ msgid "Hero.Description"
-#~ msgstr "無論是旅遊觀光、求學深造還是移居新城，我們為您提供貼心的個人化規劃，讓每一次出行都輕鬆愉快、井然有序。"
+#~ msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無壓力——適用於遊客、學生和新移民。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -203,8 +203,8 @@ msgstr "切換語言"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "聊天"
+#~ msgid "NavBar.Chat"
+#~ msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33
