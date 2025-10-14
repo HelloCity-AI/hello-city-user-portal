@@ -97,11 +97,6 @@ msgstr "정말 로그아웃하시겠습니까?"
 msgid "Creating..."
 msgstr "생성 중..."
 
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/HeroSection.tsx:46
-msgid "Hero.Description"
-msgstr "단계별 계획으로 새로운 도시 이사를 간단하고 명확하며 스트레스 없이 만듭니다—관광객, 학생, 이민자를 위해."
-
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "테마"
@@ -115,6 +110,10 @@ msgstr "단계별 계획으로 새로운 도시 이사를 간단하고 명확하
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "멜버른의 석양 풍경, HelloCity가 새 삶의 시작을 돕습니다"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+#~ msgid "Hero.Description"
+#~ msgstr "단계별 계획으로 새로운 도시 이사를 간단하고 명확하며 스트레스 없이 만듭니다—관광객, 학생, 이민자를 위해."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -204,8 +203,8 @@ msgstr "언어 변경"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "채팅"
+#~ msgid "NavBar.Chat"
+#~ msgstr "채팅"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33

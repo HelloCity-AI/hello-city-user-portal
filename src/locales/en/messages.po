@@ -103,11 +103,6 @@ msgstr "Are you sure you want to log out?"
 msgid "Creating..."
 msgstr "Creating..."
 
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/HeroSection.tsx:46
-msgid "Hero.Description"
-msgstr "Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
-
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "Theme"
@@ -120,6 +115,11 @@ msgstr "Step-by-step plan to make moving into any city simple, clear, and stress
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "Melbourne skyline at golden hour, welcoming newcomers with HelloCity"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+#~ msgid "Hero.Description"
+#~ msgstr "Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -209,8 +209,8 @@ msgstr "Change Language"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "Chat"
+#~ msgid "NavBar.Chat"
+#~ msgstr "Chat"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33

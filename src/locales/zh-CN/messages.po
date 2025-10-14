@@ -97,11 +97,6 @@ msgstr "您确定要登出账户吗？"
 msgid "Creating..."
 msgstr "创建中..."
 
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/HeroSection.tsx:46
-msgid "Hero.Description"
-msgstr "循序渐进的计划，让搬入任何城市变得简单、清晰、无压力——适用于游客、学生和新移民。"
-
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "主题"
@@ -115,6 +110,10 @@ msgstr "循序渐进的计划，让搬入任何城市变得简单、清晰、无
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "墨尔本黄昏美景，HelloCity助您开启新生活"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+#~ msgid "Hero.Description"
+#~ msgstr "循序渐进的计划，让搬入任何城市变得简单、清晰、无压力——适用于游客、学生和新移民。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -204,8 +203,8 @@ msgstr "切换语言"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "聊天"
+#~ msgid "NavBar.Chat"
+#~ msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33
@@ -446,14 +445,29 @@ msgstr "个人资料"
 #~ msgstr "根据你的具体情况、目的地和时间安排，提供量身定制的建议。拒绝千篇一律的答案。"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:22
+#~ msgid "ValueProposition.Card1.Title"
+#~ msgstr "个性化指导"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card2.Description"
 #~ msgstr "全面的清单覆盖各种迁移类型，确保重要事项不遗漏。"
 
 #. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:31
+#~ msgid "ValueProposition.Card2.Title"
+#~ msgstr "分步计划"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Card3.Description"
 #~ msgstr "通过现实的时间表和截止日期提醒，精准掌握每一步的时机。"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:40
+#~ msgid "ValueProposition.Card3.Title"
+#~ msgstr "时间规划"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
@@ -465,21 +479,6 @@ msgstr "个人资料"
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
 #~ msgstr "为什么选择HelloCity？"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:22
-msgid "ValueProposition.Card1.Title"
-msgstr "个性化指导"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:31
-msgid "ValueProposition.Card2.Title"
-msgstr "分步计划"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/ValuePropositionSection.tsx:40
-msgid "ValueProposition.Card3.Title"
-msgstr "时间规划"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 #~ msgid "ai.thinking"

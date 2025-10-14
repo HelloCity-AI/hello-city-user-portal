@@ -97,11 +97,6 @@ msgstr "您確定要登出帳戶嗎？"
 msgid "Creating..."
 msgstr "建立中..."
 
-#. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/HeroSection.tsx:46
-msgid "Hero.Description"
-msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無壓力——適用於遊客、學生和新移民。"
-
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "主題"
@@ -115,6 +110,10 @@ msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無�
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "墨爾本黃昏美景，HelloCity 助您開啟新生活"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+#~ msgid "Hero.Description"
+#~ msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無壓力——適用於遊客、學生和新移民。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -204,8 +203,8 @@ msgstr "切換語言"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:26
-msgid "NavBar.Chat"
-msgstr "聊天"
+#~ msgid "NavBar.Chat"
+#~ msgstr "聊天"
 
 #. js-lingui-explicit-id
 #: src/hooks/useNavigation.tsx:33
