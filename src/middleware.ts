@@ -48,7 +48,10 @@ export async function middleware(request: NextRequest) {
 
   const langInPath = resolveLangFromPath(pathname);
   if (!langInPath) {
-    const locale = getLocale(request);
+    // Prefer cookie 'lang' if present; fallback to Accept-Language
+    const cookieLang = request.cookies.get('lang')?.value;
+    const locale =
+      cookieLang && linguiConfig.locales.includes(cookieLang) ? cookieLang : getLocale(request);
     const redirectUrl = new URL(
       `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
       request.url,
