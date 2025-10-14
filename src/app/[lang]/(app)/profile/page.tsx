@@ -101,7 +101,7 @@ const Page = () => {
   return (
     <ChatMainContentContainer>
       <div className="flex items-center justify-center px-4" key={tick}>
-        <div className="z-10 flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
+        <div className="z-10 mt-[30px] flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {error}
