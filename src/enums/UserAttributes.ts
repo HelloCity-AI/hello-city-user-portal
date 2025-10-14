@@ -23,8 +23,8 @@ export const nationalityOptions = Object.values(Nationalities);
 
 export enum Languages {
   English = 'en',
-  SimplifiedChinese = 'zh-CN',
-  TraditionalChinese = 'zh-TW',
+  SimplifiedChinese = 'zh_CN',
+  TraditionalChinese = 'zh_TW',
   Japanese = 'ja',
   Korean = 'ko',
 }
