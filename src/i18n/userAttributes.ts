@@ -1,4 +1,4 @@
-import { Genders, Nationalities, Cities } from '@/enums/UserAttributes';
+import { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 
 // Stable IDs for attribute labels
 export const userAttrLabelIds = {
@@ -32,6 +32,13 @@ export const userAttrOptionIds = {
     [Cities.Melbourne]: 'userAttr.cityOption.Melbourne',
     [Cities.Adelaide]: 'userAttr.cityOption.Adelaide',
     [Cities.Perth]: 'userAttr.cityOption.Perth',
+  },
+  languages: {
+    [Languages.English]: 'userAttr.languageOption.en',
+    [Languages.SimplifiedChinese]: 'userAttr.languageOption.zh_CN',
+    [Languages.TraditionalChinese]: 'userAttr.languageOption.zh_TW',
+    [Languages.Japanese]: 'userAttr.languageOption.ja',
+    [Languages.Korean]: 'userAttr.languageOption.ko',
   },
 } as const;
 
