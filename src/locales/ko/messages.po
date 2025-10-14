@@ -181,7 +181,7 @@ msgstr "준비 완료"
 #~ msgstr "채팅"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:38
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
@@ -246,7 +246,7 @@ msgid "Pick a date"
 msgstr "날짜 선택"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:30
 msgid "Profile"
 msgstr "프로필"
 
@@ -1751,17 +1751,17 @@ msgstr "확인"
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
 msgid "login.button"
-msgstr ""
+msgstr "로그인"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:45
 msgid "login.required.description"
-msgstr ""
+msgstr "HelloCity AI 어시스턴트를 이용하려면 로그인해 주세요. 이주 여정을 시작해 보세요."
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:43
 msgid "login.required.title"
-msgstr ""
+msgstr "로그인이 필요합니다"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131

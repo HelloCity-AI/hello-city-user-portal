@@ -181,7 +181,7 @@ msgstr "我准备好了"
 #~ msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:38
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
@@ -246,7 +246,7 @@ msgid "Pick a date"
 msgstr "選擇日期"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:30
 msgid "Profile"
 msgstr "個人資料"
 
@@ -1753,17 +1753,17 @@ msgstr "知道了"
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
 msgid "login.button"
-msgstr ""
+msgstr "登入"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:45
 msgid "login.required.description"
-msgstr ""
+msgstr "請登入以使用 HelloCity AI 助手，開始您的搬遷旅程。"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:43
 msgid "login.required.title"
-msgstr ""
+msgstr "需要登入"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131

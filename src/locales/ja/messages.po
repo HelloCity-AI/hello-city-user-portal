@@ -181,7 +181,7 @@ msgstr "準備完了"
 #~ msgstr "チャット"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:38
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
@@ -246,7 +246,7 @@ msgid "Pick a date"
 msgstr "日付を選択"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:30
 msgid "Profile"
 msgstr "プロフィール"
 
@@ -1462,7 +1462,7 @@ msgstr "氏名"
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:97
 msgid "contact-us.reminderInfo"
-msgstr ""
+msgstr "ご連絡をお待ちしております。フォームにご記入いただければ、折り返しご連絡いたします。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:149
@@ -1751,17 +1751,17 @@ msgstr "了解しました"
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:59
 msgid "login.button"
-msgstr ""
+msgstr "ログイン"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:45
 msgid "login.required.description"
-msgstr ""
+msgstr "HelloCityのAIアシスタントを利用するにはログインしてください。移住の準備を始めましょう。"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:43
 msgid "login.required.title"
-msgstr ""
+msgstr "ログインが必要です"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131
