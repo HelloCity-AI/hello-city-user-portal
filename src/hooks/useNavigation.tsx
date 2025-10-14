@@ -20,13 +20,13 @@ export const useNavigation = (): NavConfig => {
       onClick: undefined,
       childrenItem: undefined,
     },
-    {
-      id: 'chat',
-      href: `/${language}/assistant`,
-      label: <Trans id="NavBar.Chat" message="Chat" />,
-      onClick: undefined,
-      childrenItem: undefined,
-    },
+    // {
+    //   id: 'chat',
+    //   href: `/${language}/assistant`,
+    //   label: <Trans id="NavBar.Chat" message="Chat" />,
+    //   onClick: undefined,
+    //   childrenItem: undefined,
+    // },
     {
       id: 'contact',
       href: `/${language}/contact-us`,
