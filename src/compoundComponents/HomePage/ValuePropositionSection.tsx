@@ -22,16 +22,16 @@ const ValuePropositionSection = async ({ locale }: { locale: string }) => {
       title: t('ValueProposition.Card1.Title', 'Personalized Guidance'),
       description: t(
         'ValueProposition.Card1.Description',
-        'Get tailored advice based on your situation, destination, and timeline. No generic answers.',
+        'Get tailored advice based on your situation, destination. No generic answers.',
       ),
     },
     {
-      key: 'step-by-step-checklists',
+      key: 'step-by-step-plan',
       icon: <CheckCircleOutlineOutlinedIcon sx={{ color: '#FFB663' }} />,
-      title: t('ValueProposition.Card2.Title', 'Step-by-step Checklists'),
+      title: t('ValueProposition.Card2.Title', 'Step-by-step Plan'),
       description: t(
         'ValueProposition.Card2.Description',
-        'Never miss important tasks with our comprehensive checklists for every type of move.',
+        'Never miss important tasks with our comprehensive plan for every type of move.',
       ),
     },
     {

@@ -181,7 +181,7 @@ msgstr "我准备好了"
 #~ msgstr "聊天"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:36
+#: src/hooks/menus/useUserMenu.tsx:38
 #: src/hooks/modals/useLogoutConfirm.tsx:30
 #: src/hooks/modals/useLogoutConfirm.tsx:34
 msgid "Logout"
@@ -218,13 +218,13 @@ msgstr "首頁"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:112
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:117
 #: src/compoundComponents/NavBar/MobileNavBar.tsx:119
 msgid "NavBar.Sign In"
 msgstr "登入"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:9
+#: src/hooks/useTryHelloCity.tsx:69
 msgid "NavBar.Try HelloCity"
 msgstr "試用 HelloCity"
 
@@ -246,7 +246,7 @@ msgid "Pick a date"
 msgstr "選擇日期"
 
 #. js-lingui-explicit-id
-#: src/hooks/menus/useUserMenu.tsx:28
+#: src/hooks/menus/useUserMenu.tsx:30
 msgid "Profile"
 msgstr "個人資料"
 
@@ -522,93 +522,98 @@ msgstr "歡迎使用 HelloCity"
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
 msgid "checklist-item-modal.add-button"
-msgstr ""
+msgstr "新增"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:88
 msgid "checklist-item-modal.add-title"
-msgstr ""
+msgstr "新增計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:158
 msgid "checklist-item-modal.cancel"
-msgstr ""
+msgstr "取消"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:149
 msgid "checklist-item-modal.category"
-msgstr ""
+msgstr "類別"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:106
 msgid "checklist-item-modal.description"
-msgstr ""
+msgstr "描述"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:136
 msgid "checklist-item-modal.due-date"
-msgstr ""
+msgstr "到期日"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:90
 msgid "checklist-item-modal.edit-title"
-msgstr ""
+msgstr "編輯計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:116
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:120
 msgid "checklist-item-modal.importance"
-msgstr ""
+msgstr "重要性"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:164
 msgid "checklist-item-modal.save-button"
-msgstr ""
+msgstr "儲存"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:97
 msgid "checklist-item-modal.title"
-msgstr ""
+msgstr "標題"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:127
 msgid "checklist-item.delete"
-msgstr ""
+msgstr "刪除事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:82
 msgid "checklist-item.delete.description"
-msgstr ""
+msgstr "確定要刪除該計畫事項？此操作無法復原。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:80
 msgid "checklist-item.delete.title"
-msgstr ""
+msgstr "刪除事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:119
 msgid "checklist-item.edit"
-msgstr ""
+msgstr "編輯事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/AddButton.tsx:23
 msgid "checklist.add.button"
-msgstr "新增任務"
+msgstr "新增計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:71
-msgid "checklist.banner.generating"
-msgstr "正在產生清單..."
+#~ msgid "checklist.banner.generating"
+#~ msgstr "正在產生清單..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:39
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:69
+msgid "checklist.banner.generatingNotice"
+msgstr "計畫產生可能需要 3–5 分鐘，請耐心等候。"
+
+#. js-lingui-explicit-id
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:40
 msgid "checklist.banner.generatingTitle"
-msgstr "清單產生中"
+msgstr "正在產生計畫…"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:87
-msgid "checklist.banner.inProgress"
-msgstr "進行中"
+#~ msgid "checklist.banner.inProgress"
+#~ msgstr "進行中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:80
@@ -616,7 +621,7 @@ msgstr "進行中"
 #~ msgstr "新清單"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:89
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChecklistBannerMessage.tsx:95
 msgid "checklist.banner.viewDetails"
 msgstr "查看詳情"
 
@@ -635,17 +640,17 @@ msgstr "查看詳情"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:19
 msgid "checklist.empty.all"
-msgstr "暫無任務"
+msgstr "暫無計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:15
 msgid "checklist.empty.completed"
-msgstr "暫無已完成任務"
+msgstr "暫無已完成的計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistEmptyState.tsx:17
 msgid "checklist.empty.incomplete"
-msgstr "暫無待辦任務"
+msgstr "暫無未完成的計畫事項"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:15
@@ -660,25 +665,25 @@ msgstr "已完成"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistProgress.tsx:23
 msgid "checklist.filter.incomplete"
-msgstr "待辦"
+msgstr "未完成"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
 msgid "checklist.importance.high"
-msgstr "重要"
+msgstr "高"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
 msgid "checklist.importance.low"
-msgstr "一般"
+msgstr "低"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
 msgid "checklist.importance.medium"
-msgstr "中等"
+msgstr "中"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
@@ -1434,7 +1439,7 @@ msgstr "取消"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:87
 msgid "common.delete"
-msgstr ""
+msgstr "刪除"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:27
@@ -1459,7 +1464,7 @@ msgstr "姓名"
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:97
 msgid "contact-us.reminderInfo"
-msgstr ""
+msgstr "我們期待收到您的來信，請填寫表單，我們會盡快回覆您。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(site)/contact-us/page.tsx:149
@@ -1474,7 +1479,7 @@ msgstr "聯絡我們"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity 是您的 AI 搬遷助手，提供逐步清單和時間表，幫助您輕鬆搬到新城市。"
+msgstr "HelloCity 是您的 AI 搬遷助手，提供逐步計畫和時間表，幫助您輕鬆搬到新城市。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
@@ -1744,6 +1749,21 @@ msgstr "知道了"
 #: src/hooks/useTryHelloCity.tsx:15
 #~ msgid "NavBar.Try HelloCity"
 #~ msgstr "试用 HelloCity"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:59
+msgid "login.button"
+msgstr "登入"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:45
+msgid "login.required.description"
+msgstr "請登入以使用 HelloCity AI 助手，開始您的搬遷旅程。"
+
+#. js-lingui-explicit-id
+#: src/hooks/useTryHelloCity.tsx:43
+msgid "login.required.title"
+msgstr "需要登入"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:131

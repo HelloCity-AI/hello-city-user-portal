@@ -43,7 +43,7 @@ const TestimonialsSection = async ({ locale }: { locale: string }) => {
       rating: 5,
       review: t(
         'Testimonials.Review3',
-        "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a checklist in my pocket. It really reduced my stress, and I could spend more time enjoying campus life.",
+        "I came abroad for my master's and was so nervous about the paperwork. HelloCity kept reminding me what to do next—like a plan in my pocket. It really reduced my stress, and I could spend more time enjoying campus life.",
       ),
       avatarName: 'rajesh-kumar',
       name: t('Testimonials.Name3', 'Rajesh Kumar'),
@@ -67,7 +67,7 @@ const TestimonialsSection = async ({ locale }: { locale: string }) => {
       rating: 5,
       review: t(
         'Testimonials.Review5',
-        'Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific checklists covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable.',
+        'Moving with two kids was our biggest nightmare until we found HelloCity. The family-specific plan covered everything from schools to pediatricians. My 8-year-old even helped check things off the list! Made what could have been chaos actually manageable.',
       ),
       avatarName: 'solon-mok',
       name: t('Testimonials.Name5', 'Solon Mok'),
@@ -103,7 +103,7 @@ const TestimonialsSection = async ({ locale }: { locale: string }) => {
       rating: 4.5,
       review: t(
         'Testimonials.Review8',
-        'Working as a consultant means constantly adapting to new environments. HelloCity has become my secret weapon for quick city transitions. The local insights and practical checklists help me focus on my clients instead of logistics. Game-changer for business travelers.',
+        'Working as a consultant means constantly adapting to new environments. HelloCity has become my secret weapon for quick city transitions. The local insights and practical plan help me focus on my clients instead of logistics. Game-changer for business travelers.',
       ),
       avatarName: 'lucas-miller',
       name: t('Testimonials.Name8', 'Lucas Miller'),

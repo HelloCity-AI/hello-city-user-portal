@@ -150,7 +150,7 @@ export default function ChecklistCard({
     >
       <div
         className={mergeClassNames(
-          'group relative mb-3 flex min-h-[120px] flex-col',
+          'group relative mb-3 flex min-h-[140px] flex-col',
           'rounded-xl bg-white p-4',
           'border border-gray-200 shadow-sm',
           'transition-all hover:border-blue-300 hover:shadow-md',
@@ -238,12 +238,12 @@ export default function ChecklistCard({
             <Typography
               variant="body2"
               className={mergeClassNames(
-                'mb-6 overflow-hidden text-[13px] leading-[1.4]',
+                'mb-4 overflow-hidden text-[13px] leading-[1.4]',
                 item.isComplete ? 'text-gray-400' : 'text-gray-600',
               )}
               sx={{
                 display: '-webkit-box',
-                WebkitLineClamp: 2,
+                WebkitLineClamp: 5,
                 WebkitBoxOrient: 'vertical',
               }}
             >

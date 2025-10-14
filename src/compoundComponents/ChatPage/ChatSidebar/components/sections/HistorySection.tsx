@@ -33,8 +33,8 @@ export default function HistorySection({
   const [activeConversationId, setActiveConversationId] = useState<string | null>('');
   const dispatch = useDispatch();
   const params = useParams();
-  const loadingConversationIds = useSelector(
-    (state: RootState) => state.conversation.loadingConversationIds,
+  const updatingTitleConversationIds = useSelector(
+    (state: RootState) => state.conversation.updatingTitleConversationIds,
   );
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export default function HistorySection({
               id={item.conversationId}
               onDelete={handleDelete}
               onRename={handleRename}
-              isLoading={loadingConversationIds.includes(item.conversationId)}
+              isLoading={updatingTitleConversationIds.includes(item.conversationId)}
             />
           ))}
       </div>

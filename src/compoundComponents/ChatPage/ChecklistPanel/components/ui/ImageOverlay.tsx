@@ -12,7 +12,7 @@ export default function ImageOverlay({ className }: ImageOverlayProps) {
         background:
           'linear-gradient(to bottom, transparent 0%, rgba(233, 222, 250, 0.2) 30%, rgba(233, 222, 250, 0.6) 70%, rgba(233, 222, 250, 0.85) 80%, #e9defa 100%)',
       }}
-      className={mergeClassNames('absolute bottom-0 left-0 right-0 z-[2] h-1/2', className)}
+      className={mergeClassNames('absolute bottom-0 left-0 right-0 z-[2] h-[80%]', className)}
       data-testid="image-overlay"
     />
   );

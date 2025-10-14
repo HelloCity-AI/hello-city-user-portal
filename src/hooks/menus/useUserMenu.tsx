@@ -12,14 +12,16 @@ import { Trans } from '@lingui/react';
  * - Single hook to provide user menu actions (Profile, Logout, etc.)
  * - Integrates logout confirm modal internally.
  * - Designed for NavBar, drawers, and other placements.
+ * @param onMenuClick - Optional callback executed after menu item click (e.g., auto-collapse sidebar on mobile)
  */
-const useUserMenu = () => {
+const useUserMenu = (onMenuClick?: () => void) => {
   const router = useRouter();
   const { language } = useLanguage();
   const { show: showLogoutConfirm, ModalNode } = useLogoutConfirm();
 
   const goProfile = () => {
     router.push(`/${language}/profile`);
+    onMenuClick?.(); // Call optional callback after navigation
   };
 
   const options = [
@@ -37,7 +39,10 @@ const useUserMenu = () => {
       value: 'logout',
       icon: Logout,
       divider: false,
-      onClick: () => showLogoutConfirm(),
+      onClick: () => {
+        showLogoutConfirm();
+        onMenuClick?.(); // Call optional callback after showing logout modal
+      },
     },
   ];
 

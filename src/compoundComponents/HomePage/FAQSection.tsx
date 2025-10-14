@@ -40,7 +40,7 @@ const FAQSection: React.FC = () => {
       answer: (
         <Trans
           id="contact.faq.a2"
-          message="We support 48+ cities worldwide including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major cities across Australia, North America, Europe, and Asia. View the complete list in the app."
+          message="HelloCity supports all major cities worldwide. We have enhanced coverage and specialized training for 48+ cities including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major destinations across Australia, North America, Europe, and Asia."
         />
       ),
     },
@@ -62,17 +62,17 @@ const FAQSection: React.FC = () => {
       answer: (
         <Trans
           id="contact.faq.a4"
-          message="Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback. All visa and legal information is reviewed for accuracy."
+          message="Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback."
         />
       ),
     },
     {
       key: 'faq5',
-      question: <Trans id="contact.faq.q5" message="Can I customize the checklist items?" />,
+      question: <Trans id="contact.faq.q5" message="Is HelloCity easy to use?" />,
       answer: (
         <Trans
           id="contact.faq.a5"
-          message="Absolutely. You can add, edit, or remove any checklist item to match your specific situation. The AI provides a starting point, but you're always in control."
+          message="Yes. HelloCity features an intuitive interface that works seamlessly on desktop and mobile devices. Simply chat with our AI assistant, and it will guide you through every step of your relocation journey."
         />
       ),
     },

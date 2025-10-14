@@ -9,9 +9,9 @@ const PanelLayout = memo(
       <div
         className={mergeClassNames(
           // Mobile: absolute positioning, Desktop: relative
-          'absolute lg:relative',
-          'inset-y-0 right-0 lg:inset-auto',
-          'z-10 h-screen overflow-visible lg:flex-none',
+          'absolute xl:relative',
+          'inset-y-0 right-0 xl:inset-auto',
+          'z-10 h-screen overflow-visible xl:flex-none',
           'transition-[width,max-width,min-width] duration-300 ease-out',
           isCollapsed
             ? 'w-0 min-w-0 max-w-0 p-0'
@@ -21,8 +21,8 @@ const PanelLayout = memo(
                 // Tablet: 60% width
                 'md:w-[60vw] md:min-w-[60vw] md:max-w-[60vw]',
                 // Desktop: original 40vw
-                'lg:w-[min(40vw,560px)] lg:min-w-[min(40vw,560px)] lg:max-w-[min(40vw,560px)]',
-                'p-0 lg:p-4',
+                'xl:w-[min(40vw,560px)] xl:min-w-[min(40vw,560px)] xl:max-w-[min(40vw,560px)]',
+                'p-0 xl:p-4',
               ),
         )}
       >
@@ -31,8 +31,8 @@ const PanelLayout = memo(
           className={mergeClassNames(
             'absolute inset-y-0 right-0 flex',
             // Mobile: 100vw fullscreen, Tablet: 60vw, Desktop: 40vw
-            'w-screen md:w-[60vw] lg:w-[min(40vw,560px)]',
-            'max-w-screen md:max-w-[60vw] lg:max-w-[min(40vw,560px)]',
+            'w-screen md:w-[60vw] xl:w-[min(40vw,560px)]',
+            'max-w-screen md:max-w-[60vw] xl:max-w-[min(40vw,560px)]',
             'transition-transform duration-300',
             isCollapsed ? 'translate-x-full' : 'translate-x-0',
           )}

@@ -8,6 +8,7 @@ interface ResponsiveIconContainerProps {
   isCollapsed?: boolean;
   responsive?: boolean;
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 /**
@@ -27,9 +28,11 @@ export default function ResponsiveIconContainer({
   isCollapsed = false,
   responsive = false,
   className,
+  onClick,
 }: ResponsiveIconContainerProps) {
   return (
     <div
+      onClick={onClick}
       className={mergeClassNames(
         'flex h-10 min-h-10 items-center justify-center',
         '[&>*]:shrink-0',
