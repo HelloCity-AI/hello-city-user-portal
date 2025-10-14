@@ -73,6 +73,17 @@ const userSlice = createSlice({
       state.error = null;
     },
 
+    // Mark that a fetch attempt has occurred (used by saga finally blocks)
+    markFetched: (state) => {
+      state.hasFetched = true;
+      state.isLoading = false;
+    },
+
+    // Reset hasFetched flag without touching other fields
+    resetFetched: (state) => {
+      state.hasFetched = false;
+    },
+
     fetchUser: () => {},
 
     // Use prepare to serialize the payload and avoid Redux warnings for Date/File
@@ -154,6 +165,8 @@ export const {
   updateUser,
   updateUserSuccess,
   updateUserFailure,
+  markFetched,
+  resetFetched,
 } = userSlice.actions;
 
 export default userSlice.reducer;
