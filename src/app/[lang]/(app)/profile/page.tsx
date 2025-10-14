@@ -17,11 +17,15 @@ import {
   cityOptions,
   nationalityOptions,
   languageOptions,
+  Genders,
+  Nationalities,
+  Cities,
 } from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
 // Removed incorrect updateUser import from api layer
 // import { updateUser } from '../../../../api/userApi';
 import { Trans, useLingui } from '@lingui/react';
+import { userAttrOptionIds } from '../../../../i18n/userAttributes';
 import { type RootState } from '@/store';
 // Import updateUser action from Redux slice
 import { updateUser } from '@/store/slices/user';
@@ -53,7 +57,10 @@ const Page = () => {
 
   useEffect(() => {
     setUserInfo(userData || defaultUser);
-    setAvatarPreview(userData?.avatar ? String(userData.avatar) : null);
+    const rawAvatar =
+      (userData as Record<string, unknown> | null)?.['avatar'] ??
+      (userData as Record<string, unknown> | null)?.['Avatar'];
+    setAvatarPreview(rawAvatar ? String(rawAvatar) : null);
   }, [userData]);
 
   useEffect(() => {
@@ -64,6 +71,30 @@ const Page = () => {
       }
     };
   }, []);
+
+  // Translate userInfo displayed options using stable IDs in messages.po
+  const tGender = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id = userAttrOptionIds.genders[value as keyof typeof userAttrOptionIds.genders];
+    return id ? i18n._(id, { default: value }) : value;
+  };
+
+  const tNationality = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id =
+      userAttrOptionIds.nationalities[value as keyof typeof userAttrOptionIds.nationalities];
+    return id ? i18n._(id, { default: value }) : value;
+  };
+
+  const tCity = (value?: string) => {
+    if (!value) return i18n._('profile.not-provided', { default: 'Not provided' });
+    const id = userAttrOptionIds.cities[value as keyof typeof userAttrOptionIds.cities];
+    return id ? i18n._(id, { default: value }) : value;
+  };
+
+  // Generic fallback for simple string fields
+  const tProvided = (value?: string) =>
+    value ? String(value) : i18n._('profile.not-provided', { default: 'Not provided' });
 
   const handleSelectImage = (file: File | null) => {
     if (prevObjectUrl.current) {
@@ -101,7 +132,7 @@ const Page = () => {
   return (
     <ChatMainContentContainer>
       <div className="flex items-center justify-center px-4" key={tick}>
-        <div className="z-10 mt-[30px] flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
+        <div className="z-10 mt-[60px] flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {error}
@@ -123,59 +154,59 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.username', { default: 'Username' })}
               </Typography>
-              <Typography variant="body1">{userInfo.username || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.username)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
               </Typography>
-              <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.email)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.nationality', { default: 'Nationality' })}
               </Typography>
-              <Typography variant="body1">{userInfo.nationality || 'Not provided'}</Typography>
+              <Typography variant="body1">{tNationality(userInfo.nationality)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.city', { default: 'City' })}
               </Typography>
-              <Typography variant="body1">{userInfo.city || 'Not provided'}</Typography>
+              <Typography variant="body1">{tCity(userInfo.city)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.gender', { default: 'Gender' })}
               </Typography>
-              <Typography variant="body1">{userInfo.gender || 'Not provided'}</Typography>
+              <Typography variant="body1">{tGender(userInfo.gender)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.university', { default: 'University' })}
               </Typography>
-              <Typography variant="body1">{userInfo.university || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.university)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.major', { default: 'Major' })}
               </Typography>
-              <Typography variant="body1">{userInfo.major || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.major)}</Typography>
             </div>
 
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.preferred-language', { default: 'Preferred Language' })}
               </Typography>
               <Typography variant="body1">
                 {userInfo.preferredLanguage || 'Not provided'}
               </Typography>
-            </div>
+            </div> */}
           </div>
 
           <Button
@@ -252,6 +283,7 @@ const Page = () => {
                   fieldType="email"
                   value={userInfo.email || ''}
                   name="email"
+                  maxLength={64}
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
                   })}
@@ -273,7 +305,10 @@ const Page = () => {
                   >
                     {nationalityOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans
+                          id={userAttrOptionIds.nationalities[option as Nationalities]}
+                          message={option}
+                        />
                       </MenuItem>
                     ))}
                   </TextField>
@@ -294,7 +329,7 @@ const Page = () => {
                   >
                     {genderOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans id={userAttrOptionIds.genders[option as Genders]} message={option} />
                       </MenuItem>
                     ))}
                   </TextField>
@@ -337,13 +372,13 @@ const Page = () => {
                   >
                     {cityOptions.map((option) => (
                       <MenuItem key={option} value={option}>
-                        {option}
+                        <Trans id={userAttrOptionIds.cities[option as Cities]} message={option} />
                       </MenuItem>
                     ))}
                   </TextField>
                 </div>
 
-                <div style={{ width: '400px', marginBottom: '24px' }}>
+                {/* <div style={{ width: '400px', marginBottom: '24px' }}>
                   <TextField
                     fullWidth
                     select
@@ -362,7 +397,7 @@ const Page = () => {
                       </MenuItem>
                     ))}
                   </TextField>
-                </div>
+                </div> */}
               </div>
             </div>
 

@@ -6,7 +6,13 @@ import {
   cityOptions,
   nationalityOptions,
   languageOptions,
+  Genders,
+  Nationalities,
+  Cities,
+  Languages,
 } from '@/enums/UserAttributes';
+import { Trans } from '@lingui/react';
+import { userAttrLabelIds, userAttrOptionIds } from '../../../../i18n/userAttributes';
 
 type PersonalInfoProps = {
   userInfo: User;
@@ -19,7 +25,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       <TextField
         fullWidth
         select
-        label="Gender"
+        label={<Trans id={userAttrLabelIds.gender} message="Gender" />}
         name="gender"
         variant="outlined"
         required
@@ -29,7 +35,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       >
         {genderOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            <Trans id={userAttrOptionIds.genders[option as Genders]} message={option} />
           </MenuItem>
         ))}
       </TextField>
@@ -37,7 +43,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       <TextField
         fullWidth
         select
-        label="Nationality"
+        label={<Trans id={userAttrLabelIds.nationality} message="Nationality" />}
         name="nationality"
         variant="outlined"
         value={userInfo.nationality}
@@ -46,7 +52,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       >
         {nationalityOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            <Trans id={userAttrOptionIds.nationalities[option as Nationalities]} message={option} />
           </MenuItem>
         ))}
       </TextField>
@@ -54,7 +60,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       <TextField
         fullWidth
         select
-        label="City"
+        label={<Trans id={userAttrLabelIds.city} message="City" />}
         name="city"
         variant="outlined"
         value={userInfo.city}
@@ -63,7 +69,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       >
         {cityOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            <Trans id={userAttrOptionIds.cities[option as Cities]} message={option} />
           </MenuItem>
         ))}
       </TextField>
@@ -71,7 +77,7 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       <TextField
         fullWidth
         select
-        label="Language"
+        label={<Trans id={userAttrLabelIds.preferredLanguage} message="Preferred Language" />}
         name="preferredLanguage"
         variant="outlined"
         value={userInfo.preferredLanguage}
@@ -80,7 +86,18 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       >
         {languageOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            <Trans
+              id={userAttrOptionIds.languages[option as Languages]}
+              message={
+                {
+                  en: 'English',
+                  zh_CN: '简体中文',
+                  zh_TW: '繁體中文',
+                  ja: '日本語',
+                  ko: '한국어',
+                }[option as Languages]
+              }
+            />
           </MenuItem>
         ))}
       </TextField>

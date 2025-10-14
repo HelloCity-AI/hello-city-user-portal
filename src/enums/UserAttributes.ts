@@ -2,7 +2,7 @@ export enum Genders {
   Male = 'Male',
   Female = 'Female',
   Other = 'Other',
-  PreferNotToSay = 'Prefer not to say',
+  PreferNotToSay = 'PreferNotToSay',
 }
 export const genderOptions = Object.values(Genders);
 
@@ -23,6 +23,9 @@ export const nationalityOptions = Object.values(Nationalities);
 
 export enum Languages {
   English = 'en',
-  Chinese = 'zh',
+  SimplifiedChinese = 'zh_CN',
+  TraditionalChinese = 'zh_TW',
+  Japanese = 'ja',
+  Korean = 'ko',
 }
 export const languageOptions = Object.values(Languages);

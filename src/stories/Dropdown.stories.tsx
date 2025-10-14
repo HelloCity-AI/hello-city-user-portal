@@ -66,18 +66,18 @@ const languageMenuDisplayOptions: MenuOption[] = [
   {
     id: 'zh-cn',
     label: '简体中文',
-    value: 'zh-CN',
+    value: 'zh_CN',
     icon: null,
     divider: false,
-    onClick: () => alert('zh-CN'),
+    onClick: () => alert('zh_CN'),
   },
   {
     id: 'zh-tw',
     label: '繁體中文',
-    value: 'zh-TW',
+    value: 'zh_TW',
     icon: null,
     divider: false,
-    onClick: () => alert('zh-TW'),
+    onClick: () => alert('zh_TW'),
   },
   {
     id: 'en-uk',

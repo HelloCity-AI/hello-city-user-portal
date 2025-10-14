@@ -18,6 +18,7 @@ import {
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createUserAction, updateUserAction } from '@/actions/user';
+import { languageOptions } from '@/enums/UserAttributes';
 import { takeFile } from '@/upload/fileRegistry';
 import type { CreateUserPayload } from '../slices/user';
 import type { RootState } from '@/store';
@@ -125,15 +126,17 @@ export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrappe
     const avatar =
       (updatedUser as Record<string, unknown>)['avatar'] ??
       (updatedUser as Record<string, unknown>)['Avatar'];
-    const preferredLanguage =
-      (updatedUser as Record<string, unknown>)['preferredLanguage'] ??
-      (updatedUser as Record<string, unknown>)['PreferredLanguage'];
+    // Read-only: attach current route language as PreferredLanguage
+    const routeLanguage =
+      typeof window !== 'undefined' ? window.location.pathname.split('/')[1] || '' : '';
 
     if (email) formData.append('Email', String(email));
     if (gender) formData.append('Gender', String(gender));
     if (updatedUser.city) formData.append('City', updatedUser.city);
     if (updatedUser.nationality) formData.append('Nationality', updatedUser.nationality);
-    if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
+    if (routeLanguage && languageOptions.includes(routeLanguage as any)) {
+      formData.append('PreferredLanguage', routeLanguage);
+    }
     if (avatar) formData.append('Avatar', String(avatar));
     if (updatedUser.university) formData.append('University', updatedUser.university);
     if (updatedUser.major) formData.append('Major', updatedUser.major);
@@ -164,6 +167,29 @@ export function* handleFetchUser(): SagaIterator {
       if (hasProfile(res.data)) {
         yield put(setUser(res.data as User));
         yield put(setAuth(AuthState.AuthenticatedWithProfile));
+        // After login/fetch, enforce preferredLanguage on first load
+        try {
+          const preferred: string | undefined = (res.data as User)?.preferredLanguage as
+            | string
+            | undefined;
+          if (preferred && typeof window !== 'undefined') {
+            const currentPath = window.location.pathname || '/';
+            const currentLang = currentPath.split('/')[1] || '';
+            if (preferred !== currentLang) {
+              // Persist cookie for middleware to pick up
+              document.cookie = `lang=${preferred};path=/;SameSite=Lax;max-age=${60 * 60 * 24 * 365}`;
+              // Redirect to preferred language root, preserving path after the lang segment if present
+              const rest = currentPath.split('/').slice(2).join('/');
+              const nextPath = rest ? `/${preferred}/${rest}` : `/${preferred}`;
+              window.location.href = nextPath;
+            } else {
+              // Align cookie even if already on preferred language
+              document.cookie = `lang=${preferred};path=/;SameSite=Lax;max-age=${60 * 60 * 24 * 365}`;
+            }
+          }
+        } catch {
+          // no-op
+        }
       } else {
         yield put(setUser(null));
         yield put(setAuth(AuthState.AuthenticatedButNoProfile));

@@ -8,7 +8,7 @@ export interface NavItem {
   childrenItem?: NavItem[];
 }
 
-export type SupportedLanguage = 'en' | 'zh-CN' | 'zh-TW' | 'ja' | 'ko';
+export type SupportedLanguage = 'en' | 'zh_CN' | 'zh_TW' | 'ja' | 'ko';
 
 export interface LanguageInfo {
   code: SupportedLanguage;
@@ -28,8 +28,8 @@ export interface NavConfig {
 
 export const SUPPORTED_LANGUAGES: Record<SupportedLanguage, LanguageInfo> = {
   en: { code: 'en', label: 'English', shortLabel: 'EN' },
-  'zh-CN': { code: 'zh-CN', label: '简体中文', shortLabel: '中文' },
-  'zh-TW': { code: 'zh-TW', label: '繁體中文', shortLabel: '繁中' },
+  zh_CN: { code: 'zh_CN', label: '简体中文', shortLabel: '中文' },
+  zh_TW: { code: 'zh_TW', label: '繁體中文', shortLabel: '繁中' },
   ja: { code: 'ja', label: '日本語', shortLabel: '日本語' },
   ko: { code: 'ko', label: '한국어', shortLabel: '한국' },
 };
