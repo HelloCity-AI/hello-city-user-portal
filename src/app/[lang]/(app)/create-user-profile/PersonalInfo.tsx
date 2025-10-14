@@ -9,6 +9,7 @@ import {
   Genders,
   Nationalities,
   Cities,
+  Languages,
 } from '@/enums/UserAttributes';
 import { Trans } from '@lingui/react';
 import { userAttrLabelIds, userAttrOptionIds } from '../../../../i18n/userAttributes';
@@ -85,7 +86,18 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
       >
         {languageOptions.map((option) => (
           <MenuItem key={option} value={option}>
-            {option}
+            <Trans
+              id={userAttrOptionIds.languages[option as Languages]}
+              message={
+                {
+                  en: 'English',
+                  zh_CN: '简体中文',
+                  zh_TW: '繁體中文',
+                  ja: '日本語',
+                  ko: '한국어',
+                }[option as Languages]
+              }
+            />
           </MenuItem>
         ))}
       </TextField>
