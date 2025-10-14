@@ -101,7 +101,7 @@ const Page = () => {
   return (
     <ChatMainContentContainer>
       <div className="flex items-center justify-center px-4" key={tick}>
-        <div className="z-10 mt-[30px] flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
+        <div className="z-10 mt-[60px] flex h-auto w-11/12 min-w-[300px] max-w-4xl flex-col gap-6 rounded-3xl p-6 glassmorphism lg:w-[600px]">
           {error && (
             <Alert severity="error" sx={{ mb: 2 }}>
               {error}
@@ -252,6 +252,7 @@ const Page = () => {
                   fieldType="email"
                   value={userInfo.email || ''}
                   name="email"
+                  maxLength={64}
                   placeholder={i18n._('profile.email-placeholder', {
                     default: 'Please enter your email',
                   })}
@@ -343,7 +344,7 @@ const Page = () => {
                   </TextField>
                 </div>
 
-                <div style={{ width: '400px', marginBottom: '24px' }}>
+                {/* <div style={{ width: '400px', marginBottom: '24px' }}>
                   <TextField
                     fullWidth
                     select
@@ -362,7 +363,7 @@ const Page = () => {
                       </MenuItem>
                     ))}
                   </TextField>
-                </div>
+                </div> */}
               </div>
             </div>
 

@@ -21,6 +21,22 @@ const ALL_LANGUAGES: LanguageInfo[] = Object.values(SUPPORTED_LANGUAGES);
 const useLanguageMenu = () => {
   const { language, setLanguage, availableLanguages } = useLanguage();
 
+  // Update preferred language in backend via Next.js API route
+  const updatePreferredLanguage = async (langCode: SupportedLanguage) => {
+    try {
+      const backendCode = (langCode as string).replace('-', '_');
+      void fetch('/api/user/me', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ preferredLanguage: backendCode }),
+      }).catch(() => {
+        // ignore errors to keep UX smooth
+      });
+    } catch {
+      // no-op
+    }
+  };
+
   const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
 
   // Language options for dropdown
@@ -30,7 +46,12 @@ const useLanguageMenu = () => {
       id: lang.code,
       label: lang.label,
       value: lang.code,
-      onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+      onClick: isSupported
+        ? () => {
+            updatePreferredLanguage(lang.code);
+            setLanguage(lang.code);
+          }
+        : () => alert('Coming soon'),
       icon: null,
       divider: false,
     };
@@ -43,7 +64,12 @@ const useLanguageMenu = () => {
       id: lang.code,
       href: '',
       label: lang.label,
-      onClick: isSupported ? () => setLanguage(lang.code) : () => alert('Coming soon'),
+      onClick: isSupported
+        ? () => {
+            updatePreferredLanguage(lang.code);
+            setLanguage(lang.code);
+          }
+        : () => alert('Coming soon'),
       childrenItem: undefined,
     };
   });

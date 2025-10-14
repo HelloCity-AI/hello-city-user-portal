@@ -2,7 +2,7 @@ export enum Genders {
   Male = 'Male',
   Female = 'Female',
   Other = 'Other',
-  PreferNotToSay = 'Prefer not to say',
+  PreferNotToSay = 'PreferNotToSay',
 }
 export const genderOptions = Object.values(Genders);
 
