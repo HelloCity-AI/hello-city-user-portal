@@ -92,7 +92,7 @@ msgstr "정말 로그아웃하시겠습니까?"
 #~ msgstr "이제 시작할 준비가 되셨나요?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:191
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:194
 #: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "생성 중..."
@@ -171,7 +171,7 @@ msgstr "생성 중..."
 #~ msgstr "계획부터 꿈의 실현까지, 언제나 함께"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:193
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:196
 #: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "준비 완료"
@@ -1794,14 +1794,14 @@ msgid "profile.avatar.title"
 msgstr "아바타"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:413
+#: src/app/[lang]/(app)/profile/page.tsx:417
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "취소"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:172
-#: src/app/[lang]/(app)/profile/page.tsx:360
+#: src/app/[lang]/(app)/profile/page.tsx:176
+#: src/app/[lang]/(app)/profile/page.tsx:364
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
@@ -1813,57 +1813,57 @@ msgid "profile.city-placeholder"
 msgstr "거주 도시를 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:213
+#: src/app/[lang]/(app)/profile/page.tsx:217
 #: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "프로필 수정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:226
-#: src/app/[lang]/(app)/profile/page.tsx:255
+#: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/(app)/profile/page.tsx:259
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "개인 정보 수정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:158
-#: src/app/[lang]/(app)/profile/page.tsx:278
+#: src/app/[lang]/(app)/profile/page.tsx:162
+#: src/app/[lang]/(app)/profile/page.tsx:282
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "이메일"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:283
+#: src/app/[lang]/(app)/profile/page.tsx:287
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "이메일을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:179
-#: src/app/[lang]/(app)/profile/page.tsx:317
+#: src/app/[lang]/(app)/profile/page.tsx:183
+#: src/app/[lang]/(app)/profile/page.tsx:321
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "성별"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:193
-#: src/app/[lang]/(app)/profile/page.tsx:347
+#: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/(app)/profile/page.tsx:351
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "전공"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:350
+#: src/app/[lang]/(app)/profile/page.tsx:354
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "전공을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:165
-#: src/app/[lang]/(app)/profile/page.tsx:293
+#: src/app/[lang]/(app)/profile/page.tsx:169
+#: src/app/[lang]/(app)/profile/page.tsx:297
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
@@ -1878,11 +1878,12 @@ msgstr "국적을 입력하세요"
 #: src/app/[lang]/(app)/profile/page.tsx:77
 #: src/app/[lang]/(app)/profile/page.tsx:83
 #: src/app/[lang]/(app)/profile/page.tsx:90
+#: src/app/[lang]/(app)/profile/page.tsx:97
 msgid "profile.not-provided"
-msgstr ""
+msgstr "미입력"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:145
+#: src/app/[lang]/(app)/profile/page.tsx:149
 #: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "개인 정보"
@@ -1899,52 +1900,53 @@ msgid "profile.preferred-language-placeholder"
 msgstr "선호 언어를 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:406
+#: src/app/[lang]/(app)/profile/page.tsx:410
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "초기화"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:416
+#: src/app/[lang]/(app)/profile/page.tsx:420
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "제출"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:141
+#: src/app/[lang]/(app)/profile/page.tsx:145
 #: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "개인 정보와 선호 설정 관리"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:138
+#: src/app/[lang]/(app)/profile/page.tsx:142
 #: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "프로필 설정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:186
-#: src/app/[lang]/(app)/profile/page.tsx:337
+#: src/app/[lang]/(app)/profile/page.tsx:190
+#: src/app/[lang]/(app)/profile/page.tsx:341
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "대학"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:340
+#: src/app/[lang]/(app)/profile/page.tsx:344
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "대학명을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:151
-#: src/app/[lang]/(app)/profile/page.tsx:268
+#: src/app/[lang]/(app)/profile/page.tsx:155
+#: src/app/[lang]/(app)/profile/page.tsx:272
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "사용자 이름"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:271
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:173
+#: src/app/[lang]/(app)/profile/page.tsx:275
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "사용자 이름을 입력하세요"
