@@ -20,7 +20,7 @@ const UserName: React.FC<UserNameProps> = ({ fallback = 'Guest User', ...typogra
       <Typography {...typographyProps}>
         {displayName}
         <br />
-        <Typography variant="body2" color="text.secondary">
+        <Typography component="span" variant="body2" color="text.secondary">
           {emailAddress}
         </Typography>
       </Typography>
