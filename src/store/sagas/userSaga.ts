@@ -18,6 +18,7 @@ import {
 import type { User } from '@/types/User.types';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createUserAction, updateUserAction } from '@/actions/user';
+import { languageOptions } from '@/enums/UserAttributes';
 import { takeFile } from '@/upload/fileRegistry';
 import type { CreateUserPayload } from '../slices/user';
 import type { RootState } from '@/store';
@@ -125,15 +126,17 @@ export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrappe
     const avatar =
       (updatedUser as Record<string, unknown>)['avatar'] ??
       (updatedUser as Record<string, unknown>)['Avatar'];
-    const preferredLanguage =
-      (updatedUser as Record<string, unknown>)['preferredLanguage'] ??
-      (updatedUser as Record<string, unknown>)['PreferredLanguage'];
+    // Read-only: attach current route language as PreferredLanguage
+    const routeLanguage =
+      typeof window !== 'undefined' ? window.location.pathname.split('/')[1] || '' : '';
 
     if (email) formData.append('Email', String(email));
     if (gender) formData.append('Gender', String(gender));
     if (updatedUser.city) formData.append('City', updatedUser.city);
     if (updatedUser.nationality) formData.append('Nationality', updatedUser.nationality);
-    if (preferredLanguage) formData.append('PreferredLanguage', String(preferredLanguage));
+    if (routeLanguage && languageOptions.includes(routeLanguage as any)) {
+      formData.append('PreferredLanguage', routeLanguage);
+    }
     if (avatar) formData.append('Avatar', String(avatar));
     if (updatedUser.university) formData.append('University', updatedUser.university);
     if (updatedUser.major) formData.append('Major', updatedUser.major);

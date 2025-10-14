@@ -1879,7 +1879,7 @@ msgstr "国籍を入力してください"
 #: src/app/[lang]/(app)/profile/page.tsx:83
 #: src/app/[lang]/(app)/profile/page.tsx:90
 msgid "profile.not-provided"
-msgstr ""
+msgstr "未入力"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:145

@@ -1879,7 +1879,7 @@ msgstr "국적을 입력하세요"
 #: src/app/[lang]/(app)/profile/page.tsx:83
 #: src/app/[lang]/(app)/profile/page.tsx:90
 msgid "profile.not-provided"
-msgstr ""
+msgstr "미입력"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:145

@@ -8,6 +8,7 @@ import type { User } from '@/types/User.types';
 import { defaultUser } from '@/types/User.types';
 import { createUser } from '@/store/slices/user';
 import { Trans } from '@lingui/react';
+import { i18n } from '@/i18n';
 import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 import Image from 'next/image';
@@ -169,7 +170,9 @@ const Page = () => {
             <input
               type="text"
               name="username"
-              placeholder="Username"
+              placeholder={i18n._('profile.username-placeholder', {
+                default: 'Please enter your username',
+              })}
               value={userInfo.username}
               onChange={handleChange}
               required

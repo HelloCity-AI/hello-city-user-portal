@@ -1881,7 +1881,7 @@ msgstr "請輸入您的國籍"
 #: src/app/[lang]/(app)/profile/page.tsx:83
 #: src/app/[lang]/(app)/profile/page.tsx:90
 msgid "profile.not-provided"
-msgstr ""
+msgstr "未填寫"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:145

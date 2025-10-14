@@ -92,6 +92,10 @@ const Page = () => {
     return id ? i18n._(id, { default: value }) : value;
   };
 
+  // Generic fallback for simple string fields
+  const tProvided = (value?: string) =>
+    value ? String(value) : i18n._('profile.not-provided', { default: 'Not provided' });
+
   const handleSelectImage = (file: File | null) => {
     if (prevObjectUrl.current) {
       URL.revokeObjectURL(prevObjectUrl.current);
@@ -150,14 +154,14 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.username', { default: 'Username' })}
               </Typography>
-              <Typography variant="body1">{userInfo.username || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.username)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.email', { default: 'Email' })}
               </Typography>
-              <Typography variant="body1">{userInfo.email || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.email)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
@@ -185,14 +189,14 @@ const Page = () => {
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.university', { default: 'University' })}
               </Typography>
-              <Typography variant="body1">{userInfo.university || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.university)}</Typography>
             </div>
 
             <div className="flex flex-col gap-2">
               <Typography variant="body2" color="text.secondary">
                 {i18n._('profile.major', { default: 'Major' })}
               </Typography>
-              <Typography variant="body1">{userInfo.major || 'Not provided'}</Typography>
+              <Typography variant="body1">{tProvided(userInfo.major)}</Typography>
             </div>
 
             {/* <div className="flex flex-col gap-2">
