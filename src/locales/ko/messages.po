@@ -1774,14 +1774,14 @@ msgid "profile.avatar.title"
 msgstr "아바타"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:390
+#: src/app/[lang]/(app)/profile/page.tsx:413
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "취소"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:149
-#: src/app/[lang]/(app)/profile/page.tsx:337
+#: src/app/[lang]/(app)/profile/page.tsx:172
+#: src/app/[lang]/(app)/profile/page.tsx:360
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
@@ -1793,57 +1793,57 @@ msgid "profile.city-placeholder"
 msgstr "거주 도시를 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:190
+#: src/app/[lang]/(app)/profile/page.tsx:213
 #: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "프로필 수정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:203
-#: src/app/[lang]/(app)/profile/page.tsx:232
+#: src/app/[lang]/(app)/profile/page.tsx:226
+#: src/app/[lang]/(app)/profile/page.tsx:255
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "개인 정보 수정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:135
-#: src/app/[lang]/(app)/profile/page.tsx:255
+#: src/app/[lang]/(app)/profile/page.tsx:158
+#: src/app/[lang]/(app)/profile/page.tsx:278
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "이메일"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:260
+#: src/app/[lang]/(app)/profile/page.tsx:283
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "이메일을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:156
-#: src/app/[lang]/(app)/profile/page.tsx:294
+#: src/app/[lang]/(app)/profile/page.tsx:179
+#: src/app/[lang]/(app)/profile/page.tsx:317
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "성별"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:170
-#: src/app/[lang]/(app)/profile/page.tsx:324
+#: src/app/[lang]/(app)/profile/page.tsx:193
+#: src/app/[lang]/(app)/profile/page.tsx:347
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "전공"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:327
+#: src/app/[lang]/(app)/profile/page.tsx:350
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "전공을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:142
-#: src/app/[lang]/(app)/profile/page.tsx:270
+#: src/app/[lang]/(app)/profile/page.tsx:165
+#: src/app/[lang]/(app)/profile/page.tsx:293
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
@@ -1855,13 +1855,19 @@ msgid "profile.nationality-placeholder"
 msgstr "국적을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:122
+#: src/app/[lang]/(app)/profile/page.tsx:77
+#: src/app/[lang]/(app)/profile/page.tsx:83
+#: src/app/[lang]/(app)/profile/page.tsx:90
+msgid "profile.not-provided"
+msgstr ""
+
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/profile/page.tsx:145
 #: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "개인 정보"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:177
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
@@ -1873,52 +1879,52 @@ msgid "profile.preferred-language-placeholder"
 msgstr "선호 언어를 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:383
+#: src/app/[lang]/(app)/profile/page.tsx:406
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "초기화"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:393
+#: src/app/[lang]/(app)/profile/page.tsx:416
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "제출"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:118
+#: src/app/[lang]/(app)/profile/page.tsx:141
 #: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "개인 정보와 선호 설정 관리"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:115
+#: src/app/[lang]/(app)/profile/page.tsx:138
 #: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "프로필 설정"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:163
-#: src/app/[lang]/(app)/profile/page.tsx:314
+#: src/app/[lang]/(app)/profile/page.tsx:186
+#: src/app/[lang]/(app)/profile/page.tsx:337
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "대학"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:317
+#: src/app/[lang]/(app)/profile/page.tsx:340
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "대학명을 입력하세요"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:128
-#: src/app/[lang]/(app)/profile/page.tsx:245
+#: src/app/[lang]/(app)/profile/page.tsx:151
+#: src/app/[lang]/(app)/profile/page.tsx:268
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "사용자 이름"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:248
+#: src/app/[lang]/(app)/profile/page.tsx:271
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "사용자 이름을 입력하세요"
@@ -1940,93 +1946,93 @@ msgstr "대화 기록"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:19
-msgid "userAttr.city"
-msgstr "도시"
+#~ msgid "userAttr.city"
+#~ msgstr "도시"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:63
-msgid "userAttr.cityOption.Adelaide"
-msgstr "애들레이드"
+#~ msgid "userAttr.cityOption.Adelaide"
+#~ msgstr "애들레이드"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:62
-msgid "userAttr.cityOption.Melbourne"
-msgstr "멜버른"
+#~ msgid "userAttr.cityOption.Melbourne"
+#~ msgstr "멜버른"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:64
-msgid "userAttr.cityOption.Perth"
-msgstr "퍼스"
+#~ msgid "userAttr.cityOption.Perth"
+#~ msgstr "퍼스"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:61
-msgid "userAttr.cityOption.Sydney"
-msgstr "시드니"
+#~ msgid "userAttr.cityOption.Sydney"
+#~ msgstr "시드니"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:17
-msgid "userAttr.email"
-msgstr "이메일"
+#~ msgid "userAttr.email"
+#~ msgstr "이메일"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:20
-msgid "userAttr.gender"
-msgstr "성별"
+#~ msgid "userAttr.gender"
+#~ msgstr "성별"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:51
-msgid "userAttr.genderOption.Female"
-msgstr "여성"
+#~ msgid "userAttr.genderOption.Female"
+#~ msgstr "여성"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:50
-msgid "userAttr.genderOption.Male"
-msgstr "남성"
+#~ msgid "userAttr.genderOption.Male"
+#~ msgstr "남성"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:52
-msgid "userAttr.genderOption.Other"
-msgstr "기타"
+#~ msgid "userAttr.genderOption.Other"
+#~ msgstr "기타"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:53
-msgid "userAttr.genderOption.PreferNotToSay"
-msgstr "밝히지 않음"
+#~ msgid "userAttr.genderOption.PreferNotToSay"
+#~ msgstr "밝히지 않음"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:22
-msgid "userAttr.major"
-msgstr "전공"
+#~ msgid "userAttr.major"
+#~ msgstr "전공"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:18
-msgid "userAttr.nationality"
-msgstr "국적"
+#~ msgid "userAttr.nationality"
+#~ msgstr "국적"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:56
-msgid "userAttr.nationalityOption.China"
-msgstr "중국"
+#~ msgid "userAttr.nationalityOption.China"
+#~ msgstr "중국"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:58
-msgid "userAttr.nationalityOption.Japan"
-msgstr "일본"
+#~ msgid "userAttr.nationalityOption.Japan"
+#~ msgstr "일본"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:57
-msgid "userAttr.nationalityOption.Korea"
-msgstr "한국"
+#~ msgid "userAttr.nationalityOption.Korea"
+#~ msgstr "한국"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:23
-msgid "userAttr.preferredLanguage"
-msgstr "선호 언어"
+#~ msgid "userAttr.preferredLanguage"
+#~ msgstr "선호 언어"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:21
-msgid "userAttr.university"
-msgstr "대학"
+#~ msgid "userAttr.university"
+#~ msgstr "대학"
 
 #. js-lingui-explicit-id
 #: src/components/InputBox/InputBox.tsx:60
