@@ -97,6 +97,11 @@ msgstr "您確定要登出帳戶嗎？"
 msgid "Creating..."
 msgstr "建立中..."
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+msgid "Hero.Description"
+msgstr "循序漸進的計劃,讓搬入任何城市變得簡單、清晰、無壓力——適用於遊客、學生和新移民。"
+
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "主題"
@@ -110,10 +115,6 @@ msgstr "建立中..."
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "墨爾本黃昏美景，HelloCity 助您開啟新生活"
 
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Description"
-#~ msgstr "無論是旅遊觀光、求學深造還是移居新城，我們為您提供貼心的個人化規劃，讓每一次出行都輕鬆愉快、井然有序。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -1492,12 +1493,12 @@ msgid "contact.faq.a3"
 msgstr "我們覆蓋全球主要城市，並會定期擴展。請在產品中查看最新支援的地區。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:61
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "基本瀏覽不需要帳號。建立帳號可以保存進度、提醒和自訂的時間表。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "是的。HelloCity 可自適應，並在桌面、平板與手機上流暢運行。"
 
@@ -1517,12 +1518,12 @@ msgid "contact.faq.q3"
 msgstr "支援哪些城市？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:59
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "開始使用需要註冊帳號嗎？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:69
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "HelloCity 在手機上好用嗎？"
 
@@ -1537,12 +1538,12 @@ msgstr "HelloCity 在手機上好用嗎？"
 #~ msgstr "請輸入您的問題..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:121
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "快速找到關於 HelloCity 的常見問題解答。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:113
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "常見問題"
 

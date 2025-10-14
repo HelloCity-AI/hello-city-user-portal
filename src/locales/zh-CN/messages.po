@@ -97,6 +97,11 @@ msgstr "您确定要登出账户吗？"
 msgid "Creating..."
 msgstr "创建中..."
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+msgid "Hero.Description"
+msgstr "循序渐进的计划，让搬入任何城市变得简单、清晰、无压力——适用于游客、学生和新移民。"
+
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "主题"
@@ -110,10 +115,6 @@ msgstr "创建中..."
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "墨尔本黄昏美景，HelloCity助您开启新生活"
 
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Description"
-#~ msgstr "无论是旅游观光、求学深造还是移居新城，我们为您提供贴心的个性化规划，让每一次出行都轻松愉快、井然有序。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -1512,12 +1513,12 @@ msgid "contact.faq.a3"
 msgstr "是的，需要注册账号才能保存进度并访问计划。注册是免费的，只需不到一分钟。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:61
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "我们的AI基于数千次搬迁的真实数据训练而成。您可以自定义任何项目，我们会根据用户反馈持续改进。所有签证和法律信息都经过准确性审核。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "当然可以。您可以添加、编辑或删除任何清单项目，使其符合您的具体情况。AI提供起点，但您始终掌控一切。"
 
@@ -1537,12 +1538,12 @@ msgid "contact.faq.q3"
 msgstr "开始使用需要注册账号吗？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:59
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "AI生成的清单准确吗？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:69
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "可以自定义清单项目吗？"
 
@@ -1557,12 +1558,12 @@ msgstr "可以自定义清单项目吗？"
 #~ msgstr "请输入您的问题..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:121
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "快速找到关于 HelloCity 的常见问题解答。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:113
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "常见问题"
 

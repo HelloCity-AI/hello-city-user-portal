@@ -97,6 +97,11 @@ msgstr "정말 로그아웃하시겠습니까?"
 msgid "Creating..."
 msgstr "생성 중..."
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+msgid "Hero.Description"
+msgstr "단계별 계획으로 새로운 도시 이사를 간단하고 명확하며 스트레스 없이 만듭니다—관광객, 학생, 이민자를 위해."
+
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "테마"
@@ -110,10 +115,6 @@ msgstr "생성 중..."
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "멜버른의 석양 풍경, HelloCity가 새 삶의 시작을 돕습니다"
 
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Description"
-#~ msgstr "여행, 유학, 이주 어디에서든 맞춤형 플랜으로 부담 없이 체계적으로 준비하세요."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -1490,12 +1491,12 @@ msgid "contact.faq.a3"
 msgstr "전 세계 주요 도시를 지원하며 지속적으로 확대합니다. 제품에서 최신 지원 지역을 확인하세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:61
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "기본 탐색은 계정이 필요 없습니다. 계정을 만들면 진행 상황 저장, 알림, 맞춤 일정이 가능합니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "네. HelloCity는 반응형으로 데스크톱, 태블릿, 모바일에서 매끄럽게 작동합니다."
 
@@ -1515,12 +1516,12 @@ msgid "contact.faq.q3"
 msgstr "어떤 도시를 지원하나요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:59
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "시작하려면 계정이 필요한가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:69
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "모바일에서도 잘 작동하나요?"
 
@@ -1535,12 +1536,12 @@ msgstr "모바일에서도 잘 작동하나요?"
 #~ msgstr "질문을 입력하세요..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:121
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "HelloCity 관련 자주 묻는 질문을 빠르게 찾아보세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:113
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "자주 묻는 질문"
 

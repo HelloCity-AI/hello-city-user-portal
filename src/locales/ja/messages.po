@@ -97,6 +97,11 @@ msgstr "ログアウトしてもよろしいですか？"
 msgid "Creating..."
 msgstr "作成中…"
 
+#. js-lingui-explicit-id
+#: src/compoundComponents/HomePage/HeroSection.tsx:46
+msgid "Hero.Description"
+msgstr "段階的な計画で、都市への移住をシンプルかつストレスフリーに——観光客、学生、新移民の皆様に。"
+
 #: src/components/dropdownMenuOptions.example.tsx:25
 #~ msgid "Theme"
 #~ msgstr "テーマ"
@@ -110,10 +115,6 @@ msgstr "作成中…"
 #~ msgid "Hero.BannerAlt"
 #~ msgstr "メルボルンの夕景。HelloCity が新生活をサポート"
 
-#. js-lingui-explicit-id
-#: src/app/[lang]/sections/HeroSection.tsx:
-#~ msgid "Hero.Description"
-#~ msgstr "旅行・留学・移住のいずれでも、あなたに寄り添う個別計画で、あらゆる出発を軽やかでスムーズに。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
@@ -1490,12 +1491,12 @@ msgid "contact.faq.a3"
 msgstr "世界の主要都市をカバーしており、定期的に拡大しています。最新の対応地域は製品内でご確認ください。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:61
+#: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
 msgstr "基本的な閲覧にはアカウントは不要です。アカウントを作成すると、進捗やリマインダー、カスタムのタイムラインを保存できます。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
 msgstr "はい。HelloCity はレスポンシブ対応で、デスクトップ、タブレット、スマートフォンで快適に動作します。"
 
@@ -1515,12 +1516,12 @@ msgid "contact.faq.q3"
 msgstr "どの都市に対応していますか？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:59
+#: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
 msgstr "利用開始にはアカウント登録が必要ですか？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:69
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
 msgstr "HelloCity はスマートフォンでも使いやすいですか？"
 
@@ -1535,12 +1536,12 @@ msgstr "HelloCity はスマートフォンでも使いやすいですか？"
 #~ msgstr "質問を入力してください…"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:121
+#: src/compoundComponents/HomePage/FAQSection.tsx:123
 msgid "contact.faq.subtitle"
 msgstr "HelloCity に関するよくある質問を素早く見つけられます。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:113
+#: src/compoundComponents/HomePage/FAQSection.tsx:115
 msgid "contact.faq.title"
 msgstr "よくある質問"
 
