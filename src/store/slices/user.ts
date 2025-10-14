@@ -123,18 +123,20 @@ const userSlice = createSlice({
         const v = payload.lastJoinDate;
         const lastJoinDateStr =
           typeof v === 'string' ? v : v instanceof Date ? v.toISOString() : '';
-        const avatarFile = payload.avatarFile ? null : (payload.avatarFile ?? null);
-        return {
-          payload: {
-            ...payload,
-            lastJoinDate: lastJoinDateStr,
-            avatarFile,
-          },
+        const prepared: any = {
+          ...payload,
+          lastJoinDate: lastJoinDateStr,
         };
+        // 移除过时的 avatarFile 字段，避免不必要的序列化与警告
+        delete prepared.avatarFile;
+        return { payload: prepared };
       },
     },
     updateUserSuccess: (state, action: PayloadAction<User>) => {
-      state.data = action.payload;
+      state.data = {
+        ...(state.data ?? ({} as User)),
+        ...action.payload,
+      };
       state.isUpdating = false;
       state.updateError = null;
     },

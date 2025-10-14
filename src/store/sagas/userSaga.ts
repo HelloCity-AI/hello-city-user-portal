@@ -108,6 +108,14 @@ export async function updateUserApiWrapper(updatedUser: User): Promise<ApiWrappe
   try {
     // Build form-data with backend's expected Title Case keys (EditUserDto)
     const formData = new FormData();
+    // If imageId provided, append actual File under 'File' key (EditUserDto expects IFormFile File)
+    const maybeImageId = (updatedUser as any).imageId as string | undefined;
+    if (maybeImageId) {
+      const avatarFile = takeFile(maybeImageId);
+      if (avatarFile instanceof File || avatarFile instanceof Blob) {
+        formData.append('File', avatarFile);
+      }
+    }
     const email =
       (updatedUser as Record<string, unknown>)['email'] ??
       (updatedUser as Record<string, unknown>)['Email'];
@@ -222,7 +230,8 @@ export function* handleUpdateUser(action: PayloadAction<User>): SagaIterator {
   try {
     const res: ApiWrapperResponse = yield call(updateUserApiWrapper, action.payload);
     if (res.status === 200 || res.status === 204) {
-      yield put(updateUserSuccess((res.data as User) ?? action.payload));
+      // Use submitted payload to update UI immediately, avoiding stale server echoes
+      yield put(updateUserSuccess(action.payload));
     } else {
       yield put(updateUserFailure(`update user failed: ${res.status}`));
     }

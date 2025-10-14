@@ -1776,153 +1776,152 @@ msgid "profile.avatar.title"
 msgstr "頭像"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:261
+#: src/app/[lang]/(app)/profile/page.tsx:382
 #: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "取消"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:89
-#: src/app/[lang]/(app)/profile/page.tsx:184
+#: src/app/[lang]/(app)/profile/page.tsx:145
+#: src/app/[lang]/(app)/profile/page.tsx:329
 #: src/app/[lang]/testassistant/profile/page.tsx:89
 #: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:187
 #: src/app/[lang]/testassistant/profile/page.tsx:187
 msgid "profile.city-placeholder"
 msgstr "請輸入您所在的城市"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:130
+#: src/app/[lang]/(app)/profile/page.tsx:186
 #: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "編輯個人資料"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:147
+#: src/app/[lang]/(app)/profile/page.tsx:199
+#: src/app/[lang]/(app)/profile/page.tsx:228
 #: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "編輯個人資訊"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:75
-#: src/app/[lang]/(app)/profile/page.tsx:163
+#: src/app/[lang]/(app)/profile/page.tsx:131
+#: src/app/[lang]/(app)/profile/page.tsx:251
 #: src/app/[lang]/testassistant/profile/page.tsx:75
 #: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "電子郵件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:167
+#: src/app/[lang]/(app)/profile/page.tsx:255
 #: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "請輸入您的電子郵件"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:96
-#: src/app/[lang]/(app)/profile/page.tsx:197
+#: src/app/[lang]/(app)/profile/page.tsx:152
+#: src/app/[lang]/(app)/profile/page.tsx:286
 #: src/app/[lang]/testassistant/profile/page.tsx:96
 #: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "性別"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:110
-#: src/app/[lang]/(app)/profile/page.tsx:227
+#: src/app/[lang]/(app)/profile/page.tsx:166
+#: src/app/[lang]/(app)/profile/page.tsx:316
 #: src/app/[lang]/testassistant/profile/page.tsx:110
 #: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "科系"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:230
+#: src/app/[lang]/(app)/profile/page.tsx:319
 #: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "請輸入您的科系"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:82
-#: src/app/[lang]/(app)/profile/page.tsx:174
+#: src/app/[lang]/(app)/profile/page.tsx:138
+#: src/app/[lang]/(app)/profile/page.tsx:265
 #: src/app/[lang]/testassistant/profile/page.tsx:82
 #: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "國籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:177
 #: src/app/[lang]/testassistant/profile/page.tsx:177
 msgid "profile.nationality-placeholder"
 msgstr "請輸入您的國籍"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:69
+#: src/app/[lang]/(app)/profile/page.tsx:118
 #: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "個人資訊"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:117
-#: src/app/[lang]/(app)/profile/page.tsx:237
+#: src/app/[lang]/(app)/profile/page.tsx:173
+#: src/app/[lang]/(app)/profile/page.tsx:350
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
 msgid "profile.preferred-language"
 msgstr "首選語言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:240
 #: src/app/[lang]/testassistant/profile/page.tsx:240
 msgid "profile.preferred-language-placeholder"
 msgstr "請輸入您的首選語言"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:254
+#: src/app/[lang]/(app)/profile/page.tsx:375
 #: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "重設"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:264
+#: src/app/[lang]/(app)/profile/page.tsx:385
 #: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "送出"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:65
+#: src/app/[lang]/(app)/profile/page.tsx:114
 #: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "管理您的個人資訊和偏好設定"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:62
+#: src/app/[lang]/(app)/profile/page.tsx:111
 #: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "個人資料設定"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:103
-#: src/app/[lang]/(app)/profile/page.tsx:217
+#: src/app/[lang]/(app)/profile/page.tsx:159
+#: src/app/[lang]/(app)/profile/page.tsx:306
 #: src/app/[lang]/testassistant/profile/page.tsx:103
 #: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "大學"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:220
+#: src/app/[lang]/(app)/profile/page.tsx:309
 #: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "請輸入您的大學名稱"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:153
+#: src/app/[lang]/(app)/profile/page.tsx:124
+#: src/app/[lang]/(app)/profile/page.tsx:241
 #: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "用戶名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/profile/page.tsx:156
+#: src/app/[lang]/(app)/profile/page.tsx:244
 #: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "請輸入用戶名"
