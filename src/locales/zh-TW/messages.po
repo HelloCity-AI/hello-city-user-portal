@@ -1492,12 +1492,12 @@ msgid "contact.faq.a3"
 msgstr "我們覆蓋全球主要城市，並會定期擴展。請在產品中查看最新支援的地區。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:63
+#: src/compoundComponents/HomePage/FAQSection.tsx:61
 msgid "contact.faq.a4"
 msgstr "基本瀏覽不需要帳號。建立帳號可以保存進度、提醒和自訂的時間表。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:73
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
 msgstr "是的。HelloCity 可自適應，並在桌面、平板與手機上流暢運行。"
 
@@ -1517,12 +1517,12 @@ msgid "contact.faq.q3"
 msgstr "支援哪些城市？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:59
 msgid "contact.faq.q4"
 msgstr "開始使用需要註冊帳號嗎？"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
 msgstr "HelloCity 在手機上好用嗎？"
 
@@ -1537,12 +1537,12 @@ msgstr "HelloCity 在手機上好用嗎？"
 #~ msgstr "請輸入您的問題..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:123
+#: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
 msgstr "快速找到關於 HelloCity 的常見問題解答。"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:115
+#: src/compoundComponents/HomePage/FAQSection.tsx:113
 msgid "contact.faq.title"
 msgstr "常見問題"
 

@@ -1474,12 +1474,12 @@ msgid "contact.faq.a3"
 msgstr "Yes, an account is required to save your progress and access plans. Registration is free and takes less than a minute."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:63
+#: src/compoundComponents/HomePage/FAQSection.tsx:61
 msgid "contact.faq.a4"
 msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback. All visa and legal information is reviewed for accuracy."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:73
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
 msgstr "Absolutely. You can add, edit, or remove any checklist item to match your specific situation. The AI provides a starting point, but you're always in control."
 
@@ -1499,12 +1499,12 @@ msgid "contact.faq.q3"
 msgstr "Do I need an account to get started?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:59
 msgid "contact.faq.q4"
 msgstr "How accurate are the AI-generated checklists?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
 msgstr "Is HelloCity mobile-friendly?"
 
@@ -1519,12 +1519,12 @@ msgstr "Is HelloCity mobile-friendly?"
 #~ msgstr "Please enter your question... "
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:123
+#: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
 msgstr "Find quick answers to the most common questions about HelloCity."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:115
+#: src/compoundComponents/HomePage/FAQSection.tsx:113
 msgid "contact.faq.title"
 msgstr "Frequently Asked Questions"
 
