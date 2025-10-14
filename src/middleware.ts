@@ -16,8 +16,8 @@ function getLocale(request: NextRequest): string {
   const acceptLocales = ['en', 'zh-CN', 'zh-TW', 'ja', 'ko'];
   const negotiator = new Negotiator({ headers: negotiatorHeaders });
   const detected = negotiator.language(acceptLocales) as string | undefined;
-  const normalized = hyphenToUnderscore(detected ?? linguiConfig.sourceLocale);
-  return normalized as string;
+  const want: string = detected ?? (linguiConfig.sourceLocale as string) ?? 'en';
+  return hyphenToUnderscore(want);
 }
 
 function resolveLangFromPath(pathname: string): string | null {

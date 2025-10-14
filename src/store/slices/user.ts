@@ -130,7 +130,6 @@ const userSlice = createSlice({
           ...payload,
           lastJoinDate: lastJoinDateStr,
         };
-        // 移除过时的 avatarFile 字段，避免不必要的序列化与警告
         delete prepared.avatarFile;
         return { payload: prepared };
       },
