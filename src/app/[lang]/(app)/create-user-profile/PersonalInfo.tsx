@@ -1,15 +1,12 @@
 import React from 'react';
 import type { User } from '@/types/User.types';
 import { MenuItem, TextField } from '@mui/material';
+import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
 import {
   genderOptions,
   cityOptions,
   nationalityOptions,
   languageOptions,
-  Genders,
-  Nationalities,
-  Cities,
-  Languages,
 } from '@/enums/UserAttributes';
 import { Trans } from '@lingui/react';
 import { userAttrLabelIds, userAttrOptionIds } from '../../../../i18n/userAttributes';

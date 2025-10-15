@@ -12,14 +12,12 @@ import {
   IconButton,
 } from '@mui/material';
 import { defaultUser, type User } from '@/types/User.types';
+import type { Genders, Nationalities, Cities } from '@/enums/UserAttributes';
 import {
   genderOptions,
   cityOptions,
   nationalityOptions,
   languageOptions,
-  Genders,
-  Nationalities,
-  Cities,
 } from '@/enums/UserAttributes';
 import Modal from '../../../../components/Modal';
 // Removed incorrect updateUser import from api layer
