@@ -13,10 +13,9 @@ import {
   fetchAllConversations,
   setError as setConversationError,
 } from '@/store/slices/conversation';
-import { clearError as clearUserError } from '@/store/slices/user';
+import { clearError as clearUserError, AuthState, fetchUser } from '@/store/slices/user';
 import RouteGate from '../../../components/RouteGate';
 import { useSelectedLayoutSegments } from 'next/navigation';
-import { AuthState, fetchUser } from '@/store/slices/user';
 
 const AppLayout = ({ children }: { children: ReactNode }) => {
   const dispatch = useDispatch();
