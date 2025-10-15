@@ -197,7 +197,7 @@ export function createAISDKStream(reader: ReadableStreamDefaultReader<Uint8Array
                   );
 
                   // Add async delay to prevent browser batching
-                  const delayMs = 40;
+                  const delayMs = 150;
                   await new Promise((resolve) => setTimeout(resolve, delayMs));
                 }
               } catch (e) {
