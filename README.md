@@ -167,10 +167,11 @@ Real-time AI chat with OpenAI GPT integration and intelligent checklist generati
 
 **Features:**
 
-- **Streaming Responses:** Real-time SSE streaming via Vercel AI SDK
+- **Streaming Responses:** Real-time SSE streaming via Vercel AI SDK with configurable typewriter effect
 - **Conversation Management:** Create, view, and manage chat conversations
 - **Intelligent Checklists:** AI-generated task checklists with async processing
 - **Multi-Language Support:** Full i18n support for English and Chinese
+- **Node.js Runtime:** Uses Node.js runtime for precise stream control and typewriter effect in production
 
 **Architecture:**
 
@@ -215,14 +216,25 @@ copy .env.example .env.local
 Populate `.env.local` with actual values for:
 
 - **Auth0 Configuration:**
-  - `AUTH0_SECRET` - Random 32-character string
-  - `AUTH0_BASE_URL` - Your application URL (http://localhost:3000 for development)
-  - `AUTH0_ISSUER_BASE_URL` - Your Auth0 domain
+  - `AUTH0_DOMAIN` - Your Auth0 domain
   - `AUTH0_CLIENT_ID` - Your Auth0 application client ID
   - `AUTH0_CLIENT_SECRET` - Your Auth0 application client secret
+  - `AUTH0_SECRET` - Your Auth0 session secret
 
 - **Backend API:**
-  - `NEXT_PUBLIC_API_BASE_URL` - Backend API base URL
+  - `NEXT_PUBLIC_BACKEND_URL` - Backend API base URL (default: http://localhost:5000)
+
+- **Python AI Service:**
+  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI service URL for task polling (default: http://localhost:8000)
+
+- **OpenAI:**
+  - `OPENAI_API_KEY` - Your OpenAI API key for GPT integration
+
+- **Chat Stream Configuration (Optional):**
+  - `CHAT_STREAM_DELAY_MS` - Typewriter effect speed in milliseconds (default: 15)
+    - 15ms - Fast, smooth typing (default)
+    - 25ms - Moderate speed
+    - 40-60ms - Slower, more deliberate effect
 
 **Note:** Contact team lead for actual environment values.
 

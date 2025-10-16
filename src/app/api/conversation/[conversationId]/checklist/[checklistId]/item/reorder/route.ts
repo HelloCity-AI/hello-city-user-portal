@@ -23,6 +23,12 @@ export async function PUT(
       params.checklistId,
       itemIds,
     );
+
+    // Handle 204 No Content response properly
+    if (response.status === 204) {
+      return new NextResponse(null, { status: 204 });
+    }
+
     return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
     if (error instanceof AuthError) {
