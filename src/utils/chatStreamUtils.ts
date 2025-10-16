@@ -196,8 +196,13 @@ export function createAISDKStream(reader: ReadableStreamDefaultReader<Uint8Array
                     })}\n\n`,
                   );
 
-                  // Add async delay to prevent browser batching
-                  const delayMs = 40;
+                  // Add async delay to create typewriter effect
+                  // Prevents browser from batching multiple text-delta events
+                  // CHAT_STREAM_DELAY_MS: Controls typing speed (ms per character)
+                  // - Default: 15ms for smooth, fast typing
+                  // - Higher values (25-60ms) for slower, more deliberate effect
+                  // Note: Requires Node.js runtime, Edge Runtime will optimize this away
+                  const delayMs = parseInt(process.env.CHAT_STREAM_DELAY_MS || '15', 10);
                   await new Promise((resolve) => setTimeout(resolve, delayMs));
                 }
               } catch (e) {

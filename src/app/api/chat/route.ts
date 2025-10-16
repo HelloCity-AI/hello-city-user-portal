@@ -16,7 +16,9 @@ import {
 } from '@/utils/chatStreamUtils';
 import { logInfo, logError, generateCorrelationId } from '@/lib/logger';
 
-export const runtime = 'edge';
+// Use Node.js runtime for better streaming control
+// Edge Runtime aggressively optimizes streams in production, breaking typewriter effect
+export const runtime = 'nodejs';
 
 export async function POST(req: Request) {
   const correlationId = generateCorrelationId();
