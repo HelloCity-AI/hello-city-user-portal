@@ -124,11 +124,13 @@ jobs:
           SCRIPT_EOF
           )
 
+          COMMANDS_JSON=$(jq -n --arg script "$SCRIPT" '{commands: [$script]}')
+
           aws ssm send-command \
             --document-name "AWS-RunShellScript" \
             --instance-ids ${{ steps.find.outputs.ids }} \
             --comment "$COMMENT" \
-            --parameters "commands=[\"$SCRIPT\"]" \
+            --parameters "$COMMANDS_JSON" \
             --output text
 
       - name: Invalidate CloudFront cache
