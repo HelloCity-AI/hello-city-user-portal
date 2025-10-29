@@ -46,6 +46,14 @@ function setLangCookieIfNeeded(res: NextResponse, req: NextRequest, lang: string
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Fix CloudFront + ALB port issue: ensure redirect URLs don't include :443
+  // CloudFront sends CloudFront-Forwarded-Proto: https, but ALB sets X-Forwarded-Port: 80
+  // This causes Next.js to generate redirect URLs with :443 port
+  const cfProto = request.headers.get('cloudfront-forwarded-proto');
+  if (cfProto === 'https' && request.nextUrl.port !== '443') {
+    request.nextUrl.port = '443';
+  }
+
   if (
     pathname.startsWith('/auth') ||
     pathname.startsWith('/api/') ||
