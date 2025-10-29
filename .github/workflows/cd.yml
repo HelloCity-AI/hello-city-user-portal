@@ -3,7 +3,7 @@ name: CD - EC2 (Frontend)
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["CI"]
+    workflows: ['CI']
     types: [completed]
     branches: [main]
 
@@ -15,8 +15,8 @@ env:
   AWS_REGION: ap-southeast-2
   ECR_REPO: frontend
   CONTAINER_NAME: hellocity-frontend
-  APP_PORT: "3000"
-  HOST_PORT: "3000"
+  APP_PORT: '3000'
+  HOST_PORT: '3000'
   EC2_TAG_KEY: Role
   EC2_TAG_VALUE: hellocity-app
 
