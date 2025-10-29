@@ -85,13 +85,14 @@ jobs:
               "# 4) Install jq if not present",
               "which jq || sudo yum install -y jq || true",
 
-              "# 5) Fetch environment variables from AWS Secrets Manager",
+              "# 5) Fetch environment variables from AWS Secrets Manager and write to env file",
               "echo Fetching secrets from '"${{ env.SECRET_NAME }}"'",
               "SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id '"${{ env.SECRET_NAME }}"' --region '"${{ env.AWS_REGION }}"' --query SecretString --output text)",
-              "ENV_VARS=$(echo \"$SECRET_JSON\" | jq -r '\".\" | to_entries | map(\"-e \\(.key)=\\(.value|tostring)\") | join(\" \")')",
+              "echo \"$SECRET_JSON\" | jq -r '\".\" | to_entries | map(\"\\(.key)=\\(.value|tostring)\") | .[]' > /tmp/.env.secrets",
 
-              "# 6) Run the new container with environment variables from Secrets Manager",
-              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' $ENV_VARS \"$IMG\"",
+              "# 6) Run the new container with environment variables from env file",
+              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' --env-file /tmp/.env.secrets \"$IMG\"",
+              "rm -f /tmp/.env.secrets",
 
               "# 7) Basic health check with retries",
               "for i in $(seq 1 15); do code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:'"${{ env.HOST_PORT }}"'/ || true); if [ \"$code\" = \"200\" ]; then echo \"Health OK\"; break; fi; echo \"health=$code (try $i/15)\"; sleep 4; done",
