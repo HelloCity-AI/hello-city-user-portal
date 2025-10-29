@@ -64,51 +64,68 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --instance-ids ${{ steps.find.outputs.ids }} \
             --comment "$COMMENT" \
-            --parameters commands='[
-              "set -e",
+            --parameters 'commands=["bash -c '\''
+              set -e
 
-              "# 0) Ensure Docker is installed and running",
-              "which docker || (sudo yum -y install docker && sudo systemctl enable --now docker) || true",
+              # 0) Ensure Docker is installed and running
+              which docker || (sudo yum -y install docker && sudo systemctl enable --now docker) || true
 
-              "# 1) ECR login & pull (prefer exact SHA, fallback to :latest)",
-              "aws ecr get-login-password --region '"${{ env.AWS_REGION }}"' | sudo docker login --username AWS --password-stdin '"${{ steps.ecr.outputs.registry }}"'",
-              "sudo docker pull '"${{ steps.img.outputs.image_sha }}"' || true",
-              "sudo docker pull '"${{ steps.img.outputs.image_latest }}"' || true",
+              # 1) ECR login & pull (prefer exact SHA, fallback to :latest)
+              aws ecr get-login-password --region ${{ env.AWS_REGION }} | sudo docker login --username AWS --password-stdin ${{ steps.ecr.outputs.registry }}
+              sudo docker pull ${{ steps.img.outputs.image_sha }} || true
+              sudo docker pull ${{ steps.img.outputs.image_latest }} || true
 
-              "# 2) Choose the image we actually have (SHA first, else latest)",
-              "if [ -n \"$(sudo docker images -q '"${{ steps.img.outputs.image_sha }}"')\" ]; then IMG='"${{ steps.img.outputs.image_sha }}"'; else IMG='"${{ steps.img.outputs.image_latest }}"'; fi",
-              "echo Using image: $IMG",
+              # 2) Choose the image we actually have (SHA first, else latest)
+              if [ -n \"$(sudo docker images -q ${{ steps.img.outputs.image_sha }})\" ]; then
+                IMG=${{ steps.img.outputs.image_sha }}
+              else
+                IMG=${{ steps.img.outputs.image_latest }}
+              fi
+              echo \"Using image: $IMG\"
 
-              "# 3) Stop/remove any old container with the same name",
-              "sudo docker rm -f '"${{ env.CONTAINER_NAME }}"' || true",
+              # 3) Stop/remove any old container with the same name
+              sudo docker rm -f ${{ env.CONTAINER_NAME }} || true
 
-              "# 4) Install jq if not present",
-              "which jq || sudo yum install -y jq || true",
+              # 4) Install jq if not present
+              which jq || sudo yum install -y jq || true
 
-              "# 5) Fetch environment variables from AWS Secrets Manager and write to env file",
-              "echo Fetching secrets from '"${{ env.SECRET_NAME }}"'",
-              "SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id '"${{ env.SECRET_NAME }}"' --region '"${{ env.AWS_REGION }}"' --query SecretString --output text)",
-              "echo \\\"\\$SECRET_JSON\\\" | jq -r '. | to_entries | map(\"\\(.key)=\\(.value|tostring)\") | .[]' > /tmp/.env.secrets",
+              # 5) Fetch environment variables from AWS Secrets Manager and write to env file
+              echo \"Fetching secrets from ${{ env.SECRET_NAME }}\"
+              SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id ${{ env.SECRET_NAME }} --region ${{ env.AWS_REGION }} --query SecretString --output text)
+              echo \"$SECRET_JSON\" | jq -r '\'' . | to_entries | map(\"\(.key)=\(.value|tostring)\") | .[] '\'' > /tmp/.env.secrets
 
-              "# 6) Run the new container with environment variables from env file",
-              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' --env-file /tmp/.env.secrets \"$IMG\"",
-              "rm -f /tmp/.env.secrets",
+              # 6) Run the new container with environment variables from env file
+              sudo docker run -d --name ${{ env.CONTAINER_NAME }} --restart unless-stopped -p ${{ env.HOST_PORT }}:${{ env.APP_PORT }} --env-file /tmp/.env.secrets \"$IMG\"
+              rm -f /tmp/.env.secrets
 
-              "# 7) Basic health check with retries",
-              "for i in $(seq 1 15); do code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:'"${{ env.HOST_PORT }}"'/ || true); if [ \"$code\" = \"200\" ]; then echo \"Health OK\"; break; fi; echo \"health=$code (try $i/15)\"; sleep 4; done",
-              "if [ \"$code\" != \"200\" ]; then echo \"--- docker logs ---\"; sudo docker logs --tail=200 '"${{ env.CONTAINER_NAME }}"'; exit 1; fi",
+              # 7) Basic health check with retries
+              for i in $(seq 1 15); do
+                code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:${{ env.HOST_PORT }}/ || true)
+                if [ \"$code\" = \"200\" ]; then
+                  echo \"Health OK\"
+                  break
+                fi
+                echo \"health=$code (try $i/15)\"
+                sleep 4
+              done
 
-              "# 8) Clean up stopped containers and dangling images",
-              "sudo docker container prune -f || true",
-              "sudo docker image prune -f || true",
+              if [ \"$code\" != \"200\" ]; then
+                echo \"--- docker logs ---\"
+                sudo docker logs --tail=200 ${{ env.CONTAINER_NAME }}
+                exit 1
+              fi
 
-              "# 9) Show final status",
-              "sudo docker ps --filter name='"${{ env.CONTAINER_NAME }}"' --format \"table {{.Names}}\\t{{.Image}}\\t{{.Status}}\\t{{.Ports}}\"",
+              # 8) Clean up stopped containers and dangling images
+              sudo docker container prune -f || true
+              sudo docker image prune -f || true
 
-              "# 10) Show deployment verification logs",
-              "echo ===== Deployment Logs Last 50 Lines =====",
-              "sudo docker logs --tail=50 '"${{ env.CONTAINER_NAME }}"'"
-            ]' \
+              # 9) Show final status
+              sudo docker ps --filter name=${{ env.CONTAINER_NAME }} --format \"table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\"
+
+              # 10) Show deployment verification logs
+              echo \"===== Deployment Logs Last 50 Lines =====\"
+              sudo docker logs --tail=50 ${{ env.CONTAINER_NAME }}
+            '\''"]' \
             --output text
 
       - name: Invalidate CloudFront cache
