@@ -2,10 +2,6 @@ name: CD - EC2 (Frontend)
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ['CI']
-    types: [completed]
-    branches: [main]
 
 permissions:
   id-token: write
@@ -19,12 +15,14 @@ env:
   HOST_PORT: '3000'
   EC2_TAG_KEY: Role
   EC2_TAG_VALUE: hellocity-app
+  SECRET_NAME: uat/front-end
+  CLOUDFRONT_DISTRIBUTION_ID: E2PXYFXVB9JFUQ
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    # Only run if CI workflow succeeded
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    # Only run on manual trigger
+    if: ${{ github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Configure AWS credentials
@@ -84,24 +82,43 @@ jobs:
               "# 3) Stop/remove any old container with the same name",
               "sudo docker rm -f '"${{ env.CONTAINER_NAME }}"' || true",
 
-              "# 4) Run the new container",
-              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' \"$IMG\"",
+              "# 4) Install jq if not present",
+              "which jq || sudo yum install -y jq || true",
 
-              "# 5) Basic health check with retries",
+              "# 5) Fetch environment variables from AWS Secrets Manager and write to env file",
+              "echo Fetching secrets from '"${{ env.SECRET_NAME }}"'",
+              "SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id '"${{ env.SECRET_NAME }}"' --region '"${{ env.AWS_REGION }}"' --query SecretString --output text)",
+              "echo \"$SECRET_JSON\" | jq -r '\".\" | to_entries | map(\"\\(.key)=\\(.value|tostring)\") | .[]' > /tmp/.env.secrets",
+
+              "# 6) Run the new container with environment variables from env file",
+              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' --env-file /tmp/.env.secrets \"$IMG\"",
+              "rm -f /tmp/.env.secrets",
+
+              "# 7) Basic health check with retries",
               "for i in $(seq 1 15); do code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:'"${{ env.HOST_PORT }}"'/ || true); if [ \"$code\" = \"200\" ]; then echo \"Health OK\"; break; fi; echo \"health=$code (try $i/15)\"; sleep 4; done",
               "if [ \"$code\" != \"200\" ]; then echo \"--- docker logs ---\"; sudo docker logs --tail=200 '"${{ env.CONTAINER_NAME }}"'; exit 1; fi",
 
-              "# 6) Clean up stopped containers and dangling images",
+              "# 8) Clean up stopped containers and dangling images",
               "sudo docker container prune -f || true",
               "sudo docker image prune -f || true",
 
-              "# 7) Show final status",
+              "# 9) Show final status",
               "sudo docker ps --filter name='"${{ env.CONTAINER_NAME }}"' --format \"table {{.Names}}\\t{{.Image}}\\t{{.Status}}\\t{{.Ports}}\"",
 
-              "# 8) Show deployment verification logs",
+              "# 10) Show deployment verification logs",
               "echo ===== Deployment Logs Last 50 Lines =====",
               "sudo docker logs --tail=50 '"${{ env.CONTAINER_NAME }}"'"
             ]' \
+            --output text
+
+      - name: Invalidate CloudFront cache
+        run: |
+          echo "🔄 Invalidating CloudFront distribution cache..."
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*" \
+            --region us-east-1 \
+            --query 'Invalidation.Id' \
             --output text
 
       - name: Notify deployment success
@@ -110,6 +127,8 @@ jobs:
           echo "✅ Frontend successfully deployed to EC2"
           echo "📦 Image: ${{ steps.img.outputs.image_latest }}"
           echo "🔖 Commit: ${{ github.sha }}"
+          echo "🔐 Secrets: Loaded from ${{ env.SECRET_NAME }}"
+          echo "🌐 CloudFront: Cache invalidated for ${{ env.CLOUDFRONT_DISTRIBUTION_ID }}"
 
       - name: Notify deployment failure
         if: failure()
