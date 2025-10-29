@@ -55,6 +55,8 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.protocol = 'https:';
     request.nextUrl.port = ''; // Empty string removes port from URL
   }
+  const origin = request.nextUrl.origin;
+  const buildRedirectUrl = (path: string) => new URL(path, origin);
 
   if (
     pathname.startsWith('/auth') ||
@@ -74,7 +76,7 @@ export async function middleware(request: NextRequest) {
     if (linguiConfig.locales.includes(normalized)) {
       const parts = pathname.split('/');
       parts[1] = normalized;
-      const redirectUrl = new URL(parts.join('/'), request.url);
+      const redirectUrl = buildRedirectUrl(parts.join('/'));
       const res = NextResponse.redirect(redirectUrl);
       setLangCookieIfNeeded(res, request, normalized);
       return res;
@@ -85,9 +87,8 @@ export async function middleware(request: NextRequest) {
     const cookieLang = request.cookies.get('lang')?.value;
     const locale =
       cookieLang && linguiConfig.locales.includes(cookieLang) ? cookieLang : getLocale(request);
-    const redirectUrl = new URL(
+    const redirectUrl = buildRedirectUrl(
       `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-      request.url,
     );
     const res = NextResponse.redirect(redirectUrl);
     setLangCookieIfNeeded(res, request, locale);
@@ -104,7 +105,7 @@ export async function middleware(request: NextRequest) {
   if (pathnameIsProtected) {
     const session = await auth0.getSession(request);
     if (!session?.user) {
-      const res = NextResponse.redirect(new URL(`/${langInPath}/`, request.url));
+      const res = NextResponse.redirect(buildRedirectUrl(`/${langInPath}/`));
       setLangCookieIfNeeded(res, request, langInPath);
       return res;
     }
