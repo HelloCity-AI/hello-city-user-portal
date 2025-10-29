@@ -7,15 +7,18 @@ WORKDIR /app
 # Copy package files
 COPY package.json package-lock.json ./
 
-# Install dependencies with exact versions
-RUN npm ci --omit=dev
+# Install production dependencies only (skip prepare scripts like husky)
+RUN npm ci --omit=dev --ignore-scripts
 
 # ==================== Stage 2: Builder ====================
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-# Copy dependencies from deps stage
-COPY --from=deps /app/node_modules ./node_modules
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install ALL dependencies for build (including devDependencies, skip prepare scripts)
+RUN npm ci --ignore-scripts
 
 # Copy source code
 COPY . .
