@@ -53,7 +53,7 @@ export async function middleware(request: NextRequest) {
   if (cfProto === 'https') {
     // Must update both protocol and port on nextUrl for redirects to work correctly
     request.nextUrl.protocol = 'https:';
-    request.nextUrl.port = '';  // Empty string removes port from URL
+    request.nextUrl.port = ''; // Empty string removes port from URL
   }
 
   if (
