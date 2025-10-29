@@ -82,26 +82,29 @@ jobs:
               "# 3) Stop/remove any old container with the same name",
               "sudo docker rm -f '"${{ env.CONTAINER_NAME }}"' || true",
 
-              "# 4) Fetch environment variables from AWS Secrets Manager",
+              "# 4) Install jq if not present",
+              "which jq || sudo yum install -y jq || true",
+
+              "# 5) Fetch environment variables from AWS Secrets Manager",
               "echo Fetching secrets from '"${{ env.SECRET_NAME }}"'",
               "SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id '"${{ env.SECRET_NAME }}"' --region '"${{ env.AWS_REGION }}"' --query SecretString --output text)",
               "ENV_VARS=$(echo \"$SECRET_JSON\" | jq -r '\".\" | to_entries | map(\"-e \\(.key)=\\(.value|tostring)\") | join(\" \")')",
 
-              "# 5) Run the new container with environment variables from Secrets Manager",
+              "# 6) Run the new container with environment variables from Secrets Manager",
               "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' $ENV_VARS \"$IMG\"",
 
-              "# 6) Basic health check with retries",
+              "# 7) Basic health check with retries",
               "for i in $(seq 1 15); do code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:'"${{ env.HOST_PORT }}"'/ || true); if [ \"$code\" = \"200\" ]; then echo \"Health OK\"; break; fi; echo \"health=$code (try $i/15)\"; sleep 4; done",
               "if [ \"$code\" != \"200\" ]; then echo \"--- docker logs ---\"; sudo docker logs --tail=200 '"${{ env.CONTAINER_NAME }}"'; exit 1; fi",
 
-              "# 7) Clean up stopped containers and dangling images",
+              "# 8) Clean up stopped containers and dangling images",
               "sudo docker container prune -f || true",
               "sudo docker image prune -f || true",
 
-              "# 8) Show final status",
+              "# 9) Show final status",
               "sudo docker ps --filter name='"${{ env.CONTAINER_NAME }}"' --format \"table {{.Names}}\\t{{.Image}}\\t{{.Status}}\\t{{.Ports}}\"",
 
-              "# 9) Show deployment verification logs",
+              "# 10) Show deployment verification logs",
               "echo ===== Deployment Logs Last 50 Lines =====",
               "sudo docker logs --tail=50 '"${{ env.CONTAINER_NAME }}"'"
             ]' \
@@ -113,6 +116,7 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ env.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*" \
+            --region us-east-1 \
             --query 'Invalidation.Id' \
             --output text
 
