@@ -1,0 +1,119 @@
+name: CD - EC2 (Frontend)
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: ap-southeast-2
+  ECR_REPO: frontend
+  CONTAINER_NAME: hellocity-frontend
+  APP_PORT: "3000"
+  HOST_PORT: "3000"
+  EC2_TAG_KEY: Role
+  EC2_TAG_VALUE: hellocity-app
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    # Only run if CI workflow succeeded
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Identify running EC2 instances by tag
+        id: find
+        run: |
+          set -e
+          IDS=$(aws ec2 describe-instances \
+            --filters "Name=tag:${EC2_TAG_KEY},Values=${EC2_TAG_VALUE}" "Name=instance-state-name,Values=running" \
+            --query "Reservations[].Instances[].InstanceId" --output text)
+          [ -n "$IDS" ] || { echo "No running instances with ${EC2_TAG_KEY}=${EC2_TAG_VALUE}"; exit 1; }
+          echo "ids=$IDS" >> $GITHUB_OUTPUT
+
+      - name: ECR login
+        id: ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build image URI vars
+        id: img
+        run: |
+          REG="${{ steps.ecr.outputs.registry }}"
+          SHA="${{ github.sha }}"
+          echo "image_sha=${REG}/${{ env.ECR_REPO }}:${SHA}" >> $GITHUB_OUTPUT
+          echo "image_latest=${REG}/${{ env.ECR_REPO }}:latest" >> $GITHUB_OUTPUT
+
+      - name: Deploy Frontend on EC2 via SSM
+        run: |
+          set -e
+          SHORT_SHA="${GITHUB_SHA::7}"
+          COMMENT="Deploy ${ECR_REPO}:${SHORT_SHA}"
+
+          aws ssm send-command \
+            --document-name "AWS-RunShellScript" \
+            --instance-ids ${{ steps.find.outputs.ids }} \
+            --comment "$COMMENT" \
+            --parameters commands='[
+              "set -e",
+
+              "# 0) Ensure Docker is installed and running",
+              "which docker || (sudo yum -y install docker && sudo systemctl enable --now docker) || true",
+
+              "# 1) ECR login & pull (prefer exact SHA, fallback to :latest)",
+              "aws ecr get-login-password --region '"${{ env.AWS_REGION }}"' | sudo docker login --username AWS --password-stdin '"${{ steps.ecr.outputs.registry }}"'",
+              "sudo docker pull '"${{ steps.img.outputs.image_sha }}"' || true",
+              "sudo docker pull '"${{ steps.img.outputs.image_latest }}"' || true",
+
+              "# 2) Choose the image we actually have (SHA first, else latest)",
+              "if [ -n \"$(sudo docker images -q '"${{ steps.img.outputs.image_sha }}"')\" ]; then IMG='"${{ steps.img.outputs.image_sha }}"'; else IMG='"${{ steps.img.outputs.image_latest }}"'; fi",
+              "echo Using image: $IMG",
+
+              "# 3) Stop/remove any old container with the same name",
+              "sudo docker rm -f '"${{ env.CONTAINER_NAME }}"' || true",
+
+              "# 4) Run the new container",
+              "sudo docker run -d --name '"${{ env.CONTAINER_NAME }}"' --restart unless-stopped -p '"${{ env.HOST_PORT }}"':'${{ env.APP_PORT }}' \"$IMG\"",
+
+              "# 5) Basic health check with retries",
+              "for i in $(seq 1 15); do code=$(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:'"${{ env.HOST_PORT }}"'/ || true); if [ \"$code\" = \"200\" ]; then echo \"Health OK\"; break; fi; echo \"health=$code (try $i/15)\"; sleep 4; done",
+              "if [ \"$code\" != \"200\" ]; then echo \"--- docker logs ---\"; sudo docker logs --tail=200 '"${{ env.CONTAINER_NAME }}"'; exit 1; fi",
+
+              "# 6) Clean up stopped containers and dangling images",
+              "sudo docker container prune -f || true",
+              "sudo docker image prune -f || true",
+
+              "# 7) Show final status",
+              "sudo docker ps --filter name='"${{ env.CONTAINER_NAME }}"' --format \"table {{.Names}}\\t{{.Image}}\\t{{.Status}}\\t{{.Ports}}\"",
+
+              "# 8) Show deployment verification logs",
+              "echo ===== Deployment Logs Last 50 Lines =====",
+              "sudo docker logs --tail=50 '"${{ env.CONTAINER_NAME }}"'"
+            ]' \
+            --output text
+
+      - name: Notify deployment success
+        if: success()
+        run: |
+          echo "✅ Frontend successfully deployed to EC2"
+          echo "📦 Image: ${{ steps.img.outputs.image_latest }}"
+          echo "🔖 Commit: ${{ github.sha }}"
+
+      - name: Notify deployment failure
+        if: failure()
+        run: |
+          echo "❌ Frontend deployment failed"
+          echo "Check SSM command history in AWS Console"
+          exit 1
