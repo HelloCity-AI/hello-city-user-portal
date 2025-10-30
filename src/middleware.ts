@@ -47,15 +47,21 @@ export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Fix CloudFront + ALB port issue: ensure redirect URLs don't include :443
-  // CloudFront sends CloudFront-Forwarded-Proto: https, but ALB sets X-Forwarded-Port: 80
-  // This causes Next.js to generate redirect URLs with :443 port
-  const cfProto = request.headers.get('cloudfront-forwarded-proto');
-  if (cfProto === 'https') {
-    // Must update both protocol and port on nextUrl for redirects to work correctly
+  // CloudFront may send CloudFront-Forwarded-Proto or X-Forwarded-Proto: https
+  // ALB adds X-Forwarded-Port: 80, causing protocol/port mismatch
+  const cloudFrontProto = request.headers.get('cloudfront-forwarded-proto');
+  const forwardedProto = cloudFrontProto ?? request.headers.get('x-forwarded-proto');
+
+  if (forwardedProto?.toLowerCase() === 'https') {
     request.nextUrl.protocol = 'https:';
-    request.nextUrl.port = ''; // Empty string removes port from URL
+    request.nextUrl.port = '';
   }
-  const origin = request.nextUrl.origin;
+  const forwardedHost =
+    request.headers.get('x-forwarded-host') ??
+    request.headers.get('host') ??
+    request.nextUrl.host;
+  const cleanHost = forwardedHost.replace(/:443$/, '');
+  const origin = `${request.nextUrl.protocol}//${cleanHost}`;
   const buildRedirectUrl = (path: string) => new URL(path, origin);
 
   if (
