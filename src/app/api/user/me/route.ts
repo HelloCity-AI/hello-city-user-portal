@@ -29,7 +29,9 @@ type BackendEditUserForm = {
  * This endpoint is used by userSaga.ts for fetching user data
  */
 export async function GET(request: NextRequest): Promise<NextResponse> {
-  console.log('[/api/user/me Request Headers]', {
+  // Log immediately when request received
+  console.log('=== [/api/user/me] REQUEST RECEIVED ===');
+  console.log('[Request Headers]', {
     host: request.headers.get('host'),
     'x-forwarded-host': request.headers.get('x-forwarded-host'),
     'x-forwarded-proto': request.headers.get('x-forwarded-proto'),
@@ -39,8 +41,9 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
   });
 
   try {
+    console.log('[Before getAuthContext] About to call getAuthContext()');
     const { token, apiUrl } = await getAuthContext();
-    console.log('[/api/user/me GET]', {
+    console.log('[After getAuthContext] Success', {
       hasToken: !!token,
       tokenPrefix: token ? token.substring(0, 20) + '...' : 'N/A',
       apiUrl,
@@ -48,6 +51,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     const response = await fetchUserProfile(token, apiUrl);
     return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
+    console.log('[Catch Block] Error caught:', error);
     if (error instanceof AuthError) {
       return error.response;
     }
