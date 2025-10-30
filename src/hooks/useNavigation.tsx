@@ -46,3 +46,34 @@ export const useNavigation = (): NavConfig => {
     navItems,
   };
 };
+
+// Server-side version without React context
+export const getNavigationConfig = (language: SupportedLanguage = 'en'): NavConfig => {
+  const currentLanguage: LanguageInfo = SUPPORTED_LANGUAGES[language as SupportedLanguage];
+  const navItems: NavItem[] = [
+    {
+      id: 'home',
+      href: `/${language}`,
+      label: 'Home', // Plain string for server-side
+      onClick: undefined,
+      childrenItem: undefined,
+    },
+    {
+      id: 'contact',
+      href: `/${language}/contact-us`,
+      label: 'Contact Us',
+      onClick: undefined,
+      childrenItem: undefined,
+    },
+  ];
+
+  return {
+    currentLanguage,
+    logo: {
+      light: LOGO_CONFIG.light,
+      dark: LOGO_CONFIG.dark,
+      href: `/${language}/`,
+    },
+    navItems,
+  };
+};
