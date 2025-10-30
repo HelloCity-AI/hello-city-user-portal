@@ -31,6 +31,11 @@ type BackendEditUserForm = {
 export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
     const { token, apiUrl } = await getAuthContext();
+    console.log('[/api/user/me GET]', {
+      hasToken: !!token,
+      tokenPrefix: token ? token.substring(0, 20) + '...' : 'N/A',
+      apiUrl,
+    });
     const response = await fetchUserProfile(token, apiUrl);
     return NextResponse.json(response.data, { status: response.status });
   } catch (error) {
