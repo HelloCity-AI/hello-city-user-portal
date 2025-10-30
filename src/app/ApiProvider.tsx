@@ -11,7 +11,8 @@ const ApiProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true;
-      dispatch(fetchUser());
+      // TEMPORARY: Disable auto fetchUser to test if it's causing CORS errors
+      // dispatch(fetchUser());
     }
   }, [dispatch]);
 

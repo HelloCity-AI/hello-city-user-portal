@@ -5,9 +5,7 @@ import { useNavigation } from '@/hooks/useNavigation';
 import useIsMobile from '@/hooks/useIsMobile';
 import DesktopNavBar from './DesktopNavBar';
 import MobileNavBar from './MobileNavBar';
-import { AuthState } from '@/store/slices/user';
-import { useSelector } from 'react-redux';
-import { type RootState } from '@/store';
+import { useUser } from '@auth0/nextjs-auth0/client';
 import { type NavConfig } from './navConfig';
 
 export interface NavBarProps {
@@ -16,10 +14,10 @@ export interface NavBarProps {
 }
 
 const NavBar = () => {
-  const { authStatus } = useSelector((state: RootState) => state.user);
+  const { user } = useUser();
   const navConfig = useNavigation();
   const isMobile = useIsMobile();
-  const hasAuthenticated = authStatus !== AuthState.Unauthenticated;
+  const hasAuthenticated = !!user;
 
   return isMobile ? (
     <MobileNavBar hasAuthenticated={hasAuthenticated} navConfig={navConfig} />
