@@ -28,7 +28,16 @@ type BackendEditUserForm = {
  * Get current user profile
  * This endpoint is used by userSaga.ts for fetching user data
  */
-export async function GET(_request: NextRequest): Promise<NextResponse> {
+export async function GET(request: NextRequest): Promise<NextResponse> {
+  console.log('[/api/user/me Request Headers]', {
+    host: request.headers.get('host'),
+    'x-forwarded-host': request.headers.get('x-forwarded-host'),
+    'x-forwarded-proto': request.headers.get('x-forwarded-proto'),
+    'x-forwarded-for': request.headers.get('x-forwarded-for'),
+    origin: request.headers.get('origin'),
+    referer: request.headers.get('referer'),
+  });
+
   try {
     const { token, apiUrl } = await getAuthContext();
     console.log('[/api/user/me GET]', {
