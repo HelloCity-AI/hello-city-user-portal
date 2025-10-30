@@ -11,7 +11,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { CustomModal } from '@/compoundComponents/Modals/CustomModal';
 
 export const useTryHelloCity = () => {
-  const { user, isLoading } = useUser();
+  // TEMPORARY: Disable useUser() to test if it's causing CORS errors
+  // const { user, isLoading } = useUser();
+  const user = null; // Mock: assume user is not logged in
+  const isLoading = false; // Mock: not loading
   const { language } = useLanguage();
   const router = useRouter();
   const [showLoginModal, setShowLoginModal] = useState(false);
