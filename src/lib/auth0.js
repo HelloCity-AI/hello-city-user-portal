@@ -28,5 +28,15 @@ export const auth0 = new Auth0Client({
     scope: 'openid profile email',
     audience: process.env.AUTH0_AUDIENCE,
   },
+
+  // Explicit session configuration for v4
+  session: {
+    cookie: {
+      domain: process.env.AUTH0_COOKIE_DOMAIN || undefined,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      httpOnly: true,
+    },
+  },
 });
 // conclusion: The Auth0 client is now initialized and can be used in your application for authentication purposes.
