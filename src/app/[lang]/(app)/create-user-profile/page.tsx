@@ -113,9 +113,9 @@ const Page = () => {
     );
   }
 
-  // If no user information, redirect to login page
+  // If no user information, redirect to homepage
   if (!user) {
-    window.location.href = '/auth/login';
+    window.location.href = '/';
     return null;
   }
 
