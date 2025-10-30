@@ -5,7 +5,7 @@ import { useNavigation } from '@/hooks/useNavigation';
 import useIsMobile from '@/hooks/useIsMobile';
 import DesktopNavBar from './DesktopNavBar';
 import MobileNavBar from './MobileNavBar';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser } from '@auth0/nextjs-auth0';
 import { type NavConfig } from './navConfig';
 
 export interface NavBarProps {
