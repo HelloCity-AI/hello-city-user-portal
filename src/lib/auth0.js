@@ -1,6 +1,16 @@
 // lib/auth0.js
 import { Auth0Client } from '@auth0/nextjs-auth0/server';
 
+// Debug: Log Auth0 configuration
+console.log('[Auth0 Config]', {
+  domain: process.env.AUTH0_DOMAIN,
+  clientId: process.env.AUTH0_CLIENT_ID?.substring(0, 10) + '...',
+  audience: process.env.AUTH0_AUDIENCE,
+  appBaseUrl: process.env.APP_BASE_URL,
+  hasClientSecret: !!process.env.AUTH0_CLIENT_SECRET,
+  hasSecret: !!process.env.AUTH0_SECRET,
+});
+
 // Initialize the Auth0 client
 export const auth0 = new Auth0Client({
   // Options are loaded from environment variables by default
