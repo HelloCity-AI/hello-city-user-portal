@@ -6,7 +6,7 @@ import { getServerTranslation } from '@/utils/serverI18n';
 import SectionBackground from '@/components/HomepageSections/SectionBackground';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import SectionContentArea from '@/components/HomepageSections/SectionContentArea';
-import TryHelloCityButtonClient from '@/components/HomePage/TryHelloCityButtonClient';
+import { TryHelloCityButton } from '@/components/HomePage/TryHelloCityButton';
 
 const overlayLinearGradient =
   'bg-[linear-gradient(to_top,rgba(11,18,32,0)_0%,rgba(11,18,32,0.0)_15%,rgba(11,18,32,0.14)_30%,rgba(11,18,32,0.22)_45%,rgba(11,18,32,0.12)_65%,rgba(11,18,32,0)_100%)]';
@@ -47,7 +47,7 @@ const HeroSection = async ({ locale }: { locale: string }) => {
               'Step-by-step plan to make moving into any city simple, clear, and stress-free—for tourists, students, and new migrants.',
             )}
           </Typography>
-          <TryHelloCityButtonClient variant="hero" />
+          <TryHelloCityButton variant="hero" />
         </SectionContentArea>
       </SectionContent>
     </SectionBackground>

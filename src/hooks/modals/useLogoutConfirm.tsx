@@ -11,7 +11,6 @@ import { ConfirmModal } from '@/compoundComponents/Modals/ConfirmModal';
  * - Keep as a small, reusable hook for any menu/drawer.
  */
 const useLogoutConfirm = () => {
-  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   const show = () => setOpen(true);
@@ -19,7 +18,7 @@ const useLogoutConfirm = () => {
 
   const handleConfirm = () => {
     hide();
-    router.push('/auth/logout');
+    window.location.href = '/auth/logout';
   };
 
   const ModalNode = (

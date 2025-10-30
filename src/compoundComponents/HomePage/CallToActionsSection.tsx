@@ -3,7 +3,7 @@ import SectionBackground from '@/components/HomepageSections/SectionBackground';
 import SectionContent from '@/components/HomepageSections/SectionContent';
 import { getServerTranslation } from '@/utils/serverI18n';
 import Typography from '@mui/material/Typography';
-import TryHelloCityButtonClient from '@/components/HomePage/TryHelloCityButtonClient';
+import { TryHelloCityButton } from '@/components/HomePage/TryHelloCityButton';
 
 const CallToActionsSection = async ({ locale }: { locale: string }) => {
   const { t } = await getServerTranslation(locale);
@@ -19,7 +19,7 @@ const CallToActionsSection = async ({ locale }: { locale: string }) => {
             "Join thousands of people who have successfully navigated their new cities with HelloCity's guidance.",
           )}
         </Typography>
-        <TryHelloCityButtonClient variant="cta" />
+        <TryHelloCityButton variant="cta" />
       </SectionContent>
     </SectionBackground>
   );
