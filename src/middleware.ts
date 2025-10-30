@@ -57,9 +57,7 @@ export async function middleware(request: NextRequest) {
     request.nextUrl.port = '';
   }
   const forwardedHost =
-    request.headers.get('x-forwarded-host') ??
-    request.headers.get('host') ??
-    request.nextUrl.host;
+    request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? request.nextUrl.host;
   const cleanHost = forwardedHost.replace(/:443$/, '');
   const origin = `${request.nextUrl.protocol}//${cleanHost}`;
   const buildRedirectUrl = (path: string) => new URL(path, origin);
