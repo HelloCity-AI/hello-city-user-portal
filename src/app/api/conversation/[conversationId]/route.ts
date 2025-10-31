@@ -5,7 +5,7 @@ import { getConversation, deleteConversation, updateConversation } from '@/lib/a
 
 export async function GET(
   _request: NextRequest,
-  props: { params: Promise<{ conversationId: string }> }
+  props: { params: Promise<{ conversationId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {
@@ -22,7 +22,7 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  props: { params: Promise<{ conversationId: string }> }
+  props: { params: Promise<{ conversationId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {
@@ -51,7 +51,7 @@ export async function PATCH(
 
 export async function DELETE(
   _request: NextRequest,
-  props: { params: Promise<{ conversationId: string }> }
+  props: { params: Promise<{ conversationId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {

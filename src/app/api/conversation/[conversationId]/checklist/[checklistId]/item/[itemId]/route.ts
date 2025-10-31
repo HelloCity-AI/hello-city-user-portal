@@ -5,7 +5,7 @@ import { updateChecklistItem, deleteChecklistItem } from '@/lib/api-client';
 
 export async function PUT(
   request: NextRequest,
-  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> }
+  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {
@@ -30,7 +30,7 @@ export async function PUT(
 
 export async function DELETE(
   _request: NextRequest,
-  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> }
+  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {

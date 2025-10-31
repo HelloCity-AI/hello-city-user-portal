@@ -16,9 +16,7 @@ export function generateStaticParams() {
 export default async function LangLayout(props: Props) {
   const params = await props.params;
 
-  const {
-    children
-  } = props;
+  const { children } = props;
 
   const { lang } = params;
 
