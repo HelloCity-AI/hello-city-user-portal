@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: 'standalone', // Enable for Docker deployment
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   experimental: {
