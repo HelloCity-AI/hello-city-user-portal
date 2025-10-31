@@ -2,20 +2,6 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  turbopack: {
-    rules: {
-      '*.po': {
-        loaders: ['@lingui/loader'],
-      },
-      ...(isProd
-        ? {
-            'src/app/api/devtools/**/*': {
-              as: 'empty',
-            },
-          }
-        : {}),
-    },
-  },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   compiler: {
@@ -23,6 +9,14 @@ const nextConfig = {
   },
   experimental: {
     // swcPlugins: [['@lingui/swc-plugin', {}]],
+  },
+  turbopack: {
+    rules: {
+      '*.po': {
+        loaders: ['@lingui/loader'],
+        as: '*.js',
+      },
+    },
   },
   images: {
     remotePatterns: [
