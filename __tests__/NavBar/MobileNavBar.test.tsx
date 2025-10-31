@@ -64,7 +64,7 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
 
     it('Renders sign in button when not signed in', () => {
       renderMobileNavBar({ hasAuthenticated: false });
-      expect(screen.getByRole('link', { name: /sign in/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
     });
 
     it('Renders user avatar when signed in', () => {

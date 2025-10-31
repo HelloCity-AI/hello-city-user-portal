@@ -103,7 +103,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
     it('Shows sign in button when not signed in', () => {
       renderDesktopNavBar({ hasAuthenticated: false });
 
-      expect(screen.getByRole('link', { name: /sign in/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
     });
 
     it('Shows Try HelloCity button', () => {
