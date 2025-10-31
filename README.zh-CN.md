@@ -2,7 +2,7 @@
 
 # Hello City Client
 
-一个由 Next.js 14、React 18、TypeScript、Material-UI、Tailwind CSS、Redux Toolkit 构建，并提供完善国际化支持的现代前端项目。
+一个由 Next.js 15、React 19、TypeScript、Material-UI、Tailwind CSS、Redux Toolkit 构建，并提供完善国际化支持的现代前端项目。
 
 ## 📋 目录
 
@@ -170,7 +170,7 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 - **流式响应：** 借助 Vercel AI SDK，通过 SSE 提供实时流式回复，可配置打字机效果
 - **会话管理：** 创建、查看并管理多轮对话记录
 - **智能清单：** AI 异步生成城市任务清单并自动更新
-- **多语言支持：** 完整覆盖英文与中文的国际化体验
+- **多语言支持：** 完整支持 5 种语言 (en, zh_CN, zh_TW, ja, ko) 的国际化体验
 - **Node.js 运行时：** 在生产环境中使用 Node.js 运行时以精确控制流式与打字机效果
 
 **架构特点：**
@@ -241,8 +241,8 @@ copy .env.example .env.local
 
 ### 核心框架
 
-- [Next.js 14](https://nextjs.org/) - 带 App Router 的 React 框架
-- [React 18](https://react.dev/) - UI 库
+- [Next.js 15](https://nextjs.org/) - 带 App Router 的 React 框架
+- [React 19](https://react.dev/) - UI 库
 - [TypeScript](https://www.typescriptlang.org/) - 类型安全
 
 ### UI 与样式
@@ -272,7 +272,7 @@ copy .env.example .env.local
 ### 国际化
 
 - [Lingui](https://lingui.js.org/) - 国际化库
-- 支持英文与中文
+- 支持 5 种语言：英文 (en)、简体中文 (zh_CN)、繁体中文 (zh_TW)、日文 (ja)、韩文 (ko)
 
 ### 开发工具
 
@@ -344,9 +344,12 @@ src/
 ### 语言支持
 
 - **英文**：`/en/` 路由（默认）
-- **中文**：`/zh/` 路由
+- **简体中文**：`/zh_CN/` 路由
+- **繁体中文**：`/zh_TW/` 路由
+- **日文**：`/ja/` 路由
+- **韩文**：`/ko/` 路由
 - 始终使用 `<Trans>` 包裹用户可见文案
-- 开发流程中需测试两种语言
+- 开发流程中需测试所有语言
 
 ### 代码质量
 

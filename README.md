@@ -2,7 +2,7 @@
 
 # Hello City Client
 
-A modern frontend project powered by Next.js 14, React 18, TypeScript, Material-UI, Tailwind CSS, Redux Toolkit, and comprehensive internationalization support.
+A modern frontend project powered by Next.js 15, React 19, TypeScript, Material-UI, Tailwind CSS, Redux Toolkit, and comprehensive internationalization support.
 
 ## 📋 Table of Contents
 
@@ -170,7 +170,7 @@ Real-time AI chat with OpenAI GPT integration and intelligent checklist generati
 - **Streaming Responses:** Real-time SSE streaming via Vercel AI SDK with configurable typewriter effect
 - **Conversation Management:** Create, view, and manage chat conversations
 - **Intelligent Checklists:** AI-generated task checklists with async processing
-- **Multi-Language Support:** Full i18n support for English and Chinese
+- **Multi-Language Support:** Full i18n support for 5 languages (en, zh_CN, zh_TW, ja, ko)
 - **Node.js Runtime:** Uses Node.js runtime for precise stream control and typewriter effect in production
 
 **Architecture:**
@@ -190,7 +190,7 @@ Real-time AI chat with OpenAI GPT integration and intelligent checklist generati
 
 ### Route Groups Architecture
 
-The application uses Next.js 14 Route Groups to organize pages:
+The application uses Next.js 15 Route Groups to organize pages:
 
 - **`(app)` group** - Protected application pages requiring authentication
 - **`(site)` group** - Public marketing and informational pages
@@ -254,8 +254,8 @@ Automatically enforces code quality standards:
 
 ### Core Framework
 
-- [Next.js 14](https://nextjs.org/) - React framework with App Router
-- [React 18](https://react.dev/) - UI library
+- [Next.js 15](https://nextjs.org/) - React framework with App Router
+- [React 19](https://react.dev/) - UI library
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 
 ### UI & Styling
@@ -285,7 +285,7 @@ Automatically enforces code quality standards:
 ### Internationalization
 
 - [Lingui](https://lingui.js.org/) - i18n library
-- Support for English and Chinese
+- Support for 5 languages: English, Simplified Chinese (zh_CN), Traditional Chinese (zh_TW), Japanese (ja), Korean (ko)
 
 ### Development Tools
 
@@ -357,9 +357,12 @@ src/
 ### Language Support
 
 - **English**: `/en/` routes (default)
-- **Chinese**: `/zh/` routes
+- **Simplified Chinese**: `/zh_CN/` routes
+- **Traditional Chinese**: `/zh_TW/` routes
+- **Japanese**: `/ja/` routes
+- **Korean**: `/ko/` routes
 - Always wrap user-facing text with `<Trans>` components
-- Test both languages during development
+- Test all languages during development
 
 ### Code Quality
 
