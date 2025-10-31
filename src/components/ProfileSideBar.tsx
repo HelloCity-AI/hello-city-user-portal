@@ -24,7 +24,7 @@ const ProfileSideBar = () => {
               <Button href="/settings">Settings</Button>
             </div>
 
-            <Button onClick={() => window.location.href = '/auth/logout'}>Logout</Button>
+            <Button onClick={() => (window.location.href = '/auth/logout')}>Logout</Button>
           </div>
         )}
       </div>
