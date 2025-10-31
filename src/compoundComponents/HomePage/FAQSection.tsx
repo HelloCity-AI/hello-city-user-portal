@@ -56,9 +56,7 @@ const FAQSection: React.FC = () => {
     },
     {
       key: 'faq4',
-      question: (
-        <Trans id="contact.faq.q4" message="How accurate are the AI-generated plans?" />
-      ),
+      question: <Trans id="contact.faq.q4" message="How accurate are the AI-generated plans?" />,
       answer: (
         <Trans
           id="contact.faq.a4"

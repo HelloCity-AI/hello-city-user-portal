@@ -5,7 +5,7 @@ import { toggleChecklistItemComplete } from '@/lib/api-client';
 
 export async function PATCH(
   request: NextRequest,
-  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> }
+  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> },
 ): Promise<NextResponse> {
   const params = await props.params;
   try {
