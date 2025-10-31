@@ -5,8 +5,9 @@ import { createChecklistItem } from '@/lib/api-client';
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { conversationId: string; checklistId: string } },
+  props: { params: Promise<{ conversationId: string; checklistId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const body = await request.json();
     const { token, apiUrl } = await getAuthContext();

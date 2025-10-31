@@ -226,7 +226,7 @@ export const useChecklistPanel = ({
   );
 
   // Custom debounce implementation (500ms delay)
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout>(undefined);
 
   const debouncedReorderSaga = useCallback(
     (conversationId: string, checklistId: string, reorderedIds: string[]) => {

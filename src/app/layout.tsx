@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider, StyledEngineProvider } from '@mui/material'
 import { Inter } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
 import websiteTheme from '@/theme/theme';
 import ReduxProvider from './ReduxProvider';
 import ApiProvider from './ApiProvider';
@@ -20,13 +21,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get language from cookie set by middleware
+  const cookieStore = await cookies();
+  const lang = cookieStore.get('lang')?.value || 'en';
+
   return (
-    <html lang="en">
+    <html lang={lang}>
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <StyledEngineProvider injectFirst>

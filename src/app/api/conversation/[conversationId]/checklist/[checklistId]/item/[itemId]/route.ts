@@ -5,8 +5,9 @@ import { updateChecklistItem, deleteChecklistItem } from '@/lib/api-client';
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { conversationId: string; checklistId: string; itemId: string } },
+  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const body = await request.json();
     const { token, apiUrl } = await getAuthContext();
@@ -29,8 +30,9 @@ export async function PUT(
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { conversationId: string; checklistId: string; itemId: string } },
+  props: { params: Promise<{ conversationId: string; checklistId: string; itemId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const { token, apiUrl } = await getAuthContext();
     await deleteChecklistItem(

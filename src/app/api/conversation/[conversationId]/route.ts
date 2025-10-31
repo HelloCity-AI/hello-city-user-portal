@@ -5,8 +5,9 @@ import { getConversation, deleteConversation, updateConversation } from '@/lib/a
 
 export async function GET(
   _request: NextRequest,
-  { params }: { params: { conversationId: string } },
+  props: { params: Promise<{ conversationId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const { token, apiUrl } = await getAuthContext();
     const response = await getConversation(token, apiUrl, params.conversationId);
@@ -21,8 +22,9 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { conversationId: string } },
+  props: { params: Promise<{ conversationId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const body = await request.json();
     const { title } = body;
@@ -49,8 +51,9 @@ export async function PATCH(
 
 export async function DELETE(
   _request: NextRequest,
-  { params }: { params: { conversationId: string } },
+  props: { params: Promise<{ conversationId: string }> }
 ): Promise<NextResponse> {
+  const params = await props.params;
   try {
     const { token, apiUrl } = await getAuthContext();
     await deleteConversation(token, apiUrl, params.conversationId);

@@ -37,25 +37,23 @@ const UserDrawer: React.FC<UserDrawerProps> = ({
       <Divider className="mx-6 mt-5 border-t-[0.1px] border-dotted opacity-50" />
 
       <List className="px-7">
-        {options.map((option) => {
-          return (
-            <React.Fragment key={option.id}>
-              <ListItemButton onClick={() => handleClick(option.onClick)}>
-                {option.icon && (
-                  <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
-                    <option.icon fontSize="small" sx={{ color: 'secondary.contrastText' }} />
-                  </ListItemIcon>
-                )}
-                <Typography variant="body2" className="font-medium">
-                  {option.label}
-                </Typography>
-              </ListItemButton>
-              {option.divider && (
-                <Divider className="mx-6 border-t-[0.1px] border-dotted opacity-50" />
+        {options.map((option) => (
+          <Box key={option.id} component="div">
+            <ListItemButton onClick={() => handleClick(option.onClick)}>
+              {option.icon && (
+                <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
+                  <option.icon fontSize="small" sx={{ color: 'secondary.contrastText' }} />
+                </ListItemIcon>
               )}
-            </React.Fragment>
-          );
-        })}
+              <Typography variant="body2" className="font-medium">
+                {option.label}
+              </Typography>
+            </ListItemButton>
+            {option.divider && (
+              <Divider className="mx-6 border-t-[0.1px] border-dotted opacity-50" />
+            )}
+          </Box>
+        ))}
       </List>
     </Drawer>
   );

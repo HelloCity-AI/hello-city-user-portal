@@ -1,7 +1,8 @@
 import { getAuthContext } from '@/lib/auth-utils';
 import { getConversationChecklists } from '@/lib/api-client';
 
-export async function GET(_req: Request, { params }: { params: { conversationId: string } }) {
+export async function GET(_req: Request, props: { params: Promise<{ conversationId: string }> }) {
+  const params = await props.params;
   try {
     const { token, apiUrl } = await getAuthContext();
     const response = await getConversationChecklists(token, apiUrl, params.conversationId);

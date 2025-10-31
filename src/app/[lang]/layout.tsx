@@ -6,14 +6,20 @@ import ClientProviders from './ClientProviders';
 
 type Props = {
   children: ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 };
 
 export function generateStaticParams() {
   return linguiConfig.locales.map((locale) => ({ lang: locale }));
 }
 
-export default async function LangLayout({ children, params }: Props) {
+export default async function LangLayout(props: Props) {
+  const params = await props.params;
+
+  const {
+    children
+  } = props;
+
   const { lang } = params;
 
   // Preload messages for all languages to avoid loading issues during language switching
