@@ -1477,27 +1477,27 @@ msgstr "聯絡我們"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity 是您的 AI 搬遷助手，提供逐步計畫和時間表，幫助您輕鬆搬到新城市。"
+msgstr "HelloCity 是您的 AI 移居助手，提供逐步計劃和時間表，幫助您輕鬆移居新城市。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "您可以免費開始使用，高級選項可提供更個人化的指導和功能。"
+msgstr "HelloCity 支援全球所有主要城市。我們對 48+ 個城市提供增強覆蓋和專業訓練，包括雪梨、墨爾本、多倫多、紐約、倫敦、東京、新加坡、杜拜，以及澳洲、北美、歐洲和亞洲的主要目的地。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "我們覆蓋全球主要城市，並會定期擴展。請在產品中查看最新支援的地區。"
+msgstr "是的，需要帳號來保存您的進度並存取個人化的計劃。註冊免費且不到一分鐘。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "基本瀏覽不需要帳號。建立帳號可以保存進度、提醒和自訂的時間表。"
+msgstr "我們的 AI 使用數千次真實移居數據訓練而成。您可以自訂任何項目，我們會根據用戶反饋持續改進。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "是的。HelloCity 可自適應，並在桌面、平板與手機上流暢運行。"
+msgstr "是的。HelloCity 擁有直觀的介面，在桌面和行動裝置上都能流暢運作。只需與我們的 AI 助手聊天，它會引導您完成移居旅程的每一步。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
@@ -1507,22 +1507,22 @@ msgstr "什麼是 HelloCity？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
-msgstr "HelloCity 是免費的嗎？"
+msgstr "目前支援哪些城市？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
-msgstr "支援哪些城市？"
+msgstr "開始使用需要註冊帳號嗎？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "開始使用需要註冊帳號嗎？"
+msgstr "AI 生成的計劃準確度如何？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "HelloCity 在手機上好用嗎？"
+msgstr "HelloCity 容易使用嗎？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
@@ -1756,7 +1756,7 @@ msgstr "登入"
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:45
 msgid "login.required.description"
-msgstr "請登入以使用 HelloCity AI 助手，開始您的搬遷旅程。"
+msgstr "請登入以使用 HelloCity AI 助手，開始您的移居旅程。"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:43

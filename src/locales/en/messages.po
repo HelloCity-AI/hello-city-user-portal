@@ -1464,22 +1464,22 @@ msgstr "HelloCity is your AI companion for relocation, providing step-by-step pl
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "We support 48+ cities worldwide including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major cities across Australia, North America, Europe, and Asia. View the complete list in the app."
+msgstr "HelloCity supports all major cities worldwide. We have enhanced coverage and specialized training for 48+ cities including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major destinations across Australia, North America, Europe, and Asia."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "Yes, an account is required to save your progress and access plans. Registration is free and takes less than a minute."
+msgstr "Yes, an account is required to save your progress and access personalized plans. Registration is free and takes less than a minute."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback. All visa and legal information is reviewed for accuracy."
+msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "Absolutely. You can add, edit, or remove any checklist item to match your specific situation. The AI provides a starting point, but you're always in control."
+msgstr "Yes. HelloCity features an intuitive interface that works seamlessly on desktop and mobile devices. Simply chat with our AI assistant, and it will guide you through every step of your relocation journey."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
@@ -1499,12 +1499,12 @@ msgstr "Do I need an account to get started?"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "How accurate are the AI-generated checklists?"
+msgstr "How accurate are the AI-generated plans?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "Is HelloCity mobile-friendly?"
+msgstr "Is HelloCity easy to use?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152

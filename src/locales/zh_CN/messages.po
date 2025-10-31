@@ -1512,27 +1512,27 @@ msgstr "联系我们"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity 是您的 AI 搬迁助手，提供逐步计划和时间表，帮助您轻松搬到新城市。"
+msgstr "HelloCity 是您的 AI 移居助手，提供逐步计划和时间表，帮助您轻松移居到新城市。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "我们支持全球48+座城市，包括悉尼、墨尔本、多伦多、纽约、伦敦、东京、新加坡、迪拜，以及澳大利亚、北美、欧洲和亚洲的主要城市。完整城市列表请在应用中查看。"
+msgstr "HelloCity 支持全球所有主要城市。我们对 48+ 个城市提供增强覆盖和专业训练，包括悉尼、墨尔本、多伦多、纽约、伦敦、东京、新加坡、迪拜，以及澳大利亚、北美、欧洲和亚洲的主要目的地。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "是的，需要注册账号才能保存进度并访问计划。注册是免费的，只需不到一分钟。"
+msgstr "是的，需要账号来保存您的进度并访问个性化计划。注册免费且不到一分钟。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "我们的AI基于数千次搬迁的真实数据训练而成。您可以自定义任何项目，我们会根据用户反馈持续改进。所有签证和法律信息都经过准确性审核。"
+msgstr "我们的 AI 使用数千次真实移居数据训练而成。您可以自定义任何项目，我们会根据用户反馈持续改进。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "当然可以。您可以添加、编辑或删除任何清单项目，使其符合您的具体情况。AI提供起点，但您始终掌控一切。"
+msgstr "是的。HelloCity 拥有直观的界面，在桌面和移动设备上都能流畅运行。只需与我们的 AI 助手聊天，它会引导您完成移居旅程的每一步。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
@@ -1552,12 +1552,12 @@ msgstr "开始使用需要注册账号吗？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "AI生成的清单准确吗？"
+msgstr "AI 生成的计划准确度如何？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "可以自定义清单项目吗？"
+msgstr "HelloCity 容易使用吗？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
@@ -1791,7 +1791,7 @@ msgstr "登录"
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:45
 msgid "login.required.description"
-msgstr "请登录以使用 HelloCity AI 助手，开启您的迁移之旅。"
+msgstr "请登录以使用 HelloCity AI 助手，开启您的移居之旅。"
 
 #. js-lingui-explicit-id
 #: src/hooks/useTryHelloCity.tsx:43

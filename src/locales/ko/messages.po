@@ -1475,27 +1475,27 @@ msgstr "문의하기"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity는 AI 이주 도우미로, 단계별 계획과 일정으로 새 도시에 쉽게 정착하도록 돕습니다."
+msgstr "HelloCity는 이주를 위한 AI 동반자로, 단계별 계획과 일정을 제공하여 새로운 도시로의 이주를 간소화합니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "무료로 시작할 수 있으며, 고급 옵션은 더 개인화된 안내와 기능을 제공합니다."
+msgstr "HelloCity는 시드니, 멜버른, 토론토, 뉴욕, 런던, 도쿄, 싱가포르, 두바이 등 호주, 북미, 유럽, 아시아 전역의 주요 목적지를 포함한 48개 이상의 도시에 대한 향상된 커버리지와 전문화된 교육을 통해 전 세계 모든 주요 도시를 지원합니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "전 세계 주요 도시를 지원하며 지속적으로 확대합니다. 제품에서 최신 지원 지역을 확인하세요."
+msgstr "네, 진행 상황을 저장하고 개인화된 계획에 액세스하려면 계정이 필요합니다. 가입은 무료이며 1분도 걸리지 않습니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "기본 탐색은 계정이 필요 없습니다. 계정을 만들면 진행 상황 저장, 알림, 맞춤 일정이 가능합니다."
+msgstr "우리의 AI는 수천 건의 실제 이주 데이터를 기반으로 학습되었습니다. 항목을 사용자 정의할 수 있으며, 사용자 피드백을 기반으로 지속적으로 개선하고 있습니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "네. HelloCity는 반응형으로 데스크톱, 태블릿, 모바일에서 매끄럽게 작동합니다."
+msgstr "네. HelloCity는 데스크탑과 모바일 기기 모두에서 원활하게 작동하는 직관적인 인터페이스를 갖추고 있습니다. AI 어시스턴트와 채팅하기만 하면 이주 여정의 모든 단계를 안내받을 수 있습니다."
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
@@ -1505,22 +1505,22 @@ msgstr "HelloCity란 무엇인가요?"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
-msgstr "HelloCity는 무료인가요?"
+msgstr "현재 어떤 도시가 지원되나요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
-msgstr "어떤 도시를 지원하나요?"
+msgstr "시작하려면 계정이 필요한가요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "시작하려면 계정이 필요한가요?"
+msgstr "AI가 생성한 계획은 얼마나 정확한가요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "모바일에서도 잘 작동하나요?"
+msgstr "HelloCity는 사용하기 쉬운가요?"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152

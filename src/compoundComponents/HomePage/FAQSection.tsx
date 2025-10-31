@@ -30,7 +30,7 @@ const FAQSection: React.FC = () => {
       answer: (
         <Trans
           id="contact.faq.a1"
-          message="HelloCity is your AI companion for relocation, providing step-by-step checklists and timelines to simplify moving to a new city."
+          message="HelloCity is your AI companion for relocation, providing step-by-step plans and timelines to simplify moving to a new city."
         />
       ),
     },
@@ -50,14 +50,14 @@ const FAQSection: React.FC = () => {
       answer: (
         <Trans
           id="contact.faq.a3"
-          message="Yes, an account is required to save your progress and access personalized checklists. Registration is free and takes less than a minute."
+          message="Yes, an account is required to save your progress and access personalized plans. Registration is free and takes less than a minute."
         />
       ),
     },
     {
       key: 'faq4',
       question: (
-        <Trans id="contact.faq.q4" message="How accurate are the AI-generated checklists?" />
+        <Trans id="contact.faq.q4" message="How accurate are the AI-generated plans?" />
       ),
       answer: (
         <Trans
