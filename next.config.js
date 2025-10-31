@@ -30,7 +30,7 @@ const nextConfig = {
 
     if (isProd) {
       config.module.rules.push({
-        test: /src[\/\\]app[\/\\]api[\/\\]dev-tools[\/\\].*/,
+        test: /src[\/\\]app[\/\\]api[\/\\]devtools[\/\\].*/,
         loader: 'null-loader', // 不编译这些文件
       });
     }
