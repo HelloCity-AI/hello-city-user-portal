@@ -1,9 +1,8 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useCallback } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import linguiConfig from '../../lingui.config';
-import { i18n } from '../i18n';
 
 type Language = string;
 
@@ -32,14 +31,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       ? (pathSegments[1] as Language)
       : (linguiConfig.sourceLocale as Language);
 
-  // Activate the current language when language changes
-  useEffect(() => {
-    if (i18n.locale !== language) {
-      // Only activate if the language is different
-      // The messages should already be loaded by I18nProvider
-      i18n.activate(language);
-    }
-  }, [language]);
+  // Note: i18n.activate() is handled by I18nProvider
+  // This component only provides language switching UI logic
 
   const setLanguage = useCallback(
     (lang: Language) => {
