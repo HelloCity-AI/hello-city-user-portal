@@ -75,7 +75,7 @@ msgstr ""
 #~ msgstr "Your adventure awaits"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useLogoutConfirm.tsx:32
+#: src/hooks/modals/useLogoutConfirm.tsx:30
 msgid "Are you sure you want to log out?"
 msgstr "Are you sure you want to log out?"
 
@@ -99,7 +99,6 @@ msgstr "Are you sure you want to log out?"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:194
-#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "Creating..."
 
@@ -178,7 +177,6 @@ msgstr "Creating..."
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:196
-#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "I'm all set"
 
@@ -188,8 +186,8 @@ msgstr "I'm all set"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:38
-#: src/hooks/modals/useLogoutConfirm.tsx:30
-#: src/hooks/modals/useLogoutConfirm.tsx:34
+#: src/hooks/modals/useLogoutConfirm.tsx:28
+#: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Logout"
 msgstr "Logout"
 
@@ -229,8 +227,8 @@ msgstr "Home"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:117
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:119
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:116
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
 msgid "NavBar.Sign In"
 msgstr "Sign In"
 
@@ -452,7 +450,7 @@ msgstr "AI is thinking…"
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/hooks/modals/useLogoutConfirm.tsx:35
+#: src/hooks/modals/useLogoutConfirm.tsx:33
 msgid "cancel.button"
 msgstr "Cancel"
 
@@ -1783,84 +1781,69 @@ msgstr "Profile Picture"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:415
-#: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "Cancel"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:174
 #: src/app/[lang]/(app)/profile/page.tsx:362
-#: src/app/[lang]/testassistant/profile/page.tsx:89
-#: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "City"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:187
-msgid "profile.city-placeholder"
-msgstr "Please enter your city"
+#~ msgid "profile.city-placeholder"
+#~ msgstr "Please enter your city"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:215
-#: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "Edit Profile"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:228
 #: src/app/[lang]/(app)/profile/page.tsx:257
-#: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "Edit Profile Information"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:160
 #: src/app/[lang]/(app)/profile/page.tsx:280
-#: src/app/[lang]/testassistant/profile/page.tsx:75
-#: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "Email"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:285
-#: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "Please enter your email"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:181
 #: src/app/[lang]/(app)/profile/page.tsx:319
-#: src/app/[lang]/testassistant/profile/page.tsx:96
-#: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "Gender"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:195
 #: src/app/[lang]/(app)/profile/page.tsx:349
-#: src/app/[lang]/testassistant/profile/page.tsx:110
-#: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "Major"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:352
-#: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "Please enter your major"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
 #: src/app/[lang]/(app)/profile/page.tsx:295
-#: src/app/[lang]/testassistant/profile/page.tsx:82
-#: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "Nationality"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:177
-msgid "profile.nationality-placeholder"
-msgstr "Please enter your nationality"
+#~ msgid "profile.nationality-placeholder"
+#~ msgstr "Please enter your nationality"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
@@ -1872,70 +1855,60 @@ msgstr "Not provided"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
-#: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "Personal Information"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
-msgid "profile.preferred-language"
-msgstr "Preferred Language"
+#~ msgid "profile.preferred-language"
+#~ msgstr "Preferred Language"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:240
-msgid "profile.preferred-language-placeholder"
-msgstr "Please enter your preferred language"
+#~ msgid "profile.preferred-language-placeholder"
+#~ msgstr "Please enter your preferred language"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:408
-#: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "Refresh"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:418
-#: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "Submit"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:143
-#: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "Manage your personal information and preferences"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:140
-#: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "Profile Settings"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:188
 #: src/app/[lang]/(app)/profile/page.tsx:339
-#: src/app/[lang]/testassistant/profile/page.tsx:103
-#: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "University"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:342
-#: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "Please enter your university"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
 #: src/app/[lang]/(app)/profile/page.tsx:270
-#: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "Username"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:173
 #: src/app/[lang]/(app)/profile/page.tsx:273
-#: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "Please enter your username"
 
