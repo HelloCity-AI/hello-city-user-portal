@@ -249,14 +249,22 @@ jest.mock('@lingui/react', () => {
 });
 
 // Mock @lingui/core and src/i18n (they export the same i18n instance)
-jest.mock('@lingui/core', () => ({
-  i18n: {
+jest.mock('@lingui/core', () => {
+  const mockI18n = {
     locale: 'en',
     activate: jest.fn(),
     load: jest.fn(),
+    loadAndActivate: jest.fn(),
     _: (id: string) => id,
-  },
-}));
+    on: jest.fn(),
+    removeListener: jest.fn(),
+  };
+
+  return {
+    i18n: mockI18n,
+    setupI18n: jest.fn(() => mockI18n),
+  };
+});
 
 jest.mock('./src/i18n', () => {
   // eslint-disable-next-line @typescript-eslint/no-require-imports
