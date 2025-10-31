@@ -69,7 +69,7 @@ msgstr ""
 #~ msgstr "これから始まる、輝く人生の旅"
 
 #. js-lingui-explicit-id
-#: src/hooks/modals/useLogoutConfirm.tsx:32
+#: src/hooks/modals/useLogoutConfirm.tsx:30
 msgid "Are you sure you want to log out?"
 msgstr "ログアウトしてもよろしいですか？"
 
@@ -93,7 +93,6 @@ msgstr "ログアウトしてもよろしいですか？"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:194
-#: src/app/[lang]/testassistant/create-user-profile/page.tsx:191
 msgid "Creating..."
 msgstr "作成中…"
 
@@ -172,7 +171,6 @@ msgstr "作成中…"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:196
-#: src/app/[lang]/testassistant/create-user-profile/page.tsx:193
 msgid "I'm all set"
 msgstr "準備完了"
 
@@ -182,8 +180,8 @@ msgstr "準備完了"
 
 #. js-lingui-explicit-id
 #: src/hooks/menus/useUserMenu.tsx:38
-#: src/hooks/modals/useLogoutConfirm.tsx:30
-#: src/hooks/modals/useLogoutConfirm.tsx:34
+#: src/hooks/modals/useLogoutConfirm.tsx:28
+#: src/hooks/modals/useLogoutConfirm.tsx:32
 msgid "Logout"
 msgstr "ログアウト"
 
@@ -218,8 +216,8 @@ msgstr "ホーム"
 
 #. Sign In button label
 #. js-lingui-explicit-id
-#: src/compoundComponents/NavBar/DesktopNavBar.tsx:117
-#: src/compoundComponents/NavBar/MobileNavBar.tsx:119
+#: src/compoundComponents/NavBar/DesktopNavBar.tsx:116
+#: src/compoundComponents/NavBar/MobileNavBar.tsx:118
 msgid "NavBar.Sign In"
 msgstr "ログイン"
 
@@ -490,7 +488,7 @@ msgstr "AIが思考中…"
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ConfirmModal.tsx:28
 #: src/compoundComponents/Modals/FormModal.tsx:30
-#: src/hooks/modals/useLogoutConfirm.tsx:35
+#: src/hooks/modals/useLogoutConfirm.tsx:33
 msgid "cancel.button"
 msgstr "キャンセル"
 
@@ -1795,84 +1793,69 @@ msgstr "アバター"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:415
-#: src/app/[lang]/testassistant/profile/page.tsx:261
 msgid "profile.cancel"
 msgstr "キャンセル"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:174
 #: src/app/[lang]/(app)/profile/page.tsx:362
-#: src/app/[lang]/testassistant/profile/page.tsx:89
-#: src/app/[lang]/testassistant/profile/page.tsx:184
 msgid "profile.city"
 msgstr "都市"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:187
-msgid "profile.city-placeholder"
-msgstr "お住まいの都市を入力してください"
+#~ msgid "profile.city-placeholder"
+#~ msgstr "お住まいの都市を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:215
-#: src/app/[lang]/testassistant/profile/page.tsx:130
 msgid "profile.edit-button"
 msgstr "プロフィールを編集"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:228
 #: src/app/[lang]/(app)/profile/page.tsx:257
-#: src/app/[lang]/testassistant/profile/page.tsx:147
 msgid "profile.edit-title"
 msgstr "個人情報を編集"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:160
 #: src/app/[lang]/(app)/profile/page.tsx:280
-#: src/app/[lang]/testassistant/profile/page.tsx:75
-#: src/app/[lang]/testassistant/profile/page.tsx:163
 msgid "profile.email"
 msgstr "メールアドレス"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:285
-#: src/app/[lang]/testassistant/profile/page.tsx:167
 msgid "profile.email-placeholder"
 msgstr "メールアドレスを入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:181
 #: src/app/[lang]/(app)/profile/page.tsx:319
-#: src/app/[lang]/testassistant/profile/page.tsx:96
-#: src/app/[lang]/testassistant/profile/page.tsx:197
 msgid "profile.gender"
 msgstr "性別"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:195
 #: src/app/[lang]/(app)/profile/page.tsx:349
-#: src/app/[lang]/testassistant/profile/page.tsx:110
-#: src/app/[lang]/testassistant/profile/page.tsx:227
 msgid "profile.major"
 msgstr "専攻"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:352
-#: src/app/[lang]/testassistant/profile/page.tsx:230
 msgid "profile.major-placeholder"
 msgstr "専攻を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:167
 #: src/app/[lang]/(app)/profile/page.tsx:295
-#: src/app/[lang]/testassistant/profile/page.tsx:82
-#: src/app/[lang]/testassistant/profile/page.tsx:174
 msgid "profile.nationality"
 msgstr "国籍"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:177
-msgid "profile.nationality-placeholder"
-msgstr "国籍を入力してください"
+#~ msgid "profile.nationality-placeholder"
+#~ msgstr "国籍を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:75
@@ -1884,70 +1867,60 @@ msgstr "未入力"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:147
-#: src/app/[lang]/testassistant/profile/page.tsx:69
 msgid "profile.personal-info"
 msgstr "個人情報"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:117
 #: src/app/[lang]/testassistant/profile/page.tsx:237
-msgid "profile.preferred-language"
-msgstr "希望言語"
+#~ msgid "profile.preferred-language"
+#~ msgstr "希望言語"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/testassistant/profile/page.tsx:240
-msgid "profile.preferred-language-placeholder"
-msgstr "希望する言語を入力してください"
+#~ msgid "profile.preferred-language-placeholder"
+#~ msgstr "希望する言語を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:408
-#: src/app/[lang]/testassistant/profile/page.tsx:254
 msgid "profile.refresh"
 msgstr "リセット"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:418
-#: src/app/[lang]/testassistant/profile/page.tsx:264
 msgid "profile.submit"
 msgstr "送信"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:143
-#: src/app/[lang]/testassistant/profile/page.tsx:65
 msgid "profile.subtitle"
 msgstr "個人情報と設定を管理します"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:140
-#: src/app/[lang]/testassistant/profile/page.tsx:62
 msgid "profile.title"
 msgstr "プロフィール設定"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:188
 #: src/app/[lang]/(app)/profile/page.tsx:339
-#: src/app/[lang]/testassistant/profile/page.tsx:103
-#: src/app/[lang]/testassistant/profile/page.tsx:217
 msgid "profile.university"
 msgstr "大学"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:342
-#: src/app/[lang]/testassistant/profile/page.tsx:220
 msgid "profile.university-placeholder"
 msgstr "大学名を入力してください"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:153
 #: src/app/[lang]/(app)/profile/page.tsx:270
-#: src/app/[lang]/testassistant/profile/page.tsx:153
 msgid "profile.username"
 msgstr "ユーザー名"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/(app)/create-user-profile/page.tsx:173
 #: src/app/[lang]/(app)/profile/page.tsx:273
-#: src/app/[lang]/testassistant/profile/page.tsx:156
 msgid "profile.username-placeholder"
 msgstr "ユーザー名を入力してください"
 

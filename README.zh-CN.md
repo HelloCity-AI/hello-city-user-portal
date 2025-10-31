@@ -2,7 +2,7 @@
 
 # Hello City Client
 
-一个基于 Next.js 14、React 18、TypeScript、Material-UI、Tailwind CSS、Redux Toolkit 和完整国际化支持的现代前端项目。
+一个由 Next.js 14、React 18、TypeScript、Material-UI、Tailwind CSS、Redux Toolkit 构建，并提供完善国际化支持的现代前端项目。
 
 ## 📋 目录
 
@@ -10,17 +10,22 @@
 2. [快速开始](#2-快速开始)
 3. [环境配置](#3-环境配置)
 4. [开发命令](#4-开发命令)
-5. [Git 钩子 (Husky)](#5-git-钩子-husky)
-6. [技术栈](#6-技术栈)
-7. [项目结构](#7-项目结构)
-8. [开发工作流](#8-开发工作流)
-9. [注意事项](#9-注意事项)
+5. [核心特性](#5-核心特性)
+6. [Git 钩子 (Husky)](#6-git-钩子-husky)
+7. [技术栈](#7-技术栈)
+8. [项目结构](#8-项目结构)
+9. [开发工作流](#9-开发工作流)
+10. [注意事项](#10-注意事项)
 
 ## 1. 环境要求
 
-- Node.js: **>=20.19.0 或 >=22.12.0** (推荐 Node 22 LTS)
-- 包管理工具: npm (推荐 v9+)
-- 本地环境文件设置 (见下方环境配置)
+- Node.js: **>=20.19.0 或 >=22.12.0** (推荐使用 Node 22 LTS)
+- 包管理工具：npm (推荐 v9+)，或 yarn/pnpm/bun
+- 本地环境变量文件
+  - 在项目根目录创建 `.env.local`，并复制 `.env.example` 中的常量名
+  - 当前 `.env.local` 中包含启用以下功能所需的常量：
+    - Auth0
+    - 后端 API 调用
 
 ## 2. 快速开始
 
@@ -56,35 +61,9 @@
    # 或 yarn dev / pnpm dev / bun dev
    ```
 
-5. **设置环境变量** (见下方环境配置)
+5. **配置环境变量** (详见下文环境配置章节)
 
 6. **在浏览器中访问** [http://localhost:3000](http://localhost:3000)
-
-## 3. 环境配置
-
-**必需：** 在项目根目录创建 `.env.local` 文件：
-
-```bash
-# macOS/Linux
-cp .env.example .env.local
-
-# Windows
-copy .env.example .env.local
-```
-
-填入实际配置值：
-
-- **Auth0 配置：**
-  - `AUTH0_SECRET` - 32位随机字符串
-  - `AUTH0_BASE_URL` - 应用URL (开发环境: http://localhost:3000)
-  - `AUTH0_ISSUER_BASE_URL` - Auth0 域名
-  - `AUTH0_CLIENT_ID` - Auth0 应用客户端ID
-  - `AUTH0_CLIENT_SECRET` - Auth0 应用客户端密钥
-
-- **后端 API：**
-  - `NEXT_PUBLIC_API_BASE_URL` - 后端API基础URL
-
-**注意：** 请联系团队负责人获取实际环境配置值。
 
 ## 4. 开发命令
 
@@ -121,13 +100,13 @@ npm run fix           # 同时运行 lint:fix 和 format:fix
 
 ### 测试
 
-创建PR前必须通过所有单元测试。
+创建 PR 前必须通过所有单元测试。
 
 ```bash
 # 运行所有测试
 npm run test
 
-# 监听模式 (文件变化时重新运行)
+# 监听模式（文件变更时自动重新运行）
 npm run test:watch
 
 # 生成覆盖率报告
@@ -145,24 +124,24 @@ npm run test:e2e
 ### 国际化
 
 ```bash
-# 从代码中提取消息
+# 代码中提取文案
 npm run lingui:extract
 
-# 编译提取的消息
+# 编译提取的文案
 npm run lingui:compile
 
-# 两步合并 (添加新文本后必需)
+# 添加新文案后必须运行的组合命令
 npm run lingui:extract && npm run lingui:compile
 ```
 
 ### Storybook
 
-交互式组件文档和开发工具。
+用于交互式组件文档与开发。
 
-**首次设置 (推荐)：**
+**首次使用（推荐）：**
 
 ```bash
-# 先构建 Storybook (后续启动更快)
+# 先构建 Storybook，后续启动更快
 npm run build-storybook
 
 # 然后启动开发服务器
@@ -172,17 +151,83 @@ npm run storybook
 **日常开发：**
 
 ```bash
-# 启动 Storybook 开发服务器 (需要时自动构建)
+# 启动 Storybook 开发服务器（必要时自动构建）
 npm run storybook
 ```
 
 Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 
-**访问 Storybook：** [http://localhost:6006](http://localhost:6006)
+**访问地址：** [http://localhost:6006](http://localhost:6006)
 
-## 5. Git 钩子 (Husky)
+## 5. 核心特性
 
-自动执行代码质量标准检查：
+### AI 智能对话助手
+
+基于 OpenAI GPT 的实时 AI 对话体验，并支持生成智能任务清单。
+
+**功能亮点：**
+
+- **流式响应：** 借助 Vercel AI SDK，通过 SSE 提供实时流式回复，可配置打字机效果
+- **会话管理：** 创建、查看并管理多轮对话记录
+- **智能清单：** AI 异步生成城市任务清单并自动更新
+- **多语言支持：** 完整覆盖英文与中文的国际化体验
+- **Node.js 运行时：** 在生产环境中使用 Node.js 运行时以精确控制流式与打字机效果
+
+**架构特点：**
+
+- **路由分组：** 采用 Next.js Route Groups，将受保护页面与公共页面分离
+  - `/assistant` - AI 对话界面（需登录）
+  - `/profile` - 用户资料管理（需登录）
+  - `/` - 营销落地页（公开）
+  - `/contact-us` - 联系表单（公开）
+
+**技术选型：**
+
+- Vercel AI SDK (`@ai-sdk/react`, `ai`)
+- OpenAI GPT 集成
+- Redux Saga 负责状态管理中的副作用
+- 基于服务端推送 (SSE) 的实时响应
+
+## 3. 环境配置
+
+**必需：** 在项目根目录创建 `.env.local` 文件：
+
+```bash
+# macOS/Linux
+cp .env.example .env.local
+
+# Windows
+copy .env.example .env.local
+```
+
+将 `.env.local` 填入实际配置值：
+
+- **Auth0 配置：**
+  - `AUTH0_DOMAIN` - Auth0 域名
+  - `AUTH0_CLIENT_ID` - Auth0 应用客户端 ID
+  - `AUTH0_CLIENT_SECRET` - Auth0 应用客户端密钥
+  - `AUTH0_SECRET` - Auth0 会话密钥
+
+- **后端 API：**
+  - `NEXT_PUBLIC_BACKEND_URL` - 后端 API 基础地址（默认 http://localhost:5000）
+
+- **Python AI 服务：**
+  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI 服务地址，用于任务轮询（默认 http://localhost:8000）
+
+- **OpenAI：**
+  - `OPENAI_API_KEY` - OpenAI API 密钥，用于 GPT 集成
+
+- **聊天流配置（可选）：**
+  - `CHAT_STREAM_DELAY_MS` - 打字机效果的速度（单位：毫秒，默认 15）
+    - 15ms - 快速流畅（默认）
+    - 25ms - 中等速度
+    - 40-60ms - 较慢、沉稳的效果
+
+**提示：** 尽量联系团队负责人获取真实环境配置值。
+
+## 6. Git 钩子 (Husky)
+
+自动执行以下代码质量检查：
 
 - ✅ 代码格式化 (Prettier)
 - ✅ 代码检查 (ESLint)
@@ -190,9 +235,9 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 - ✅ 测试验证
 - ✅ 提交消息格式
 
-**设置：** 在所有平台上执行 `npm install` 时自动配置。
+**设置方式：** 在任意平台执行 `npm install` 时会自动配置。
 
-## 6. 技术栈
+## 7. 技术栈
 
 ### 核心框架
 
@@ -200,27 +245,34 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 - [React 18](https://react.dev/) - UI 库
 - [TypeScript](https://www.typescriptlang.org/) - 类型安全
 
-### UI 和样式
+### UI 与样式
 
 - [Material-UI v7.2+](https://mui.com/) - React 组件库
 - [MUI X Date Pickers](https://mui.com/x/react-date-pickers/) - 高级日期时间组件
+- [Radix UI](https://www.radix-ui.com/) - 无样式、无障碍 UI 基础组件
+  - Avatar、Dropdown Menu、Select、Slot 等组件
 - [Tailwind CSS](https://tailwindcss.com/) - 原子化 CSS 框架
-- 自定义主题 (品牌色彩和渐变)
+- 自定义主题（品牌色彩与渐变）
 
 ### 状态管理
 
 - [Redux Toolkit](https://redux-toolkit.js.org/) - 状态管理
 - [Redux Saga](https://redux-saga.js.org/) - 副作用管理
 
-### 认证和 API
+### AI 与流式能力
 
-- [Auth0](https://auth0.com/) - 身份认证和授权
+- [Vercel AI SDK](https://sdk.vercel.ai/docs) - AI 聊天流接口
+- [OpenAI](https://openai.com/) - GPT 驱动的对话响应
+
+### 认证与 API
+
+- [Auth0](https://auth0.com/) - 身份认证与授权
 - [Axios](https://axios-http.com/) - HTTP 客户端
 
 ### 国际化
 
-- [Lingui](https://lingui.js.org/) - i18n 库
-- 支持英文和中文
+- [Lingui](https://lingui.js.org/) - 国际化库
+- 支持英文与中文
 
 ### 开发工具
 
@@ -229,66 +281,87 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 - [ESLint](https://eslint.org/) + [Prettier](https://prettier.io/) - 代码质量
 - [Husky](https://typicode.github.io/husky/) - Git 钩子
 
-## 7. 项目结构
+## 8. 项目结构
 
 ```
 src/
-├── app/[lang]/             # Next.js App Router 动态语言路由
+├── app/[lang]/             # Next.js App Router，支持 i18n 路由
+│   ├── (app)/              # 需要认证的应用页面
+│   │   ├── assistant/      # AI 对话助手
+│   │   ├── profile/        # 用户资料
+│   │   └── create-user-profile/  # 资料创建流程
+│   ├── (site)/             # 公共营销页面
+│   │   ├── page.tsx        # 落地页
+│   │   └── contact-us/     # 联系表单
+│   └── api/                # Next.js API 路由
+│       └── chat/           # OpenAI 聊天流式接口
 ├── components/             # 原子化可复用组件
-├── compoundComponents/     # 复杂多部分组件 (NavBar, Modals)
-├── store/                  # Redux Toolkit + Saga 状态管理
-├── api/                    # API 层 (Auth0 认证)
-├── contexts/               # React contexts (语言, I18n)
+│   ├── ai-elements/        # AI 相关 UI 组件
+│   └── AppPageSections/    # 应用布局片段
+├── compoundComponents/     # 多部分复杂组件
+│   ├── ChatPage/           # AI 对话功能相关组件
+│   │   ├── ChatMainArea/   # 主对话界面
+│   │   ├── ChatSidebar/    # 对话历史
+│   │   └── ChecklistPanel/ # 城市任务清单面板
+│   ├── NavBar/             # 导航栏
+│   ├── Menus/              # 下拉菜单
+│   └── Modals/             # 模态框
+├── store/                  # Redux 状态管理
+│   ├── slices/             # Redux 切片（用户、对话、清单）
+│   ├── sagas/              # Redux Saga 文件（userSaga、conversationSaga、checklistSaga）
+│   └── helpers/            # 纯函数工具（reduxChecklistHelpers.ts）
+├── lib/                    # 第三方配置与 API 客户端
+│   └── api-client.ts       # Axios 后端 HTTP 客户端（统一 API 层）
+├── api/                    # 类型定义与数据转换
+│   └── transformers/       # 后端 ↔ 前端数据格式转换
+├── contexts/               # React Context（语言、I18n）
 ├── hooks/                  # 自定义 React hooks
-├── locales/                # i18n 消息目录 (en/zh po格式)
-├── stories/                # Storybook 组件文档
+├── locales/                # 国际化消息目录（en/zh PO 格式）
 ├── types/                  # TypeScript 类型定义
-├── utils/                  # 工具函数 (fetchWithAuth, serverI18n)
-├── lib/                    # 第三方库配置
-├── theme/                  # Material-UI 主题配置
-└── enums/                  # TypeScript 枚举
+├── utils/                  # 工具函数
+└── theme/                  # Material-UI 主题配置
 ```
 
 ### 关键配置文件
 
-- `tailwind.config.ts` - Tailwind CSS 配置 (自定义主题)
-- `src/theme/` - Material-UI 主题 (品牌色彩)
+- `tailwind.config.ts` - Tailwind CSS 配置（自定义主题）
+- `src/theme/` - Material-UI 主题（品牌色彩）
 - `jest.config.ts` + `jest.setup.ts` - 测试配置
 - `lingui.config.js` - 国际化设置
 - `.storybook/` - Storybook 配置
 
-## 8. 开发工作流
+## 9. 开发工作流
 
 ### 添加新功能
 
 1. 在 `src/components/` 中创建组件
-2. 如需要在 `src/store/slices/` 中添加 Redux 状态
-3. 在 `src/stories/` 中添加 Storybook 故事
-4. 在 `__tests__/` 目录中编写测试
-5. 对所有用户界面文本使用 `<Trans>` 组件
+2. 需要全局状态时，在 `src/store/slices/` 中添加 Redux 切片
+3. 在 `src/stories/` 中编写 Storybook 故事
+4. 在 `__tests__/` 目录中补充测试
+5. 所有用户可见文本使用 `<Trans>` 组件
 6. 添加文本后运行 `npm run lingui:extract && npm run lingui:compile`
 
 ### 语言支持
 
-- **英文**: `/en/` 路由 (默认)
-- **中文**: `/zh/` 路由
-- 始终用 `<Trans>` 组件包装用户界面文本
-- 开发过程中测试两种语言
+- **英文**：`/en/` 路由（默认）
+- **中文**：`/zh/` 路由
+- 始终使用 `<Trans>` 包裹用户可见文案
+- 开发流程中需测试两种语言
 
 ### 代码质量
 
 - Husky pre-commit 钩子自动运行
-- 创建PR前所有测试必须通过
-- ESLint 和 Prettier 强制执行代码标准
-- 启用 TypeScript 严格模式
+- 创建 PR 前必须通过全部测试
+- ESLint 与 Prettier 强制执行代码规范
+- TypeScript 启用严格模式
 
 ### 身份认证
 
-- Auth0 处理用户认证
-- 使用 `fetchWithAuth` 工具进行认证API调用
-- 用户状态通过 Redux 管理
+- Auth0 负责用户认证
+- 使用 `fetchWithAuth` 工具发送认证过的 API 请求
+- 用户状态由 Redux 管理
 
-## 9. 注意事项
+## 10. 注意事项
 
-- 所有依赖使用精确版本 (无 `^` 前缀),MUI超过7.2会有不兼容情况
-- 启用 TypeScript 严格模式和全面类型检查
+- 所有依赖均使用精确版本（无需 `^` 前缀），MUI 超过 7.2 可能出现兼容性问题
+- 已启用 TypeScript 严格模式，提供全面的类型检查
