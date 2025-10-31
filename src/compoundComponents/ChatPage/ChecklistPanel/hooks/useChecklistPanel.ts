@@ -219,7 +219,6 @@ export const useChecklistPanel = ({
 
   const handleDelete = useCallback(
     (itemId: string) => {
-      // TODO: Implement delete action in Redux slice
       onChecklistDelete?.(itemId);
     },
     [onChecklistDelete],

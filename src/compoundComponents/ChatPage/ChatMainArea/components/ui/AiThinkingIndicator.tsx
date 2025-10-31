@@ -5,8 +5,12 @@ import Typography from '@mui/material/Typography';
 import { keyframes } from '@mui/material';
 import { Trans } from '@lingui/react';
 
-// TODO: Temporary setting - change back to false later
-const ALWAYS_SHOW_THINKING = true;
+/**
+ * Debug flag to force show thinking indicator regardless of actual state.
+ * Set to true for UI testing/demo purposes.
+ * Production: should be false to show only when AI is actually thinking.
+ */
+const ALWAYS_SHOW_THINKING = false;
 
 const breathingDot = keyframes`
   0% {

@@ -473,7 +473,7 @@ msgid "account.title"
 msgstr "HelloCity 계정"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:121
 msgid "ai.thinking"
 msgstr "AI가 생각 중..."
 
@@ -707,62 +707,62 @@ msgid "cities.adelaide.tagline"
 msgstr "와인의 도시, 축제의 수도"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:574
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:571
 msgid "cities.amsterdam.description"
 msgstr "북쪽의 베네치아, 운하와 문화, 자유 정신"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:565
 msgid "cities.amsterdam.name"
 msgstr "암스테르담"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:579
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:576
 msgid "cities.amsterdam.tagline"
 msgstr "운하, 문화, 혁신"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:668
 msgid "cities.auckland.description"
 msgstr "돛의 도시, 매력적인 항만과 야외 라이프스타일"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:665
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:662
 msgid "cities.auckland.name"
 msgstr "오클랜드"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:673
 msgid "cities.auckland.tagline"
 msgstr "도시와 자연이 만나는 곳"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:755
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:752
 msgid "cities.bali.description"
 msgstr "인도네시아의 섬, 사원과 논테라스, 해변으로 유명"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:749
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:746
 msgid "cities.bali.name"
 msgstr "발리"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:760
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:757
 msgid "cities.bali.tagline"
 msgstr "신들의 섬, 열대 휴양지 천국"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:735
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:732
 msgid "cities.bangkok.description"
 msgstr "활기찬 수도, 사원·길거리음식·현대 에너지가 어우러짐"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:729
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:726
 msgid "cities.bangkok.name"
 msgstr "방콕"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:741
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:738
 msgid "cities.bangkok.tagline"
 msgstr "천사의 도시, 사원과 야시장으로 반짝임"
 
@@ -782,32 +782,32 @@ msgid "cities.beijing.tagline"
 msgstr "고도의 매력, 현대의 활력"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:559
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:556
 msgid "cities.berlin.description"
 msgstr "활기찬 수도, 깊은 역사와 번성한 문화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:553
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:550
 msgid "cities.berlin.name"
 msgstr "베를린"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:564
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:561
 msgid "cities.berlin.tagline"
 msgstr "통일, 창의, 자유"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:498
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:495
 msgid "cities.boston.description"
 msgstr "자유의 도시의 역사적 요람, 세계적 대학 집결"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:492
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:489
 msgid "cities.boston.name"
 msgstr "보스턴"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:503
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:500
 msgid "cities.boston.tagline"
 msgstr "미국 역사를 생생히 느끼는 곳"
 
@@ -842,122 +842,122 @@ msgid "cities.calgary.tagline"
 msgstr "대초원과 산이 만나는 곳"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:263
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:260
 msgid "cities.chengdu.description"
 msgstr "중국 서남 문화의 심장, 매운 음식과 판다로 유명"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:257
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:254
 msgid "cities.chengdu.name"
 msgstr "청두"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:268
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:265
 msgid "cities.chengdu.tagline"
 msgstr "천부지국, 한가로운 삶"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:483
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:480
 msgid "cities.chicago.description"
 msgstr "바람의 도시, 장대한 스카이라인과 딥디시로 유명"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:477
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:474
 msgid "cities.chicago.name"
 msgstr "시카고"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:488
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
 msgid "cities.chicago.tagline"
 msgstr "미국의 건축 수도"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:278
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:275
 msgid "cities.chongqing.description"
 msgstr "산성과 강의 도시, 훠궈 문화와 장강 풍광"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:272
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:269
 msgid "cities.chongqing.name"
 msgstr "충칭"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:280
 msgid "cities.chongqing.tagline"
 msgstr "입체 산성, 매운 맛의 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:703
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:700
 msgid "cities.christchurch.description"
 msgstr "뉴질랜드의 가든시티, 혁신과 회복력으로 재건"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:694
 msgid "cities.christchurch.name"
 msgstr "크라이스트처치"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:708
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:705
 msgid "cities.christchurch.tagline"
 msgstr "정원이 되살아난 회복의 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:769
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:766
 msgid "cities.default.description"
 msgstr "다음 이상적인 도시를 찾아보세요"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:764
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:761
 msgid "cities.default.name"
 msgstr "도시 탐험"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:770
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:767
 msgid "cities.default.tagline"
 msgstr "도시 탐험 여정 시작"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:719
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:716
 msgid "cities.dubai.description"
 msgstr "미래지향 도시, 럭셔리 쇼핑과 건축 경이"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:713
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:710
 msgid "cities.dubai.name"
 msgstr "두바이"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:724
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:721
 msgid "cities.dubai.tagline"
 msgstr "미래가 먼저 도착하는 곳"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:589
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:586
 msgid "cities.dublin.description"
 msgstr "문학의 도시, 조지안 건축과 환대"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:580
 msgid "cities.dublin.name"
 msgstr "더블린"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:595
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
 msgid "cities.dublin.tagline"
 msgstr "아일랜드의 십만 번의 환영"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:603
 msgid "cities.edinburgh.description"
 msgstr "스코틀랜드의 역사 도시, 성과 예술제로 유명"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:600
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:597
 msgid "cities.edinburgh.name"
 msgstr "에딘버러"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:612
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:609
 msgid "cities.edinburgh.tagline"
 msgstr "스코틀랜드의 가장 강한 심장박동"
 
@@ -977,137 +977,137 @@ msgid "cities.goldcoast.tagline"
 msgstr "금빛 해변, 휴양지 천국"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:215
 msgid "cities.guangzhou.description"
 msgstr "화남 상업 중심, 광둥어와 영남 음식 전통"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:212
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:209
 msgid "cities.guangzhou.name"
 msgstr "광저우"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:220
 msgid "cities.guangzhou.tagline"
 msgstr "꽃의 도시의 매력, 열린 관문"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:655
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:652
 msgid "cities.hamburg.description"
 msgstr "해항 관문, 깊은 항만 유산과 현대 도시 문화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:649
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:646
 msgid "cities.hamburg.name"
 msgstr "함부르크"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:660
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:657
 msgid "cities.hamburg.tagline"
 msgstr "세계로 향하는 관문"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:305
 msgid "cities.hangzhou.description"
 msgstr "인간의 천국, 서호의 고요함과 디지털 경제"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:299
 msgid "cities.hangzhou.name"
 msgstr "항저우"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:311
 msgid "cities.hangzhou.tagline"
 msgstr "서호의 시정과 디지털 경제의 교차"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:248
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:245
 msgid "cities.hongkong.description"
 msgstr "아시아 국제 금융 중심, 동서 문화 융합과 번화한 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:242
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:239
 msgid "cities.hongkong.name"
 msgstr "홍콩"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:253
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:250
 msgid "cities.hongkong.tagline"
 msgstr "아시아의 국제 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:376
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:373
 msgid "cities.kyoto.description"
 msgstr "일본 고도, 신사와 사찰, 전통 예술"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:370
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:367
 msgid "cities.kyoto.name"
 msgstr "교토"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:381
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:378
 msgid "cities.kyoto.tagline"
 msgstr "영원의 아름다움, 전통의 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:529
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:526
 msgid "cities.london.description"
 msgstr "역사 깊은 수도, 상징적 랜드마크와 글로벌 금융 중심"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:520
 msgid "cities.london.name"
 msgstr "런던"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:534
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:531
 msgid "cities.london.tagline"
 msgstr "역사와 현대의 교차"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:423
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:420
 msgid "cities.losangeles.description"
 msgstr "꿈의 도시, 글로벌 엔터테인먼트 중심"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:417
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:414
 msgid "cities.losangeles.name"
 msgstr "로스앤젤레스"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:425
 msgid "cities.losangeles.tagline"
 msgstr "천사의 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:325
 msgid "cities.macau.description"
 msgstr "동서 문화 융합의 활기찬 도시, 엔터와 역사"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:322
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
 msgid "cities.macau.name"
 msgstr "마카오"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:334
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:331
 msgid "cities.macau.tagline"
 msgstr "포르투갈 풍과 중화 전통이 만나는 곳"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:620
 msgid "cities.manchester.description"
 msgstr "산업 유산과 현대 혁신, 축구 열정이 공존"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:617
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:614
 msgid "cities.manchester.name"
 msgstr "맨체스터"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:625
 msgid "cities.manchester.tagline"
 msgstr "창의적 현대 도시"
 
@@ -1127,17 +1127,17 @@ msgid "cities.melbourne.tagline"
 msgstr "문화, 커피, 무한한 가능성"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:453
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:450
 msgid "cities.miami.description"
 msgstr "열대 천국, 아르데코와 라틴 문화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:444
 msgid "cities.miami.name"
 msgstr "마이애미"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:458
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:455
 msgid "cities.miami.tagline"
 msgstr "매직 시티"
 
@@ -1157,47 +1157,47 @@ msgid "cities.montreal.tagline"
 msgstr "유럽적 품격, 북미 정신"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:638
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:635
 msgid "cities.munich.description"
 msgstr "바이에른 주도, 전통과 현대 혁신의 조화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:632
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:629
 msgid "cities.munich.name"
 msgstr "뮌헨"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:644
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:641
 msgid "cities.munich.tagline"
 msgstr "비어홀, 바로크의 아름다움과 바이에른의 온기"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:408
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
 msgid "cities.newyork.description"
 msgstr "잠들지 않는 도시, 세계 문화의 용광로"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:402
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:399
 msgid "cities.newyork.name"
 msgstr "뉴욕"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:413
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:410
 msgid "cities.newyork.tagline"
 msgstr "빅 애플의 무한한 기회"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:361
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:358
 msgid "cities.osaka.description"
 msgstr "일본의 부엌, 길거리 음식과 열정 문화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:355
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:352
 msgid "cities.osaka.name"
 msgstr "오사카"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:366
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:363
 msgid "cities.osaka.tagline"
 msgstr "천하의 부엌"
 
@@ -1217,17 +1217,17 @@ msgid "cities.ottawa.tagline"
 msgstr "수도의 아름다움, 영원한 전통"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:544
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:541
 msgid "cities.paris.description"
 msgstr "빛의 도시, 예술·문화·미식의 교차"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:538
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:535
 msgid "cities.paris.name"
 msgstr "파리"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:549
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:546
 msgid "cities.paris.tagline"
 msgstr "삶의 예술의 극치"
 
@@ -1247,77 +1247,77 @@ msgid "cities.perth.tagline"
 msgstr "서해안의 진주"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:435
 msgid "cities.sanfrancisco.description"
 msgstr "테크 허브, 금문교와 다양한 커뮤니티로 유명"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:432
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:429
 msgid "cities.sanfrancisco.name"
 msgstr "샌프란시스코"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:440
 msgid "cities.sanfrancisco.tagline"
 msgstr "금문교의 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:468
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:465
 msgid "cities.seattle.description"
 msgstr "에메랄드 시티, 스페이스 니들와 혁신 기술"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:462
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:459
 msgid "cities.seattle.name"
 msgstr "시애틀"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:473
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:470
 msgid "cities.seattle.tagline"
 msgstr "혁신과 자연이 만나는 곳"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:203
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:200
 msgid "cities.shanghai.description"
 msgstr "글로벌 금융 허브, 장대한 스카이라인과 깊은 문화"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:197
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:194
 msgid "cities.shanghai.name"
 msgstr "상하이"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:208
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:205
 msgid "cities.shanghai.tagline"
 msgstr "동방의 진주, 국제 대도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:233
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:230
 msgid "cities.shenzhen.description"
 msgstr "중국의 기술 혁신 중심, 첨단 산업과 젊은 활력"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:224
 msgid "cities.shenzhen.name"
 msgstr "선전"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:238
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:235
 msgid "cities.shenzhen.tagline"
 msgstr "빛의 속도로 혁신하는 기술 도시"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:392
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:389
 msgid "cities.singapore.description"
 msgstr "가든 시티, 동남아의 글로벌 허브"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:383
 msgid "cities.singapore.name"
 msgstr "싱가포르"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:397
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:394
 msgid "cities.singapore.tagline"
 msgstr "라이온 시티의 매력"
 
@@ -1337,17 +1337,17 @@ msgid "cities.sydney.tagline"
 msgstr "매력적인 항만, 무한한 가능성"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:346
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:343
 msgid "cities.tokyo.description"
 msgstr "일본의 활기찬 수도, 전통과 현대의 완벽한 결합"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:340
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:337
 msgid "cities.tokyo.name"
 msgstr "도쿄"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:351
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:348
 msgid "cities.tokyo.tagline"
 msgstr "고대와 초현대의 융합"
 
@@ -1382,47 +1382,47 @@ msgid "cities.vancouver.tagline"
 msgstr "산과 바다의 도시, 삶의 아름다움"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:510
 msgid "cities.washingtondc.description"
 msgstr "미국 수도, 기념물과 정치 권력의 중심"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:507
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
 msgid "cities.washingtondc.name"
 msgstr "워싱턴 D.C."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:515
 msgid "cities.washingtondc.tagline"
 msgstr "미국 민주주의의 심장"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:686
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:683
 msgid "cities.wellington.description"
 msgstr "뉴질랜드의 창의 수도, 항만 경치와 문화 활력"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:680
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:677
 msgid "cities.wellington.name"
 msgstr "웰링턴"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:689
 msgid "cities.wellington.tagline"
 msgstr "세상에서 가장 멋진 작은 수도"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:290
 msgid "cities.xian.description"
 msgstr "천년 고도, 병마용의 고향"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:287
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:284
 msgid "cities.xian.name"
 msgstr "시안"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:298
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:295
 msgid "cities.xian.tagline"
 msgstr "천년 왕조의 영원한 도시"
 
@@ -1488,12 +1488,12 @@ msgid "contact.faq.a3"
 msgstr "네, 진행 상황을 저장하고 개인화된 계획에 액세스하려면 계정이 필요합니다. 가입은 무료이며 1분도 걸리지 않습니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:63
+#: src/compoundComponents/HomePage/FAQSection.tsx:61
 msgid "contact.faq.a4"
 msgstr "우리의 AI는 수천 건의 실제 이주 데이터를 기반으로 학습되었습니다. 항목을 사용자 정의할 수 있으며, 사용자 피드백을 기반으로 지속적으로 개선하고 있습니다."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:73
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
 msgstr "네. HelloCity는 데스크탑과 모바일 기기 모두에서 원활하게 작동하는 직관적인 인터페이스를 갖추고 있습니다. AI 어시스턴트와 채팅하기만 하면 이주 여정의 모든 단계를 안내받을 수 있습니다."
 
@@ -1513,12 +1513,12 @@ msgid "contact.faq.q3"
 msgstr "시작하려면 계정이 필요한가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:59
 msgid "contact.faq.q4"
 msgstr "AI가 생성한 계획은 얼마나 정확한가요?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
 msgstr "HelloCity는 사용하기 쉬운가요?"
 
@@ -1533,12 +1533,12 @@ msgstr "HelloCity는 사용하기 쉬운가요?"
 #~ msgstr "질문을 입력하세요..."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:123
+#: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
 msgstr "HelloCity 관련 자주 묻는 질문을 빠르게 찾아보세요."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:115
+#: src/compoundComponents/HomePage/FAQSection.tsx:113
 msgid "contact.faq.title"
 msgstr "자주 묻는 질문"
 

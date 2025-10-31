@@ -188,10 +188,7 @@ export const cityData: Record<CityCode, CityInfo> = {
     ),
     tagline: <Trans id="cities.beijing.tagline" message="Where tradition meets the future" />,
   },
-  // TODO(human): Help decide best approach for remaining Chinese cities
-  // Beijing current: photo-1518169059853-c2987b5a5e75
-  // Guangzhou current: photo-1589018416907-6d320b722c62
-  // Need landmark-specific images for visual recognition
+
   shanghai: {
     code: 'shanghai',
     name: <Trans id="cities.shanghai.name" message="Shanghai" />,
