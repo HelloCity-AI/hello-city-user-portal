@@ -10,7 +10,7 @@ import { Trans } from '@lingui/react';
  * Set to true for UI testing/demo purposes.
  * Production: should be false to show only when AI is actually thinking.
  */
-const ALWAYS_SHOW_THINKING = false;
+const ALWAYS_SHOW_THINKING = true;
 
 const breathingDot = keyframes`
   0% {
