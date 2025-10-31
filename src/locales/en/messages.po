@@ -435,7 +435,7 @@ msgid "account.title"
 msgstr "HelloCity Account"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
+#: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:121
 msgid "ai.thinking"
 msgstr "AI is thinking…"
 
@@ -669,62 +669,62 @@ msgid "cities.adelaide.tagline"
 msgstr "Festivals, wine, and good living"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:574
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:571
 msgid "cities.amsterdam.description"
 msgstr "Venice of the North with canals, culture, and liberal spirit"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:568
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:565
 msgid "cities.amsterdam.name"
 msgstr "Amsterdam"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:579
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:576
 msgid "cities.amsterdam.tagline"
 msgstr "Canals, culture, and innovation"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:671
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:668
 msgid "cities.auckland.description"
 msgstr "City of Sails with stunning harbors and outdoor lifestyle"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:665
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:662
 msgid "cities.auckland.name"
 msgstr "Auckland"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:676
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:673
 msgid "cities.auckland.tagline"
 msgstr "Where urban meets nature"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:755
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:752
 msgid "cities.bali.description"
 msgstr "Indonesia's island province famed for temples, rice terraces, and beaches"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:749
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:746
 msgid "cities.bali.name"
 msgstr "Bali Island"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:760
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:757
 msgid "cities.bali.tagline"
 msgstr "Island of the Gods, your tropical escape"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:735
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:732
 msgid "cities.bangkok.description"
 msgstr "Vibrant capital with temples, street food, and modern energy"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:729
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:726
 msgid "cities.bangkok.name"
 msgstr "Bangkok"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:741
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:738
 msgid "cities.bangkok.tagline"
 msgstr "City of Angels with dazzling temples and night markets"
 
@@ -744,32 +744,32 @@ msgid "cities.beijing.tagline"
 msgstr "Where tradition meets the future"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:559
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:556
 msgid "cities.berlin.description"
 msgstr "Dynamic capital with rich history and vibrant cultural scene"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:553
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:550
 msgid "cities.berlin.name"
 msgstr "Berlin"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:564
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:561
 msgid "cities.berlin.tagline"
 msgstr "Unity, creativity, and freedom"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:498
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:495
 msgid "cities.boston.description"
 msgstr "Historic cradle of liberty with world-class universities"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:492
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:489
 msgid "cities.boston.name"
 msgstr "Boston"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:503
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:500
 msgid "cities.boston.tagline"
 msgstr "Where American history comes alive"
 
@@ -804,122 +804,122 @@ msgid "cities.calgary.tagline"
 msgstr "Where prairies meet the mountains"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:263
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:260
 msgid "cities.chengdu.description"
 msgstr "Sichuan's cultural heart with spicy cuisine and pandas"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:257
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:254
 msgid "cities.chengdu.name"
 msgstr "Chengdu"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:268
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:265
 msgid "cities.chengdu.tagline"
 msgstr "Land of abundance and leisure"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:483
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:480
 msgid "cities.chicago.description"
 msgstr "Windy City with stunning architecture and deep-dish pizza"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:477
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:474
 msgid "cities.chicago.name"
 msgstr "Chicago"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:488
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:485
 msgid "cities.chicago.tagline"
 msgstr "America's architectural capital"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:278
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:275
 msgid "cities.chongqing.description"
 msgstr "Mountain city with hot pot culture and Yangtze River views"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:272
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:269
 msgid "cities.chongqing.name"
 msgstr "Chongqing"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:283
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:280
 msgid "cities.chongqing.tagline"
 msgstr "The mountain metropolis"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:703
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:700
 msgid "cities.christchurch.description"
 msgstr "Garden City rebuilding with innovation and resilience"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:697
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:694
 msgid "cities.christchurch.name"
 msgstr "Christchurch"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:708
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:705
 msgid "cities.christchurch.tagline"
 msgstr "Rising stronger from the garden"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:769
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:766
 msgid "cities.default.description"
 msgstr "Discover your next destination"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:764
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:761
 msgid "cities.default.name"
 msgstr "Explore Cities"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:770
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:767
 msgid "cities.default.tagline"
 msgstr "Begin your city exploration journey"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:719
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:716
 msgid "cities.dubai.description"
 msgstr "Futuristic metropolis with luxury shopping and architectural marvels"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:713
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:710
 msgid "cities.dubai.name"
 msgstr "Dubai"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:724
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:721
 msgid "cities.dubai.tagline"
 msgstr "Where the future begins today"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:589
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:586
 msgid "cities.dublin.description"
 msgstr "Literary capital with Georgian architecture and warm hospitality"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:583
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:580
 msgid "cities.dublin.name"
 msgstr "Dublin"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:595
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:592
 msgid "cities.dublin.tagline"
 msgstr "Céad míle fáilte - A hundred thousand welcomes"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:606
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:603
 msgid "cities.edinburgh.description"
 msgstr "Scotland's historic capital with castle and festival culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:600
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:597
 msgid "cities.edinburgh.name"
 msgstr "Edinburgh"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:612
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:609
 msgid "cities.edinburgh.tagline"
 msgstr "Where Scotland's heart beats strongest"
 
@@ -939,137 +939,137 @@ msgid "cities.goldcoast.tagline"
 msgstr "Where surf meets sky"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:218
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:215
 msgid "cities.guangzhou.description"
 msgstr "Southern China's commercial center with Cantonese heritage"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:212
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:209
 msgid "cities.guangzhou.name"
 msgstr "Guangzhou"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:223
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:220
 msgid "cities.guangzhou.tagline"
 msgstr "Gateway to South China"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:655
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:652
 msgid "cities.hamburg.description"
 msgstr "Maritime gateway with rich port heritage and modern urban culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:649
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:646
 msgid "cities.hamburg.name"
 msgstr "Hamburg"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:660
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:657
 msgid "cities.hamburg.tagline"
 msgstr "Gateway to the world"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:308
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:305
 msgid "cities.hangzhou.description"
 msgstr "Paradise on earth with West Lake's serene beauty and tech innovation"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:302
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:299
 msgid "cities.hangzhou.name"
 msgstr "Hangzhou"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:314
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:311
 msgid "cities.hangzhou.tagline"
 msgstr "West Lake poetry meets a thriving digital economy"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:248
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:245
 msgid "cities.hongkong.description"
 msgstr "International finance center where East meets West"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:242
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:239
 msgid "cities.hongkong.name"
 msgstr "Hong Kong"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:253
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:250
 msgid "cities.hongkong.tagline"
 msgstr "Asia's World City"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:376
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:373
 msgid "cities.kyoto.description"
 msgstr "Ancient imperial capital with temples and traditional arts"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:370
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:367
 msgid "cities.kyoto.name"
 msgstr "Kyoto"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:381
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:378
 msgid "cities.kyoto.tagline"
 msgstr "Timeless beauty and tradition"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:529
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:526
 msgid "cities.london.description"
 msgstr "Historic capital with iconic landmarks and global finance"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:523
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:520
 msgid "cities.london.name"
 msgstr "London"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:534
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:531
 msgid "cities.london.tagline"
 msgstr "Where history meets modernity"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:423
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:420
 msgid "cities.losangeles.description"
 msgstr "City of dreams, entertainment capital of the world"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:417
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:414
 msgid "cities.losangeles.name"
 msgstr "Los Angeles"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:428
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:425
 msgid "cities.losangeles.tagline"
 msgstr "City of Angels"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:328
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:325
 msgid "cities.macau.description"
 msgstr "East meets West in this vibrant gaming and cultural hub"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:322
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:319
 msgid "cities.macau.name"
 msgstr "Macau"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:334
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:331
 msgid "cities.macau.tagline"
 msgstr "Where Portuguese charm meets Chinese heritage"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:623
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:620
 msgid "cities.manchester.description"
 msgstr "Industrial heritage meets modern innovation and football passion"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:617
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:614
 msgid "cities.manchester.name"
 msgstr "Manchester"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:628
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:625
 msgid "cities.manchester.tagline"
 msgstr "The original modern city"
 
@@ -1089,17 +1089,17 @@ msgid "cities.melbourne.tagline"
 msgstr "Culture, coffee, and endless possibilities"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:453
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:450
 msgid "cities.miami.description"
 msgstr "Tropical paradise with Art Deco charm and Latin culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:447
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:444
 msgid "cities.miami.name"
 msgstr "Miami"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:458
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:455
 msgid "cities.miami.tagline"
 msgstr "The Magic City"
 
@@ -1119,47 +1119,47 @@ msgid "cities.montreal.tagline"
 msgstr "European elegance, North American spirit"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:638
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:635
 msgid "cities.munich.description"
 msgstr "Bavarian capital blending traditional charm with modern innovation"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:632
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:629
 msgid "cities.munich.name"
 msgstr "Munich"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:644
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:641
 msgid "cities.munich.tagline"
 msgstr "Beer halls, Baroque beauty, and Bavarian warmth"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:408
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:405
 msgid "cities.newyork.description"
 msgstr "The city that never sleeps, melting pot of cultures"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:402
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:399
 msgid "cities.newyork.name"
 msgstr "New York"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:413
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:410
 msgid "cities.newyork.tagline"
 msgstr "The Big Apple"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:361
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:358
 msgid "cities.osaka.description"
 msgstr "Japan's kitchen with incredible street food and friendly culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:355
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:352
 msgid "cities.osaka.name"
 msgstr "Osaka"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:366
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:363
 msgid "cities.osaka.tagline"
 msgstr "The nation's kitchen"
 
@@ -1179,17 +1179,17 @@ msgid "cities.ottawa.tagline"
 msgstr "Capital beauty, timeless tradition"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:544
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:541
 msgid "cities.paris.description"
 msgstr "City of Light with art, culture, and culinary excellence"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:538
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:535
 msgid "cities.paris.name"
 msgstr "Paris"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:549
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:546
 msgid "cities.paris.tagline"
 msgstr "L'art de vivre at its finest"
 
@@ -1209,77 +1209,77 @@ msgid "cities.perth.tagline"
 msgstr "Where the west coast comes alive"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:438
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:435
 msgid "cities.sanfrancisco.description"
 msgstr "Tech hub with Golden Gate Bridge and diverse neighborhoods"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:432
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:429
 msgid "cities.sanfrancisco.name"
 msgstr "San Francisco"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:443
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:440
 msgid "cities.sanfrancisco.tagline"
 msgstr "The Golden Gate City"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:468
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:465
 msgid "cities.seattle.description"
 msgstr "Emerald City with Space Needle and innovative tech culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:462
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:459
 msgid "cities.seattle.name"
 msgstr "Seattle"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:473
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:470
 msgid "cities.seattle.tagline"
 msgstr "Where innovation meets nature"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:203
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:200
 msgid "cities.shanghai.description"
 msgstr "Global financial hub with stunning skyline and rich culture"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:197
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:194
 msgid "cities.shanghai.name"
 msgstr "Shanghai"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:208
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:205
 msgid "cities.shanghai.tagline"
 msgstr "The Pearl of the Orient"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:233
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:230
 msgid "cities.shenzhen.description"
 msgstr "China's Silicon Valley with cutting-edge technology"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:227
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:224
 msgid "cities.shenzhen.name"
 msgstr "Shenzhen"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:238
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:235
 msgid "cities.shenzhen.tagline"
 msgstr "Innovation at the speed of light"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:392
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:389
 msgid "cities.singapore.description"
 msgstr "Garden city and global hub of Southeast Asia"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:386
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:383
 msgid "cities.singapore.name"
 msgstr "Singapore"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:397
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:394
 msgid "cities.singapore.tagline"
 msgstr "The Lion City"
 
@@ -1299,17 +1299,17 @@ msgid "cities.sydney.tagline"
 msgstr "Where dreams meet the harbor"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:346
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:343
 msgid "cities.tokyo.description"
 msgstr "Japan's vibrant capital blending tradition and modernity"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:340
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:337
 msgid "cities.tokyo.name"
 msgstr "Tokyo"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:351
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:348
 msgid "cities.tokyo.tagline"
 msgstr "Where ancient meets ultra-modern"
 
@@ -1344,47 +1344,47 @@ msgid "cities.vancouver.tagline"
 msgstr "Where mountains embrace the ocean"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:513
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:510
 msgid "cities.washingtondc.description"
 msgstr "Nation's capital with monuments and political power"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:507
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:504
 msgid "cities.washingtondc.name"
 msgstr "Washington DC"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:518
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:515
 msgid "cities.washingtondc.tagline"
 msgstr "The heart of American democracy"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:686
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:683
 msgid "cities.wellington.description"
 msgstr "New Zealand's creative capital with harbor views and cultural vibrancy"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:680
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:677
 msgid "cities.wellington.name"
 msgstr "Wellington"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:692
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:689
 msgid "cities.wellington.tagline"
 msgstr "The coolest little capital in the world"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:293
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:290
 msgid "cities.xian.description"
 msgstr "Ancient capital home to the Terracotta Warriors"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:287
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:284
 msgid "cities.xian.name"
 msgstr "Xi'an"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:298
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:295
 msgid "cities.xian.tagline"
 msgstr "Eternal city of dynasties"
 
@@ -1472,12 +1472,12 @@ msgid "contact.faq.a3"
 msgstr "Yes, an account is required to save your progress and access personalized plans. Registration is free and takes less than a minute."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:63
+#: src/compoundComponents/HomePage/FAQSection.tsx:61
 msgid "contact.faq.a4"
 msgstr "Our AI is trained on real relocation data from thousands of moves. You can customize any item, and we continuously improve based on user feedback."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:73
+#: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
 msgstr "Yes. HelloCity features an intuitive interface that works seamlessly on desktop and mobile devices. Simply chat with our AI assistant, and it will guide you through every step of your relocation journey."
 
@@ -1497,12 +1497,12 @@ msgid "contact.faq.q3"
 msgstr "Do I need an account to get started?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:60
+#: src/compoundComponents/HomePage/FAQSection.tsx:59
 msgid "contact.faq.q4"
 msgstr "How accurate are the AI-generated plans?"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:71
+#: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
 msgstr "Is HelloCity easy to use?"
 
@@ -1517,12 +1517,12 @@ msgstr "Is HelloCity easy to use?"
 #~ msgstr "Please enter your question... "
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:123
+#: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
 msgstr "Find quick answers to the most common questions about HelloCity."
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/HomePage/FAQSection.tsx:115
+#: src/compoundComponents/HomePage/FAQSection.tsx:113
 msgid "contact.faq.title"
 msgstr "Frequently Asked Questions"
 
