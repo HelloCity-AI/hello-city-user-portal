@@ -145,26 +145,24 @@ const DropDown: React.FC<DropdownProps> = ({
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
         {/* Dropdown items */}
-        {dropdownOptions?.map((option: MenuOption) => {
-          return (
-            <React.Fragment key={option.id}>
-              <MenuItem onClick={() => option.onClick()}>
-                {option.icon && (
-                  <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
-                    {option.icon && <option.icon fontSize="small" />}
-                  </ListItemIcon>
-                )}
-                <Typography
-                  sx={textAlignCenter ? { textAlign: 'center', flexGrow: 1 } : {}}
-                  variant="body2"
-                >
-                  {option.label}
-                </Typography>
-              </MenuItem>
-              {option.divider && layout === 'vertical' && <Divider />}
-            </React.Fragment>
-          );
-        })}
+        {dropdownOptions?.map((option: MenuOption) => (
+          <Box key={option.id} component="div">
+            <MenuItem onClick={() => option.onClick()}>
+              {option.icon && (
+                <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
+                  {option.icon && <option.icon fontSize="small" />}
+                </ListItemIcon>
+              )}
+              <Typography
+                sx={textAlignCenter ? { textAlign: 'center', flexGrow: 1 } : {}}
+                variant="body2"
+              >
+                {option.label}
+              </Typography>
+            </MenuItem>
+            {option.divider && layout === 'vertical' && <Divider />}
+          </Box>
+        ))}
       </Menu>
     </React.Fragment>
   );

@@ -5,8 +5,9 @@ import { getConversationMessages } from '@/lib/api-client';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { conversationId: string } },
+  props: { params: Promise<{ conversationId: string }> }
 ) {
+  const params = await props.params;
   try {
     const { token, apiUrl } = await getAuthContext();
     const response = await getConversationMessages(token, apiUrl, params.conversationId);

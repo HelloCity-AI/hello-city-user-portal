@@ -9,15 +9,16 @@ import {
   type SupportedLanguage,
 } from '../../compoundComponents/NavBar/navConfig';
 
-function detectLocaleFromCookie(): SupportedLanguage {
-  const want = (cookies().get('lang')?.value || 'en').toLowerCase();
+async function detectLocaleFromCookie(): Promise<SupportedLanguage> {
+  const cookieStore = await cookies();
+  const want = (cookieStore.get('lang')?.value || 'en').toLowerCase();
   const keys = Object.keys(SUPPORTED_LANGUAGES) as SupportedLanguage[];
   const hit = keys.find((k) => k.toLowerCase() === want);
   return hit ?? 'en';
 }
 
 export default async function NotFound() {
-  const locale = detectLocaleFromCookie();
+  const locale = await detectLocaleFromCookie();
   const { t } = await getServerTranslation(locale);
 
   const homeHref = `/${locale}`;

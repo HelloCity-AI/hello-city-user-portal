@@ -10,7 +10,8 @@ import {
 
 import FAQSection from '@/compoundComponents/HomePage/FAQSection';
 
-export default function Home({ params }: { params: { lang: string } }) {
+export default async function Home(props: { params: Promise<{ lang: string }> }) {
+  const params = await props.params;
   const lang = params.lang;
   return (
     <React.Fragment>

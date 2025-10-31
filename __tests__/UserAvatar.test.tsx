@@ -55,7 +55,7 @@ const createMockStore = (userData: User | null) => {
 };
 
 // Test wrapper component
-const renderWithProviders = (ui: React.ReactElement, userData: User | null = null) => {
+const renderWithProviders = (ui: React.ReactElement<any>, userData: User | null = null) => {
   const store = createMockStore(userData);
 
   return render(

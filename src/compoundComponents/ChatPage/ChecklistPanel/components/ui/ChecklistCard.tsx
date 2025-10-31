@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type JSX } from 'react';
 import { useDispatch } from 'react-redux';
 import { Reorder, useDragControls } from 'framer-motion';
 import { Trans } from '@lingui/react';
