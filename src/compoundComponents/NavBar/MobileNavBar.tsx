@@ -111,8 +111,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
 
     return (
       <Button
-        component={Link}
-        href={`auth/login`}
+        onClick={() => window.location.href = '/auth/login'}
         variant="tertiary"
         className="mr-2 h-[32px] whitespace-nowrap rounded-full bg-primary font-semibold"
       >
