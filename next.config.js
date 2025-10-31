@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  compiler: {
+    removeConsole: isProd ? { exclude: ['error', 'warn'] } : false,
+  },
   experimental: {
     // swcPlugins: [['@lingui/swc-plugin', {}]],
   },
@@ -23,6 +27,14 @@ const nextConfig = {
         loader: '@lingui/loader',
       },
     });
+
+    if (isProd) {
+      config.module.rules.push({
+        test: /src[\/\\]app[\/\\]api[\/\\]dev-tools[\/\\].*/,
+        loader: 'null-loader', // 不编译这些文件
+      });
+    }
+
     return config;
   },
 };
