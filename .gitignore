@@ -50,3 +50,6 @@ src/locales/**/*.mjs
 AGENTS.md
 CLAUDE.md
 docs/
+
+.serena/
+.claude-session-*.md
