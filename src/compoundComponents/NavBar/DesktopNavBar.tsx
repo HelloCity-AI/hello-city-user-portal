@@ -108,7 +108,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
 
     return (
       <Button
-        onClick={() => window.location.href = '/auth/login'}
+        onClick={() => (window.location.href = '/auth/login')}
         variant="tertiary"
         sx={{ color: hasBgColor ? 'secondary.contrastText' : undefined }}
         className="whitespace-nowrap font-semibold"
