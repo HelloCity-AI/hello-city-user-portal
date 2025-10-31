@@ -1480,22 +1480,22 @@ msgstr "HelloCity は AI 移住アシスタントです。ステップごとの�
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "無料で始められます。高度なオプションでは、より個別化されたガイドや機能をご利用いただけます。"
+msgstr "HelloCity は世界中の主要都市に対応しています。シドニー、メルボルン、トロント、ニューヨーク、ロンドン、東京、シンガポール、ドバイなど、オーストラリア、北米、ヨーロッパ、アジアの主要目的地を含む 48 以上の都市で強化されたカバレッジと専門的なトレーニングを提供しています。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
 msgid "contact.faq.a3"
-msgstr "世界の主要都市をカバーしており、定期的に拡大しています。最新の対応地域は製品内でご確認ください。"
+msgstr "はい、進捗を保存し、パーソナライズされたチェックリストにアクセスするにはアカウントが必要です。登録は無料で、1 分もかかりません。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:63
 msgid "contact.faq.a4"
-msgstr "基本的な閲覧にはアカウントは不要です。アカウントを作成すると、進捗やリマインダー、カスタムのタイムラインを保存できます。"
+msgstr "当社の AI は、数千件の実際の引っ越しデータでトレーニングされています。項目はカスタマイズでき、ユーザーフィードバックに基づいて継続的に改善しています。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:73
 msgid "contact.faq.a5"
-msgstr "はい。HelloCity はレスポンシブ対応で、デスクトップ、タブレット、スマートフォンで快適に動作します。"
+msgstr "はい。HelloCity は直感的なインターフェースを備えており、デスクトップとモバイルデバイスでシームレスに動作します。AI アシスタントとチャットするだけで、引っ越しの旅のすべてのステップをガイドします。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
@@ -1505,22 +1505,22 @@ msgstr "HelloCity とは？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
 msgid "contact.faq.q2"
-msgstr "HelloCity は無料ですか？"
+msgstr "現在対応している都市は？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:49
 msgid "contact.faq.q3"
-msgstr "どの都市に対応していますか？"
+msgstr "利用開始にはアカウント登録が必要ですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:60
 msgid "contact.faq.q4"
-msgstr "利用開始にはアカウント登録が必要ですか？"
+msgstr "AI 生成チェックリストの精度は？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.q5"
-msgstr "HelloCity はスマートフォンでも使いやすいですか？"
+msgstr "HelloCity は使いやすいですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
