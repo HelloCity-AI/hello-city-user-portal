@@ -65,6 +65,47 @@ A modern frontend project powered by Next.js 15, React 19, TypeScript, Material-
 
 6. **Open** [http://localhost:3000](http://localhost:3000) **in your browser.**
 
+## 3. Environment Configuration
+
+**Required:** Create `.env.local` file in the project root:
+
+```bash
+# macOS/Linux
+cp .env.example .env.local
+
+# Windows
+copy .env.example .env.local
+```
+
+Populate `.env.local` with actual values for:
+
+- **Auth0 Configuration:**
+  - `AUTH0_DOMAIN` - Your Auth0 domain
+  - `AUTH0_CLIENT_ID` - Your Auth0 application client ID
+  - `AUTH0_CLIENT_SECRET` - Your Auth0 application client secret
+  - `AUTH0_SECRET` - Your Auth0 session secret (generate: `openssl rand -hex 32`)
+  - `AUTH0_AUDIENCE` - Your Auth0 API audience (required for Auth0 v4)
+  - `APP_BASE_URL` - Application base URL
+    - Development: `http://localhost:3000`
+    - Production: `https://your-domain.com`
+
+- **Backend Services:**
+  - `NEXT_PUBLIC_BACKEND_URL` - Backend API base URL (default: http://localhost:5000)
+  - `NEXT_PUBLIC_EMAIL_API` - Email service API endpoint for contact form
+  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI service URL for task polling (default: http://localhost:8000)
+
+- **Chat Configuration (Optional):**
+  - `CHAT_STREAM_DELAY_MS` - Typewriter effect speed in milliseconds (default: 15)
+    - 15ms - Fast, smooth typing (default)
+    - 25ms - Moderate speed
+    - 40-60ms - Slower, more deliberate effect
+
+- **Production Deployment (Vercel Required):**
+  - `AUTH_TRUST_HOST` - Set to `true` to trust forwarded host headers from Vercel's reverse proxy (required for NextAuth)
+  - `NPM_CONFIG_PRODUCTION` - Set to `false` to ensure devDependencies are installed during build (required for `lingui:compile`)
+
+**Note:** Contact team lead for actual environment values.
+
 ## 4. Development Commands
 
 ### Core Development
@@ -200,43 +241,6 @@ This structure provides:
 - Shared layouts per group
 - Clean URL structure (group names don't appear in URLs)
 - Logical separation of authenticated vs. public routes
-
-## 3. Environment Configuration
-
-**Required:** Create `.env.local` file in the project root:
-
-```bash
-# macOS/Linux
-cp .env.example .env.local
-
-# Windows
-copy .env.example .env.local
-```
-
-Populate `.env.local` with actual values for:
-
-- **Auth0 Configuration:**
-  - `AUTH0_DOMAIN` - Your Auth0 domain
-  - `AUTH0_CLIENT_ID` - Your Auth0 application client ID
-  - `AUTH0_CLIENT_SECRET` - Your Auth0 application client secret
-  - `AUTH0_SECRET` - Your Auth0 session secret
-
-- **Backend API:**
-  - `NEXT_PUBLIC_BACKEND_URL` - Backend API base URL (default: http://localhost:5000)
-
-- **Python AI Service:**
-  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI service URL for task polling (default: http://localhost:8000)
-
-- **OpenAI:**
-  - `OPENAI_API_KEY` - Your OpenAI API key for GPT integration
-
-- **Chat Stream Configuration (Optional):**
-  - `CHAT_STREAM_DELAY_MS` - Typewriter effect speed in milliseconds (default: 15)
-    - 15ms - Fast, smooth typing (default)
-    - 25ms - Moderate speed
-    - 40-60ms - Slower, more deliberate effect
-
-**Note:** Contact team lead for actual environment values.
 
 ## 6. Git Hooks (Husky)
 

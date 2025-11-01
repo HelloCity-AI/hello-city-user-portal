@@ -65,6 +65,47 @@
 
 6. **在浏览器中访问** [http://localhost:3000](http://localhost:3000)
 
+## 3. 环境配置
+
+**必需：** 在项目根目录创建 `.env.local` 文件：
+
+```bash
+# macOS/Linux
+cp .env.example .env.local
+
+# Windows
+copy .env.example .env.local
+```
+
+将 `.env.local` 填入实际配置值：
+
+- **Auth0 配置：**
+  - `AUTH0_DOMAIN` - Auth0 域名
+  - `AUTH0_CLIENT_ID` - Auth0 应用客户端 ID
+  - `AUTH0_CLIENT_SECRET` - Auth0 应用客户端密钥
+  - `AUTH0_SECRET` - Auth0 会话密钥（生成命令：`openssl rand -hex 32`）
+  - `AUTH0_AUDIENCE` - Auth0 API audience（Auth0 v4 必需）
+  - `APP_BASE_URL` - 应用基础 URL
+    - 开发环境：`http://localhost:3000`
+    - 生产环境：`https://your-domain.com`
+
+- **后端服务：**
+  - `NEXT_PUBLIC_BACKEND_URL` - 后端 API 基础地址（默认 http://localhost:5000）
+  - `NEXT_PUBLIC_EMAIL_API` - 邮件服务 API 端点（用于联系表单）
+  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI 服务地址（默认 http://localhost:8000）
+
+- **聊天配置（可选）：**
+  - `CHAT_STREAM_DELAY_MS` - 打字机效果延迟（单位：毫秒，默认 15）
+    - 15ms - 快速流畅（默认）
+    - 25ms - 中等速度
+    - 40-60ms - 较慢、沉稳的效果
+
+- **生产部署配置（Vercel 必需）：**
+  - `AUTH_TRUST_HOST` - 设置为 `true` 以信任 Vercel 反向代理转发的主机头（NextAuth 必需）
+  - `NPM_CONFIG_PRODUCTION` - 设置为 `false` 确保构建时安装 devDependencies（`lingui:compile` 必需）
+
+**提示：** 尽量联系团队负责人获取真实环境配置值。
+
 ## 4. 开发命令
 
 ### 核心开发
@@ -187,43 +228,6 @@ Storybook 会查找 `stories/` 目录中的 `.stories.tsx` 文件。
 - OpenAI GPT 集成
 - Redux Saga 负责状态管理中的副作用
 - 基于服务端推送 (SSE) 的实时响应
-
-## 3. 环境配置
-
-**必需：** 在项目根目录创建 `.env.local` 文件：
-
-```bash
-# macOS/Linux
-cp .env.example .env.local
-
-# Windows
-copy .env.example .env.local
-```
-
-将 `.env.local` 填入实际配置值：
-
-- **Auth0 配置：**
-  - `AUTH0_DOMAIN` - Auth0 域名
-  - `AUTH0_CLIENT_ID` - Auth0 应用客户端 ID
-  - `AUTH0_CLIENT_SECRET` - Auth0 应用客户端密钥
-  - `AUTH0_SECRET` - Auth0 会话密钥
-
-- **后端 API：**
-  - `NEXT_PUBLIC_BACKEND_URL` - 后端 API 基础地址（默认 http://localhost:5000）
-
-- **Python AI 服务：**
-  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI 服务地址，用于任务轮询（默认 http://localhost:8000）
-
-- **OpenAI：**
-  - `OPENAI_API_KEY` - OpenAI API 密钥，用于 GPT 集成
-
-- **聊天流配置（可选）：**
-  - `CHAT_STREAM_DELAY_MS` - 打字机效果的速度（单位：毫秒，默认 15）
-    - 15ms - 快速流畅（默认）
-    - 25ms - 中等速度
-    - 40-60ms - 较慢、沉稳的效果
-
-**提示：** 尽量联系团队负责人获取真实环境配置值。
 
 ## 6. Git 钩子 (Husky)
 
