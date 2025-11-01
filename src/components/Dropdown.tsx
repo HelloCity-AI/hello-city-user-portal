@@ -145,9 +145,9 @@ const DropDown: React.FC<DropdownProps> = ({
         )}
         {showUserLabel && layout === 'vertical' && <Divider />}
         {/* Dropdown items */}
-        {dropdownOptions?.map((option: MenuOption) => (
-          <Box key={option.id} component="div">
-            <MenuItem onClick={() => option.onClick()}>
+        {dropdownOptions?.flatMap((option: MenuOption) => {
+          const items = [
+            <MenuItem key={option.id} onClick={() => option.onClick()}>
               {option.icon && (
                 <ListItemIcon sx={{ mr: 1 }} data-testid={`${option.value}-icon`}>
                   {option.icon && <option.icon fontSize="small" />}
@@ -159,10 +159,13 @@ const DropDown: React.FC<DropdownProps> = ({
               >
                 {option.label}
               </Typography>
-            </MenuItem>
-            {option.divider && layout === 'vertical' && <Divider />}
-          </Box>
-        ))}
+            </MenuItem>,
+          ];
+          if (option.divider && layout === 'vertical') {
+            items.push(<Divider key={`${option.id}-divider`} />);
+          }
+          return items;
+        })}
       </Menu>
     </React.Fragment>
   );
