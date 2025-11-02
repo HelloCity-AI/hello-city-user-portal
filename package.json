@@ -45,6 +45,8 @@
     "@radix-ui/react-slot": "1.2.3",
     "@reduxjs/toolkit": "2.8.2",
     "@types/negotiator": "0.6.4",
+    "@vercel/analytics": "1.5.0",
+    "@vercel/speed-insights": "1.2.0",
     "ai": "5.0.44",
     "auth0": "4.28.0",
     "axios": "1.11.0",
