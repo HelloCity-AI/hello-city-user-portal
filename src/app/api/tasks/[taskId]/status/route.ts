@@ -1,11 +1,14 @@
 /**
  * Task Status API
  * Proxies task status requests from Frontend to Python AI Service
+ *
+ * 🔒 Security: Includes API Key for authentication with Python service
  */
 
 export const runtime = 'edge';
 
 const PYTHON_SERVICE_URL = process.env.NEXT_PUBLIC_PYTHON_SERVICE_URL || 'http://localhost:8000';
+const FRONTEND_API_KEY = process.env.FRONTEND_API_KEY;
 
 export async function GET(_req: Request, { params }: { params: Promise<{ taskId: string }> }) {
   try {
@@ -18,13 +21,23 @@ export async function GET(_req: Request, { params }: { params: Promise<{ taskId:
       });
     }
 
+    // Verify API Key is configured
+    if (!FRONTEND_API_KEY) {
+      console.error('[Task Status API] FRONTEND_API_KEY not configured');
+      return new Response(JSON.stringify({ error: 'Server configuration error' }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     console.log(`[Task Status API] Fetching status for task: ${taskId}`);
 
-    // Forward to Python service
+    // Forward to Python service with API Key authentication
     const response = await fetch(`${PYTHON_SERVICE_URL}/tasks/${taskId}/status`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        'X-API-Key': FRONTEND_API_KEY, // 🔒 API Key authentication
         'Cache-Control': 'no-store',
         Pragma: 'no-cache',
       },
