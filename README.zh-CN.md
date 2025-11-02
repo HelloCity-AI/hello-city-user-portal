@@ -92,7 +92,8 @@ copy .env.example .env.local
 - **后端服务：**
   - `NEXT_PUBLIC_BACKEND_URL` - 后端 API 基础地址（默认 http://localhost:5000）
   - `NEXT_PUBLIC_EMAIL_API` - 邮件服务 API 端点（用于联系表单）
-  - `NEXT_PUBLIC_PYTHON_SERVICE_URL` - Python AI 服务地址（默认 http://localhost:8000）
+  - `PYTHON_SERVICE_URL` - Python AI 服务地址（默认 http://localhost:8000）
+  - `FRONTEND_API_KEY` - 用于验证 Python AI 服务请求的 API Key（生成：`openssl rand -base64 32`）
 
 - **聊天配置（可选）：**
   - `CHAT_STREAM_DELAY_MS` - 打字机效果延迟（单位：毫秒，默认 15）
