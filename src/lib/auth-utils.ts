@@ -58,7 +58,7 @@ export async function getAccessTokenWithValidation(): Promise<AuthTokenResponse>
  * Get backend URL with validation
  */
 export function getBackendUrl(): string | null {
-  return process.env.NEXT_PUBLIC_BACKEND_URL || null;
+  return process.env.BACKEND_URL || null;
 }
 
 /**
@@ -68,7 +68,7 @@ export function validateBackendUrl(): NextResponse | null {
   const apiUrl = getBackendUrl();
   if (!apiUrl) {
     return NextResponse.json(
-      { error: 'Backend URL is not configured (NEXT_PUBLIC_BACKEND_URL)' },
+      { error: 'Backend URL is not configured (BACKEND_URL)' },
       { status: 500 },
     );
   }

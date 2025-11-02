@@ -90,7 +90,7 @@ Populate `.env.local` with actual values for:
     - Production: `https://your-domain.com`
 
 - **Backend Services:**
-  - `NEXT_PUBLIC_BACKEND_URL` - Backend API base URL (default: http://localhost:5000)
+  - `BACKEND_URL` - Backend API base URL (default: http://localhost:5000)
   - `NEXT_PUBLIC_EMAIL_API` - Email service API endpoint for contact form
   - `PYTHON_SERVICE_URL` - Python AI service URL for task polling (default: http://localhost:8000)
   - `FRONTEND_API_KEY` - API Key for authenticating requests to Python AI service (generate: `openssl rand -base64 32`)
