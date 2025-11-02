@@ -7,7 +7,7 @@
 
 export const runtime = 'edge';
 
-const PYTHON_SERVICE_URL = process.env.NEXT_PUBLIC_PYTHON_SERVICE_URL || 'http://localhost:8000';
+const PYTHON_SERVICE_URL = process.env.PYTHON_SERVICE_URL || 'http://localhost:8000';
 const FRONTEND_API_KEY = process.env.FRONTEND_API_KEY;
 
 export async function GET(_req: Request, { params }: { params: Promise<{ taskId: string }> }) {
