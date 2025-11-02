@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import type { Metadata } from 'next';
 import { cookies } from 'next/headers';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 import websiteTheme from '@/theme/theme';
 import ReduxProvider from './ReduxProvider';
 import ApiProvider from './ApiProvider';
@@ -45,6 +47,8 @@ export default async function RootLayout({
             </ThemeProvider>
           </StyledEngineProvider>
         </AppRouterCacheProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
