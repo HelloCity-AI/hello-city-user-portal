@@ -78,7 +78,7 @@ msgstr "정말 로그아웃하시겠습니까?"
 #~ msgstr "날짜 선택"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:234
 msgid "Back to Homepage"
 msgstr "홈페이지로 돌아가기"
 
@@ -97,7 +97,7 @@ msgstr "홈페이지로 돌아가기"
 #~ msgstr "이제 시작할 준비가 되셨나요?"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:194
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:205
 msgid "Creating..."
 msgstr "생성 중..."
 
@@ -175,7 +175,7 @@ msgstr "생성 중..."
 #~ msgstr "계획부터 꿈의 실현까지, 언제나 함께"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:196
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:207
 msgid "I'm all set"
 msgstr "준비 완료"
 
@@ -669,24 +669,6 @@ msgid "checklist.filter.incomplete"
 msgstr "미완료"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:38
-#: src/compoundComponents/Modals/ChecklistItemModal.tsx:124
-msgid "checklist.importance.high"
-msgstr "높음"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:48
-#: src/compoundComponents/Modals/ChecklistItemModal.tsx:130
-msgid "checklist.importance.low"
-msgstr "낮음"
-
-#. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:43
-#: src/compoundComponents/Modals/ChecklistItemModal.tsx:127
-msgid "checklist.importance.medium"
-msgstr "보통"
-
-#. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/components/ui/ChecklistCard.tsx:18
 #~ msgid "checklist.importance.urgent"
 #~ msgstr "긴급"
@@ -707,22 +689,22 @@ msgid "cities.adelaide.name"
 msgstr "애들레이드"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:81
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:75
 msgid "cities.adelaide.tagline"
 msgstr "와인의 도시, 축제의 수도"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:571
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:556
 msgid "cities.amsterdam.description"
 msgstr "북쪽의 베네치아, 운하와 문화, 자유 정신"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:565
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:550
 msgid "cities.amsterdam.name"
 msgstr "암스테르담"
 
 #. js-lingui-explicit-id
-#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:576
+#: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:561
 msgid "cities.amsterdam.tagline"
 msgstr "운하, 문화, 혁신"
 
@@ -749,7 +731,7 @@ msgstr "인도네시아의 섬, 사원과 논테라스, 해변으로 유명"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:746
 msgid "cities.bali.name"
-msgstr "발리"
+msgstr "발리섬"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChecklistPanel/data/cityData.tsx:757
@@ -1892,6 +1874,11 @@ msgid "profile.refresh"
 msgstr "초기화"
 
 #. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/PersonalInfo.tsx:96
+msgid "profile.select-nationality-first"
+msgstr "먼저 국적을 선택하세요"
+
+#. js-lingui-explicit-id
 #: src/app/[lang]/(app)/profile/page.tsx:418
 msgid "profile.submit"
 msgstr "제출"
@@ -1943,6 +1930,270 @@ msgstr "새 대화"
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/HistorySection.tsx:57
 msgid "sidebar.history.title"
 msgstr "대화 기록"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Adelaide"
+msgstr "애들레이드"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Amsterdam"
+msgstr "암스테르담"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Auckland"
+msgstr "오클랜드"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Bali"
+msgstr "발리섬"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Bangkok"
+msgstr "방콕"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Beijing"
+msgstr "베이징"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Berlin"
+msgstr "베를린"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Boston"
+msgstr "보스턴"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Brisbane"
+msgstr "브리즈번"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Calgary"
+msgstr "캘거리"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Chengdu"
+msgstr "청두"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Chicago"
+msgstr "시카고"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Chongqing"
+msgstr "충칭"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Christchurch"
+msgstr "크라이스트처치"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Dubai"
+msgstr "두바이"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Dublin"
+msgstr "더블린"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Edinburgh"
+msgstr "에든버러"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.GoldCoast"
+msgstr "골드코스트"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Guangzhou"
+msgstr "광저우"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Hamburg"
+msgstr "함부르크"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Hangzhou"
+msgstr "항저우"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.HongKong"
+msgstr "홍콩"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Kyoto"
+msgstr "교토"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.London"
+msgstr "런던"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.LosAngeles"
+msgstr "로스앤젤레스"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Macau"
+msgstr "마카오"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Manchester"
+msgstr "맨체스터"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Melbourne"
+msgstr "멜버른"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Miami"
+msgstr "마이애미"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Montreal"
+msgstr "몬트리올"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Munich"
+msgstr "뮌헨"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.NewYork"
+msgstr "뉴욕"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Osaka"
+msgstr "오사카"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Ottawa"
+msgstr "오타와"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Paris"
+msgstr "파리"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Perth"
+msgstr "퍼스"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.SanFrancisco"
+msgstr "샌프란시스코"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Seattle"
+msgstr "시애틀"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Shanghai"
+msgstr "상하이"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Shenzhen"
+msgstr "선전"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Singapore"
+msgstr "싱가포르"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Sydney"
+msgstr "시드니"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Tokyo"
+msgstr "도쿄"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Toronto"
+msgstr "토론토"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Vancouver"
+msgstr "밴쿠버"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.WashingtonDC"
+msgstr "워싱턴 D.C."
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Wellington"
+msgstr "웰링턴"
+
+#. js-lingui-explicit-id
+msgid "userAttr.cityOption.Xian"
+msgstr "시안"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Australia"
+msgstr "호주"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Canada"
+msgstr "캐나다"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.China"
+msgstr "중국"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.France"
+msgstr "프랑스"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Germany"
+msgstr "독일"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.HongKong"
+msgstr "홍콩"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Indonesia"
+msgstr "인도네시아"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Ireland"
+msgstr "아일랜드"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Japan"
+msgstr "일본"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Korea"
+msgstr "한국"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Macau"
+msgstr "마카오"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Netherlands"
+msgstr "네덜란드"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.NewZealand"
+msgstr "뉴질랜드"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Singapore"
+msgstr "싱가포르"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.Thailand"
+msgstr "태국"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.UnitedArabEmirates"
+msgstr "아랍에미리트"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.UnitedKingdom"
+msgstr "영국"
+
+#. js-lingui-explicit-id
+msgid "userAttr.nationalityOption.UnitedStates"
+msgstr "미국"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:19
