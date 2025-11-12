@@ -77,6 +77,11 @@ msgstr "您确定要登出账户吗？"
 #~ msgid "Pick a date"
 #~ msgstr "选择日期"
 
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+msgid "Back to Homepage"
+msgstr "返回首页"
+
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NavBar.Back"
 #~ msgstr "← 返回"

@@ -181,7 +181,7 @@ const Page = () => {
           </div>
           <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
 
-          <div className="w-full">
+          <div className="w-full space-y-3">
             <Button
               variant="contained"
               color="primary"
@@ -189,12 +189,49 @@ const Page = () => {
               type="submit"
               className="mt-4"
               disabled={isCreating}
+              sx={{
+                boxShadow: 'none',
+                border: '1px solid',
+                borderColor: 'primary.main',
+                '&:hover': {
+                  boxShadow: 'none',
+                },
+                '&:disabled': {
+                  boxShadow: 'none',
+                },
+              }}
             >
               {isCreating ? (
                 <Trans id="Creating..." message="Creating..." />
               ) : (
                 <Trans id="I'm all set" message="I'm all set" />
               )}
+            </Button>
+
+            <Button
+              variant="contained"
+              fullWidth
+              type="button"
+              onClick={() => window.location.href = '/'}
+              disabled={isCreating}
+              sx={{
+                backgroundColor: 'white',
+                color: 'primary.main',
+                boxShadow: 'none',
+                border: '1px solid',
+                borderColor: 'primary.main',
+                '&:hover': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                  boxShadow: 'none',
+                },
+                '&:disabled': {
+                  backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                  color: 'rgba(0, 0, 0, 0.38)',
+                  boxShadow: 'none',
+                },
+              }}
+            >
+              <Trans id="Back to Homepage" message="Back to Homepage" />
             </Button>
           </div>
         </div>

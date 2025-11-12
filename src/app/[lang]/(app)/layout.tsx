@@ -82,7 +82,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
         >
           <SectionBackground />
           <Box className="relative z-10 flex h-full w-full">
-            <ChatSidebar />
+            {!isCreateProfilePage && <ChatSidebar />}
             <Box className="flex-1">{children}</Box>
           </Box>
         </Box>

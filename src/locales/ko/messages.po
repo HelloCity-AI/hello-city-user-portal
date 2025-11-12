@@ -77,6 +77,11 @@ msgstr "정말 로그아웃하시겠습니까?"
 #~ msgid "Pick a date"
 #~ msgstr "날짜 선택"
 
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+msgid "Back to Homepage"
+msgstr "홈페이지로 돌아가기"
+
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NavBar.Back"
 #~ msgstr "← 뒤로"
