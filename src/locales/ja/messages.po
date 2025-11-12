@@ -77,6 +77,11 @@ msgstr "ログアウトしてもよろしいですか？"
 #~ msgid "Pick a date"
 #~ msgstr "日付を選択"
 
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+msgid "Back to Homepage"
+msgstr "ホームページに戻る"
+
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NavBar.Back"
 #~ msgstr "← 戻る"

@@ -83,6 +83,11 @@ msgstr "Are you sure you want to log out?"
 #~ msgid "Pick a date"
 #~ msgstr "Pick a date"
 
+#. js-lingui-explicit-id
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+msgid "Back to Homepage"
+msgstr "Back to Homepage"
+
 #: src/components/NavBar/MobileNavBar.tsx:93
 #~ msgid "NavBar.Back"
 #~ msgstr "← Back"
