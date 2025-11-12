@@ -14,7 +14,6 @@ import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
 import type { RootState } from '@/store';
 import { registerFile } from '@/upload/fileRegistry';
-import { getCitiesByCountry } from '@/enums/UserAttributes';
 
 const Page = () => {
   const { i18n } = useLingui();
@@ -53,24 +52,16 @@ const Page = () => {
     return () => revokeUrl();
   }, []);
 
+  const setFieldValue = (name: keyof User, value: string) => {
+    setUserInfo((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserInfo((prev) => {
-      const next = { ...prev, [name]: value };
-
-      if (name === 'nationality') {
-        if (!value) {
-          next.city = '';
-        } else if (prev.city) {
-          const allowedCities = getCitiesByCountry(value);
-          if (!allowedCities.includes(prev.city)) {
-            next.city = '';
-          }
-        }
-      }
-
-      return next;
-    });
+    setFieldValue(name as keyof User, value);
   };
 
   const handleSelectImage = (file: File | null) => {
@@ -143,7 +134,7 @@ const Page = () => {
         className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
       >
         <div className="absolute inset-0 bg-black/25" />
-        <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
+        <div className="relative flex h-auto max-h-[90vh] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
           <div className="mb-6 text-center">
             <Typography variant="h3" className="text-2xl sm:text-3xl">
               Hello City
@@ -168,88 +159,88 @@ const Page = () => {
               </div>
             </div>
           )}
-
-          <Button
-            type="button"
-            onClick={() => setUploaderOpen(true)}
-            className="mb-6 flex items-center justify-center overflow-hidden rounded-full object-cover"
-          >
-            <Image
-              src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
-              alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
-              width={100}
-              height={100}
-              className="h-[100px] w-[100px] rounded-full object-cover"
-            />
-          </Button>
-
-          <div className="w-full">
-            <input
-              type="text"
-              name="username"
-              placeholder={i18n._('profile.username-placeholder', {
-                default: 'Please enter your username',
-              })}
-              value={userInfo.username}
-              onChange={handleChange}
-              required
-              className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
-          <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
-
-          <div className="w-full space-y-3">
+          <div className="w-full overflow-y-auto">
             <Button
-              variant="contained"
-              color="primary"
-              fullWidth
-              type="submit"
-              className="mt-4"
-              disabled={isCreating}
-              sx={{
-                boxShadow: 'none',
-                border: '1px solid',
-                borderColor: 'primary.main',
-                '&:hover': {
-                  boxShadow: 'none',
-                },
-                '&:disabled': {
-                  boxShadow: 'none',
-                },
-              }}
-            >
-              {isCreating ? (
-                <Trans id="Creating..." message="Creating..." />
-              ) : (
-                <Trans id="I'm all set" message="I'm all set" />
-              )}
-            </Button>
-
-            <Button
-              variant="contained"
-              fullWidth
               type="button"
-              onClick={() => window.location.href = '/'}
-              disabled={isCreating}
-              sx={{
-                backgroundColor: 'white',
-                color: 'primary.main',
-                boxShadow: 'none',
-                border: '1px solid',
-                borderColor: 'primary.main',
-                '&:hover': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  boxShadow: 'none',
-                },
-                '&:disabled': {
-                  backgroundColor: 'rgba(255, 255, 255, 0.6)',
-                  color: 'rgba(0, 0, 0, 0.38)',
-                  boxShadow: 'none',
-                },
-              }}
+              onClick={() => setUploaderOpen(true)}
+              className="mx-auto mb-6 flex min-h-[150px] min-w-[150px] items-center justify-center overflow-hidden rounded-full border border-gray-200 object-cover"
             >
-              <Trans id="Back to Homepage" message="Back to Homepage" />
+              <Image
+                src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
+                alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
+                width={120}
+                height={120}
+                className="min-h-[120px] min-w-[120px] rounded-full object-cover"
+              />
             </Button>
+            <div className="w-full">
+              <input
+                type="text"
+                name="username"
+                placeholder={i18n._('profile.username-placeholder', {
+                  default: 'Please enter your username',
+                })}
+                value={userInfo.username}
+                onChange={handleChange}
+                required
+                className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <PersonalInfo userInfo={userInfo} onFieldChange={setFieldValue} />
+
+            <div className="w-full space-y-3">
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                type="submit"
+                className="mt-4"
+                disabled={isCreating}
+                sx={{
+                  boxShadow: 'none',
+                  border: '1px solid',
+                  borderColor: 'primary.main',
+                  '&:hover': {
+                    boxShadow: 'none',
+                  },
+                  '&:disabled': {
+                    boxShadow: 'none',
+                  },
+                }}
+              >
+                {isCreating ? (
+                  <Trans id="Creating..." message="Creating..." />
+                ) : (
+                  <Trans id="I'm all set" message="I'm all set" />
+                )}
+              </Button>
+
+              <Button
+                variant="contained"
+                fullWidth
+                type="button"
+                onClick={() => (window.location.href = '/')}
+                disabled={isCreating}
+                sx={{
+                  backgroundColor: 'white',
+                  color: 'primary.main',
+                  boxShadow: 'none',
+                  border: '1px solid',
+                  borderColor: 'primary.main',
+                  '&:hover': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                    boxShadow: 'none',
+                  },
+                  '&:disabled': {
+                    backgroundColor: 'rgba(255, 255, 255, 0.6)',
+                    color: 'rgba(0, 0, 0, 0.38)',
+                    boxShadow: 'none',
+                  },
+                }}
+              >
+                <Trans id="Back to Homepage" message="Back to Homepage" />
+              </Button>
+            </div>
           </div>
         </div>
       </form>

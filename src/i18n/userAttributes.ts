@@ -41,6 +41,7 @@ export const userAttrOptionIds = {
     [Nationalities.UnitedArabEmirates]: 'userAttr.nationalityOption.UnitedArabEmirates',
     [Nationalities.UnitedKingdom]: 'userAttr.nationalityOption.UnitedKingdom',
     [Nationalities.UnitedStates]: 'userAttr.nationalityOption.UnitedStates',
+    [Nationalities.Other]: 'userAttr.nationalityOption.Other',
   },
   cities: {
     // Australia
