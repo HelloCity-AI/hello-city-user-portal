@@ -78,7 +78,7 @@ msgstr "ログアウトしてもよろしいですか？"
 #~ msgstr "日付を選択"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:218
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:241
 msgid "Back to Homepage"
 msgstr "ホームページに戻る"
 
@@ -97,7 +97,7 @@ msgstr "ホームページに戻る"
 #~ msgstr "一歩踏み出す準備はできていますか？"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:194
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:212
 msgid "Creating..."
 msgstr "作成中…"
 
@@ -175,7 +175,7 @@ msgstr "作成中…"
 #~ msgstr "計画から実現まで、ずっとあなたとともに"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:196
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:214
 msgid "I'm all set"
 msgstr "準備完了"
 
@@ -1924,7 +1924,7 @@ msgid "profile.username"
 msgstr "ユーザー名"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(app)/create-user-profile/page.tsx:173
+#: src/app/[lang]/(app)/create-user-profile/page.tsx:180
 #: src/app/[lang]/(app)/profile/page.tsx:273
 msgid "profile.username-placeholder"
 msgstr "ユーザー名を入力してください"
@@ -1945,270 +1945,6 @@ msgid "sidebar.history.title"
 msgstr "チャット履歴"
 
 #. js-lingui-explicit-id
-msgid "userAttr.cityOption.Adelaide"
-msgstr "アデレード"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Amsterdam"
-msgstr "アムステルダム"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Auckland"
-msgstr "オークランド"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Bali"
-msgstr "バリ島"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Bangkok"
-msgstr "バンコク"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Beijing"
-msgstr "北京"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Berlin"
-msgstr "ベルリン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Boston"
-msgstr "ボストン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Brisbane"
-msgstr "ブリスベン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Calgary"
-msgstr "カルガリー"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Chengdu"
-msgstr "成都"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Chicago"
-msgstr "シカゴ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Chongqing"
-msgstr "重慶"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Christchurch"
-msgstr "クライストチャーチ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Dubai"
-msgstr "ドバイ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Dublin"
-msgstr "ダブリン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Edinburgh"
-msgstr "エディンバラ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.GoldCoast"
-msgstr "ゴールドコースト"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Guangzhou"
-msgstr "広州"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Hamburg"
-msgstr "ハンブルク"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Hangzhou"
-msgstr "杭州"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.HongKong"
-msgstr "香港"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Kyoto"
-msgstr "京都"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.London"
-msgstr "ロンドン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.LosAngeles"
-msgstr "ロサンゼルス"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Macau"
-msgstr "マカオ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Manchester"
-msgstr "マンチェスター"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Melbourne"
-msgstr "メルボルン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Miami"
-msgstr "マイアミ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Montreal"
-msgstr "モントリオール"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Munich"
-msgstr "ミュンヘン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.NewYork"
-msgstr "ニューヨーク"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Osaka"
-msgstr "大阪"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Ottawa"
-msgstr "オタワ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Paris"
-msgstr "パリ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Perth"
-msgstr "パース"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.SanFrancisco"
-msgstr "サンフランシスコ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Seattle"
-msgstr "シアトル"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Shanghai"
-msgstr "上海"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Shenzhen"
-msgstr "深セン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Singapore"
-msgstr "シンガポール"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Sydney"
-msgstr "シドニー"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Tokyo"
-msgstr "東京"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Toronto"
-msgstr "トロント"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Vancouver"
-msgstr "バンクーバー"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.WashingtonDC"
-msgstr "ワシントンD.C."
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Wellington"
-msgstr "ウェリントン"
-
-#. js-lingui-explicit-id
-msgid "userAttr.cityOption.Xian"
-msgstr "西安"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Australia"
-msgstr "オーストラリア"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Canada"
-msgstr "カナダ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.China"
-msgstr "中国"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.France"
-msgstr "フランス"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Germany"
-msgstr "ドイツ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.HongKong"
-msgstr "香港"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Indonesia"
-msgstr "インドネシア"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Ireland"
-msgstr "アイルランド"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Japan"
-msgstr "日本"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Korea"
-msgstr "韓国"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Macau"
-msgstr "マカオ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Netherlands"
-msgstr "オランダ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.NewZealand"
-msgstr "ニュージーランド"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Singapore"
-msgstr "シンガポール"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.Thailand"
-msgstr "タイ"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.UnitedArabEmirates"
-msgstr "アラブ首長国連邦"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.UnitedKingdom"
-msgstr "イギリス"
-
-#. js-lingui-explicit-id
-msgid "userAttr.nationalityOption.UnitedStates"
-msgstr "アメリカ合衆国"
-
-#. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:19
 #~ msgid "userAttr.city"
 #~ msgstr "都市"
@@ -2219,9 +1955,141 @@ msgstr "アメリカ合衆国"
 #~ msgstr "アデレード"
 
 #. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Amsterdam"
+#~ msgstr "アムステルダム"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Auckland"
+#~ msgstr "オークランド"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Bali"
+#~ msgstr "バリ島"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Bangkok"
+#~ msgstr "バンコク"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Beijing"
+#~ msgstr "北京"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Berlin"
+#~ msgstr "ベルリン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Boston"
+#~ msgstr "ボストン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Brisbane"
+#~ msgstr "ブリスベン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Calgary"
+#~ msgstr "カルガリー"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Chengdu"
+#~ msgstr "成都"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Chicago"
+#~ msgstr "シカゴ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Chongqing"
+#~ msgstr "重慶"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Christchurch"
+#~ msgstr "クライストチャーチ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Dubai"
+#~ msgstr "ドバイ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Dublin"
+#~ msgstr "ダブリン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Edinburgh"
+#~ msgstr "エディンバラ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.GoldCoast"
+#~ msgstr "ゴールドコースト"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Guangzhou"
+#~ msgstr "広州"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Hamburg"
+#~ msgstr "ハンブルク"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Hangzhou"
+#~ msgstr "杭州"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.HongKong"
+#~ msgstr "香港"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Kyoto"
+#~ msgstr "京都"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.London"
+#~ msgstr "ロンドン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.LosAngeles"
+#~ msgstr "ロサンゼルス"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Macau"
+#~ msgstr "マカオ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Manchester"
+#~ msgstr "マンチェスター"
+
+#. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:62
 #~ msgid "userAttr.cityOption.Melbourne"
 #~ msgstr "メルボルン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Miami"
+#~ msgstr "マイアミ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Montreal"
+#~ msgstr "モントリオール"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Munich"
+#~ msgstr "ミュンヘン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.NewYork"
+#~ msgstr "ニューヨーク"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Osaka"
+#~ msgstr "大阪"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Ottawa"
+#~ msgstr "オタワ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Paris"
+#~ msgstr "パリ"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:64
@@ -2229,9 +2097,53 @@ msgstr "アメリカ合衆国"
 #~ msgstr "パース"
 
 #. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.SanFrancisco"
+#~ msgstr "サンフランシスコ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Seattle"
+#~ msgstr "シアトル"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Shanghai"
+#~ msgstr "上海"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Shenzhen"
+#~ msgstr "深セン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Singapore"
+#~ msgstr "シンガポール"
+
+#. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:61
 #~ msgid "userAttr.cityOption.Sydney"
 #~ msgstr "シドニー"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Tokyo"
+#~ msgstr "東京"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Toronto"
+#~ msgstr "トロント"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Vancouver"
+#~ msgstr "バンクーバー"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.WashingtonDC"
+#~ msgstr "ワシントンD.C."
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Wellington"
+#~ msgstr "ウェリントン"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.cityOption.Xian"
+#~ msgstr "西安"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:17
@@ -2274,9 +2186,37 @@ msgstr "アメリカ合衆国"
 #~ msgstr "国籍"
 
 #. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Australia"
+#~ msgstr "オーストラリア"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Canada"
+#~ msgstr "カナダ"
+
+#. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:56
 #~ msgid "userAttr.nationalityOption.China"
 #~ msgstr "中国"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.France"
+#~ msgstr "フランス"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Germany"
+#~ msgstr "ドイツ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.HongKong"
+#~ msgstr "香港"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Indonesia"
+#~ msgstr "インドネシア"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Ireland"
+#~ msgstr "アイルランド"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:58
@@ -2287,6 +2227,42 @@ msgstr "アメリカ合衆国"
 #: src/i18n/userAttributes.ts:57
 #~ msgid "userAttr.nationalityOption.Korea"
 #~ msgstr "韓国"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Macau"
+#~ msgstr "マカオ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Netherlands"
+#~ msgstr "オランダ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.NewZealand"
+#~ msgstr "ニュージーランド"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Other"
+#~ msgstr "その他"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Singapore"
+#~ msgstr "シンガポール"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.Thailand"
+#~ msgstr "タイ"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.UnitedArabEmirates"
+#~ msgstr "アラブ首長国連邦"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.UnitedKingdom"
+#~ msgstr "イギリス"
+
+#. js-lingui-explicit-id
+#~ msgid "userAttr.nationalityOption.UnitedStates"
+#~ msgstr "アメリカ合衆国"
 
 #. js-lingui-explicit-id
 #: src/i18n/userAttributes.ts:23

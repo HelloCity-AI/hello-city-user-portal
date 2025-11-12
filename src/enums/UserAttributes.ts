@@ -26,6 +26,7 @@ export enum Nationalities {
   UnitedArabEmirates = 'United Arab Emirates',
   UnitedKingdom = 'United Kingdom',
   UnitedStates = 'United States',
+  Other = 'Other',
 }
 export const nationalityOptions = Object.values(Nationalities);
 
@@ -98,63 +99,6 @@ export enum Cities {
   Bali = 'Bali Island',
 }
 export const cityOptions = Object.values(Cities);
-
-// City-Country mapping for cascading selection
-export const cityCountryMapping: Record<string, string[]> = {
-  [Nationalities.Australia]: [
-    Cities.Sydney,
-    Cities.Melbourne,
-    Cities.Brisbane,
-    Cities.Perth,
-    Cities.Adelaide,
-    Cities.GoldCoast,
-  ],
-  [Nationalities.Canada]: [
-    Cities.Toronto,
-    Cities.Vancouver,
-    Cities.Montreal,
-    Cities.Calgary,
-    Cities.Ottawa,
-  ],
-  [Nationalities.China]: [
-    Cities.Beijing,
-    Cities.Shanghai,
-    Cities.Guangzhou,
-    Cities.Shenzhen,
-    Cities.Chengdu,
-    Cities.Chongqing,
-    Cities.Xian,
-    Cities.Hangzhou,
-  ],
-  [Nationalities.HongKong]: [Cities.HongKong],
-  [Nationalities.Macau]: [Cities.Macau],
-  [Nationalities.Japan]: [Cities.Tokyo, Cities.Osaka, Cities.Kyoto],
-  [Nationalities.Singapore]: [Cities.Singapore],
-  [Nationalities.UnitedStates]: [
-    Cities.NewYork,
-    Cities.LosAngeles,
-    Cities.SanFrancisco,
-    Cities.Miami,
-    Cities.Seattle,
-    Cities.Chicago,
-    Cities.Boston,
-    Cities.WashingtonDC,
-  ],
-  [Nationalities.UnitedKingdom]: [Cities.London, Cities.Edinburgh, Cities.Manchester],
-  [Nationalities.France]: [Cities.Paris],
-  [Nationalities.Germany]: [Cities.Berlin, Cities.Munich, Cities.Hamburg],
-  [Nationalities.Netherlands]: [Cities.Amsterdam],
-  [Nationalities.Ireland]: [Cities.Dublin],
-  [Nationalities.NewZealand]: [Cities.Auckland, Cities.Wellington, Cities.Christchurch],
-  [Nationalities.UnitedArabEmirates]: [Cities.Dubai],
-  [Nationalities.Thailand]: [Cities.Bangkok],
-  [Nationalities.Indonesia]: [Cities.Bali],
-};
-
-// Helper function to get cities by country
-export const getCitiesByCountry = (country: string): string[] => {
-  return cityCountryMapping[country] || [];
-};
 
 export enum Languages {
   English = 'en',

@@ -1,4 +1,4 @@
-import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
+import type { Genders, Nationalities, Languages } from '@/enums/UserAttributes';
 
 export type User = {
   username?: string;
@@ -7,7 +7,7 @@ export type User = {
   gender: Genders | '';
   avatarUrl?: string;
   nationality: Nationalities | '';
-  city: Cities | '';
+  city: string;
   university: string;
   major: string;
   preferredLanguage: Languages | '';
