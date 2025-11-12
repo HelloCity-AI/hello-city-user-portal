@@ -7,8 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import type { User } from '@/types/User.types';
 import { defaultUser } from '@/types/User.types';
 import { createUser } from '@/store/slices/user';
-import { Trans } from '@lingui/react';
-import { i18n } from '@/i18n';
+import { Trans, useLingui } from '@lingui/react';
 import PersonalInfo from './PersonalInfo';
 import { AxiosError } from 'axios';
 import Image from 'next/image';
@@ -17,6 +16,7 @@ import type { RootState } from '@/store';
 import { registerFile } from '@/upload/fileRegistry';
 
 const Page = () => {
+  const { i18n } = useLingui();
   const { user, isLoading } = useUser();
   const dispatch = useDispatch();
   const { isCreating, createError, data: userData } = useSelector((state: RootState) => state.user);
