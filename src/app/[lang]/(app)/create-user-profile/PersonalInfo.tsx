@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { User } from '@/types/User.types';
 import { MenuItem, TextField } from '@mui/material';
 import type { Genders, Nationalities, Cities, Languages } from '@/enums/UserAttributes';
@@ -7,6 +7,7 @@ import {
   cityOptions,
   nationalityOptions,
   languageOptions,
+  getCitiesByCountry,
 } from '@/enums/UserAttributes';
 import { Trans } from '@lingui/react';
 import { userAttrLabelIds, userAttrOptionIds } from '../../../../i18n/userAttributes';
@@ -17,6 +18,14 @@ type PersonalInfoProps = {
 };
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) => {
+  // Filter cities based on selected nationality
+  const filteredCityOptions = useMemo(() => {
+    if (!userInfo.nationality) {
+      return cityOptions; // Show all cities if no nationality selected
+    }
+    return getCitiesByCountry(userInfo.nationality);
+  }, [userInfo.nationality]);
+
   return (
     <div className="flex w-full flex-col gap-3 px-2 sm:gap-4">
       <TextField
@@ -63,8 +72,14 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
         value={userInfo.city}
         onChange={handleChange}
         size="small"
+        disabled={!userInfo.nationality}
+        helperText={
+          !userInfo.nationality ? (
+            <Trans id="profile.select-nationality-first" message="Please select nationality first" />
+          ) : null
+        }
       >
-        {cityOptions.map((option) => (
+        {filteredCityOptions.map((option) => (
           <MenuItem key={option} value={option}>
             <Trans id={userAttrOptionIds.cities[option as Cities]} message={option} />
           </MenuItem>

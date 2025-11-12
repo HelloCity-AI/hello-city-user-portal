@@ -14,6 +14,7 @@ import Image from 'next/image';
 import ProfileImageUploader from '@/components/ProfileImageUploader';
 import type { RootState } from '@/store';
 import { registerFile } from '@/upload/fileRegistry';
+import { getCitiesByCountry } from '@/enums/UserAttributes';
 
 const Page = () => {
   const { i18n } = useLingui();
@@ -53,7 +54,23 @@ const Page = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInfo({ ...userInfo, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setUserInfo((prev) => {
+      const next = { ...prev, [name]: value };
+
+      if (name === 'nationality') {
+        if (!value) {
+          next.city = '';
+        } else if (prev.city) {
+          const allowedCities = getCitiesByCountry(value);
+          if (!allowedCities.includes(prev.city)) {
+            next.city = '';
+          }
+        }
+      }
+
+      return next;
+    });
   };
 
   const handleSelectImage = (file: File | null) => {
