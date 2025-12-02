@@ -258,6 +258,9 @@ export function* handleUpdateUser(action: PayloadAction<User>): SagaIterator {
     if (res.status === 200 || res.status === 204) {
       // Use submitted payload to update UI immediately, avoiding stale server echoes
       yield put(updateUserSuccess(action.payload));
+
+      // Refresh user data from server to get the latest state (including avatar URL)
+      yield put(fetchUser());
     } else {
       yield put(updateUserFailure(`update user failed: ${res.status}`));
     }

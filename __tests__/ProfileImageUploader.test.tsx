@@ -69,36 +69,41 @@ describe('ProfileImageUploader', () => {
 
       expect(outerDiv).toHaveClass(
         'flex',
-        'min-w-[35rem]',
+        'w-full',
+        'max-w-[38rem]',
         'flex-col',
         'items-center',
         'justify-center',
-        'gap-4',
-        'rounded-xl',
+        'gap-6',
+        'rounded-2xl',
         'border-2',
-        'pb-4',
+        'border-gray-200',
+        'bg-gradient-to-br',
+        'from-white',
+        'to-gray-50',
+        'p-8',
+        'shadow-lg',
       );
     });
 
     test('ClassName on container wrapping add & remove button', () => {
       const uploadButton = screen.getByText(/Add Profile Picture/i);
 
-      expect(uploadButton.closest('div')).toHaveClass(
-        'flex',
-        'w-4/5',
-        'flex-wrap',
-        'justify-center',
-      );
+      expect(uploadButton.closest('div')).toHaveClass('flex', 'items-center', 'gap-1.5');
     });
 
     test('Image tag className', async () => {
       expect(screen.getByAltText('Default Avatar')).toHaveClass(
-        'h-[150px]',
-        'w-[150px]',
+        'relative',
+        'h-[120px]',
+        'w-[120px]',
         'rounded-full',
-        'border-2',
-        'border-indigo-600',
+        'border-4',
+        'border-white',
         'object-cover',
+        'shadow-2xl',
+        'ring-4',
+        'ring-blue-100',
       );
 
       uploadFile(new File(['fakeFile'], 'avatar.png', { type: 'image/png' }));
@@ -107,12 +112,16 @@ describe('ProfileImageUploader', () => {
         timeout: 4000,
       });
       expect(previewImage).toHaveClass(
-        'h-[150px]',
-        'w-[150px]',
+        'relative',
+        'h-[120px]',
+        'w-[120px]',
         'rounded-full',
-        'border-2',
-        'border-indigo-600',
+        'border-4',
+        'border-white',
         'object-cover',
+        'shadow-2xl',
+        'ring-4',
+        'ring-blue-100',
       );
     });
   });

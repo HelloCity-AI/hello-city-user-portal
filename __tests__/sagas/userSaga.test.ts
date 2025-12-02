@@ -359,6 +359,8 @@ describe('UserSaga – API Wrappers & Handlers (NEW)', () => {
       expect(g.next().value).toEqual(call(updateUserApiWrapper, updated));
       const response = { status: 204, ok: true, data: null };
       expect(g.next(response as any).value).toEqual(put(updateUserSuccess(updated)));
+      // After updateUserSuccess, the saga dispatches fetchUser to refresh from server
+      expect(g.next().value).toEqual(put(fetchUser()));
       expect(g.next().done).toBe(true);
     });
 

@@ -123,28 +123,41 @@ const Page = () => {
     <>
       <form
         onSubmit={handleSubmit}
-        className="relative flex min-h-screen w-full items-center justify-center bg-[url('/images/auth-image.jpeg')] bg-cover bg-center px-4 py-6"
+        className="relative flex min-h-screen w-full items-center justify-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 px-4 py-8"
       >
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="relative flex h-auto min-h-[500px] w-full max-w-md flex-col items-center justify-center rounded-3xl bg-[#ffffff] p-6 sm:min-h-[600px] sm:w-[400px] sm:p-8 md:w-[450px] lg:w-[500px]">
+        <div className="absolute inset-0 bg-[url('/images/auth-image.jpeg')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5" />
+
+        <div className="hover:shadow-3xl relative flex h-auto min-h-[600px] w-full max-w-md flex-col items-center justify-start overflow-hidden rounded-3xl bg-white/90 p-8 shadow-2xl backdrop-blur-sm transition-all duration-300 sm:min-h-[650px] sm:w-[440px] sm:p-10 md:w-[480px] lg:w-[520px]">
+          {/* Header */}
           <div className="mb-6 text-center">
-            <Typography variant="h3" className="text-2xl sm:text-3xl">
+            <Typography
+              variant="h3"
+              className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl"
+            >
               Hello City
+            </Typography>
+            <Typography variant="body2" className="mt-2 text-gray-600">
+              Create your profile to get started
             </Typography>
           </div>
 
+          {/* Image Uploader Modal */}
           {uploaderOpen && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/40 p-2">
-              <div className="rounded-2xl bg-white px-4 pb-2 pt-8">
+            <div className="absolute inset-0 z-10 flex items-center justify-center overflow-hidden rounded-3xl bg-black/50 backdrop-blur-sm">
+              <div className="max-h-[90%] w-[90%] max-w-sm overflow-y-auto rounded-3xl bg-white px-6 pb-4 pt-10 shadow-2xl">
                 <ProfileImageUploader
                   selectedImage={handleSelectImage}
                   initialPreview={avatarPreview}
                 />
-                <div className="flex items-center justify-end pt-2">
-                  <Typography variant="body2" className="p-2">
+                <div className="flex items-center justify-end pt-3">
+                  <Typography variant="body2" className="p-2 text-gray-600">
                     Return to Sign Up
                   </Typography>
-                  <IconButton onClick={() => setUploaderOpen(false)}>
+                  <IconButton
+                    onClick={() => setUploaderOpen(false)}
+                    className="transition-colors hover:bg-blue-50"
+                  >
                     <CloseIcon color="primary" fontSize="medium" />
                   </IconButton>
                 </div>
@@ -152,21 +165,32 @@ const Page = () => {
             </div>
           )}
 
-          <Button
-            type="button"
-            onClick={() => setUploaderOpen(true)}
-            className="mb-6 flex items-center justify-center overflow-hidden rounded-full object-cover"
-          >
-            <Image
-              src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
-              alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
-              width={100}
-              height={100}
-              className="h-[100px] w-[100px] rounded-full object-cover"
-            />
-          </Button>
+          {/* Avatar Section */}
+          <div className="relative mb-6">
+            <Button
+              type="button"
+              onClick={() => setUploaderOpen(true)}
+              className="group relative flex items-center justify-center overflow-hidden rounded-full p-0 transition-all duration-300 hover:scale-105"
+              sx={{ minWidth: 0 }}
+            >
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 opacity-0 transition-opacity duration-300 group-hover:opacity-20" />
+              <Image
+                src={!avatarPreview ? '/images/default-avatar.jpg' : avatarPreview}
+                alt={!avatarPreview ? 'Default Avatar' : 'Profile Image Preview'}
+                width={100}
+                height={100}
+                className="h-[100px] w-[100px] rounded-full border-4 border-white object-cover shadow-lg transition-all duration-300 group-hover:border-blue-300"
+              />
+              <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <Typography variant="caption" className="text-xs font-semibold text-white">
+                  Change Photo
+                </Typography>
+              </div>
+            </Button>
+          </div>
 
-          <div className="w-full">
+          {/* Username Input */}
+          <div className="mb-5 w-full">
             <input
               type="text"
               name="username"
@@ -176,22 +200,28 @@ const Page = () => {
               value={userInfo.username}
               onChange={handleChange}
               required
-              className="mb-4 w-full rounded-lg border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full rounded-xl border-2 border-gray-200 bg-white px-4 py-3.5 text-gray-800 placeholder-gray-400 shadow-sm transition-all duration-200 focus:border-blue-400 focus:outline-none focus:ring-4 focus:ring-blue-100"
             />
           </div>
+
+          {/* Personal Info Fields */}
           <PersonalInfo userInfo={userInfo} handleChange={handleChange} />
 
-          <div className="w-full">
+          {/* Submit Button */}
+          <div className="mt-6 w-full">
             <Button
               variant="contained"
               color="primary"
               fullWidth
               type="submit"
-              className="mt-4"
               disabled={isCreating}
+              className="rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 py-3.5 text-base font-semibold shadow-lg transition-all duration-300 hover:from-blue-700 hover:to-purple-700 hover:shadow-xl disabled:from-gray-400 disabled:to-gray-500"
             >
               {isCreating ? (
-                <Trans id="Creating..." message="Creating..." />
+                <div className="flex items-center justify-center gap-2">
+                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <Trans id="Creating..." message="Creating..." />
+                </div>
               ) : (
                 <Trans id="I'm all set" message="I'm all set" />
               )}

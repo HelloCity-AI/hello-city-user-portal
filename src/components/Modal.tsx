@@ -46,10 +46,15 @@ const Modal: React.FC<BaseModalProps> = ({
           sx: {
             pt: 2,
             pb: 1.5,
+            borderRadius: 7,
+            backgroundImage:
+              'linear-gradient(to bottom right, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95))',
+            backdropFilter: 'blur(10px)',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
           },
         },
         backdrop: {
-          sx: { backdropFilter: 'blur(2px)', backgroundColor: 'rgba(0, 0, 0, 0.3)' },
+          sx: { backdropFilter: 'blur(4px)', backgroundColor: 'rgba(0, 0, 0, 0.4)' },
         },
       }}
     >
@@ -57,13 +62,18 @@ const Modal: React.FC<BaseModalProps> = ({
         aria-label="close"
         onClick={onClose}
         edge="start"
-        disableTouchRipple
         sx={{
           position: 'absolute',
-          right: 8,
-          top: 8,
-          color: (theme) => theme.palette.grey[500],
-          padding: 0.5,
+          right: 12,
+          top: 12,
+          color: (theme) => theme.palette.grey[600],
+          padding: 1,
+          transition: 'all 0.2s',
+          '&:hover': {
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            color: 'rgb(59, 130, 246)',
+            transform: 'scale(1.1)',
+          },
         }}
       >
         <CloseIcon />

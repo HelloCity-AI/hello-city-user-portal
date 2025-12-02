@@ -21,7 +21,7 @@ type PersonalInfoProps = {
 
 const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) => {
   return (
-    <div className="flex w-full flex-col gap-3 px-2 sm:gap-4">
+    <div className="flex w-full flex-col gap-4 sm:gap-5">
       <TextField
         fullWidth
         select
@@ -31,7 +31,22 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
         required
         value={userInfo.gender}
         onChange={handleChange}
-        size="small"
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '12px',
+            backgroundColor: 'white',
+            transition: 'all 0.2s',
+            '&:hover': {
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            },
+            '&.Mui-focused': {
+              boxShadow: '0 4px 16px rgba(59, 130, 246, 0.2)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            fontWeight: 500,
+          },
+        }}
       >
         {genderOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -48,7 +63,22 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
         variant="outlined"
         value={userInfo.nationality}
         onChange={handleChange}
-        size="small"
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '12px',
+            backgroundColor: 'white',
+            transition: 'all 0.2s',
+            '&:hover': {
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            },
+            '&.Mui-focused': {
+              boxShadow: '0 4px 16px rgba(59, 130, 246, 0.2)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            fontWeight: 500,
+          },
+        }}
       >
         {nationalityOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -65,7 +95,22 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
         variant="outlined"
         value={userInfo.city}
         onChange={handleChange}
-        size="small"
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '12px',
+            backgroundColor: 'white',
+            transition: 'all 0.2s',
+            '&:hover': {
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            },
+            '&.Mui-focused': {
+              boxShadow: '0 4px 16px rgba(59, 130, 246, 0.2)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            fontWeight: 500,
+          },
+        }}
       >
         {cityOptions.map((option) => (
           <MenuItem key={option} value={option}>
@@ -82,7 +127,22 @@ const PersonalInfo: React.FC<PersonalInfoProps> = ({ userInfo, handleChange }) =
         variant="outlined"
         value={userInfo.preferredLanguage}
         onChange={handleChange}
-        size="small"
+        sx={{
+          '& .MuiOutlinedInput-root': {
+            borderRadius: '12px',
+            backgroundColor: 'white',
+            transition: 'all 0.2s',
+            '&:hover': {
+              boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+            },
+            '&.Mui-focused': {
+              boxShadow: '0 4px 16px rgba(59, 130, 246, 0.2)',
+            },
+          },
+          '& .MuiInputLabel-root': {
+            fontWeight: 500,
+          },
+        }}
       >
         {languageOptions.map((option) => (
           <MenuItem key={option} value={option}>
