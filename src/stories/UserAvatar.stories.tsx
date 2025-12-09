@@ -13,7 +13,7 @@ import { AuthState } from '@/store/slices/user';
 const mockUserWithAvatar: User = {
   userId: '123',
   email: 'john.doe@example.com',
-  avatar: '/images/default-avatar.jpg',
+  avatarUrl: '/images/default-avatar.jpg',
   gender: '',
   nationality: '',
   city: '',
@@ -26,7 +26,7 @@ const mockUserWithAvatar: User = {
 const mockUserWithoutAvatar: User = {
   userId: '456',
   email: 'jane.smith@example.com',
-  avatar: '',
+  avatarUrl: '',
   gender: '',
   nationality: '',
   city: '',
@@ -43,6 +43,11 @@ const createMockStore = (userData: User | null) => {
     data: userData,
     error: null,
     authStatus: userData ? AuthState.AuthenticatedWithProfile : AuthState.Unauthenticated,
+    hasFetched: true,
+    isCreating: false,
+    createError: null,
+    isUpdating: false,
+    updateError: null,
   };
 
   return configureStore({

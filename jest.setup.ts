@@ -148,7 +148,6 @@ if (typeof (globalThis as any).FormData === 'undefined') {
 }
 
 if (typeof window !== 'undefined') {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   window.HTMLElement.prototype.scrollIntoView = function () {};
 }
 
@@ -238,7 +237,7 @@ jest.mock('@lingui/react', () => {
     I18nProvider: ({ children }: any) => children,
     useLingui: () => ({
       i18n: {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         _: (id: string, _values?: any) => id,
         locale: 'en',
         on: jest.fn(),
