@@ -1,6 +1,6 @@
 import type { ChecklistItem } from '../types';
 
-// HelloCity AI Landing Assistant - Life settling checklist examples
+// HelloCiti AI Landing Assistant - Life settling checklist examples
 export const defaultChecklistItems: ChecklistItem[] = [
   {
     id: '1',
@@ -120,8 +120,8 @@ export const defaultChecklistItems: ChecklistItem[] = [
   },
 ];
 
-// HelloCity default title and subtitle
+// HelloCiti default title and subtitle
 export const defaultPanelConfig = {
-  title: 'HelloCity AI Landing Assistant',
+  title: 'HelloCiti AI Landing Assistant',
   subtitle: 'Helping you adapt quickly and seamlessly in your new city',
 };

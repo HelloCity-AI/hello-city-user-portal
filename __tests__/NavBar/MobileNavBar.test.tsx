@@ -59,7 +59,7 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
 
     it('Shows logo when no submenu active', () => {
       renderMobileNavBar();
-      expect(screen.getByAltText('HelloCity Logo')).toBeInTheDocument();
+      expect(screen.getByAltText('HelloCiti Logo')).toBeInTheDocument();
     });
 
     it('Renders sign in button when not signed in', () => {
@@ -89,7 +89,7 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
       renderMobileNavBar();
       clickHamburgerMenu();
 
-      expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti', { exact: false })).toBeInTheDocument();
       expect(screen.getByText('Services')).toBeInTheDocument();
     });
 
@@ -118,7 +118,7 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
       renderMobileNavBar();
 
       clickHamburgerMenu();
-      expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti', { exact: false })).toBeInTheDocument();
 
       clickCloseMenu();
       expect(screen.queryByRole('presentation')).not.toBeInTheDocument();
@@ -193,7 +193,7 @@ describe('MobileNavBar - Mobile navigation with drawer functionality', () => {
       expect(screen.getByText('Services')).toBeInTheDocument();
       expect(screen.queryByText('Web Dev')).not.toBeInTheDocument();
 
-      expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti', { exact: false })).toBeInTheDocument();
     });
   });
 });

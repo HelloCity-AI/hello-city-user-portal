@@ -34,7 +34,7 @@ export default function ChatPage() {
     if (conversationTitle) {
       document.title = conversationTitle;
     } else {
-      document.title = 'HelloCity - AI Assistant';
+      document.title = 'HelloCiti - AI Assistant';
     }
   }, [conversationTitle]);
 

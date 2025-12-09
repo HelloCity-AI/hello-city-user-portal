@@ -50,7 +50,7 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
           <div className="relative z-10 flex h-10 w-8 items-center justify-center rounded-lg bg-white">
             <Image
               src="/images/logo-chat-page.png"
-              alt="HelloCity"
+              alt="HelloCiti"
               width={24}
               height={24}
               priority
@@ -64,7 +64,7 @@ export default function LogoSection({ isCollapsed, onToggle }: LogoSectionProps)
               variant="h6"
               className="select-none whitespace-nowrap pl-3 text-lg font-bold text-gray-800"
             >
-              HelloCity
+              HelloCiti
             </Typography>
           </ResponsiveContainer>
         </div>

@@ -33,7 +33,7 @@ A modern frontend project powered by Next.js 15, React 19, TypeScript, Material-
 
    ```bash
    git clone <repo-url/ssh>
-   cd HelloCityUserPortal
+   cd HelloCitiUserPortal
    ```
 
 2. **Install dependencies:**

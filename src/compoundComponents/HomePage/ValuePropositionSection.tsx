@@ -48,7 +48,7 @@ const ValuePropositionSection = async ({ locale }: { locale: string }) => {
     <SectionBackground>
       <SectionContent>
         <Typography component="h3" variant="h4" color="secondary.contrastText">
-          {t('ValueProposition.Title', 'Why choose HelloCity?')}
+          {t('ValueProposition.Title', 'Why choose HelloCiti?')}
         </Typography>
         <Typography variant="body1" color="text.secondary" className="max-w-[900px] text-wrap">
           {t(

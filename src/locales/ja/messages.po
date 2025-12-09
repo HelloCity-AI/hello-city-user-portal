@@ -89,7 +89,7 @@ msgstr "ホームページに戻る"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
 #~ msgid "CallToAction.Description"
-#~ msgstr "HelloCity のガイドで新しい都市に適応した数千人の仲間に加わろう。"
+#~ msgstr "HelloCiti のガイドで新しい都市に適応した数千人の仲間に加わろう。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
@@ -112,7 +112,7 @@ msgstr "作成中…"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
-#~ msgstr "メルボルンの夕景。HelloCity が新生活をサポート"
+#~ msgstr "メルボルンの夕景。HelloCiti が新生活をサポート"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/HeroSection.tsx:46
@@ -132,7 +132,7 @@ msgstr "作成中…"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Description"
-#~ msgstr "充実した旅は綿密な計画から。HelloCity は複雑な都市移住を、整理された冒険へと変えてくれます。"
+#~ msgstr "充実した旅は綿密な計画から。HelloCiti は複雑な都市移住を、整理された冒険へと変えてくれます。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
@@ -227,9 +227,9 @@ msgid "NavBar.Sign In"
 msgstr "ログイン"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:69
-msgid "NavBar.Try HelloCity"
-msgstr "HelloCity を試す"
+#: src/hooks/useTryHelloCiti.tsx:69
+msgid "NavBar.Try HelloCiti"
+msgstr "HelloCiti を試す"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
@@ -351,42 +351,42 @@ msgstr "プロフィール"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review1"
-#~ msgstr "仕事でシドニーに引っ越しましたが、正直どこから始めればいいか分かりませんでした。HelloCity は書類、銀行、住まいなどを分かりやすいステップに分解してくれます。これがなければ今も夜中に情報を探していたでしょう。本当に救いでした。"
+#~ msgstr "仕事でシドニーに引っ越しましたが、正直どこから始めればいいか分かりませんでした。HelloCiti は書類、銀行、住まいなどを分かりやすいステップに分解してくれます。これがなければ今も夜中に情報を探していたでしょう。本当に救いでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review2"
-#~ msgstr "引っ越しの際、銀行口座の開設や光熱の手続きに何週間もかかるのではと不安でした。HelloCity で全てがとても簡単になり、数日で落ち着けました。制作に集中できるようになりました。"
+#~ msgstr "引っ越しの際、銀行口座の開設や光熱の手続きに何週間もかかるのではと不安でした。HelloCiti で全てがとても簡単になり、数日で落ち着けました。制作に集中できるようになりました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review3"
-#~ msgstr "海外で修士課程に進みましたが、各種手続きにとても緊張していました。HelloCity は次にすべきことを常に教えてくれて、まるでポケットのチェックリストのよう。ストレスが減り、キャンパスライフをより楽しめました。"
+#~ msgstr "海外で修士課程に進みましたが、各種手続きにとても緊張していました。HelloCiti は次にすべきことを常に教えてくれて、まるでポケットのチェックリストのよう。ストレスが減り、キャンパスライフをより楽しめました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review4"
-#~ msgstr "フリーランサーとして各都市を移動しますが、HelloCity は必需のツールです。新しい街でもすぐに落ち着けます。タイムライン機能が特に便利で、締切に合わせてすべてを計画できます。コワーキング情報がもっとあればなお良いですね。"
+#~ msgstr "フリーランサーとして各都市を移動しますが、HelloCiti は必需のツールです。新しい街でもすぐに落ち着けます。タイムライン機能が特に便利で、締切に合わせてすべてを計画できます。コワーキング情報がもっとあればなお良いですね。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review5"
-#~ msgstr "子ども二人を連れての引っ越しは悪夢のようでしたが、HelloCity に出会って変わりました。家族向けチェックリストは学校から小児科まで網羅。8歳の子どもも進んでチェックを手伝ってくれました。混乱になりかけた状況が整然としました。"
+#~ msgstr "子ども二人を連れての引っ越しは悪夢のようでしたが、HelloCiti に出会って変わりました。家族向けチェックリストは学校から小児科まで網羅。8歳の子どもも進んでチェックを手伝ってくれました。混乱になりかけた状況が整然としました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review6"
-#~ msgstr "大学を卒業したばかりで社会に戸惑っていた頃、HelloCity は人生のメンターのように一歩一歩導いてくれました。初めての部屋づくりから現地の銀行事情まで、学生から新社会人への移行がとてもスムーズでした。"
+#~ msgstr "大学を卒業したばかりで社会に戸惑っていた頃、HelloCiti は人生のメンターのように一歩一歩導いてくれました。初めての部屋づくりから現地の銀行事情まで、学生から新社会人への移行がとてもスムーズでした。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review7"
-#~ msgstr "シンガポールからメルボルンに移住し、学校や医療、買い物のような些細なことまで不安でした。HelloCity のローカルガイドはとても丁寧で、数か月の手探りと試行錯誤を省けました。"
+#~ msgstr "シンガポールからメルボルンに移住し、学校や医療、買い物のような些細なことまで不安でした。HelloCiti のローカルガイドはとても丁寧で、数か月の手探りと試行錯誤を省けました。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:104
 #~ msgid "Testimonials.Review8"
-#~ msgstr "コンサルタントとして新しい職場環境に常に適応する必要があります。HelloCity は新しい都市に素早く溶け込むための秘密兵器です。ローカルな洞察と実用的なチェックリストにより、後方支援に悩まず顧客対応に集中できます。ビジネス旅行者にとってまさにゲームチェンジャーです。"
+#~ msgstr "コンサルタントとして新しい職場環境に常に適応する必要があります。HelloCiti は新しい都市に素早く溶け込むための秘密兵器です。ローカルな洞察と実用的なチェックリストにより、後方支援に悩まず顧客対応に集中できます。ビジネス旅行者にとってまさにゲームチェンジャーです。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
@@ -466,7 +466,7 @@ msgstr "プロフィール"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
-#~ msgstr "なぜ HelloCity なのか？"
+#~ msgstr "なぜ HelloCiti なのか？"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 #~ msgid "ai.thinking"
@@ -475,7 +475,7 @@ msgstr "プロフィール"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
-msgstr "HelloCityアカウント"
+msgstr "HelloCitiアカウント"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:121
@@ -520,7 +520,7 @@ msgstr "AIアシスタントとの会話を始めて、都市生活の個別ガ�
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
 msgid "chat.welcome.title"
-msgstr "HelloCityへようこそ"
+msgstr "HelloCitiへようこそ"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
@@ -1480,12 +1480,12 @@ msgstr "お問い合わせ"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity は AI 移住アシスタントです。ステップごとのプランとタイムラインで新しい都市への移住をスムーズにします。"
+msgstr "HelloCiti は AI 移住アシスタントです。ステップごとのプランとタイムラインで新しい都市への移住をスムーズにします。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "HelloCity は世界中の主要都市に対応しています。シドニー、メルボルン、トロント、ニューヨーク、ロンドン、東京、シンガポール、ドバイなど、オーストラリア、北米、ヨーロッパ、アジアの主要目的地を含む 48 以上の都市で強化されたカバレッジと専門的なトレーニングを提供しています。"
+msgstr "HelloCiti は世界中の主要都市に対応しています。シドニー、メルボルン、トロント、ニューヨーク、ロンドン、東京、シンガポール、ドバイなど、オーストラリア、北米、ヨーロッパ、アジアの主要目的地を含む 48 以上の都市で強化されたカバレッジと専門的なトレーニングを提供しています。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
@@ -1500,12 +1500,12 @@ msgstr "当社の AI は、数千件の実際の引っ越しデータでトレ�
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
-msgstr "はい。HelloCity は直感的なインターフェースを備えており、デスクトップとモバイルデバイスでシームレスに動作します。AI アシスタントとチャットするだけで、引っ越しの旅のすべてのステップをガイドします。"
+msgstr "はい。HelloCiti は直感的なインターフェースを備えており、デスクトップとモバイルデバイスでシームレスに動作します。AI アシスタントとチャットするだけで、引っ越しの旅のすべてのステップをガイドします。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
 msgid "contact.faq.q1"
-msgstr "HelloCity とは？"
+msgstr "HelloCiti とは？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
@@ -1525,7 +1525,7 @@ msgstr "AI 生成チェックリストの精度は？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
-msgstr "HelloCity は使いやすいですか？"
+msgstr "HelloCiti は使いやすいですか？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
@@ -1540,7 +1540,7 @@ msgstr "HelloCity は使いやすいですか？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
-msgstr "HelloCity に関するよくある質問を素早く見つけられます。"
+msgstr "HelloCiti に関するよくある質問を素早く見つけられます。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:113
@@ -1747,22 +1747,18 @@ msgstr "送信"
 msgid "info.button"
 msgstr "了解しました"
 
-#: src/hooks/useTryHelloCity.tsx:15
-#~ msgid "NavBar.Try HelloCity"
-#~ msgstr "HelloCity を試す"
-
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:59
+#: src/hooks/useTryHelloCiti.tsx:59
 msgid "login.button"
 msgstr "ログイン"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:45
+#: src/hooks/useTryHelloCiti.tsx:45
 msgid "login.required.description"
-msgstr "HelloCityのAIアシスタントを利用するにはログインしてください。移住の準備を始めましょう。"
+msgstr "HelloCitiのAIアシスタントを利用するにはログインしてください。移住の準備を始めましょう。"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:43
+#: src/hooks/useTryHelloCiti.tsx:43
 msgid "login.required.title"
 msgstr "ログインが必要です"
 
@@ -1779,7 +1775,7 @@ msgstr "ログインが必要です"
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
 #~ msgid "notFound.sub"
-#~ msgstr "HelloCity は住まい、口座開設、交通、コミュニティ支援を提供し、海外生活のスタートをスムーズにします。"
+#~ msgstr "HelloCiti は住まい、口座開設、交通、コミュニティ支援を提供し、海外生活のスタートをスムーズにします。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
@@ -1928,6 +1924,10 @@ msgstr "ユーザー名"
 #: src/app/[lang]/(app)/profile/page.tsx:273
 msgid "profile.username-placeholder"
 msgstr "ユーザー名を入力してください"
+
+#: src/hooks/useTryHelloCiti.tsx:15
+#~ msgid "NavBar.Try HelloCiti"
+#~ msgstr "HelloCiti を試す"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
@@ -2281,7 +2281,7 @@ msgstr "{label}は必須項目です。"
 
 #: src/components/ProfileImageUploader.tsx:90
 #~ msgid "account.title"
-#~ msgstr "HelloCity アカウント"
+#~ msgstr "HelloCiti アカウント"
 
 #: src/hooks/useNavigation.tsx:21
 #~ msgid "NavBar.Home"

@@ -42,9 +42,9 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
       expect(screen.getByRole('presentation')).toBeInTheDocument();
     });
 
-    it('Renders Try HelloCity button', () => {
+    it('Renders Try HelloCiti button', () => {
       renderNavDrawer();
-      expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti', { exact: false })).toBeInTheDocument();
     });
 
     it('Renders menu items correctly', () => {
@@ -124,7 +124,7 @@ describe('NavDrawer - Navigation drawer with single-level submenu', () => {
       });
 
       expect(screen.getByText('Services')).toBeInTheDocument();
-      expect(screen.getByText('Try HelloCity', { exact: false })).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti', { exact: false })).toBeInTheDocument();
     });
 
     it('Handles click on submenu items', () => {

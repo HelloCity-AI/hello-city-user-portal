@@ -89,7 +89,7 @@ msgstr "返回首頁"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
 #~ msgid "CallToAction.Description"
-#~ msgstr "加入數千位已在 HelloCity 指導下成功適應新城市生活的使用者行列。"
+#~ msgstr "加入數千位已在 HelloCiti 指導下成功適應新城市生活的使用者行列。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/CallToActionsSection.tsx:
@@ -112,7 +112,7 @@ msgstr "建立中..."
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HeroSection.tsx:
 #~ msgid "Hero.BannerAlt"
-#~ msgstr "墨爾本黃昏美景，HelloCity 助您開啟新生活"
+#~ msgstr "墨爾本黃昏美景，HelloCiti 助您開啟新生活"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/HeroSection.tsx:46
@@ -132,7 +132,7 @@ msgstr "建立中..."
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
 #~ msgid "HowItWorks.Description"
-#~ msgstr "每一段精彩的人生旅程都始於周密的規劃。HelloCity 將複雜繁瑣的城市遷移過程，轉化為井然有序的精彩探險。"
+#~ msgstr "每一段精彩的人生旅程都始於周密的規劃。HelloCiti 將複雜繁瑣的城市遷移過程，轉化為井然有序的精彩探險。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/HowItWorksSection.tsx:
@@ -227,9 +227,9 @@ msgid "NavBar.Sign In"
 msgstr "登入"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:69
-msgid "NavBar.Try HelloCity"
-msgstr "試用 HelloCity"
+#: src/hooks/useTryHelloCiti.tsx:69
+msgid "NavBar.Try HelloCiti"
+msgstr "試用 HelloCiti"
 
 #. js-lingui-explicit-id
 #: src/components/NavBar/MobileNavBar.tsx:93
@@ -351,42 +351,42 @@ msgstr "個人資料"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review1"
-#~ msgstr "我因為工作搬到雪梨，說實話完全不知道從哪裡開始。HelloCity 把所有事情都分解成簡單的步驟——文件、銀行、住房。沒有它，我估計現在還在半夜搜尋各種資訊。真的是救命稻草。"
+#~ msgstr "我因為工作搬到雪梨，說實話完全不知道從哪裡開始。HelloCiti 把所有事情都分解成簡單的步驟——文件、銀行、住房。沒有它，我估計現在還在半夜搜尋各種資訊。真的是救命稻草。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review2"
-#~ msgstr "搬家的時候，我擔心會浪費好幾週時間才能搞清楚如何開銀行帳戶或辦理水電。HelloCity 讓這一切變得超級簡單。我幾天就安頓好了，可以專心創作內容而不用焦慮。"
+#~ msgstr "搬家的時候，我擔心會浪費好幾週時間才能搞清楚如何開銀行帳戶或辦理水電。HelloCiti 讓這一切變得超級簡單。我幾天就安頓好了，可以專心創作內容而不用焦慮。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review3"
-#~ msgstr "我來海外讀碩士，對各種文件手續特別緊張。HelloCity 不斷提醒我下一步該做什麼——就像口袋裡的清單一樣。真的減輕了我的壓力，讓我有更多時間享受校園生活。"
+#~ msgstr "我來海外讀碩士，對各種文件手續特別緊張。HelloCiti 不斷提醒我下一步該做什麼——就像口袋裡的清單一樣。真的減輕了我的壓力，讓我有更多時間享受校園生活。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review4"
-#~ msgstr "作為自由職業者，我經常為了專案在各個城市之間奔波。HelloCity 成了我的必備工具，每次到新城市都能快速安頓下來。時間規劃功能特別實用，幫我圍繞專案截止日期合理安排一切。要是能多提供些共享辦公空間的資訊就更完美了。"
+#~ msgstr "作為自由職業者，我經常為了專案在各個城市之間奔波。HelloCiti 成了我的必備工具，每次到新城市都能快速安頓下來。時間規劃功能特別實用，幫我圍繞專案截止日期合理安排一切。要是能多提供些共享辦公空間的資訊就更完美了。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review5"
-#~ msgstr "带着两个孩子搬家原本是我们最大的噩梦，直到遇到了HelloCity。针对家庭的清单涵盖了从学校到儿科医生的方方面面。我8岁的孩子甚至主动帮忙打勾完成任务！本来可能是一片混乱，现在却井井有条。"
+#~ msgstr "带着两个孩子搬家原本是我们最大的噩梦，直到遇到了HelloCiti。针对家庭的清单涵盖了从学校到儿科医生的方方面面。我8岁的孩子甚至主动帮忙打勾完成任务！本来可能是一片混乱，现在却井井有条。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review6"
-#~ msgstr "剛從大學畢業，面對成人世界完全不知所措的時候，HelloCity 就像是我的人生導師，指引我走過每一步。從布置第一套公寓到了解當地銀行業務，讓我從學生到職場新人的轉變如此順暢。"
+#~ msgstr "剛從大學畢業，面對成人世界完全不知所措的時候，HelloCiti 就像是我的人生導師，指引我走過每一步。從布置第一套公寓到了解當地銀行業務，讓我從學生到職場新人的轉變如此順暢。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
 #~ msgid "Testimonials.Review7"
-#~ msgstr "作為從新加坡移居墨爾本的海外人士，我們對一切都忐忑不安——學校、醫療、甚至連買菜這樣的小事都擔心。HelloCity 的本地化指南細緻入微，為我們省去了數月的摸索和試錯。"
+#~ msgstr "作為從新加坡移居墨爾本的海外人士，我們對一切都忐忑不安——學校、醫療、甚至連買菜這樣的小事都擔心。HelloCiti 的本地化指南細緻入微，為我們省去了數月的摸索和試錯。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:104
 #~ msgid "Testimonials.Review8"
-#~ msgstr "作為顧問，我需要不斷適應新的工作環境。HelloCity 已經成為我快速融入新城市的祕密武器。本地化洞察和實用清單讓我能專注於客戶服務而不用操心後勤問題。對商務旅行者來說絕對是遊戲規則改變者。"
+#~ msgstr "作為顧問，我需要不斷適應新的工作環境。HelloCiti 已經成為我快速融入新城市的祕密武器。本地化洞察和實用清單讓我能專注於客戶服務而不用操心後勤問題。對商務旅行者來說絕對是遊戲規則改變者。"
 
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/TestimonialsSection.tsx:
@@ -466,7 +466,7 @@ msgstr "個人資料"
 #. js-lingui-explicit-id
 #: src/app/[lang]/sections/ValuePropositionSection.tsx:
 #~ msgid "ValueProposition.Title"
-#~ msgstr "为什么选择HelloCity？"
+#~ msgstr "为什么选择HelloCiti？"
 
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:117
 #~ msgid "ai.thinking"
@@ -475,7 +475,7 @@ msgstr "個人資料"
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:68
 msgid "account.title"
-msgstr "HelloCity 帳戶"
+msgstr "HelloCiti 帳戶"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/AiThinkingIndicator.tsx:121
@@ -520,7 +520,7 @@ msgstr "開始與 AI 助手的對話，獲得個人化的城市生活指導"
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatMainArea/components/ui/ChatEmptyState.tsx:15
 msgid "chat.welcome.title"
-msgstr "歡迎使用 HelloCity"
+msgstr "歡迎使用 HelloCiti"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/Modals/ChecklistItemModal.tsx:162
@@ -1482,12 +1482,12 @@ msgstr "聯絡我們"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:31
 msgid "contact.faq.a1"
-msgstr "HelloCity 是您的 AI 移居助手，提供逐步計劃和時間表，幫助您輕鬆移居新城市。"
+msgstr "HelloCiti 是您的 AI 移居助手，提供逐步計劃和時間表，幫助您輕鬆移居新城市。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:41
 msgid "contact.faq.a2"
-msgstr "HelloCity 支援全球所有主要城市。我們對 48+ 個城市提供增強覆蓋和專業訓練，包括雪梨、墨爾本、多倫多、紐約、倫敦、東京、新加坡、杜拜，以及澳洲、北美、歐洲和亞洲的主要目的地。"
+msgstr "HelloCiti 支援全球所有主要城市。我們對 48+ 個城市提供增強覆蓋和專業訓練，包括雪梨、墨爾本、多倫多、紐約、倫敦、東京、新加坡、杜拜，以及澳洲、北美、歐洲和亞洲的主要目的地。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:51
@@ -1502,12 +1502,12 @@ msgstr "我們的 AI 使用數千次真實移居數據訓練而成。您可以�
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:71
 msgid "contact.faq.a5"
-msgstr "是的。HelloCity 擁有直觀的介面，在桌面和行動裝置上都能流暢運作。只需與我們的 AI 助手聊天，它會引導您完成移居旅程的每一步。"
+msgstr "是的。HelloCiti 擁有直觀的介面，在桌面和行動裝置上都能流暢運作。只需與我們的 AI 助手聊天，它會引導您完成移居旅程的每一步。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:29
 msgid "contact.faq.q1"
-msgstr "什麼是 HelloCity？"
+msgstr "什麼是 HelloCiti？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:39
@@ -1527,7 +1527,7 @@ msgstr "AI 生成的計劃準確度如何？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:69
 msgid "contact.faq.q5"
-msgstr "HelloCity 容易使用嗎？"
+msgstr "HelloCiti 容易使用嗎？"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:152
@@ -1542,7 +1542,7 @@ msgstr "HelloCity 容易使用嗎？"
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:121
 msgid "contact.faq.subtitle"
-msgstr "快速找到關於 HelloCity 的常見問題解答。"
+msgstr "快速找到關於 HelloCiti 的常見問題解答。"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/HomePage/FAQSection.tsx:113
@@ -1749,22 +1749,18 @@ msgstr "送出"
 msgid "info.button"
 msgstr "知道了"
 
-#: src/hooks/useTryHelloCity.tsx:15
-#~ msgid "NavBar.Try HelloCity"
-#~ msgstr "试用 HelloCity"
-
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:59
+#: src/hooks/useTryHelloCiti.tsx:59
 msgid "login.button"
 msgstr "登入"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:45
+#: src/hooks/useTryHelloCiti.tsx:45
 msgid "login.required.description"
-msgstr "請登入以使用 HelloCity AI 助手，開始您的移居旅程。"
+msgstr "請登入以使用 HelloCiti AI 助手，開始您的移居旅程。"
 
 #. js-lingui-explicit-id
-#: src/hooks/useTryHelloCity.tsx:43
+#: src/hooks/useTryHelloCiti.tsx:43
 msgid "login.required.title"
 msgstr "需要登入"
 
@@ -1781,7 +1777,7 @@ msgstr "需要登入"
 #. js-lingui-explicit-id
 #: src/app/[lang]/not-found.tsx:137
 #~ msgid "notFound.sub"
-#~ msgstr "HelloCity 為每一個人提供住宿、開戶、出行與社區支持，讓你的海外生活更順利開啟。"
+#~ msgstr "HelloCiti 為每一個人提供住宿、開戶、出行與社區支持，讓你的海外生活更順利開啟。"
 
 #. js-lingui-explicit-id
 #: src/components/ProfileImageUploader.tsx:95
@@ -1935,6 +1931,10 @@ msgstr "用戶名"
 #: src/app/[lang]/(app)/profile/page.tsx:273
 msgid "profile.username-placeholder"
 msgstr "請輸入用戶名"
+
+#: src/hooks/useTryHelloCiti.tsx:15
+#~ msgid "NavBar.Try HelloCiti"
+#~ msgstr "试用 HelloCiti"
 
 #. js-lingui-explicit-id
 #: src/compoundComponents/ChatPage/ChatSidebar/components/sections/ActionsSection.tsx:29
@@ -2281,7 +2281,7 @@ msgstr "{label} 為必填項。"
 
 #: src/components/ProfileImageUploader.tsx:90
 #~ msgid "account.title"
-#~ msgstr "HelloCity 帳戶"
+#~ msgstr "HelloCiti 帳戶"
 
 #: src/hooks/useNavigation.tsx:21
 #~ msgid "NavBar.Home"

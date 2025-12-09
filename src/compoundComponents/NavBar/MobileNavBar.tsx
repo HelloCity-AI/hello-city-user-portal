@@ -81,7 +81,7 @@ const MobileNavBar: React.FC<NavBarProps> = ({ navConfig, hasAuthenticated }) =>
         <Link href={logo.href} className="relative block h-full w-full">
           <Image
             src={logo.dark}
-            alt="HelloCity Logo"
+            alt="HelloCiti Logo"
             fill
             className="object-contain"
             sizes="150px"

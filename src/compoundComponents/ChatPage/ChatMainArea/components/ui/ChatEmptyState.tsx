@@ -12,7 +12,7 @@ const ChatEmptyState = () => {
       <ConversationEmptyState>
         <Typography component="h1" variant="h2">
           <AuroraText>
-            <Trans id="chat.welcome.title" message="Welcome to HelloCity" />
+            <Trans id="chat.welcome.title" message="Welcome to HelloCiti" />
           </AuroraText>
         </Typography>
         <Typography component="p" variant="body1">

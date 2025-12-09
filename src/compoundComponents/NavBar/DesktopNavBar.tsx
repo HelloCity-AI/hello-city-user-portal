@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import { Trans } from '@lingui/react';
 import { twMerge } from 'tailwind-merge';
-import { useTryHelloCity } from '@/hooks/useTryHelloCity';
+import { useTryHelloCiti } from '@/hooks/useTryHelloCiti';
 import UserAvatar from '@/compoundComponents/UserAvatar';
 import LanguageMenu from '@/compoundComponents/Menus/LanguageMenu';
 import SectionContent from '@/components/HomepageSections/SectionContent';
@@ -22,11 +22,11 @@ const TRANSITION_CLASSES = 'transition-all duration-300 ease-in-out';
 const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) => {
   const [hasBgColor, setHasBgColor] = useState<boolean>(false);
   const {
-    onClick: tryHelloCityClick,
+    onClick: tryHelloCitiClick,
     isLoading,
     LoginModal,
-    label: tryHelloCityLabel,
-  } = useTryHelloCity();
+    label: tryHelloCitiLabel,
+  } = useTryHelloCiti();
   const scrollYRef = useRef(0);
   const { currentLanguage, logo, navItems } = navConfig;
   const backgroundClasses = hasBgColor ? 'bg-white shadow-md' : 'bg-transparent shadow-none';
@@ -65,7 +65,7 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       <Link href={logo.href} className="relative block h-full w-full">
         <Image
           src={hasBgColor ? logo.dark : logo.light}
-          alt="HelloCity Logo"
+          alt="HelloCiti Logo"
           fill
           className="object-contain"
           sizes="150px"
@@ -149,12 +149,12 @@ const DesktopNavBar: React.FC<NavBarProps> = ({ hasAuthenticated, navConfig }) =
       />
       {renderAuthSection()}
       <Button
-        onClick={tryHelloCityClick}
+        onClick={tryHelloCitiClick}
         disabled={isLoading}
         variant="primary"
         className="min-w-fit flex-shrink-0 whitespace-nowrap font-semibold"
       >
-        {tryHelloCityLabel}
+        {tryHelloCitiLabel}
       </Button>
     </Box>
   );

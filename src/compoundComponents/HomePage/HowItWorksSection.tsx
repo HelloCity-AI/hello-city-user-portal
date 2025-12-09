@@ -50,7 +50,7 @@ const HowItWorksSection = async ({ locale }: { locale: string }) => {
             <Typography variant="body1" color="inherit">
               {t(
                 'HowItWorks.Description',
-                'Every great journey starts with proper planning. HelloCity transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure.',
+                'Every great journey starts with proper planning. HelloCiti transforms the overwhelming process of moving to a new city into an exciting, well-organized adventure.',
               )}
             </Typography>
             <List>

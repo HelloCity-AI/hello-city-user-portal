@@ -33,7 +33,7 @@
 
    ```bash
    git clone <repo-url/ssh>
-   cd HelloCityUserPortal
+   cd HelloCitiUserPortal
    ```
 
 2. **安装依赖：**

@@ -50,14 +50,14 @@ export default async function NotFound() {
               <Box
                 component={Link}
                 href={homeHref}
-                aria-label="HelloCity Home"
+                aria-label="HelloCiti Home"
                 sx={{ display: 'flex', alignItems: 'center' }}
               >
                 <picture>
                   {/* <source srcSet={LOGO_CONFIG.light} media="(prefers-color-scheme: dark)" /> */}
                   <img
                     src={LOGO_CONFIG.dark}
-                    alt="HelloCity"
+                    alt="HelloCiti"
                     style={{ height: '96px', width: 'auto', display: 'block', opacity: 0.96 }}
                   />
                 </picture>
@@ -113,7 +113,7 @@ export default async function NotFound() {
               >
                 {t(
                   'notFound.sub',
-                  'HelloCity supports international students with housing, banking, transport and community—so your new life starts smoothly.',
+                  'HelloCiti supports international students with housing, banking, transport and community—so your new life starts smoothly.',
                 )}
               </Typography>
             </Stack>

@@ -9,7 +9,7 @@ import type { DrawerProps } from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import Typography from '@mui/material/Typography';
-import { useTryHelloCity } from '@/hooks/useTryHelloCity';
+import { useTryHelloCiti } from '@/hooks/useTryHelloCiti';
 import type { NavItem } from './navConfig';
 
 interface NavDrawerProps extends DrawerProps {
@@ -29,11 +29,11 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
   ...DrawerProps
 }) => {
   const {
-    onClick: tryHelloCityClick,
+    onClick: tryHelloCitiClick,
     isLoading,
     LoginModal,
-    label: tryHelloCityLabel,
-  } = useTryHelloCity();
+    label: tryHelloCitiLabel,
+  } = useTryHelloCiti();
   const translateX = activeSubMenuIndex !== null ? '-100%' : '0%';
 
   const handleClick = (index: number) => {
@@ -52,12 +52,12 @@ const NavDrawer: React.FC<NavDrawerProps> = ({
     <Drawer {...DrawerProps} anchor={anchor} className={className}>
       <Button
         variant="tertiary"
-        onClick={tryHelloCityClick}
+        onClick={tryHelloCitiClick}
         disabled={isLoading}
         disableFocusRipple
         className="mx-7 mb-5 mt-20 w-auto text-nowrap rounded-full bg-primary font-semibold text-white"
       >
-        {tryHelloCityLabel}&nbsp;&nbsp;→
+        {tryHelloCitiLabel}&nbsp;&nbsp;→
       </Button>
       <Divider className="mx-6 border-t-[0.1px] border-dotted opacity-50" />
       <Box component="div" className="w-full px-7">

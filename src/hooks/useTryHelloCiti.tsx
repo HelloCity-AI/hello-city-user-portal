@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { CustomModal } from '@/compoundComponents/Modals/CustomModal';
 
-export const useTryHelloCity = () => {
+export const useTryHelloCiti = () => {
   const { user, isLoading } = useUser();
   const { language } = useLanguage();
   const router = useRouter();
@@ -44,7 +44,7 @@ export const useTryHelloCity = () => {
       description={
         <Trans
           id="login.required.description"
-          message="Please log in to access HelloCity AI assistant and start your relocation journey."
+          message="Please log in to access HelloCiti AI assistant and start your relocation journey."
         />
       }
       textAlignCenter
@@ -66,6 +66,6 @@ export const useTryHelloCity = () => {
     onClick: handleClick,
     isLoading,
     LoginModal,
-    label: <Trans id="NavBar.Try HelloCity" message="Try HelloCity" />,
+    label: <Trans id="NavBar.Try HelloCiti" message="Try HelloCiti" />,
   };
 };

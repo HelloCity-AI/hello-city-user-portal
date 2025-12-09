@@ -65,7 +65,7 @@ const ProfileImageUploader: React.FC<Props> = ({ selectedImage, initialPreview }
         }}
       >
         <Typography variant="h4" color="primary.contrastText">
-          <Trans id="account.title" message="HelloCity Account" />
+          <Trans id="account.title" message="HelloCiti Account" />
         </Typography>
       </Box>
       <Typography variant="h6">

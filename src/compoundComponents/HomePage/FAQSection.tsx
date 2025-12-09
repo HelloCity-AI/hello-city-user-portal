@@ -26,11 +26,11 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       key: 'faq1',
-      question: <Trans id="contact.faq.q1" message="What is HelloCity?" />,
+      question: <Trans id="contact.faq.q1" message="What is HelloCiti?" />,
       answer: (
         <Trans
           id="contact.faq.a1"
-          message="HelloCity is your AI companion for relocation, providing step-by-step plans and timelines to simplify moving to a new city."
+          message="HelloCiti is your AI companion for relocation, providing step-by-step plans and timelines to simplify moving to a new city."
         />
       ),
     },
@@ -40,7 +40,7 @@ const FAQSection: React.FC = () => {
       answer: (
         <Trans
           id="contact.faq.a2"
-          message="HelloCity supports all major cities worldwide. We have enhanced coverage and specialized training for 48+ cities including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major destinations across Australia, North America, Europe, and Asia."
+          message="HelloCiti supports all major cities worldwide. We have enhanced coverage and specialized training for 48+ cities including Sydney, Melbourne, Toronto, New York, London, Tokyo, Singapore, Dubai, and major destinations across Australia, North America, Europe, and Asia."
         />
       ),
     },
@@ -66,11 +66,11 @@ const FAQSection: React.FC = () => {
     },
     {
       key: 'faq5',
-      question: <Trans id="contact.faq.q5" message="Is HelloCity easy to use?" />,
+      question: <Trans id="contact.faq.q5" message="Is HelloCiti easy to use?" />,
       answer: (
         <Trans
           id="contact.faq.a5"
-          message="Yes. HelloCity features an intuitive interface that works seamlessly on desktop and mobile devices. Simply chat with our AI assistant, and it will guide you through every step of your relocation journey."
+          message="Yes. HelloCiti features an intuitive interface that works seamlessly on desktop and mobile devices. Simply chat with our AI assistant, and it will guide you through every step of your relocation journey."
         />
       ),
     },
@@ -120,7 +120,7 @@ const FAQSection: React.FC = () => {
           >
             <Trans
               id="contact.faq.subtitle"
-              message="Find quick answers to the most common questions about HelloCity."
+              message="Find quick answers to the most common questions about HelloCiti."
             />
           </Typography>
 

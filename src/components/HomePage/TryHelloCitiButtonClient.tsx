@@ -2,14 +2,14 @@
 
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useTryHelloCity } from '@/hooks/useTryHelloCity';
+import { useTryHelloCiti } from '@/hooks/useTryHelloCiti';
 
-interface TryHelloCityButtonClientProps {
+interface TryHelloCitiButtonClientProps {
   variant: 'hero' | 'cta';
 }
 
-export default function TryHelloCityButtonClient({ variant }: TryHelloCityButtonClientProps) {
-  const { onClick, isLoading, LoginModal, label } = useTryHelloCity();
+export default function TryHelloCitiButtonClient({ variant }: TryHelloCitiButtonClientProps) {
+  const { onClick, isLoading, LoginModal, label } = useTryHelloCiti();
 
   if (variant === 'hero') {
     return (

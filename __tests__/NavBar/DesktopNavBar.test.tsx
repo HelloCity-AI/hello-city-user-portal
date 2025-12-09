@@ -63,7 +63,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
     it('Shows light logo when transparent background', () => {
       renderDesktopNavBar();
 
-      const logo = screen.getByAltText('HelloCity Logo');
+      const logo = screen.getByAltText('HelloCiti Logo');
       expect(logo).toHaveAttribute('src', expect.stringContaining('Logo.png'));
     });
 
@@ -105,10 +105,10 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
     });
 
-    it('Shows Try HelloCity button', () => {
+    it('Shows Try HelloCiti button', () => {
       renderDesktopNavBar();
 
-      expect(screen.getByText('Try HelloCity')).toBeInTheDocument();
+      expect(screen.getByText('Try HelloCiti')).toBeInTheDocument();
     });
   });
 
@@ -169,7 +169,7 @@ describe('DesktopNavBar - Desktop navigation with scroll effects', () => {
       });
 
       await waitFor(() => {
-        const logo = screen.getByAltText('HelloCity Logo');
+        const logo = screen.getByAltText('HelloCiti Logo');
         expect(logo).toHaveAttribute('src', expect.stringContaining('logo-dark.png'));
       });
     });

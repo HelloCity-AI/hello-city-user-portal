@@ -13,9 +13,9 @@ import ApiProvider from './ApiProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'HelloCity - Landing Assistant for new cities',
+  title: 'HelloCiti - Landing Assistant for new cities',
   description:
-    'HelloCity is an AI-powered landing assistant for international students, new immigrants, and travelers. It provides personalized checklists, timelines and document downloads to simplify visa processes, banking and housing and more — tackling fragmented information, language barriers, and complex procedures.',
+    'HelloCiti is an AI-powered landing assistant for international students, new immigrants, and travelers. It provides personalized checklists, timelines and document downloads to simplify visa processes, banking and housing and more — tackling fragmented information, language barriers, and complex procedures.',
   icons: {
     icon: '/icon.png',
     shortcut: '/icon.png',
