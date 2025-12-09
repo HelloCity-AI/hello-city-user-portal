@@ -1,6 +1,6 @@
 import { defineConfig } from 'eslint/config';
-import nextCoreWebVitals from 'eslint-config-next/core-web-vitals';
-import nextTypescript from 'eslint-config-next/typescript';
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals.js';
+import nextTypescript from 'eslint-config-next/typescript.js';
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import _import from 'eslint-plugin-import';

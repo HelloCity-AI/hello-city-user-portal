@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import React, { createElement } from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import DesktopNavBar from '@/compoundComponents/NavBar/DesktopNavBar';
